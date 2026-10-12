@@ -73,7 +73,7 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 
 ## Sync meta automatico (MTGTop8)
 - `scripts/sync-mtgtop8.mjs`: per ogni formato legge `format?f=CODE` → periodo "Last 2 Months" → i 20 archetipi con % più alta (esclusi "Other…") → primo mazzo (più recente) di ogni archetipo → export `mtgo?d=ID` → `public/meta/<formato>.json`.
-- Codici: standard ST, pioneer PI, modern MO, pauper PAU, legacy LE, vintage VI, commander cEDH. cEDH non ha archetipi: i comandanti più giocati arrivano via POST `cEDH_decks?show=pop`, poi `show=decks&gamerid1=ID` per la lista (comandante spostato nel main).
+- Codici: standard ST, pioneer PI, modern MO, pauper PAU, legacy LE, vintage VI, commander cEDH. cEDH: la lista comandanti arriva via POST `cEDH_decks?f=cEDH&show=pop&meta=ID…` (stessi link `archetype?a=…`, valori in per mille ‰ convertiti in %); poi stesso flusso degli altri formati (comandante spostato nel main).
 - % meta: letta solo come testo visibile (`>12 %<`), mai da attributi `style`.
 - Se un formato non restituisce mazzi, il suo JSON resta invariato.
 - `.github/workflows/sync-meta.yml`: ogni notte 03:17 UTC + avvio manuale; commit solo se cambia qualcosa.

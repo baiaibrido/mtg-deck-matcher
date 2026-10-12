@@ -32,10 +32,13 @@ export function parseMetaId(html, label = 'Last 2 Months') {
   return html.match(re)?.[1] || null
 }
 
-// Prima percentuale come testo visibile (>12 %<), ignorando attributi tipo style="width:48%"
+// Prima percentuale come testo visibile (>12 %<), ignorando attributi tipo style="width:48%".
+// cEDH usa il per mille (>98.8 <span>&permil;</span>) → convertito in %.
 const textPct = html => {
-  const m = html.match(/>\s*(\d+(?:[.,]\d+)?)\s*%\s*</)
-  return m ? parseFloat(m[1].replace(',', '.')) : 0
+  const m = html.match(/>\s*(\d+(?:[.,]\d+)?)\s*(%|(?:<[^>]+>\s*)?(?:&permil;|‰))/)
+  if (!m) return 0
+  const v = parseFloat(m[1].replace(',', '.'))
+  return m[2] === '%' ? v : Math.round(v) / 10
 }
 
 export function parseArchetypes(html) {
@@ -62,44 +65,14 @@ export function parseFirstDeck(html) {
   return null
 }
 
-// cEDH: elenco caricato via POST cEDH_decks?… (show=pop → comandanti più giocati)
-export function parseCommanders(html) {
-  const out = [], seen = new Set()
-  const re = /AddCom\(\s*['"]?(\d+)['"]?\s*,\s*['"]?\d['"]?\s*,\s*['"]([^'"]+)['"]\s*\)|gamerid1=(\d+)[^>]*>([\s\S]*?)<\/a>/gi
-  const hits = [...html.matchAll(re)]
-  hits.forEach((m, i) => {
-    const gid = m[1] || m[3]
-    const name = decode((m[2] || m[4] || '').replace(/<[^>]+>/g, ''))
-    if (!gid || !name || seen.has(gid)) return
-    seen.add(gid)
-    const after = html.slice(m.index + m[0].length - 1, hits[i + 1]?.index ?? m.index + m[0].length + 600)
-    out.push({ gid, name, share: textPct(after) })
-  })
-  return out.sort((a, b) => b.share - a.share)
-}
-
-async function syncCommander(code, metaId) {
-  const q = (show, gid = '') => `cEDH_decks?f=${code}&show=${show}&cid=&meta=${metaId ?? ''}&gamerid1=${gid}&gamerid2=&cEDH_cp=1`
-  const pop = await get(q('pop'), 'POST')
-  const cmds = parseCommanders(pop).slice(0, TOP_N)
-  console.log(`  periodo meta=${metaId ?? '?'} · comandanti trovati: ${cmds.length}`)
-  if (!cmds.length) { await dump('commander-pop.html', pop); return [] }
-  const refs = []
-  for (const c of cmds) {
-    const list = await get(q('decks', c.gid), 'POST')
-    const ref = parseFirstDeck(list)
-    if (ref) refs.push({ ...ref, name: c.name, share: c.share })
-    else { console.warn(`  ✗ ${c.name}: link mazzo non trovato`); if (!refs.length) await dump('commander-decks.html', list) }
-  }
-  return refs
-}
-
 // --- sync ---
 async function syncFormat(id, code) {
   const home = await get(`format?f=${code}`)
   const metaId = parseMetaId(home)
-  if (id === 'commander') return buildDecks(id, code, await syncCommander(code, metaId))
-  const page = metaId ? await get(`format?f=${code}&meta=${metaId}&a=`) : home
+  // cEDH: la lista archetipi (comandanti) arriva via POST cEDH_decks?show=pop
+  const page = id === 'commander'
+    ? await get(`cEDH_decks?f=${code}&show=pop&cid=&meta=${metaId ?? ''}&gamerid1=&gamerid2=&cEDH_cp=1`, 'POST')
+    : metaId ? await get(`format?f=${code}&meta=${metaId}&a=`) : home
   const archetypes = parseArchetypes(page).slice(0, TOP_N)
   console.log(`  periodo meta=${metaId ?? '?'} · archetipi trovati: ${archetypes.length}`)
   // anomalia: nessun archetipo o tutte le % uguali → salva la pagina per il debug
