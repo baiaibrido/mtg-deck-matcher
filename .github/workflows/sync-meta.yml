@@ -7,17 +7,24 @@ permissions:
   contents: write
 jobs:
   sync:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
-      - run: node scripts/sync-mtgtop8.mjs
-      - name: Commit se cambiato
+          node-version: 24
+      - id: sync
+        run: rm -rf debug && node scripts/sync-mtgtop8.mjs
+        continue-on-error: true
+      - name: Commit (meta aggiornati o pagine di debug)
         run: |
           git config user.name "meta-bot"
           git config user.email "meta-bot@users.noreply.github.com"
+          git rm -rq --cached debug 2>/dev/null || true
           git add public/meta
+          if [ -d debug ]; then git add -f debug; fi
           git diff --staged --quiet || (git commit -m "meta: aggiornamento $(date -u +%F)" && git push)
+      - name: Segnala errore
+        if: steps.sync.outcome == 'failure'
+        run: exit 1

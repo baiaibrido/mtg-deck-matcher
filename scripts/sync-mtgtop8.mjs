@@ -1,7 +1,7 @@
 // Scarica da MTGTop8 i 20 archetipi più giocati per formato (ultimi 2 mesi) e
 // salva l'ultima lista di ognuno in public/meta/<formato>.json.
 // Uso: node scripts/sync-mtgtop8.mjs [pauper modern ...]
-import { writeFile } from 'node:fs/promises'
+import { writeFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { parseDeck } from '../src/lib/parser.js'
 
@@ -10,13 +10,15 @@ const TOP_N = 20
 const DELAY_MS = 1200 // pausa tra richieste: carico minimo sul sito
 const FORMATS = { standard: 'ST', pioneer: 'PI', modern: 'MO', pauper: 'PAU', legacy: 'LE', vintage: 'VI', commander: 'cEDH' }
 const OUT = new URL('../public/meta/', import.meta.url)
+const DEBUG = new URL('../debug/', import.meta.url)
+const dump = async (file, html) => { await mkdir(DEBUG, { recursive: true }); await writeFile(new URL(file, DEBUG), html) }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 const decode = s => s.replace(/&amp;/g, '&').replace(/&#0?39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()
 
 async function get(path) {
   await sleep(DELAY_MS)
-  const r = await fetch(BASE + path, { headers: { 'User-Agent': 'mtg-deck-matcher/0.2 (sync giornaliero, uso personale)' } })
+  const r = await fetch(BASE + path, { signal: AbortSignal.timeout(30000), headers: { 'User-Agent': 'mtg-deck-matcher/0.2 (sync giornaliero, uso personale)' } })
   if (!r.ok) throw new Error(`${r.status} ${path}`)
   const buf = Buffer.from(await r.arrayBuffer())
   const utf = buf.toString('utf8')
@@ -43,9 +45,15 @@ export function parseArchetypes(html) {
     .sort((a, b) => b.share - a.share)
 }
 
+// Accetta href relativi/assoluti, virgolette o no, &amp;, ordine e=…&d=… oppure d=…&e=…
 export function parseFirstDeck(html) {
-  const m = html.match(/href=["']?event\?e=(\d+)&(?:amp;)?d=(\d+)[^>]*>([^<]*)</i)
-  return m ? { event: m[1], deck: m[2], title: decode(m[3]) } : null
+  const re = /<a[^>]+href=["']?([^"' >]*[?&](?:amp;)?(?:e=\d+&(?:amp;)?d=\d+|d=\d+&(?:amp;)?e=\d+)[^"' >]*)["']?[^>]*>([\s\S]*?)<\/a>/gi
+  for (const m of html.matchAll(re)) {
+    const e = m[1].match(/[?&;]e=(\d+)/)?.[1], d = m[1].match(/[?&;]d=(\d+)/)?.[1]
+    const title = decode(m[2].replace(/<[^>]+>/g, ''))
+    if (e && d && title) return { event: e, deck: d, title }
+  }
+  return null
 }
 
 // --- sync ---
@@ -54,15 +62,18 @@ async function syncFormat(id, code) {
   const metaId = parseMetaId(home)
   const page = metaId ? await get(`format?f=${code}&meta=${metaId}&a=`) : home
   const archetypes = parseArchetypes(page).slice(0, TOP_N)
+  console.log(`  periodo meta=${metaId ?? '?'} · archetipi trovati: ${archetypes.length}`)
+  if (!archetypes.length) await dump(`${id}-format.html`, page)
   const decks = []
   for (const a of archetypes) {
     try {
-      const ref = parseFirstDeck(await get(`archetype?a=${a.id}&meta=${a.meta}&f=${code}`))
-      if (!ref) continue
+      const arch = await get(`archetype?a=${a.id}&meta=${a.meta}&f=${code}`)
+      const ref = parseFirstDeck(arch)
+      if (!ref) { console.warn(`  ✗ ${a.name}: link mazzo non trovato`); if (!decks.length) await dump(`${id}-archetype.html`, arch); continue }
       const txt = await get(`mtgo?d=${ref.deck}`)
       let { main, side } = parseDeck(txt)
       if (id === 'commander') { main = [...main, ...side]; side = [] } // in cEDH il comandante è nel "side"
-      if (!main.length) continue
+      if (!main.length) { console.warn(`  ✗ ${a.name}: export vuoto`); await dump(`${id}-export-${ref.deck}.txt`, txt); continue }
       decks.push({
         id: `mtgtop8-${ref.deck}`, name: a.name, share: a.share, title: ref.title,
         url: `${BASE}event?e=${ref.event}&d=${ref.deck}&f=${code}`,

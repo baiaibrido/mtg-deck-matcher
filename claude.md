@@ -77,5 +77,5 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 - Se un formato non restituisce mazzi, il suo JSON resta invariato.
 - `.github/workflows/sync-meta.yml`: ogni notte 03:17 UTC + avvio manuale; commit solo se cambia qualcosa.
 - Campi extra MetaDeck: `share` (% meta), `title` (nome lista originale), `url`.
-- Debug: se il sito cambia HTML, si rompono le regex in `parseArchetypes` / `parseFirstDeck` / `parseMetaId` (test in `scripts/sync-mtgtop8.test.mjs`). Log della Action: tab Actions su GitHub.
+- Debug: se il sito cambia HTML, si rompono le regex in `parseArchetypes` / `parseFirstDeck` / `parseMetaId` (test in `scripts/sync-mtgtop8.test.mjs`). Quando fallisce, lo script salva le pagine in `debug/` e la Action le committa: leggerle con `git pull`.
 - Locale: `npm run sync-meta` oppure `node scripts/sync-mtgtop8.mjs pauper`.

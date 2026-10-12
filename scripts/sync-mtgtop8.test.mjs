@@ -22,3 +22,11 @@ test('export MTGO con "Sideboard"', () => {
   const d = parseDeck('4 Baleful Strix\n4 Reckoner\'s Bargain\nSideboard\n4 Hydroblast\n')
   assert.equal(d.main.length, 2); assert.equal(d.side[0].name, 'Hydroblast')
 })
+
+test('link mazzo: varianti di formato', () => {
+  for (const h of [
+    `<a href="https://www.mtgtop8.com/event?e=5&amp;d=6&amp;f=PAU">Burn</a>`,
+    `<td class=S12><a href=?e=5&d=6&f=PAU><b>Burn</b></a></td>`,
+    `<a href='event?d=6&e=5&f=PAU' class=x>Burn</a>`,
+  ]) assert.deepEqual(parseFirstDeck(h), { event: '5', deck: '6', title: 'Burn' })
+})
