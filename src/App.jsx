@@ -45,7 +45,7 @@ export default function App() {
         : <main>
             {!collection.length && <p className="msg">Carica prima la collezione nel tab <b>Collezione</b>.</p>}
             {!decks.length && <p className="msg">Nessun mazzo meta per questo formato: aggiungine uno qui sotto o riempi <code>public/meta/{format}.json</code>.</p>}
-            <h2>Top {Math.min(TOP_N, ranked.length)} mazzi <small>su {decks.length}</small></h2>
+            <h2>Top {Math.min(TOP_N, ranked.length)} mazzi <small>su {decks.length}{meta[0]?.updated && ` · meta aggiornato ${meta[0].updated}`}</small></h2>
             <div className="cards">
               {ranked.slice(0, TOP_N).map((s, i) => <DeckCard key={s.deck.id} s={s} rank={i + 1} onOpen={() => setSelId(s.deck.id)} />)}
             </div>

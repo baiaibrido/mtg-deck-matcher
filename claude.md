@@ -70,3 +70,12 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 
 ## Comandi
 `npm install` · `npm run dev` · `npm run build` · `npm test`
+
+## Sync meta automatico (MTGTop8)
+- `scripts/sync-mtgtop8.mjs`: per ogni formato legge `format?f=CODE` → periodo "Last 2 Months" → i 20 archetipi con % più alta (esclusi "Other…") → primo mazzo (più recente) di ogni archetipo → export `mtgo?d=ID` → `public/meta/<formato>.json`.
+- Codici: standard ST, pioneer PI, modern MO, pauper PAU, legacy LE, vintage VI, commander cEDH (comandante spostato nel main).
+- Se un formato non restituisce mazzi, il suo JSON resta invariato.
+- `.github/workflows/sync-meta.yml`: ogni notte 03:17 UTC + avvio manuale; commit solo se cambia qualcosa.
+- Campi extra MetaDeck: `share` (% meta), `title` (nome lista originale), `url`.
+- Debug: se il sito cambia HTML, si rompono le regex in `parseArchetypes` / `parseFirstDeck` / `parseMetaId` (test in `scripts/sync-mtgtop8.test.mjs`). Log della Action: tab Actions su GitHub.
+- Locale: `npm run sync-meta` oppure `node scripts/sync-mtgtop8.mjs pauper`.

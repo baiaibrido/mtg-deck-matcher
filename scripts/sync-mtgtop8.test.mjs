@@ -1,0 +1,24 @@
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { parseMetaId, parseArchetypes, parseFirstDeck } from './sync-mtgtop8.mjs'
+import { parseDeck } from '../src/lib/parser.js'
+
+const fmt = `<a href=format?f=PAU&meta=299&a=>Last 2 Weeks</a><a href="format?f=PAU&amp;meta=145&amp;a=">Last 2 Months</a>
+<div class=hover_tr><div style="float:left"><a href=archetype?a=536&meta=145&f=PAU>Burn</a></div><div class=S10>11 %</div></div>
+<div class=hover_tr><div><a href=archetype?a=512&meta=145&f=PAU>Affinity</a></div><div class=S10>12 %</div></div>
+<div class=hover_tr><div><a href=archetype?a=999&meta=145&f=PAU>Other - Aggro</a></div><div>3 %</div></div>
+<div class=hover_tr><div><a href=archetype?a=620&meta=145&f=PAU>Elves</a></div><div>5%</div></div>`
+
+test('meta id "Last 2 Months"', () => assert.equal(parseMetaId(fmt), '145'))
+test('archetipi ordinati per % e senza "Other"', () => {
+  const a = parseArchetypes(fmt)
+  assert.deepEqual(a.map(x => [x.name, x.share]), [['Affinity', 12], ['Burn', 11], ['Elves', 5]])
+})
+test('primo mazzo dell\'archetipo', () => {
+  const h = `<td><a href=event?e=91941&d=898185&f=PAU>Grixis Affinity</a></td><a href=event?e=1&d=2&f=PAU>x</a>`
+  assert.deepEqual(parseFirstDeck(h), { event: '91941', deck: '898185', title: 'Grixis Affinity' })
+})
+test('export MTGO con "Sideboard"', () => {
+  const d = parseDeck('4 Baleful Strix\n4 Reckoner\'s Bargain\nSideboard\n4 Hydroblast\n')
+  assert.equal(d.main.length, 2); assert.equal(d.side[0].name, 'Hydroblast')
+})

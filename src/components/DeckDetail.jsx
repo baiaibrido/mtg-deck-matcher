@@ -40,6 +40,7 @@ export default function DeckDetail({ s, onBack, onDelete }) {
     <section className="panel">
       <button className="link" onClick={onBack}>← Torna ai mazzi</button>
       <h2>{s.deck.name}</h2>
+      {s.deck.url && <p><a href={s.deck.url} target="_blank" rel="noreferrer">Lista originale{s.deck.title ? `: ${s.deck.title}` : ''} ↗</a></p>}
       <Bar ratio={s.main.ratio} label={`Main ${s.main.have}/${s.main.total}`} />
       {s.side.total > 0 && <Bar ratio={s.side.ratio} label={`Side ${s.side.have}/${s.side.total}`} />}
       <p className="legend"><i className="ok" /> posseduta <i className="part" /> parziale <i className="no" /> mancante</p>

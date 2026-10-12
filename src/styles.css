@@ -40,3 +40,4 @@ textarea, input:not([type=number]):not([type=file]) { width:100%; margin-bottom:
 .noimg { padding:8px; font-size:12px; }
 .qty { position:absolute; right:4px; bottom:4px; background:#000c; padding:1px 6px; border-radius:6px; font-size:12px; font-weight:600; }
 code { background:#0d0f12; padding:1px 5px; border-radius:4px; }
+a { color:var(--accent); }
