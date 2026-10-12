@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { parseMetaId, parseArchetypes, parseFirstDeck } from './sync-mtgtop8.mjs'
+import { parseMetaId, parseArchetypes, parseFirstDeck, parseDeckLinks } from './sync-mtgtop8.mjs'
 import { parseDeck } from '../src/lib/parser.js'
 
 const fmt = `<a href=format?f=PAU&meta=299&a=>Last 2 Weeks</a><a href="format?f=PAU&amp;meta=145&amp;a=">Last 2 Months</a>
@@ -47,4 +47,9 @@ test('cEDH: archetipi con per mille (HTML reale)', () => {
   <div style="width:20%;" class=S14 align=center>70.2 <span class=O14>&permil;</span></div></div>`
   assert.deepEqual(parseArchetypes(h).map(a => [a.id, a.meta, a.name, a.share]),
     [['1158', '263', 'Partner WUBR', 9.9], ['1246', '263', 'Kinnan, Bonder Prodigy', 7]])
+})
+
+test('più link mazzo, senza duplicati', () => {
+  const h = `<a href=event?e=1&d=10&f=PAU>A</a><a href=event?e=1&d=10&f=PAU>A bis</a><a href=event?e=2&d=20&f=PAU>B</a><a href=event?e=3&d=30&f=PAU>C</a><a href=event?e=4&d=40&f=PAU>D</a>`
+  assert.deepEqual(parseDeckLinks(h).map(x => x.deck), ['10', '20', '30'])
 })

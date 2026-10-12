@@ -54,16 +54,20 @@ export function parseArchetypes(html) {
     .sort((a, b) => b.share - a.share)
 }
 
-// Accetta href relativi/assoluti, virgolette o no, &amp;, ordine e=…&d=… oppure d=…&e=…
-export function parseFirstDeck(html) {
+// Link ai mazzi di un archetipo, dal più recente. Accetta href relativi/assoluti, virgolette o no, &amp;, ordine e=…&d=… o d=…&e=…
+export function parseDeckLinks(html, max = 3) {
   const re = /<a[^>]+href=["']?([^"' >]*[?&](?:amp;)?(?:e=\d+&(?:amp;)?d=\d+|d=\d+&(?:amp;)?e=\d+)[^"' >]*)["']?[^>]*>([\s\S]*?)<\/a>/gi
+  const out = [], seen = new Set()
   for (const m of html.matchAll(re)) {
     const e = m[1].match(/[?&;]e=(\d+)/)?.[1], d = m[1].match(/[?&;]d=(\d+)/)?.[1]
     const title = decode(m[2].replace(/<[^>]+>/g, ''))
-    if (e && d && title) return { event: e, deck: d, title }
+    if (!e || !d || !title || seen.has(d)) continue
+    seen.add(d); out.push({ event: e, deck: d, title })
+    if (out.length >= max) break
   }
-  return null
+  return out
 }
+export const parseFirstDeck = html => parseDeckLinks(html, 1)[0] || null
 
 // --- sync ---
 async function syncFormat(id, code) {
@@ -81,8 +85,8 @@ async function syncFormat(id, code) {
   for (const a of archetypes) {
     try {
       const arch = await get(`archetype?a=${a.id}&meta=${a.meta}&f=${code}`)
-      const ref = parseFirstDeck(arch)
-      if (ref) refs.push({ ...ref, name: a.name, share: a.share })
+      const links = parseDeckLinks(arch, 3)
+      if (links.length) refs.push({ name: a.name, share: a.share, links })
       else { console.warn(`  ✗ ${a.name}: link mazzo non trovato`); if (!refs.length) await dump(`${id}-archetype.html`, arch) }
     } catch (e) { console.warn(`  ✗ ${a.name}: ${e.message}`) }
   }
@@ -91,13 +95,17 @@ async function syncFormat(id, code) {
 
 async function buildDecks(id, code, refs) {
   const decks = []
-  for (const ref of refs) {
-    const a = ref
+  for (const a of refs) {
     try {
-      const txt = await get(`mtgo?d=${ref.deck}`)
-      let { main, side } = parseDeck(txt)
+      // prova la lista più recente; se l'export è vuoto passa alla successiva
+      let ref, main = [], side = []
+      for (ref of a.links) {
+        ;({ main, side } = parseDeck(await get(`mtgo?d=${ref.deck}`)))
+        if (main.length) break
+        console.warn(`  · ${a.name}: export vuoto (d=${ref.deck}), provo la lista successiva`)
+      }
       if (id === 'commander') { main = [...main, ...side]; side = [] } // in cEDH il comandante è nel "side"
-      if (!main.length) { console.warn(`  ✗ ${a.name}: export vuoto`); await dump(`${id}-export-${ref.deck}.txt`, txt); continue }
+      if (!main.length) { console.warn(`  ✗ ${a.name}: nessuna lista valida`); continue }
       decks.push({
         id: `mtgtop8-${ref.deck}`, name: a.name, share: a.share, title: ref.title,
         url: `${BASE}event?e=${ref.event}&d=${ref.deck}&f=${code}`,
