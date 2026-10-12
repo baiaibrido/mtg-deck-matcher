@@ -1,6 +1,6 @@
 # MTG Deck Matcher — claude.md
 
-App web (React + Vite, solo frontend). Confronta la collezione dell'utente con i mazzi meta di un formato e mostra i 5 mazzi più completabili + la mancolista.
+App web (React + Vite, solo frontend, PWA). Confronta la collezione dell'utente con i mazzi meta di un formato: Top 5 / tutti i 20 con filtri, tier, trend, costo per completare, mancolista, carte chiave. Piano: `docs/ROADMAP.md`.
 
 ## Project map
 ```
@@ -8,24 +8,31 @@ claude.md                  questo file (contesto per Claude)
 docs/system-map.md         grafo dipendenze moduli
 public/meta/index.json     elenco formati
 public/meta/<format>.json  mazzi meta per formato (aggiornati ogni notte dalla GitHub Action)
-scripts/sync-mtgtop8.mjs   sync MTGTop8 → public/meta (+ test .test.mjs)
+public/sw.js               service worker (offline: rete-poi-cache per pagine e meta, cache per assets e immagini)
+public/manifest.webmanifest + public/icons/  PWA installabile
+scripts/sync-mtgtop8.mjs   sync MTGTop8 → public/meta: tier, trend, robots.txt (+ test .test.mjs)
+.github/workflows/         sync-meta.yml (notturno), test.yml (test + build a ogni push)
 src/
   main.jsx                 entry: font (Marcellus, Alegreya Sans), mana-font, stili
-  App.jsx                  layout, stato globale, rotte, toast, fetch Scryfall per i mazzi mostrati
+  App.jsx                  layout, stato, rotte, toast, vista Top 5/Tutti + filtri, fetch Scryfall (prima i mazzi in vista, poi tutti)
   styles.css               design system (token in :root) + tutti gli stili
   state/useLocal.js        useState persistito su localStorage
-  state/useRoute.js        rotte nell'hash: #/mazzi, #/collezione, #/mazzo/<id> (tasto indietro ok)
+  state/useRoute.js        rotte nell'hash: #/mazzi, #/carte, #/collezione, #/mazzo/<id> (tasto indietro ok)
   lib/normalize.js         normalizzazione nomi carta (chiave di match)
   lib/parser.js            parser collezione (CSV / testo) e decklist (main/side)
-  lib/scryfall.js          client Scryfall + cache carte (localStorage 'mdm.cards.v2')
-  lib/deckInfo.js          colori del mazzo, cornice, gruppi per tipo, simboli di costo
+  lib/scryfall.js          client Scryfall + cache compatta con prezzi (localStorage 'mdm.cards.v3', scadenza 3 giorni)
+  lib/deckInfo.js          colori del mazzo, cornice, gruppi per tipo, simboli di costo, missingCost(), euro()
+  lib/keyCards.js          carte mancanti condivise da più mazzi (terre base escluse)
   lib/metaDecks.js         caricamento JSON meta
   lib/matcher.js           MOTORE: allocazione copie, ratio, score, ranking
-  lib/export.js            export mancolista (testo, TCGplayer, .txt)
+  lib/export.js            export mancolista (testo, TCGplayer, .txt) + backup collezione CSV
   components/DeckList.jsx  lista Top 5 con cornici colorate + Meter (barre)
   components/DeckDetail.jsx dettaglio: Lista (per tipo, immagini) / Mancolista + azioni
   components/CollectionManager.jsx import file/testo, ricerca, stepper quantità
   components/MetaImporter.jsx aggiunta mazzo a mano
+  components/KeyCards.jsx  pagina Carte chiave (Tier 1 / 1+2 / tutti)
+  components/Badges.jsx    TierBadge, Trend
+  components/ErrorBoundary.jsx schermata di errore invece della pagina bianca
   components/Mana.jsx      ManaCost, ColorPips (mana-font)
   components/Icons.jsx     icone SVG inline
 ```
@@ -41,14 +48,14 @@ src/
 ```js
 CardEntry   = { name: string, qty: number }
 Collection  = CardEntry[]                       // localStorage 'mdm.collection'
-MetaDeck    = { id, name, format, source, url?, updated?, main: CardEntry[], side: CardEntry[] }
+MetaDeck    = { id, name, format, source, url?, title?, share?, tier?(1|2|3), prev?(share al sync prec.), prevDate?, updated?, main: CardEntry[], side: CardEntry[] }
 // File JSON meta: main/side come stringhe "4 Lightning Bolt" (convertite da metaDecks.js)
 ScoredDeck  = { deck, main: Alloc, side: Alloc, score, missing: Row[] }
 Alloc       = { rows: Row[], have, total, ratio }
 Row         = { name, qty, have, missing }
-ScryCard    = { name, img, uri, ci, type, cost } // cache localStorage 'mdm.cards.v2'
+ScryCard    = { name, i (path immagine), ci, type, cost, eur, usd, t } // salvato; getCached() aggiunge img e uri
 ```
-Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.cards.v2`.
+Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view` (modo/ordinamento/filtri), `mdm.cards.v3`.
 
 ## Core logic (lib/matcher.js)
 1. `toOwnedMap(collection)` → Map(nomeNormalizzato → copie).
@@ -78,6 +85,10 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 | Dati "spariti" | localStorage pulito / altro browser | chiavi `mdm.*` |
 | Colori mazzo assenti / pallini grigi | Scryfall non raggiungibile o dati carte <60% | `App.jsx` fetchCards, `deckColors()` |
 | Terre base mancanti | la collezione non le elenca | aggiungere `20 Mountain` ecc. alla collezione |
+| Prezzi assenti ("—") | Scryfall senza prezzo EUR per quella stampa | `scryfall.js` slim(): eur → eur_foil |
+| Pagina vecchia dopo un deploy | service worker | `public/sw.js` (rete prima per le pagine); cambiare `V` per svuotare le cache |
+| Badge tier/trend assenti | JSON meta generato prima della v0.4 | rilanciare il sync |
+| CSV non riconosciuto | intestazione colonne nuova | `parser.js` NAME_COLS / QTY_COLS |
 
 ## Comandi
 `npm install` · `npm run dev` · `npm run build` · `npm test`
@@ -86,6 +97,10 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 - `scripts/sync-mtgtop8.mjs`: per ogni formato legge `format?f=CODE` → periodo "Last 2 Months" → i 20 archetipi con % più alta (esclusi "Other…") → primo mazzo (più recente) di ogni archetipo → export `mtgo?d=ID` → `public/meta/<formato>.json`.
 - Codici: standard ST, pioneer PI, modern MO, pauper PAU, legacy LE, vintage VI, commander cEDH. cEDH: la lista comandanti arriva via POST `cEDH_decks?f=cEDH&show=pop&meta=ID…` (stessi link `archetype?a=…`, valori in per mille ‰ convertiti in %); poi stesso flusso degli altri formati (comandante spostato nel main).
 - % meta: letta solo come testo visibile (`>12 %<`), mai da attributi `style`.
+- Tier (metodo pubblicato da MTGdecks, calcolato su TUTTI gli archetipi della pagina): Tier 1 = primi archetipi fino al 50% cumulato; Tier 2 = altri > 0,2%; Tier 3 = resto. Con le % intere di MTGTop8 il Tier 3 è raro nella top 20.
+- Trend: `prev` = share dello stesso archetipo al giorno di sync precedente (`prevDate`); più sync nello stesso giorno non azzerano il confronto.
+- robots.txt di MTGTop8 letto a inizio sync; un percorso vietato fa fallire il formato (dati precedenti mantenuti).
+- MTGdecks NON viene letto in automatico (il loro robots.txt lo vieta): nell'app c'è solo un link di ricerca.
 - Se un formato non restituisce mazzi, il suo JSON resta invariato.
 - `.github/workflows/sync-meta.yml`: ogni notte 03:17 UTC + avvio manuale; commit solo se cambia qualcosa.
 - Campi extra MetaDeck: `share` (% meta), `title` (nome lista originale), `url`.

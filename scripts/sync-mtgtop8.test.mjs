@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { parseMetaId, parseArchetypes, parseFirstDeck, parseDeckLinks } from './sync-mtgtop8.mjs'
+import { parseMetaId, parseArchetypes, parseFirstDeck, parseDeckLinks, parseRobots, robotsAllows, assignTiers, previousShares } from './sync-mtgtop8.mjs'
 import { parseDeck } from '../src/lib/parser.js'
 
 const fmt = `<a href=format?f=PAU&meta=299&a=>Last 2 Weeks</a><a href="format?f=PAU&amp;meta=145&amp;a=">Last 2 Months</a>
@@ -52,4 +52,28 @@ test('cEDH: archetipi con per mille (HTML reale)', () => {
 test('più link mazzo, senza duplicati', () => {
   const h = `<a href=event?e=1&d=10&f=PAU>A</a><a href=event?e=1&d=10&f=PAU>A bis</a><a href=event?e=2&d=20&f=PAU>B</a><a href=event?e=3&d=30&f=PAU>C</a><a href=event?e=4&d=40&f=PAU>D</a>`
   assert.deepEqual(parseDeckLinks(h).map(x => x.deck), ['10', '20', '30'])
+})
+
+test('robots.txt: gruppo specifico, *, wildcard e Allow più lungo', () => {
+  const txt = `User-agent: *\nDisallow: /search\nDisallow: /*.php$\nAllow: /search/ok\n\nUser-agent: BadBot\nDisallow: /`
+  const r = parseRobots(txt)
+  assert.equal(robotsAllows(r, '/format?f=PAU'), true)
+  assert.equal(robotsAllows(r, '/search?q=x'), false)
+  assert.equal(robotsAllows(r, '/search/ok'), true)
+  assert.equal(robotsAllows(r, '/x/test.php'), false)
+  assert.equal(robotsAllows(r, '/x/test.php?a=1'), true)
+  assert.equal(robotsAllows(parseRobots(txt, 'BadBot/1.0'), '/format'), false)
+  assert.equal(robotsAllows(parseRobots(''), '/qualsiasi'), true)
+})
+test('tier: 50% cumulato = Tier 1, >0,2% Tier 2, resto Tier 3', () => {
+  const a = [['a', 20], ['b', 15], ['c', 10], ['d', 6], ['e', 5], ['f', 0.2], ['g', 0]].map(([id, share]) => ({ id, share }))
+  const t = assignTiers(a)
+  assert.deepEqual(a.map(x => t.get(x.id)), [1, 1, 1, 1, 2, 3, 3])
+})
+test('trend: confronta col giorno precedente, non con lo stesso giorno', () => {
+  const old = { updated: '2026-10-11', decks: [{ name: 'Burn', share: 10 }] }
+  assert.equal(previousShares(old, '2026-10-12').map.get('Burn'), 10)
+  const same = { updated: '2026-10-12', prevDate: '2026-10-11', decks: [{ name: 'Burn', share: 12, prev: 10 }] }
+  const p = previousShares(same, '2026-10-12')
+  assert.equal(p.map.get('Burn'), 10); assert.equal(p.date, '2026-10-11')
 })

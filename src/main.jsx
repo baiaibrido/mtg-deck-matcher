@@ -8,3 +8,8 @@ import 'mana-font/css/mana.min.css'
 import App from './App.jsx'
 import './styles.css'
 createRoot(document.getElementById('root')).render(<App />)
+
+// App installabile e offline (solo nella versione pubblicata)
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}))
+}

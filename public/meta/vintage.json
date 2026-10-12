@@ -54,7 +54,9 @@
     "1 Pithing Needle",
     "1 Sheoldred's Edict",
     "1 The Tabernacle at Pendrell Vale"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899707",
@@ -103,7 +105,9 @@
     "2 Dismember",
     "2 Grafdigger's Cage",
     "2 Argentum Masticore"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899705",
@@ -142,7 +146,9 @@
     "4 Leyline of the Void",
     "2 Null Rod",
     "3 Containment Priest"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899522",
@@ -195,7 +201,9 @@
     "1 Force of Negation",
     "1 Dismember",
     "2 Defense Grid"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899518",
@@ -253,7 +261,9 @@
     "2 Mystical Dispute",
     "1 The Tabernacle at Pendrell Vale",
     "1 Stony Silence"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-896894",
@@ -308,7 +318,9 @@
     "3 Null Rod",
     "1 Veil of Summer",
     "1 Consign to Memory"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899517",
@@ -361,7 +373,9 @@
     "4 Hullbreacher",
     "1 Mycosynth Lattice",
     "2 Portable Hole"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899527",
@@ -395,7 +409,9 @@
     "3 Ravenous Trap",
     "4 Noxious Revival",
     "4 Force of Vigor"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899708",
@@ -459,7 +475,9 @@
     "1 Virtue's Ruin",
     "1 Tormod's Crypt",
     "1 Yixlid Jailer"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-892351",
@@ -522,7 +540,9 @@
     "3 Swords to Plowshares",
     "2 Prismatic Ending",
     "1 Flusterstorm"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-896705",
@@ -575,7 +595,9 @@
     "1 Grafdigger's Cage",
     "2 Null Rod",
     "1 Yixlid Jailer"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899516",
@@ -608,7 +630,9 @@
     "4 Pyrokinesis",
     "4 Fury",
     "4 Echoing Deeps"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-897859",
@@ -659,7 +683,9 @@
     "2 Grafdigger's Cage",
     "2 Dismember",
     "2 Fatal Push"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899515",
@@ -719,7 +745,9 @@
     "2 Dismember",
     "1 Hydroblast",
     "1 Abrade"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899523",
@@ -778,7 +806,9 @@
     "1 Feed the Swarm",
     "1 Tormod's Crypt",
     "1 Virtue's Ruin"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-887872",
@@ -823,7 +853,9 @@
     "4 Grafdigger's Cage",
     "2 Pithing Needle",
     "1 Bojuka Bog"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-896895",
@@ -874,7 +906,9 @@
     "2 Soul-Guide Lantern",
     "2 Stony Silence",
     "1 Swords to Plowshares"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-888509",
@@ -922,7 +956,9 @@
     "2 Force of Negation",
     "3 Petrified Hamlet",
     "4 Defense Grid"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-882481",
@@ -970,7 +1006,9 @@
     "1 Pithing Needle",
     "1 Snuff Out",
     "3 Fatal Push"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-895711",
@@ -1003,7 +1041,11 @@
     "3 Karakas",
     "4 Petrified Hamlet",
     "4 Urborg, Tomb of Yawgmoth"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   }
- ]
+ ],
+ "prevDate": null,
+ "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto"
 }

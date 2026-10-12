@@ -43,7 +43,9 @@
     "1 Negate",
     "1 Nihil Spellbomb",
     "1 Dispatch"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-898184",
@@ -85,7 +87,9 @@
     "2 Monstrous Emergence",
     "1 Whispersilk Cloak",
     "2 Arms of Hadar"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899761",
@@ -116,7 +120,9 @@
     "2 Blue Elemental Blast",
     "2 Dispel",
     "1 Envelop"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899693",
@@ -160,7 +166,9 @@
     "2 Hydroblast",
     "2 Blue Elemental Blast",
     "1 Soul Manipulation"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899698",
@@ -191,7 +199,9 @@
     "3 Vitu-Ghazi Inspector",
     "4 Spinewoods Paladin",
     "4 Monstrous Emergence"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899613",
@@ -222,7 +232,9 @@
     "3 End the Festivities",
     "2 Smash to Smithereens",
     "2 Tormod's Crypt"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899751",
@@ -262,7 +274,9 @@
     "1 Goliath Paladin",
     "3 Red Elemental Blast",
     "4 Blue Elemental Blast"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899762",
@@ -293,7 +307,9 @@
     "4 Lone Missionary",
     "4 Dust to Dust",
     "3 Holy Light"
-   ]
+   ],
+   "tier": 1,
+   "prev": null
   },
   {
    "id": "mtgtop8-899695",
@@ -324,7 +340,9 @@
     "4 Horrific Assault",
     "4 Deglamer",
     "3 Relic of Progenitus"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899760",
@@ -363,7 +381,9 @@
     "2 Troublemaker Ouphe",
     "3 Duress",
     "3 Cast into the Fire"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899755",
@@ -403,7 +423,9 @@
     "2 Vitu-Ghazi Inspector",
     "1 Gorilla Shaman",
     "1 Accursed Marauder"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899606",
@@ -437,7 +459,9 @@
     "2 Flaring Pain",
     "1 Mask of Law and Grace",
     "1 Mountain"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899701",
@@ -477,7 +501,9 @@
     "4 Weather the Storm",
     "2 Faerie Macabre",
     "2 Drown in Sorrow"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899699",
@@ -516,7 +542,9 @@
     "1 Vandalblast",
     "3 Red Elemental Blast",
     "2 Thraben Charm"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899692",
@@ -547,7 +575,9 @@
     "3 Gut Shot",
     "4 Annul",
     "1 Murmuring Mystic"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899594",
@@ -584,7 +614,9 @@
     "4 Pulse of Murasa",
     "4 Dust to Dust",
     "2 Prismatic Strands"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899201",
@@ -619,7 +651,9 @@
     "3 Rites of Initiation",
     "2 Smash to Smithereens",
     "2 Tectonic Hazard"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-898187",
@@ -654,7 +688,9 @@
     "2 Spinning Darkness",
     "2 Tragic Slip",
     "2 Vampiric Link"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   },
   {
    "id": "mtgtop8-899566",
@@ -688,7 +724,11 @@
     "3 Weather the Storm",
     "4 Pyroblast",
     "2 Gruul Turf"
-   ]
+   ],
+   "tier": 2,
+   "prev": null
   }
- ]
+ ],
+ "prevDate": null,
+ "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto"
 }

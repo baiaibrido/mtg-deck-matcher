@@ -16,7 +16,7 @@ export async function loadMetaDecks(format) {
     if (!r.ok) return []
     const j = await r.json()
     return (j.decks || []).map(d => ({
-      ...d, format, source: d.source || j.source || 'cache', updated: d.updated || j.updated,
+      ...d, format, source: d.source || j.source || 'cache', updated: d.updated || j.updated, prevDate: j.prevDate || null,
       main: toEntries(d.main), side: toEntries(d.side),
     }))
   } catch { return [] }

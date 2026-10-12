@@ -17,3 +17,4 @@ export const IconExternal = p => <I {...p} d={<><path d="M14 4h6v6M20 4l-9 9" />
 export const IconPlus = p => <I {...p} d={<path d="M12 5v14M5 12h14" />} />
 export const IconMinus = p => <I {...p} d={<path d="M5 12h14" />} />
 export const IconWand = p => <I {...p} d={<><path d="m4 20 11-11M14 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1zM19 11l.6 1.4L21 13l-1.4.6L19 15l-.6-1.4L17 13l1.4-.6z" /></>} />
+export const IconKey = p => <I {...p} d={<><circle cx="8" cy="15" r="4.5" /><path d="m11.2 11.8 8.3-8.3M16.5 6.5l2.5 2.5M14 9l2 2" /></>} />

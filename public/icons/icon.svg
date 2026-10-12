@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="felt" cx="50%" cy="20%" r="85%"><stop offset="0" stop-color="#1f363c"/><stop offset="1" stop-color="#0f1a1c"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecd08c"/><stop offset="1" stop-color="#b8903f"/></linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#felt)"/>
+  <g transform="translate(256 262)">
+    <rect x="-92" y="-128" width="184" height="256" rx="16" fill="#15242a" stroke="#4b97d6" stroke-width="10" transform="rotate(-14)"/>
+    <rect x="-92" y="-128" width="184" height="256" rx="16" fill="#15242a" stroke="#41a364" stroke-width="10" transform="rotate(10)"/>
+    <rect x="-92" y="-128" width="184" height="256" rx="16" fill="#1c2f36" stroke="url(#gold)" stroke-width="12"/>
+    <path d="M0 -58 L44 0 L0 58 L-44 0 Z" fill="url(#gold)"/>
+  </g>
+</svg>

@@ -1,8 +1,10 @@
 import { ColorPips } from './Mana.jsx'
+import { TierBadge, Trend } from './Badges.jsx'
 import { IconChevron } from './Icons.jsx'
-import { frameOf } from '../lib/deckInfo.js'
+import { frameOf, euro } from '../lib/deckInfo.js'
 
 const pct = r => Math.round(r * 100)
+export const shareText = s => `${String(s).replace('.', ',')}% del meta`
 
 export function Meter({ label, have, total, ratio }) {
   return (
@@ -18,10 +20,18 @@ export function Meter({ label, have, total, ratio }) {
 
 export const frameStyle = colors => { const f = frameOf(colors); return { '--c1': f.c1, '--c2': f.c2 } }
 
-function DeckRow({ s, rank, colors, onOpen, index }) {
+// Testo del costo per completare: "≈ 48 €", "≈ 48 € + 3 carte senza prezzo", null se non ancora noto
+export function costText(cost, missing) {
+  if (!missing) return null
+  if (!cost || cost.known === 0) return null
+  return `≈ ${euro(cost.eur)}${cost.unknown ? `, più ${cost.unknown} ${cost.unknown === 1 ? 'carta' : 'carte'} senza prezzo` : ''}`
+}
+
+function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
+  const price = costText(cost, missing)
   return (
-    <li className={`deck${rank === 1 ? ' deck-top' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
+    <li className={`deck${top ? ' deck-top' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={`Posizione ${rank}`}>{rank}</span>
         <span className="deck-main">
@@ -30,12 +40,16 @@ function DeckRow({ s, rank, colors, onOpen, index }) {
             <ColorPips colors={colors} />
           </span>
           <span className="deck-sub">
-            {s.deck.share > 0 && <span>{String(s.deck.share).replace('.', ',')}% del meta</span>}
-            <span className={missing ? 'need' : 'done'}>{missing ? `Ti mancano ${missing} carte` : 'Hai tutte le carte'}</span>
+            <TierBadge tier={s.deck.tier} />
+            {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
+            <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
           </span>
           <span className="deck-meters">
             <Meter label="Main" {...s.main} />
             {s.side.total > 0 && <Meter label="Side" {...s.side} />}
+          </span>
+          <span className="deck-need">
+            {missing ? <><span>Ti mancano <b>{missing}</b> {missing === 1 ? 'carta' : 'carte'}</span>{price && <span className="price">{price}</span>}</> : <span className="done">Hai tutte le carte</span>}
           </span>
         </span>
         <span className="deck-score">
@@ -48,11 +62,12 @@ function DeckRow({ s, rank, colors, onOpen, index }) {
   )
 }
 
-export default function DeckList({ ranked, colorsOf, onOpen, format }) {
+export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true }) {
   return (
-    <ol className="decks" key={format}>
+    <ol className="decks" key={animKey}>
       {ranked.map((s, i) => (
-        <DeckRow key={s.deck.id} s={s} rank={i + 1} index={i} colors={colorsOf(s.deck)} onOpen={() => onOpen(s.deck.id)} />
+        <DeckRow key={s.deck.id} s={s} rank={s.rank ?? i + 1} index={Math.min(i, 8)} top={highlightFirst && i === 0}
+          colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} />
       ))}
     </ol>
   )

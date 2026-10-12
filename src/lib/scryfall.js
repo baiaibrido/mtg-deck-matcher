@@ -1,33 +1,58 @@
 import { norm, mergeEntries } from './normalize.js'
 
 const API = 'https://api.scryfall.com'
-const CK = 'mdm.cards.v2' // v2: aggiunti identità di colore, tipo e costo
+const CK = 'mdm.cards.v3' // v3: formato compatto + prezzi
+const MAX_AGE = 3 * 864e5   // i prezzi si aggiornano ogni 3 giorni
+const IMG = 'https://cards.scryfall.io/normal/'
 const HEAD = { Accept: 'application/json' }
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
 let cache
 const getCache = () => cache ??= (() => { try { return JSON.parse(localStorage.getItem(CK)) || {} } catch { return {} } })()
-const save = () => { try { localStorage.setItem(CK, JSON.stringify(cache)) } catch { /* quota piena: ignora */ } }
+const save = () => {
+  try { localStorage.setItem(CK, JSON.stringify(cache)) }
+  catch { // quota piena: tiene le 3000 carte più recenti
+    try {
+      const keep = Object.entries(cache).sort((a, b) => (b[1].t || 0) - (a[1].t || 0)).slice(0, 3000)
+      cache = Object.fromEntries(keep); localStorage.setItem(CK, JSON.stringify(cache))
+    } catch { /* ignora */ }
+  }
+}
+try { localStorage.removeItem('mdm.cards.v2'); localStorage.removeItem('mdm.cards') } catch { /* vecchie cache */ }
 
+// Formato compatto per stare comodi nei 5 MB di localStorage anche con migliaia di carte
+const num = v => (v == null || v === '' ? null : +v)
 const slim = c => {
   const f = c.card_faces?.[0]
+  const img = (c.image_uris || f?.image_uris)?.normal || ''
   return {
     name: c.name.split(' // ')[0],
-    img: (c.image_uris || f?.image_uris)?.normal,
-    uri: c.scryfall_uri,
+    i: img.startsWith(IMG) ? img.slice(IMG.length).split('?')[0] : img || null,
     ci: c.color_identity || [],
     type: (f?.type_line || c.type_line || '').split(' // ')[0],
     cost: f?.mana_cost ?? c.mana_cost ?? '',
+    eur: num(c.prices?.eur) ?? num(c.prices?.eur_foil),
+    usd: num(c.prices?.usd) ?? num(c.prices?.usd_foil),
+    t: Date.now(),
   }
 }
+const expand = c => c && { ...c, img: c.i ? (c.i.startsWith('http') ? c.i : IMG + c.i) : null, uri: `https://scryfall.com/search?q=${encodeURIComponent(`!"${c.name}"`)}` }
 const put = (c, key) => { const s = slim(c); getCache()[norm(s.name)] = s; if (key) getCache()[norm(key)] = s; return s }
 
-export const getCached = name => getCache()[norm(name)]
+const memo = new Map()
+export const getCached = name => {
+  const raw = getCache()[norm(name)]
+  if (!raw) return undefined
+  let e = memo.get(raw); if (!e) { e = expand(raw); memo.set(raw, e) }
+  return e
+}
+const fresh = e => e && Date.now() - (e.t || 0) < MAX_AGE
+const unknown = new Set() // nomi che Scryfall non riconosce: non li richiede di nuovo in questa sessione
 
 // Scarica i dati mancanti in cache. 75 nomi per richiesta (limite Scryfall), poi fuzzy sui non trovati.
 export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
   const c = getCache()
-  const want = [...new Set(names.map(n => n.trim()))].filter(n => n && !c[norm(n)])
+  const want = [...new Set(names.map(n => n.trim()))].filter(n => n && !fresh(c[norm(n)]) && !unknown.has(norm(n)))
   const notFound = []
   for (let i = 0; i < want.length; i += 75) {
     const chunk = want.slice(i, i + 75)
@@ -38,7 +63,7 @@ export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
     if (!r.ok) throw new Error(`Scryfall ${r.status}`)
     const j = await r.json()
     j.data.forEach(card => put(card))
-    ;(j.not_found || []).forEach(nf => notFound.push(nf.name))
+    ;(j.not_found || []).forEach(nf => { notFound.push(nf.name); unknown.add(norm(nf.name)) })
     onProgress?.(Math.min(i + 75, want.length), want.length)
     save()
     await sleep(120)

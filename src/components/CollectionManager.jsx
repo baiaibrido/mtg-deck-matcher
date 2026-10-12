@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
 import { normalizeCollection } from '../lib/scryfall.js'
-import { IconUpload, IconSearch, IconPlus, IconMinus, IconWand } from './Icons.jsx'
+import { IconUpload, IconSearch, IconPlus, IconMinus, IconWand, IconDownload } from './Icons.jsx'
+import { collectionCsv, downloadTxt } from '../lib/export.js'
 
 const PAGE = 300
 
@@ -56,7 +57,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
           onDragOver={e => { e.preventDefault(); setDrag(true) }} onDragLeave={() => setDrag(false)}
           onDrop={e => { e.preventDefault(); setDrag(false); readFile(e.dataTransfer.files[0]) }}>
           <IconUpload size={22} />
-          <span><b>Carica un file</b> .csv o .txt <span className="muted">oppure trascinalo qui</span></span>
+          <span><b>Carica un file</b> .csv o .txt <span className="muted">oppure trascinalo qui. Vanno bene gli export di ManaBox, Moxfield, Deckbox, Dragon Shield e Cardmarket.</span></span>
           <input type="file" accept=".csv,.txt" onChange={e => { readFile(e.target.files[0]); e.target.value = '' }} />
         </label>
         <textarea rows={6} value={text} onChange={e => setText(e.target.value)} aria-label="Elenco carte"
@@ -66,7 +67,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
           <button className="btn" onClick={() => apply(true)} disabled={!text.trim()}>Sostituisci collezione</button>
         </div>
         {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
-        <p className="hint">Ricordati delle terre base (es. "20 Mountain"): contano anche loro nel calcolo.</p>
+        <p className="hint">Ricordati delle terre base (es. "20 Mountain"): contano anche loro nel calcolo. Per spostare la collezione su un altro dispositivo scarica il backup e caricalo lì con "Sostituisci collezione".</p>
       </section>
 
       {collection.length > 0 && (
@@ -75,6 +76,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
             <h2>Carte possedute</h2>
             <div className="row">
               <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} />Correggi i nomi</button>
+              <button className="btn btn-quiet" onClick={() => { downloadTxt(`collezione-${new Date().toISOString().slice(0, 10)}.csv`, collectionCsv(collection), 'text/csv'); toast('Backup scaricato') }}><IconDownload size={18} />Backup</button>
               <button className="btn btn-quiet btn-danger" onClick={() => confirm('Svuotare tutta la collezione?') && setCollection([])}>Svuota</button>
             </div>
           </div>

@@ -42,3 +42,18 @@ export function groupOf(card) {
 
 // "{2}{U}{W/P}" → ['2','u','wp'] (classi mana-font)
 export const costSymbols = cost => [...(cost || '').matchAll(/\{([^}]+)\}/g)].map(m => m[1].replace(/\//g, '').toLowerCase())
+
+// Costo delle copie mancanti in euro (prezzo Cardmarket via Scryfall). unknown = copie senza prezzo.
+export function missingCost(rows, lookup) {
+  let eur = 0, unknown = 0, known = 0
+  for (const r of rows) {
+    if (!r.missing) continue
+    const p = lookup(r.name)?.eur
+    if (p == null) unknown += r.missing
+    else { eur += p * r.missing; known += r.missing }
+  }
+  return { eur, unknown, known }
+}
+const EUR = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })
+const EUR2 = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' })
+export const euro = (v, cents = false) => (cents ? EUR2 : EUR).format(v)

@@ -1,7 +1,8 @@
 import { mergeEntries } from './normalize.js'
 
-const NAME_COLS = ['name', 'card', 'card name', 'nome', 'nome carta']
-const QTY_COLS = ['qty', 'quantity', 'count', 'quantità', 'quantita', 'amount', 'qta']
+// Intestazioni dei CSV di ManaBox, Moxfield, Deckbox, Dragon Shield, Cardmarket, TCGplayer e di questa app
+const NAME_COLS = ['name', 'card', 'card name', 'cardname', 'english name', 'product name', 'simple name', 'nome', 'nome carta']
+const QTY_COLS = ['qty', 'quantity', 'count', 'amount', 'copies', 'quantityx', 'quantità', 'quantita', 'qta', 'qty.']
 
 export function splitCsv(line) {
   const out = []; let cur = '', q = false
@@ -25,9 +26,10 @@ export function parseLine(raw) {
 }
 
 export function parseCollection(text) {
-  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean)
+  let lines = text.replace(/^\uFEFF/, '').split(/\r?\n/).map(l => l.trim()).filter(Boolean)
+  if (/^sep=.$/i.test(lines[0] || '')) lines = lines.slice(1) // Dragon Shield / Excel
   if (!lines.length) return []
-  const head = splitCsv(lines[0]).map(h => h.toLowerCase())
+  const head = splitCsv(lines[0]).map(h => h.toLowerCase().replace(/^"|"$/g, ''))
   const ni = head.findIndex(h => NAME_COLS.includes(h))
   const qi = head.findIndex(h => QTY_COLS.includes(h))
   const out = []

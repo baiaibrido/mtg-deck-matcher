@@ -1,7 +1,8 @@
 // Scarica da MTGTop8 i 20 archetipi più giocati per formato (ultimi 2 mesi) e
-// salva l'ultima lista di ognuno in public/meta/<formato>.json.
+// salva l'ultima lista di ognuno in public/meta/<formato>.json, con tier (metodo MTGdecks) e trend.
+// Rispetta il robots.txt di MTGTop8: un percorso vietato ferma il formato e lascia i dati precedenti.
 // Uso: node scripts/sync-mtgtop8.mjs [pauper modern ...]
-import { writeFile, mkdir } from 'node:fs/promises'
+import { writeFile, readFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { parseDeck } from '../src/lib/parser.js'
 
@@ -13,12 +14,68 @@ const OUT = new URL('../public/meta/', import.meta.url)
 const DEBUG = new URL('../debug/', import.meta.url)
 const dump = async (file, html) => { await mkdir(DEBUG, { recursive: true }); await writeFile(new URL(file, DEBUG), html) }
 
+const UA = 'mtg-deck-matcher/0.4 (sync giornaliero, uso personale; github.com/baiaibrido/mtg-deck-matcher)'
 const sleep = ms => new Promise(r => setTimeout(r, ms))
+
+// --- robots.txt ---
+// Regole Disallow/Allow per il nostro user-agent (o '*'). Supporta * e $ come da specifica Google/RFC 9309.
+export function parseRobots(txt, agent = 'mtg-deck-matcher') {
+  const groups = []; let cur = null, lastWasAgent = false
+  for (const raw of txt.split(/\r?\n/)) {
+    const line = raw.replace(/#.*/, '').trim()
+    const m = line.match(/^([\w-]+)\s*:\s*(.*)$/)
+    if (!m) continue
+    const [, k, v] = [m[0], m[1].toLowerCase(), m[2].trim()]
+    if (k === 'user-agent') {
+      if (!lastWasAgent) groups.push(cur = { agents: [], rules: [] })
+      cur.agents.push(v.toLowerCase()); lastWasAgent = true
+    } else {
+      lastWasAgent = false
+      if (cur && (k === 'disallow' || k === 'allow') && v) cur.rules.push({ allow: k === 'allow', path: v })
+    }
+  }
+  const mine = groups.filter(g => g.agents.some(a => a !== '*' && agent.toLowerCase().includes(a)))
+  return (mine.length ? mine : groups.filter(g => g.agents.includes('*'))).flatMap(g => g.rules)
+}
+export function robotsAllows(rules, path) {
+  const toRe = p => new RegExp('^' + p.replace(/[.+?^{}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*').replace(/\\\$$/, '$'))
+  let best = null
+  for (const r of rules) if (toRe(r.path).test(path) && (!best || r.path.length > best.path.length || (r.path.length === best.path.length && r.allow))) best = r
+  return !best || best.allow
+}
+let ROBOTS = []
+async function loadRobots() {
+  try {
+    const r = await fetch(BASE + 'robots.txt', { signal: AbortSignal.timeout(20000), headers: { 'User-Agent': UA } })
+    ROBOTS = r.ok ? parseRobots(await r.text()) : []
+    console.log(`robots.txt: ${r.ok ? `${ROBOTS.length} regole` : `assente (${r.status})`}`)
+  } catch (e) { console.warn(`robots.txt non leggibile (${e.message}): procedo con cautela`) }
+}
+
+// --- tier (metodo pubblicato da MTGdecks) ---
+// Tier 1: i primi archetipi che insieme fanno il 50% del meta. Tier 2: gli altri sopra lo 0,2%. Tier 3: il resto.
+export function assignTiers(archetypes) {
+  const sorted = [...archetypes].sort((a, b) => b.share - a.share)
+  const tier = new Map(); let cum = 0, t1done = false
+  for (const a of sorted) {
+    if (!t1done) { tier.set(a.id, 1); cum += a.share; if (cum >= 50) t1done = true; continue }
+    tier.set(a.id, a.share > 0.2 ? 2 : 3)
+  }
+  return tier
+}
+
+// --- trend rispetto al giorno di sync precedente ---
+export function previousShares(old, today) {
+  if (!old?.decks) return { date: null, map: new Map() }
+  if (old.updated && old.updated !== today) return { date: old.updated, map: new Map(old.decks.map(d => [d.name, d.share])) }
+  return { date: old.prevDate || null, map: new Map(old.decks.filter(d => d.prev != null).map(d => [d.name, d.prev])) }
+}
 const decode = s => s.replace(/&amp;/g, '&').replace(/&#0?39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()
 
 async function get(path, method = 'GET') {
+  if (!robotsAllows(ROBOTS, '/' + path)) throw new Error(`vietato da robots.txt: /${path}`)
   await sleep(DELAY_MS)
-  const r = await fetch(BASE + path, { method, signal: AbortSignal.timeout(30000), headers: { 'User-Agent': 'mtg-deck-matcher/0.2 (sync giornaliero, uso personale)' } })
+  const r = await fetch(BASE + path, { method, signal: AbortSignal.timeout(30000), headers: { 'User-Agent': UA } })
   if (!r.ok) throw new Error(`${r.status} ${path}`)
   const buf = Buffer.from(await r.arrayBuffer())
   const utf = buf.toString('utf8')
@@ -77,8 +134,10 @@ async function syncFormat(id, code) {
   const page = id === 'commander'
     ? await get(`cEDH_decks?f=${code}&show=pop&cid=&meta=${metaId ?? ''}&gamerid1=&gamerid2=&cEDH_cp=1`, 'POST')
     : metaId ? await get(`format?f=${code}&meta=${metaId}&a=`) : home
-  const archetypes = parseArchetypes(page).slice(0, TOP_N)
-  console.log(`  periodo meta=${metaId ?? '?'} · archetipi trovati: ${archetypes.length}`)
+  const all = parseArchetypes(page)
+  const tiers = assignTiers(all)
+  const archetypes = all.slice(0, TOP_N).map(a => ({ ...a, tier: tiers.get(a.id) }))
+  console.log(`  periodo meta=${metaId ?? '?'} · archetipi: ${all.length}, tier 1: ${[...tiers.values()].filter(t => t === 1).length}`)
   // anomalia: nessun archetipo o tutte le % uguali → salva la pagina per il debug
   if (!archetypes.length || new Set(archetypes.map(a => a.share)).size < 2) await dump(`${id}-format.html`, page)
   const refs = []
@@ -86,7 +145,7 @@ async function syncFormat(id, code) {
     try {
       const arch = await get(`archetype?a=${a.id}&meta=${a.meta}&f=${code}`)
       const links = parseDeckLinks(arch, 3)
-      if (links.length) refs.push({ name: a.name, share: a.share, links })
+      if (links.length) refs.push({ name: a.name, share: a.share, tier: a.tier, links })
       else { console.warn(`  ✗ ${a.name}: link mazzo non trovato`); if (!refs.length) await dump(`${id}-archetype.html`, arch) }
     } catch (e) { console.warn(`  ✗ ${a.name}: ${e.message}`) }
   }
@@ -107,7 +166,7 @@ async function buildDecks(id, code, refs) {
       if (id === 'commander') { main = [...main, ...side]; side = [] } // in cEDH il comandante è nel "side"
       if (!main.length) { console.warn(`  ✗ ${a.name}: nessuna lista valida`); continue }
       decks.push({
-        id: `mtgtop8-${ref.deck}`, name: a.name, share: a.share, title: ref.title,
+        id: `mtgtop8-${ref.deck}`, name: a.name, share: a.share, tier: a.tier, title: ref.title,
         url: `${BASE}event?e=${ref.event}&d=${ref.deck}&f=${code}`,
         main: main.map(c => `${c.qty} ${c.name}`), side: side.map(c => `${c.qty} ${c.name}`),
       })
@@ -121,14 +180,19 @@ async function main() {
   const only = process.argv.slice(2)
   const today = new Date().toISOString().slice(0, 10)
   let ok = 0
+  await loadRobots()
   for (const [id, code] of Object.entries(FORMATS)) {
     if (only.length && !only.includes(id)) continue
     console.log(`${id} (${code})`)
     try {
       const decks = await syncFormat(id, code)
       if (!decks.length) { console.warn(`  nessun mazzo: file ${id}.json lasciato invariato`); continue }
-      const json = { updated: today, source: 'MTGTop8 — ultimi 2 mesi', decks }
-      await writeFile(new URL(`${id}.json`, OUT), JSON.stringify(json, null, 1) + '\n')
+      const file = new URL(`${id}.json`, OUT)
+      const old = await readFile(file, 'utf8').then(JSON.parse).catch(() => null)
+      const prev = previousShares(old, today)
+      for (const d of decks) d.prev = prev.map.has(d.name) ? prev.map.get(d.name) : null
+      const json = { updated: today, prevDate: prev.date, source: 'MTGTop8 — ultimi 2 mesi', tierMethod: 'MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto', decks }
+      await writeFile(file, JSON.stringify(json, null, 1) + '\n')
       ok++
     } catch (e) { console.warn(`  errore formato: ${e.message}`) }
   }

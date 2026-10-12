@@ -46,3 +46,12 @@ test('parser decklist: header Sideboard e riga vuota', () => {
   const b = parseDeck('4 Opt\n\n3 Duress')
   assert.equal(b.side[0].qty, 3)
 })
+
+test('parser: CSV delle app più diffuse', () => {
+  const pc = t => parseCollection(t).map(c => [c.name, c.qty])
+  assert.deepEqual(pc('Name,Set code,Set name,Collector number,Foil,Rarity,Quantity\nLightning Bolt,2X2,Double Masters 2022,117,normal,uncommon,3'), [['Lightning Bolt', 3]]) // ManaBox
+  assert.deepEqual(pc('"Count","Tradelist Count","Name","Edition"\n"2","0","Counterspell","mh2"'), [['Counterspell', 2]]) // Moxfield
+  assert.deepEqual(pc('sep=,\nFolder Name,Quantity,Trade Quantity,Card Name,Set Code\nMain,4,0,Opt,XLN'), [['Opt', 4]]) // Dragon Shield
+  assert.deepEqual(pc('idArticle;idProduct;English Name;Local Name;Exp.;Amount\n1;2;Brainstorm;Brainstorm;ICE;4'), [['Brainstorm', 4]]) // Cardmarket
+  assert.deepEqual(pc('\uFEFFName,Qty\n"Fire // Ice",2'), [['Fire // Ice', 2]]) // backup di questa app (con BOM)
+})
