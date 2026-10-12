@@ -1,4 +1,4 @@
-import { mergeEntries } from './normalize.js'
+import { mergeEntries, withoutBasics } from './normalize.js'
 
 // Intestazioni dei CSV di ManaBox, Moxfield, Deckbox, Dragon Shield, Cardmarket, TCGplayer e di questa app
 const NAME_COLS = ['name', 'card', 'card name', 'cardname', 'english name', 'product name', 'simple name', 'nome', 'nome carta']
@@ -25,7 +25,10 @@ export function parseLine(raw) {
   return null
 }
 
-export function parseCollection(text) {
+// Collezione: le terre base vengono scartate (contano sempre come possedute)
+export const parseCollection = text => withoutBasics(parseCollectionRaw(text))
+
+function parseCollectionRaw(text) {
   let lines = text.replace(/^\uFEFF/, '').split(/\r?\n/).map(l => l.trim()).filter(Boolean)
   if (/^sep=.$/i.test(lines[0] || '')) lines = lines.slice(1) // Dragon Shield / Excel
   if (!lines.length) return []

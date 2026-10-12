@@ -1,4 +1,4 @@
-import { norm } from './normalize.js'
+import { norm, isBasic } from './normalize.js'
 
 export const W_MAIN = 0.85
 export const W_SIDE = 0.15
@@ -14,9 +14,9 @@ function alloc(list, pool) {
   let have = 0, total = 0
   const rows = list.map(c => {
     const k = norm(c.name)
-    const avail = pool.get(k) || 0
+    const avail = isBasic(c.name) ? Infinity : pool.get(k) || 0 // terre base: sempre possedute
     const h = Math.min(avail, c.qty)
-    pool.set(k, avail - h)
+    if (!isBasic(c.name)) pool.set(k, avail - h)
     have += h; total += c.qty
     return { name: c.name, qty: c.qty, have: h, missing: c.qty - h }
   })

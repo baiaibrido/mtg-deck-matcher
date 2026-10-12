@@ -1,4 +1,4 @@
-// Scarica da MTGTop8 i 20 archetipi più giocati per formato (ultimi 2 mesi) e
+// Scarica da MTGTop8 fino a 30 archetipi più giocati per formato (ultimi 2 mesi) e
 // salva l'ultima lista di ognuno in public/meta/<formato>.json, con tier (metodo MTGdecks) e trend.
 // Rispetta il robots.txt di MTGTop8: un percorso vietato ferma il formato e lascia i dati precedenti.
 // Uso: node scripts/sync-mtgtop8.mjs [pauper modern ...]
@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { parseDeck } from '../src/lib/parser.js'
 
 const BASE = 'https://www.mtgtop8.com/'
-const TOP_N = 20
+const TOP_N = 30 // archetipi per formato (meno se il meta ne ha meno)
 const DELAY_MS = 1200 // pausa tra richieste: carico minimo sul sito
 const FORMATS = { standard: 'ST', pioneer: 'PI', modern: 'MO', pauper: 'PAU', legacy: 'LE', vintage: 'VI', commander: 'cEDH' }
 const OUT = new URL('../public/meta/', import.meta.url)

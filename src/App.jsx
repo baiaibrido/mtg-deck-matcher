@@ -3,6 +3,7 @@ import { useLocal } from './state/useLocal.js'
 import { useRoute, go } from './state/useRoute.js'
 import { loadFormats, loadMetaDecks } from './lib/metaDecks.js'
 import { rankDecks } from './lib/matcher.js'
+import { isBasic, withoutBasics } from './lib/normalize.js'
 import { fetchCards, getCached } from './lib/scryfall.js'
 import { deckColors, missingCost, WUBRG, COLOR_NAME } from './lib/deckInfo.js'
 import DeckList from './components/DeckList.jsx'
@@ -33,7 +34,9 @@ function useToast() {
 export default function App() {
   const route = useRoute()
   const [format, setFormat] = useLocal('mdm.format', 'pauper')
-  const [collection, setCollection] = useLocal('mdm.collection', [])
+  const [collection, setCollectionRaw] = useLocal('mdm.collection', [])
+  const setCollection = list => setCollectionRaw(withoutBasics(list)) // le terre base non stanno in collezione
+  useEffect(() => { if (collection.some(c => isBasic(c.name))) setCollection(collection) }, []) // pulizia collezioni salvate prima
   const [userDecks, setUserDecks] = useLocal('mdm.userDecks', [])
   const [viewRaw, setView] = useLocal('mdm.view', {})
   const view = { mode: 'top', sort: 'score', tier: 0, colors: [], ...viewRaw }

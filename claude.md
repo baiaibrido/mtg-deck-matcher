@@ -1,6 +1,6 @@
 # MTG Deck Matcher — claude.md
 
-App web (React + Vite, solo frontend, PWA). Confronta la collezione dell'utente con i mazzi meta di un formato: Top 5 / tutti i 20 con filtri, tier, trend, costo per completare, mancolista, carte chiave. Piano: `docs/ROADMAP.md`.
+App web (React + Vite, solo frontend, PWA). Confronta la collezione dell'utente con i mazzi meta di un formato: Top 5 / tutti (fino a 30) con filtri, tier, trend, costo per completare, mancolista, carte chiave. Piano: `docs/ROADMAP.md`.
 
 ## Project map
 ```
@@ -64,7 +64,8 @@ Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view`
 3. `M_main = Σ min(owned, req) / totaleMain` (60 di norma), `M_side = Σ min(owned, req) / totaleSide` (15).
    Side vuoto → `M_side = 0`.
 4. `score = M_main·0.85 + M_side·0.15`. Garantisce: 100% main + 0% side (0.85) > 75% main + 100% side (0.7875).
-5. Ordinamento: score desc, poi M_main desc. Top 5.
+5. Ordinamento: score desc, poi M_main desc, poi popolarità. Top 5.
+6. Terre base lisce (Plains, Island, Swamp, Mountain, Forest): sempre possedute, non consumano copie, escluse dalla collezione (parser + setCollection in App). Le Snow-Covered e Wastes contano normalmente.
 
 ## Normalizzazione nomi (lib/normalize.js)
 minuscolo, senza accenti, apostrofi uniformati, spazi compressi, solo faccia frontale (`A // B` → `a`).
@@ -84,7 +85,7 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 | Scryfall 429 | troppe richieste | `scryfall.js` `sleep()` tra chunk |
 | Dati "spariti" | localStorage pulito / altro browser | chiavi `mdm.*` |
 | Colori mazzo assenti / pallini grigi | Scryfall non raggiungibile o dati carte <60% | `App.jsx` fetchCards, `deckColors()` |
-| Terre base mancanti | la collezione non le elenca | aggiungere `20 Mountain` ecc. alla collezione |
+| Terre base | Plains/Island/Swamp/Mountain/Forest sempre possedute, escluse dalla collezione (le Snow-Covered no) | `normalize.js` isBasic(), `matcher.js` alloc() |
 | Prezzi assenti ("—") | Scryfall senza prezzo EUR per quella stampa | `scryfall.js` slim(): eur → eur_foil |
 | Pagina vecchia dopo un deploy | service worker | `public/sw.js` (rete prima per le pagine); cambiare `V` per svuotare le cache |
 | Badge tier/trend assenti | JSON meta generato prima della v0.4 | rilanciare il sync |
@@ -94,10 +95,10 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 `npm install` · `npm run dev` · `npm run build` · `npm test`
 
 ## Sync meta automatico (MTGTop8)
-- `scripts/sync-mtgtop8.mjs`: per ogni formato legge `format?f=CODE` → periodo "Last 2 Months" → i 20 archetipi con % più alta (esclusi "Other…") → primo mazzo (più recente) di ogni archetipo → export `mtgo?d=ID` → `public/meta/<formato>.json`.
+- `scripts/sync-mtgtop8.mjs`: per ogni formato legge `format?f=CODE` → periodo "Last 2 Months" → fino a 30 archetipi con % più alta (esclusi "Other…") → primo mazzo (più recente) di ogni archetipo → export `mtgo?d=ID` → `public/meta/<formato>.json`.
 - Codici: standard ST, pioneer PI, modern MO, pauper PAU, legacy LE, vintage VI, commander cEDH. cEDH: la lista comandanti arriva via POST `cEDH_decks?f=cEDH&show=pop&meta=ID…` (stessi link `archetype?a=…`, valori in per mille ‰ convertiti in %); poi stesso flusso degli altri formati (comandante spostato nel main).
 - % meta: letta solo come testo visibile (`>12 %<`), mai da attributi `style`.
-- Tier (metodo pubblicato da MTGdecks, calcolato su TUTTI gli archetipi della pagina): Tier 1 = primi archetipi fino al 50% cumulato; Tier 2 = altri > 0,2%; Tier 3 = resto. Con le % intere di MTGTop8 il Tier 3 è raro nella top 20.
+- Tier (metodo pubblicato da MTGdecks, calcolato su TUTTI gli archetipi della pagina): Tier 1 = primi archetipi fino al 50% cumulato; Tier 2 = altri > 0,2%; Tier 3 = resto. Con le % intere di MTGTop8 il Tier 3 è raro nella top 30.
 - Trend: `prev` = share dello stesso archetipo al giorno di sync precedente (`prevDate`); più sync nello stesso giorno non azzerano il confronto.
 - robots.txt di MTGTop8 letto a inizio sync; un percorso vietato fa fallire il formato (dati precedenti mantenuti).
 - MTGdecks NON viene letto in automatico (il loro robots.txt lo vieta): nell'app c'è solo un link di ricerca.

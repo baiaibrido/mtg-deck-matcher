@@ -18,3 +18,9 @@ export function mergeEntries(list) {
   }
   return [...map.values()]
 }
+
+// Terre base "lisce": tutti ne hanno in abbondanza, quindi non si tengono in collezione e contano sempre come possedute
+export const BASIC_LANDS = ['Plains', 'Island', 'Swamp', 'Mountain', 'Forest']
+const BASIC_KEYS = new Set(BASIC_LANDS.map(n => n.toLowerCase()))
+export const isBasic = name => BASIC_KEYS.has(norm(name))
+export const withoutBasics = list => list.filter(c => !isBasic(c.name))

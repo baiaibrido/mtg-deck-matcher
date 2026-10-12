@@ -9,7 +9,7 @@ Principi:
 - **Ogni versione è usabile da sola.** Si rilascia per piccoli passi, ognuno testato.
 
 ## Stato
-- **v0.3** — Sync notturno MTGTop8 (7 formati, 20 archetipi), punteggio main/side, Top 5, mancolista con export, colori dei mazzi, interfaccia mobile.
+- **v0.3** — Sync notturno MTGTop8 (7 formati, 20 archetipi, poi 30 dalla v0.7.1), punteggio main/side, Top 5, mancolista con export, colori dei mazzi, interfaccia mobile.
 - **v0.4 → v0.7 — fatte il 12 ottobre 2026** (vedi sotto). Unica differenza dal piano: il confronto con MTGdecks è un link di ricerca, perché il robots.txt di MTGdecks blocca esplicitamente i programmi che leggono il meta.
 
 ## v0.4 — Dati più ricchi (ottobre) ✓
@@ -24,7 +24,7 @@ Principi:
 ## v0.5 — Esplorare il meta (novembre) ✓
 | Cosa | Perché |
 |---|---|
-| **Tutti i 20 mazzi** oltre alla Top 5, con ordinamento (più completi, più giocati, meno costosi da finire) | La Top 5 nasconde mazzi quasi completi ma meno giocati |
+| **Tutti i mazzi (fino a 30)** oltre alla Top 5, con ordinamento (più completi, più giocati, meno costosi da finire) | La Top 5 nasconde mazzi quasi completi ma meno giocati |
 | **Filtri** per tier e per colore | Chi gioca solo un colore o solo Tier 1 trova subito i suoi mazzi |
 | **Carte chiave**: le carte che ti mancano e che compaiono in più mazzi del formato, con il costo | Comprare poche carte che avvicinano molti mazzi |
 

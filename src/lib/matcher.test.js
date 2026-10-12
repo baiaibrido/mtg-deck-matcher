@@ -55,3 +55,10 @@ test('parser: CSV delle app più diffuse', () => {
   assert.deepEqual(pc('idArticle;idProduct;English Name;Local Name;Exp.;Amount\n1;2;Brainstorm;Brainstorm;ICE;4'), [['Brainstorm', 4]]) // Cardmarket
   assert.deepEqual(pc('\uFEFFName,Qty\n"Fire // Ice",2'), [['Fire // Ice', 2]]) // backup di questa app (con BOM)
 })
+
+test('terre base: sempre possedute, mai in collezione, non consumano copie', () => {
+  const deck = { main: [{ name: 'Mountain', qty: 18 }, { name: 'Snow-Covered Mountain', qty: 2 }, { name: 'Bolt', qty: 4 }], side: [] }
+  const r = scoreDeck(deck, toOwnedMap([{ name: 'Bolt', qty: 4 }]))
+  assert.equal(r.main.have, 22); assert.deepEqual(r.missing.map(m => m.name), ['Snow-Covered Mountain'])
+  assert.deepEqual(parseCollection('20 Mountain\n4 Island\n2 Snow-Covered Island\n4 Opt').map(c => c.name), ['Snow-Covered Island', 'Opt'])
+})

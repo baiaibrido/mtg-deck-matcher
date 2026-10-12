@@ -61,13 +61,13 @@ export default function CollectionManager({ collection, setCollection, toast }) 
           <input type="file" accept=".csv,.txt" onChange={e => { readFile(e.target.files[0]); e.target.value = '' }} />
         </label>
         <textarea rows={6} value={text} onChange={e => setText(e.target.value)} aria-label="Elenco carte"
-          placeholder={'Oppure incolla l\'elenco, una carta per riga:\n4 Lightning Bolt\n2 Counterspell\n20 Mountain'} />
+          placeholder={'Oppure incolla l\'elenco, una carta per riga:\n4 Lightning Bolt\n2 Counterspell\n1 Snow-Covered Island'} />
         <div className="row">
           <button className="btn btn-primary" onClick={() => apply(false)} disabled={!text.trim()}>Aggiungi alla collezione</button>
           <button className="btn" onClick={() => apply(true)} disabled={!text.trim()}>Sostituisci collezione</button>
         </div>
         {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
-        <p className="hint">Ricordati delle terre base (es. "20 Mountain"): contano anche loro nel calcolo. Per spostare la collezione su un altro dispositivo scarica il backup e caricalo lì con "Sostituisci collezione".</p>
+        <p className="hint">Le terre base (Plains, Island, Swamp, Mountain, Forest) non servono: le consideriamo sempre possedute e vengono ignorate se sono nel file. Per spostare la collezione su un altro dispositivo scarica il backup e caricalo lì con "Sostituisci collezione".</p>
       </section>
 
       {collection.length > 0 && (
