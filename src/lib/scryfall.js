@@ -1,7 +1,7 @@
 import { norm, mergeEntries } from './normalize.js'
 
 const API = 'https://api.scryfall.com'
-const CK = 'mdm.cards'
+const CK = 'mdm.cards.v2' // v2: aggiunti identità di colore, tipo e costo
 const HEAD = { Accept: 'application/json' }
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
@@ -11,7 +11,14 @@ const save = () => { try { localStorage.setItem(CK, JSON.stringify(cache)) } cat
 
 const slim = c => {
   const f = c.card_faces?.[0]
-  return { name: c.name.split(' // ')[0], img: (c.image_uris || f?.image_uris)?.normal, uri: c.scryfall_uri }
+  return {
+    name: c.name.split(' // ')[0],
+    img: (c.image_uris || f?.image_uris)?.normal,
+    uri: c.scryfall_uri,
+    ci: c.color_identity || [],
+    type: (f?.type_line || c.type_line || '').split(' // ')[0],
+    cost: f?.mana_cost ?? c.mana_cost ?? '',
+  }
 }
 const put = (c, key) => { const s = slim(c); getCache()[norm(s.name)] = s; if (key) getCache()[norm(key)] = s; return s }
 
@@ -33,6 +40,7 @@ export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
     j.data.forEach(card => put(card))
     ;(j.not_found || []).forEach(nf => notFound.push(nf.name))
     onProgress?.(Math.min(i + 75, want.length), want.length)
+    save()
     await sleep(120)
   }
   const unresolved = []

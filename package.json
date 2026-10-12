@@ -1,6 +1,6 @@
 {
   "name": "mtg-deck-matcher",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,6 +10,15 @@
     "test": "node --test src/lib/*.test.js scripts/*.test.mjs",
     "sync-meta": "node scripts/sync-mtgtop8.mjs"
   },
-  "dependencies": { "react": "^18.3.1", "react-dom": "^18.3.1" },
-  "devDependencies": { "@vitejs/plugin-react": "^4.3.4", "vite": "^5.4.11" }
+  "dependencies": {
+    "@fontsource/alegreya-sans": "^5.3.0",
+    "@fontsource/marcellus": "^5.3.0",
+    "mana-font": "^1.18.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
 }

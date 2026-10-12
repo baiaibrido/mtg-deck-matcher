@@ -36,6 +36,6 @@ export function rankDecks(decks, collection, limit = 5) {
   const owned = toOwnedMap(collection)
   return decks
     .map(d => scoreDeck(d, owned))
-    .sort((a, b) => b.score - a.score || b.main.ratio - a.main.ratio)
+    .sort((a, b) => b.score - a.score || b.main.ratio - a.main.ratio || (b.deck.share || 0) - (a.deck.share || 0))
     .slice(0, limit)
 }

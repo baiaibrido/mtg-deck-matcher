@@ -2,65 +2,103 @@ import { useMemo, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
 import { normalizeCollection } from '../lib/scryfall.js'
+import { IconUpload, IconSearch, IconPlus, IconMinus, IconWand } from './Icons.jsx'
 
-export default function CollectionManager({ collection, setCollection }) {
+const PAGE = 300
+
+export default function CollectionManager({ collection, setCollection, toast }) {
   const [text, setText] = useState('')
   const [q, setQ] = useState('')
-  const [msg, setMsg] = useState('')
+  const [msg, setMsg] = useState(null) // { kind: 'info'|'error', text }
   const [busy, setBusy] = useState(false)
+  const [drag, setDrag] = useState(false)
 
   const total = collection.reduce((t, c) => t + c.qty, 0)
   const shown = useMemo(() => {
     const s = q.trim().toLowerCase()
-    return [...collection].filter(c => !s || c.name.toLowerCase().includes(s)).sort((a, b) => a.name.localeCompare(b.name))
+    return collection.filter(c => !s || c.name.toLowerCase().includes(s)).sort((a, b) => a.name.localeCompare(b.name))
   }, [collection, q])
 
   const apply = replace => {
     const parsed = parseCollection(text)
-    if (!parsed.length) return setMsg('Nessuna carta riconosciuta. Formato: "4 Lightning Bolt" oppure CSV con colonne Name,Qty.')
+    if (!parsed.length) return setMsg({ kind: 'error', text: 'Nessuna carta riconosciuta. Scrivi una carta per riga, ad esempio "4 Lightning Bolt", oppure incolla un CSV con le colonne Name e Qty.' })
+    const n = parsed.reduce((t, c) => t + c.qty, 0)
     setCollection(replace ? parsed : mergeEntries([...collection, ...parsed]))
-    setMsg(`${parsed.length} carte ${replace ? 'caricate' : 'aggiunte'}.`); setText('')
+    setText(''); setMsg(null)
+    toast(replace ? `Collezione sostituita: ${n} carte` : `${n} carte aggiunte`)
   }
 
-  const onFile = async e => { const f = e.target.files[0]; if (f) setText(await f.text()); e.target.value = '' }
+  const readFile = async f => { if (f) { setText(await f.text()); setMsg({ kind: 'info', text: `File "${f.name}" pronto: scegli se aggiungerlo o sostituire la collezione.` }) } }
 
   const normalize = async () => {
-    setBusy(true); setMsg('Controllo nomi su Scryfall…')
+    setBusy(true); setMsg({ kind: 'info', text: 'Controllo i nomi su Scryfall…' })
     try {
-      const { list, notFound } = await normalizeCollection(collection, (d, t) => setMsg(`Scryfall: ${d}/${t}`))
+      const { list, notFound } = await normalizeCollection(collection, (d, t) => setMsg({ kind: 'info', text: `Controllo i nomi su Scryfall… ${d}/${t}` }))
       setCollection(list)
-      setMsg(notFound.length ? `Nomi non trovati (${notFound.length}): ${notFound.join(', ')}` : 'Tutti i nomi sono corretti ✓')
-    } catch (err) { setMsg(`Errore Scryfall: ${err.message}`) }
+      setMsg(notFound.length ? { kind: 'error', text: `Nomi non riconosciuti (${notFound.length}): ${notFound.join(', ')}. Correggili a mano qui sotto.` } : null)
+      if (!notFound.length) toast('Nomi corretti')
+    } catch (err) { setMsg({ kind: 'error', text: `Scryfall non risponde (${err.message}). Riprova tra qualche minuto.` }) }
     setBusy(false)
   }
 
   const setQty = (name, qty) => setCollection(collection.map(c => c.name === name ? { ...c, qty } : c).filter(c => c.qty > 0))
 
   return (
-    <section className="panel">
-      <h2>Collezione <small>{collection.length} carte diverse · {total} totali</small></h2>
-      <textarea rows={6} value={text} onChange={e => setText(e.target.value)}
-        placeholder={'Incolla qui la collezione:\n4 Lightning Bolt\n2 Counterspell\n…oppure carica un file CSV (Name,Qty)'} />
-      <div className="row">
-        <label className="btn">Carica file<input type="file" accept=".csv,.txt" hidden onChange={onFile} /></label>
-        <button onClick={() => apply(false)} disabled={!text.trim()}>Aggiungi</button>
-        <button onClick={() => apply(true)} disabled={!text.trim()}>Sostituisci tutto</button>
-        <button onClick={normalize} disabled={busy || !collection.length}>Normalizza con Scryfall</button>
-        <button className="danger" onClick={() => confirm('Svuotare la collezione?') && setCollection([])} disabled={!collection.length}>Svuota</button>
-      </div>
-      {msg && <p className="msg">{msg}</p>}
-      {collection.length > 0 && <>
-        <input className="search" value={q} onChange={e => setQ(e.target.value)} placeholder="Cerca carta…" />
-        <ul className="coll">
-          {shown.slice(0, 500).map(c => (
-            <li key={c.name}>
-              <input type="number" min="0" value={c.qty} onChange={e => setQty(c.name, parseInt(e.target.value, 10) || 0)} />
-              <span>{c.name}</span>
-            </li>
-          ))}
-        </ul>
-        {shown.length > 500 && <small>Mostrate le prime 500: usa la ricerca.</small>}
-      </>}
-    </section>
+    <div className="coll">
+      <header className="page-head">
+        <h1>La tua collezione</h1>
+        <p>{collection.length ? `${total.toLocaleString('it-IT')} carte, ${collection.length.toLocaleString('it-IT')} diverse. Salvata solo su questo dispositivo.` : 'Aggiungi le carte che possiedi per scoprire quali mazzi puoi completare.'}</p>
+      </header>
+
+      <section className="panel import">
+        <h2>Aggiungi carte</h2>
+        <label className={`drop${drag ? ' drag' : ''}`}
+          onDragOver={e => { e.preventDefault(); setDrag(true) }} onDragLeave={() => setDrag(false)}
+          onDrop={e => { e.preventDefault(); setDrag(false); readFile(e.dataTransfer.files[0]) }}>
+          <IconUpload size={22} />
+          <span><b>Carica un file</b> .csv o .txt <span className="muted">oppure trascinalo qui</span></span>
+          <input type="file" accept=".csv,.txt" onChange={e => { readFile(e.target.files[0]); e.target.value = '' }} />
+        </label>
+        <textarea rows={6} value={text} onChange={e => setText(e.target.value)} aria-label="Elenco carte"
+          placeholder={'Oppure incolla l\'elenco, una carta per riga:\n4 Lightning Bolt\n2 Counterspell\n20 Mountain'} />
+        <div className="row">
+          <button className="btn btn-primary" onClick={() => apply(false)} disabled={!text.trim()}>Aggiungi alla collezione</button>
+          <button className="btn" onClick={() => apply(true)} disabled={!text.trim()}>Sostituisci collezione</button>
+        </div>
+        {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
+        <p className="hint">Ricordati delle terre base (es. "20 Mountain"): contano anche loro nel calcolo.</p>
+      </section>
+
+      {collection.length > 0 && (
+        <section className="panel owned">
+          <div className="owned-head">
+            <h2>Carte possedute</h2>
+            <div className="row">
+              <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} />Correggi i nomi</button>
+              <button className="btn btn-quiet btn-danger" onClick={() => confirm('Svuotare tutta la collezione?') && setCollection([])}>Svuota</button>
+            </div>
+          </div>
+          <label className="search">
+            <IconSearch size={18} />
+            <input type="search" value={q} onChange={e => setQ(e.target.value)} placeholder="Cerca una carta" aria-label="Cerca una carta" />
+          </label>
+          <ul className="owned-list">
+            {shown.slice(0, PAGE).map(c => (
+              <li key={c.name}>
+                <span className="owned-name">{c.name}</span>
+                <span className="stepper">
+                  <button onClick={() => setQty(c.name, c.qty - 1)} aria-label={`Togli una copia di ${c.name}`}><IconMinus size={16} /></button>
+                  <input type="number" min="0" inputMode="numeric" value={c.qty} aria-label={`Copie di ${c.name}`}
+                    onChange={e => setQty(c.name, Math.max(0, parseInt(e.target.value, 10) || 0))} />
+                  <button onClick={() => setQty(c.name, c.qty + 1)} aria-label={`Aggiungi una copia di ${c.name}`}><IconPlus size={16} /></button>
+                </span>
+              </li>
+            ))}
+          </ul>
+          {shown.length > PAGE && <p className="hint">Mostro le prime {PAGE} di {shown.length}: usa la ricerca per trovare le altre.</p>}
+          {!shown.length && <p className="empty">Nessuna carta corrisponde a "{q}".</p>}
+        </section>
+      )}
+    </div>
   )
 }
