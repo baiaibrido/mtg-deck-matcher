@@ -16,9 +16,9 @@ const dump = async (file, html) => { await mkdir(DEBUG, { recursive: true }); aw
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 const decode = s => s.replace(/&amp;/g, '&').replace(/&#0?39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()
 
-async function get(path) {
+async function get(path, method = 'GET') {
   await sleep(DELAY_MS)
-  const r = await fetch(BASE + path, { signal: AbortSignal.timeout(30000), headers: { 'User-Agent': 'mtg-deck-matcher/0.2 (sync giornaliero, uso personale)' } })
+  const r = await fetch(BASE + path, { method, signal: AbortSignal.timeout(30000), headers: { 'User-Agent': 'mtg-deck-matcher/0.2 (sync giornaliero, uso personale)' } })
   if (!r.ok) throw new Error(`${r.status} ${path}`)
   const buf = Buffer.from(await r.arrayBuffer())
   const utf = buf.toString('utf8')
@@ -26,18 +26,24 @@ async function get(path) {
 }
 
 // --- parser HTML (esportati per i test) ---
+// Il link del periodo può contenere tag annidati: <a href="?f=X&meta=263&a="><div …>Last 2 Months</div></a>
 export function parseMetaId(html, label = 'Last 2 Months') {
-  const re = new RegExp(`(?:meta=|value=["']?)(\\d+)[^>]*>\\s*${label}`, 'i')
+  const re = new RegExp(`(?:meta=|value=["']?)(\\d+)[^>]*>(?:\\s*<[^>]+>)*\\s*${label}`, 'i')
   return html.match(re)?.[1] || null
+}
+
+// Prima percentuale come testo visibile (>12 %<), ignorando attributi tipo style="width:48%"
+const textPct = html => {
+  const m = html.match(/>\s*(\d+(?:[.,]\d+)?)\s*%\s*</)
+  return m ? parseFloat(m[1].replace(',', '.')) : 0
 }
 
 export function parseArchetypes(html) {
   const re = /<a[^>]+href=["']?archetype\?a=(\d+)&(?:amp;)?meta=(\d+)&(?:amp;)?f=[\w]+["']?[^>]*>([^<]+)<\/a>/gi
   const hits = [...html.matchAll(re)]
   const list = hits.map((m, i) => {
-    const after = html.slice(m.index + m[0].length, hits[i + 1]?.index ?? m.index + m[0].length + 600)
-    const pct = after.match(/(\d+(?:[.,]\d+)?)\s*%/)
-    return { id: m[1], meta: m[2], name: decode(m[3]), share: pct ? parseFloat(pct[1].replace(',', '.')) : 0 }
+    const after = html.slice(m.index + m[0].length - 1, hits[i + 1]?.index ?? m.index + m[0].length + 600)
+    return { id: m[1], meta: m[2], name: decode(m[3]), share: textPct(after) }
   })
   const seen = new Set()
   return list
@@ -56,20 +62,65 @@ export function parseFirstDeck(html) {
   return null
 }
 
+// cEDH: elenco caricato via POST cEDH_decks?… (show=pop → comandanti più giocati)
+export function parseCommanders(html) {
+  const out = [], seen = new Set()
+  const re = /AddCom\(\s*['"]?(\d+)['"]?\s*,\s*['"]?\d['"]?\s*,\s*['"]([^'"]+)['"]\s*\)|gamerid1=(\d+)[^>]*>([\s\S]*?)<\/a>/gi
+  const hits = [...html.matchAll(re)]
+  hits.forEach((m, i) => {
+    const gid = m[1] || m[3]
+    const name = decode((m[2] || m[4] || '').replace(/<[^>]+>/g, ''))
+    if (!gid || !name || seen.has(gid)) return
+    seen.add(gid)
+    const after = html.slice(m.index + m[0].length - 1, hits[i + 1]?.index ?? m.index + m[0].length + 600)
+    out.push({ gid, name, share: textPct(after) })
+  })
+  return out.sort((a, b) => b.share - a.share)
+}
+
+async function syncCommander(code, metaId) {
+  const q = (show, gid = '') => `cEDH_decks?f=${code}&show=${show}&cid=&meta=${metaId ?? ''}&gamerid1=${gid}&gamerid2=&cEDH_cp=1`
+  const pop = await get(q('pop'), 'POST')
+  const cmds = parseCommanders(pop).slice(0, TOP_N)
+  console.log(`  periodo meta=${metaId ?? '?'} · comandanti trovati: ${cmds.length}`)
+  if (!cmds.length) { await dump('commander-pop.html', pop); return [] }
+  const refs = []
+  for (const c of cmds) {
+    const list = await get(q('decks', c.gid), 'POST')
+    const ref = parseFirstDeck(list)
+    if (ref) refs.push({ ...ref, name: c.name, share: c.share })
+    else { console.warn(`  ✗ ${c.name}: link mazzo non trovato`); if (!refs.length) await dump('commander-decks.html', list) }
+  }
+  return refs
+}
+
 // --- sync ---
 async function syncFormat(id, code) {
   const home = await get(`format?f=${code}`)
   const metaId = parseMetaId(home)
+  if (id === 'commander') return buildDecks(id, code, await syncCommander(code, metaId))
   const page = metaId ? await get(`format?f=${code}&meta=${metaId}&a=`) : home
   const archetypes = parseArchetypes(page).slice(0, TOP_N)
   console.log(`  periodo meta=${metaId ?? '?'} · archetipi trovati: ${archetypes.length}`)
-  if (!archetypes.length) await dump(`${id}-format.html`, page)
-  const decks = []
+  // anomalia: nessun archetipo o tutte le % uguali → salva la pagina per il debug
+  if (!archetypes.length || new Set(archetypes.map(a => a.share)).size < 2) await dump(`${id}-format.html`, page)
+  const refs = []
   for (const a of archetypes) {
     try {
       const arch = await get(`archetype?a=${a.id}&meta=${a.meta}&f=${code}`)
       const ref = parseFirstDeck(arch)
-      if (!ref) { console.warn(`  ✗ ${a.name}: link mazzo non trovato`); if (!decks.length) await dump(`${id}-archetype.html`, arch); continue }
+      if (ref) refs.push({ ...ref, name: a.name, share: a.share })
+      else { console.warn(`  ✗ ${a.name}: link mazzo non trovato`); if (!refs.length) await dump(`${id}-archetype.html`, arch) }
+    } catch (e) { console.warn(`  ✗ ${a.name}: ${e.message}`) }
+  }
+  return buildDecks(id, code, refs)
+}
+
+async function buildDecks(id, code, refs) {
+  const decks = []
+  for (const ref of refs) {
+    const a = ref
+    try {
       const txt = await get(`mtgo?d=${ref.deck}`)
       let { main, side } = parseDeck(txt)
       if (id === 'commander') { main = [...main, ...side]; side = [] } // in cEDH il comandante è nel "side"

@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { parseMetaId, parseArchetypes, parseFirstDeck } from './sync-mtgtop8.mjs'
+import { parseMetaId, parseArchetypes, parseFirstDeck, parseCommanders } from './sync-mtgtop8.mjs'
 import { parseDeck } from '../src/lib/parser.js'
 
 const fmt = `<a href=format?f=PAU&meta=299&a=>Last 2 Weeks</a><a href="format?f=PAU&amp;meta=145&amp;a=">Last 2 Months</a>
@@ -29,4 +29,19 @@ test('link mazzo: varianti di formato', () => {
     `<td class=S12><a href=?e=5&d=6&f=PAU><b>Burn</b></a></td>`,
     `<a href='event?d=6&e=5&f=PAU' class=x>Burn</a>`,
   ]) assert.deepEqual(parseFirstDeck(h), { event: '5', deck: '6', title: 'Burn' })
+})
+
+test('meta id con tag annidati (HTML reale cEDH)', () => {
+  const h = `<a href="?f=cEDH&meta=327&a="><div style="padding:3px;background:#ffdd33;" class="S14">Last 2 Weeks</div></a><a href="?f=cEDH&meta=300&a="><div style="padding:3px;" class="S14 hover_tr">Last 6 Months</div></a><a href="?f=cEDH&meta=263&a="><div style="padding:3px;" class="S14 hover_tr">Last 2 Months</div></a>`
+  assert.equal(parseMetaId(h), '263')
+})
+test('% ignora attributi style (width:48%)', () => {
+  const h = `<div style="width:48%"><a href=archetype?a=1&meta=145&f=PAU>Burn</a></div><div style="width:48%">11 %</div>
+  <div style="width:48%"><a href=archetype?a=2&meta=145&f=PAU>Affinity</a></div><div style="width:48%">12 %</div>`
+  assert.deepEqual(parseArchetypes(h).map(a => [a.name, a.share]), [['Affinity', 12], ['Burn', 11]])
+})
+test('comandanti cEDH', () => {
+  const h = `<div onclick="AddCom('77','1','Kinnan, Bonder Prodigy');">Kinnan, Bonder Prodigy</div><div>4.5 %</div>
+  <div onclick="AddCom('88','1','Tymna the Weaver');">Tymna</div><div>6 %</div>`
+  assert.deepEqual(parseCommanders(h).map(c => [c.gid, c.share]), [['88', 6], ['77', 4.5]])
 })
