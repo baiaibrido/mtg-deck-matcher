@@ -1,46 +1,50 @@
 {
- "updated": "2026-10-12",
+ "updated": "2026-10-13",
+ "prevDate": "2026-10-12",
  "source": "MTGTop8 — ultimi 2 mesi",
+ "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
   {
-   "id": "mtgtop8-899153",
+   "id": "mtgtop8-899830",
    "name": "Mono Green Aggro",
    "share": 13,
+   "tier": 1,
    "title": "Mono Green Landfall",
-   "url": "https://www.mtgtop8.com/event?e=92055&d=899153&f=ST",
+   "url": "https://www.mtgtop8.com/event?e=92140&d=899830&f=ST",
    "main": [
     "3 Ba Sing Se",
-    "4 Escape Tunnel",
-    "14 Forest",
-    "4 Fabled Passage",
-    "4 Llanowar Elves",
-    "4 Esper Origins",
-    "4 Earthbender Ascension",
-    "4 Sazh's Chocobo",
-    "4 Icetill Explorer",
-    "2 Sapling Nursery",
     "4 Mossborn Hydra",
-    "3 Glimpse the Core",
-    "1 Keen-Eyed Curator",
-    "2 Mightform Harmonizer",
+    "4 Esper Origins",
+    "4 Fabled Passage",
+    "4 Escape Tunnel",
+    "4 Icetill Explorer",
+    "4 Llanowar Elves",
+    "1 Lumbering Worldwagon",
+    "4 Mightform Harmonizer",
+    "2 Sapling Nursery",
+    "4 Sazh's Chocobo",
     "1 Demolition Field",
-    "2 Innkeeper's Talent"
+    "4 Earthbender Ascension",
+    "14 Forest",
+    "2 Shared Roots",
+    "1 Origin of Metalbending"
    ],
    "side": [
     "2 Sapling Nursery",
-    "2 Keen-Eyed Curator",
-    "3 Surrak, Elusive Hunter",
+    "1 Origin of Metalbending",
+    "4 Meltstrider's Resolve",
     "2 Soul-Guide Lantern",
+    "2 Surrak, Elusive Hunter",
     "2 Torpor Orb",
-    "4 Hard-Hitting Question"
+    "2 Keen-Eyed Curator"
    ],
-   "tier": 1,
-   "prev": null
+   "prev": 13
   },
   {
    "id": "mtgtop8-899144",
    "name": "Izzet Control",
    "share": 13,
+   "tier": 1,
    "title": "Izzet Spellementals",
    "url": "https://www.mtgtop8.com/event?e=92053&d=899144&f=ST",
    "main": [
@@ -75,13 +79,13 @@
     "1 Broadside Barrage",
     "1 Sear"
    ],
-   "tier": 1,
-   "prev": null
+   "prev": 13
   },
   {
    "id": "mtgtop8-899173",
    "name": "Dimir Aggro",
    "share": 10,
+   "tier": 1,
    "title": "Dimir Aggro",
    "url": "https://www.mtgtop8.com/event?e=92057&d=899173&f=ST",
    "main": [
@@ -118,13 +122,13 @@
     "1 Spell Pierce",
     "1 Negate"
    ],
-   "tier": 1,
-   "prev": null
+   "prev": 10
   },
   {
    "id": "mtgtop8-899138",
    "name": "Boros Aggro",
    "share": 9,
+   "tier": 1,
    "title": "Boros Dragons",
    "url": "https://www.mtgtop8.com/event?e=92053&d=899138&f=ST",
    "main": [
@@ -160,13 +164,13 @@
     "1 Spectacular Tactics",
     "1 Sunspine Lynx"
    ],
-   "tier": 1,
-   "prev": null
+   "prev": 9
   },
   {
    "id": "mtgtop8-899137",
    "name": "Jund Aggro",
    "share": 7,
+   "tier": 1,
    "title": "Jund Sacrifice",
    "url": "https://www.mtgtop8.com/event?e=92053&d=899137&f=ST",
    "main": [
@@ -209,13 +213,13 @@
     "1 Maelstrom Pulse",
     "1 Vicious Rivalry"
    ],
-   "tier": 1,
-   "prev": null
+   "prev": 7
   },
   {
    "id": "mtgtop8-899140",
    "name": "4/5C Control",
    "share": 6,
+   "tier": 2,
    "title": "4/5C Control",
    "url": "https://www.mtgtop8.com/event?e=92053&d=899140&f=ST",
    "main": [
@@ -259,13 +263,13 @@
     "2 Ancient Vendetta",
     "2 Day of Black Sun"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 6
   },
   {
    "id": "mtgtop8-899143",
    "name": "UW Control",
    "share": 6,
+   "tier": 2,
    "title": "UW Control",
    "url": "https://www.mtgtop8.com/event?e=92053&d=899143&f=ST",
    "main": [
@@ -311,13 +315,13 @@
     "1 Jennifer Walters",
     "1 Doorkeeper Thrull"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 6
   },
   {
    "id": "mtgtop8-898234",
    "name": "Reanimator",
    "share": 5,
+   "tier": 2,
    "title": "Dimir Excruciator",
    "url": "https://www.mtgtop8.com/event?e=91948&d=898234&f=ST",
    "main": [
@@ -357,64 +361,59 @@
     "1 Tishana's Tidebinder",
     "1 Withering Torment"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 5
   },
   {
-   "id": "mtgtop8-899162",
+   "id": "mtgtop8-899840",
    "name": "Orzhov Aggro",
    "share": 4,
+   "tier": 2,
    "title": "Orzhov Aggro",
-   "url": "https://www.mtgtop8.com/event?e=92055&d=899162&f=ST",
+   "url": "https://www.mtgtop8.com/event?e=92141&d=899840&f=ST",
    "main": [
     "4 Haliya, Guided by Light",
-    "1 Swamp",
+    "3 Enlightened Confidant",
     "4 Case of the Uneaten Feast",
-    "1 Shattered Sanctum",
     "2 Bleachbone Verge",
-    "1 Fountainport",
-    "1 Lupinflower Village",
-    "4 Lunar Convocation",
-    "1 Essence Channeler",
-    "4 Amalia Benavides Aguirre",
-    "4 Starting Town",
     "4 Hinterland Sanctifier",
-    "3 Concealed Courtyard",
-    "1 Liliana the Faultless",
-    "3 Erode",
-    "2 Ajani Resolute",
-    "2 Enlightened Confidant",
-    "4 Godless Shrine",
     "1 Elspeth, Storm Slayer",
-    "3 Moseo, Vein's New Dean",
+    "1 Liliana the Faultless",
+    "3 Concealed Courtyard",
+    "4 Starting Town",
+    "1 Swamp",
+    "2 Ajani Resolute",
+    "3 Erode",
     "1 Starscape Cleric",
-    "1 Seam Rip",
+    "1 Shattered Sanctum",
     "3 Plains",
-    "3 Multiversal Passage",
-    "1 Strategic Betrayal",
-    "1 Kutzil's Flanker"
+    "4 Amalia Benavides Aguirre",
+    "1 Deep-Cavern Bat",
+    "3 Moseo, Vein's New Dean",
+    "4 Multiversal Passage",
+    "2 Seam Rip",
+    "4 Lunar Convocation",
+    "4 Godless Shrine",
+    "1 Lupinflower Village"
    ],
    "side": [
-    "1 Ajani Resolute",
     "1 Elspeth, Storm Slayer",
-    "2 Starscape Cleric",
-    "1 Seam Rip",
-    "1 Strategic Betrayal",
+    "1 Ajani Resolute",
+    "1 Erode",
+    "1 Starscape Cleric",
+    "2 Seam Rip",
     "1 Requisition Raid",
-    "2 Duress",
+    "2 Strategic Betrayal",
     "2 Curious Farm Animals",
-    "1 Pyrrhic Strike",
-    "1 Ghost Vacuum",
-    "1 Requiting Hex",
-    "1 Bloodthirsty Conqueror"
+    "2 Pyrrhic Strike",
+    "2 Duress"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 4
   },
   {
    "id": "mtgtop8-899188",
    "name": "Mardu Aggro",
    "share": 3,
+   "tier": 2,
    "title": "Mardu Aggro",
    "url": "https://www.mtgtop8.com/event?e=92058&d=899188&f=ST",
    "main": [
@@ -449,13 +448,13 @@
     "2 Shoot the Sheriff",
     "2 Voice of Victory"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 3
   },
   {
    "id": "mtgtop8-899142",
    "name": "Azorius Aggro",
    "share": 3,
+   "tier": 2,
    "title": "Azorius Aggro",
    "url": "https://www.mtgtop8.com/event?e=92053&d=899142&f=ST",
    "main": [
@@ -490,13 +489,13 @@
     "3 Seam Rip",
     "2 Sheltered by Ghosts"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 3
   },
   {
    "id": "mtgtop8-899179",
    "name": "UR Aggro",
-   "share": 3,
+   "share": 2,
+   "tier": 2,
    "title": "UR Aggro",
    "url": "https://www.mtgtop8.com/event?e=92057&d=899179&f=ST",
    "main": [
@@ -528,13 +527,49 @@
     "2 Secret Identity",
     "2 Colorstorm Stallion"
    ],
+   "prev": 3
+  },
+  {
+   "id": "mtgtop8-894760",
+   "name": "Selesnya Aggro",
+   "share": 2,
    "tier": 2,
-   "prev": null
+   "title": "Selesnya Landfall",
+   "url": "https://www.mtgtop8.com/event?e=91488&d=894760&f=ST",
+   "main": [
+    "4 Earthbender Ascension",
+    "2 Shared Roots",
+    "4 Sazh's Chocobo",
+    "1 Plains",
+    "4 Icetill Explorer",
+    "4 Mightform Harmonizer",
+    "4 Llanowar Elves",
+    "3 Mossborn Hydra",
+    "1 Hushwood Verge",
+    "10 Forest",
+    "4 Fabled Passage",
+    "3 Esper Origins",
+    "3 Escape Tunnel",
+    "4 Erode",
+    "4 Temple Garden",
+    "2 Dyadrine, Synthesis Amalgam",
+    "3 Ba Sing Se"
+   ],
+   "side": [
+    "1 Mossborn Hydra",
+    "2 Surrak, Elusive Hunter",
+    "4 Sheltered by Ghosts",
+    "4 Sapling Nursery",
+    "2 Rest in Peace",
+    "2 Torpor Orb"
+   ],
+   "prev": 2
   },
   {
    "id": "mtgtop8-898239",
    "name": "Jeskai Control",
-   "share": 3,
+   "share": 2,
+   "tier": 2,
    "title": "Jeskai Superfriends",
    "url": "https://www.mtgtop8.com/event?e=91949&d=898239&f=ST",
    "main": [
@@ -577,49 +612,13 @@
     "1 Erode",
     "1 Pinnacle Starcage"
    ],
-   "tier": 2,
-   "prev": null
-  },
-  {
-   "id": "mtgtop8-894760",
-   "name": "Selesnya Aggro",
-   "share": 2,
-   "title": "Selesnya Landfall",
-   "url": "https://www.mtgtop8.com/event?e=91488&d=894760&f=ST",
-   "main": [
-    "4 Earthbender Ascension",
-    "2 Shared Roots",
-    "4 Sazh's Chocobo",
-    "1 Plains",
-    "4 Icetill Explorer",
-    "4 Mightform Harmonizer",
-    "4 Llanowar Elves",
-    "3 Mossborn Hydra",
-    "1 Hushwood Verge",
-    "10 Forest",
-    "4 Fabled Passage",
-    "3 Esper Origins",
-    "3 Escape Tunnel",
-    "4 Erode",
-    "4 Temple Garden",
-    "2 Dyadrine, Synthesis Amalgam",
-    "3 Ba Sing Se"
-   ],
-   "side": [
-    "1 Mossborn Hydra",
-    "2 Surrak, Elusive Hunter",
-    "4 Sheltered by Ghosts",
-    "4 Sapling Nursery",
-    "2 Rest in Peace",
-    "2 Torpor Orb"
-   ],
-   "tier": 2,
-   "prev": null
+   "prev": 3
   },
   {
    "id": "mtgtop8-895738",
    "name": "Mono Black Aggro",
    "share": 1,
+   "tier": 2,
    "title": "Mono Black Aggro",
    "url": "https://www.mtgtop8.com/event?e=91616&d=895738&f=ST",
    "main": [
@@ -650,13 +649,13 @@
     "2 Mai, Scornful Striker",
     "2 Karn, Argent Defender"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-894223",
    "name": "Temur Aggro",
    "share": 1,
+   "tier": 2,
    "title": "Roaming Elementals",
    "url": "https://www.mtgtop8.com/event?e=91407&d=894223&f=ST",
    "main": [
@@ -693,13 +692,13 @@
     "1 Ygra, Eater of All",
     "2 Negate"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-899166",
    "name": "Sultai Control",
    "share": 1,
+   "tier": 2,
    "title": "Sultai Control",
    "url": "https://www.mtgtop8.com/event?e=92056&d=899166&f=ST",
    "main": [
@@ -745,13 +744,13 @@
     "1 Spell Snare",
     "1 Requiting Hex"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-899174",
    "name": "Dimir Control",
    "share": 1,
+   "tier": 2,
    "title": "Dimir Control",
    "url": "https://www.mtgtop8.com/event?e=92057&d=899174&f=ST",
    "main": [
@@ -787,13 +786,13 @@
     "1 Strategic Betrayal",
     "1 Requiting Hex"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-897574",
    "name": "Bant Airbending",
    "share": 1,
+   "tier": 2,
    "title": "Bant Airbending",
    "url": "https://www.mtgtop8.com/event?e=91837&d=897574&f=ST",
    "main": [
@@ -828,13 +827,13 @@
     "1 Aven Interrupter",
     "1 Cavern of Souls"
    ],
-   "tier": 2,
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-899157",
    "name": "Red Deck Wins",
-   "share": 0.9,
+   "share": 0.8,
+   "tier": 2,
    "title": "Red Deck Wins",
    "url": "https://www.mtgtop8.com/event?e=92055&d=899157&f=ST",
    "main": [
@@ -860,10 +859,444 @@
     "2 Soul-Guide Lantern",
     "4 Sunspine Lynx"
    ],
+   "prev": 0.9
+  },
+  {
+   "id": "mtgtop8-899180",
+   "name": "Rakdos Aggro",
+   "share": 0.8,
    "tier": 2,
+   "title": "Rakdos Aggro",
+   "url": "https://www.mtgtop8.com/event?e=92057&d=899180&f=ST",
+   "main": [
+    "4 Mountain",
+    "4 Swamp",
+    "4 Blood Crypt",
+    "4 Burst Lightning",
+    "3 Haunted Ridge",
+    "2 Cavern of Souls",
+    "4 Iridescent Vinelasher",
+    "4 Flamecache Gecko",
+    "3 Valley Flamecaller",
+    "4 Fireglass Mentor",
+    "3 Gev, Scaled Scorch",
+    "2 Rockface Village",
+    "4 Hired Claw",
+    "4 Blazemire Verge",
+    "3 Ingris Stingerquill",
+    "4 Stingerquill Charm",
+    "4 Master of Barbs"
+   ],
+   "side": [
+    "4 Duress",
+    "1 Bitter Triumph",
+    "2 Vengeful Tracker",
+    "3 Magebane Lizard",
+    "2 Laughing Jasper Flint",
+    "3 Requiting Hex"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-895740",
+   "name": "Omniscience Combo",
+   "share": 0.8,
+   "tier": 2,
+   "title": "Omniscience Combo",
+   "url": "https://www.mtgtop8.com/event?e=91616&d=895740&f=ST",
+   "main": [
+    "4 Kona, Rescue Beastie",
+    "4 Ashling, Rekindled",
+    "4 Formidable Speaker",
+    "3 Marang River Regent",
+    "3 North Wind Avatar",
+    "1 Ill-Timed Explosion",
+    "2 Impractical Joke",
+    "1 Pyroclasm",
+    "3 Stock Up",
+    "2 Winternight Stories",
+    "1 Into the Flood Maw",
+    "1 Spell Pierce",
+    "1 Spider-Sense",
+    "4 Omniscience",
+    "1 Breeding Pool",
+    "4 Cavern of Souls",
+    "1 Dreamroot Cascade",
+    "1 Forest",
+    "4 Kavaron, Memorial World",
+    "2 Multiversal Passage",
+    "2 Spirebluff Canal",
+    "3 Starting Town",
+    "2 Steam Vents",
+    "2 Stomping Ground",
+    "4 Uthros, Titanic Godcore"
+   ],
+   "side": [
+    "1 Marang River Regent",
+    "1 Ill-Timed Explosion",
+    "1 Pyroclasm",
+    "1 Spider-Sense",
+    "1 Lost in the Maze",
+    "2 Abrade",
+    "1 Dracogenesis",
+    "1 Heritage Reclamation",
+    "1 Omni-Changeling",
+    "1 Origin of Metalbending",
+    "1 Soul-Guide Lantern",
+    "1 Terror of the Peaks",
+    "2 Voice of Victory"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-899183",
+   "name": "Weenie White",
+   "share": 0.5,
+   "tier": 2,
+   "title": "Weenie White",
+   "url": "https://www.mtgtop8.com/event?e=92058&d=899183&f=ST",
+   "main": [
+    "3 Erode",
+    "3 Practiced Offense",
+    "1 Guiding Hydra",
+    "1 Hinterland Sanctifier",
+    "2 Wojek Investigator",
+    "2 Lightstall Inquisitor",
+    "2 Liliana the Faultless",
+    "3 Starfield Shepherd",
+    "3 Momo, Friendly Flier",
+    "3 Lyra, Archangel of Dawn",
+    "3 Haliya, Guided by Light",
+    "4 Youthful Valkyrie",
+    "4 Inspiring Overseer",
+    "4 Giada, Font of Hope",
+    "3 Abandoned Air Temple",
+    "3 Adventurer's Inn",
+    "16 Plains"
+   ],
+   "side": [
+    "1 Requisition Raid",
+    "3 Rest in Peace",
+    "3 Seam Rip",
+    "2 Ajani, Outland Chaperone",
+    "2 Leonardo's Technique",
+    "1 Curious Farm Animals",
+    "1 Dawn's Truce",
+    "1 Enduring Innocence",
+    "1 Erode"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-899831",
+   "name": "Jeskai Aggro",
+   "share": 0.5,
+   "tier": 2,
+   "title": "Jeskai Affinity",
+   "url": "https://www.mtgtop8.com/event?e=92140&d=899831&f=ST",
+   "main": [
+    "1 The Ooze",
+    "1 Skateboard",
+    "1 Improvised Arsenal",
+    "2 Tezzeret, Cruel Captain",
+    "2 The Enigma Jewel",
+    "4 Dusk Rose Reliquary",
+    "4 Springleaf Drum",
+    "4 Giant's Boulder",
+    "2 Krang, Master Mind",
+    "3 Quantum Riddler",
+    "3 Lady Octopus, Inspired Inventor",
+    "4 Rust Harvester",
+    "4 Ravenous Robots",
+    "4 Pinnacle Emissary",
+    "1 Cavern of Souls",
+    "1 Mountain",
+    "1 Multiversal Passage",
+    "1 Island",
+    "2 Castle Doom",
+    "2 Fomori Vault",
+    "3 Uthros, Titanic Godcore",
+    "3 Spirebluff Canal",
+    "4 Starting Town",
+    "4 Steam Vents"
+   ],
+   "side": [
+    "1 Disdainful Stroke",
+    "2 Soul-Guide Lantern",
+    "2 Grim Bauble",
+    "1 Haliya, Guided by Light",
+    "3 Sear",
+    "1 Spell Pierce",
+    "1 Flashfreeze",
+    "2 Spider-Sense",
+    "2 The Ooze"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-899832",
+   "name": "Golgari Aggro",
+   "share": 0.4,
+   "tier": 2,
+   "title": "Bg Demons",
+   "url": "https://www.mtgtop8.com/event?e=92140&d=899832&f=ST",
+   "main": [
+    "4 Blooming Marsh",
+    "4 Wastewood Verge",
+    "4 Swamp",
+    "4 Forest",
+    "3 Overgrown Tomb",
+    "1 Restless Cottage",
+    "1 Ba Sing Se",
+    "1 Realm of Koh",
+    "4 Llanowar Elves",
+    "3 Overlord of the Balemurk",
+    "3 Summon: Fenrir",
+    "3 Mosswood Dreadknight",
+    "3 Unstoppable Slasher",
+    "2 Leatherhead, Swamp Stalker",
+    "1 Frog Butler",
+    "1 Emeritus of Abundance",
+    "1 The Speed Demon",
+    "1 Morlun, Devourer of Spiders",
+    "4 Unholy Annex/Ritual Chamber",
+    "3 Firdoch Core",
+    "3 The End",
+    "3 Professor Dellian Fel",
+    "2 Assassin's Trophy",
+    "1 Deadly Cover-Up"
+   ],
+   "side": [
+    "1 Leatherhead, Swamp Stalker",
+    "1 Assassin's Trophy",
+    "2 Deadly Cover-Up",
+    "3 Ancient Vendetta",
+    "4 Cruelclaw's Heist",
+    "2 Strategic Betrayal",
+    "2 Day of Black Sun"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-899141",
+   "name": "Gruul Aggro",
+   "share": 0.4,
+   "tier": 2,
+   "title": "Gruul Aggro",
+   "url": "https://www.mtgtop8.com/event?e=92053&d=899141&f=ST",
+   "main": [
+    "2 Bushwhack",
+    "3 Overprotect",
+    "4 Break Out",
+    "4 Violent Urge",
+    "4 Rapid Rescue",
+    "2 Tersa Lightshatter",
+    "4 Wildfire Wickerfolk",
+    "4 Fear of Missing Out",
+    "4 Tarmogoyf",
+    "4 Keen-Eyed Curator",
+    "4 Patchwork Beastie",
+    "1 Mountain",
+    "2 Valgavoth's Lair",
+    "4 Multiversal Passage",
+    "4 Thornspire Verge",
+    "4 Stomping Ground",
+    "6 Forest"
+   ],
+   "side": [
+    "3 Pyroclasm",
+    "2 Scrapshooter",
+    "2 Vengeful Possession",
+    "2 Torpor Orb",
+    "2 Untimely Malfunction",
+    "2 Ghost Vacuum",
+    "2 Balustrade Wurm"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-898050",
+   "name": "Golgari Control",
+   "share": 0.4,
+   "tier": 2,
+   "title": "Golgari Control",
+   "url": "https://www.mtgtop8.com/event?e=91919&d=898050&f=ST",
+   "main": [
+    "1 Strategic Betrayal",
+    "1 Maelstrom Pulse",
+    "1 Professor Dellian Fel",
+    "2 Requiting Hex",
+    "2 Bitter Triumph",
+    "2 Duress",
+    "3 Deadly Cover-Up",
+    "4 Esper Origins",
+    "2 Emeritus of Abundance",
+    "4 Llanowar Elves",
+    "4 Icetill Explorer",
+    "4 Vraska, the Cutting Glare",
+    "4 Simulacrum Shaper",
+    "1 Elven Passage",
+    "2 Restless Cottage",
+    "2 Ba Sing Se",
+    "2 Deathcap Glade",
+    "3 Swamp",
+    "4 Wastewood Verge",
+    "4 Overgrown Tomb",
+    "4 Forest",
+    "4 Fabled Passage"
+   ],
+   "side": [
+    "1 Urgent Necropsy",
+    "2 Terminal Criticism",
+    "1 Garruk, Veiled Butcher",
+    "2 Ghost Vacuum",
+    "2 Inside Information",
+    "1 Vicious Rivalry",
+    "2 Strategic Betrayal",
+    "1 Professor Dellian Fel",
+    "1 Requiting Hex",
+    "2 Duress"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-888389",
+   "name": "4/5c Aggro",
+   "share": 0.3,
+   "tier": 2,
+   "title": "4c Legends",
+   "url": "https://www.mtgtop8.com/event?e=90673&d=888389&f=ST",
+   "main": [
+    "2 Celestial Reunion",
+    "2 Practiced Offense",
+    "2 Key to the Side-Door",
+    "1 Honest Rutstein",
+    "1 Miles Morales",
+    "1 King T'Challa",
+    "1 Lightning, Army of One",
+    "1 Elektra, Daughter of the Hand",
+    "2 Jennifer Walters",
+    "2 The Queen of Dale",
+    "2 Bruce Banner",
+    "2 Zack Fair",
+    "2 Cloak and Dagger, Entwined",
+    "2 Arachne, Psionic Weaver",
+    "2 Spectacular Spider-Man",
+    "3 The Wondrous Wasp",
+    "3 Aang, Swift Savior",
+    "3 Cecil, Dark Knight",
+    "3 Serah Farron",
+    "1 Plains",
+    "1 Forest",
+    "2 Hallowed Fountain",
+    "2 Godless Shrine",
+    "2 Overgrown Tomb",
+    "3 Temple Garden",
+    "4 Secluded Courtyard",
+    "4 Starting Town",
+    "4 Cavern of Souls"
+   ],
+   "side": [
+    "1 Captain America, Super-Soldier",
+    "2 Mai, Scornful Striker",
+    "2 Winnowing",
+    "2 Torpor Orb",
+    "2 Rest in Peace",
+    "1 Chomping Changeling",
+    "1 Punishing Punch",
+    "1 Sheltered by Ghosts",
+    "1 Sephiroth, Planet's Heir",
+    "1 The Sentry, Golden Guardian",
+    "1 Arachne, Psionic Weaver"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-892948",
+   "name": "Naya Aggro",
+   "share": 0.3,
+   "tier": 2,
+   "title": "Naya Aggro",
+   "url": "https://www.mtgtop8.com/event?e=91240&d=892948&f=ST",
+   "main": [
+    "5 Forest",
+    "4 Temple Garden",
+    "4 Hushwood Verge",
+    "4 Multiversal Passage",
+    "2 Plains",
+    "2 Abandoned Air Temple",
+    "1 Ba Sing Se",
+    "1 Starting Town",
+    "4 Bejeweled Warg",
+    "4 Wildgrowth Archaic",
+    "4 Llanowar Elves",
+    "4 Ouroboroid",
+    "4 Brightglass Gearhulk",
+    "3 Spider Manifestation",
+    "2 Keen-Eyed Curator",
+    "1 Formidable Speaker",
+    "1 Surrak, Elusive Hunter",
+    "4 Practiced Offense",
+    "2 Erode",
+    "1 Elspeth, Storm Slayer",
+    "1 Meltstrider's Resolve",
+    "1 Seam Rip",
+    "1 Bushwhack"
+   ],
+   "side": [
+    "1 Keen-Eyed Curator",
+    "1 Erode",
+    "3 Seam Rip",
+    "2 Pyrrhic Strike",
+    "1 Ghost Vacuum",
+    "3 Enduring Innocence",
+    "1 Rest in Peace",
+    "1 Torpor Orb",
+    "2 Leatherhead, Swamp Stalker"
+   ],
+   "prev": null
+  },
+  {
+   "id": "mtgtop8-898060",
+   "name": "Simic Aggro",
+   "share": 0.3,
+   "tier": 2,
+   "title": "Simic Aggro",
+   "url": "https://www.mtgtop8.com/event?e=91922&d=898060&f=ST",
+   "main": [
+    "1 Meltstrider's Resolve",
+    "1 Sapling Nursery",
+    "1 Repulsive Mutation",
+    "3 Shared Roots",
+    "4 Earthbender Ascension",
+    "4 Icetill Explorer",
+    "4 Mossborn Hydra",
+    "4 Llanowar Elves",
+    "4 Sazh's Chocobo",
+    "4 Avatar of Burgeoning Echoes",
+    "4 Mightform Harmonizer",
+    "1 Elven Passage",
+    "1 Ba Sing Se",
+    "1 Island",
+    "2 Botanical Sanctum",
+    "3 Escape Tunnel",
+    "4 Fabled Passage",
+    "4 Breeding Pool",
+    "10 Forest"
+   ],
+   "side": [
+    "1 Disdainful Stroke",
+    "2 Keen-Eyed Curator",
+    "2 Into the Flood Maw",
+    "1 Soul-Guide Lantern",
+    "1 Warg Tactics",
+    "2 Origin of Metalbending",
+    "2 Torpor Orb",
+    "1 Meltstrider's Resolve",
+    "2 Sapling Nursery",
+    "1 Repulsive Mutation"
+   ],
    "prev": null
   }
- ],
- "prevDate": null,
- "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto"
+ ]
 }
