@@ -42,6 +42,13 @@ Principi:
 | **Avviso dati vecchi** se il sync non gira da più di 3 giorni | Sapere quando fidarsi della classifica |
 | Gestione errori dell'interfaccia, rifiniture di accessibilità | Nessuna schermata bianca |
 
+## v0.8 — Varianti e collezione visiva ✓ (13 ottobre)
+| Cosa | Perché |
+|---|---|
+| **Varianti dentro gli archetipi** (es. Mono Blue Aggro → Delver e Faeries) | MTGTop8 usa categorie larghe che nascondevano mazzi giocati |
+| **Collezione come raccoglitore**: immagini, sezioni per colore, barra dei colori, griglia/elenco, filtri per tipo, valore stimato | Un elenco di soli nomi diventava illeggibile oltre poche decine di carte |
+| **Audit di accessibilità** WCAG 2.1 AA e correzioni (contrasti, titoli, bersagli tattili, salto al contenuto, annulla) | Usabile da tutti, anche da tastiera e con lettori di schermo |
+
 ## Dopo (gennaio e oltre, da valutare)
 - **Collezione sincronizzata tra dispositivi** (Firebase, già usato negli altri progetti).
 - **Storico del meta** con grafico dell'andamento di ogni archetipo.

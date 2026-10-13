@@ -28,7 +28,7 @@ src/
   lib/export.js            export mancolista (testo, TCGplayer, .txt) + backup collezione CSV
   components/DeckList.jsx  lista Top 5 con cornici colorate + Meter (barre)
   components/DeckDetail.jsx dettaglio: Lista (per tipo, immagini) / Mancolista + azioni
-  components/CollectionManager.jsx import file/testo, ricerca, stepper quantità
+  components/CollectionManager.jsx raccoglitore per colore con immagini (griglia/elenco), barra colori, filtri tipo, ordinamento, valore stimato, import a scomparsa
   components/MetaImporter.jsx aggiunta mazzo a mano
   components/KeyCards.jsx  pagina Carte chiave (Tier 1 / 1+2 / tutti)
   components/Badges.jsx    TierBadge, Trend
@@ -42,20 +42,21 @@ src/
 - Colori mana per le cornici: --mana-w/u/b/r/g, --mana-gold (3+ colori), --mana-c (incolore). Stato carte: --ok / --part / --no.
 - Font: Marcellus (titoli, nomi mazzi, numeri grandi), Alegreya Sans (UI). Numeri lining.
 - Cornice mazzo = deckColors() → frameOf(): 1 colore pieno, 2 colori gradiente ibrido, 3+ oro.
+- Accessibilità (audit WCAG 2.1 AA con axe-core: 0 violazioni): --edge per i bordi dei controlli (≥3:1), placeholder ≥4.5:1, focus visibile ovunque, link "Vai al contenuto", un solo h1 per pagina e titoli in ordine, bersagli tattili ≥44px su mobile (eccezioni: link dentro il testo, stepper della griglia collezione 40px), ManaCost con role="img". Annulla nel toast dopo "Svuota".
 - Mobile < 720px: tab bar in basso, azioni mancolista sticky. Animazione "distribuzione carte" sulla lista; prefers-reduced-motion rispettato.
 
 ## Data models
 ```js
 CardEntry   = { name: string, qty: number }
 Collection  = CardEntry[]                       // localStorage 'mdm.collection'
-MetaDeck    = { id, name, format, source, url?, title?, share?, tier?(1|2|3), prev?(share al sync prec.), prevDate?, updated?, main: CardEntry[], side: CardEntry[] }
+MetaDeck    = { id, name, archetype?(se variante), format, source, url?, title?, share?, tier?(1|2|3), prev?(share al sync prec.), prevDate?, updated?, main: CardEntry[], side: CardEntry[] }
 // File JSON meta: main/side come stringhe "4 Lightning Bolt" (convertite da metaDecks.js)
 ScoredDeck  = { deck, main: Alloc, side: Alloc, score, missing: Row[] }
 Alloc       = { rows: Row[], have, total, ratio }
 Row         = { name, qty, have, missing }
 ScryCard    = { name, i (path immagine), ci, type, cost, eur, usd, t } // salvato; getCached() aggiunge img e uri
 ```
-Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view` (modo/ordinamento/filtri), `mdm.cards.v3`.
+Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view` (modo/ordinamento/filtri), `mdm.collView` (vista/ordine/tipo collezione), `mdm.cards.v3` (max 8000 carte).
 
 ## Core logic (lib/matcher.js)
 1. `toOwnedMap(collection)` → Map(nomeNormalizzato → copie).
@@ -99,6 +100,7 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 - Codici: standard ST, pioneer PI, modern MO, pauper PAU, legacy LE, vintage VI, commander cEDH. cEDH: la lista comandanti arriva via POST `cEDH_decks?f=cEDH&show=pop&meta=ID…` (stessi link `archetype?a=…`, valori in per mille ‰ convertiti in %); poi stesso flusso degli altri formati (comandante spostato nel main).
 - % meta: letta solo come testo visibile (`>12 %<`), mai da attributi `style`.
 - Tier (metodo pubblicato da MTGdecks, calcolato su TUTTI gli archetipi della pagina): Tier 1 = primi archetipi fino al 50% cumulato; Tier 2 = altri > 0,2%; Tier 3 = resto. Con le % intere di MTGTop8 il Tier 3 è raro nella top 30.
+- Varianti: per ogni archetipo si leggono le ultime 15 liste; i nomi vengono normalizzati (`titleKey`: senza colori, "mono", punteggiatura, plurali). Se almeno 2 nomi compaiono ≥2 volte, ognuno (max 3) diventa un mazzo con `name` = nome più usato, `archetype` = archetipo MTGTop8, share = share archetipo × liste variante / liste lette. Es. Mono Blue Aggro → Mono Blue Delver + Mono Blue Faeries.
 - Trend: `prev` = share dello stesso archetipo al giorno di sync precedente (`prevDate`); più sync nello stesso giorno non azzerano il confronto.
 - robots.txt di MTGTop8 letto a inizio sync; un percorso vietato fa fallire il formato (dati precedenti mantenuti).
 - MTGdecks NON viene letto in automatico (il loro robots.txt lo vieta): nell'app c'è solo un link di ricerca.

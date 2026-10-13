@@ -57,3 +57,22 @@ export function missingCost(rows, lookup) {
 const EUR = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })
 const EUR2 = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' })
 export const euro = (v, cents = false) => (cents ? EUR2 : EUR).format(v)
+
+// Sezioni del "raccoglitore": colore della carta (terre a parte, multicolore, incolore)
+export const BINDER = [
+  ['W', 'Bianco'], ['U', 'Blu'], ['B', 'Nero'], ['R', 'Rosso'], ['G', 'Verde'],
+  ['M', 'Multicolore'], ['C', 'Incolore'], ['L', 'Terre'], ['?', 'Dati in arrivo'],
+]
+export function binderOf(card) {
+  if (!card) return '?'
+  if (/\bLand\b/.test(card.type) && !/\bCreature\b/.test(card.type)) return 'L'
+  if (!card.ci.length) return 'C'
+  return card.ci.length > 1 ? 'M' : card.ci[0]
+}
+export const TYPE_FILTERS = [
+  ['all', 'Tutte', () => true],
+  ['creature', 'Creature', t => /\bCreature\b/.test(t)],
+  ['spell', 'Istantanei e stregonerie', t => /\b(Instant|Sorcery)\b/.test(t)],
+  ['perm', 'Altri permanenti', t => !/\b(Creature|Land|Instant|Sorcery)\b/.test(t)],
+  ['land', 'Terre', t => /\bLand\b/.test(t) && !/\bCreature\b/.test(t)],
+]

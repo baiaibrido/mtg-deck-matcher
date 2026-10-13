@@ -43,6 +43,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
             <TierBadge tier={s.deck.tier} />
             {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
             <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
+            {s.deck.archetype && <span className="arch">variante di {s.deck.archetype}</span>}
           </span>
           <span className="deck-meters">
             <Meter label="Main" {...s.main} />

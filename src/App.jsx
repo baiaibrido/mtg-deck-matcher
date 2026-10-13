@@ -23,10 +23,11 @@ const SORTS = { score: 'Più completi', share: 'Più giocati', cost: 'Meno costo
 function useToast() {
   const [t, setT] = useState(null)
   const timer = useRef()
-  const toast = useCallback(text => {
+  // action facoltativa: { label, fn } (es. "Annulla" dopo un'azione distruttiva)
+  const toast = useCallback((text, action) => {
     clearTimeout(timer.current)
-    setT({ text, id: Date.now() })
-    timer.current = setTimeout(() => setT(null), 2600)
+    setT({ text, action, id: Date.now() })
+    timer.current = setTimeout(() => setT(null), action ? 6000 : 2600)
   }, [])
   return [t, toast]
 }
@@ -102,6 +103,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <a className="skip" href="#contenuto" onClick={e => { e.preventDefault(); document.getElementById('contenuto')?.focus() }}>Vai al contenuto</a>
       <header className="topbar">
         <a className="brand" href="#/mazzi" aria-label="Deck Matcher, home">
           <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <i key={c} className={`ms ms-${c} ms-cost`} />)}</span>
@@ -114,7 +116,7 @@ export default function App() {
         </nav>
       </header>
 
-      <main className="content">
+      <main className="content" id="contenuto" tabIndex={-1}>
         <ErrorBoundary key={page}>
           {page === 'mazzi' && <>
             {formatTabs}
@@ -196,7 +198,12 @@ export default function App() {
       </nav>
 
       <div className="toast-zone" aria-live="polite">
-        {toastMsg && <div className="toast" key={toastMsg.id}>{toastMsg.text}</div>}
+        {toastMsg && (
+          <div className={`toast${toastMsg.action ? ' toast-action' : ''}`} key={toastMsg.id}>
+            {toastMsg.text}
+            {toastMsg.action && <button onClick={() => { toastMsg.action.fn(); toast('Fatto') }}>{toastMsg.action.label}</button>}
+          </div>
+        )}
       </div>
     </div>
   )

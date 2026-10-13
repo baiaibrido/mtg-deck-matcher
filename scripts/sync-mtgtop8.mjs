@@ -126,6 +126,33 @@ export function parseDeckLinks(html, max = 3) {
 }
 export const parseFirstDeck = html => parseDeckLinks(html, 1)[0] || null
 
+// --- varianti dentro un archetipo ---
+// MTGTop8 usa archetipi larghi (es. "Mono Blue Aggro" = Delver + Faeries). Le ultime liste vengono
+// raggruppate per nome (ignorando colori, "mono", punteggiatura, plurali): un nome giocato almeno
+// VARIANT_MIN volte diventa un mazzo a sé, con quota di meta proporzionale alle sue liste.
+const VARIANT_SCAN = 15, VARIANT_MIN = 2, VARIANT_MAX = 3
+const NOISE = new Set(['mono', 'blue', 'blu', 'black', 'red', 'white', 'green', 'u', 'b', 'r', 'w', 'g', 'deck', 'the', 'pauper', 'modern', 'legacy', 'vintage', 'pioneer', 'standard', 'list', 'new', 'tech', 'v2', 'v3', 'mtgo', 'league'])
+export function titleKey(title) {
+  const toks = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(' ')
+    .filter(t => t && !NOISE.has(t)).map(t => t.length > 4 && t.endsWith('s') ? t.slice(0, -1) : t)
+  return [...new Set(toks)].sort().join(' ')
+}
+export function groupVariants(links, min = VARIANT_MIN, max = VARIANT_MAX) {
+  const groups = new Map()
+  for (const l of links) {
+    const k = titleKey(l.title) || '_'
+    const g = groups.get(k) || { key: k, links: [], titles: new Map() }
+    g.links.push(l); g.titles.set(l.title, (g.titles.get(l.title) || 0) + 1)
+    groups.set(k, g)
+  }
+  const big = [...groups.values()].filter(g => g.key !== '_' && g.links.length >= min)
+    .sort((a, b) => b.links.length - a.links.length).slice(0, max)
+  return big.map(g => ({
+    title: [...g.titles.entries()].sort((a, b) => b[1] - a[1])[0][0], // nome più usato
+    count: g.links.length, links: g.links,
+  }))
+}
+
 // --- sync ---
 async function syncFormat(id, code) {
   const home = await get(`format?f=${code}`)
@@ -144,8 +171,15 @@ async function syncFormat(id, code) {
   for (const a of archetypes) {
     try {
       const arch = await get(`archetype?a=${a.id}&meta=${a.meta}&f=${code}`)
-      const links = parseDeckLinks(arch, 3)
-      if (links.length) refs.push({ name: a.name, share: a.share, tier: a.tier, links })
+      const links = parseDeckLinks(arch, VARIANT_SCAN)
+      const variants = groupVariants(links)
+      if (variants.length >= 2) {
+        // più varianti giocate: un mazzo per variante, quota divisa in proporzione
+        for (const v of variants) {
+          refs.push({ name: v.title, archetype: a.name, share: Math.round(a.share * v.count / links.length * 10) / 10, tier: a.tier, links: v.links.slice(0, 3) })
+        }
+        console.log(`  ↳ ${a.name}: ${variants.map(v => `${v.title} (${v.count}/${links.length})`).join(', ')}`)
+      } else if (links.length) refs.push({ name: a.name, share: a.share, tier: a.tier, links: links.slice(0, 3) })
       else { console.warn(`  ✗ ${a.name}: link mazzo non trovato`); if (!refs.length) await dump(`${id}-archetype.html`, arch) }
     } catch (e) { console.warn(`  ✗ ${a.name}: ${e.message}`) }
   }
@@ -166,7 +200,7 @@ async function buildDecks(id, code, refs) {
       if (id === 'commander') { main = [...main, ...side]; side = [] } // in cEDH il comandante è nel "side"
       if (!main.length) { console.warn(`  ✗ ${a.name}: nessuna lista valida`); continue }
       decks.push({
-        id: `mtgtop8-${ref.deck}`, name: a.name, share: a.share, tier: a.tier, title: ref.title,
+        id: `mtgtop8-${ref.deck}`, name: a.name, archetype: a.archetype, share: a.share, tier: a.tier, title: ref.title,
         url: `${BASE}event?e=${ref.event}&d=${ref.deck}&f=${code}`,
         main: main.map(c => `${c.qty} ${c.name}`), side: side.map(c => `${c.qty} ${c.name}`),
       })

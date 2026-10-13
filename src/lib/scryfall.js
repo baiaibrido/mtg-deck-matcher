@@ -11,9 +11,9 @@ let cache
 const getCache = () => cache ??= (() => { try { return JSON.parse(localStorage.getItem(CK)) || {} } catch { return {} } })()
 const save = () => {
   try { localStorage.setItem(CK, JSON.stringify(cache)) }
-  catch { // quota piena: tiene le 3000 carte più recenti
+  catch { // quota piena: tiene le 8000 carte più recenti
     try {
-      const keep = Object.entries(cache).sort((a, b) => (b[1].t || 0) - (a[1].t || 0)).slice(0, 3000)
+      const keep = Object.entries(cache).sort((a, b) => (b[1].t || 0) - (a[1].t || 0)).slice(0, 8000)
       cache = Object.fromEntries(keep); localStorage.setItem(CK, JSON.stringify(cache))
     } catch { /* ignora */ }
   }
@@ -87,3 +87,6 @@ export async function normalizeCollection(list, onProgress) {
   const fixed = list.map(x => ({ name: getCached(x.name)?.name || x.name, qty: x.qty }))
   return { list: mergeEntries(fixed), notFound }
 }
+
+// Stessa immagine in formato piccolo (146px) per miniature e griglie
+export const smallImg = url => url?.replace('/normal/', '/small/')

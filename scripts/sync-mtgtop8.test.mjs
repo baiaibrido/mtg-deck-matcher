@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { parseMetaId, parseArchetypes, parseFirstDeck, parseDeckLinks, parseRobots, robotsAllows, assignTiers, previousShares } from './sync-mtgtop8.mjs'
+import { parseMetaId, parseArchetypes, parseFirstDeck, parseDeckLinks, parseRobots, robotsAllows, assignTiers, previousShares, titleKey, groupVariants } from './sync-mtgtop8.mjs'
 import { parseDeck } from '../src/lib/parser.js'
 
 const fmt = `<a href=format?f=PAU&meta=299&a=>Last 2 Weeks</a><a href="format?f=PAU&amp;meta=145&amp;a=">Last 2 Months</a>
@@ -76,4 +76,15 @@ test('trend: confronta col giorno precedente, non con lo stesso giorno', () => {
   const same = { updated: '2026-10-12', prevDate: '2026-10-11', decks: [{ name: 'Burn', share: 12, prev: 10 }] }
   const p = previousShares(same, '2026-10-12')
   assert.equal(p.map.get('Burn'), 10); assert.equal(p.date, '2026-10-11')
+})
+
+test('varianti: nomi equivalenti raggruppati, colori e plurali ignorati', () => {
+  assert.equal(titleKey('Mono Blue Faeries'), titleKey('faerie (mono-U)'))
+  assert.notEqual(titleKey('Mono Blue Delver'), titleKey('Mono Blue Faeries'))
+  const L = (t, d) => ({ title: t, deck: String(d), event: '1' })
+  const links = [L('Mono Blu Delver', 1), L('Mono Blue Faeries', 2), L('Mono Blue Delver', 3), L('Faeries', 4), L('Mono U Faeries', 5), L('Tron', 6), L('Mono Blue Delver', 7)]
+  const v = groupVariants(links)
+  assert.deepEqual(v.map(x => [x.title, x.count]), [['Mono Blue Delver', 3], ['Mono Blue Faeries', 3]])
+  assert.equal(v[0].links[0].deck, '1') // la lista più recente della variante
+  assert.equal(groupVariants([L('Burn', 1), L('Burn', 2), L('Madness', 3)]).length, 1) // una sola variante: resta l'archetipo
 })

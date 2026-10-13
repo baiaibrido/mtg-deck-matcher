@@ -5,7 +5,7 @@ export function ManaCost({ cost, size }) {
   const syms = costSymbols(cost)
   if (!syms.length) return null
   return (
-    <span className="mana-cost" style={size ? { fontSize: size } : undefined} aria-label={`Costo ${cost}`}>
+    <span className="mana-cost" style={size ? { fontSize: size } : undefined} role="img" aria-label={`Costo di mana ${cost}`}>
       {syms.map((s, i) => <i key={i} className={`ms ms-${s} ms-cost`} />)}
     </span>
   )

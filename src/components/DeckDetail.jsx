@@ -28,10 +28,10 @@ function Section({ title, rows, onlyMissing }) {
   if (!shown.length) return null
   return (
     <section className="list-section">
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       {groups.map(([label, list]) => (
         <div key={label} className="group">
-          <h4>{label} <span>{list.reduce((t, r) => t + r.qty, 0)}</span></h4>
+          <h3>{label} <span>{list.reduce((t, r) => t + r.qty, 0)}</span></h3>
           <div className="tiles">{list.map(r => <CardTile key={r.name} r={r} />)}</div>
         </div>
       ))}
@@ -62,13 +62,14 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
 
       <header className="detail-head">
         <div className="detail-title">
-          <h2>{s.deck.name}</h2>
+          <h1>{s.deck.name}</h1>
           <ColorPips colors={colors} size="1.15rem" />
         </div>
         <p className="detail-meta">
           <TierBadge tier={s.deck.tier} />
           {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
           <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
+          {s.deck.archetype && <span>Variante dell'archetipo MTGTop8 «{s.deck.archetype}»</span>}
           {price && <span className="price">Per completarlo {price}</span>}
         </p>
         <p className="detail-links">
