@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-13",
- "prevDate": "2026-10-12",
+ "updated": "2026-10-14",
+ "prevDate": "2026-10-13",
  "source": "MTGTop8 — ultimi 2 mesi",
  "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
@@ -34,7 +34,7 @@
     "1 Campfire",
     "4 Pyroblast"
    ],
-   "prev": null
+   "prev": 12
   },
   {
    "id": "mtgtop8-900200",
@@ -332,7 +332,7 @@
     "3 Undergrowth Leopard",
     "3 Vitu-Ghazi Inspector"
    ],
-   "prev": 4
+   "prev": 5
   },
   {
    "id": "mtgtop8-899762",
@@ -785,84 +785,7 @@
     "2 Vandalblast",
     "1 Crop Rotation"
    ],
-   "prev": null
-  },
-  {
-   "id": "mtgtop8-899658",
-   "name": "UR Control",
-   "share": 0.9,
-   "tier": 2,
-   "title": "UR Skred",
-   "url": "https://www.mtgtop8.com/event?e=92117&d=899658&f=PAU",
-   "main": [
-    "4 Augur of Bolas",
-    "1 Crimson Fleet Commodore",
-    "4 Faerie Seer",
-    "1 Moon-Circuit Hacker",
-    "4 Ninja of the Deep Hours",
-    "4 Spellstutter Sprite",
-    "4 Brainstorm",
-    "4 Counterspell",
-    "3 Lightning Bolt",
-    "4 Skred",
-    "1 Spell Pierce",
-    "4 Lorien Revealed",
-    "2 Ponder",
-    "1 Preordain",
-    "1 Suplex",
-    "2 Perilous Landscape",
-    "10 Snow-Covered Island",
-    "2 Snow-Covered Mountain",
-    "4 Volatile Fjord"
-   ],
-   "side": [
-    "2 Breath Weapon",
-    "3 Cast into the Fire",
-    "3 Pyroblast",
-    "3 Hydroblast",
-    "2 Relic of Progenitus",
-    "2 Spreading Seas"
-   ],
-   "prev": null
-  },
-  {
-   "id": "mtgtop8-899605",
-   "name": "Tireless Tribe",
-   "share": 0.9,
-   "tier": 2,
-   "title": "Tireless Tribe",
-   "url": "https://www.mtgtop8.com/event?e=92109&d=899605&f=PAU",
-   "main": [
-    "4 Aurora Eidolon",
-    "4 Sneaky Snacker",
-    "4 Tireless Tribe",
-    "3 Magmakin Artillerist",
-    "2 Sandstorm Eidolon",
-    "4 Inside Out",
-    "4 Lightning Bolt",
-    "4 Twinned Vision",
-    "2 Fling",
-    "2 Loran's Escape",
-    "4 Pursue the Past",
-    "4 Thrilling Discovery",
-    "4 Escape Tunnel",
-    "4 Mountain",
-    "4 Plains",
-    "4 Wind-Scarred Crag",
-    "2 Boros Garrison",
-    "1 Fields of Strife"
-   ],
-   "side": [
-    "4 Red Elemental Blast",
-    "3 Cast into the Fire",
-    "2 Prismatic Strands",
-    "2 Thraben Charm",
-    "1 Flaring Pain",
-    "1 Obsidian Acolyte",
-    "1 Shenanigans",
-    "1 Siege Smash"
-   ],
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-898176",
@@ -907,7 +830,84 @@
     "2 Dawnbringer Cleric",
     "1 Thraben Charm"
    ],
-   "prev": null
+   "prev": 0.8
+  },
+  {
+   "id": "mtgtop8-899658",
+   "name": "UR Control",
+   "share": 0.8,
+   "tier": 2,
+   "title": "UR Skred",
+   "url": "https://www.mtgtop8.com/event?e=92117&d=899658&f=PAU",
+   "main": [
+    "4 Augur of Bolas",
+    "1 Crimson Fleet Commodore",
+    "4 Faerie Seer",
+    "1 Moon-Circuit Hacker",
+    "4 Ninja of the Deep Hours",
+    "4 Spellstutter Sprite",
+    "4 Brainstorm",
+    "4 Counterspell",
+    "3 Lightning Bolt",
+    "4 Skred",
+    "1 Spell Pierce",
+    "4 Lorien Revealed",
+    "2 Ponder",
+    "1 Preordain",
+    "1 Suplex",
+    "2 Perilous Landscape",
+    "10 Snow-Covered Island",
+    "2 Snow-Covered Mountain",
+    "4 Volatile Fjord"
+   ],
+   "side": [
+    "2 Breath Weapon",
+    "3 Cast into the Fire",
+    "3 Pyroblast",
+    "3 Hydroblast",
+    "2 Relic of Progenitus",
+    "2 Spreading Seas"
+   ],
+   "prev": 0.9
+  },
+  {
+   "id": "mtgtop8-899605",
+   "name": "Tireless Tribe",
+   "share": 0.8,
+   "tier": 2,
+   "title": "Tireless Tribe",
+   "url": "https://www.mtgtop8.com/event?e=92109&d=899605&f=PAU",
+   "main": [
+    "4 Aurora Eidolon",
+    "4 Sneaky Snacker",
+    "4 Tireless Tribe",
+    "3 Magmakin Artillerist",
+    "2 Sandstorm Eidolon",
+    "4 Inside Out",
+    "4 Lightning Bolt",
+    "4 Twinned Vision",
+    "2 Fling",
+    "2 Loran's Escape",
+    "4 Pursue the Past",
+    "4 Thrilling Discovery",
+    "4 Escape Tunnel",
+    "4 Mountain",
+    "4 Plains",
+    "4 Wind-Scarred Crag",
+    "2 Boros Garrison",
+    "1 Fields of Strife"
+   ],
+   "side": [
+    "4 Red Elemental Blast",
+    "3 Cast into the Fire",
+    "2 Prismatic Strands",
+    "2 Thraben Charm",
+    "1 Flaring Pain",
+    "1 Obsidian Acolyte",
+    "1 Shenanigans",
+    "1 Siege Smash"
+   ],
+   "prev": 0.9
   },
   {
    "id": "mtgtop8-899560",
@@ -953,7 +953,7 @@
     "1 Tithing Blade",
     "1 Navigator's Compass"
    ],
-   "prev": null
+   "prev": 0.6
   },
   {
    "id": "mtgtop8-899682",
@@ -995,7 +995,7 @@
     "2 Crimson Acolyte",
     "2 Obsidian Acolyte"
    ],
-   "prev": null
+   "prev": 0.6
   },
   {
    "id": "mtgtop8-898589",
@@ -1030,7 +1030,7 @@
     "1 Bojuka Bog",
     "2 Crop Rotation"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "mtgtop8-899224",
@@ -1063,7 +1063,7 @@
     "1 Dread Return",
     "1 Lotleth Giant"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "mtgtop8-896357",
@@ -1098,7 +1098,7 @@
     "1 Dispel",
     "1 Swamp"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "mtgtop8-897805",
@@ -1133,7 +1133,7 @@
     "2 Immolating Souleater",
     "1 Singe"
    ],
-   "prev": null
+   "prev": 0.3
   }
  ]
 }

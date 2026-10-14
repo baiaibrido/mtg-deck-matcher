@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-13",
- "prevDate": "2026-10-12",
+ "updated": "2026-10-14",
+ "prevDate": "2026-10-13",
  "source": "MTGTop8 — ultimi 2 mesi",
  "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
@@ -89,7 +89,7 @@
   {
    "id": "mtgtop8-899119",
    "name": "Blink",
-   "share": 7,
+   "share": 8,
    "tier": 1,
    "title": "Esper Blink",
    "url": "https://www.mtgtop8.com/event?e=92050&d=899119&f=MO",
@@ -131,7 +131,7 @@
     "3 Wrath of the Skies",
     "2 Clarion Conqueror"
    ],
-   "prev": 8
+   "prev": 7
   },
   {
    "id": "mtgtop8-899098",
@@ -222,7 +222,7 @@
     "2 Celestial Purge",
     "3 Wrath of the Skies"
    ],
-   "prev": 7
+   "prev": 6
   },
   {
    "id": "mtgtop8-899741",
@@ -450,12 +450,12 @@
     "1 Beza, the Bounding Spring",
     "1 Surgical Extraction"
    ],
-   "prev": 3
+   "prev": 4
   },
   {
    "id": "mtgtop8-899784",
    "name": "Dimir Control",
-   "share": 4,
+   "share": 3,
    "tier": 2,
    "title": "Dimir Control",
    "url": "https://www.mtgtop8.com/event?e=92134&d=899784&f=MO",
@@ -734,6 +734,45 @@
    "prev": 2
   },
   {
+   "id": "mtgtop8-899105",
+   "name": "Landless",
+   "share": 2,
+   "tier": 2,
+   "title": "Landless Belcher",
+   "url": "https://www.mtgtop8.com/event?e=92048&d=899105&f=MO",
+   "main": [
+    "4 Lotus Bloom",
+    "4 Tameshi, Reality Architect",
+    "4 Thundertrap Trainer",
+    "4 Sea Gate Restoration",
+    "4 Suppression Ray",
+    "4 Hydroelectric Specimen",
+    "4 Sink into Stupor",
+    "4 Jwari Disruption",
+    "4 Whir of Invention",
+    "4 Goblin Charbelcher",
+    "4 Waterlogged Teachings",
+    "4 Disrupting Shoal",
+    "2 Stern Scolding",
+    "2 Spell Snare",
+    "2 Tamiyo, Inquisitive Student",
+    "3 Flare of Denial",
+    "3 Force of Negation"
+   ],
+   "side": [
+    "1 Tormod's Crypt",
+    "4 Consign to Memory",
+    "2 Mystical Dispute",
+    "1 Stock Up",
+    "2 Harbinger of the Seas",
+    "2 Into the Flood Maw",
+    "1 Grafdigger's Cage",
+    "1 Tezzeret the Seeker",
+    "1 Ashiok, Dream Render"
+   ],
+   "prev": 2
+  },
+  {
    "id": "mtgtop8-899746",
    "name": "Allosaurus Combo",
    "share": 2,
@@ -783,45 +822,6 @@
    "prev": 2
   },
   {
-   "id": "mtgtop8-899105",
-   "name": "Landless",
-   "share": 2,
-   "tier": 2,
-   "title": "Landless Belcher",
-   "url": "https://www.mtgtop8.com/event?e=92048&d=899105&f=MO",
-   "main": [
-    "4 Lotus Bloom",
-    "4 Tameshi, Reality Architect",
-    "4 Thundertrap Trainer",
-    "4 Sea Gate Restoration",
-    "4 Suppression Ray",
-    "4 Hydroelectric Specimen",
-    "4 Sink into Stupor",
-    "4 Jwari Disruption",
-    "4 Whir of Invention",
-    "4 Goblin Charbelcher",
-    "4 Waterlogged Teachings",
-    "4 Disrupting Shoal",
-    "2 Stern Scolding",
-    "2 Spell Snare",
-    "2 Tamiyo, Inquisitive Student",
-    "3 Flare of Denial",
-    "3 Force of Negation"
-   ],
-   "side": [
-    "1 Tormod's Crypt",
-    "4 Consign to Memory",
-    "2 Mystical Dispute",
-    "1 Stock Up",
-    "2 Harbinger of the Seas",
-    "2 Into the Flood Maw",
-    "1 Grafdigger's Cage",
-    "1 Tezzeret the Seeker",
-    "1 Ashiok, Dream Render"
-   ],
-   "prev": 2
-  },
-  {
    "id": "mtgtop8-899788",
    "name": "Rakdos Aggro",
    "share": 1,
@@ -865,7 +865,7 @@
     "1 Inquisition of Kozilek",
     "2 Grafdigger's Cage"
    ],
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-900046",
@@ -998,7 +998,7 @@
     "3 Wrath of the Skies",
     "3 Consign to Memory"
    ],
-   "prev": null
+   "prev": 1
   },
   {
    "id": "mtgtop8-900061",
@@ -1047,7 +1047,7 @@
     "2 Force of Negation",
     "2 Consign to Memory"
    ],
-   "prev": null
+   "prev": 0.8
   },
   {
    "id": "mtgtop8-900099",
@@ -1084,12 +1084,12 @@
     "2 Deflecting Palm",
     "2 Surgical Extraction"
    ],
-   "prev": null
+   "prev": 0.6
   },
   {
    "id": "mtgtop8-899095",
    "name": "Jeskai Control",
-   "share": 0.5,
+   "share": 0.6,
    "tier": 2,
    "title": "Jeskai Control",
    "url": "https://www.mtgtop8.com/event?e=92048&d=899095&f=MO",
@@ -1132,12 +1132,12 @@
     "1 Test of Talents",
     "1 Wrath of the Skies"
    ],
-   "prev": null
+   "prev": 0.5
   },
   {
    "id": "mtgtop8-898895",
    "name": "Simic Birthing Ritual",
-   "share": 0.4,
+   "share": 0.5,
    "tier": 2,
    "title": "Simic Birthing Ritual",
    "url": "https://www.mtgtop8.com/event?e=92028&d=898895&f=MO",
@@ -1175,7 +1175,7 @@
     "1 Collector Ouphe",
     "1 Neoform"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "mtgtop8-898901",
@@ -1224,7 +1224,7 @@
     "3 Consign to Memory",
     "1 Wan Shi Tong, Librarian"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "mtgtop8-900044",
@@ -1266,7 +1266,7 @@
     "2 Teferi, Time Raveler",
     "2 Hushbringer"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "mtgtop8-899100",
@@ -1310,7 +1310,7 @@
     "1 Iona, Shield of Emeria",
     "2 High Noon"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "mtgtop8-898860",
@@ -1358,7 +1358,7 @@
     "2 Wrath of the Skies",
     "1 Surgical Extraction"
    ],
-   "prev": null
+   "prev": 0.3
   }
  ]
 }
