@@ -191,6 +191,8 @@ export default function App() {
         </ErrorBoundary>
       </main>
 
+      <footer className="site-footer">Deck Matcher v{__APP_VERSION__}</footer>
+
       <nav className="tabbar" aria-label="Sezioni">
         <a href="#/mazzi" aria-current={navCurrent('mazzi')}><IconDecks />Mazzi</a>
         <a href="#/carte" aria-current={navCurrent('carte')}><IconKey />Carte chiave</a>

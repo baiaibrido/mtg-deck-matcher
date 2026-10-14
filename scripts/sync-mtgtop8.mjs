@@ -137,10 +137,12 @@ export function titleKey(title) {
     .filter(t => t && !NOISE.has(t)).map(t => t.length > 4 && t.endsWith('s') ? t.slice(0, -1) : t)
   return [...new Set(toks)].sort().join(' ')
 }
-export function groupVariants(links, min = VARIANT_MIN, max = VARIANT_MAX) {
-  const groups = new Map()
+// I titoli generici uguali al nome dell'archetipo (es. "Mono Blue Aggro" dentro Mono Blue Aggro) non sono una variante.
+export function groupVariants(links, min = VARIANT_MIN, max = VARIANT_MAX, archetype = '') {
+  const generic = titleKey(archetype), groups = new Map()
   for (const l of links) {
     const k = titleKey(l.title) || '_'
+    if (generic && k === generic) continue
     const g = groups.get(k) || { key: k, links: [], titles: new Map() }
     g.links.push(l); g.titles.set(l.title, (g.titles.get(l.title) || 0) + 1)
     groups.set(k, g)
@@ -172,7 +174,7 @@ async function syncFormat(id, code) {
     try {
       const arch = await get(`archetype?a=${a.id}&meta=${a.meta}&f=${code}`)
       const links = parseDeckLinks(arch, VARIANT_SCAN)
-      const variants = groupVariants(links)
+      const variants = groupVariants(links, VARIANT_MIN, VARIANT_MAX, a.name)
       if (variants.length >= 2) {
         // più varianti giocate: un mazzo per variante, quota divisa in proporzione
         for (const v of variants) {

@@ -87,4 +87,7 @@ test('varianti: nomi equivalenti raggruppati, colori e plurali ignorati', () => 
   assert.deepEqual(v.map(x => [x.title, x.count]), [['Mono Blue Delver', 3], ['Mono Blue Faeries', 3]])
   assert.equal(v[0].links[0].deck, '1') // la lista più recente della variante
   assert.equal(groupVariants([L('Burn', 1), L('Burn', 2), L('Madness', 3)]).length, 1) // una sola variante: resta l'archetipo
+  // titolo generico = nome archetipo: non diventa una variante
+  const g = groupVariants([L('Mono Blue Delver', 1), L('Mono Blue Aggro', 2), L('Mono Blue Delver', 3), L('Mono Blue Aggro', 4)], 2, 3, 'Mono Blue Aggro')
+  assert.deepEqual(g.map(x => x.title), ['Mono Blue Delver'])
 })

@@ -65,6 +65,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
   .tabbar a[aria-current] { color: var(--brass); }
 }
 
+.site-footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--rail); text-align: center; font-size: .85rem; color: var(--lichen); font-variant-numeric: lining-nums; }
+
 .page-head { margin: 18px 0 18px; max-width: 62ch; }
 .page-head h1 { font: clamp(1.6rem, 4.6vw, 2.35rem)/1.12 var(--font-title); letter-spacing: .005em; text-wrap: balance; }
 .page-head p { margin: 8px 0 0; color: var(--lichen); }
