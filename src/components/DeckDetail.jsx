@@ -73,7 +73,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {price && <span className="price">Per completarlo {price}</span>}
         </p>
         <p className="detail-links">
-          {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">Lista su MTGTop8{s.deck.title && s.deck.title !== s.deck.name ? ` (${s.deck.title})` : ''} <IconExternal size={14} /></a>}
+          {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">Lista originale{s.deck.title && s.deck.title !== s.deck.name ? ` (${s.deck.title})` : ''} <IconExternal size={14} /></a>}
           {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">Cerca su MTGdecks <IconExternal size={14} /></a>}
         </p>
         <div className="detail-meters">

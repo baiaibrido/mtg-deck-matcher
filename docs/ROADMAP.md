@@ -49,6 +49,13 @@ Principi:
 | **Collezione come raccoglitore**: immagini, sezioni per colore, barra dei colori, griglia/elenco, filtri per tipo, valore stimato | Un elenco di soli nomi diventava illeggibile oltre poche decine di carte |
 | **Audit di accessibilità** WCAG 2.1 AA e correzioni (contrasti, titoli, bersagli tattili, salto al contenuto, annulla) | Usabile da tutti, anche da tastiera e con lettori di schermo |
 
+## v0.9 — Nuova fonte del meta ✓ (14 ottobre)
+| Cosa | Perché |
+|---|---|
+| Meta da **MTGODecklistCache** (tornei MTGO, melee.gg, CardsRealm) classificati con le regole aperte di **MTGOFormatData** | MTGTop8 usa archetipi larghi: Mono Blue Faeries e Dimir Faeries finivano dentro Delver e Dimir Control |
+| **MTGTop8 come rete di sicurezza**: Commander sempre, gli altri formati se più del 15% dei mazzi non viene riconosciuto | Le regole vengono aggiornate ogni pochi mesi; meglio dati larghi che dati sbagliati |
+| Footer con numero di versione (v0.8.1) | Sapere quale versione si sta usando |
+
 ## Dopo (gennaio e oltre, da valutare)
 - **Collezione sincronizzata tra dispositivi** (Firebase, già usato negli altri progetti).
 - **Storico del meta** con grafico dell'andamento di ogni archetipo.

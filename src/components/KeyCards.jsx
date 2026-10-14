@@ -67,7 +67,7 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
         </div>
       </> : <p className="empty">{hasCollection ? 'Nessuna carta mancante è condivisa da almeno due mazzi: ottimo lavoro.' : 'Nessun dato disponibile.'}</p>}
 
-      <p className="hint">Copie da comprare = il massimo richiesto da uno dei mazzi. Tier calcolati con il metodo di MTGdecks sui dati MTGTop8.</p>
+      <p className="hint">Copie da comprare = il massimo richiesto da uno dei mazzi. Tier calcolati con il metodo di MTGdecks.</p>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-name: Sync meta MTGTop8
+name: Sync meta
 on:
   schedule:
     - cron: '17 3 * * *'   # ogni notte alle 03:17 UTC
@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 24
       - id: sync
-        run: rm -rf debug && node scripts/sync-mtgtop8.mjs
+        run: rm -rf debug && node scripts/sync-meta.mjs
         continue-on-error: true
       - name: Commit (meta aggiornati o pagine di debug)
         run: |

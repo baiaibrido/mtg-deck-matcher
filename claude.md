@@ -10,7 +10,8 @@ public/meta/index.json     elenco formati
 public/meta/<format>.json  mazzi meta per formato (aggiornati ogni notte dalla GitHub Action)
 public/sw.js               service worker (offline: rete-poi-cache per pagine e meta, cache per assets e immagini)
 public/manifest.webmanifest + public/icons/  PWA installabile
-scripts/sync-mtgtop8.mjs   sync MTGTop8 → public/meta: tier, trend, robots.txt (+ test .test.mjs)
+scripts/sync-meta.mjs      sync notturno: MTGODecklistCache + regole MTGOFormatData → public/meta; Commander e fallback via MTGTop8 (+ test)
+scripts/sync-mtgtop8.mjs   sync MTGTop8: tier, trend, robots.txt, saveFormat() condiviso (+ test)
 .github/workflows/         sync-meta.yml (notturno), test.yml (test + build a ogni push)
 src/
   main.jsx                 entry: font (Marcellus, Alegreya Sans), mana-font, stili
@@ -95,7 +96,14 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 ## Comandi
 `npm install` · `npm run dev` · `npm run build` · `npm test`
 
-## Sync meta automatico (MTGTop8)
+## Sync meta automatico (dalla v0.9.0)
+- `scripts/sync-meta.mjs`: clone parziale (depth 1, blob:none, sparse) di github.com/Jiliac/MTGODecklistCache, solo le cartelle `Tournaments/*/AAAA/MM/GG/` degli ultimi 60 giorni (~1000 file, ~10 s) + github.com/Badaro/MTGOFormatData (regole archetipi). Formati: standard, pioneer, modern, pauper, legacy, vintage (filtro su `Tournament.Formats`).
+- Classificatore = porta JS di MTGOArchetypeParser: condizioni InMainboard/DoesNotContain/OneOrMore…/TwoOrMore…, varianti, conflitto → regola più semplice, fallback generici (CommonCards, soglia 10%). Colore = colori presenti sia nelle terre sia nelle magie (card_colors.json + color_overrides.json); nome = colore + archetipo se IncludeColorInName (es. Mono Blue Faeries, Dimir Faeries).
+- Doppioni (stessa lista in melee.gg e mtgo.com) eliminati con chiave giocatore+torneo+data+75. Liste < 60 carte scartate. Quota = mazzi archetipo / mazzi analizzati (non riconosciuti inclusi). Lista mostrata = la più recente tra top 8 / 5-0, altrimenti la più recente.
+- Fallback MTGTop8 per formato se: non riconosciuti > 15%, meno di 50 mazzi, errore di download/regole. Commander sempre MTGTop8. Cambio fonte → trend azzerato per un giorno (nomi non confrontabili).
+- JSON: `source` 'MTGODecklistCache' | 'MTGTop8', `decksAnalyzed`, `unknownPct`; ogni mazzo ha `count` (liste trovate). Id stabile `<formato>-<slug nome>`.
+
+## Sync MTGTop8 (Commander e fallback)
 - `scripts/sync-mtgtop8.mjs`: per ogni formato legge `format?f=CODE` → periodo "Last 2 Months" → fino a 30 archetipi con % più alta (esclusi "Other…") → primo mazzo (più recente) di ogni archetipo → export `mtgo?d=ID` → `public/meta/<formato>.json`.
 - Codici: standard ST, pioneer PI, modern MO, pauper PAU, legacy LE, vintage VI, commander cEDH. cEDH: la lista comandanti arriva via POST `cEDH_decks?f=cEDH&show=pop&meta=ID…` (stessi link `archetype?a=…`, valori in per mille ‰ convertiti in %); poi stesso flusso degli altri formati (comandante spostato nel main).
 - % meta: letta solo come testo visibile (`>12 %<`), mai da attributi `style`.
@@ -108,4 +116,4 @@ Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per ri
 - `.github/workflows/sync-meta.yml`: ogni notte 03:17 UTC + avvio manuale; commit solo se cambia qualcosa.
 - Campi extra MetaDeck: `share` (% meta), `title` (nome lista originale), `url`.
 - Debug: se il sito cambia HTML, si rompono le regex in `parseArchetypes` / `parseFirstDeck` / `parseMetaId` (test in `scripts/sync-mtgtop8.test.mjs`). Quando fallisce, lo script salva le pagine in `debug/` e la Action le committa: leggerle con `git pull`.
-- Locale: `npm run sync-meta` oppure `node scripts/sync-mtgtop8.mjs pauper`.
+- Locale: `npm run sync-meta` (tutti) oppure `node scripts/sync-meta.mjs pauper`; solo MTGTop8: `node scripts/sync-mtgtop8.mjs pauper`. Cartella cache: env `META_CACHE` (default tmp).

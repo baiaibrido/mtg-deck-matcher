@@ -90,6 +90,7 @@ export default function App() {
 
   const formatName = formats.find(f => f.id === format)?.name || ''
   const updated = meta?.[0]?.updated
+  const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? 'nei tornei MTGO, melee.gg e CardsRealm (dati MTGODecklistCache)' : 'su MTGTop8'
   const stale = updated && daysAgo(updated) > STALE_DAYS
   const page = route.page === 'collezione' ? 'collezione' : route.page === 'carte' ? 'carte' : sel ? 'mazzo' : 'mazzi'
   const count = collection.reduce((t, c) => t + c.qty, 0)
@@ -122,7 +123,7 @@ export default function App() {
             {formatTabs}
             <header className="page-head">
               <h1>I mazzi {formatName} più vicini alla tua collezione</h1>
-              {meta && decks.length > 0 && <p>Confronto con i {meta.length} archetipi più giocati negli ultimi due mesi su MTGTop8{updated ? `, aggiornati il ${fmtDate(updated)}` : ''}. Tier calcolati con il metodo di MTGdecks.</p>}
+              {meta && decks.length > 0 && <p>Confronto con i {meta.length} archetipi più giocati negli ultimi due mesi {sourceText}{updated ? `, aggiornati il ${fmtDate(updated)}` : ''}. Tier calcolati con il metodo di MTGdecks.</p>}
             </header>
 
             {stale && <p className="note note-error">I dati del meta hanno {daysAgo(updated)} giorni: l'aggiornamento automatico potrebbe essersi fermato. Controlla il tab Actions su GitHub.</p>}

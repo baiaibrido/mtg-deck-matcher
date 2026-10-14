@@ -9,7 +9,7 @@ export async function loadFormats() {
   return r.ok ? (await r.json()).formats : []
 }
 
-// Cache JSON per formato: { updated, source, decks: [{ id, name, url?, main: ["4 Card"], side: [...] }] }
+// Cache JSON per formato: { updated, source ('MTGODecklistCache' | 'MTGTop8'), decks: [{ id, name, url?, main: ["4 Card"], side: [...] }] }
 export async function loadMetaDecks(format) {
   try {
     const r = await fetch(`${base}meta/${format}.json`)

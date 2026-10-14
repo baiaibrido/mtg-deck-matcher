@@ -9,7 +9,7 @@ import { parseDeck } from '../src/lib/parser.js'
 const BASE = 'https://www.mtgtop8.com/'
 const TOP_N = 30 // archetipi per formato (meno se il meta ne ha meno)
 const DELAY_MS = 1200 // pausa tra richieste: carico minimo sul sito
-const FORMATS = { standard: 'ST', pioneer: 'PI', modern: 'MO', pauper: 'PAU', legacy: 'LE', vintage: 'VI', commander: 'cEDH' }
+export const FORMATS = { standard: 'ST', pioneer: 'PI', modern: 'MO', pauper: 'PAU', legacy: 'LE', vintage: 'VI', commander: 'cEDH' }
 const OUT = new URL('../public/meta/', import.meta.url)
 const DEBUG = new URL('../debug/', import.meta.url)
 const dump = async (file, html) => { await mkdir(DEBUG, { recursive: true }); await writeFile(new URL(file, DEBUG), html) }
@@ -44,7 +44,7 @@ export function robotsAllows(rules, path) {
   return !best || best.allow
 }
 let ROBOTS = []
-async function loadRobots() {
+export async function loadRobots() {
   try {
     const r = await fetch(BASE + 'robots.txt', { signal: AbortSignal.timeout(20000), headers: { 'User-Agent': UA } })
     ROBOTS = r.ok ? parseRobots(await r.text()) : []
@@ -156,7 +156,7 @@ export function groupVariants(links, min = VARIANT_MIN, max = VARIANT_MAX, arche
 }
 
 // --- sync ---
-async function syncFormat(id, code) {
+export async function syncFormat(id, code) {
   const home = await get(`format?f=${code}`)
   const metaId = parseMetaId(home)
   // cEDH: la lista archetipi (comandanti) arriva via POST cEDH_decks?show=pop
@@ -212,9 +212,21 @@ async function buildDecks(id, code, refs) {
   return decks
 }
 
+// Salva public/meta/<formato>.json con trend rispetto al sync precedente (usato anche da sync-meta.mjs)
+export async function saveFormat(id, decks, extra = {}) {
+  const today = new Date().toISOString().slice(0, 10)
+  const file = new URL(`${id}.json`, OUT)
+  const source = extra.source || 'MTGTop8'
+  const old = await readFile(file, 'utf8').then(JSON.parse).catch(() => null)
+  // fonte cambiata: nomi degli archetipi non confrontabili → niente trend per questo giro
+  const prev = old && !String(old.source || '').startsWith(source) ? { date: null, map: new Map() } : previousShares(old, today)
+  for (const d of decks) d.prev = prev.map.has(d.name) ? prev.map.get(d.name) : null
+  const json = { updated: today, prevDate: prev.date, source: 'MTGTop8', period: 'ultimi 2 mesi', ...extra, tierMethod: 'MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto', decks }
+  await writeFile(file, JSON.stringify(json, null, 1) + '\n')
+}
+
 async function main() {
   const only = process.argv.slice(2)
-  const today = new Date().toISOString().slice(0, 10)
   let ok = 0
   await loadRobots()
   for (const [id, code] of Object.entries(FORMATS)) {
@@ -223,12 +235,7 @@ async function main() {
     try {
       const decks = await syncFormat(id, code)
       if (!decks.length) { console.warn(`  nessun mazzo: file ${id}.json lasciato invariato`); continue }
-      const file = new URL(`${id}.json`, OUT)
-      const old = await readFile(file, 'utf8').then(JSON.parse).catch(() => null)
-      const prev = previousShares(old, today)
-      for (const d of decks) d.prev = prev.map.has(d.name) ? prev.map.get(d.name) : null
-      const json = { updated: today, prevDate: prev.date, source: 'MTGTop8 — ultimi 2 mesi', tierMethod: 'MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto', decks }
-      await writeFile(file, JSON.stringify(json, null, 1) + '\n')
+      await saveFormat(id, decks)
       ok++
     } catch (e) { console.warn(`  errore formato: ${e.message}`) }
   }

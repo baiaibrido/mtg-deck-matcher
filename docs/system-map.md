@@ -36,4 +36,4 @@ Layer:
 - **Engine** `matcher.js` — funzioni pure, testate.
 - **Data/API** `parser.js`, `metaDecks.js`, `scryfall.js`, `export.js`.
 
-Sync notturno: `.github/workflows/sync-meta.yml` → `scripts/sync-mtgtop8.mjs` → MTGTop8 → `public/meta/*.json` → commit → deploy Vercel.
+Sync notturno: `.github/workflows/sync-meta.yml` → `scripts/sync-meta.mjs` → MTGODecklistCache + MTGOFormatData (Commander/fallback: `scripts/sync-mtgtop8.mjs` → MTGTop8) → `public/meta/*.json` → commit → deploy Vercel.
