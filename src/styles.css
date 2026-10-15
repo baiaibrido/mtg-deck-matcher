@@ -590,3 +590,45 @@ main:focus { outline: none; }
 @media (max-width: 560px) { .mu-list li { grid-template-columns: minmax(0, 1fr) auto; } .mu-num em { display: inline; } .mu-bar { grid-column: 1 / -1; grid-row: 2; } }
 .mu-num em .sep { display: none; }
 @media (max-width: 560px) { .mu-num em .sep { display: inline; } }
+
+/* v0.13: dettaglio mazzo a due colonne (lista a sinistra, andamento e matchup a destra) */
+.list-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 8px; }
+.list-tools .switch { margin: 0; }
+.list-tools .seg { margin-bottom: 0; }
+.detail-split { display: grid; gap: 28px; }
+@media (min-width: 900px) {
+  .detail-split.has-meta { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); align-items: start; }
+}
+.detail-main { min-width: 0; }
+.detail-side { margin-top: 0; padding: 18px; border: 1px solid var(--rail); border-radius: var(--r-lg); background: var(--baize); }
+.detail-side .mu-list { background: var(--felt, transparent); }
+.tlines { list-style: none; margin: 0; padding: 0; border: 1px solid var(--rail); border-radius: var(--r-lg); background: var(--baize); overflow: hidden; }
+.tline { display: grid; grid-template-columns: 3em minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 14px; border-top: 1px solid var(--rail); }
+.tline:first-child { border-top: 0; }
+.tline-qty { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; color: var(--st-ink); }
+.tline-name { color: var(--bone); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tline-name:hover { color: var(--brass); }
+.tline.tile-ok { --st-ink: var(--ok); }
+.tline.tile-part { --st-ink: var(--part); }
+.tline.tile-no { --st-ink: var(--no-ink); }
+.tline.tile-no .tline-name { color: var(--lichen); }
+
+/* Carte chiave: possedute/mancanti sul playset e vista a immagini */
+.key-buy { text-align: right; }
+.key-own { font-size: .86rem; color: var(--lichen); }
+.key-buy.tile-ok .key-own { color: var(--ok); }
+.key-buy.tile-part .key-own { color: var(--part); }
+.key-buy b { font-size: 1.05rem; }
+.key-full { display: inline-flex; align-items: center; gap: 4px; color: var(--ok) !important; font-size: .95rem !important; }
+.key-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px 12px; }
+@media (max-width: 560px) { .key-tiles { grid-template-columns: repeat(2, 1fr); } }
+.key-tiles li { display: grid; gap: 6px; align-content: start; }
+.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.7em; padding: 1px 6px; border-radius: 99px; text-align: center; font: .85rem var(--font-title); background: var(--overlay-bg); color: var(--bone); }
+.key-tile-info { font-size: .82rem; color: var(--lichen); line-height: 1.35; }
+.key-tile-info b { color: var(--no-ink); font-weight: 700; }
+/* colonna laterale stretta: matchup su due righe (come su mobile) e assi del grafico leggibili */
+.detail-side .mu-list li { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; }
+.detail-side .mu-bar { grid-column: 1 / -1; grid-row: 2; }
+.detail-side .mu-num em { display: inline; }
+.detail-side .mu-num em .sep { display: inline; }
+.detail-side .hist-axis { font-size: 19px; }

@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
-import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck } from './Icons.jsx'
+import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList } from './Icons.jsx'
+import { useLocal } from '../state/useLocal.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
 import { t } from '../i18n/index.js'
@@ -26,7 +27,20 @@ function CardTile({ r }) {
   )
 }
 
-function Section({ title, rows, onlyMissing }) {
+// Riga della lista testuale: copie possedute/richieste, nome, costo
+function CardLine({ r }) {
+  const c = getCached(r.name)
+  const st = r.missing === 0 ? 'ok' : r.have === 0 ? 'no' : 'part'
+  return (
+    <li className={`tline tile-${st}`}>
+      <span className="tline-qty">{r.have}/{r.qty}</span>
+      <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="tline-name">{r.name}</a>
+      <ManaCost cost={c?.cost} />
+    </li>
+  )
+}
+
+function Section({ title, rows, onlyMissing, visual }) {
   const shown = onlyMissing ? rows.filter(r => r.missing > 0) : rows
   const groups = GROUP_ORDER.map(k => [t(`group.${k}`), shown.filter(r => groupOf(getCached(r.name)) === k)]).filter(([, l]) => l.length)
   if (!shown.length) return null
@@ -36,7 +50,9 @@ function Section({ title, rows, onlyMissing }) {
       {groups.map(([label, list]) => (
         <div key={label} className="group">
           <h3>{label} <span>{list.reduce((t, r) => t + r.qty, 0)}</span></h3>
-          <div className="tiles">{list.map(r => <CardTile key={r.name} r={r} />)}</div>
+          {visual
+            ? <div className="tiles">{list.map(r => <CardTile key={r.name} r={r} />)}</div>
+            : <ul className="tlines">{list.map(r => <CardLine key={r.name} r={r} />)}</ul>}
         </div>
       ))}
     </section>
@@ -49,6 +65,7 @@ const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=$
 export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin }) {
   const [tab, setTab] = useState('list')
   const [onlyMissing, setOnlyMissing] = useState(false)
+  const [look, setLook] = useLocal('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
   const list = toText(s.missing)
   const missingCount = s.missing.reduce((t, r) => t + r.missing, 0)
   const missRows = useMemo(() => [...s.missing].sort((a, b) => b.missing - a.missing || a.name.localeCompare(b.name)), [s])
@@ -92,24 +109,26 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         </div>
       </header>
 
+      <div className={`detail-split${hasMeta ? ' has-meta' : ''}`}>
+      <div className="detail-main">
       <div className="seg" role="tablist" aria-label={t('view')}>
         <button role="tab" aria-selected={tab === 'list'} onClick={() => setTab('list')}>{t('tab.list')}</button>
         <button role="tab" aria-selected={tab === 'need'} onClick={() => setTab('need')}>{t('tab.need')} <span className="count">{missingCount}</span></button>
-        {hasMeta && <button role="tab" aria-selected={tab === 'meta'} onClick={() => setTab('meta')}>{t('tab.meta')}</button>}
       </div>
 
-      {tab === 'meta' && <div className="meta-tab">
-        {s.deck.history && s.deck.historyWeeks && <HistoryChart weeks={s.deck.historyWeeks} values={s.deck.history} />}
-        {s.deck.field && <Matchups deck={s.deck} onOpen={onOpen} idOf={idOf} />}
-      </div>}
-
       {tab === 'list' && <>
-        <label className="switch">
-          <input type="checkbox" checked={onlyMissing} onChange={e => setOnlyMissing(e.target.checked)} />
-          <span className="switch-ui" aria-hidden="true" />{t('detail.onlyMissing')}
-        </label>
-        <Section title="Main" rows={s.main.rows} onlyMissing={onlyMissing} />
-        <Section title="Sideboard" rows={s.side.rows} onlyMissing={onlyMissing} />
+        <div className="list-tools">
+          <label className="switch">
+            <input type="checkbox" checked={onlyMissing} onChange={e => setOnlyMissing(e.target.checked)} />
+            <span className="switch-ui" aria-hidden="true" />{t('detail.onlyMissing')}
+          </label>
+          <div className="seg seg-icons" role="group" aria-label={t('view')}>
+            <button aria-pressed={look !== 'visual'} onClick={() => setLook('text')} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
+            <button aria-pressed={look === 'visual'} onClick={() => setLook('visual')} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
+          </div>
+        </div>
+        <Section title="Main" rows={s.main.rows} onlyMissing={onlyMissing} visual={look === 'visual'} />
+        <Section title="Sideboard" rows={s.side.rows} onlyMissing={onlyMissing} visual={look === 'visual'} />
         {onlyMissing && !missingCount && <p className="empty">{t('detail.haveAll')}</p>}
       </>}
 
@@ -142,6 +161,13 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         </div>
         <p className="hint">{t('detail.hint', priceSource())}</p>
       </> : <p className="empty">{t('detail.haveAll')}</p>)}
+      </div>
+
+      {hasMeta && <aside className="detail-side meta-tab" aria-label={t('tab.meta')}>
+        {s.deck.history && s.deck.historyWeeks && <HistoryChart weeks={s.deck.historyWeeks} values={s.deck.history} />}
+        {s.deck.field && <Matchups deck={s.deck} onOpen={onOpen} idOf={idOf} />}
+      </aside>}
+      </div>
 
       {onDelete && <button className="btn btn-danger del" onClick={() => confirm(t('detail.confirmDelete')) && onDelete()}>{t('detail.delete')}</button>}
     </article>

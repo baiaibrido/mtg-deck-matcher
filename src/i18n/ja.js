@@ -43,7 +43,8 @@ export default {
   'kc.loadB': 'コレクションを読み込む', 'kc.load': 'と、本当に足りないカードだけが表示されます。',
   'kc.scope': '対象のデッキ', 'kc.t12': 'Tier 1と2', 'kc.inDecks': n => `${n}個のデッキで使用:`, 'kc.more': n => ` ほか${n}個`, 'kc.total': '合計',
   'kc.none': '2つ以上のデッキで共通する不足カードはありません。お見事です。', 'kc.noData': 'データがありません。',
-  'kc.hint': '買う枚数 = いずれかのデッキで必要な最大枚数。Tierは MTGdecks の方式で算出しています。', 'kc.file': 'key-cards',
+  'kc.hint': '買う枚数 = プレイセット（4枚、統率者戦は1枚）に足りない枚数。Tierは MTGdecks の方式で算出しています。',
+  'view.cards': 'カード画像', 'kc.own': (h, p) => `所持 ${h}/${p}`, 'kc.need': n => `あと${n}枚`, 'kc.full': 'プレイセット完成', 'kc.inN': n => `${n}個のデッキで使用`, 'kc.file': 'key-cards',
 
   'mi.err': 'リストを認識できません。1行に1枚ずつ書き、サイドボードの前に「Sideboard」の行を入れてください。', 'mi.defaultName': '追加したデッキ',
   'mi.added': 'デッキを追加しました', 'mi.imported': n => `${n}個のデッキを読み込みました`, 'mi.badJson': 'JSONファイルが正しくありません。',

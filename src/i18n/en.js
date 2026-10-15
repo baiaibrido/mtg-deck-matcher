@@ -45,7 +45,8 @@ export default {
   'kc.loadB': 'Load your collection', 'kc.load': " to see only the cards you're really missing.",
   'kc.scope': 'Decks considered', 'kc.t12': 'Tier 1 and 2', 'kc.inDecks': n => `In ${n} decks:`, 'kc.more': n => ` and ${n} more`, 'kc.total': 'Total',
   'kc.none': 'No missing card is shared by at least two decks: great job.', 'kc.noData': 'No data available.',
-  'kc.hint': 'Copies to buy = the most any single deck needs. Tiers follow the MTGdecks method.', 'kc.file': 'key-cards',
+  'kc.hint': 'Copies to buy = what you are missing for a playset (4 copies, 1 in Commander). Tiers follow the MTGdecks method.',
+  'view.cards': 'Card images', 'kc.own': (h, p) => `You own ${h}/${p}`, 'kc.need': n => `${n} missing`, 'kc.full': 'Full playset', 'kc.inN': n => `In ${n} decks`, 'kc.file': 'key-cards',
 
   'mi.err': 'List not recognized: one card per line, with a "Sideboard" line before the sideboard.', 'mi.defaultName': 'Added deck',
   'mi.added': 'Deck added', 'mi.imported': n => `${n} ${p(n, 'deck', 'decks')} imported`, 'mi.badJson': 'Invalid JSON file.',

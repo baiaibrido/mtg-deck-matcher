@@ -290,7 +290,7 @@ export default function App() {
 
           {page === 'key-cards' && <>
             {formatTabs}
-            <KeyCards ranked={ranked} formatName={formatName} hasCollection={collection.length > 0} toast={toast} />
+            <KeyCards ranked={ranked} formatName={formatName} collection={collection} playset={format === 'commander' ? 1 : 4} toast={toast} />
           </>}
 
           {page === 'collection' && banNotice}

@@ -50,7 +50,8 @@ export default {
   'kc.loadB': 'Carica la collezione', 'kc.load': ' per vedere solo le carte che ti mancano davvero.',
   'kc.scope': 'Mazzi considerati', 'kc.t12': 'Tier 1 e 2', 'kc.inDecks': n => `In ${n} mazzi:`, 'kc.more': n => ` e altri ${n}`, 'kc.total': 'Totale',
   'kc.none': 'Nessuna carta mancante è condivisa da almeno due mazzi: ottimo lavoro.', 'kc.noData': 'Nessun dato disponibile.',
-  'kc.hint': 'Copie da comprare = il massimo richiesto da uno dei mazzi. Tier calcolati con il metodo di MTGdecks.', 'kc.file': 'carte-chiave',
+  'kc.hint': 'Copie da comprare = quelle che ti mancano per un playset (4 copie, 1 in Commander). Tier calcolati con il metodo di MTGdecks.',
+  'view.cards': 'Immagini delle carte', 'kc.own': (h, p) => `Ne hai ${h}/${p}`, 'kc.need': n => `ne mancano ${n}`, 'kc.full': 'Playset completo', 'kc.inN': n => `In ${n} mazzi`, 'kc.file': 'carte-chiave',
 
   // mazzo a mano
   'mi.err': 'Lista non riconosciuta: una carta per riga, con la riga "Sideboard" prima del side.', 'mi.defaultName': 'Mazzo aggiunto',

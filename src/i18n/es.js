@@ -45,7 +45,8 @@ export default {
   'kc.loadB': 'Carga tu colección', 'kc.load': ' para ver solo las cartas que de verdad te faltan.',
   'kc.scope': 'Mazos considerados', 'kc.t12': 'Tier 1 y 2', 'kc.inDecks': n => `En ${n} mazos:`, 'kc.more': n => ` y ${n} más`, 'kc.total': 'Total',
   'kc.none': 'Ninguna carta que te falta la comparten al menos dos mazos: buen trabajo.', 'kc.noData': 'No hay datos disponibles.',
-  'kc.hint': 'Copias a comprar = el máximo que pide uno de los mazos. Tiers calculados con el método de MTGdecks.', 'kc.file': 'cartas-clave',
+  'kc.hint': 'Copias a comprar = las que te faltan para un playset (4 copias, 1 en Commander). Tiers calculados con el método de MTGdecks.',
+  'view.cards': 'Imágenes de las cartas', 'kc.own': (h, p) => `Tienes ${h}/${p}`, 'kc.need': n => `faltan ${n}`, 'kc.full': 'Playset completo', 'kc.inN': n => `En ${n} mazos`, 'kc.file': 'cartas-clave',
 
   'mi.err': 'Lista no reconocida: una carta por línea, con la línea "Sideboard" antes del banquillo.', 'mi.defaultName': 'Mazo añadido',
   'mi.added': 'Mazo añadido', 'mi.imported': n => `${n} ${p(n, 'mazo importado', 'mazos importados')}`, 'mi.badJson': 'Archivo JSON no válido.',
