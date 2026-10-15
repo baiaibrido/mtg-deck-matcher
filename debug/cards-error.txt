@@ -1,0 +1,8 @@
+2026-10-15T10:07:35.393Z
+SyntaxError: Unexpected non-whitespace character after JSON at position 5874 (line 2 column 1)
+    at JSON.parse (<anonymous>)
+    at downloadOracle (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/cards-data.mjs:74:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async syncCards (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/sync-meta.mjs:312:28)
+    at async main (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/sync-meta.mjs:384:3)
+
