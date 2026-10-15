@@ -100,4 +100,5 @@ export default {
   'ban.short': '禁止カード', 'ban.deck': c => `このフォーマットの禁止カードを含みます:${c}`, 'ban.card': f => `${f}で禁止`, 'ban.restricted': f => `${f}で制限`,
   'ban.newTitle': 'あなたのカードに新しい禁止', 'ban.newItem': (c, f) => `${c}:${f}で禁止`, 'ban.dismiss': '了解',
   currency: '通貨', 'pins.title': 'お気に入り', 'pin.add': n => `${n}をお気に入りに追加`, 'pin.remove': n => `${n}をお気に入りから外す`,
+  'footer.lists': 'デッキリスト', 'footer.archetypes': 'アーキタイプ', 'footer.cards': 'カード・画像・価格', 'footer.rates': '為替レート',
 }

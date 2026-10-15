@@ -9,6 +9,7 @@ import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import { FORMATS, assignTiers, loadRobots, syncFormat, saveFormat } from './sync-mtgtop8.mjs'
+import { downloadOracle, indexCards, cardsByFormat } from './cards-data.mjs'
 
 const DECKS_REPO = 'https://github.com/Jiliac/MTGODecklistCache'
 const RULES_REPO = 'https://github.com/Badaro/MTGOFormatData'
@@ -300,6 +301,24 @@ async function syncRates() {
   } catch (e) { console.warn(`Cambi valuta non aggiornati (${e.message})`) }
 }
 
+// Dati carte dei mazzi salvati (tutti i formati, rogue inclusi) dal file Oracle Cards di Scryfall
+async function syncCards() {
+  try {
+    const t0 = Date.now()
+    const formats = {}
+    for (const id of Object.keys(FORMATS)) {
+      try { formats[id] = JSON.parse(readFileSync(new URL(`../public/meta/${id}.json`, import.meta.url), 'utf8')) } catch { /* formato assente */ }
+    }
+    const idx = indexCards(await downloadOracle())
+    for (const [id, data] of Object.entries(cardsByFormat(idx, formats))) {
+      const { missing, ...json } = data
+      writeFileSync(new URL(`../public/meta/cards-${id}.json`, import.meta.url), JSON.stringify(json) + '\n')
+      console.log(`  carte ${id}: ${Object.keys(json.cards).length} salvate, ${missing} non trovate`)
+    }
+    console.log(`Dati carte Scryfall pronti in ${Math.round((Date.now() - t0) / 1000)}s`)
+  } catch (e) { console.warn(`Dati carte Scryfall non aggiornati (${e.message}): l'app userà l'API come prima`) }
+}
+
 // --- main ---
 async function main() {
   await syncRates()
@@ -358,6 +377,7 @@ async function main() {
     } catch (e) { console.warn(`  ${id}: errore (${e.message})`) }
   }
   console.log(`Formati aggiornati: ${ok}/${want.length}`)
+  await syncCards()
   if (!ok) process.exit(1)
 }
 

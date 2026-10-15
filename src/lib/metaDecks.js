@@ -1,5 +1,6 @@
 import { parseLine } from './parser.js'
 import { mergeEntries } from './normalize.js'
+import { seedCards } from './scryfall.js'
 
 const toEntries = arr => mergeEntries((arr || []).map(x => typeof x === 'string' ? parseLine(x) : x).filter(Boolean))
 const base = import.meta.env?.BASE_URL || '/'
@@ -12,7 +13,12 @@ export async function loadFormats() {
 // Cache JSON per formato: { updated, source ('MTGODecklistCache' | 'MTGTop8'), decks: [{ id, name, url?, main: ["4 Card"], side: [...] }] }
 export async function loadMetaDecks(format) {
   try {
-    const r = await fetch(`${base}meta/${format}.json`)
+    // dati delle carte preparati di notte: caricati insieme ai mazzi, così l'app non chiede a Scryfall le carte dei mazzi
+    const [r, cards] = await Promise.all([
+      fetch(`${base}meta/${format}.json`),
+      fetch(`${base}meta/cards-${format}.json`).then(x => x.ok ? x.json() : null).catch(() => null),
+    ])
+    if (cards?.cards) seedCards(cards.cards, cards.updated)
     if (!r.ok) return []
     const j = await r.json()
     // i rogue della settimana arrivano con rogue: true (fuori dall'elenco principale e dalle carte chiave)

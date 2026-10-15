@@ -65,6 +65,7 @@ Principi:
 | v0.12.0: filtro budget, "contro cosa vince" (matchup dai turni dei tornei, % contro il meta), storico 12 settimane, avvisi ban | Scegliere cosa costruire con dati di risultato, non solo di popolarità |
 | v0.12.1: prezzi nella valuta locale (dalla posizione presunta), dal mercato più vicino (Cardmarket o TCGplayer) con cambi BCE aggiornati ogni notte | Prezzi sensati per chi non è in zona euro |
 | v0.12.2: selettore valuta nell'header, mazzi preferiti fissati in cima, 50 archetipi per formato (compare il Tier 3) | Controllo dell'utente e meta più completo |
+| v0.12.3: font dei simboli di mana ridotto (−400 KB alla prima visita), dati carte preparati di notte dal file Oracle di Scryfall (quasi zero chiamate API dai visitatori), crediti e testo Fan Content Policy nel footer, aggiornamento notturno tenuto attivo | Sostenibilità a costo zero: più visitatori nel tetto gratuito di Vercel e nessun carico eccessivo su Scryfall |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

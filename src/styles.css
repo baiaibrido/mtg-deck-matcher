@@ -126,6 +126,9 @@ html { scroll-padding-top: calc(var(--head-h, 72px) + 12px); }
 }
 
 .site-footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--rail); text-align: center; font-size: .85rem; color: var(--lichen); font-variant-numeric: lining-nums; }
+.site-footer p { margin: 0 auto 8px; max-width: 72ch; }
+.site-footer a { color: inherit; }
+.footer-legal { font-size: .78rem; }
 
 .page-head { margin: 18px 0 18px; max-width: 62ch; }
 .page-head h1 { font: clamp(1.6rem, 4.6vw, 2.35rem)/1.12 var(--font-title); letter-spacing: .005em; text-wrap: balance; }

@@ -45,9 +45,17 @@ const slim = c => {
 const expand = c => c && { ...c, img: c.i ? (c.i.startsWith('http') ? c.i : IMG + c.i) : null, uri: `https://scryfall.com/search?q=${encodeURIComponent(`!"${c.name}"`)}` }
 const put = (c, key) => { const s = slim(c); getCache()[norm(s.name)] = s; if (key) getCache()[norm(key)] = s; return s }
 
+// Carte dei mazzi preparate ogni notte (public/meta/cards-<formato>.json): solo in memoria, non occupano localStorage
+const seeded = new Map()
+export const seedCards = (cards, updated) => {
+  const t = updated ? Date.parse(updated + 'T03:30:00Z') : Date.now() // ora del sync notturno
+  for (const [k, v] of Object.entries(cards || {})) seeded.set(k, { ...v, t })
+}
+const newest = k => { const a = seeded.get(k), b = getCache()[k]; return !a ? b : !b ? a : (b.t || 0) > (a.t || 0) ? b : a }
+
 const memo = new Map()
 export const getCached = name => {
-  const raw = getCache()[norm(name)]
+  const raw = newest(norm(name))
   if (!raw) return undefined
   let e = memo.get(raw); if (!e) { e = expand(raw); memo.set(raw, e) }
   return e
@@ -61,7 +69,7 @@ const unknown = new Set() // nomi che Scryfall non riconosce: non li richiede di
 const FUZZY_MAX = 150
 export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
   const c = getCache()
-  const missing = [...new Set(names.map(n => n.trim()))].filter(n => n && !fresh(c[norm(n)]))
+  const missing = [...new Set(names.map(n => n.trim()))].filter(n => n && !fresh(c[norm(n)]) && !fresh(seeded.get(norm(n))))
   const want = missing.filter(n => !unknown.has(norm(n)))
   const notFound = fuzzy ? missing.filter(n => unknown.has(norm(n))) : []
   for (let i = 0; i < want.length; i += 75) {

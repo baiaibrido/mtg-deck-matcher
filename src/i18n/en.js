@@ -102,4 +102,5 @@ export default {
   'ban.short': 'Banned card', 'ban.deck': c => `Contains cards banned in this format: ${c}`, 'ban.card': f => `Banned in ${f}`, 'ban.restricted': f => `Restricted in ${f}`,
   'ban.newTitle': 'New bans on your cards', 'ban.newItem': (c, f) => `${c}: banned in ${f}`, 'ban.dismiss': 'Got it',
   currency: 'Currency', 'pins.title': 'Your favorites', 'pin.add': n => `Add ${n} to favorites`, 'pin.remove': n => `Remove ${n} from favorites`,
+  'footer.lists': 'Decklists', 'footer.archetypes': 'Archetypes', 'footer.cards': 'Cards, images and prices', 'footer.rates': 'Exchange rates',
 }

@@ -1,0 +1,64 @@
+// Dati delle carte dei mazzi preparati ogni notte dal file "Oracle Cards" di Scryfall (uno scaricamento al giorno,
+// come chiede Scryfall), così i visitatori non devono interrogare l'API per ogni carta.
+// Uscita: public/meta/cards-<formato>.json = { updated, cards: { chiave: carta compatta } } nello stesso formato
+// della cache dell'app (src/lib/scryfall.js: slim).
+import { norm } from '../src/lib/normalize.js'
+
+const BULK = 'https://api.scryfall.com/bulk-data/oracle-cards'
+const HEADERS = { 'User-Agent': 'Netdeckable/1.0 (github.com/baiaibrido/mtg-deck-matcher)', Accept: 'application/json' }
+const IMG = 'https://cards.scryfall.io/normal/'
+const FORMAT_IDS = ['standard', 'pioneer', 'modern', 'pauper', 'legacy', 'vintage', 'commander']
+const SKIP_LAYOUTS = new Set(['token', 'double_faced_token', 'art_series', 'emblem', 'vanguard', 'scheme', 'planar', 'reversible_card'])
+
+const num = v => (v == null || v === '' ? null : +v)
+const legal = (c, status) => FORMAT_IDS.filter(f => c.legalities?.[f] === status)
+export function slim(c) {
+  const f = c.card_faces?.[0]
+  const img = (c.image_uris || f?.image_uris)?.normal || ''
+  return {
+    name: c.name.split(' // ')[0],
+    i: img.startsWith(IMG) ? img.slice(IMG.length).split('?')[0] : img || null,
+    ci: c.color_identity || [],
+    type: (f?.type_line || c.type_line || '').split(' // ')[0],
+    cost: f?.mana_cost ?? c.mana_cost ?? '',
+    eur: num(c.prices?.eur) ?? num(c.prices?.eur_foil),
+    usd: num(c.prices?.usd) ?? num(c.prices?.usd_foil),
+    bn: legal(c, 'banned'), rs: legal(c, 'restricted'),
+  }
+}
+
+// Indice nome → carta (chiave = norm della faccia frontale, come nell'app)
+export function indexCards(all) {
+  const idx = new Map()
+  for (const c of all) {
+    if (SKIP_LAYOUTS.has(c.layout) || !c.name) continue
+    const k = norm(c.name)
+    if (!idx.has(k)) idx.set(k, c)
+  }
+  return idx
+}
+
+const namesOf = json => [...json.decks || [], ...json.rogue || []].flatMap(d => [...d.main || [], ...d.side || []])
+  .map(line => String(line).replace(/^\d+\s+/, '').trim())
+
+// formats: { id: jsonDelFormato } → { id: { updated, cards } } (+ quante carte non trovate)
+export function cardsByFormat(idx, formats, today = Date.now()) {
+  const out = {}
+  for (const [id, json] of Object.entries(formats)) {
+    const cards = {}; let missing = 0
+    for (const n of new Set(namesOf(json))) {
+      const c = idx.get(norm(n))
+      if (c) cards[norm(n)] = slim(c); else missing++
+    }
+    out[id] = { updated: new Date(today).toISOString().slice(0, 10), cards, missing }
+  }
+  return out
+}
+
+export async function downloadOracle(fetchImpl = fetch) {
+  const meta = await (await fetchImpl(BULK, { headers: HEADERS, signal: AbortSignal.timeout(30000) })).json()
+  if (!meta?.download_uri) throw new Error('indirizzo del file Scryfall mancante')
+  const r = await fetchImpl(meta.download_uri, { headers: HEADERS, signal: AbortSignal.timeout(10 * 60e3) })
+  if (!r.ok) throw new Error(`Scryfall ${r.status}`)
+  return r.json()
+}

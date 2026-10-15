@@ -298,7 +298,19 @@ export default function App() {
         </ErrorBoundary>
       </main>
 
-      <footer className="site-footer">Netdeckable v{__APP_VERSION__}</footer>
+      <footer className="site-footer">
+        <p className="footer-credits">
+          {t('footer.lists')}: <a href="https://github.com/Jiliac/MTGODecklistCache" target="_blank" rel="noreferrer">MTGODecklistCache</a>, <a href="https://www.mtgtop8.com" target="_blank" rel="noreferrer">MTGTop8</a>
+          {' · '}{t('footer.archetypes')}: <a href="https://github.com/Badaro/MTGOFormatData" target="_blank" rel="noreferrer">MTGOFormatData</a>
+          {' · '}{t('footer.cards')}: <a href="https://scryfall.com" target="_blank" rel="noreferrer">Scryfall</a>
+          {' · '}{t('footer.rates')}: <a href="https://www.ecb.europa.eu" target="_blank" rel="noreferrer">BCE/ECB</a>
+        </p>
+        {/* testo richiesto dalla Fan Content Policy di Wizards of the Coast (in inglese, come da policy) */}
+        <p className="footer-legal" lang="en">
+          Netdeckable is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" target="_blank" rel="noreferrer">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
+        </p>
+        <p>Netdeckable v{__APP_VERSION__}</p>
+      </footer>
 
       <nav className="tabbar" aria-label={t('sections')}>
         <a href="#/decks" aria-current={navCurrent('decks')}><IconDecks />{t('nav.decks')}</a>

@@ -102,4 +102,5 @@ export default {
   'ban.short': 'Carta prohibida', 'ban.deck': c => `Contiene cartas prohibidas en este formato: ${c}`, 'ban.card': f => `Prohibida en ${f}`, 'ban.restricted': f => `Restringida en ${f}`,
   'ban.newTitle': 'Nuevas prohibiciones en tus cartas', 'ban.newItem': (c, f) => `${c}: prohibida en ${f}`, 'ban.dismiss': 'Entendido',
   currency: 'Moneda', 'pins.title': 'Tus favoritos', 'pin.add': n => `Añadir ${n} a favoritos`, 'pin.remove': n => `Quitar ${n} de favoritos`,
+  'footer.lists': 'Listas', 'footer.archetypes': 'Arquetipos', 'footer.cards': 'Cartas, imágenes y precios', 'footer.rates': 'Tipos de cambio',
 }

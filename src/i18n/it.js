@@ -112,4 +112,5 @@ export default {
   'ban.short': 'Carta bannata', 'ban.deck': c => `Contiene carte bannate in questo formato: ${c}`, 'ban.card': f => `Bannata in ${f}`, 'ban.restricted': f => `Ristretta in ${f}`,
   'ban.newTitle': 'Nuovi ban sulle tue carte', 'ban.newItem': (c, f) => `${c}: bannata in ${f}`, 'ban.dismiss': 'Ok, ho capito',
   currency: 'Valuta', 'pins.title': 'I tuoi preferiti', 'pin.add': n => `Aggiungi ${n} ai preferiti`, 'pin.remove': n => `Togli ${n} dai preferiti`,
+  'footer.lists': 'Liste', 'footer.archetypes': 'Archetipi', 'footer.cards': 'Carte, immagini e prezzi', 'footer.rates': 'Cambi',
 }

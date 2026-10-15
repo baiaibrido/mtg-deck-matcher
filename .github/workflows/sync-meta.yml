@@ -5,6 +5,7 @@ on:
   workflow_dispatch:        # avvio manuale dal tab Actions
 permissions:
   contents: write
+  actions: write   # per tenere attivo l'aggiornamento programmato
 jobs:
   sync:
     runs-on: ubuntu-24.04
@@ -25,6 +26,12 @@ jobs:
           git add public/meta
           if [ -d debug ]; then git add -f debug; fi
           git diff --staged --quiet || (git commit -m "meta: aggiornamento $(date -u +%F)" && git push)
+      # GitHub spegne le esecuzioni programmate dopo 60 giorni senza attività nel repository: le riattiviamo a ogni giro
+      - name: Mantieni attivo l'aggiornamento notturno
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/sync-meta.yml/enable" || true
       - name: Segnala errore
         if: steps.sync.outcome == 'failure'
         run: exit 1
