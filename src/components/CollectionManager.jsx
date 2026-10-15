@@ -113,15 +113,34 @@ export default function CollectionManager({ collection, setCollection, toast }) 
   const sections = BINDER.map(k => [k, filtered.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
   const allSections = BINDER.map(k => [k, rows.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
 
-  const apply = replace => {
+  const apply = () => {
     const parsed = parseCollection(text)
     if (!parsed.length) return setMsg({ kind: 'error', text: t('coll.noneRecognized') })
-    const n = parsed.reduce((s, c) => s + c.qty, 0)
-    setCollection(replace ? parsed : mergeEntries([...collection, ...parsed]))
+    setCollection(mergeEntries([...collection, ...parsed]))
     setText(''); setMsg(null); setImportOpen(false)
-    toast(replace ? t('coll.replaced', n) : t('coll.added', n))
+    toast(t('coll.added', parsed.reduce((s, c) => s + c.qty, 0)))
   }
-  const readFile = async f => { if (f) { setText(await f.text()); setMsg({ kind: 'info', text: t('coll.fileReady', f.name) }) } }
+  // Importa da file (export di altre app o backup di Netdeckable): con collezione vuota si carica subito,
+  // altrimenti si sceglie se aggiungere o sostituire (annullabile)
+  const [pending, setPending] = useState(null) // { name, list }
+  const readFile = async f => {
+    if (!f) return
+    const list = parseCollection(await f.text())
+    if (!list.length) return setMsg({ kind: 'error', text: t('coll.noneRecognized') })
+    setMsg(null)
+    if (!collection.length) { setCollection(list); toast(t('coll.added', list.reduce((s, c) => s + c.qty, 0))); return }
+    setPending({ name: f.name, list })
+  }
+  const usePending = replace => {
+    const { list } = pending, prev = collection, n = list.reduce((s, c) => s + c.qty, 0)
+    setCollection(replace ? list : mergeEntries([...collection, ...list])); setPending(null); setImportOpen(false)
+    toast(replace ? t('coll.replaced', n) : t('coll.added', n), { label: t('undo'), fn: () => setCollection(prev) })
+  }
+  const dropProps = {
+    onDragOver: e => { if ([...e.dataTransfer.types].includes('Files')) { e.preventDefault(); setDrag(true) } },
+    onDragLeave: e => { if (!e.currentTarget.contains(e.relatedTarget)) setDrag(false) },
+    onDrop: e => { if (!e.dataTransfer.files.length) return; e.preventDefault(); setDrag(false); readFile(e.dataTransfer.files[0]) },
+  }
   const normalize = async () => {
     setBusy(true); setMsg({ kind: 'info', text: t('coll.checking') })
     try {
@@ -133,13 +152,6 @@ export default function CollectionManager({ collection, setCollection, toast }) 
       if (!notFound.length) toast(fixedCount ? t('coll.fixed', fixedCount) : t('coll.allGood'))
     } catch (err) { setMsg({ kind: 'error', text: t('coll.scryErr', err.message) }) }
     setBusy(false)
-  }
-  // Importa backup: sostituisce la collezione con quella del file (annullabile)
-  const restore = text => {
-    const parsed = parseCollection(text)
-    if (!parsed.length) { setMsg({ kind: 'error', text: t('coll.noneRecognized') }); return }
-    const prev = collection; setCollection(parsed)
-    toast(t('coll.replaced', parsed.reduce((s, c) => s + c.qty, 0)), { label: t('undo'), fn: () => setCollection(prev) })
   }
   const setQty = (name, qty) => setCollection(collection.map(c => c.name === name ? { ...c, qty } : c).filter(c => c.qty > 0))
   const remove = name => {
@@ -154,21 +166,21 @@ export default function CollectionManager({ collection, setCollection, toast }) 
   const visible = sections.map(([k, list]) => { const part = list.slice(0, Math.max(0, budget)); budget -= part.length; return [k, list, part] })
   const shownCount = Math.min(limit, filtered.length)
 
+  const fileInput = <input type="file" accept=".csv,.txt,text/csv,text/plain" hidden onChange={e => { readFile(e.target.files?.[0]); e.target.value = '' }} />
   const importPanel = (
     <section className="panel import" aria-labelledby="imp-title">
       <h2 id="imp-title">{t('coll.addCards')}</h2>
-      <label className={`drop${drag ? ' drag' : ''}`}
-        onDragOver={e => { e.preventDefault(); setDrag(true) }} onDragLeave={() => setDrag(false)}
-        onDrop={e => { e.preventDefault(); setDrag(false); readFile(e.dataTransfer.files[0]) }}>
-        <IconUpload size={22} />
-        <span><b>{t('coll.uploadB')}</b>{t('coll.uploadExt')}<span className="muted">{t('coll.uploadMore')}</span></span>
-        <input type="file" accept=".csv,.txt" onChange={e => { readFile(e.target.files[0]); e.target.value = '' }} />
-      </label>
+      {!collection.length && (
+        <label className={`drop${drag ? ' drag' : ''}`}>
+          <IconUpload size={22} />
+          <span><b>{t('coll.uploadB')}</b>{t('coll.uploadExt')}<span className="muted">{t('coll.uploadMore')}</span></span>
+          {fileInput}
+        </label>
+      )}
       <textarea ref={textRef} rows={5} value={text} onChange={e => setText(e.target.value)} aria-label={t('coll.listAria')}
         placeholder={t('coll.placeholder')} />
       <div className="row">
-        <button className="btn btn-primary" onClick={() => apply(false)} disabled={!text.trim()}>{t('coll.addTo')}</button>
-        <button className="btn" onClick={() => apply(true)} disabled={!text.trim()}>{t('coll.replace')}</button>
+        <button className="btn btn-primary" onClick={apply} disabled={!text.trim()}>{t('coll.addTo')}</button>
         {collection.length > 0 && <button className="btn btn-quiet" onClick={() => setImportOpen(false)}>{t('close')}</button>}
       </div>
       <p className="hint">{t('coll.importHint')}</p>
@@ -176,7 +188,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
   )
 
   if (!collection.length) return (
-    <div className="coll">
+    <div className="coll" {...dropProps}>
       <header className="page-head">
         <h1>{t('coll.title')}</h1>
         <p>{t('coll.emptyIntro')}</p>
@@ -187,7 +199,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
   )
 
   return (
-    <div className="coll">
+    <div className={`coll${drag ? ' coll-drag' : ''}`} {...dropProps}>
       <header className="page-head coll-head">
         <h1>{t('coll.title')}</h1>
         <p>
@@ -201,14 +213,20 @@ export default function CollectionManager({ collection, setCollection, toast }) 
 
       <div className="coll-actions">
         <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
+        <label className="btn btn-quiet"><IconUpload size={18} /><span className="btn-2l">{t('coll.importFile')}<small>{t('coll.importFileHint')}</small></span>{fileInput}</label>
         <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} /><span className="btn-2l">{t('coll.fixNames')}<small>{t('coll.fixHint')}</small></span></button>
         <button className="btn btn-quiet" onClick={() => { downloadTxt(`${t('coll.file')}-${new Date().toISOString().slice(0, 10)}.csv`, collectionCsv(collection), 'text/csv'); toast(t('coll.backupDone')) }}><IconDownload size={18} />{t('coll.backup')}</button>
-        <label className="btn btn-quiet"><IconUpload size={18} />{t('coll.restore')}
-          <input type="file" accept=".csv,.txt,text/csv,text/plain" hidden onChange={async e => { const f = e.target.files?.[0]; e.target.value = ''; if (f) restore(await f.text()) }} />
-        </label>
         <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
           onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
       </div>
+      {pending && (
+        <div className="confirm confirm-file" role="alertdialog" aria-label={t('coll.fileChoice', pending.name, pending.list.length)}>
+          <span className="confirm-q">{t('coll.fileChoice', pending.name, pending.list.reduce((s, c) => s + c.qty, 0))}</span>
+          <button className="btn btn-primary" autoFocus onClick={() => usePending(false)}>{t('coll.addTo')}</button>
+          <button className="btn" onClick={() => usePending(true)}>{t('coll.replace')}</button>
+          <button className="btn btn-quiet" onClick={() => setPending(null)}>{t('cancel')}</button>
+        </div>
+      )}
       {importOpen && importPanel}
       {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
       {load.total > 0 && load.done < load.total && !load.error && <p className="hint" role="status">{t('coll.loadingImg', load.done, load.total)}</p>}

@@ -677,3 +677,5 @@ main:focus { outline: none; }
 .deck-score span { font-size: .82rem; }
 .deck-score .deck-score-sub { font-size: .72rem; margin-top: 1px; opacity: .8; }
 .trend { font-size: .86rem; }
+.coll-drag { outline: 2px dashed var(--brass); outline-offset: 8px; border-radius: var(--r-lg); }
+.confirm-file { margin-top: 12px; border-color: var(--rail); background: var(--baize); }
