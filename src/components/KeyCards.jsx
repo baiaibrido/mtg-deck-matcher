@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import { keyCards } from '../lib/keyCards.js'
 import { getCached } from '../lib/scryfall.js'
-import { t, euro } from '../i18n/index.js'
+import { t } from '../i18n/index.js'
+import { money, priceOf } from '../lib/currency.js'
 import { toText, downloadTxt } from '../lib/export.js'
 import { ManaCost } from './Mana.jsx'
 import { IconCopy, IconDownload } from './Icons.jsx'
@@ -13,7 +14,7 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
   const pool = useMemo(() => scope === 'all' ? ranked : ranked.filter(s => !s.deck.tier || s.deck.tier <= 2 && (scope === 't12' || s.deck.tier === 1)), [ranked, scope])
   const list = useMemo(() => keyCards(pool), [pool])
   const rows = list.map(e => ({ ...e, card: getCached(e.name) }))
-  const total = rows.reduce((t, e) => t + (e.card?.eur ?? 0) * e.maxMissing, 0)
+  const total = rows.reduce((s, e) => s + (priceOf(e.card) ?? 0) * e.maxMissing, 0)
   const text = toText(rows.map(e => ({ name: e.name, missing: e.maxMissing })))
 
   const copy = async () => {
@@ -55,7 +56,7 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
               </span>
               <span className="key-buy">
                 <b>{e.maxMissing}×</b>
-                <span>{e.card?.eur != null ? euro(e.card.eur * e.maxMissing, true) : '—'}</span>
+                <span>{priceOf(e.card) != null ? money(priceOf(e.card) * e.maxMissing, true) : '—'}</span>
               </span>
             </li>
           ))}
@@ -63,7 +64,7 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
         <div className="actions">
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
           <button className="btn" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
-          {total > 0 && <span className="key-total">{t('kc.total')} ≈ {euro(total)}</span>}
+          {total > 0 && <span className="key-total">{t('kc.total')} ≈ {money(total)}</span>}
         </div>
       </> : <p className="empty">{hasCollection ? t('kc.none') : t('kc.noData')}</p>}
 

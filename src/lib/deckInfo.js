@@ -1,6 +1,6 @@
 // Colori dei mazzi, raggruppamento per tipo e simboli di costo (dati da cache Scryfall).
-import { t, euro } from '../i18n/index.js'
-export { euro }
+import { t } from '../i18n/index.js'
+import { priceOf } from './currency.js'
 export const WUBRG = ['W', 'U', 'B', 'R', 'G']
 export const colorName = c => t(`color.${c}`)
 
@@ -45,16 +45,16 @@ export function groupOf(card) {
 // "{2}{U}{W/P}" → ['2','u','wp'] (classi mana-font)
 export const costSymbols = cost => [...(cost || '').matchAll(/\{([^}]+)\}/g)].map(m => m[1].replace(/\//g, '').toLowerCase())
 
-// Costo delle copie mancanti in euro (prezzo Cardmarket via Scryfall). unknown = copie senza prezzo.
+// Costo delle copie mancanti nella valuta locale (lib/currency.js). unknown = copie senza prezzo.
 export function missingCost(rows, lookup) {
-  let eur = 0, unknown = 0, known = 0
+  let amount = 0, unknown = 0, known = 0
   for (const r of rows) {
     if (!r.missing) continue
-    const p = lookup(r.name)?.eur
+    const p = priceOf(lookup(r.name))
     if (p == null) unknown += r.missing
-    else { eur += p * r.missing; known += r.missing }
+    else { amount += p * r.missing; known += r.missing }
   }
-  return { eur, unknown, known }
+  return { amount, unknown, known }
 }
 
 // Sezioni del "raccoglitore": colore della carta (terre a parte, multicolore, incolore)

@@ -41,7 +41,7 @@ export default {
   'detail.original': 'Lista originale', 'detail.mtgdecks': 'Cerca su MTGdecks', view: 'Vista',
   'tab.list': 'Lista', 'tab.need': 'Mancolista', 'detail.onlyMissing': 'Mostra solo le carte che ti mancano',
   'detail.haveAll': 'Hai tutte le carte di questo mazzo.', 'detail.total': 'Totale stimato',
-  'detail.hint': 'La lista copiata si incolla su Scryfall o Moxfield. Prezzi indicativi Cardmarket (via Scryfall) della stampa più recente: le ristampe economiche possono costare meno.',
+  'detail.hint': src => `La lista copiata si incolla su Scryfall o Moxfield. Prezzi indicativi ${src} (via Scryfall) della stampa più recente, convertiti nella tua valuta: le ristampe economiche possono costare meno.`,
   'detail.confirmDelete': 'Eliminare questo mazzo aggiunto da te?', 'detail.delete': 'Elimina mazzo', 'detail.file': 'mancolista',
 
   // carte chiave

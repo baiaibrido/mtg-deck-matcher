@@ -37,7 +37,7 @@ export default {
   'detail.original': 'Lista original', 'detail.mtgdecks': 'Buscar en MTGdecks', view: 'Vista',
   'tab.list': 'Lista', 'tab.need': 'Faltantes', 'detail.onlyMissing': 'Mostrar solo las cartas que te faltan',
   'detail.haveAll': 'Tienes todas las cartas de este mazo.', 'detail.total': 'Total estimado',
-  'detail.hint': 'La lista copiada se puede pegar en Scryfall o Moxfield. Precios orientativos de Cardmarket (vía Scryfall) de la impresión más reciente: las reimpresiones baratas pueden costar menos.',
+  'detail.hint': src => `La lista copiada se puede pegar en Scryfall o Moxfield. Precios orientativos de ${src} (vía Scryfall) de la impresión más reciente, convertidos a tu moneda: las reimpresiones baratas pueden costar menos.`,
   'detail.confirmDelete': '¿Eliminar este mazo que añadiste?', 'detail.delete': 'Eliminar mazo', 'detail.file': 'faltantes',
 
   'kc.copied': 'Lista copiada', 'kc.title': f => `Cartas clave de ${f}`,

@@ -57,6 +57,5 @@ export function t(key, ...args) {
 const cache = new Map()
 const fmt = (k, make) => { const id = lang + k; let f = cache.get(id); if (!f) cache.set(id, f = make(locale())); return f }
 export const num = (v, digits = 1) => fmt('n' + digits, l => new Intl.NumberFormat(l, { maximumFractionDigits: digits })).format(v)
-export const euro = (v, cents = false) => fmt(cents ? 'e2' : 'e0', l => new Intl.NumberFormat(l, { style: 'currency', currency: 'EUR', ...(cents ? {} : { maximumFractionDigits: 0 }) })).format(v)
 export const dayMonth = d => d ? new Date(d + 'T12:00:00').toLocaleDateString(locale(), { day: 'numeric', month: 'long' }) : null
 export const plural = (n, one, many) => n === 1 ? one : many

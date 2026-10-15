@@ -5,7 +5,8 @@ import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck } from './Icons.jsx'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
-import { t, euro } from '../i18n/index.js'
+import { t } from '../i18n/index.js'
+import { money, priceOf, priceSource } from '../lib/currency.js'
 import { toText, tcgplayerUrl, downloadTxt } from '../lib/export.js'
 import { HistoryChart, Matchups } from './Charts.jsx'
 import { deckBans } from '../lib/bans.js'
@@ -120,7 +121,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
                 <span className="need-qty">{r.missing}</span>
                 <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="need-name">{r.name}</a>
                 <ManaCost cost={c?.cost} />
-                <span className="need-price">{c?.eur != null ? euro(c.eur * r.missing, true) : '—'}</span>
+                <span className="need-price">{priceOf(c) != null ? money(priceOf(c) * r.missing, true) : '—'}</span>
               </li>
             )
           })}
@@ -129,7 +130,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
               <span />
               <span>{t('detail.total')}{cost.unknown ? ` (${t('noPrice', cost.unknown)})` : ''}</span>
               <span />
-              <span className="need-price">{euro(cost.eur, true)}</span>
+              <span className="need-price">{money(cost.amount, true)}</span>
             </li>
           )}
         </ul>
@@ -138,7 +139,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <a className="btn" href={tcgplayerUrl(s.missing)} target="_blank" rel="noreferrer"><IconCart size={18} />TCGplayer</a>
           <button className="btn" onClick={() => downloadTxt(`${t('detail.file')}-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.txt`, list)}><IconDownload size={18} />{t('download')}</button>
         </div>
-        <p className="hint">{t('detail.hint')}</p>
+        <p className="hint">{t('detail.hint', priceSource())}</p>
       </> : <p className="empty">{t('detail.haveAll')}</p>)}
 
       {onDelete && <button className="btn btn-danger del" onClick={() => confirm(t('detail.confirmDelete')) && onDelete()}>{t('detail.delete')}</button>}

@@ -63,6 +63,7 @@ Principi:
 | v0.11.0: nome **Netdeckable**; portoghese (BR) e giapponese; sezione "Rogue piccanti della settimana" (fuori dai 30 mazzi, con top 8 o 5-0 negli ultimi 7 giorni, ordinati per la tua collezione) | Far scoprire mazzi fuori meta che vincono, come Slivers o Wildfire in Pauper |
 | v0.11.1: header sempre visibile (si compatta scorrendo), bottone che porta ai rogue, indirizzi in inglese (#/decks, #/deck/…, #/key-cards, #/collection) | Navigazione e link condivisibili |
 | v0.12.0: filtro budget, "contro cosa vince" (matchup dai turni dei tornei, % contro il meta), storico 12 settimane, avvisi ban | Scegliere cosa costruire con dati di risultato, non solo di popolarità |
+| v0.12.1: prezzi nella valuta locale (dalla posizione presunta), dal mercato più vicino (Cardmarket o TCGplayer) con cambi BCE aggiornati ogni notte | Prezzi sensati per chi non è in zona euro |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

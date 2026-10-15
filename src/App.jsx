@@ -6,7 +6,8 @@ import { rankDecks } from './lib/matcher.js'
 import { isBasic, withoutBasics } from './lib/normalize.js'
 import { fetchCards, getCached } from './lib/scryfall.js'
 import { deckColors, missingCost, WUBRG, colorName } from './lib/deckInfo.js'
-import { t, LANGS, getLang, setLang, dayMonth, euro } from './i18n/index.js'
+import { t, LANGS, getLang, setLang, dayMonth } from './i18n/index.js'
+import { money, localBudget, setRates } from './lib/currency.js'
 import { newBans, formatList } from './lib/bans.js'
 import DeckList from './components/DeckList.jsx'
 import DeckDetail from './components/DeckDetail.jsx'
@@ -20,7 +21,7 @@ const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in
 const STALE_DAYS = 3
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
 const SORTS = ['score', 'share', 'meta', 'cost']
-const BUDGETS = [0, 10, 25, 50, 100, 200] // tetto di spesa per completare il mazzo (0 = nessuno)
+const BUDGETS = [0, 10, 25, 50, 100, 200] // tetto di spesa in euro, mostrato e confrontato nella valuta locale (0 = nessuno)
 
 function useToast() {
   const [t, setT] = useState(null)
@@ -76,6 +77,9 @@ export default function App() {
   }, [theme])
 
   useEffect(() => { loadFormats().then(setFormats) }, [])
+  useEffect(() => { // cambi aggiornati ogni notte (altrimenti restano quelli di riserva in currency.js)
+    fetch(`${import.meta.env.BASE_URL}meta/rates.json`).then(r => r.ok ? r.json() : null).then(j => { if (j?.rates) { setRates(j.rates); setTick(n => n + 1) } }).catch(() => {})
+  }, [])
   useEffect(() => { setMeta(null); loadMetaDecks(format).then(setMeta) }, [format])
 
   const metaMain = useMemo(() => (meta || []).filter(d => !d.rogue), [meta])
@@ -107,7 +111,7 @@ export default function App() {
 
   const colorsOf = deck => deckColors(deck, getCached) ?? (cardsState === 'error' ? undefined : null)
   const costOf = s => missingCost(s.missing, getCached)
-  const withinBudget = s => !s.missing.length || costOf(s).eur <= view.budget
+  const withinBudget = s => !s.missing.length || costOf(s).amount <= localBudget(view.budget)
 
   // Tutti i mazzi del formato: filtri per tier e colori, ordinamento
   const all = useMemo(() => {
@@ -117,7 +121,7 @@ export default function App() {
     if (view.budget) list = list.filter(withinBudget)
     if (view.sort === 'share') list.sort((a, b) => (b.deck.share || 0) - (a.deck.share || 0))
     if (view.sort === 'meta') list.sort((a, b) => (b.deck.metaWr ?? -1) - (a.deck.metaWr ?? -1))
-    if (view.sort === 'cost') list.sort((a, b) => costOf(a).eur - costOf(b).eur || b.score - a.score)
+    if (view.sort === 'cost') list.sort((a, b) => costOf(a).amount - costOf(b).amount || b.score - a.score)
     return list
   }, [ranked, view, cardsState])
   const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
@@ -213,7 +217,7 @@ export default function App() {
                 <label className="select">
                   <span>{t('budget')}</span>
                   <select value={view.budget} onChange={e => setV({ budget: +e.target.value })}>
-                    {BUDGETS.map(b => <option key={b} value={b}>{b ? t('budget.max', euro(b)) : t('budget.any')}</option>)}
+                    {BUDGETS.map(b => <option key={b} value={b}>{b ? t('budget.max', money(localBudget(b))) : t('budget.any')}</option>)}
                   </select>
                 </label>
                 <div className="chips" role="group" aria-label="Tier">

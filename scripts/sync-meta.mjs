@@ -4,7 +4,7 @@
 // Commander resta su MTGTop8; un formato passa a MTGTop8 anche se troppi mazzi restano "non riconosciuti".
 // Uso: node scripts/sync-meta.mjs [pauper modern ...]
 import { execFileSync } from 'node:child_process'
-import { readFileSync, readdirSync, rmSync, existsSync } from 'node:fs'
+import { readFileSync, readdirSync, rmSync, existsSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
@@ -288,8 +288,21 @@ export function findRogue(outside, unknownList, { classify, freq, total, id }) {
     }))
 }
 
+// Cambi valuta BCE (1 EUR = x) per mostrare i prezzi nella valuta locale; se il servizio non risponde si tiene il file precedente
+const RATES_URL = 'https://api.frankfurter.dev/v1/latest'
+async function syncRates() {
+  try {
+    const r = await fetch(RATES_URL, { signal: AbortSignal.timeout(20000) })
+    const j = await r.json()
+    if (!j?.rates?.USD) throw new Error('risposta senza cambi')
+    writeFileSync(new URL('../public/meta/rates.json', import.meta.url), JSON.stringify({ date: j.date, base: 'EUR', source: 'BCE via frankfurter.dev', rates: j.rates }, null, 1) + '\n')
+    console.log(`Cambi valuta del ${j.date} salvati`)
+  } catch (e) { console.warn(`Cambi valuta non aggiornati (${e.message})`) }
+}
+
 // --- main ---
 async function main() {
+  await syncRates()
   const only = process.argv.slice(2)
   const want = Object.keys(FORMATS).filter(id => !only.length || only.includes(id))
   const fromCache = want.filter(id => RULE_FORMATS[id])

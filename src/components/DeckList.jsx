@@ -2,7 +2,8 @@ import { ColorPips } from './Mana.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
 import { IconChevron } from './Icons.jsx'
 import { frameOf } from '../lib/deckInfo.js'
-import { t, euro, num } from '../i18n/index.js'
+import { t, num } from '../i18n/index.js'
+import { money } from '../lib/currency.js'
 import { Sparkline } from './Charts.jsx'
 import { deckBans } from '../lib/bans.js'
 import { getCached } from '../lib/scryfall.js'
@@ -28,7 +29,7 @@ export const frameStyle = colors => { const f = frameOf(colors); return { '--c1'
 export function costText(cost, missing) {
   if (!missing) return null
   if (!cost || cost.known === 0) return null
-  return `≈ ${euro(cost.eur)}${cost.unknown ? t('costMore', cost.unknown) : ''}`
+  return `≈ ${money(cost.amount)}${cost.unknown ? t('costMore', cost.unknown) : ''}`
 }
 
 // Rogue: risultati della settimana e carta simbolo al posto di tier e quota

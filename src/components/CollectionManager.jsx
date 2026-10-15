@@ -3,7 +3,8 @@ import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
 import { normalizeCollection, fetchCards, getCached, smallImg } from '../lib/scryfall.js'
 import { BINDER, binderOf, binderName, TYPE_FILTERS } from '../lib/deckInfo.js'
-import { t, euro, getLang } from '../i18n/index.js'
+import { t, getLang } from '../i18n/index.js'
+import { money, priceOf } from '../lib/currency.js'
 import { formatList } from '../lib/bans.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { useLocal } from '../state/useLocal.js'
@@ -98,14 +99,14 @@ export default function CollectionManager({ collection, setCollection, toast }) 
 
   const total = collection.reduce((s, c) => s + c.qty, 0)
   const rows = collection.map(c => ({ ...c, card: getCached(c.name) }))
-  const value = rows.reduce((s, r) => s + (r.card?.eur ?? 0) * r.qty, 0)
-  const priced = rows.some(r => r.card?.eur != null)
+  const value = rows.reduce((s, r) => s + (priceOf(r.card) ?? 0) * r.qty, 0)
+  const priced = rows.some(r => priceOf(r.card) != null)
 
   const filtered = (() => {
     const s = q.trim().toLowerCase()
     const tf = TYPE_FILTERS.find(([k]) => k === type)?.[1] || (() => true)
     const list = rows.filter(r => (!s || r.name.toLowerCase().includes(s)) && (type === 'all' || (r.card && tf(r.card.type))))
-    const by = { name: (a, b) => a.name.localeCompare(b.name), qty: (a, b) => b.qty - a.qty || a.name.localeCompare(b.name), price: (a, b) => (b.card?.eur ?? -1) * b.qty - (a.card?.eur ?? -1) * a.qty }
+    const by = { name: (a, b) => a.name.localeCompare(b.name), qty: (a, b) => b.qty - a.qty || a.name.localeCompare(b.name), price: (a, b) => (priceOf(b.card) ?? -1) * b.qty - (priceOf(a.card) ?? -1) * a.qty }
     return list.sort(by[sort])
   })()
   const sections = BINDER.map(k => [k, filtered.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
@@ -183,7 +184,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
         <h1>{t('coll.title')}</h1>
         <p>
           {t('coll.summary', total.toLocaleString(getLang()), collection.length.toLocaleString(getLang()))}
-          {priced && <>{t('coll.value')}<b>≈ {euro(value)}</b></>}.
+          {priced && <>{t('coll.value')}<b>≈ {money(value)}</b></>}.
           {' '}{t('coll.savedHere')}
         </p>
       </header>
@@ -253,7 +254,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
                     <span className="crow-type">{r.card?.type || '—'} <BanChip card={r.card} /></span>
                   </span>
                   <ManaCost cost={r.card?.cost} />
-                  <span className="crow-price">{r.card?.eur != null ? euro(r.card.eur * r.qty, true) : '—'}</span>
+                  <span className="crow-price">{priceOf(r.card) != null ? money(priceOf(r.card) * r.qty, true) : '—'}</span>
                   <span className="crow-ctl"><Stepper c={r} setQty={setQty} /><DeleteBtn name={r.name} onDelete={remove} /></span>
                 </li>
               ))}

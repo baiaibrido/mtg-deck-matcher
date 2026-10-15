@@ -1,4 +1,6 @@
 import { test } from 'node:test'
+import { setCurrency } from './currency.js'
+setCurrency('EUR')
 import assert from 'node:assert/strict'
 import { keyCards } from './keyCards.js'
 import { rankDecks } from './matcher.js'
@@ -19,5 +21,5 @@ test('carte chiave: condivise da più mazzi, terre base escluse, ordine per nume
 test('costo mancolista: somma prezzi × copie, conta quelle senza prezzo', () => {
   const prices = { bolt: 1.5, opt: null }
   const c = missingCost([{ name: 'Bolt', missing: 4 }, { name: 'Opt', missing: 2 }, { name: 'X', missing: 0 }], n => ({ eur: prices[n.toLowerCase()] }))
-  assert.deepEqual(c, { eur: 6, unknown: 2, known: 4 })
+  assert.deepEqual(c, { amount: 6, unknown: 2, known: 4 }) // valuta di test: euro
 })

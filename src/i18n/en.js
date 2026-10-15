@@ -37,7 +37,7 @@ export default {
   'detail.original': 'Original list', 'detail.mtgdecks': 'Search on MTGdecks', view: 'View',
   'tab.list': 'List', 'tab.need': 'Want list', 'detail.onlyMissing': "Show only the cards you're missing",
   'detail.haveAll': 'You have every card in this deck.', 'detail.total': 'Estimated total',
-  'detail.hint': 'The copied list can be pasted into Scryfall or Moxfield. Indicative Cardmarket prices (via Scryfall) for the latest printing: cheaper reprints may cost less.',
+  'detail.hint': src => `The copied list can be pasted into Scryfall or Moxfield. Indicative ${src} prices (via Scryfall) for the latest printing, converted to your currency: cheaper reprints may cost less.`,
   'detail.confirmDelete': 'Delete this deck you added?', 'detail.delete': 'Delete deck', 'detail.file': 'want-list',
 
   'kc.copied': 'List copied', 'kc.title': f => `${f} key cards`,

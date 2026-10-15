@@ -35,7 +35,7 @@ export default {
   'detail.original': '元のリスト', 'detail.mtgdecks': 'MTGdecksで検索', view: '表示',
   'tab.list': 'リスト', 'tab.need': '不足リスト', 'detail.onlyMissing': '足りないカードだけ表示',
   'detail.haveAll': 'このデッキのカードはすべて揃っています。', 'detail.total': '合計(概算)',
-  'detail.hint': 'コピーしたリストはScryfallやMoxfieldに貼り付けられます。価格はCardmarketの参考価格(Scryfall経由、最新の版)です。安い再録版ならさらに安くなることがあります。',
+  'detail.hint': src => `コピーしたリストはScryfallやMoxfieldに貼り付けられます。価格は${src}の参考価格(Scryfall経由、最新の版)を現地通貨に換算したものです。安い再録版ならさらに安くなることがあります。`,
   'detail.confirmDelete': '追加したこのデッキを削除しますか?', 'detail.delete': 'デッキを削除', 'detail.file': 'missing-list',
 
   'kc.copied': 'リストをコピーしました', 'kc.title': f => `${f}の重要カード`,
