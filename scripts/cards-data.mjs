@@ -4,7 +4,7 @@
 // della cache dell'app (src/lib/scryfall.js: slim).
 import { norm } from '../src/lib/normalize.js'
 
-const BULK = 'https://api.scryfall.com/bulk-data/oracle-cards'
+const BULK = 'https://api.scryfall.com/bulk-data'
 const HEADERS = { 'User-Agent': 'Netdeckable/1.0 (github.com/baiaibrido/mtg-deck-matcher)', Accept: 'application/json' }
 const IMG = 'https://cards.scryfall.io/normal/'
 const FORMAT_IDS = ['standard', 'pioneer', 'modern', 'pauper', 'legacy', 'vintage', 'commander']
@@ -56,8 +56,11 @@ export function cardsByFormat(idx, formats, today = Date.now()) {
 }
 
 export async function downloadOracle(fetchImpl = fetch) {
-  const meta = await (await fetchImpl(BULK, { headers: HEADERS, signal: AbortSignal.timeout(30000) })).json()
-  if (!meta?.download_uri) throw new Error('indirizzo del file Scryfall mancante')
+  const res = await fetchImpl(BULK, { headers: HEADERS, signal: AbortSignal.timeout(30000) })
+  const body = await res.text()
+  let list; try { list = JSON.parse(body) } catch { list = null }
+  const meta = (list?.data || []).find(x => x.type === 'oracle_cards') || (list?.type === 'oracle_cards' ? list : null)
+  if (!meta?.download_uri) throw new Error(`indirizzo del file Scryfall mancante (HTTP ${res.status}: ${body.slice(0, 300)})`)
   const r = await fetchImpl(meta.download_uri, { headers: HEADERS, signal: AbortSignal.timeout(10 * 60e3) })
   if (!r.ok) throw new Error(`Scryfall ${r.status}`)
   return r.json()

@@ -25,7 +25,7 @@ test('carte dei mazzi dal file Oracle Cards, nel formato della cache dell\'app',
 
 test('scaricamento: indirizzo dal catalogo bulk, intestazioni richieste da Scryfall', async () => {
   const seen = []
-  const fake = async (url, opt) => { seen.push([url, opt.headers]); return url.includes('bulk-data') ? { ok: true, json: async () => ({ download_uri: 'https://data.scryfall.io/oracle.json' }) } : { ok: true, json: async () => oracle } }
+  const fake = async (url, opt) => { seen.push([url, opt.headers]); return url.includes('bulk-data') ? { ok: true, status: 200, text: async () => JSON.stringify({ data: [{ type: 'default_cards', download_uri: 'x' }, { type: 'oracle_cards', download_uri: 'https://data.scryfall.io/oracle.json' }] }) } : { ok: true, json: async () => oracle } }
   assert.equal((await downloadOracle(fake)).length, 4)
   assert.equal(seen[1][0], 'https://data.scryfall.io/oracle.json')
   assert.ok(seen.every(([, h]) => h['User-Agent'] && h.Accept))
