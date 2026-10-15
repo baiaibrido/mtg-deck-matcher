@@ -2,6 +2,7 @@
 // come chiede Scryfall), così i visitatori non devono interrogare l'API per ogni carta.
 // Uscita: public/meta/cards-<formato>.json = { updated, cards: { chiave: carta compatta } } nello stesso formato
 // della cache dell'app (src/lib/scryfall.js: slim).
+import { gunzipSync } from 'node:zlib'
 import { norm } from '../src/lib/normalize.js'
 
 const BULK = 'https://api.scryfall.com/bulk-data'
@@ -67,5 +68,8 @@ export async function downloadOracle(fetchImpl = fetch) {
   if (!link) throw new Error(`indirizzo del file Scryfall mancante (HTTP ${res.status}; campi: ${Object.keys(meta || {}).join(', ')}; ${JSON.stringify(meta).slice(0, 600)})`)
   const r = await fetchImpl(link, { headers: HEADERS, signal: AbortSignal.timeout(10 * 60e3) })
   if (!r.ok) throw new Error(`Scryfall ${r.status}`)
-  return r.json()
+  // il file può arrivare compresso (gzip) senza che il server lo dichiari: si decomprime a mano
+  let buf = Buffer.from(await r.arrayBuffer())
+  if (buf[0] === 0x1f && buf[1] === 0x8b) buf = gunzipSync(buf)
+  return JSON.parse(buf.toString('utf8'))
 }
