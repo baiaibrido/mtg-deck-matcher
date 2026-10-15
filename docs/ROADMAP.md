@@ -78,6 +78,7 @@ Principi:
 | v0.13.8: menu a tendina su misura (Picker) al posto dei <select> del sistema: lingua (icona globo), valuta (icona monete), Ordina e Budget; arrotondati, con spunta sulla voce scelta, usabili da tastiera | Grafica coerente |
 | v0.14.0: "Mazzo misterioso del giorno" accanto al titolo dei mazzi: uno tra i meno giocati (metà bassa del meta) e i rogue, uguale per tutti e diverso ogni giorno per formato; nome nascosto finché non ci passi sopra, carta caratteristica sfocata, frase a effetto, conto alla rovescia a mezzanotte, pallino "non l'hai ancora aperto" | Far scoprire mazzi nuovi |
 | v0.14.1: "una delle carte caratteristiche" scelta tra le carte in più copie, la meno diffusa, escludendo quelle che svelano il nome del mazzo (anche nei rogue); il mazzo misterioso al passaggio del mouse non ruota più, ruota solo la carta | Mistero vero |
+| v0.15.0: sezione Gioca (#/play): Indovina il mazzo del giorno (risultato condivisibile), Mi sento fortunato, Apri una bustina, Che mazzo sei?, Traguardi (14, solo locali, avviso discreto). Nelle pagine: Meteo del meta (ultime 4 settimane), "Ci sei quasi" (≤ 5 carte, chiudibile), serie 🔥 nel mazzo misterioso, "La tua collezione urla…", immagine del mazzo da condividere | Far tornare gli utenti senza invadere |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

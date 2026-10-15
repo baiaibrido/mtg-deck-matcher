@@ -3,7 +3,9 @@ import { useMemo, useState } from 'react'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
-import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList } from './Icons.jsx'
+import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconShare } from './Icons.jsx'
+import { deckImage, shareBlob } from '../lib/shareImage.js'
+import { frameOf } from '../lib/deckInfo.js'
 import { useLocal } from '../state/useLocal.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
@@ -82,7 +84,21 @@ function Section({ title, rows, onlyMissing, visual }) {
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
 
-export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin }) {
+export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, signature, owned }) {
+  const [sharing, setSharing] = useState(false)
+  const shareDeck = async () => {
+    setSharing(true)
+    try {
+      const miss = s.missing.reduce((t, r) => t + r.missing, 0), c = missingCost(s.missing, getCached)
+      const f = frameOf(colors || [])
+      const line = !owned ? t('share.cost', costText(c, miss) || '') : miss ? t('share.missing', miss, costText(c, miss) || '') : t('share.complete')
+      const blob = await deckImage({ name: s.deck.name, sub: [formatName, s.deck.tier ? `Tier ${s.deck.tier}` : s.deck.rogue ? 'Rogue' : null, owned ? t('share.pct', Math.round(s.score * 100)) : null].filter(Boolean).join(' · '),
+        line, accent: miss && owned ? '#ef8f73' : '#d4ad5a', c1: f.c1, img: signature ? getCached(signature)?.img?.replace('/normal/', '/large/') : null })
+      const r = await shareBlob(blob, `netdeckable-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.png`, `${s.deck.name} — Netdeckable`)
+      if (r === 'downloaded') toast(t('share.saved'))
+    } catch (e) { console.warn('share', e); toast(t('share.fail')) }
+    setSharing(false)
+  }
   const [tab, setTab] = useState('list')
   const [onlyMissing, setOnlyMissing] = useState(false)
   const [look, setLook] = useLocal('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
@@ -110,6 +126,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <h1>{s.deck.name}</h1>
           <ColorPips colors={colors} size="1.15rem" />
           <PinButton deck={s.deck} pinned={pinned} onPin={onPin} className="pin-btn pin-btn-detail" />
+          <button className="pin-btn pin-btn-detail" onClick={shareDeck} disabled={sharing} aria-label={t('share.btn')} title={t('share.btn')}><IconShare size={18} /></button>
         </div>
         <p className="detail-meta">
           {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>

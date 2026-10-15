@@ -1,5 +1,6 @@
 import ConfirmButton from './ConfirmButton.jsx'
 import Picker from './Picker.jsx'
+import { personality } from '../lib/fun.js'
 import { useEffect, useRef, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
@@ -69,7 +70,7 @@ function Spine({ sections, total }) {
   )
 }
 
-export default function CollectionManager({ collection, setCollection, toast }) {
+export default function CollectionManager({ collection, setCollection, toast, best, onOpen }) {
   const [text, setText] = useState('')
   const [q, setQ] = useState('')
   const [msg, setMsg] = useState(null) // { kind: 'info'|'error', text }
@@ -211,6 +212,12 @@ export default function CollectionManager({ collection, setCollection, toast }) 
       </header>
 
       <Spine sections={allSections} total={total} />
+      {(() => {
+        const p = personality(collection, getCached); if (!p) return null
+        const who = p.kind === 'mono' ? t('pers.mono', t(`color.${p.color}`)) : p.guild
+        return <p className="pers"><span aria-hidden="true">📣</span>{t('pers.line', who, p.pct)}
+          {best && best.score > 0 && <> {t('pers.best')} <button className="linklike" onClick={() => onOpen(best.deck.id)}>{best.deck.name}</button> ({Math.round(best.score * 100)}%).</>}</p>
+      })()}
 
       <div className="coll-actions">
         <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>

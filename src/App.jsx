@@ -9,16 +9,19 @@ import { deckColors, missingCost, WUBRG, colorName } from './lib/deckInfo.js'
 import { t, LANGS, getLang, setLang, dayMonth, locale } from './i18n/index.js'
 import { money, localBudget, setRates, CURRENCIES, currency, setCurrency, currencySymbol } from './lib/currency.js'
 import { newBans, formatList } from './lib/bans.js'
-import DeckList from './components/DeckList.jsx'
+import DeckList, { costText } from './components/DeckList.jsx'
 import DeckDetail from './components/DeckDetail.jsx'
 import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
 import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins } from './components/Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins, IconDice } from './components/Icons.jsx'
 import Picker from './components/Picker.jsx'
 import MysteryDeck from './components/MysteryDeck.jsx'
 import { pickDaily, signatureOf } from './lib/daily.js'
+import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS } from './lib/fun.js'
+import MetaWeather from './components/MetaWeather.jsx'
+import PlayPage from './components/play/PlayPage.jsx'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
@@ -59,10 +62,14 @@ export default function App() {
   const [cur, setCur] = useState(currency())
   const changeCur = c => { setCurrency(c, true); setCur(c) }
   // schermi stretti: nei selettori solo i codici (IT, EUR…) per far stare tutto nell'header
-  const [narrow, setNarrow] = useState(() => matchMedia('(max-width: 519px)').matches)
-  useEffect(() => { const m = matchMedia('(max-width: 519px)'); const on = () => setNarrow(m.matches); m.addEventListener('change', on); return () => m.removeEventListener('change', on) }, [])
+  const [narrow, setNarrow] = useState(() => matchMedia('(max-width: 999px)').matches)
+  useEffect(() => { const m = matchMedia('(max-width: 999px)'); const on = () => setNarrow(m.matches); m.addEventListener('change', on); return () => m.removeEventListener('change', on) }, [])
   const [filtersOpen, setFiltersOpen] = useState(false) // su telefono i filtri stanno chiusi dietro un pulsante
-  const [pins, setPins] = useLocal('mdm.pins', []) // mazzi preferiti: restano in cima qualunque filtro ci sia
+  const [pins, setPins] = useLocal('mdm.pins', [])
+  // Giochi e traguardi: tutto solo su questo dispositivo
+  const [fun, setFun] = useLocal('mdm.fun', {})
+  const bumpFun = patch => setFun(f => ({ ...f, ...(typeof patch === 'function' ? patch(f) : patch) }))
+  const [almostOff, setAlmostOff] = useLocal('mdm.almostOff', []) // mazzi preferiti: restano in cima qualunque filtro ci sia
   const togglePin = id => setPins(pins.includes(id) ? pins.filter(x => x !== id) : [...pins, id])
   const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
   // Header sempre visibile: si compatta scorrendo (soglie diverse in su e in giù per non sfarfallare)
@@ -164,8 +171,30 @@ export default function App() {
   const updated = meta?.[0]?.updated
   const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? t('decks.srcCache') : t('decks.srcTop8')
   const stale = updated && daysAgo(updated) > STALE_DAYS
-  const page = route.page === 'collection' ? 'collection' : route.page === 'key-cards' ? 'key-cards' : sel ? 'deck' : 'decks'
+  const page = ['collection', 'key-cards', 'play'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
   const count = collection.reduce((s, c) => s + c.qty, 0)
+  const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
+  const meteo = useMemo(() => meta ? weather(meta) : null, [meta])
+  const almost = collection.length ? almostThere(ranked, 5, almostOff) : null
+  const openDaily = (id, fresh) => { bumpFun(f => { const st = bumpStreak(f.streak); return { streak: st, bestStreak: Math.max(f.bestStreak || 0, st.n), opens: (f.opens || 0) + (fresh ? 1 : 0) } }); go('deck', id) }
+  // formati visitati e mazzi completati (per i traguardi)
+  useEffect(() => { if (format && !(fun.formats || []).includes(format)) bumpFun(f => ({ formats: [...new Set([...(f.formats || []), format])] })) }, [format])
+  const anyComplete = collection.length > 0 && ranked.some(s => s.deck.source !== 'utente' && s.missing.length === 0 && s.main.total > 0)
+  useEffect(() => { if (anyComplete && !fun.completed) bumpFun({ completed: true }) }, [anyComplete])
+  const achCtx = useMemo(() => {
+    const by = {}
+    for (const c of collection) { const ci = getCached(c.name)?.ci; if (ci?.length === 1) by[ci[0]] = (by[ci[0]] || 0) + c.qty }
+    return { cards: count, maxColor: Math.max(0, ...Object.values(by)), pins: pins.length, fun }
+  }, [collection, pins, fun, cardsState])
+  const unlockedIds = unlockedNow(achCtx).join()
+  useEffect(() => { // nuovo traguardo: un solo avviso discreto; al primo avvio si segnano senza avvisi quelli già raggiunti
+    const ids = unlockedIds ? unlockedIds.split(',') : [], had = fun.unlocked
+    const fresh = ids.filter(id => !had?.[id])
+    if (!fresh.length) return
+    const today = new Date().toISOString().slice(0, 10)
+    bumpFun(f => ({ unlocked: { ...(f.unlocked || {}), ...Object.fromEntries(fresh.map(id => [id, today])) } }))
+    if (had) toast(t('ach.toast', t(`ach.${fresh[0]}`), ACHIEVEMENTS.find(a => a.id === fresh[0]).icon))
+  }, [unlockedIds])
   const navCurrent = p => (p === 'decks' ? page === 'decks' || page === 'deck' : page === p) ? 'page' : undefined
 
     const formatTabs = (
@@ -180,12 +209,13 @@ export default function App() {
       <header className={`topbar${compact ? ' compact' : ''}`} ref={headRef}>
         <a className="brand" href="#/decks" aria-label={t('home')}>
           <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <i key={c} className={`ms ms-${c} ms-cost`} />)}</span>
-          Netdeckable
+          <span className="brand-name">Netdeckable</span>
         </a>
         <nav className="nav-top" aria-label={t('sections')}>
           <a href="#/decks" aria-current={navCurrent('decks')}>{t('nav.decks')}</a>
           <a href="#/key-cards" aria-current={navCurrent('key-cards')}>{t('nav.keycards')}</a>
           <a href="#/collection" aria-current={navCurrent('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
+          <a href="#/play" aria-current={navCurrent('play')}>{t('nav.play')}</a>
         </nav>
         <div className="prefs">
           <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow}
@@ -207,8 +237,9 @@ export default function App() {
               <header className="page-head">
                 <h1>{t('decks.title', formatName)}</h1>
                 {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.filter(d => d.source !== 'utente').length, sourceText, dayMonth(updated))}</p>}
+                {meteo && <MetaWeather w={meteo} onOpen={id => go('deck', id)} />}
               </header>
-              {daily && <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={id => go('deck', id)} />}
+              {daily && <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={openDaily} streak={liveStreak(fun.streak)} />}
             </div>
 
             {banNotice}
@@ -227,6 +258,13 @@ export default function App() {
               </div>
             )}
 
+            {almost && (
+              <p className="almost">
+                <span aria-hidden="true">🎯</span>
+                <span>{t('almost.line', almost.n)} <button className="linklike" onClick={() => go('deck', almost.s.deck.id)}>{almost.s.deck.name}</button>{costOf(almost.s).amount > 0 ? ` (≈ ${money(costOf(almost.s).amount, true)})` : ''}</span>
+                <button className="almost-x" onClick={() => setAlmostOff([...almostOff, almost.s.deck.id])} aria-label={t('almost.hide')} title={t('almost.hide')}>×</button>
+              </p>
+            )}
             {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
               <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
             </button>}
@@ -286,7 +324,7 @@ export default function App() {
           {page === 'deck' && (
             <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
               onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
-              pinned={pins.includes(sel.deck.id)} onPin={togglePin}
+              pinned={pins.includes(sel.deck.id)} onPin={togglePin} owned={collection.length > 0} signature={signatureOf(sel.deck, meta || [], isLand)}
               onBack={() => history.length > 1 ? history.back() : go('decks')}
               onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}
@@ -296,8 +334,13 @@ export default function App() {
             <KeyCards ranked={ranked} formatName={formatName} collection={collection} playset={format === 'commander' ? 1 : 4} toast={toast} />
           </>}
 
+          {page === 'play' && <>
+            {formatTabs}
+            <PlayPage meta={meta} format={format} formatName={formatName} colorsOf={colorsOf} getCard={getCached} isLand={isLand}
+              onOpen={id => go('deck', id)} toast={toast} bumpFun={bumpFun} unlocked={fun.unlocked || {}} />
+          </>}
           {page === 'collection' && banNotice}
-          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} />}
+          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} />}
         </ErrorBoundary>
       </main>
 
@@ -320,6 +363,7 @@ export default function App() {
         <a href="#/decks" aria-current={navCurrent('decks')}><IconDecks />{t('nav.decks')}</a>
         <a href="#/key-cards" aria-current={navCurrent('key-cards')}><IconKey />{t('nav.keycards')}</a>
         <a href="#/collection" aria-current={navCurrent('collection')}><IconBox />{t('nav.collection')}</a>
+        <a href="#/play" aria-current={navCurrent('play')}><IconDice />{t('nav.play')}</a>
       </nav>
 
       <button className={`to-top${showTop ? ' show' : ''}`} onClick={() => scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}

@@ -10,7 +10,7 @@ const hash = s => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
 const mask = name => name.replace(/\p{L}+/gu, w => w[0] + '?'.repeat(w.length - 1))
 
 // Mazzo misterioso del giorno, accanto al titolo della pagina mazzi
-export default function MysteryDeck({ deck, signature, colors, format, onOpen }) {
+export default function MysteryDeck({ deck, signature, colors, format, onOpen, streak = 0 }) {
   const [left, setLeft] = useState(untilMidnight())
   useEffect(() => { const id = setInterval(() => setLeft(untilMidnight()), 30000); return () => clearInterval(id) }, [])
   const [seen, setSeen] = useLocal('mdm.dailySeen', {})
@@ -19,7 +19,7 @@ export default function MysteryDeck({ deck, signature, colors, format, onOpen })
   const lines = t('daily.lines')
   const line = lines[hash(key) % lines.length]
   const card = signature ? getCached(signature) : null
-  const open = () => { setSeen({ ...seen, [format]: key }); onOpen(deck.id) }
+  const open = () => { setSeen({ ...seen, [format]: key }); onOpen(deck.id, fresh) }
 
   return (
     <button className={`mystery${fresh ? ' fresh' : ''}`} onClick={open} aria-label={t('daily.aria', deck.name)} title={t('daily.reveal')}>
@@ -43,6 +43,7 @@ export default function MysteryDeck({ deck, signature, colors, format, onOpen })
         {signature && <span className="mystery-sig">{t('daily.sig', signature)}</span>}
         <span className="mystery-meta">
           {deck.rogue ? <span>{t('rogue.results', deck.results)}</span> : deck.share > 0 && <span>{t('daily.share', num(deck.share))}</span>}
+          {streak >= 2 && <span className="mystery-streak" title={t('streak.title')}>🔥 {t('streak.days', streak)}</span>}
           <span className="mystery-timer">⏳ {t('daily.only')} · {t('daily.changes', left.h, left.m)}</span>
         </span>
         <span className="mystery-cta">{t('daily.cta')} <span aria-hidden="true">→</span></span>
