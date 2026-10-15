@@ -59,9 +59,13 @@ export async function downloadOracle(fetchImpl = fetch) {
   const res = await fetchImpl(BULK, { headers: HEADERS, signal: AbortSignal.timeout(30000) })
   const body = await res.text()
   let list; try { list = JSON.parse(body) } catch { list = null }
-  const meta = (list?.data || []).find(x => x.type === 'oracle_cards') || (list?.type === 'oracle_cards' ? list : null)
-  if (!meta?.download_uri) throw new Error(`indirizzo del file Scryfall mancante (HTTP ${res.status}: ${body.slice(0, 300)})`)
-  const r = await fetchImpl(meta.download_uri, { headers: HEADERS, signal: AbortSignal.timeout(10 * 60e3) })
+  let meta = (list?.data || []).find(x => x.type === 'oracle_cards') || (list?.type === 'oracle_cards' ? list : null)
+  // l'indirizzo del file può stare nell'elenco o solo nella scheda del singolo file (meta.uri)
+  const linkOf = m => m && (m.download_uri || Object.entries(m).find(([k, v]) => /download/i.test(k) && typeof v === 'string' && v.startsWith('http'))?.[1])
+  if (!linkOf(meta) && meta?.uri) meta = await (await fetchImpl(meta.uri, { headers: HEADERS, signal: AbortSignal.timeout(30000) })).json()
+  const link = linkOf(meta)
+  if (!link) throw new Error(`indirizzo del file Scryfall mancante (HTTP ${res.status}; campi: ${Object.keys(meta || {}).join(', ')}; ${JSON.stringify(meta).slice(0, 600)})`)
+  const r = await fetchImpl(link, { headers: HEADERS, signal: AbortSignal.timeout(10 * 60e3) })
   if (!r.ok) throw new Error(`Scryfall ${r.status}`)
   return r.json()
 }
