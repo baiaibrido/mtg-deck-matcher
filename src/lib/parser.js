@@ -20,7 +20,10 @@ export function parseLine(raw) {
   const l = raw.replace(/^SB:\s*/i, '').trim()
   let m = l.match(/^(\d+)\s*x?\s+(.+?)(?:\s+\([A-Za-z0-9]{2,6}\)(?:\s+\S+)?)?(?:\s+\*F\*)?$/i)
   if (m) return { qty: +m[1], name: m[2].trim() }
-  m = l.match(/^(.+?)\s*[,;\t]\s*(\d+)$/) || l.match(/^(.+?)\s+x(\d+)$/i)
+  m = l.match(/^[x×](\d+)\s+(.+)$/i) // x4 Lightning Bolt
+  if (m) return { qty: +m[1], name: m[2].trim() }
+  // copie dopo il nome: "Lightning Bolt 4", "Lightning Bolt x4", "Lightning Bolt 4x", "Lightning Bolt (4)", "Lightning Bolt, 4", "Lightning Bolt - 4"
+  m = l.match(/^(.+?)(?:\s*[,;\t:–-]\s*|\s+)(?:[x×]\s*)?\(?(\d+)\)?\s*[x×]?$/i)
   if (m) return { qty: +m[2], name: m[1].replace(/^"|"$/g, '').trim() }
   return null
 }

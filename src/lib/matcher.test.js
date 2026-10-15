@@ -36,6 +36,9 @@ test('norm: accenti, DFC, maiuscole', () => {
 test('parser collezione: testo e CSV', () => {
   assert.deepEqual(parseCollection('4 Lightning Bolt (2X2) 117\n2x Counterspell\nBrainstorm x3\n1 lightning bolt'),
     [{ name: 'Lightning Bolt', qty: 5 }, { name: 'Counterspell', qty: 2 }, { name: 'Brainstorm', qty: 3 }])
+  // copie prima o dopo il nome, a scelta
+  assert.deepEqual(parseCollection('Of One Mind 4\nRancor x2\nArmadillo Cloak 3x\nBrainstorm (4)\nPonder - 2\nx3 Counterspell\nFire // Ice 2\n4 Ninja of the Deep Hours').map(c => [c.name, c.qty]),
+    [['Of One Mind', 4], ['Rancor', 2], ['Armadillo Cloak', 3], ['Brainstorm', 4], ['Ponder', 2], ['Counterspell', 3], ['Fire // Ice', 2], ['Ninja of the Deep Hours', 4]])
   assert.deepEqual(parseCollection('Name,Qty,Set\n"Fire // Ice",2,MH2\nOpt,4,XLN'),
     [{ name: 'Fire // Ice', qty: 2 }, { name: 'Opt', qty: 4 }])
 })

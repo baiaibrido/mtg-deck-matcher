@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
 import { normalizeCollection, fetchCards, getCached, smallImg } from '../lib/scryfall.js'
@@ -65,6 +65,12 @@ export default function CollectionManager({ collection, setCollection, toast }) 
   const [busy, setBusy] = useState(false)
   const [drag, setDrag] = useState(false)
   const [importOpen, setImportOpen] = useState(collection.length === 0)
+  const textRef = useRef(null), opened = useRef(false)
+  // "Aggiungi carte": cursore già nella casella, si può scrivere subito
+  useEffect(() => {
+    if (!opened.current) { opened.current = true; return }
+    if (importOpen) textRef.current?.focus()
+  }, [importOpen])
   const [prefs, setPrefs] = useLocal('mdm.collView', {})
   const view = prefs.view || 'grid', sort = prefs.sort || 'name', type = prefs.type || 'all'
   const [limit, setLimit] = useState(STEP)
@@ -141,8 +147,8 @@ export default function CollectionManager({ collection, setCollection, toast }) 
         <span><b>Carica un file</b> .csv o .txt <span className="muted">oppure trascinalo qui. Vanno bene gli export di ManaBox, Moxfield, Deckbox, Dragon Shield e Cardmarket.</span></span>
         <input type="file" accept=".csv,.txt" onChange={e => { readFile(e.target.files[0]); e.target.value = '' }} />
       </label>
-      <textarea rows={5} value={text} onChange={e => setText(e.target.value)} aria-label="Elenco carte"
-        placeholder={'Oppure incolla l\'elenco, una carta per riga:\n4 Lightning Bolt\n2 Counterspell\n1 Snow-Covered Island'} />
+      <textarea ref={textRef} rows={5} value={text} onChange={e => setText(e.target.value)} aria-label="Elenco carte"
+        placeholder={'Oppure scrivi o incolla l\'elenco, una carta per riga, con le copie prima o dopo il nome:\n4 Lightning Bolt\nCounterspell 2\nSnow-Covered Island x1'} />
       <div className="row">
         <button className="btn btn-primary" onClick={() => apply(false)} disabled={!text.trim()}>Aggiungi alla collezione</button>
         <button className="btn" onClick={() => apply(true)} disabled={!text.trim()}>Sostituisci collezione</button>
