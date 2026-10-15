@@ -1,4 +1,5 @@
 import ConfirmButton from './ConfirmButton.jsx'
+import Picker from './Picker.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
@@ -240,12 +241,10 @@ export default function CollectionManager({ collection, setCollection, toast }) 
         <div className="chips" role="group" aria-label={t('coll.typeAria')}>
           {TYPE_FILTERS.map(([k]) => <button key={k} aria-pressed={type === k} onClick={() => setP({ type: k })}>{t(`type.${k}`)}</button>)}
         </div>
-        <label className="select">
-          <span>{t('sort')}</span>
-          <select value={sort} onChange={e => setP({ sort: e.target.value })}>
-            {SORTS.map(k => <option key={k} value={k}>{t(`coll.sort.${k}`)}</option>)}
-          </select>
-        </label>
+        <span className="select">
+          <span aria-hidden="true">{t('sort')}</span>
+          <Picker label={t('sort')} value={sort} onChange={v => setP({ sort: v })} options={SORTS.map(k => ({ value: k, label: t(`coll.sort.${k}`) }))} align="right" />
+        </span>
         <div className="seg seg-icons" role="group" aria-label={t('view')}>
           <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
           <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>

@@ -75,6 +75,7 @@ Principi:
 | v0.13.5 (revisione UX, parte C): "completo · main + side" sotto la percentuale; senza collezione le schede mostrano solo il costo del mazzo; "X% contro il meta"; "nuovo" solo per mazzi senza storico; Esporta / Importa backup nella collezione; filtri dietro un pulsante su telefono; testi delle schede più grandi | Chiarezza e telefono |
 | v0.13.6: collezione con un solo "Importa da file" (export di altre app o backup): con collezione vuota carica subito, altrimenti chiede Aggiungi/Sostituisci (annullabile); file trascinabile su tutta la pagina; "Aggiungi carte" solo per scrivere/incollare | Meno pulsanti doppi |
 | v0.13.7: pulsante "Torna su" in basso a destra dopo circa due schermate di scorrimento | Navigazione nelle pagine lunghe |
+| v0.13.8: menu a tendina su misura (Picker) al posto dei <select> del sistema: lingua (icona globo), valuta (icona monete), Ordina e Budget; arrotondati, con spunta sulla voce scelta, usabili da tastiera | Grafica coerente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

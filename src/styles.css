@@ -690,3 +690,34 @@ main:focus { outline: none; }
 .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
 .to-top:hover { border-color: var(--brass); color: var(--brass); }
 @media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
+
+/* v0.13.8: menu a tendina su misura (Picker) */
+.picker { position: relative; display: inline-flex; }
+.picker-btn {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 6px 10px 6px 14px; cursor: pointer;
+  border: 1px solid var(--edge); border-radius: 999px; background: var(--baize); color: var(--bone); white-space: nowrap;
+  transition: border-color .15s, min-height .2s var(--ease);
+}
+.picker-btn:hover, .picker-btn[aria-expanded="true"] { border-color: var(--brass); }
+.picker-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.picker-btn > svg:first-child { color: var(--lichen); flex: none; }
+.picker-caret { color: var(--lichen); transition: transform .2s var(--ease); flex: none; }
+.picker-btn[aria-expanded="true"] .picker-caret { transform: rotate(180deg); }
+.picker-list {
+  position: fixed; z-index: 60; max-height: min(60vh, 340px); overflow: auto;
+  margin: 0; padding: 6px; list-style: none; border: 1px solid var(--rail); border-radius: var(--r-lg);
+  background: var(--baize); box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  animation: pop .16s var(--ease) both; outline: none;
+}
+@keyframes pop { from { opacity: 0; transform: translateY(-4px) scale(.98); } }
+.picker-list li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 9px 12px; border-radius: 10px; cursor: pointer; white-space: nowrap; color: var(--bone); }
+.picker-list li.active { background: var(--baize-2); }
+.picker-list li[aria-selected="true"] { color: var(--brass); font-weight: 700; }
+.picker-list li svg { color: var(--brass); flex: none; }
+.pref-picker .picker-btn { min-height: 36px; padding: 4px 8px 4px 10px; gap: 6px; font-size: .9rem; }
+.topbar.compact .pref-picker .picker-btn { min-height: 32px; }
+@media (max-width: 719px) {
+  .picker-btn, .pref-picker .picker-btn, .topbar.compact .pref-picker .picker-btn { min-height: 44px; }
+  .pref-picker .picker-btn { padding: 4px 6px 4px 9px; gap: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .picker-list { animation: none; } .picker-caret { transition: none; } }

@@ -15,7 +15,8 @@ import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
 import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter } from './components/Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins } from './components/Icons.jsx'
+import Picker from './components/Picker.jsx'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
@@ -182,18 +183,10 @@ export default function App() {
           <a href="#/collection" aria-current={navCurrent('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
         </nav>
         <div className="prefs">
-          <label className="select lang-select">
-            <span className="sr-only">{t('language')}</span>
-            <select value={lang} onChange={e => changeLang(e.target.value)} aria-label={t('language')}>
-              {LANGS.map(([k, name]) => <option key={k} value={k} lang={k}>{narrow ? k.toUpperCase() : name}</option>)}
-            </select>
-          </label>
-          <label className="select lang-select cur-select">
-            <span className="sr-only">{t('currency')}</span>
-            <select value={cur} onChange={e => changeCur(e.target.value)} aria-label={t('currency')}>
-              {CURRENCIES.map(c => { const s = currencySymbol(c, locale()); return <option key={c} value={c}>{narrow || !s || s === c ? c : `${c} ${s}`}</option> })}
-            </select>
-          </label>
+          <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow}
+            value={lang} onChange={changeLang} options={LANGS.map(([k, name]) => ({ value: k, label: name, short: k.toUpperCase(), lang: k }))} />
+          <Picker className="pref-picker" label={t('currency')} icon={<IconCoins size={17} />} align="right" short={narrow}
+            value={cur} onChange={changeCur} options={CURRENCIES.map(c => { const sym = currencySymbol(c, locale()); return { value: c, label: !sym || sym === c ? c : `${c} ${sym}`, short: c } })} />
           <button className="theme-btn" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             aria-label={theme === 'light' ? t('theme.toDark') : t('theme.toLight')} title={theme === 'light' ? t('theme.toDark') : t('theme.toLight')}>
             {theme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
@@ -231,18 +224,14 @@ export default function App() {
             </button>}
             {decks.length > 1 && (
               <div className={`filters${filtersOpen ? ' open' : ''}`}>
-                <label className="select">
-                  <span>{t('sort')}</span>
-                  <select value={view.sort} onChange={e => setV({ sort: e.target.value })}>
-                    {SORTS.map(k => <option key={k} value={k}>{t(`sort.${k}`)}</option>)}
-                  </select>
-                </label>
-                <label className="select">
-                  <span>{t('budget')}</span>
-                  <select value={view.budget} onChange={e => setV({ budget: +e.target.value })}>
-                    {BUDGETS.map(b => <option key={b} value={b}>{b ? t('budget.max', money(localBudget(b))) : t('budget.any')}</option>)}
-                  </select>
-                </label>
+                <span className="select">
+                  <span aria-hidden="true">{t('sort')}</span>
+                  <Picker label={t('sort')} value={view.sort} onChange={v => setV({ sort: v })} options={SORTS.map(k => ({ value: k, label: t(`sort.${k}`) }))} />
+                </span>
+                <span className="select">
+                  <span aria-hidden="true">{t('budget')}</span>
+                  <Picker label={t('budget')} value={view.budget} onChange={v => setV({ budget: v })} options={BUDGETS.map(b => ({ value: b, label: b ? t('budget.max', money(localBudget(b))) : t('budget.any') }))} />
+                </span>
                 <div className="chips" role="group" aria-label="Tier">
                   {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
                 </div>
