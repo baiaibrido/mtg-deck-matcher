@@ -4,7 +4,7 @@
 // Commander resta su MTGTop8; un formato passa a MTGTop8 anche se troppi mazzi restano "non riconosciuti".
 // Uso: node scripts/sync-meta.mjs [pauper modern ...]
 import { execFileSync } from 'node:child_process'
-import { readFileSync, readdirSync, rmSync, existsSync, writeFileSync } from 'node:fs'
+import { readFileSync, readdirSync, rmSync, existsSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
@@ -316,7 +316,11 @@ async function syncCards() {
       console.log(`  carte ${id}: ${Object.keys(json.cards).length} salvate, ${missing} non trovate`)
     }
     console.log(`Dati carte Scryfall pronti in ${Math.round((Date.now() - t0) / 1000)}s`)
-  } catch (e) { console.warn(`Dati carte Scryfall non aggiornati (${e.message}): l'app userà l'API come prima`) }
+  } catch (e) {
+    console.warn(`Dati carte Scryfall non aggiornati (${e.message}): l'app userà l'API come prima`)
+    // il log delle Action non sempre è leggibile: l'errore finisce anche in debug/ (la Action lo salva nel repository)
+    try { mkdirSync(new URL('../debug/', import.meta.url), { recursive: true }); writeFileSync(new URL('../debug/cards-error.txt', import.meta.url), `${new Date().toISOString()}\n${e.stack || e}\n${e.cause ? String(e.cause.stack || e.cause) : ''}\n`) } catch {}
+  }
 }
 
 // --- main ---
