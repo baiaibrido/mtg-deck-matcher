@@ -6,8 +6,8 @@ import { rankDecks } from './lib/matcher.js'
 import { isBasic, withoutBasics } from './lib/normalize.js'
 import { fetchCards, getCached } from './lib/scryfall.js'
 import { deckColors, missingCost, WUBRG, colorName } from './lib/deckInfo.js'
-import { t, LANGS, getLang, setLang, dayMonth } from './i18n/index.js'
-import { money, localBudget, setRates } from './lib/currency.js'
+import { t, LANGS, getLang, setLang, dayMonth, locale } from './i18n/index.js'
+import { money, localBudget, setRates, CURRENCIES, currency, setCurrency, currencySymbol } from './lib/currency.js'
 import { newBans, formatList } from './lib/bans.js'
 import DeckList from './components/DeckList.jsx'
 import DeckDetail from './components/DeckDetail.jsx'
@@ -15,7 +15,7 @@ import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
 import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon } from './components/Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar } from './components/Icons.jsx'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
@@ -52,6 +52,13 @@ export default function App() {
   const [toastMsg, toast] = useToast()
   const [lang, setLangState] = useState(getLang())
   const changeLang = l => { setLang(l); setLangState(l) }
+  const [cur, setCur] = useState(currency())
+  const changeCur = c => { setCurrency(c, true); setCur(c) }
+  // schermi stretti: nei selettori solo i codici (IT, EUR…) per far stare tutto nell'header
+  const [narrow, setNarrow] = useState(() => matchMedia('(max-width: 519px)').matches)
+  useEffect(() => { const m = matchMedia('(max-width: 519px)'); const on = () => setNarrow(m.matches); m.addEventListener('change', on); return () => m.removeEventListener('change', on) }, [])
+  const [pins, setPins] = useLocal('mdm.pins', []) // mazzi preferiti: restano in cima qualunque filtro ci sia
+  const togglePin = id => setPins(pins.includes(id) ? pins.filter(x => x !== id) : [...pins, id])
   const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
   // Header sempre visibile: si compatta scorrendo (soglie diverse in su e in giù per non sfarfallare)
   const headRef = useRef(null)
@@ -114,8 +121,11 @@ export default function App() {
   const withinBudget = s => !s.missing.length || costOf(s).amount <= localBudget(view.budget)
 
   // Tutti i mazzi del formato: filtri per tier e colori, ordinamento
+  // Preferiti: nell'ordine in cui sono stati fissati, sempre visibili e fuori dai filtri
+  const pinned = pins.map(id => ranked.find(s => s.deck.id === id) || rogue.find(s => s.deck.id === id)).filter(Boolean)
+    .map(s => s.rank ? s : { ...s, rank: ranked.indexOf(s) + 1 })
   const all = useMemo(() => {
-    let list = ranked.map((s, i) => ({ ...s, rank: i + 1 }))
+    let list = ranked.map((s, i) => ({ ...s, rank: i + 1 })).filter(s => !pins.includes(s.deck.id))
     if (view.tier) list = list.filter(s => s.deck.tier === view.tier)
     if (view.colors.length) list = list.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
     if (view.budget) list = list.filter(withinBudget)
@@ -123,8 +133,8 @@ export default function App() {
     if (view.sort === 'meta') list.sort((a, b) => (b.deck.metaWr ?? -1) - (a.deck.metaWr ?? -1))
     if (view.sort === 'cost') list.sort((a, b) => costOf(a).amount - costOf(b).amount || b.score - a.score)
     return list
-  }, [ranked, view, cardsState])
-  const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
+  }, [ranked, view, cardsState, pins])
+  const rogueShown = (view.budget ? rogue.filter(withinBudget) : rogue).filter(s => !pins.includes(s.deck.id))
 
   // Ban: avviso una sola volta per i nuovi ban sulle carte della collezione
   const bans = newBans(collection, getCached, seenBans)
@@ -172,7 +182,13 @@ export default function App() {
           <label className="select lang-select">
             <span className="sr-only">{t('language')}</span>
             <select value={lang} onChange={e => changeLang(e.target.value)} aria-label={t('language')}>
-              {LANGS.map(([k, name]) => <option key={k} value={k} lang={k}>{name}</option>)}
+              {LANGS.map(([k, name]) => <option key={k} value={k} lang={k}>{narrow ? k.toUpperCase() : name}</option>)}
+            </select>
+          </label>
+          <label className="select lang-select cur-select">
+            <span className="sr-only">{t('currency')}</span>
+            <select value={cur} onChange={e => changeCur(e.target.value)} aria-label={t('currency')}>
+              {CURRENCIES.map(c => { const s = currencySymbol(c, locale()); return <option key={c} value={c}>{narrow || !s || s === c ? c : `${c} ${s}`}</option> })}
             </select>
           </label>
           <button className="theme-btn" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
@@ -188,7 +204,7 @@ export default function App() {
             {formatTabs}
             <header className="page-head">
               <h1>{t('decks.title', formatName)}</h1>
-              {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.length, sourceText, dayMonth(updated))}</p>}
+              {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.filter(d => d.source !== 'utente').length, sourceText, dayMonth(updated))}</p>}
             </header>
 
             {banNotice}
@@ -237,16 +253,24 @@ export default function App() {
 
             {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
               : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
-                : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors + view.budget} highlightFirst={false} onOpen={id => go('deck', id)} />
+                : <>
+                  {pinned.length > 0 && (
+                    <section className="pinned" aria-labelledby="pinned-title">
+                      <h2 id="pinned-title" className="pinned-title"><IconStar size={18} filled /> {t('pins.title')}</h2>
+                      <DeckList ranked={pinned} colorsOf={colorsOf} costOf={costOf} animKey={format + 'pins'} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} />
+                    </section>
+                  )}
+                  {all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors + view.budget} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} />
                   : <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>}
+                </>}
 
             {rogueShown.length > 0 && (
               <section className="rogue" aria-labelledby="rogue-title">
                 <header className="rogue-head">
                   <h2 id="rogue-title" tabIndex={-1}><span aria-hidden="true">🌶</span> {t('rogue.title')}</h2>
-                  <p>{t('rogue.intro')}</p>
+                  <p>{t('rogue.intro', metaMain.length)}</p>
                 </header>
-                <DeckList ranked={rogueShown} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('deck', id)} />
+                <DeckList ranked={rogueShown} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} />
               </section>
             )}
 
@@ -259,6 +283,7 @@ export default function App() {
           {page === 'deck' && (
             <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
               onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
+              pinned={pins.includes(sel.deck.id)} onPin={togglePin}
               onBack={() => history.length > 1 ? history.back() : go('decks')}
               onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}

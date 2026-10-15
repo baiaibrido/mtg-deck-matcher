@@ -87,7 +87,7 @@ export default {
   'coll.cards': n => `${n} ${cards(n)}`, 'coll.more': n => `Show more cards (${n} left)`,
 
   'rogue.title': 'Spicy rogue decks of the week',
-  'rogue.intro': 'Decks outside the 30 most played that made top 8 in a tournament or went 5-0 in a League in the last 7 days. Sorted by how close they are to your collection.',
+  'rogue.intro': n => `Decks outside the ${n} most played that made top 8 in a tournament or went 5-0 in a League in the last 7 days. Sorted by how close they are to your collection.`,
   'rogue.results': n => `${n} ${p(n, 'result', 'results')} this week`, 'rogue.best': r => `best: ${r}`, 'rogue.signature': c => `signature card: ${c}`,
   'rogue.jump': n => `Discover ${p(n, 'the spicy rogue deck', `${n} spicy rogue decks`)} of the week`,
 
@@ -101,4 +101,5 @@ export default {
   'mu.none': 'Not enough match data for this deck yet.', 'mu.showAll': n => `Show all (${n})`,
   'ban.short': 'Banned card', 'ban.deck': c => `Contains cards banned in this format: ${c}`, 'ban.card': f => `Banned in ${f}`, 'ban.restricted': f => `Restricted in ${f}`,
   'ban.newTitle': 'New bans on your cards', 'ban.newItem': (c, f) => `${c}: banned in ${f}`, 'ban.dismiss': 'Got it',
+  currency: 'Currency', 'pins.title': 'Your favorites', 'pin.add': n => `Add ${n} to favorites`, 'pin.remove': n => `Remove ${n} from favorites`,
 }

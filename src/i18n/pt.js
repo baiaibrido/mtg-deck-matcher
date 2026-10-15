@@ -88,7 +88,7 @@ export default {
   'coll.cards': n => `${n} ${cartas(n)}`, 'coll.more': n => `Mostrar mais cartas (faltam ${n})`,
 
   'rogue.title': 'Rogues apimentados da semana',
-  'rogue.intro': 'Decks fora dos 30 mais jogados que nos últimos 7 dias fizeram top 8 em um torneio ou 5-0 em uma League. Ordenados pela proximidade com a sua coleção.',
+  'rogue.intro': n => `Decks fora dos ${n} mais jogados que nos últimos 7 dias fizeram top 8 em um torneio ou 5-0 em uma League. Ordenados pela proximidade com a sua coleção.`,
   'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} na semana`, 'rogue.best': r => `melhor: ${r}`, 'rogue.signature': c => `carta-símbolo: ${c}`,
   'rogue.jump': n => `Descubra ${p(n, 'o rogue apimentado', `os ${n} rogues apimentados`)} da semana`,
 
@@ -102,4 +102,5 @@ export default {
   'mu.none': 'Ainda há poucos dados de partidas deste deck.', 'mu.showAll': n => `Mostrar todos (${n})`,
   'ban.short': 'Carta banida', 'ban.deck': c => `Contém cartas banidas neste formato: ${c}`, 'ban.card': f => `Banida em ${f}`, 'ban.restricted': f => `Restrita em ${f}`,
   'ban.newTitle': 'Novos banimentos nas suas cartas', 'ban.newItem': (c, f) => `${c}: banida em ${f}`, 'ban.dismiss': 'Entendi',
+  currency: 'Moeda', 'pins.title': 'Seus favoritos', 'pin.add': n => `Adicionar ${n} aos favoritos`, 'pin.remove': n => `Remover ${n} dos favoritos`,
 }

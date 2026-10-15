@@ -96,7 +96,7 @@ export default {
 
   // rogue della settimana
   'rogue.title': 'Rogue piccanti della settimana',
-  'rogue.intro': 'Mazzi fuori dai 30 più giocati che negli ultimi 7 giorni hanno fatto top 8 in un torneo o 5-0 in una League. In ordine di vicinanza alla tua collezione.',
+  'rogue.intro': n => `Mazzi fuori dai ${n} più giocati che negli ultimi 7 giorni hanno fatto top 8 in un torneo o 5-0 in una League. In ordine di vicinanza alla tua collezione.`,
   'rogue.results': n => `${n} ${p(n, 'risultato', 'risultati')} in settimana`, 'rogue.best': r => `migliore: ${r}`, 'rogue.signature': c => `carta simbolo: ${c}`,
   'rogue.jump': n => `Scopri ${p(n, 'il rogue piccante', `i ${n} rogue piccanti`)} della settimana`,
 
@@ -111,4 +111,5 @@ export default {
   'mu.none': 'Ancora pochi dati sulle partite di questo mazzo.', 'mu.showAll': n => `Mostra tutti (${n})`,
   'ban.short': 'Carta bannata', 'ban.deck': c => `Contiene carte bannate in questo formato: ${c}`, 'ban.card': f => `Bannata in ${f}`, 'ban.restricted': f => `Ristretta in ${f}`,
   'ban.newTitle': 'Nuovi ban sulle tue carte', 'ban.newItem': (c, f) => `${c}: bannata in ${f}`, 'ban.dismiss': 'Ok, ho capito',
+  currency: 'Valuta', 'pins.title': 'I tuoi preferiti', 'pin.add': n => `Aggiungi ${n} ai preferiti`, 'pin.remove': n => `Togli ${n} dai preferiti`,
 }

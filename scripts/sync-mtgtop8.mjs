@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { parseDeck } from '../src/lib/parser.js'
 
 const BASE = 'https://www.mtgtop8.com/'
-const TOP_N = 30 // archetipi per formato (meno se il meta ne ha meno)
+const TOP_N = 50 // archetipi per formato (meno se il meta ne ha meno)
 const DELAY_MS = 1200 // pausa tra richieste: carico minimo sul sito
 export const FORMATS = { standard: 'ST', pioneer: 'PI', modern: 'MO', pauper: 'PAU', legacy: 'LE', vintage: 'VI', commander: 'cEDH' }
 const OUT = new URL('../public/meta/', import.meta.url)

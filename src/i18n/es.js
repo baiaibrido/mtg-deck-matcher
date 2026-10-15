@@ -87,7 +87,7 @@ export default {
   'coll.cards': n => `${n} ${cartas(n)}`, 'coll.more': n => `Mostrar más cartas (quedan ${n})`,
 
   'rogue.title': 'Rogues picantes de la semana',
-  'rogue.intro': 'Mazos fuera de los 30 más jugados que en los últimos 7 días hicieron top 8 en un torneo o 5-0 en una League. Ordenados por lo cerca que están de tu colección.',
+  'rogue.intro': n => `Mazos fuera de los ${n} más jugados que en los últimos 7 días hicieron top 8 en un torneo o 5-0 en una League. Ordenados por lo cerca que están de tu colección.`,
   'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} esta semana`, 'rogue.best': r => `mejor: ${r}`, 'rogue.signature': c => `carta insignia: ${c}`,
   'rogue.jump': n => `Descubre ${p(n, 'el rogue picante', `los ${n} rogues picantes`)} de la semana`,
 
@@ -101,4 +101,5 @@ export default {
   'mu.none': 'Aún hay pocos datos de partidas de este mazo.', 'mu.showAll': n => `Mostrar todos (${n})`,
   'ban.short': 'Carta prohibida', 'ban.deck': c => `Contiene cartas prohibidas en este formato: ${c}`, 'ban.card': f => `Prohibida en ${f}`, 'ban.restricted': f => `Restringida en ${f}`,
   'ban.newTitle': 'Nuevas prohibiciones en tus cartas', 'ban.newItem': (c, f) => `${c}: prohibida en ${f}`, 'ban.dismiss': 'Entendido',
+  currency: 'Moneda', 'pins.title': 'Tus favoritos', 'pin.add': n => `Añadir ${n} a favoritos`, 'pin.remove': n => `Quitar ${n} de favoritos`,
 }

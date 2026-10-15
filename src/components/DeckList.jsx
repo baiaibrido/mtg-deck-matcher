@@ -1,6 +1,6 @@
 import { ColorPips } from './Mana.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
-import { IconChevron } from './Icons.jsx'
+import { IconChevron, IconStar } from './Icons.jsx'
 import { frameOf } from '../lib/deckInfo.js'
 import { t, num } from '../i18n/index.js'
 import { money } from '../lib/currency.js'
@@ -41,11 +41,19 @@ export function RogueInfo({ deck }) {
   </>
 }
 
-function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
+// Stella per fissare il mazzo tra i preferiti (fuori dal pulsante della scheda: non si annidano pulsanti)
+export function PinButton({ deck, pinned, onPin, className = 'pin-btn' }) {
+  if (!onPin) return null
+  const label = pinned ? t('pin.remove', deck.name) : t('pin.add', deck.name)
+  return <button className={className} aria-pressed={pinned} aria-label={label} title={label} onClick={() => onPin(deck.id)}><IconStar size={18} filled={pinned} /></button>
+}
+
+function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin }) {
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
   const price = costText(cost, missing)
   return (
-    <li className={`deck${top ? ' deck-top' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
+    <li className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
+      <PinButton deck={s.deck} pinned={pinned} onPin={onPin} />
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
         <span className="deck-main">
@@ -82,12 +90,12 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
   )
 }
 
-export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true }) {
+export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true, pins = [], onPin }) {
   return (
     <ol className="decks" key={animKey}>
       {ranked.map((s, i) => (
         <DeckRow key={s.deck.id} s={s} rank={s.rank ?? i + 1} index={Math.min(i, 8)} top={highlightFirst && i === 0}
-          colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} />
+          colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} pinned={pins.includes(s.deck.id)} onPin={onPin} />
       ))}
     </ol>
   )

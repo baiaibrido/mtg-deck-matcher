@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Meter, frameStyle, shareText, costText, RogueInfo } from './DeckList.jsx'
+import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck } from './Icons.jsx'
@@ -46,7 +46,7 @@ function Section({ title, rows, onlyMissing }) {
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
 
-export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf }) {
+export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin }) {
   const [tab, setTab] = useState('list')
   const [onlyMissing, setOnlyMissing] = useState(false)
   const list = toText(s.missing)
@@ -70,6 +70,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         <div className="detail-title">
           <h1>{s.deck.name}</h1>
           <ColorPips colors={colors} size="1.15rem" />
+          <PinButton deck={s.deck} pinned={pinned} onPin={onPin} className="pin-btn pin-btn-detail" />
         </div>
         <p className="detail-meta">
           {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>

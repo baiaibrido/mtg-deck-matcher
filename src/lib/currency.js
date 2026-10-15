@@ -41,13 +41,24 @@ export function detectCurrency({ search = '', timeZone = '', languages = [] } = 
   return /^(America|Pacific\/Honolulu)/.test(timeZone) ? 'USD' : /^(Asia|Africa|Pacific|Indian)/.test(timeZone) ? 'USD' : 'EUR'
 }
 
-let CUR = detectCurrency({
+// Valute selezionabili (cambi BCE + euro), nell'ordine del selettore
+export const CURRENCIES = ['EUR', 'USD', 'GBP', 'CHF', 'CAD', 'AUD', 'NZD', 'JPY', 'KRW', 'CNY', 'HKD', 'SGD', 'INR', 'IDR', 'PHP', 'THB', 'MYR', 'BRL', 'MXN', 'SEK', 'NOK', 'DKK', 'ISK', 'PLN', 'CZK', 'HUF', 'RON', 'TRY', 'ILS', 'ZAR']
+const KEY = 'mdm.currency'
+const saved = (() => { try { return globalThis.localStorage?.getItem(KEY) } catch { return null } })()
+
+// Scelta salvata dal selettore → rilevamento automatico
+let CUR = CURRENCIES.includes(saved) ? saved : detectCurrency({
   search: globalThis.location?.search || '',
   timeZone: (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone } catch { return '' } })(),
   languages: globalThis.navigator?.languages || [],
 })
 export const currency = () => CUR
-export const setCurrency = c => { CUR = c }
+export const setCurrency = (c, persist = false) => {
+  CUR = c
+  if (persist) try { localStorage.setItem(KEY, c) } catch { /* bloccato */ }
+}
+// Simbolo breve per il selettore (es. € , $, ¥); se coincide col codice non si ripete
+export const currencySymbol = (c, loc) => { try { return new Intl.NumberFormat(loc, { style: 'currency', currency: c, currencyDisplay: 'narrowSymbol' }).formatToParts(0).find(p => p.type === 'currency')?.value } catch { return c } }
 export const priceSource = () => EUR_BASED.has(CUR) ? 'Cardmarket' : 'TCGplayer'
 
 // Prezzo di una carta nella valuta locale; se manca quello del mercato di riferimento si converte l'altro

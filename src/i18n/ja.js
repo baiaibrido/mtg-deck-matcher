@@ -85,7 +85,7 @@ export default {
   'coll.cards': n => `${n}枚`, 'coll.more': n => `さらに表示(残り${n}枚)`,
 
   'rogue.title': '今週の注目ローグデッキ',
-  'rogue.intro': '使用率上位30以外のデッキのうち、直近7日間に大会でトップ8、またはLeagueで5-0を達成したもの。あなたのコレクションに近い順に並べています。',
+  'rogue.intro': n => `使用率上位${n}以外のデッキのうち、直近7日間に大会でトップ8、またはLeagueで5-0を達成したもの。あなたのコレクションに近い順に並べています。`,
   'rogue.results': n => `今週${n}回入賞`, 'rogue.best': r => `最高成績:${r}`, 'rogue.signature': c => `象徴的なカード:${c}`,
   'rogue.jump': n => `今週の注目ローグデッキ${n}個を見る`,
 
@@ -99,4 +99,5 @@ export default {
   'mu.none': 'このデッキの対戦データはまだ不足しています。', 'mu.showAll': n => `すべて表示(${n})`,
   'ban.short': '禁止カード', 'ban.deck': c => `このフォーマットの禁止カードを含みます:${c}`, 'ban.card': f => `${f}で禁止`, 'ban.restricted': f => `${f}で制限`,
   'ban.newTitle': 'あなたのカードに新しい禁止', 'ban.newItem': (c, f) => `${c}:${f}で禁止`, 'ban.dismiss': '了解',
+  currency: '通貨', 'pins.title': 'お気に入り', 'pin.add': n => `${n}をお気に入りに追加`, 'pin.remove': n => `${n}をお気に入りから外す`,
 }

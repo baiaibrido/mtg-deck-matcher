@@ -103,6 +103,15 @@ html { scroll-padding-top: calc(var(--head-h, 72px) + 12px); }
 .lang-select select { min-height: 36px; padding: 4px 28px 4px 12px; border-radius: 999px; font-size: .9rem; }
 .theme-btn { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 99px; border: 1px solid var(--edge); background: var(--baize); color: var(--lichen); cursor: pointer; flex: none; }
 .theme-btn:hover { color: var(--bone); }
+.cur-select select { max-width: 9.5em; }
+.deck { position: relative; }
+.pin-btn { position: absolute; top: 8px; right: 8px; z-index: 2; width: 36px; height: 36px; display: grid; place-items: center; border: 0; border-radius: 99px; background: transparent; color: var(--lichen); cursor: pointer; }
+.pin-btn:hover { color: var(--brass); background: color-mix(in oklab, var(--brass) 12%, transparent); }
+.pin-btn[aria-pressed="true"] { color: var(--brass); }
+.pin-btn-detail { position: static; width: 44px; height: 44px; border: 1px solid var(--edge); }
+.pinned { margin-bottom: 22px; }
+@media (max-width: 519px) { .brand-mark { display: none; } .prefs { gap: 4px; } .cur-select select { max-width: none; } }
+.pinned-title { display: flex; align-items: center; gap: 8px; font: 1.25rem/1.2 var(--font-title); margin-bottom: 10px; color: var(--brass); }
 .tabbar { display: none; }
 @media (max-width: 719px) {
   :root { --tabbar-h: 64px; }
