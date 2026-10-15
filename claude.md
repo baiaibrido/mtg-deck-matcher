@@ -15,7 +15,7 @@ scripts/sync-mtgtop8.mjs   sync MTGTop8: tier, trend, robots.txt, saveFormat() c
 .github/workflows/         sync-meta.yml (notturno), test.yml (test + build a ogni push)
 src/
   main.jsx                 entry: font (Marcellus, Alegreya Sans), mana-font, stili
-  App.jsx                  layout, stato, rotte, toast, vista Top 5/Tutti + filtri, fetch Scryfall (prima i mazzi in vista, poi tutti)
+  App.jsx                  layout, stato, rotte, toast, elenco di tutti i mazzi + filtri, fetch Scryfall (prima i mazzi in vista, poi tutti)
   styles.css               design system (token in :root) + tutti gli stili
   state/useLocal.js        useState persistito su localStorage
   state/useRoute.js        rotte nell'hash: #/mazzi, #/carte, #/collezione, #/mazzo/<id> (tasto indietro ok)
@@ -28,7 +28,7 @@ src/
   lib/metaDecks.js         caricamento JSON meta
   lib/matcher.js           MOTORE: allocazione copie, ratio, score, ranking
   lib/export.js            export mancolista (testo, TCGplayer, .txt) + backup collezione CSV
-  components/DeckList.jsx  lista Top 5 con cornici colorate + Meter (barre)
+  components/DeckList.jsx  lista mazzi (2 colonne) con cornici colorate + Meter (barre)
   components/DeckDetail.jsx dettaglio: Lista (per tipo, immagini) / Mancolista + azioni
   components/CollectionManager.jsx raccoglitore per colore con immagini (griglia/elenco), barra colori, filtri tipo, ordinamento, valore stimato, import a scomparsa
   components/MetaImporter.jsx aggiunta mazzo a mano
@@ -67,7 +67,7 @@ Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view`
 3. `M_main = Σ min(owned, req) / totaleMain` (60 di norma), `M_side = Σ min(owned, req) / totaleSide` (15).
    Side vuoto → `M_side = 0`.
 4. `score = M_main·0.85 + M_side·0.15`. Garantisce: 100% main + 0% side (0.85) > 75% main + 100% side (0.7875).
-5. Ordinamento: score desc, poi M_main desc, poi popolarità. Top 5.
+5. Ordinamento: score desc, poi M_main desc, poi popolarità. Si mostrano tutti i mazzi del formato.
 6. Terre base lisce (Plains, Island, Swamp, Mountain, Forest): sempre possedute, non consumano copie, escluse dalla collezione (parser + setCollection in App) e fuori da have/total/ratio (dalla v0.9.1: la % di completamento conta solo le altre carte). Le Snow-Covered e Wastes contano normalmente.
 
 ## Normalizzazione nomi (lib/normalize.js)
