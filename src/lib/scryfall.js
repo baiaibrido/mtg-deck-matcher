@@ -50,10 +50,14 @@ const fresh = e => e && Date.now() - (e.t || 0) < MAX_AGE
 const unknown = new Set() // nomi che Scryfall non riconosce: non li richiede di nuovo in questa sessione
 
 // Scarica i dati mancanti in cache. 75 nomi per richiesta (limite Scryfall), poi fuzzy sui non trovati.
+// I nomi già risultati sconosciuti vengono saltati, tranne con fuzzy: lì vanno dritti alla ricerca approssimata
+// (prima venivano saltati anche lì, quindi "Correggi i nomi" diceva "tutto ok" senza correggere nulla).
+const FUZZY_MAX = 150
 export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
   const c = getCache()
-  const want = [...new Set(names.map(n => n.trim()))].filter(n => n && !fresh(c[norm(n)]) && !unknown.has(norm(n)))
-  const notFound = []
+  const missing = [...new Set(names.map(n => n.trim()))].filter(n => n && !fresh(c[norm(n)]))
+  const want = missing.filter(n => !unknown.has(norm(n)))
+  const notFound = fuzzy ? missing.filter(n => unknown.has(norm(n))) : []
   for (let i = 0; i < want.length; i += 75) {
     const chunk = want.slice(i, i + 75)
     const r = await fetch(`${API}/cards/collection`, {
@@ -68,17 +72,17 @@ export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
     save()
     await sleep(120)
   }
+  if (!fuzzy) return { notFound }
   const unresolved = []
-  if (fuzzy) {
-    for (const n of notFound.slice(0, 40)) {
-      const r = await fetch(`${API}/cards/named?fuzzy=${encodeURIComponent(n)}`, { headers: HEAD })
-      if (r.ok) put(await r.json(), n); else unresolved.push(n)
-      await sleep(110)
-    }
-    unresolved.push(...notFound.slice(40))
+  for (const [i, n] of notFound.entries()) {
+    if (i >= FUZZY_MAX) { unresolved.push(n); continue }
+    const r = await fetch(`${API}/cards/named?fuzzy=${encodeURIComponent(n)}`, { headers: HEAD })
+    if (r.ok) { put(await r.json(), n); unknown.delete(norm(n)) } else unresolved.push(n)
+    onProgress?.(i + 1, notFound.length)
+    await sleep(110)
   }
   save()
-  return { notFound: fuzzy ? unresolved : notFound }
+  return { notFound: unresolved }
 }
 
 // Sostituisce i nomi con quelli ufficiali Scryfall e unisce i duplicati.

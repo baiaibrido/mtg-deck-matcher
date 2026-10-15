@@ -10,13 +10,16 @@ export function toOwnedMap(collection) {
 }
 
 // Consuma copie dal pool: una copia usata nel main non conta per il side.
+// Terre base: sempre possedute ma escluse da have/total, così un mazzo con tante terre base
+// non sembra più completo di uno che ne gioca poche.
 function alloc(list, pool) {
   let have = 0, total = 0
   const rows = list.map(c => {
+    if (isBasic(c.name)) return { name: c.name, qty: c.qty, have: c.qty, missing: 0, basic: true }
     const k = norm(c.name)
-    const avail = isBasic(c.name) ? Infinity : pool.get(k) || 0 // terre base: sempre possedute
+    const avail = pool.get(k) || 0
     const h = Math.min(avail, c.qty)
-    if (!isBasic(c.name)) pool.set(k, avail - h)
+    pool.set(k, avail - h)
     have += h; total += c.qty
     return { name: c.name, qty: c.qty, have: h, missing: c.qty - h }
   })

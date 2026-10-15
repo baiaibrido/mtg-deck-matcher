@@ -67,11 +67,11 @@ Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view`
    Side vuoto → `M_side = 0`.
 4. `score = M_main·0.85 + M_side·0.15`. Garantisce: 100% main + 0% side (0.85) > 75% main + 100% side (0.7875).
 5. Ordinamento: score desc, poi M_main desc, poi popolarità. Top 5.
-6. Terre base lisce (Plains, Island, Swamp, Mountain, Forest): sempre possedute, non consumano copie, escluse dalla collezione (parser + setCollection in App). Le Snow-Covered e Wastes contano normalmente.
+6. Terre base lisce (Plains, Island, Swamp, Mountain, Forest): sempre possedute, non consumano copie, escluse dalla collezione (parser + setCollection in App) e fuori da have/total/ratio (dalla v0.9.1: la % di completamento conta solo le altre carte). Le Snow-Covered e Wastes contano normalmente.
 
 ## Normalizzazione nomi (lib/normalize.js)
 minuscolo, senza accenti, apostrofi uniformati, spazi compressi, solo faccia frontale (`A // B` → `a`).
-Scryfall (pulsante "Normalizza") corregge refusi: `/cards/collection` (75 per richiesta) + `/cards/named?fuzzy` per i non trovati.
+Scryfall (pulsante "Correggi i nomi") corregge refusi: `/cards/collection` (75 per richiesta) + `/cards/named?fuzzy` per i non trovati (max 150). I nomi già segnati come sconosciuti in sessione vanno dritti al fuzzy (bug fino alla v0.9.0: venivano saltati). Ogni carta in collezione ha il cestino (elimina con Annulla nel toast).
 
 ## Formati input accettati
 - CSV con intestazione (`Name`/`Nome`/`Card` + `Qty`/`Quantity`/`Count`/`Quantità`).

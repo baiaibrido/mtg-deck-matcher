@@ -55,6 +55,7 @@ Principi:
 | Meta da **MTGODecklistCache** (tornei MTGO, melee.gg, CardsRealm) classificati con le regole aperte di **MTGOFormatData** | MTGTop8 usa archetipi larghi: Mono Blue Faeries e Dimir Faeries finivano dentro Delver e Dimir Control |
 | **MTGTop8 come rete di sicurezza**: Commander sempre, gli altri formati se più del 15% dei mazzi non viene riconosciuto | Le regole vengono aggiornate ogni pochi mesi; meglio dati larghi che dati sbagliati |
 | Footer con numero di versione (v0.8.1) | Sapere quale versione si sta usando |
+| v0.9.1: cestino per eliminare una carta dalla collezione (con Annulla), correzione nomi affidabile, terre base fuori dalla % di completamento | Segnalazioni dall'uso in negozio |
 
 ## Dopo (gennaio e oltre, da valutare)
 - **Collezione sincronizzata tra dispositivi** (Firebase, già usato negli altri progetti).

@@ -332,7 +332,11 @@ textarea { resize: vertical; line-height: 1.45; }
 .binder-sec h2 .dot { width: 14px; height: 14px; }
 .ctiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 14px 12px; }
 @media (max-width: 560px) { .ctiles { grid-template-columns: repeat(3, 1fr); gap: 12px 8px; } }
-.ctile { display: grid; gap: 6px; min-width: 0; }
+.ctile { display: grid; gap: 6px; min-width: 0; position: relative; }
+.btn-del { width: 34px; height: 34px; display: grid; place-items: center; flex: none; background: var(--baize-2); border: 1px solid var(--edge); border-radius: var(--r-sm); color: var(--lichen); cursor: pointer; }
+.btn-del:hover { color: var(--no); border-color: var(--no); }
+.ctile-del { position: absolute; top: 6px; right: 6px; width: 32px; height: 32px; border-radius: 99px; background: rgba(10, 14, 15, .9); }
+.crow-ctl { display: inline-flex; gap: 6px; align-items: center; }
 .ctile-img { position: relative; display: block; aspect-ratio: 488 / 680; border-radius: 4.8% / 3.5%; overflow: hidden; background: var(--baize-2); box-shadow: 0 2px 8px rgba(0,0,0,.35); color: var(--bone); text-decoration: none; transition: transform .2s var(--ease); }
 .ctile-img:hover { transform: translateY(-3px) rotate(-.6deg); }
 .ctile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -354,7 +358,7 @@ textarea { resize: vertical; line-height: 1.45; }
 .crow-price { text-align: right; color: var(--lichen); font-size: .9rem; font-variant-numeric: tabular-nums; }
 @media (max-width: 600px) {
   .crows li { grid-template-columns: 40px 1fr auto; grid-template-areas: 't m s' 't c p'; row-gap: 4px; }
-  .crows .thumb { grid-area: t; } .crow-main { grid-area: m; } .crows .stepper { grid-area: s; }
+  .crows .thumb { grid-area: t; } .crow-main { grid-area: m; } .crows .crow-ctl { grid-area: s; }
   .crows .mana-cost { grid-area: c; } .crow-price { grid-area: p; }
 }
 .more { margin: 18px auto 0; display: flex; }
@@ -382,6 +386,8 @@ textarea { resize: vertical; line-height: 1.45; }
   .detail-links a, .back { min-height: 44px; display: inline-flex; align-items: center; }
   .stepper button, .stepper input, .ctile .stepper button, .ctile .stepper input { height: 44px; }
   .stepper button { width: 44px; }
+  .crows .btn-del { width: 44px; height: 44px; }
+  .ctile-del { width: 40px; height: 40px; }
   .spine a { min-height: 44px; }
 }
 

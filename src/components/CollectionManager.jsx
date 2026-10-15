@@ -6,7 +6,7 @@ import { BINDER, binderOf, TYPE_FILTERS, euro } from '../lib/deckInfo.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { useLocal } from '../state/useLocal.js'
 import { ManaCost } from './Mana.jsx'
-import { IconUpload, IconSearch, IconPlus, IconMinus, IconWand, IconDownload, IconGrid, IconList } from './Icons.jsx'
+import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList } from './Icons.jsx'
 
 const STEP = 120 // carte mostrate per volta: le immagini si caricano man mano
 const SORTS = { name: 'Nome', qty: 'Copie', price: 'Valore' }
@@ -21,6 +21,10 @@ function Stepper({ c, setQty }) {
       <button onClick={() => setQty(c.name, c.qty + 1)} aria-label={`Aggiungi una copia di ${c.name}`}><IconPlus size={16} /></button>
     </span>
   )
+}
+
+function DeleteBtn({ name, onDelete, className = 'btn-del' }) {
+  return <button className={className} onClick={() => onDelete(name)} aria-label={`Elimina ${name} dalla collezione`} title="Elimina"><IconTrash size={16} /></button>
 }
 
 function Thumb({ card, name, big }) {
@@ -113,6 +117,11 @@ export default function CollectionManager({ collection, setCollection, toast }) 
     setBusy(false)
   }
   const setQty = (name, qty) => setCollection(collection.map(c => c.name === name ? { ...c, qty } : c).filter(c => c.qty > 0))
+  const remove = name => {
+    const prev = collection
+    setCollection(collection.filter(c => c.name !== name))
+    toast(`${name} eliminata`, { label: 'Annulla', fn: () => setCollection(prev) })
+  }
   const setP = patch => { setPrefs({ ...prefs, ...patch }); setLimit(STEP) }
 
   // Paginazione: le prime `limit` carte nell'ordine delle sezioni
@@ -209,6 +218,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
                     <Thumb card={r.card} name={r.name} big />
                     <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
                   </a>
+                  <DeleteBtn name={r.name} onDelete={remove} className="btn-del ctile-del" />
                   <span className="ctile-name">{r.name}</span>
                   <Stepper c={r} setQty={setQty} />
                 </li>
@@ -225,7 +235,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
                   </span>
                   <ManaCost cost={r.card?.cost} />
                   <span className="crow-price">{r.card?.eur != null ? euro(r.card.eur * r.qty, true) : '—'}</span>
-                  <Stepper c={r} setQty={setQty} />
+                  <span className="crow-ctl"><Stepper c={r} setQty={setQty} /><DeleteBtn name={r.name} onDelete={remove} /></span>
                 </li>
               ))}
             </ul>

@@ -56,9 +56,15 @@ test('parser: CSV delle app più diffuse', () => {
   assert.deepEqual(pc('\uFEFFName,Qty\n"Fire // Ice",2'), [['Fire // Ice', 2]]) // backup di questa app (con BOM)
 })
 
-test('terre base: sempre possedute, mai in collezione, non consumano copie', () => {
+test('terre base: sempre possedute, fuori dalla percentuale, mai in collezione', () => {
   const deck = { main: [{ name: 'Mountain', qty: 18 }, { name: 'Snow-Covered Mountain', qty: 2 }, { name: 'Bolt', qty: 4 }], side: [] }
   const r = scoreDeck(deck, toOwnedMap([{ name: 'Bolt', qty: 4 }]))
-  assert.equal(r.main.have, 22); assert.deepEqual(r.missing.map(m => m.name), ['Snow-Covered Mountain'])
+  assert.equal(r.main.have, 4); assert.equal(r.main.total, 6) // 18 Mountain fuori dal conteggio
+  assert.deepEqual(r.missing.map(m => m.name), ['Snow-Covered Mountain'])
+  // solo 4 Armadillo Cloak: Bogles deve superare Madness anche se Madness gioca più terre base
+  const owned = toOwnedMap([{ name: 'Armadillo Cloak', qty: 4 }])
+  const bogles = scoreDeck({ main: [{ name: 'Armadillo Cloak', qty: 4 }, { name: 'Forest', qty: 12 }, { name: 'Slippery Bogle', qty: 44 }], side: [] }, owned)
+  const madness = scoreDeck({ main: [{ name: 'Lightning Bolt', qty: 4 }, { name: 'Mountain', qty: 18 }, { name: 'Fiery Temper', qty: 38 }], side: [] }, owned)
+  assert.ok(bogles.main.ratio > madness.main.ratio)
   assert.deepEqual(parseCollection('20 Mountain\n4 Island\n2 Snow-Covered Island\n4 Opt').map(c => c.name), ['Snow-Covered Island', 'Opt'])
 })
