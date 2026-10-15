@@ -1,0 +1,7 @@
+2026-10-15T09:57:28.212Z
+Error: indirizzo del file Scryfall mancante
+    at downloadOracle (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/cards-data.mjs:60:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async syncCards (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/sync-meta.mjs:312:28)
+    at async main (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/sync-meta.mjs:384:3)
+
