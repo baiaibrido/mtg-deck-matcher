@@ -6,7 +6,8 @@ import { rankDecks } from './lib/matcher.js'
 import { isBasic, withoutBasics } from './lib/normalize.js'
 import { fetchCards, getCached } from './lib/scryfall.js'
 import { deckColors, missingCost, WUBRG, colorName } from './lib/deckInfo.js'
-import { t, LANGS, getLang, setLang, dayMonth } from './i18n/index.js'
+import { t, LANGS, getLang, setLang, dayMonth, euro } from './i18n/index.js'
+import { newBans, formatList } from './lib/bans.js'
 import DeckList from './components/DeckList.jsx'
 import DeckDetail from './components/DeckDetail.jsx'
 import CollectionManager from './components/CollectionManager.jsx'
@@ -18,7 +19,8 @@ import { IconDecks, IconBox, IconKey, IconSun, IconMoon } from './components/Ico
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
-const SORTS = ['score', 'share', 'cost']
+const SORTS = ['score', 'share', 'meta', 'cost']
+const BUDGETS = [0, 10, 25, 50, 100, 200] // tetto di spesa per completare il mazzo (0 = nessuno)
 
 function useToast() {
   const [t, setT] = useState(null)
@@ -40,7 +42,8 @@ export default function App() {
   useEffect(() => { if (collection.some(c => isBasic(c.name))) setCollection(collection) }, []) // pulizia collezioni salvate prima
   const [userDecks, setUserDecks] = useLocal('mdm.userDecks', [])
   const [viewRaw, setView] = useLocal('mdm.view', {})
-  const view = { sort: 'score', tier: 0, colors: [], ...viewRaw }
+  const view = { sort: 'score', tier: 0, colors: [], budget: 0, ...viewRaw }
+  const [seenBans, setSeenBans] = useLocal('mdm.bansSeen', null)
   const [formats, setFormats] = useState([])
   const [meta, setMeta] = useState(null)
   const [cardsState, setCardsState] = useState('idle') // idle | loading | ready | error
@@ -95,6 +98,7 @@ export default function App() {
         await fetchCards(namesOf(sel ? [sel] : top)); if (!alive) return
         setTick(t => t + 1)
         await fetchCards(namesOf([...ranked, ...rogue])); if (!alive) return
+        await fetchCards(collection.map(c => c.name)); if (!alive) return // per gli avvisi sui ban
         setCardsState('ready'); setTick(t => t + 1)
       } catch { if (alive) setCardsState('error') }
     })()
@@ -103,16 +107,33 @@ export default function App() {
 
   const colorsOf = deck => deckColors(deck, getCached) ?? (cardsState === 'error' ? undefined : null)
   const costOf = s => missingCost(s.missing, getCached)
+  const withinBudget = s => !s.missing.length || costOf(s).eur <= view.budget
 
   // Tutti i mazzi del formato: filtri per tier e colori, ordinamento
   const all = useMemo(() => {
     let list = ranked.map((s, i) => ({ ...s, rank: i + 1 }))
     if (view.tier) list = list.filter(s => s.deck.tier === view.tier)
     if (view.colors.length) list = list.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
+    if (view.budget) list = list.filter(withinBudget)
     if (view.sort === 'share') list.sort((a, b) => (b.deck.share || 0) - (a.deck.share || 0))
+    if (view.sort === 'meta') list.sort((a, b) => (b.deck.metaWr ?? -1) - (a.deck.metaWr ?? -1))
     if (view.sort === 'cost') list.sort((a, b) => costOf(a).eur - costOf(b).eur || b.score - a.score)
     return list
   }, [ranked, view, cardsState])
+  const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
+
+  // Ban: avviso una sola volta per i nuovi ban sulle carte della collezione
+  const bans = newBans(collection, getCached, seenBans)
+  const covered = collection.filter(c => getCached(c.name)?.bn).length >= collection.length * 0.95
+  useEffect(() => { if (seenBans === null && covered && collection.length) setSeenBans(bans.next) }, [covered, seenBans, collection.length])
+  const banNotice = bans.fresh.length > 0 && (
+    <div className="callout callout-ban" role="status">
+      <div><b>⚠ {t('ban.newTitle')}</b>
+        <ul>{bans.fresh.map(b => <li key={b.name}>{t('ban.newItem', b.name, formatList(b.formats))}</li>)}</ul>
+      </div>
+      <button className="btn" onClick={() => setSeenBans(bans.next)}>{t('ban.dismiss')}</button>
+    </div>
+  )
   const setV = patch => setView({ ...view, ...patch })
   const toggleColor = c => setV({ colors: view.colors.includes(c) ? view.colors.filter(x => x !== c) : [...view.colors, c] })
 
@@ -166,9 +187,10 @@ export default function App() {
               {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.length, sourceText, dayMonth(updated))}</p>}
             </header>
 
-            {rogue.length > 0 && (
+            {banNotice}
+            {rogueShown.length > 0 && (
               <button className="rogue-jump" onClick={toRogue}>
-                <span aria-hidden="true">🌶</span>{t('rogue.jump', rogue.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
+                <span aria-hidden="true">🌶</span>{t('rogue.jump', rogueShown.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
               </button>
             )}
 
@@ -188,6 +210,12 @@ export default function App() {
                     {SORTS.map(k => <option key={k} value={k}>{t(`sort.${k}`)}</option>)}
                   </select>
                 </label>
+                <label className="select">
+                  <span>{t('budget')}</span>
+                  <select value={view.budget} onChange={e => setV({ budget: +e.target.value })}>
+                    {BUDGETS.map(b => <option key={b} value={b}>{b ? t('budget.max', euro(b)) : t('budget.any')}</option>)}
+                  </select>
+                </label>
                 <div className="chips" role="group" aria-label="Tier">
                   {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
                 </div>
@@ -205,16 +233,16 @@ export default function App() {
 
             {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
               : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
-                : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors} highlightFirst={false} onOpen={id => go('deck', id)} />
+                : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors + view.budget} highlightFirst={false} onOpen={id => go('deck', id)} />
                   : <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>}
 
-            {rogue.length > 0 && (
+            {rogueShown.length > 0 && (
               <section className="rogue" aria-labelledby="rogue-title">
                 <header className="rogue-head">
                   <h2 id="rogue-title" tabIndex={-1}><span aria-hidden="true">🌶</span> {t('rogue.title')}</h2>
                   <p>{t('rogue.intro')}</p>
                 </header>
-                <DeckList ranked={rogue} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('deck', id)} />
+                <DeckList ranked={rogueShown} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('deck', id)} />
               </section>
             )}
 
@@ -226,6 +254,7 @@ export default function App() {
 
           {page === 'deck' && (
             <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
+              onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
               onBack={() => history.length > 1 ? history.back() : go('decks')}
               onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}
@@ -235,6 +264,7 @@ export default function App() {
             <KeyCards ranked={ranked} formatName={formatName} hasCollection={collection.length > 0} toast={toast} />
           </>}
 
+          {page === 'collection' && banNotice}
           {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} />}
         </ErrorBoundary>
       </main>

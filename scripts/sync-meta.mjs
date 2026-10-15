@@ -13,6 +13,10 @@ import { FORMATS, assignTiers, loadRobots, syncFormat, saveFormat } from './sync
 const DECKS_REPO = 'https://github.com/Jiliac/MTGODecklistCache'
 const RULES_REPO = 'https://github.com/Badaro/MTGOFormatData'
 const DAYS = 60            // finestra: ultimi 2 mesi
+const HISTORY_WEEKS = 12   // storico: quote settimanali delle ultime 12 settimane (si scaricano 84 giorni)
+const MU_MIN = 3           // matchup mostrati: almeno 3 partite
+const MU_META_MIN = 5      // matchup usati per la % contro il meta: almeno 5 partite
+const MU_PRIOR = 10        // correzione per i campioni piccoli nella % contro il meta
 const TOP_N = 30           // archetipi per formato
 const MAX_UNKNOWN = 15     // % oltre la quale il formato usa MTGTop8
 const MIN_DECKS = 50       // sotto questa soglia di mazzi il campione è troppo piccolo
@@ -30,7 +34,7 @@ function sparseClone(url, dir, patterns) {
   git(['-c', 'gc.auto=0', 'sparse-checkout', 'set', '--no-cone', ...patterns], dir)
   git(['-c', 'gc.auto=0', 'checkout', '-q'], dir)
 }
-export function dayPatterns(today, days = DAYS) {
+export function dayPatterns(today, days = HISTORY_WEEKS * 7) {
   const out = []
   for (let i = 0; i <= days; i++) {
     const d = new Date(today.getTime() - i * 864e5).toISOString().slice(0, 10).replaceAll('-', '/')
@@ -150,20 +154,24 @@ const toDeck = (d, extra) => ({
   main: d.d.Mainboard.map(c => `${c.Count} ${c.CardName}`), side: (d.d.Sideboard || []).map(c => `${c.Count} ${c.CardName}`),
 })
 
-// entries: [{ tournament, deck }] già filtrati per formato → mazzi del meta + rogue della settimana
-export function aggregate(entries, classify, id) {
-  const seen = new Set(), byArch = new Map(), unknownList = [], freq = new Map()
+// entries: [{ tournament, deck, rounds? }] già filtrati per formato → mazzi del meta, rogue, storico, matchup
+// from: inizio della finestra principale (2 mesi); le liste più vecchie servono solo allo storico settimanale
+export function aggregate(entries, classify, id, { from = '' } = {}) {
+  const seen = new Set(), byArch = new Map(), unknownList = [], freq = new Map(), allE = []
   let total = 0, unknown = 0
-  for (const { tournament: t, deck: d } of entries) {
+  for (const { tournament: t, deck: d, rounds } of entries) {
     const main = d.Mainboard || [], side = d.Sideboard || []
     if (sum(main) < 60) continue // lista incompleta o non di un formato costruito
     // la stessa lista può comparire in due cartelle (es. melee.gg e mtgo.com): conta una volta
     const key = [d.Player, t.Name, t.Date?.slice(0, 10), ...[...main, ...side].map(c => c.Count + c.CardName).sort()].join('|')
     if (seen.has(key)) continue
-    seen.add(key); total++
+    seen.add(key)
+    const e = { t, d, rounds, date: (d.Date || t.Date || '').slice(0, 10), rank: rankOf(d.Result), name: classify(main, side) }
+    allE.push(e)
+    if (e.date < from) continue
+    total++
     for (const c of main) freq.set(c.CardName, (freq.get(c.CardName) || 0) + 1)
-    const e = { t, d, date: (d.Date || t.Date || '').slice(0, 10), rank: rankOf(d.Result) }
-    const name = classify(main, side)
+    const name = e.name
     if (!name) { unknown++; unknownList.push(e); continue }
     const list = byArch.get(name) || []
     list.push(e)
@@ -177,7 +185,72 @@ export function aggregate(entries, classify, id) {
     const best = [...a.list].sort((x, y) => (x.rank > GOOD_RANK) - (y.rank > GOOD_RANK) || y.date.localeCompare(x.date) || x.rank - y.rank)[0]
     return toDeck(best, { id: `${id}-${slug(a.name)}`, name: a.name, share: a.share, tier: tiers.get(a.id), count: a.list.length })
   })
-  return { decks, rogue: findRogue(all.slice(TOP_N), unknownList, { classify, freq, total, id }), total, unknownPct: total ? Math.round(unknown / total * 1000) / 10 : 100 }
+  const history = weeklyHistory(allE, decks.map(d => d.name))
+  decks.forEach(d => { d.history = history.byName.get(d.name) })
+  addMatchups(allE.filter(e => e.date >= from), decks)
+  return { decks, rogue: findRogue(all.slice(TOP_N), unknownList, { classify, freq, total, id }), historyWeeks: history.weeks, total, unknownPct: total ? Math.round(unknown / total * 1000) / 10 : 100 }
+}
+
+// Storico: quota settimanale (%) di ogni archetipo nelle ultime HISTORY_WEEKS settimane, dalla più vecchia.
+// Settimane con meno di 20 liste → null (campione troppo piccolo per una percentuale).
+export function weeklyHistory(allE, names, weeks = HISTORY_WEEKS) {
+  const last = allE.reduce((m, e) => e.date > m ? e.date : m, '')
+  if (!last) return { weeks: [], byName: new Map() }
+  const end = Date.parse(last), tot = Array(weeks).fill(0), per = new Map(names.map(n => [n, Array(weeks).fill(0)]))
+  for (const e of allE) {
+    const back = Math.floor((end - Date.parse(e.date)) / (7 * 864e5))
+    if (back < 0 || back >= weeks) continue
+    const i = weeks - 1 - back
+    tot[i]++
+    const c = per.get(e.name); if (c) c[i]++
+  }
+  const starts = Array.from({ length: weeks }, (_, i) => new Date(end - ((weeks - 1 - i) * 7 + 6) * 864e5).toISOString().slice(0, 10))
+  return { weeks: starts, byName: new Map([...per].map(([n, c]) => [n, c.map((v, i) => tot[i] >= 20 ? Math.round(v / tot[i] * 1000) / 10 : null)])) }
+}
+
+// Matchup dai turni dei tornei: per ogni partita tra due liste note, vittorie/sconfitte/patte tra archetipi (mirror esclusi).
+// deck.field = [V, S, P] contro tutti; deck.mu = [[avversario, V, S, P], …] (≥ MU_MIN partite, solo avversari tra i 30);
+// deck.metaWr = % di vittoria pesata sulla quota degli avversari (matchup con ≥ MU_META_MIN partite), null se troppo pochi dati.
+export function addMatchups(mainE, decks) {
+  const tours = new Map()
+  for (const e of mainE) {
+    if (!e.rounds?.length) continue
+    const k = `${e.t.Name}|${e.t.Date?.slice(0, 10)}`
+    const tr = tours.get(k) || { rounds: e.rounds, players: new Map() }
+    tr.players.set(e.d.Player, e.name || '?')
+    tours.set(k, tr)
+  }
+  const rec = new Map() // "A|B" → [V, S, P] dal punto di vista di A
+  const add = (a, b, w, l, dr) => { const k = `${a}|${b}`; const r = rec.get(k) || [0, 0, 0]; r[0] += w; r[1] += l; r[2] += dr; rec.set(k, r) }
+  for (const { rounds, players } of tours.values()) {
+    for (const round of rounds) for (const m of round.Matches || []) {
+      const a = players.get(m.Player1), b = players.get(m.Player2)
+      if (!a || !b || a === b) continue
+      const [g1, g2] = String(m.Result || '').split('-').map(Number)
+      if (!Number.isFinite(g1) || !Number.isFinite(g2)) continue
+      const w = g1 > g2 ? 1 : 0, l = g1 < g2 ? 1 : 0, dr = g1 === g2 ? 1 : 0
+      add(a, b, w, l, dr); add(b, a, l, w, dr)
+    }
+  }
+  const share = new Map(decks.map(d => [d.name, d.share]))
+  for (const d of decks) {
+    const field = [0, 0, 0], mu = []
+    let wsum = 0, ssum = 0
+    for (const [k, r] of rec) {
+      const [a, b] = k.split('|')
+      if (a !== d.name) continue
+      field[0] += r[0]; field[1] += r[1]; field[2] += r[2]
+      const n = r[0] + r[1] + r[2]
+      if (!share.has(b)) continue
+      if (n >= MU_MIN) mu.push([b, ...r])
+      // campioni piccoli: ogni matchup parte da 5 vittorie e 5 sconfitte "virtuali" (tende al 50% finché i dati sono pochi)
+      if (n >= MU_META_MIN) { wsum += share.get(b) * (r[0] + r[2] / 2 + MU_PRIOR / 2) / (n + MU_PRIOR); ssum += share.get(b) }
+    }
+    const metaTot = decks.reduce((s, x) => s + (x.name === d.name ? 0 : x.share), 0)
+    d.field = field
+    d.mu = mu.sort((x, y) => (share.get(y[0]) || 0) - (share.get(x[0]) || 0))
+    d.metaWr = ssum >= metaTot * 0.3 ? Math.round(wsum / ssum * 1000) / 10 : null // copertura ≥ 30% del meta
+  }
 }
 
 // Carta simbolo: la non-terra (almeno 2 copie) più rara nel formato, cioè quella che distingue la lista
@@ -232,20 +305,21 @@ async function main() {
       console.log(`Dati scaricati in ${Math.round((Date.now() - t0) / 1000)}s`)
       // un solo passaggio sui file: tornei divisi per formato
       const from = new Date(today.getTime() - DAYS * 864e5).toISOString().slice(0, 10)
+      const fromHistory = new Date(today.getTime() - HISTORY_WEEKS * 7 * 864e5).toISOString().slice(0, 10)
       const byFormat = new Map(fromCache.map(id => [RULE_FORMATS[id].toLowerCase(), []]))
       let files = 0
       for (const f of walkJson(join(decksDir, 'Tournaments'))) {
         let j; try { j = JSON.parse(readFileSync(f, 'utf8')) } catch { continue }
         const t = j.Tournament || {}, bucket = byFormat.get(String(t.Formats || '').toLowerCase())
-        if (!bucket || (t.Date || '').slice(0, 10) < from) continue
+        if (!bucket || (t.Date || '').slice(0, 10) < fromHistory) continue
         files++
-        for (const deck of j.Decks || []) bucket.push({ tournament: t, deck })
+        for (const deck of j.Decks || []) bucket.push({ tournament: t, deck, rounds: j.Rounds })
       }
       console.log(`Tornei letti: ${files}`)
       for (const id of fromCache) {
         const name = RULE_FORMATS[id]
         try {
-          const r = aggregate(byFormat.get(name.toLowerCase()), buildClassifier(loadRules(rulesDir, name)), id)
+          const r = aggregate(byFormat.get(name.toLowerCase()), buildClassifier(loadRules(rulesDir, name)), id, { from })
           console.log(`${id}: ${r.total} mazzi, non riconosciuti ${r.unknownPct}%, archetipi salvati ${r.decks.length}, rogue della settimana ${r.rogue.length}`)
           if (r.total >= MIN_DECKS && r.unknownPct <= MAX_UNKNOWN && r.decks.length) results.set(id, r)
           else console.warn(`  ${id}: dati insufficienti, uso MTGTop8`)
@@ -259,7 +333,7 @@ async function main() {
     try {
       const r = results.get(id)
       if (r) {
-        await saveFormat(id, r.decks, { source: 'MTGODecklistCache', sourceNote: 'tornei MTGO, melee.gg e CardsRealm', decksAnalyzed: r.total, unknownPct: r.unknownPct, rogue: r.rogue })
+        await saveFormat(id, r.decks, { source: 'MTGODecklistCache', sourceNote: 'tornei MTGO, melee.gg e CardsRealm', decksAnalyzed: r.total, unknownPct: r.unknownPct, rogue: r.rogue, historyWeeks: r.historyWeeks })
         ok++; continue
       }
       console.log(`${id} (MTGTop8)`)

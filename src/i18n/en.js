@@ -90,4 +90,15 @@ export default {
   'rogue.intro': 'Decks outside the 30 most played that made top 8 in a tournament or went 5-0 in a League in the last 7 days. Sorted by how close they are to your collection.',
   'rogue.results': n => `${n} ${p(n, 'result', 'results')} this week`, 'rogue.best': r => `best: ${r}`, 'rogue.signature': c => `signature card: ${c}`,
   'rogue.jump': n => `Discover ${p(n, 'the spicy rogue deck', `${n} spicy rogue decks`)} of the week`,
+
+  budget: 'Budget', 'budget.any': 'Any', 'budget.max': e => `up to ${e}`, 'sort.meta': 'Best against the meta',
+  wrShort: p => `${p}% wins`, 'tab.meta': 'Trend and matchups',
+  'hist.title': 'Meta share, last 12 weeks', 'hist.point': (d, v) => `Week of ${d}: ${v}`, 'hist.na': 'not enough data',
+  'hist.aria': (a, b) => `Meta share went from ${a}% to ${b}% over the last 12 weeks`,
+  'mu.title': 'What it beats', 'mu.meta': 'win rate against the meta', 'mu.metaHint': 'weighted by how much each opponent is played, adjusted for matchups with few matches',
+  'mu.field': (p, n) => `${p}% over ${n} matches against everyone`, 'mu.row': (p, n) => `${p}% · ${n} matches`, 'mu.few': 'small sample',
+  'mu.note': 'Matches from tournaments with published rounds (MTGO Challenges, melee.gg, CardsRealm) in the last two months. Mirrors excluded; a draw counts as half a win.',
+  'mu.none': 'Not enough match data for this deck yet.', 'mu.showAll': n => `Show all (${n})`,
+  'ban.short': 'Banned card', 'ban.deck': c => `Contains cards banned in this format: ${c}`, 'ban.card': f => `Banned in ${f}`, 'ban.restricted': f => `Restricted in ${f}`,
+  'ban.newTitle': 'New bans on your cards', 'ban.newItem': (c, f) => `${c}: banned in ${f}`, 'ban.dismiss': 'Got it',
 }

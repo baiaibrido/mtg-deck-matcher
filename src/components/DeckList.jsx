@@ -3,6 +3,9 @@ import { TierBadge, Trend } from './Badges.jsx'
 import { IconChevron } from './Icons.jsx'
 import { frameOf } from '../lib/deckInfo.js'
 import { t, euro, num } from '../i18n/index.js'
+import { Sparkline } from './Charts.jsx'
+import { deckBans } from '../lib/bans.js'
+import { getCached } from '../lib/scryfall.js'
 
 const pct = r => Math.round(r * 100)
 export const shareText = s => t('share', num(s))
@@ -53,9 +56,12 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
             {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
               <TierBadge tier={s.deck.tier} />
               {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
+              <Sparkline values={s.deck.history} />
               <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
+              {s.deck.metaWr != null && <span className="wr">{t('wrShort', num(s.deck.metaWr))}</span>}
               {s.deck.archetype && <span className="arch">{t('variantOf', s.deck.archetype)}</span>}
             </>}
+            {deckBans(s.deck, getCached).length > 0 && <span className="ban-chip">⚠ {t('ban.short')}</span>}
           </span>
           <span className="deck-meters">
             <Meter label="Main" {...s.main} />

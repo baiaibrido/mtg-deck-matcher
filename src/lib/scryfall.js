@@ -2,7 +2,7 @@ import { norm, mergeEntries } from './normalize.js'
 import { closestName } from './closestName.js'
 
 const API = 'https://api.scryfall.com'
-const CK = 'mdm.cards.v3' // v3: formato compatto + prezzi
+const CK = 'mdm.cards.v4' // v4: formato compatto + prezzi + ban/restrizioni per formato
 const MAX_AGE = 3 * 864e5   // i prezzi si aggiornano ogni 3 giorni
 const IMG = 'https://cards.scryfall.io/normal/'
 const HEAD = { Accept: 'application/json' }
@@ -19,7 +19,11 @@ const save = () => {
     } catch { /* ignora */ }
   }
 }
-try { localStorage.removeItem('mdm.cards.v2'); localStorage.removeItem('mdm.cards') } catch { /* vecchie cache */ }
+try { ['mdm.cards.v3', 'mdm.cards.v2', 'mdm.cards'].forEach(k => localStorage.removeItem(k)) } catch { /* vecchie cache */ }
+
+// Formati del sito: per ogni carta salviamo dove è bannata (bn) o ristretta (rs)
+export const FORMAT_IDS = ['standard', 'pioneer', 'modern', 'pauper', 'legacy', 'vintage', 'commander']
+const legal = (c, status) => FORMAT_IDS.filter(f => c.legalities?.[f] === status)
 
 // Formato compatto per stare comodi nei 5 MB di localStorage anche con migliaia di carte
 const num = v => (v == null || v === '' ? null : +v)
@@ -34,6 +38,7 @@ const slim = c => {
     cost: f?.mana_cost ?? c.mana_cost ?? '',
     eur: num(c.prices?.eur) ?? num(c.prices?.eur_foil),
     usd: num(c.prices?.usd) ?? num(c.prices?.usd_foil),
+    bn: legal(c, 'banned'), rs: legal(c, 'restricted'),
     t: Date.now(),
   }
 }

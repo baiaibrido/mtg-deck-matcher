@@ -4,6 +4,7 @@ import { mergeEntries } from '../lib/normalize.js'
 import { normalizeCollection, fetchCards, getCached, smallImg } from '../lib/scryfall.js'
 import { BINDER, binderOf, binderName, TYPE_FILTERS } from '../lib/deckInfo.js'
 import { t, euro, getLang } from '../i18n/index.js'
+import { formatList } from '../lib/bans.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { useLocal } from '../state/useLocal.js'
 import { ManaCost } from './Mana.jsx'
@@ -25,6 +26,13 @@ function Stepper({ c, setQty }) {
 
 function DeleteBtn({ name, onDelete, className = 'btn-del' }) {
   return <button className={className} onClick={() => onDelete(name)} aria-label={t('coll.delete', name)} title={t('coll.deleteTitle')}><IconTrash size={16} /></button>
+}
+
+// Carta bannata in almeno un formato del sito (o ristretta in Vintage)
+function BanChip({ card }) {
+  if (!card?.bn?.length && !card?.rs?.length) return null
+  const title = [card.bn.length && t('ban.card', formatList(card.bn)), card.rs?.length && t('ban.restricted', formatList(card.rs))].filter(Boolean).join(' · ')
+  return <span className="ban-chip ban-chip-card" title={title}>{card.bn.length ? 'BAN' : 'R'}<span className="sr-only">: {title}</span></span>
 }
 
 function Thumb({ card, name, big }) {
@@ -226,6 +234,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
                     <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
                       <Thumb card={r.card} name={r.name} big />
                       <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
+                      <BanChip card={r.card} />
                     </a>
                     <DeleteBtn name={r.name} onDelete={remove} className="btn-del ctile-del" />
                   </div>
@@ -241,7 +250,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
                   <Thumb card={r.card} name={r.name} />
                   <span className="crow-main">
                     <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
-                    <span className="crow-type">{r.card?.type || '—'}</span>
+                    <span className="crow-type">{r.card?.type || '—'} <BanChip card={r.card} /></span>
                   </span>
                   <ManaCost cost={r.card?.cost} />
                   <span className="crow-price">{r.card?.eur != null ? euro(r.card.eur * r.qty, true) : '—'}</span>

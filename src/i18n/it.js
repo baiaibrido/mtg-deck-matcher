@@ -99,4 +99,16 @@ export default {
   'rogue.intro': 'Mazzi fuori dai 30 più giocati che negli ultimi 7 giorni hanno fatto top 8 in un torneo o 5-0 in una League. In ordine di vicinanza alla tua collezione.',
   'rogue.results': n => `${n} ${p(n, 'risultato', 'risultati')} in settimana`, 'rogue.best': r => `migliore: ${r}`, 'rogue.signature': c => `carta simbolo: ${c}`,
   'rogue.jump': n => `Scopri ${p(n, 'il rogue piccante', `i ${n} rogue piccanti`)} della settimana`,
+
+  // filtro budget, storico, matchup, ban
+  budget: 'Budget', 'budget.any': 'Qualsiasi', 'budget.max': e => `fino a ${e}`, 'sort.meta': 'Migliori contro il meta',
+  wrShort: p => `${p}% vittorie`, 'tab.meta': 'Andamento e matchup',
+  'hist.title': 'Quota del meta, ultime 12 settimane', 'hist.point': (d, v) => `Settimana dal ${d}: ${v}`, 'hist.na': 'dati insufficienti',
+  'hist.aria': (a, b) => `Quota del meta passata da ${a}% a ${b}% nelle ultime 12 settimane`,
+  'mu.title': 'Contro cosa vince', 'mu.meta': 'vittorie contro il meta', 'mu.metaHint': 'media pesata su quanto è giocato ogni avversario, corretta per i matchup con poche partite',
+  'mu.field': (p, n) => `${p}% su ${n} partite contro tutti`, 'mu.row': (p, n) => `${p}% · ${n} partite`, 'mu.few': 'pochi dati',
+  'mu.note': 'Partite di tornei con turni pubblicati (MTGO Challenge, melee.gg, CardsRealm) negli ultimi due mesi. Mirror esclusi; una patta vale mezza vittoria.',
+  'mu.none': 'Ancora pochi dati sulle partite di questo mazzo.', 'mu.showAll': n => `Mostra tutti (${n})`,
+  'ban.short': 'Carta bannata', 'ban.deck': c => `Contiene carte bannate in questo formato: ${c}`, 'ban.card': f => `Bannata in ${f}`, 'ban.restricted': f => `Ristretta in ${f}`,
+  'ban.newTitle': 'Nuovi ban sulle tue carte', 'ban.newItem': (c, f) => `${c}: bannata in ${f}`, 'ban.dismiss': 'Ok, ho capito',
 }

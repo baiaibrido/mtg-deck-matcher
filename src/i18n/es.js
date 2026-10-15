@@ -90,4 +90,15 @@ export default {
   'rogue.intro': 'Mazos fuera de los 30 más jugados que en los últimos 7 días hicieron top 8 en un torneo o 5-0 en una League. Ordenados por lo cerca que están de tu colección.',
   'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} esta semana`, 'rogue.best': r => `mejor: ${r}`, 'rogue.signature': c => `carta insignia: ${c}`,
   'rogue.jump': n => `Descubre ${p(n, 'el rogue picante', `los ${n} rogues picantes`)} de la semana`,
+
+  budget: 'Presupuesto', 'budget.any': 'Cualquiera', 'budget.max': e => `hasta ${e}`, 'sort.meta': 'Mejores contra el meta',
+  wrShort: p => `${p}% victorias`, 'tab.meta': 'Tendencia y matchups',
+  'hist.title': 'Cuota del meta, últimas 12 semanas', 'hist.point': (d, v) => `Semana del ${d}: ${v}`, 'hist.na': 'datos insuficientes',
+  'hist.aria': (a, b) => `La cuota del meta pasó del ${a}% al ${b}% en las últimas 12 semanas`,
+  'mu.title': 'Contra qué gana', 'mu.meta': 'victorias contra el meta', 'mu.metaHint': 'media ponderada por lo jugado que está cada rival, corregida en los matchups con pocas partidas',
+  'mu.field': (p, n) => `${p}% en ${n} partidas contra todos`, 'mu.row': (p, n) => `${p}% · ${n} partidas`, 'mu.few': 'pocos datos',
+  'mu.note': 'Partidas de torneos con rondas publicadas (MTGO Challenge, melee.gg, CardsRealm) en los últimos dos meses. Sin espejos; un empate cuenta como media victoria.',
+  'mu.none': 'Aún hay pocos datos de partidas de este mazo.', 'mu.showAll': n => `Mostrar todos (${n})`,
+  'ban.short': 'Carta prohibida', 'ban.deck': c => `Contiene cartas prohibidas en este formato: ${c}`, 'ban.card': f => `Prohibida en ${f}`, 'ban.restricted': f => `Restringida en ${f}`,
+  'ban.newTitle': 'Nuevas prohibiciones en tus cartas', 'ban.newItem': (c, f) => `${c}: prohibida en ${f}`, 'ban.dismiss': 'Entendido',
 }

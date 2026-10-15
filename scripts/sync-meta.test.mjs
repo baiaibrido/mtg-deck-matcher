@@ -93,3 +93,21 @@ test('rogue della settimana: fuori dai 30, solo con risultati recenti, nome da c
   assert.deepEqual(r.map(d => [d.name, d.results, d.best]), [['Slivers', 2, '5-0'], ['Naya Cleansing Wildfire', 1, '1st Place']])
   assert.ok(r.every(d => d.rogue && d.main.length && d.id.startsWith('pauper-rogue-')))
 })
+
+test('storico settimanale e matchup dai turni', async () => {
+  const { weeklyHistory, addMatchups } = await import('./sync-meta.mjs')
+  const E = (date, name, player, t = { Name: 'T', Date: date }, rounds) => ({ date, name, t, d: { Player: player }, rounds })
+  // 25 liste nell'ultima settimana (10 A), 5 nella precedente (campione piccolo → null)
+  const allE = [...Array.from({ length: 25 }, (_, i) => E('2026-10-14', i < 10 ? 'A' : 'B', 'p' + i)), ...Array.from({ length: 5 }, (_, i) => E('2026-10-05', 'A', 'q' + i))]
+  const h = weeklyHistory(allE, ['A'], 3)
+  assert.equal(h.weeks.length, 3)
+  assert.deepEqual(h.byName.get('A'), [null, null, 40])
+  const t = { Name: 'Challenge', Date: '2026-10-14' }
+  const rounds = [{ Matches: [{ Player1: 'a1', Player2: 'b1', Result: '2-1-0' }, { Player1: 'a2', Player2: 'b2', Result: '0-2-0' }, { Player1: 'a1', Player2: 'a2', Result: '2-0-0' }, { Player1: 'b1', Player2: 'a2', Result: '1-1-1' }] }]
+  const mainE = [E('2026-10-14', 'A', 'a1', t, rounds), E('2026-10-14', 'A', 'a2', t, rounds), E('2026-10-14', 'B', 'b1', t, rounds), E('2026-10-14', 'B', 'b2', t, rounds)]
+  const decks = [{ name: 'A', share: 50 }, { name: 'B', share: 50 }]
+  addMatchups(mainE, decks)
+  assert.deepEqual(decks[0].field, [1, 1, 1]) // mirror a1-a2 escluso
+  assert.deepEqual(decks[0].mu, [['B', 1, 1, 1]]) // 3 partite: mostrato
+  assert.equal(decks[0].metaWr, null) // meno di 5 partite: non usato per la % contro il meta
+})

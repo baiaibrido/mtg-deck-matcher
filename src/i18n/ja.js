@@ -88,4 +88,15 @@ export default {
   'rogue.intro': '使用率上位30以外のデッキのうち、直近7日間に大会でトップ8、またはLeagueで5-0を達成したもの。あなたのコレクションに近い順に並べています。',
   'rogue.results': n => `今週${n}回入賞`, 'rogue.best': r => `最高成績:${r}`, 'rogue.signature': c => `象徴的なカード:${c}`,
   'rogue.jump': n => `今週の注目ローグデッキ${n}個を見る`,
+
+  budget: '予算', 'budget.any': '指定なし', 'budget.max': e => `${e}まで`, 'sort.meta': 'メタに強い順',
+  wrShort: p => `勝率${p}%`, 'tab.meta': '推移と相性',
+  'hist.title': '直近12週間のメタシェア', 'hist.point': (d, v) => `${d}の週:${v}`, 'hist.na': 'データ不足',
+  'hist.aria': (a, b) => `直近12週間でメタシェアが${a}%から${b}%に変化`,
+  'mu.title': '相性', 'mu.meta': 'メタ全体への勝率', 'mu.metaHint': '対戦相手の使用率で加重平均(試合数の少ない相性は補正)',
+  'mu.field': (p, n) => `全対戦${n}試合で勝率${p}%`, 'mu.row': (p, n) => `${p}% · ${n}試合`, 'mu.few': 'データ少',
+  'mu.note': '直近2か月に対戦結果が公開された大会(MTGO Challenge、melee.gg、CardsRealm)の試合。ミラーマッチは除外、引き分けは0.5勝として計算。',
+  'mu.none': 'このデッキの対戦データはまだ不足しています。', 'mu.showAll': n => `すべて表示(${n})`,
+  'ban.short': '禁止カード', 'ban.deck': c => `このフォーマットの禁止カードを含みます:${c}`, 'ban.card': f => `${f}で禁止`, 'ban.restricted': f => `${f}で制限`,
+  'ban.newTitle': 'あなたのカードに新しい禁止', 'ban.newItem': (c, f) => `${c}:${f}で禁止`, 'ban.dismiss': '了解',
 }

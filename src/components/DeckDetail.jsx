@@ -7,6 +7,8 @@ import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
 import { t, euro } from '../i18n/index.js'
 import { toText, tcgplayerUrl, downloadTxt } from '../lib/export.js'
+import { HistoryChart, Matchups } from './Charts.jsx'
+import { deckBans } from '../lib/bans.js'
 
 const GROUP_ORDER = [...GROUPS.map(([k]) => k), 'other']
 const scryUrl = name => getCached(name)?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${name}"`)}`
@@ -43,7 +45,7 @@ function Section({ title, rows, onlyMissing }) {
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
 
-export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast }) {
+export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf }) {
   const [tab, setTab] = useState('list')
   const [onlyMissing, setOnlyMissing] = useState(false)
   const list = toText(s.missing)
@@ -51,6 +53,8 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
   const missRows = useMemo(() => [...s.missing].sort((a, b) => b.missing - a.missing || a.name.localeCompare(b.name)), [s])
   const cost = missingCost(s.missing, getCached)
   const price = costText(cost, missingCount)
+  const bans = deckBans(s.deck, getCached)
+  const hasMeta = !!(s.deck.history || s.deck.field)
 
   const copy = async () => {
     try { await navigator.clipboard.writeText(list); toast(t('detail.copied')) }
@@ -79,6 +83,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? ` (${s.deck.title})` : ''} <IconExternal size={14} /></a>}
           {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecks')} <IconExternal size={14} /></a>}
         </p>
+        {bans.length > 0 && <p className="note note-error">⚠ {t('ban.deck', bans.join(', '))}</p>}
         <div className="detail-meters">
           <Meter label="Main" {...s.main} />
           {s.side.total > 0 && <Meter label="Side" {...s.side} />}
@@ -88,7 +93,13 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       <div className="seg" role="tablist" aria-label={t('view')}>
         <button role="tab" aria-selected={tab === 'list'} onClick={() => setTab('list')}>{t('tab.list')}</button>
         <button role="tab" aria-selected={tab === 'need'} onClick={() => setTab('need')}>{t('tab.need')} <span className="count">{missingCount}</span></button>
+        {hasMeta && <button role="tab" aria-selected={tab === 'meta'} onClick={() => setTab('meta')}>{t('tab.meta')}</button>}
       </div>
+
+      {tab === 'meta' && <div className="meta-tab">
+        {s.deck.history && s.deck.historyWeeks && <HistoryChart weeks={s.deck.historyWeeks} values={s.deck.history} />}
+        {s.deck.field && <Matchups deck={s.deck} onOpen={onOpen} idOf={idOf} />}
+      </div>}
 
       {tab === 'list' && <>
         <label className="switch">

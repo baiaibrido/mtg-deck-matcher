@@ -91,4 +91,15 @@ export default {
   'rogue.intro': 'Decks fora dos 30 mais jogados que nos últimos 7 dias fizeram top 8 em um torneio ou 5-0 em uma League. Ordenados pela proximidade com a sua coleção.',
   'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} na semana`, 'rogue.best': r => `melhor: ${r}`, 'rogue.signature': c => `carta-símbolo: ${c}`,
   'rogue.jump': n => `Descubra ${p(n, 'o rogue apimentado', `os ${n} rogues apimentados`)} da semana`,
+
+  budget: 'Orçamento', 'budget.any': 'Qualquer', 'budget.max': e => `até ${e}`, 'sort.meta': 'Melhores contra o meta',
+  wrShort: p => `${p}% vitórias`, 'tab.meta': 'Tendência e matchups',
+  'hist.title': 'Participação no meta, últimas 12 semanas', 'hist.point': (d, v) => `Semana de ${d}: ${v}`, 'hist.na': 'dados insuficientes',
+  'hist.aria': (a, b) => `A participação no meta foi de ${a}% para ${b}% nas últimas 12 semanas`,
+  'mu.title': 'Contra o que vence', 'mu.meta': 'vitórias contra o meta', 'mu.metaHint': 'média ponderada pelo quanto cada adversário é jogado, corrigida nos matchups com poucas partidas',
+  'mu.field': (p, n) => `${p}% em ${n} partidas contra todos`, 'mu.row': (p, n) => `${p}% · ${n} partidas`, 'mu.few': 'poucos dados',
+  'mu.note': 'Partidas de torneios com rodadas publicadas (MTGO Challenge, melee.gg, CardsRealm) nos últimos dois meses. Sem espelhos; empate conta como meia vitória.',
+  'mu.none': 'Ainda há poucos dados de partidas deste deck.', 'mu.showAll': n => `Mostrar todos (${n})`,
+  'ban.short': 'Carta banida', 'ban.deck': c => `Contém cartas banidas neste formato: ${c}`, 'ban.card': f => `Banida em ${f}`, 'ban.restricted': f => `Restrita em ${f}`,
+  'ban.newTitle': 'Novos banimentos nas suas cartas', 'ban.newItem': (c, f) => `${c}: banida em ${f}`, 'ban.dismiss': 'Entendi',
 }
