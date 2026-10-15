@@ -57,10 +57,13 @@ export default function App() {
   useEffect(() => { loadFormats().then(setFormats) }, [])
   useEffect(() => { setMeta(null); loadMetaDecks(format).then(setMeta) }, [format])
 
-  const decks = useMemo(() => [...(meta || []), ...userDecks.filter(d => d.format === format)], [meta, userDecks, format])
+  const metaMain = useMemo(() => (meta || []).filter(d => !d.rogue), [meta])
+  const decks = useMemo(() => [...metaMain, ...userDecks.filter(d => d.format === format)], [metaMain, userDecks, format])
   const ranked = useMemo(() => rankDecks(decks, collection, Infinity), [decks, collection])
+  // Rogue della settimana: stessi calcoli, ordinati per vicinanza alla collezione
+  const rogue = useMemo(() => rankDecks((meta || []).filter(d => d.rogue), collection, Infinity).map((s, i) => ({ ...s, rank: i + 1 })), [meta, collection])
   const top = ranked.slice(0, FIRST_BATCH)
-  const sel = route.page === 'mazzo' ? ranked.find(s => s.deck.id === route.id) : null
+  const sel = route.page === 'mazzo' ? ranked.find(s => s.deck.id === route.id) || rogue.find(s => s.deck.id === route.id) : null
 
   // Dati Scryfall: prima i mazzi in vista (colori subito), poi tutti gli altri del formato (prezzi, filtri, carte chiave)
   const namesOf = list => [...new Set(list.flatMap(s => [...s.deck.main, ...s.deck.side].map(c => c.name)))]
@@ -73,7 +76,7 @@ export default function App() {
       try {
         await fetchCards(namesOf(sel ? [sel] : top)); if (!alive) return
         setTick(t => t + 1)
-        await fetchCards(namesOf(ranked)); if (!alive) return
+        await fetchCards(namesOf([...ranked, ...rogue])); if (!alive) return
         setCardsState('ready'); setTick(t => t + 1)
       } catch { if (alive) setCardsState('error') }
     })()
@@ -115,7 +118,7 @@ export default function App() {
       <header className="topbar">
         <a className="brand" href="#/mazzi" aria-label={t('home')}>
           <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <i key={c} className={`ms ms-${c} ms-cost`} />)}</span>
-          Deck Matcher
+          Netdeckable
         </a>
         <nav className="nav-top" aria-label={t('sections')}>
           <a href="#/mazzi" aria-current={navCurrent('mazzi')}>{t('nav.decks')}</a>
@@ -142,7 +145,7 @@ export default function App() {
             {formatTabs}
             <header className="page-head">
               <h1>{t('decks.title', formatName)}</h1>
-              {meta && decks.length > 0 && <p>{t('decks.intro', meta.length, sourceText, dayMonth(updated))}</p>}
+              {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.length, sourceText, dayMonth(updated))}</p>}
             </header>
 
             {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
@@ -181,6 +184,16 @@ export default function App() {
                 : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors} highlightFirst={false} onOpen={id => go('mazzo', id)} />
                   : <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>}
 
+            {rogue.length > 0 && (
+              <section className="rogue" aria-labelledby="rogue-title">
+                <header className="rogue-head">
+                  <h2 id="rogue-title"><span aria-hidden="true">🌶</span> {t('rogue.title')}</h2>
+                  <p>{t('rogue.intro')}</p>
+                </header>
+                <DeckList ranked={rogue} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('mazzo', id)} />
+              </section>
+            )}
+
             {cardsState === 'loading' && <p className="hint">{t('decks.loadingScry')}</p>}
             {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
 
@@ -202,7 +215,7 @@ export default function App() {
         </ErrorBoundary>
       </main>
 
-      <footer className="site-footer">Deck Matcher v{__APP_VERSION__}</footer>
+      <footer className="site-footer">Netdeckable v{__APP_VERSION__}</footer>
 
       <nav className="tabbar" aria-label={t('sections')}>
         <a href="#/mazzi" aria-current={navCurrent('mazzi')}><IconDecks />{t('nav.decks')}</a>

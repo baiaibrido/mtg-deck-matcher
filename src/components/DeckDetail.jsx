@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Meter, frameStyle, shareText, costText } from './DeckList.jsx'
+import { Meter, frameStyle, shareText, costText, RogueInfo } from './DeckList.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck } from './Icons.jsx'
@@ -67,9 +67,11 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <ColorPips colors={colors} size="1.15rem" />
         </div>
         <p className="detail-meta">
-          <TierBadge tier={s.deck.tier} />
-          {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
-          <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
+          {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
+            <TierBadge tier={s.deck.tier} />
+            {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
+            <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
+          </>}
           {s.deck.archetype && <span>{t('detail.variant', s.deck.archetype)}</span>}
           {price && <span className="price">{t('detail.toComplete', price)}</span>}
         </p>

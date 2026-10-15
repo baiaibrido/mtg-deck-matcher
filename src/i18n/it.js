@@ -3,7 +3,7 @@ const carte = n => p(n, 'carta', 'carte')
 
 export default {
   // generali
-  skip: 'Vai al contenuto', home: 'Deck Matcher, home', sections: 'Sezioni', format: 'Formato',
+  skip: 'Vai al contenuto', home: 'Netdeckable, home', sections: 'Sezioni', format: 'Formato',
   'nav.decks': 'Mazzi', 'nav.keycards': 'Carte chiave', 'nav.collection': 'Collezione',
   done: 'Fatto', undo: 'Annulla', cancel: 'Annulla', close: 'Chiudi', download: 'Scarica', copyList: 'Copia lista', sort: 'Ordina', all: 'Tutti',
   language: 'Lingua', 'theme.toLight': 'Passa al tema chiaro', 'theme.toDark': 'Passa al tema scuro',
@@ -93,4 +93,9 @@ export default {
   'coll.search': 'Cerca una carta', 'coll.typeAria': 'Tipo di carta', 'coll.grid': 'Griglia', 'coll.list': 'Elenco',
   'coll.noMatchQ': q => `Nessuna carta corrisponde a "${q}".`, 'coll.noMatch': 'Nessuna carta corrisponde a questo filtro.',
   'coll.cards': n => `${n} ${carte(n)}`, 'coll.more': n => `Mostra altre carte (${n} rimanenti)`,
+
+  // rogue della settimana
+  'rogue.title': 'Rogue piccanti della settimana',
+  'rogue.intro': 'Mazzi fuori dai 30 più giocati che negli ultimi 7 giorni hanno fatto top 8 in un torneo o 5-0 in una League. In ordine di vicinanza alla tua collezione.',
+  'rogue.results': n => `${n} ${p(n, 'risultato', 'risultati')} in settimana`, 'rogue.best': r => `migliore: ${r}`, 'rogue.signature': c => `carta simbolo: ${c}`,
 }

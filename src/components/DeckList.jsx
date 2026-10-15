@@ -28,6 +28,15 @@ export function costText(cost, missing) {
   return `≈ ${euro(cost.eur)}${cost.unknown ? t('costMore', cost.unknown) : ''}`
 }
 
+// Rogue: risultati della settimana e carta simbolo al posto di tier e quota
+export function RogueInfo({ deck }) {
+  return <>
+    <span className="tier tier-rogue">Rogue</span>
+    <span>{t('rogue.results', deck.results)}{deck.best ? ` · ${t('rogue.best', deck.best)}` : ''}</span>
+    {deck.signature && <span className="sig">{t('rogue.signature', deck.signature)}</span>}
+  </>
+}
+
 function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
   const price = costText(cost, missing)
@@ -41,10 +50,12 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
             <ColorPips colors={colors} />
           </span>
           <span className="deck-sub">
-            <TierBadge tier={s.deck.tier} />
-            {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
-            <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
-            {s.deck.archetype && <span className="arch">{t('variantOf', s.deck.archetype)}</span>}
+            {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
+              <TierBadge tier={s.deck.tier} />
+              {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
+              <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
+              {s.deck.archetype && <span className="arch">{t('variantOf', s.deck.archetype)}</span>}
+            </>}
           </span>
           <span className="deck-meters">
             <Meter label="Main" {...s.main} />

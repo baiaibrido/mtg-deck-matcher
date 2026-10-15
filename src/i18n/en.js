@@ -2,7 +2,7 @@ const p = (n, one, many) => n === 1 ? one : many
 const cards = n => p(n, 'card', 'cards')
 
 export default {
-  skip: 'Skip to content', home: 'Deck Matcher, home', sections: 'Sections', format: 'Format',
+  skip: 'Skip to content', home: 'Netdeckable, home', sections: 'Sections', format: 'Format',
   'nav.decks': 'Decks', 'nav.keycards': 'Key cards', 'nav.collection': 'Collection',
   done: 'Done', undo: 'Undo', cancel: 'Cancel', close: 'Close', download: 'Download', copyList: 'Copy list', sort: 'Sort', all: 'All',
   language: 'Language', 'theme.toLight': 'Switch to light theme', 'theme.toDark': 'Switch to dark theme',
@@ -85,4 +85,8 @@ export default {
   'coll.search': 'Search a card', 'coll.typeAria': 'Card type', 'coll.grid': 'Grid', 'coll.list': 'List',
   'coll.noMatchQ': q => `No card matches "${q}".`, 'coll.noMatch': 'No card matches this filter.',
   'coll.cards': n => `${n} ${cards(n)}`, 'coll.more': n => `Show more cards (${n} left)`,
+
+  'rogue.title': 'Spicy rogue decks of the week',
+  'rogue.intro': 'Decks outside the 30 most played that made top 8 in a tournament or went 5-0 in a League in the last 7 days. Sorted by how close they are to your collection.',
+  'rogue.results': n => `${n} ${p(n, 'result', 'results')} this week`, 'rogue.best': r => `best: ${r}`, 'rogue.signature': c => `signature card: ${c}`,
 }

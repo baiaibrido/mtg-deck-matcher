@@ -60,6 +60,7 @@ Principi:
 | v0.9.3: cursore già nella casella dopo "Aggiungi carte"; copie prima o dopo il nome ("4 Bolt", "Bolt 4", "Bolt x4", "Bolt (4)") | Inserimento più veloce al banco |
 | v0.9.4: elenco mazzi su due colonne con tutti i 30 mazzi (via la scheda "I 5 migliori"); copie in basso a sinistra anche nelle carte del mazzo | Meno scorrimento, tutto il meta a colpo d'occhio |
 | v0.10.0: sito in italiano, inglese e spagnolo (lingua scelta in automatico, selettore nell'header) e tema chiaro/scuro (scuro di default) | Apertura a giocatori di altri paesi; leggibilità in negozio con molta luce |
+| v0.11.0: nome **Netdeckable**; portoghese (BR) e giapponese; sezione "Rogue piccanti della settimana" (fuori dai 30 mazzi, con top 8 o 5-0 negli ultimi 7 giorni, ordinati per la tua collezione) | Far scoprire mazzi fuori meta che vincono, come Slivers o Wildfire in Pauper |
 
 ## Dopo (gennaio e oltre, da valutare)
 - **Collezione sincronizzata tra dispositivi** (Firebase, già usato negli altri progetti).

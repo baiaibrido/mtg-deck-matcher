@@ -2,7 +2,7 @@ const p = (n, one, many) => n === 1 ? one : many
 const cartas = n => p(n, 'carta', 'cartas')
 
 export default {
-  skip: 'Ir al contenido', home: 'Deck Matcher, inicio', sections: 'Secciones', format: 'Formato',
+  skip: 'Ir al contenido', home: 'Netdeckable, inicio', sections: 'Secciones', format: 'Formato',
   'nav.decks': 'Mazos', 'nav.keycards': 'Cartas clave', 'nav.collection': 'Colección',
   done: 'Hecho', undo: 'Deshacer', cancel: 'Cancelar', close: 'Cerrar', download: 'Descargar', copyList: 'Copiar lista', sort: 'Ordenar', all: 'Todos',
   language: 'Idioma', 'theme.toLight': 'Cambiar a tema claro', 'theme.toDark': 'Cambiar a tema oscuro',
@@ -85,4 +85,8 @@ export default {
   'coll.search': 'Buscar una carta', 'coll.typeAria': 'Tipo de carta', 'coll.grid': 'Cuadrícula', 'coll.list': 'Lista',
   'coll.noMatchQ': q => `Ninguna carta coincide con "${q}".`, 'coll.noMatch': 'Ninguna carta coincide con este filtro.',
   'coll.cards': n => `${n} ${cartas(n)}`, 'coll.more': n => `Mostrar más cartas (quedan ${n})`,
+
+  'rogue.title': 'Rogues picantes de la semana',
+  'rogue.intro': 'Mazos fuera de los 30 más jugados que en los últimos 7 días hicieron top 8 en un torneo o 5-0 en una League. Ordenados por lo cerca que están de tu colección.',
+  'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} esta semana`, 'rogue.best': r => `mejor: ${r}`, 'rogue.signature': c => `carta insignia: ${c}`,
 }

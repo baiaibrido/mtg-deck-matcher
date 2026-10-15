@@ -15,8 +15,9 @@ export async function loadMetaDecks(format) {
     const r = await fetch(`${base}meta/${format}.json`)
     if (!r.ok) return []
     const j = await r.json()
-    return (j.decks || []).map(d => ({
-      ...d, format, source: d.source || j.source || 'cache', updated: d.updated || j.updated, prevDate: j.prevDate || null,
+    // i rogue della settimana arrivano con rogue: true (fuori dall'elenco principale e dalle carte chiave)
+    return [...(j.decks || []), ...(j.rogue || []).map(d => ({ ...d, rogue: true }))].map(d => ({
+      ...d, format, source: d.source || j.source || 'cache', updated: d.updated || j.updated, prevDate: d.rogue ? null : j.prevDate || null,
       main: toEntries(d.main), side: toEntries(d.side),
     }))
   } catch { return [] }

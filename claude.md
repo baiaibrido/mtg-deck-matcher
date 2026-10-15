@@ -1,4 +1,6 @@
-# MTG Deck Matcher — claude.md
+# Netdeckable (repo mtg-deck-matcher) — claude.md
+
+Nome pubblico: **Netdeckable** (dominio previsto netdeckable.app, non ancora collegato). Nel codice e nelle chiavi localStorage resta il prefisso `mdm.`.
 
 App web (React + Vite, solo frontend, PWA). Confronta la collezione dell'utente con i mazzi meta di un formato: tutti i mazzi (fino a 30, due colonne da 720px) con filtri, tier, trend, costo per completare, mancolista, carte chiave. Piano: `docs/ROADMAP.md`.
 
@@ -15,7 +17,7 @@ scripts/sync-mtgtop8.mjs   sync MTGTop8: tier, trend, robots.txt, saveFormat() c
 .github/workflows/         sync-meta.yml (notturno), test.yml (test + build a ogni push)
 src/
   i18n/index.js            traduzioni: t(chiave, ...args), LANGS, setLang, detectLang (salvata > ?lang= > dispositivo > fuso orario > en), euro/num/dayMonth nel formato della lingua
-  i18n/it.js en.js es.js   dizionari (stesse chiavi: lo verifica i18n.test.js). Ogni testo nuovo va aggiunto in tutte e tre
+  i18n/it en es pt ja .js  dizionari (stesse chiavi: lo verifica i18n.test.js). Ogni testo nuovo va aggiunto in tutte e cinque. PT = brasiliano; JA con font giapponesi di sistema (:lang(ja) in styles.css); nomi carta sempre in inglese
   main.jsx                 entry: font (Marcellus, Alegreya Sans), mana-font, stili
   App.jsx                  layout, stato, rotte, toast, elenco di tutti i mazzi + filtri, fetch Scryfall (prima i mazzi in vista, poi tutti)
   styles.css               design system (token in :root) + tutti gli stili
@@ -106,6 +108,7 @@ Scryfall (pulsante "Correggi i nomi") corregge refusi: `/cards/collection` (75 p
 - Doppioni (stessa lista in melee.gg e mtgo.com) eliminati con chiave giocatore+torneo+data+75. Liste < 60 carte scartate. Quota = mazzi archetipo / mazzi analizzati (non riconosciuti inclusi). Lista mostrata = la più recente tra top 8 / 5-0, altrimenti la più recente.
 - Fallback MTGTop8 per formato se: non riconosciuti > 15%, meno di 50 mazzi, errore di download/regole. Commander sempre MTGTop8. Cambio fonte → trend azzerato per un giorno (nomi non confrontabili).
 - JSON: `source` 'MTGODecklistCache' | 'MTGTop8', `decksAnalyzed`, `unknownPct`; ogni mazzo ha `count` (liste trovate). Id stabile `<formato>-<slug nome>`.
+- Rogue della settimana (`rogue` nel JSON, max 12): archetipi fuori dai 30 più giocati + mazzi senza archetipo (nome = colori + carta simbolo, es. "5 Color Cleansing Wildfire") con almeno un top 8 o 5-0 negli ultimi 7 giorni di dati. Ordine: n. risultati, miglior piazzamento. Campi `results`, `best`, `signature` (non-terra ≥2 copie meno diffusa nel formato). Nell'app: sezione sotto l'elenco, ordinata per vicinanza alla collezione, esclusa da carte chiave e filtri.
 
 ## Sync MTGTop8 (Commander e fallback)
 - `scripts/sync-mtgtop8.mjs`: per ogni formato legge `format?f=CODE` → periodo "Last 2 Months" → fino a 30 archetipi con % più alta (esclusi "Other…") → primo mazzo (più recente) di ogni archetipo → export `mtgo?d=ID` → `public/meta/<formato>.json`.

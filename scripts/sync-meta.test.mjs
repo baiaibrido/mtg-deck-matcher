@@ -75,3 +75,21 @@ test('finestra di 2 mesi: un pattern per giorno', () => {
   assert.equal(p[0], '/Tournaments/*/2026/10/14/')
   assert.equal(p.at(-1), '/Tournaments/*/2026/08/15/')
 })
+
+test('rogue della settimana: fuori dai 30, solo con risultati recenti, nome da colori + carta simbolo', async () => {
+  const { findRogue, signatureCard } = await import('./sync-meta.mjs')
+  const freq = new Map([['Lightning Bolt', 900], ['Cleansing Wildfire', 3], ['Kor Skyfisher', 400], ['Mountain', 800]])
+  const isLand = n => n === 'Mountain'
+  assert.equal(signatureCard([{ CardName: 'Lightning Bolt', Count: 4 }, { CardName: 'Cleansing Wildfire', Count: 4 }, { CardName: 'Mountain', Count: 8 }], freq, isLand), 'Cleansing Wildfire')
+  const E = (date, Result, main, player = 'p') => ({ date, rank: Result === '5-0' ? 1 : parseInt(Result), t: { Name: 'T' }, d: { Player: player, Result, Mainboard: main, Sideboard: [] } })
+  const wild = [{ CardName: 'Cleansing Wildfire', Count: 4 }, { CardName: 'Kor Skyfisher', Count: 4 }, { CardName: 'Mountain', Count: 52 }]
+  const classify = { colorOf: () => 'WRG', isLand }
+  const outside = [
+    { name: 'Slivers', list: [E('2026-10-12', '5-0', wild), E('2026-10-13', '3rd Place', wild)] },
+    { name: 'Old Brew', list: [E('2026-09-01', '1st Place', wild)] },     // risultato vecchio: escluso
+    { name: 'Losing Brew', list: [E('2026-10-13', '20th Place', wild)] }, // nessun risultato: escluso
+  ]
+  const r = findRogue(outside, [E('2026-10-14', '1st Place', wild, 'x')], { classify, freq, total: 100, id: 'pauper' })
+  assert.deepEqual(r.map(d => [d.name, d.results, d.best]), [['Slivers', 2, '5-0'], ['Naya Cleansing Wildfire', 1, '1st Place']])
+  assert.ok(r.every(d => d.rogue && d.main.length && d.id.startsWith('pauper-rogue-')))
+})

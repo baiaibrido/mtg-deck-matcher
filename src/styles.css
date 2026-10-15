@@ -29,6 +29,12 @@
   color-scheme: dark;
 }
 
+/* Giapponese: i font del sito non hanno i kana/kanji → font giapponesi di sistema subito dopo */
+:root:lang(ja) {
+  --font-title: 'Marcellus', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+  --font-ui: 'Alegreya Sans', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans JP', system-ui, sans-serif;
+}
+
 /* Tema chiaro "pergamena": stessi ruoli, contrasti AA verificati */
 :root[data-theme="light"] {
   --felt: #f3eee2; --baize: #fbf8f1; --baize-2: #ece5d4; --rail: #d6ccb5; --edge: #857c6b;
@@ -432,6 +438,12 @@ textarea { resize: vertical; line-height: 1.45; }
 .tier-1 { background: var(--brass); color: var(--brass-ink); }
 .tier-2 { box-shadow: inset 0 0 0 1.5px var(--brass); color: var(--brass); }
 .tier-3 { box-shadow: inset 0 0 0 1px var(--rail); color: var(--lichen); }
+.tier-rogue { background: var(--mana-r); color: #1c0d08; }
+.sig { font-style: italic; }
+.rogue { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rail); }
+.rogue-head { margin-bottom: 14px; max-width: 62ch; }
+.rogue-head h2 { font: 1.6rem/1.2 var(--font-title); }
+.rogue-head p { margin: 6px 0 0; color: var(--lichen); }
 .trend { display: inline-flex; align-items: center; gap: 3px; font-size: .82rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .trend-up { color: var(--ok); }
 .trend-down { color: var(--danger-ink); }
