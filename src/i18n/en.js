@@ -89,7 +89,7 @@ export default {
 
   'rogue.title': 'Spicy rogue decks of the week',
   'rogue.intro': n => `Decks outside the ${n} most played that made top 8 in a tournament or went 5-0 in a League in the last 7 days. Sorted by how close they are to your collection.`,
-  'rogue.results': n => `${n} ${p(n, 'result', 'results')} this week`, 'rogue.best': r => `best: ${r}`, 'rogue.signature': c => `key card: ${c}`,
+  'rogue.results': n => `${n} ${p(n, 'result', 'results')} this week`, 'rogue.best': r => `best: ${r}`, 'rogue.signature': c => `one of its key cards: ${c}`,
   'rogue.jump': n => `Discover ${p(n, 'the spicy rogue deck', `${n} spicy rogue decks`)} of the week`,
 
   budget: 'Budget', 'budget.any': 'Any', 'budget.max': e => `up to ${e}`, 'sort.meta': 'Best against the meta',
@@ -119,6 +119,6 @@ export default {
   toTop: 'Back to top',
   'daily.label': 'Mystery deck of the day', 'daily.only': 'Today only', 'daily.changes': (h, m) => `changes in ${h} h ${m} min`,
   'daily.lines': ['Nobody sees it coming. Not even you.', 'Your opponent has never seen this list.', 'Netdeck what nobody netdecks.', 'Open it. Then tell no one.', 'Today the meta trembles. A little.', 'The deck that makes you say "wait, that exists?"', 'Few play it. Even fewer beat it.'],
-  'daily.sig': c => `Key card: ${c}`, 'daily.share': s => `Only ${s}% of the meta plays it`, 'daily.cta': 'Reveal it', 'daily.new': "You haven't opened it yet", 'daily.reveal': 'Hover to peek',
+  'daily.sig': c => `One of its key cards: ${c}`, 'daily.share': s => `Only ${s}% of the meta plays it`, 'daily.cta': 'Reveal it', 'daily.new': "You haven't opened it yet", 'daily.reveal': 'Hover to peek',
   'daily.aria': n => `Mystery deck of the day: ${n}. Open the deck`,
 }

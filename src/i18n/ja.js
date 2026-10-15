@@ -87,7 +87,7 @@ export default {
 
   'rogue.title': '今週の注目ローグデッキ',
   'rogue.intro': n => `使用率上位${n}以外のデッキのうち、直近7日間に大会でトップ8、またはLeagueで5-0を達成したもの。あなたのコレクションに近い順に並べています。`,
-  'rogue.results': n => `今週${n}回入賞`, 'rogue.best': r => `最高成績:${r}`, 'rogue.signature': c => `特徴的なカード：${c}`,
+  'rogue.results': n => `今週${n}回入賞`, 'rogue.best': r => `最高成績:${r}`, 'rogue.signature': c => `特徴的なカードのひとつ：${c}`,
   'rogue.jump': n => `今週の注目ローグデッキ${n}個を見る`,
 
   budget: '予算', 'budget.any': '指定なし', 'budget.max': e => `${e}まで`, 'sort.meta': 'メタに強い順',
@@ -117,6 +117,6 @@ export default {
   toTop: 'ページの先頭へ',
   'daily.label': '今日のミステリーデッキ', 'daily.only': '今日だけ', 'daily.changes': (h, m) => `あと${h}時間${m}分で入れ替わり`,
   'daily.lines': ['誰も予想しない。あなたも。', '対戦相手はこのリストを見たことがない。', '誰もネットデッキしないものをネットデッキしよう。', '開けてみて。誰にも言わずに。', '今日はメタが震える。ちょっとだけ。', '「え、こんなデッキあるの？」と言わせる一品。', '使う人は少ない。勝てる人はもっと少ない。'],
-  'daily.sig': c => `特徴的なカード：${c}`, 'daily.share': s => `メタのわずか${s}%`, 'daily.cta': '正体を見る', 'daily.new': 'まだ開けていません', 'daily.reveal': 'カーソルを乗せてのぞき見',
+  'daily.sig': c => `特徴的なカードのひとつ：${c}`, 'daily.share': s => `メタのわずか${s}%`, 'daily.cta': '正体を見る', 'daily.new': 'まだ開けていません', 'daily.reveal': 'カーソルを乗せてのぞき見',
   'daily.aria': n => `今日のミステリーデッキ：${n}。デッキを開く`,
 }

@@ -10,6 +10,7 @@ import { tmpdir } from 'node:os'
 import { fileURLToPath } from 'node:url'
 import { FORMATS, assignTiers, loadRobots, syncFormat, saveFormat } from './sync-mtgtop8.mjs'
 import { downloadOracle, indexCards, cardsByFormat } from './cards-data.mjs'
+import { pickSignature } from '../src/lib/daily.js'
 
 const DECKS_REPO = 'https://github.com/Jiliac/MTGODecklistCache'
 const RULES_REPO = 'https://github.com/Badaro/MTGOFormatData'
@@ -254,11 +255,13 @@ export function addMatchups(mainE, decks) {
   }
 }
 
-// Carta simbolo: la non-terra (almeno 2 copie) più rara nel formato, cioè quella che distingue la lista
+// Carta simbolo dei mazzi senza archetipo (serve a raggrupparli e a dar loro il nome): la non-terra (≥ 2 copie) più rara nel formato
 export function signatureCard(main, freq, isLand) {
   const cand = main.filter(c => c.Count >= 2 && !isLand(c.CardName))
   return cand.sort((a, b) => (freq.get(a.CardName) || 0) - (freq.get(b.CardName) || 0) || b.Count - a.Count)[0]?.CardName || null
 }
+// "Una delle carte caratteristiche" mostrata nelle schede: stessa regola dell'app (src/lib/daily.js)
+const shownSignature = (main, freq, isLand, name) => pickSignature(main.map(c => ({ name: c.CardName, qty: c.Count })), n => freq.get(n) || 0, isLand, name)
 
 // Rogue della settimana: archetipi fuori dai 30 più giocati (o senza archetipo) con top 8 / 5-0 negli ultimi 7 giorni di dati
 export function findRogue(outside, unknownList, { classify, freq, total, id }) {
@@ -285,7 +288,7 @@ export function findRogue(outside, unknownList, { classify, freq, total, id }) {
     .slice(0, ROGUE_MAX)
     .map(({ g, good }) => toDeck(good[0], {
       id: `${id}-rogue-${slug(g.name)}`, name: g.name, rogue: true, results: good.length, best: good[0].d.Result || null,
-      signature: g.signature || sig(good[0]), share: Math.round(g.list.length / total * 1000) / 10,
+      signature: shownSignature(good[0].d.Mainboard, freq, classify.isLand, g.name) || g.signature || sig(good[0]), share: Math.round(g.list.length / total * 1000) / 10,
     }))
 }
 

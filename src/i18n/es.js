@@ -89,7 +89,7 @@ export default {
 
   'rogue.title': 'Rogues picantes de la semana',
   'rogue.intro': n => `Mazos fuera de los ${n} más jugados que en los últimos 7 días hicieron top 8 en un torneo o 5-0 en una League. Ordenados por lo cerca que están de tu colección.`,
-  'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} esta semana`, 'rogue.best': r => `mejor: ${r}`, 'rogue.signature': c => `carta característica: ${c}`,
+  'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} esta semana`, 'rogue.best': r => `mejor: ${r}`, 'rogue.signature': c => `una de sus cartas características: ${c}`,
   'rogue.jump': n => `Descubre ${p(n, 'el rogue picante', `los ${n} rogues picantes`)} de la semana`,
 
   budget: 'Presupuesto', 'budget.any': 'Cualquiera', 'budget.max': e => `hasta ${e}`, 'sort.meta': 'Mejores contra el meta',
@@ -119,6 +119,6 @@ export default {
   toTop: 'Volver arriba',
   'daily.label': 'Mazo misterioso del día', 'daily.only': 'Solo hoy', 'daily.changes': (h, m) => `cambia en ${h} h ${m} min`,
   'daily.lines': ['Nadie se lo espera. Ni siquiera tú.', 'Tu rival nunca ha visto esta lista.', 'Netdeckea lo que nadie netdeckea.', 'Ábrelo. Y no se lo digas a nadie.', 'Hoy el meta tiembla. Un poquito.', 'El mazo que te hará decir «¿pero esto existe?»', 'Pocos lo juegan. Menos aún le ganan.'],
-  'daily.sig': c => `Carta característica: ${c}`, 'daily.share': s => `Solo lo juega el ${s}% del meta`, 'daily.cta': 'Descúbrelo', 'daily.new': 'Aún no lo has abierto', 'daily.reveal': 'Pasa el ratón para espiar',
+  'daily.sig': c => `Una de sus cartas características: ${c}`, 'daily.share': s => `Solo lo juega el ${s}% del meta`, 'daily.cta': 'Descúbrelo', 'daily.new': 'Aún no lo has abierto', 'daily.reveal': 'Pasa el ratón para espiar',
   'daily.aria': n => `Mazo misterioso del día: ${n}. Abrir el mazo`,
 }

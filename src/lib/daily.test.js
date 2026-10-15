@@ -17,8 +17,10 @@ test('stesso giorno e formato → stesso mazzo; giorni diversi variano', () => {
   const seen = new Set(Array.from({ length: 30 }, (_, i) => pickDaily(decks, 'pauper', `2026-10-${i + 1}`).name))
   assert.ok(seen.size > 1)
 })
-test('carta caratteristica: la meno diffusa, niente terre base', () => {
-  assert.equal(signatureOf(decks[2], decks), 'Weird Thing')
+test('carta caratteristica: più copie prima, poi la meno diffusa; niente terre base né carte che svelano il nome', () => {
+  assert.equal(signatureOf(decks[2], decks), 'Common') // 4 copie batte 2 copie
+  assert.equal(signatureOf(mk('Boros Synthesizer', 1, [[4, 'Experimental Synthesizer'], [4, 'Novice Inspector'], [4, 'Lightning Bolt'], [2, 'Relic']]), [...decks, mk('X', 1, [[4, 'Lightning Bolt']])]), 'Novice Inspector')
+  assert.equal(signatureOf(mk('Rakdos Goblins', 1, [[4, 'Goblin Matron'], [4, 'Skred']]), decks), 'Skred') // anche al plurale
   assert.equal(signatureOf(decks[4], decks), 'Odd')
 })
 test('conto alla rovescia fino a mezzanotte', () => {

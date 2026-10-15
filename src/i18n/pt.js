@@ -90,7 +90,7 @@ export default {
 
   'rogue.title': 'Rogues apimentados da semana',
   'rogue.intro': n => `Decks fora dos ${n} mais jogados que nos últimos 7 dias fizeram top 8 em um torneio ou 5-0 em uma League. Ordenados pela proximidade com a sua coleção.`,
-  'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} na semana`, 'rogue.best': r => `melhor: ${r}`, 'rogue.signature': c => `carta característica: ${c}`,
+  'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} na semana`, 'rogue.best': r => `melhor: ${r}`, 'rogue.signature': c => `uma das cartas características: ${c}`,
   'rogue.jump': n => `Descubra ${p(n, 'o rogue apimentado', `os ${n} rogues apimentados`)} da semana`,
 
   budget: 'Orçamento', 'budget.any': 'Qualquer', 'budget.max': e => `até ${e}`, 'sort.meta': 'Melhores contra o meta',
@@ -120,6 +120,6 @@ export default {
   toTop: 'Voltar ao topo',
   'daily.label': 'Deck misterioso do dia', 'daily.only': 'Só hoje', 'daily.changes': (h, m) => `muda em ${h} h ${m} min`,
   'daily.lines': ['Ninguém espera. Nem você.', 'Seu oponente nunca viu esta lista.', 'Netdecke o que ninguém netdecka.', 'Abra. Depois não conte para ninguém.', 'Hoje o meta treme. Um pouquinho.', 'O deck que vai te fazer dizer «ué, isso existe?»', 'Poucos jogam. Menos ainda vencem.'],
-  'daily.sig': c => `Carta característica: ${c}`, 'daily.share': s => `Só ${s}% do meta joga com ele`, 'daily.cta': 'Descubra', 'daily.new': 'Você ainda não abriu', 'daily.reveal': 'Passe o mouse para espiar',
+  'daily.sig': c => `Uma das cartas características: ${c}`, 'daily.share': s => `Só ${s}% do meta joga com ele`, 'daily.cta': 'Descubra', 'daily.new': 'Você ainda não abriu', 'daily.reveal': 'Passe o mouse para espiar',
   'daily.aria': n => `Deck misterioso do dia: ${n}. Abrir o deck`,
 }

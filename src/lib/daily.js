@@ -16,13 +16,20 @@ export function pickDaily(decks, format, day = dayKey()) {
   return pool.length ? pool[hash(`${format}|${day}`) % pool.length] : null
 }
 
-// Carta caratteristica: la non-terra (almeno 2 copie) meno presente negli altri mazzi del formato
+// Una delle carte caratteristiche: tra le non-terre del main si preferiscono quelle in più copie (4, poi 3, poi 2),
+// e tra queste la meno diffusa negli altri mazzi del formato. Si scartano le carte con una parola in comune col nome
+// del mazzo (es. "Experimental Synthesizer" in "Boros Synthesizer"), che lo svelerebbero.
+const words = s => new Set(norm(s).split(/[^\p{L}\p{N}]+/u).filter(w => w.length >= 4).map(w => w.replace(/s$/, ''))) // "Goblins" = "Goblin"
+export function pickSignature(entries, freqOf, isLand = () => false, deckName = '') {
+  const banned = words(deckName)
+  const cand = entries.filter(c => c.qty >= 2 && !BASICS.test(c.name) && !isLand(c.name) && ![...words(c.name)].some(w => banned.has(w)))
+  return cand.sort((a, b) => Math.min(b.qty, 4) - Math.min(a.qty, 4) || freqOf(a.name) - freqOf(b.name) || a.name.localeCompare(b.name))[0]?.name || null
+}
+
 export function signatureOf(deck, decks, isLand = () => false) {
-  if (deck.signature) return deck.signature
   const freq = new Map()
   for (const d of decks) for (const k of new Set((d.main || []).map(c => norm(c.name)))) freq.set(k, (freq.get(k) || 0) + 1)
-  const cand = (deck.main || []).filter(c => c.qty >= 2 && !BASICS.test(c.name) && !isLand(c.name))
-  return cand.sort((a, b) => (freq.get(norm(a.name)) || 0) - (freq.get(norm(b.name)) || 0) || b.qty - a.qty)[0]?.name || null
+  return pickSignature(deck.main || [], n => freq.get(norm(n)) || 0, isLand, deck.name) || deck.signature || null
 }
 
 // Tempo fino a mezzanotte, per il "cambia tra…"
