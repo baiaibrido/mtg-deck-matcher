@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-14",
- "prevDate": null,
+ "updated": "2026-10-15",
+ "prevDate": "2026-10-14",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 3152,
- "unknownPct": 11.1,
+ "decksAnalyzed": 3081,
+ "unknownPct": 11.4,
  "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
   {
    "id": "standard-mono-green-landfall",
    "name": "Mono Green Landfall",
-   "share": 12.8,
+   "share": 12.7,
    "tier": 1,
-   "count": 404,
+   "count": 392,
    "title": "jtl005 · Standard Challenge 16 (3rd Place)",
    "url": "https://www.mtgo.com/decklist/standard-challenge-16-2026-10-1012856183#deck_jtl005",
    "main": [
@@ -47,12 +47,12 @@
     "2 The Scouring Stormsoul",
     "2 Torpor Orb"
    ],
-   "prev": null
+   "prev": 12.8
   },
   {
    "id": "standard-izzet-spellementals",
    "name": "Izzet Spellementals",
-   "share": 11,
+   "share": 11.3,
    "tier": 1,
    "count": 347,
    "title": "BigChapulin · ReCQ - Standard - SCG CON Los Angeles - Sunday - 12:30 pm (2st Place)",
@@ -86,14 +86,14 @@
     "2 Spell Pierce",
     "2 Broadside Barrage"
    ],
-   "prev": null
+   "prev": 11
   },
   {
    "id": "standard-dimir-midrange",
    "name": "Dimir Midrange",
-   "share": 8.7,
+   "share": 8.5,
    "tier": 1,
-   "count": 275,
+   "count": 263,
    "title": "Oss-28 · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_Oss-28",
    "main": [
@@ -130,14 +130,14 @@
     "1 Spell Pierce",
     "3 Strategic Betrayal"
    ],
-   "prev": null
+   "prev": 8.7
   },
   {
    "id": "standard-jeskai-control",
    "name": "Jeskai Control",
    "share": 5.6,
    "tier": 1,
-   "count": 177,
+   "count": 173,
    "title": "Keita Kishino · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (2st Place)",
    "url": "https://melee.gg/Decklist/View/d30942b0-eddc-4bb7-8a35-b4e0012484a1",
    "main": [
@@ -183,14 +183,14 @@
     "3 Voice of Victory",
     "1 Pinnacle Starcage"
    ],
-   "prev": null
+   "prev": 5.6
   },
   {
    "id": "standard-lifegain",
    "name": "Lifegain",
-   "share": 4.9,
+   "share": 4.8,
    "tier": 1,
-   "count": 154,
+   "count": 148,
    "title": "ChessNight5030 · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_ChessNight5030",
    "main": [
@@ -228,14 +228,14 @@
     "1 Starscape Cleric",
     "3 Strategic Betrayal"
    ],
-   "prev": null
+   "prev": 4.9
   },
   {
    "id": "standard-boros-dragons",
    "name": "Boros Dragons",
    "share": 4.2,
    "tier": 1,
-   "count": 132,
+   "count": 129,
    "title": "Hanta · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (6th Place)",
    "url": "https://melee.gg/Decklist/View/c2d14af8-44b3-49e5-885e-b4e10035d5b5",
    "main": [
@@ -268,14 +268,14 @@
     "2 Boros Charm",
     "1 Bilbo's Gambit"
    ],
-   "prev": null
+   "prev": 4.2
   },
   {
    "id": "standard-dimir-excruciator",
    "name": "Dimir Excruciator",
-   "share": 3.9,
+   "share": 3.8,
    "tier": 1,
-   "count": 122,
+   "count": 118,
    "title": "Riverflow · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (1st Place)",
    "url": "https://melee.gg/Decklist/View/b5c54499-f2b0-413e-b6db-b4e0017c8c30",
    "main": [
@@ -315,46 +315,7 @@
     "1 Quantum Riddler",
     "1 Negate"
    ],
-   "prev": null
-  },
-  {
-   "id": "standard-izzet-aggro",
-   "name": "Izzet Aggro",
-   "share": 3.5,
-   "tier": 2,
-   "count": 111,
-   "title": "cinno · Standard League (5-0)",
-   "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_cinno",
-   "main": [
-    "4 Boltwave",
-    "4 Burst Lightning",
-    "2 Colorstorm Stallion",
-    "3 Flow State",
-    "2 Great Hall of the Biblioplex",
-    "2 Heroes' Hangout",
-    "4 Hired Claw",
-    "1 Island",
-    "6 Mountain",
-    "4 Pompous Battlemage",
-    "4 Riverpyre Verge",
-    "2 Secret Identity",
-    "4 Sleight of Hand",
-    "4 Slickshot Show-Off",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "3 Stingcaster Mage",
-    "3 Vibrant Outburst"
-   ],
-   "side": [
-    "2 Colorstorm Stallion",
-    "2 Scorching Shot",
-    "2 Secret Identity",
-    "2 Spell Pierce",
-    "1 Stock Up",
-    "3 Sunspine Lynx",
-    "3 Vengeful Tracker"
-   ],
-   "prev": null
+   "prev": 3.9
   },
   {
    "id": "standard-azorius-control",
@@ -399,14 +360,53 @@
     "1 Pinnacle Starcage",
     "1 Elspeth, Storm Slayer"
    ],
-   "prev": null
+   "prev": 3.5
+  },
+  {
+   "id": "standard-izzet-aggro",
+   "name": "Izzet Aggro",
+   "share": 3.5,
+   "tier": 2,
+   "count": 108,
+   "title": "cinno · Standard League (5-0)",
+   "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_cinno",
+   "main": [
+    "4 Boltwave",
+    "4 Burst Lightning",
+    "2 Colorstorm Stallion",
+    "3 Flow State",
+    "2 Great Hall of the Biblioplex",
+    "2 Heroes' Hangout",
+    "4 Hired Claw",
+    "1 Island",
+    "6 Mountain",
+    "4 Pompous Battlemage",
+    "4 Riverpyre Verge",
+    "2 Secret Identity",
+    "4 Sleight of Hand",
+    "4 Slickshot Show-Off",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "3 Stingcaster Mage",
+    "3 Vibrant Outburst"
+   ],
+   "side": [
+    "2 Colorstorm Stallion",
+    "2 Scorching Shot",
+    "2 Secret Identity",
+    "2 Spell Pierce",
+    "1 Stock Up",
+    "3 Sunspine Lynx",
+    "3 Vengeful Tracker"
+   ],
+   "prev": 3.5
   },
   {
    "id": "standard-mardu-discard",
    "name": "Mardu Discard",
-   "share": 3,
+   "share": 2.9,
    "tier": 2,
-   "count": 95,
+   "count": 89,
    "title": "Richard Henriques · ReCQ - Standard - SCG CON Los Angeles - Saturday - 3:00 pm (8th Place)",
    "url": "https://melee.gg/Decklist/View/4849600b-c315-4ce4-ad51-b4df01563270",
    "main": [
@@ -441,7 +441,7 @@
     "2 Shoot the Sheriff",
     "2 Voice of Victory"
    ],
-   "prev": null
+   "prev": 3
   },
   {
    "id": "standard-selesnya-landfall",
@@ -478,12 +478,12 @@
     "3 Surrak, Elusive Hunter",
     "1 Voice of Victory"
    ],
-   "prev": null
+   "prev": 1.9
   },
   {
    "id": "standard-boros-aggro",
    "name": "Boros Aggro",
-   "share": 1.8,
+   "share": 1.9,
    "tier": 2,
    "count": 57,
    "title": "AKINARI Shimokawabe · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (8th Place)",
@@ -515,14 +515,14 @@
     "3 Bilbo's Gambit",
     "3 Sunspine Lynx"
    ],
-   "prev": null
+   "prev": 1.8
   },
   {
    "id": "standard-azorius-momo",
    "name": "Azorius Momo",
    "share": 1.8,
    "tier": 2,
-   "count": 57,
+   "count": 56,
    "title": "zippzipp_ · Standard Championship Week Finals (2nd Place)",
    "url": "https://www.mtgo.com/decklist/standard-championship-week-finals-2026-10-0812856137#deck_zippzipp_",
    "main": [
@@ -556,54 +556,7 @@
     "2 Seam Rip",
     "2 The Queen of Dale"
    ],
-   "prev": null
-  },
-  {
-   "id": "standard-reanimator",
-   "name": "Reanimator",
-   "share": 1.6,
-   "tier": 2,
-   "count": 51,
-   "title": "_IlNano_ · Standard Challenge 16 (1st Place)",
-   "url": "https://www.mtgo.com/decklist/standard-challenge-16-2026-10-1012856183#deck__IlNano_",
-   "main": [
-    "3 Bitter Triumph",
-    "2 Cavern of Souls",
-    "1 Deadly Cover-Up",
-    "4 Deceit",
-    "3 Duress",
-    "4 Gloomlake Verge",
-    "2 Multiversal Passage",
-    "2 Overlord of the Balemurk",
-    "3 Requiting Hex",
-    "4 Restless Reef",
-    "4 Seasoned Cryomancer",
-    "4 Shipwreck Marsh",
-    "1 Spell Snare",
-    "1 Strategic Betrayal",
-    "4 Superior Spider-Man",
-    "3 Swamp",
-    "2 The Theorist, Jace Beleren",
-    "3 Theorix Charm",
-    "2 Uldaros Theorix",
-    "2 Undercity Sewers",
-    "4 Watery Grave",
-    "2 Winternight Stories"
-   ],
-   "side": [
-    "2 Day of Black Sun",
-    "1 Deadly Cover-Up",
-    "1 Disdainful Stroke",
-    "2 Doomsday Excruciator",
-    "1 Duress",
-    "1 Emeritus of Ideation",
-    "2 Flashfreeze",
-    "1 M.O.D.O.K.",
-    "1 Negate",
-    "2 Qarsi Revenant",
-    "1 Strategic Betrayal"
-   ],
-   "prev": null
+   "prev": 1.8
   },
   {
    "id": "standard-azorius-artifacts",
@@ -649,7 +602,7 @@
     "1 Spell Pierce",
     "2 Torpor Orb"
    ],
-   "prev": null
+   "prev": 1.6
   },
   {
    "id": "standard-golgari-midrange",
@@ -696,7 +649,54 @@
     "1 Urgent Necropsy",
     "1 Vicious Rivalry"
    ],
-   "prev": null
+   "prev": 1.6
+  },
+  {
+   "id": "standard-reanimator",
+   "name": "Reanimator",
+   "share": 1.6,
+   "tier": 2,
+   "count": 49,
+   "title": "_IlNano_ · Standard Challenge 16 (1st Place)",
+   "url": "https://www.mtgo.com/decklist/standard-challenge-16-2026-10-1012856183#deck__IlNano_",
+   "main": [
+    "3 Bitter Triumph",
+    "2 Cavern of Souls",
+    "1 Deadly Cover-Up",
+    "4 Deceit",
+    "3 Duress",
+    "4 Gloomlake Verge",
+    "2 Multiversal Passage",
+    "2 Overlord of the Balemurk",
+    "3 Requiting Hex",
+    "4 Restless Reef",
+    "4 Seasoned Cryomancer",
+    "4 Shipwreck Marsh",
+    "1 Spell Snare",
+    "1 Strategic Betrayal",
+    "4 Superior Spider-Man",
+    "3 Swamp",
+    "2 The Theorist, Jace Beleren",
+    "3 Theorix Charm",
+    "2 Uldaros Theorix",
+    "2 Undercity Sewers",
+    "4 Watery Grave",
+    "2 Winternight Stories"
+   ],
+   "side": [
+    "2 Day of Black Sun",
+    "1 Deadly Cover-Up",
+    "1 Disdainful Stroke",
+    "2 Doomsday Excruciator",
+    "1 Duress",
+    "1 Emeritus of Ideation",
+    "2 Flashfreeze",
+    "1 M.O.D.O.K.",
+    "1 Negate",
+    "2 Qarsi Revenant",
+    "1 Strategic Betrayal"
+   ],
+   "prev": 1.6
   },
   {
    "id": "standard-jeskai-artifacts",
@@ -742,12 +742,12 @@
     "1 The Echoverse Fulcrum",
     "1 Torpor Orb"
    ],
-   "prev": null
+   "prev": 1.3
   },
   {
    "id": "standard-rakdos-lizards",
    "name": "Rakdos Lizards",
-   "share": 1.1,
+   "share": 1.2,
    "tier": 2,
    "count": 36,
    "title": "Benjamin Klunpaitoon · ReCQ - Standard - SCG CON Los Angeles - Sunday - 12:30 pm (1st Place)",
@@ -781,14 +781,14 @@
     "3 Thought-Stalker Warlock",
     "3 Sunspine Lynx"
    ],
-   "prev": null
+   "prev": 1.1
   },
   {
    "id": "standard-jeskai-lessons",
    "name": "Jeskai Lessons",
-   "share": 1.1,
+   "share": 1,
    "tier": 2,
-   "count": 35,
+   "count": 32,
    "title": "Sousa07 · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-0711129#deck_Sousa07",
    "main": [
@@ -828,7 +828,7 @@
     "2 Price of Freedom",
     "2 Spell Snare"
    ],
-   "prev": null
+   "prev": 1.1
   },
   {
    "id": "standard-mono-red-aggro",
@@ -861,98 +861,7 @@
     "3 Soul-Guide Lantern",
     "4 Sunspine Lynx"
    ],
-   "prev": null
-  },
-  {
-   "id": "standard-dimir-control",
-   "name": "Dimir Control",
-   "share": 0.9,
-   "tier": 2,
-   "count": 27,
-   "title": "Lemon_Nagasako · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (3st Place)",
-   "url": "https://melee.gg/Decklist/View/0601dcf0-a651-415c-a157-b4e10004d6ae",
-   "main": [
-    "3 Swamp",
-    "1 Theorix Charm",
-    "1 Three Steps Ahead",
-    "2 Theorist's Sanctum",
-    "1 Vraska's Final Mercy",
-    "4 Consult the Star Charts",
-    "1 Demolition Field",
-    "2 Restless Reef",
-    "2 Deadly Cover-Up",
-    "1 Fountainport",
-    "3 Duress",
-    "3 Island",
-    "2 Spell Snare",
-    "3 Bitter Triumph",
-    "3 Sphinx of False Conclusions",
-    "4 Shipwreck Marsh",
-    "4 Countersculpt",
-    "4 The Theorist, Jace Beleren",
-    "4 Requiting Hex",
-    "1 Day of Black Sun",
-    "4 Watery Grave",
-    "1 Strategic Betrayal",
-    "4 Gloomlake Verge",
-    "2 Petrified Hamlet"
-   ],
-   "side": [
-    "1 Disdainful Stroke",
-    "1 Annul",
-    "2 Torpor Orb",
-    "2 Qarsi Revenant",
-    "1 Ghost Vacuum",
-    "2 Terminal Criticism",
-    "1 Day of Black Sun",
-    "1 Outrageous Robbery",
-    "2 Flashfreeze",
-    "1 Riverchurn Monument",
-    "1 Negate"
-   ],
-   "prev": null
-  },
-  {
-   "id": "standard-azorius-flash",
-   "name": "Azorius Flash",
-   "share": 0.8,
-   "tier": 2,
-   "count": 26,
-   "title": "Jurrd · US RCQ | 2026-27 Round 2 2 Slot (1st Place)",
-   "url": "https://melee.gg/Decklist/View/e550afc8-b0fb-4db3-94bc-b4d100ffdc55",
-   "main": [
-    "4 Erode",
-    "2 Restless Anchorage",
-    "2 Wan Shi Tong, Librarian",
-    "4 Aang, Swift Savior",
-    "4 Starting Town",
-    "4 Aven Interrupter",
-    "4 Seam Rip",
-    "4 Floodfarm Verge",
-    "4 Hallowed Fountain",
-    "4 Practiced Offense",
-    "3 Skycoach Conductor // All Aboard",
-    "3 Island",
-    "4 Voice of Victory",
-    "2 The Wondrous Wasp",
-    "3 Enduring Curiosity",
-    "2 Jennifer Walters",
-    "1 Meticulous Archive",
-    "2 Abandoned Air Temple",
-    "4 Plains"
-   ],
-   "side": [
-    "1 Disdainful Stroke",
-    "2 Requisition Raid",
-    "1 Flashfreeze",
-    "1 Enduring Curiosity",
-    "2 Annul",
-    "2 Spider-Sense",
-    "3 Avatar's Wrath",
-    "2 Rest in Peace",
-    "1 Spell Pierce"
-   ],
-   "prev": null
+   "prev": 0.9
   },
   {
    "id": "standard-bant-airbending-combo",
@@ -997,7 +906,56 @@
     "2 Rest in Peace",
     "2 Voice of Victory"
    ],
-   "prev": null
+   "prev": 0.8
+  },
+  {
+   "id": "standard-dimir-control",
+   "name": "Dimir Control",
+   "share": 0.8,
+   "tier": 2,
+   "count": 26,
+   "title": "Lemon_Nagasako · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (3st Place)",
+   "url": "https://melee.gg/Decklist/View/0601dcf0-a651-415c-a157-b4e10004d6ae",
+   "main": [
+    "3 Swamp",
+    "1 Theorix Charm",
+    "1 Three Steps Ahead",
+    "2 Theorist's Sanctum",
+    "1 Vraska's Final Mercy",
+    "4 Consult the Star Charts",
+    "1 Demolition Field",
+    "2 Restless Reef",
+    "2 Deadly Cover-Up",
+    "1 Fountainport",
+    "3 Duress",
+    "3 Island",
+    "2 Spell Snare",
+    "3 Bitter Triumph",
+    "3 Sphinx of False Conclusions",
+    "4 Shipwreck Marsh",
+    "4 Countersculpt",
+    "4 The Theorist, Jace Beleren",
+    "4 Requiting Hex",
+    "1 Day of Black Sun",
+    "4 Watery Grave",
+    "1 Strategic Betrayal",
+    "4 Gloomlake Verge",
+    "2 Petrified Hamlet"
+   ],
+   "side": [
+    "1 Disdainful Stroke",
+    "1 Annul",
+    "2 Torpor Orb",
+    "2 Qarsi Revenant",
+    "1 Ghost Vacuum",
+    "2 Terminal Criticism",
+    "1 Day of Black Sun",
+    "1 Outrageous Robbery",
+    "2 Flashfreeze",
+    "1 Riverchurn Monument",
+    "1 Negate"
+   ],
+   "prev": 0.9
   },
   {
    "id": "standard-mono-black-aggro",
@@ -1031,7 +989,49 @@
     "3 Strategic Betrayal",
     "3 Terminal Criticism"
    ],
-   "prev": null
+   "prev": 0.8
+  },
+  {
+   "id": "standard-azorius-flash",
+   "name": "Azorius Flash",
+   "share": 0.7,
+   "tier": 2,
+   "count": 23,
+   "title": "Jurrd · US RCQ | 2026-27 Round 2 2 Slot (1st Place)",
+   "url": "https://melee.gg/Decklist/View/e550afc8-b0fb-4db3-94bc-b4d100ffdc55",
+   "main": [
+    "4 Erode",
+    "2 Restless Anchorage",
+    "2 Wan Shi Tong, Librarian",
+    "4 Aang, Swift Savior",
+    "4 Starting Town",
+    "4 Aven Interrupter",
+    "4 Seam Rip",
+    "4 Floodfarm Verge",
+    "4 Hallowed Fountain",
+    "4 Practiced Offense",
+    "3 Skycoach Conductor // All Aboard",
+    "3 Island",
+    "4 Voice of Victory",
+    "2 The Wondrous Wasp",
+    "3 Enduring Curiosity",
+    "2 Jennifer Walters",
+    "1 Meticulous Archive",
+    "2 Abandoned Air Temple",
+    "4 Plains"
+   ],
+   "side": [
+    "1 Disdainful Stroke",
+    "2 Requisition Raid",
+    "1 Flashfreeze",
+    "1 Enduring Curiosity",
+    "2 Annul",
+    "2 Spider-Sense",
+    "3 Avatar's Wrath",
+    "2 Rest in Peace",
+    "1 Spell Pierce"
+   ],
+   "prev": 0.8
   },
   {
    "id": "standard-selesnya-aggro",
@@ -1073,12 +1073,12 @@
     "4 Rest in Peace",
     "2 Sheltered by Ghosts"
    ],
-   "prev": null
+   "prev": 0.6
   },
   {
    "id": "standard-mono-black-midrange",
    "name": "Mono Black Midrange",
-   "share": 0.5,
+   "share": 0.6,
    "tier": 2,
    "count": 17,
    "title": "TheRealJulys · Standard Challenge 32 (6th Place)",
@@ -1108,14 +1108,14 @@
     "2 Soul-Guide Lantern",
     "4 Strategic Betrayal"
    ],
-   "prev": null
+   "prev": 0.5
   },
   {
    "id": "standard-sultai-control",
    "name": "Sultai Control",
    "share": 0.5,
    "tier": 2,
-   "count": 17,
+   "count": 15,
    "title": "AedanD · Money Where Your Mouth Is #1 (8th Place)",
    "url": "https://melee.gg/Decklist/View/99ee3c45-a8e9-473b-9ece-b4ce01615868",
    "main": [
@@ -1161,12 +1161,12 @@
     "2 Vicious Rivalry",
     "1 Strategic Betrayal"
    ],
-   "prev": null
+   "prev": 0.5
   },
   {
    "id": "standard-izzet-control",
    "name": "Izzet Control",
-   "share": 0.4,
+   "share": 0.5,
    "tier": 2,
    "count": 14,
    "title": "Corrado · Standard League (5-0)",
@@ -1203,7 +1203,7 @@
     "2 Spell Pierce",
     "1 Three Steps Ahead"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "standard-simic-landfall",
@@ -1246,12 +1246,12 @@
     "2 Torpor Orb",
     "1 Warg Tactics"
    ],
-   "prev": null
+   "prev": 0.4
   },
   {
    "id": "standard-temur-omniscience",
    "name": "Temur Omniscience",
-   "share": 0.3,
+   "share": 0.4,
    "tier": 2,
    "count": 11,
    "title": "MelissingOut · Standard League (5-0)",
@@ -1299,7 +1299,7 @@
     "1 Spider-Sense",
     "1 Three Steps Ahead"
    ],
-   "prev": null
+   "prev": 0.3
   }
  ]
 }

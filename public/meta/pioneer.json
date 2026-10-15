@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-14",
- "prevDate": null,
+ "updated": "2026-10-15",
+ "prevDate": "2026-10-14",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 1269,
+ "decksAnalyzed": 1233,
  "unknownPct": 3.4,
  "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
   {
    "id": "pioneer-mono-red-aggro",
    "name": "Mono Red Aggro",
-   "share": 21.4,
+   "share": 21,
    "tier": 1,
-   "count": 271,
+   "count": 259,
    "title": "Chiozzani_23 · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-1111137#deck_Chiozzani_23",
    "main": [
@@ -44,14 +44,14 @@
     "2 Sunspine Lynx",
     "2 Weathered Runestone"
    ],
-   "prev": null
+   "prev": 21.4
   },
   {
    "id": "pioneer-golgari-midrange",
    "name": "Golgari Midrange",
-   "share": 12.7,
+   "share": 12.6,
    "tier": 1,
-   "count": 161,
+   "count": 155,
    "title": "mysteryman21 · Pioneer Challenge 16 (5th Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-10-1112856181#deck_mysteryman21",
    "main": [
@@ -91,14 +91,60 @@
     "1 Tear Asunder",
     "1 Unlicensed Hearse"
    ],
-   "prev": null
+   "prev": 12.7
+  },
+  {
+   "id": "pioneer-izzet-cauldron",
+   "name": "Izzet Cauldron",
+   "share": 5.2,
+   "tier": 1,
+   "count": 64,
+   "title": "fingers1991 · Pioneer Challenge 16 (7th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-10-1012856171#deck_fingers1991",
+   "main": [
+    "4 Academic Dispute",
+    "4 Agatha's Soul Cauldron",
+    "3 Boomerang Basics",
+    "4 Fear of Missing Out",
+    "3 Island",
+    "1 Jadzi, Steward of Fate",
+    "1 Mountain",
+    "1 Otawara, Soaring City",
+    "4 Proft's Eidetic Memory",
+    "3 Quantum Riddler",
+    "4 Riverglide Pathway",
+    "4 Riverpyre Verge",
+    "4 Seasoned Cryomancer",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "4 Stormchaser's Talent",
+    "3 Torch the Tower",
+    "4 Vivi Ornitier",
+    "1 Voldaren Thrillseeker"
+   ],
+   "side": [
+    "1 Ashiok, Dream Render",
+    "1 Boomerang Basics",
+    "2 Change the Equation",
+    "1 Combustion Technique",
+    "1 Fire Magic",
+    "1 Firebending Lesson",
+    "1 Iroh's Demonstration",
+    "1 It'll Quench Ya!",
+    "1 Octopus Form",
+    "1 Price of Freedom",
+    "1 Quantum Riddler",
+    "2 Spell Pierce",
+    "1 Torch the Tower"
+   ],
+   "prev": 5
   },
   {
    "id": "pioneer-abzan-greasefang",
    "name": "Abzan Greasefang",
-   "share": 5.3,
+   "share": 5.1,
    "tier": 1,
-   "count": 67,
+   "count": 63,
    "title": "Taker · 第12回みなとみらいオープン (2st Place)",
    "url": "https://melee.gg/Decklist/View/fd08c9bb-b481-4dbf-b71b-b4d20080c73d",
    "main": [
@@ -142,60 +188,14 @@
     "1 True Ancestry",
     "1 Abrupt Decay"
    ],
-   "prev": null
-  },
-  {
-   "id": "pioneer-izzet-cauldron",
-   "name": "Izzet Cauldron",
-   "share": 5,
-   "tier": 1,
-   "count": 64,
-   "title": "fingers1991 · Pioneer Challenge 16 (7th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-10-1012856171#deck_fingers1991",
-   "main": [
-    "4 Academic Dispute",
-    "4 Agatha's Soul Cauldron",
-    "3 Boomerang Basics",
-    "4 Fear of Missing Out",
-    "3 Island",
-    "1 Jadzi, Steward of Fate",
-    "1 Mountain",
-    "1 Otawara, Soaring City",
-    "4 Proft's Eidetic Memory",
-    "3 Quantum Riddler",
-    "4 Riverglide Pathway",
-    "4 Riverpyre Verge",
-    "4 Seasoned Cryomancer",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "4 Stormchaser's Talent",
-    "3 Torch the Tower",
-    "4 Vivi Ornitier",
-    "1 Voldaren Thrillseeker"
-   ],
-   "side": [
-    "1 Ashiok, Dream Render",
-    "1 Boomerang Basics",
-    "2 Change the Equation",
-    "1 Combustion Technique",
-    "1 Fire Magic",
-    "1 Firebending Lesson",
-    "1 Iroh's Demonstration",
-    "1 It'll Quench Ya!",
-    "1 Octopus Form",
-    "1 Price of Freedom",
-    "1 Quantum Riddler",
-    "2 Spell Pierce",
-    "1 Torch the Tower"
-   ],
-   "prev": null
+   "prev": 5.3
   },
   {
    "id": "pioneer-azorius-control",
    "name": "Azorius Control",
    "share": 4.6,
    "tier": 1,
-   "count": 58,
+   "count": 57,
    "title": "Luzur · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-1011137#deck_Luzur",
    "main": [
@@ -242,14 +242,14 @@
     "1 Temporary Lockdown",
     "1 The Unagi of Kyoshi Island"
    ],
-   "prev": null
+   "prev": 4.6
   },
   {
    "id": "pioneer-orzhov-greasefang",
    "name": "Orzhov Greasefang",
    "share": 3.3,
    "tier": 1,
-   "count": 42,
+   "count": 41,
    "title": "EugeneSander · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-0711137#deck_EugeneSander",
    "main": [
@@ -286,12 +286,12 @@
     "2 Soul-Guide Lantern",
     "1 Vanishing Verse"
    ],
-   "prev": null
+   "prev": 3.3
   },
   {
    "id": "pioneer-dimir-ninjas",
    "name": "Dimir Ninjas",
-   "share": 3.1,
+   "share": 3.2,
    "tier": 2,
    "count": 39,
    "title": "itstime · Pioneer Challenge 16 (8th Place)",
@@ -327,12 +327,12 @@
     "2 Path of Peril",
     "2 Tishana's Tidebinder"
    ],
-   "prev": null
+   "prev": 3.1
   },
   {
    "id": "pioneer-jeskai-lessons",
    "name": "Jeskai Lessons",
-   "share": 2.9,
+   "share": 3,
    "tier": 2,
    "count": 37,
    "title": "darg24 · Pioneer League (5-0)",
@@ -377,12 +377,12 @@
     "1 Soul-Guide Lantern",
     "1 Teachings of the Archaics"
    ],
-   "prev": null
+   "prev": 2.9
   },
   {
    "id": "pioneer-dimir-self-bounce",
    "name": "Dimir Self Bounce",
-   "share": 2.2,
+   "share": 2.3,
    "tier": 2,
    "count": 28,
    "title": "Beicodegeia · Pioneer Challenge 32 (7th Place)",
@@ -421,14 +421,54 @@
     "3 Unlicensed Hearse",
     "1 Yorion, Sky Nomad"
    ],
-   "prev": null
+   "prev": 2.2
+  },
+  {
+   "id": "pioneer-phoenix",
+   "name": "Phoenix",
+   "share": 2.3,
+   "tier": 2,
+   "count": 28,
+   "title": "hugofreitas1 · Pioneer Challenge 32 (5th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-09-2812854947#deck_hugofreitas1",
+   "main": [
+    "4 Arclight Phoenix",
+    "4 Artist's Talent",
+    "4 Consider",
+    "4 Fiery Impulse",
+    "1 Galvanic Iteration",
+    "3 Into the Flood Maw",
+    "4 Island",
+    "3 Lightning Axe",
+    "4 Opt",
+    "1 Otawara, Soaring City",
+    "4 Picklock Prankster",
+    "1 Prismari Command",
+    "1 Proft's Eidetic Memory",
+    "4 Riverglide Pathway",
+    "4 Sleight of Hand",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "1 Stormcarved Coast",
+    "1 Temporal Trespass",
+    "4 Treasure Cruise"
+   ],
+   "side": [
+    "1 Abrade",
+    "2 Brazen Borrower",
+    "2 Disdainful Stroke",
+    "4 Ledger Shredder",
+    "3 Mystical Dispute",
+    "3 Redcap Melee"
+   ],
+   "prev": 2.2
   },
   {
    "id": "pioneer-simic-scapeshift",
    "name": "Simic Scapeshift",
-   "share": 2.2,
+   "share": 2.1,
    "tier": 2,
-   "count": 28,
+   "count": 26,
    "title": "gurig · Pioneer Challenge 32 (5th Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-10-0512855505#deck_gurig",
    "main": [
@@ -465,47 +505,7 @@
     "2 Stock Up",
     "2 Tear Asunder"
    ],
-   "prev": null
-  },
-  {
-   "id": "pioneer-phoenix",
-   "name": "Phoenix",
-   "share": 2.2,
-   "tier": 2,
-   "count": 28,
-   "title": "hugofreitas1 · Pioneer Challenge 32 (5th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-09-2812854947#deck_hugofreitas1",
-   "main": [
-    "4 Arclight Phoenix",
-    "4 Artist's Talent",
-    "4 Consider",
-    "4 Fiery Impulse",
-    "1 Galvanic Iteration",
-    "3 Into the Flood Maw",
-    "4 Island",
-    "3 Lightning Axe",
-    "4 Opt",
-    "1 Otawara, Soaring City",
-    "4 Picklock Prankster",
-    "1 Prismari Command",
-    "1 Proft's Eidetic Memory",
-    "4 Riverglide Pathway",
-    "4 Sleight of Hand",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "1 Stormcarved Coast",
-    "1 Temporal Trespass",
-    "4 Treasure Cruise"
-   ],
-   "side": [
-    "1 Abrade",
-    "2 Brazen Borrower",
-    "2 Disdainful Stroke",
-    "4 Ledger Shredder",
-    "3 Mystical Dispute",
-    "3 Redcap Melee"
-   ],
-   "prev": null
+   "prev": 2.2
   },
   {
    "id": "pioneer-rakdos-sacrifice",
@@ -547,14 +547,14 @@
     "3 The Legend of Roku",
     "4 Thoughtseize"
    ],
-   "prev": null
+   "prev": 2
   },
   {
    "id": "pioneer-simic-stompy",
    "name": "Simic Stompy",
-   "share": 1.8,
+   "share": 1.7,
    "tier": 2,
-   "count": 23,
+   "count": 21,
    "title": "Univerce · Pioneer Challenge 32 (7th Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-08-3012853206#deck_Univerce",
    "main": [
@@ -589,7 +589,7 @@
     "1 Tail Swipe",
     "3 Unable to Scream"
    ],
-   "prev": null
+   "prev": 1.8
   },
   {
    "id": "pioneer-mono-white-humans",
@@ -625,7 +625,7 @@
     "4 Seam Rip",
     "4 Wedding Announcement"
    ],
-   "prev": null
+   "prev": 1.6
   },
   {
    "id": "pioneer-rona-combo",
@@ -662,12 +662,12 @@
     "3 Requiting Hex",
     "2 Spell Pierce"
    ],
-   "prev": null
+   "prev": 1.5
   },
   {
    "id": "pioneer-jund-midrange",
    "name": "Jund Midrange",
-   "share": 1.3,
+   "share": 1.4,
    "tier": 2,
    "count": 17,
    "title": "HyPPeR · Pioneer Challenge 16 (4th Place)",
@@ -701,12 +701,12 @@
     "4 Thoughtseize",
     "1 Torch the Tower"
    ],
-   "prev": null
+   "prev": 1.3
   },
   {
    "id": "pioneer-izzet-control",
    "name": "Izzet Control",
-   "share": 1.3,
+   "share": 1.4,
    "tier": 2,
    "count": 17,
    "title": "renatoaraujo · Pioneer Challenge 16 (2nd Place)",
@@ -741,12 +741,12 @@
     "3 Soul-Guide Lantern",
     "3 Stormwing Entity"
    ],
-   "prev": null
+   "prev": 1.3
   },
   {
    "id": "pioneer-mono-green-devotion",
    "name": "Mono Green Devotion",
-   "share": 1.3,
+   "share": 1.4,
    "tier": 2,
    "count": 17,
    "title": "MandrillMan · Pioneer League (5-0)",
@@ -779,7 +779,7 @@
     "1 The Stone Brain",
     "2 Unlicensed Hearse"
    ],
-   "prev": null
+   "prev": 1.3
   },
   {
    "id": "pioneer-boros-midrange",
@@ -818,14 +818,14 @@
     "1 Elspeth, Storm Slayer",
     "2 Fable of the Mirror-Breaker"
    ],
-   "prev": null
+   "prev": 1.3
   },
   {
    "id": "pioneer-golgari-stompy",
    "name": "Golgari Stompy",
-   "share": 1.3,
+   "share": 1.2,
    "tier": 2,
-   "count": 16,
+   "count": 15,
    "title": "Travis Hall · Crew3 2026 Savior of Pioneer Qualifier #9 (4th Place)",
    "url": "https://melee.gg/Decklist/View/765eb373-a9e9-455d-9c7a-b4cb00f34a8e",
    "main": [
@@ -857,12 +857,12 @@
     "3 Keen-Eyed Curator",
     "2 Abrupt Decay"
    ],
-   "prev": null
+   "prev": 1.3
   },
   {
    "id": "pioneer-spirits",
    "name": "Spirits",
-   "share": 1,
+   "share": 1.1,
    "tier": 2,
    "count": 13,
    "title": "TVAmaral · Pioneer Challenge 32 (7th Place)",
@@ -898,97 +898,12 @@
     "2 Rest in Peace",
     "3 Skyclave Apparition"
    ],
-   "prev": null
-  },
-  {
-   "id": "pioneer-selesnya-stompy",
-   "name": "Selesnya Stompy",
-   "share": 1,
-   "tier": 2,
-   "count": 13,
-   "title": "Strongmind · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-09-2610999#deck_Strongmind",
-   "main": [
-    "2 Abandoned Air Temple",
-    "2 Aven Interrupter",
-    "4 Badgermole Cub",
-    "1 Boseiju, Who Endures",
-    "4 Brushland",
-    "4 Collected Company",
-    "1 Eiganjo, Seat of the Empire",
-    "4 Elvish Mystic",
-    "4 Enduring Innocence",
-    "1 Forest",
-    "2 Hushwood Verge",
-    "2 Keen-Eyed Curator",
-    "4 Llanowar Elves",
-    "3 Ouroboroid",
-    "3 Plains",
-    "4 Professor of Symbology",
-    "4 Razorverge Thicket",
-    "4 Skyclave Apparition",
-    "4 Temple Garden",
-    "3 Thalia, Guardian of Thraben"
-   ],
-   "side": [
-    "1 Aven Interrupter",
-    "2 Beza, the Bounding Spring",
-    "3 Clarion Conqueror",
-    "2 Elspeth, Storm Slayer",
-    "1 Enter the Avatar State",
-    "1 Germination Practicum",
-    "1 Origin of Metalbending",
-    "2 Seam Rip",
-    "2 Unlicensed Hearse"
-   ],
-   "prev": null
-  },
-  {
-   "id": "pioneer-izzet-lessons",
-   "name": "Izzet Lessons",
-   "share": 0.9,
-   "tier": 2,
-   "count": 12,
-   "title": "HoldTheElle · Pioneer Challenge 32 (6th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-08-3012853206#deck_HoldTheElle",
-   "main": [
-    "4 Abandon Attachments",
-    "3 Accumulate Wisdom",
-    "4 Combustion Technique",
-    "4 Divide by Zero",
-    "4 Firebending Lesson",
-    "4 Gran-Gran",
-    "4 Island",
-    "4 It'll Quench Ya!",
-    "2 Ral, Crackling Wit",
-    "4 Riverglide Pathway",
-    "4 Riverpyre Verge",
-    "3 Shivan Reef",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "1 Stock Up",
-    "4 Tablet of Discovery",
-    "3 Thor, God of Thunder"
-   ],
-   "side": [
-    "1 Abrade",
-    "1 Accumulate Wisdom",
-    "1 Anger of the Gods",
-    "2 Avengers Disassembled",
-    "1 Flashfreeze",
-    "2 Ghost Vacuum",
-    "1 Improvisation Capstone",
-    "1 Iroh's Demonstration",
-    "1 Price of Freedom",
-    "2 Quantum Riddler",
-    "2 Unable to Scream"
-   ],
-   "prev": null
+   "prev": 1
   },
   {
    "id": "pioneer-selesnya-company",
    "name": "Selesnya Company",
-   "share": 0.9,
+   "share": 1,
    "tier": 2,
    "count": 12,
    "title": "capellomauro · Pioneer Challenge 32 (3rd Place)",
@@ -1021,12 +936,12 @@
     "4 Get Lost",
     "2 Keen-Eyed Curator"
    ],
-   "prev": null
+   "prev": 0.9
   },
   {
    "id": "pioneer-esper-midrange",
    "name": "Esper Midrange",
-   "share": 0.9,
+   "share": 1,
    "tier": 2,
    "count": 12,
    "title": "kanara · Pioneer Spark!! ONLINE 26th -MTGArena- (6th Place)",
@@ -1070,7 +985,49 @@
     "2 Requiting Hex",
     "2 Ray of Enfeeblement"
    ],
-   "prev": null
+   "prev": 0.9
+  },
+  {
+   "id": "pioneer-izzet-lessons",
+   "name": "Izzet Lessons",
+   "share": 0.9,
+   "tier": 2,
+   "count": 11,
+   "title": "HoldTheElle · Pioneer Challenge 32 (6th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-08-3012853206#deck_HoldTheElle",
+   "main": [
+    "4 Abandon Attachments",
+    "3 Accumulate Wisdom",
+    "4 Combustion Technique",
+    "4 Divide by Zero",
+    "4 Firebending Lesson",
+    "4 Gran-Gran",
+    "4 Island",
+    "4 It'll Quench Ya!",
+    "2 Ral, Crackling Wit",
+    "4 Riverglide Pathway",
+    "4 Riverpyre Verge",
+    "3 Shivan Reef",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "1 Stock Up",
+    "4 Tablet of Discovery",
+    "3 Thor, God of Thunder"
+   ],
+   "side": [
+    "1 Abrade",
+    "1 Accumulate Wisdom",
+    "1 Anger of the Gods",
+    "2 Avengers Disassembled",
+    "1 Flashfreeze",
+    "2 Ghost Vacuum",
+    "1 Improvisation Capstone",
+    "1 Iroh's Demonstration",
+    "1 Price of Freedom",
+    "2 Quantum Riddler",
+    "2 Unable to Scream"
+   ],
+   "prev": 0.9
   },
   {
    "id": "pioneer-sultai-midrange",
@@ -1107,7 +1064,50 @@
     "4 Leyline of the Void",
     "2 Quag Feast"
    ],
-   "prev": null
+   "prev": 0.9
+  },
+  {
+   "id": "pioneer-selesnya-stompy",
+   "name": "Selesnya Stompy",
+   "share": 0.9,
+   "tier": 2,
+   "count": 11,
+   "title": "Strongmind · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-09-2610999#deck_Strongmind",
+   "main": [
+    "2 Abandoned Air Temple",
+    "2 Aven Interrupter",
+    "4 Badgermole Cub",
+    "1 Boseiju, Who Endures",
+    "4 Brushland",
+    "4 Collected Company",
+    "1 Eiganjo, Seat of the Empire",
+    "4 Elvish Mystic",
+    "4 Enduring Innocence",
+    "1 Forest",
+    "2 Hushwood Verge",
+    "2 Keen-Eyed Curator",
+    "4 Llanowar Elves",
+    "3 Ouroboroid",
+    "3 Plains",
+    "4 Professor of Symbology",
+    "4 Razorverge Thicket",
+    "4 Skyclave Apparition",
+    "4 Temple Garden",
+    "3 Thalia, Guardian of Thraben"
+   ],
+   "side": [
+    "1 Aven Interrupter",
+    "2 Beza, the Bounding Spring",
+    "3 Clarion Conqueror",
+    "2 Elspeth, Storm Slayer",
+    "1 Enter the Avatar State",
+    "1 Germination Practicum",
+    "1 Origin of Metalbending",
+    "2 Seam Rip",
+    "2 Unlicensed Hearse"
+   ],
+   "prev": 1
   },
   {
    "id": "pioneer-selesnya-angels",
@@ -1146,7 +1146,7 @@
     "2 Rest in Peace",
     "2 Invasion of Gobakhan"
    ],
-   "prev": null
+   "prev": 0.8
   },
   {
    "id": "pioneer-mono-black-midrange",
@@ -1185,7 +1185,7 @@
     "1 Ruinous Waterbending",
     "4 Thoughtseize"
    ],
-   "prev": null
+   "prev": 0.7
   },
   {
    "id": "pioneer-rakdos-midrange",
@@ -1229,7 +1229,7 @@
     "1 The Ooze",
     "4 Thoughtseize"
    ],
-   "prev": null
+   "prev": 0.7
   },
   {
    "id": "pioneer-boros-convoke",
@@ -1270,7 +1270,7 @@
     "2 Sheltered by Ghosts",
     "2 Torch the Tower"
    ],
-   "prev": null
+   "prev": 0.7
   }
  ]
 }

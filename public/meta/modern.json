@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-14",
- "prevDate": null,
+ "updated": "2026-10-15",
+ "prevDate": "2026-10-14",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 17380,
+ "decksAnalyzed": 17116,
  "unknownPct": 2.5,
  "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
   {
    "id": "modern-broodscale",
    "name": "Broodscale",
-   "share": 12.3,
+   "share": 12.4,
    "tier": 1,
-   "count": 2142,
+   "count": 2126,
    "title": "ClairityAmidOblivion · 11 AM Modern CASH Tournament (1st Place)",
    "url": "https://melee.gg/Decklist/View/55ccd5d1-868a-4a08-936e-b4e00008c6d9",
    "main": [
@@ -53,14 +53,14 @@
     "1 Vexing Bauble",
     "2 Warping Wail"
    ],
-   "prev": null
+   "prev": 12.3
   },
   {
    "id": "modern-prowess",
    "name": "Prowess",
    "share": 10.3,
    "tier": 1,
-   "count": 1787,
+   "count": 1759,
    "title": "caronte1991 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_caronte1991",
    "main": [
@@ -95,14 +95,14 @@
     "1 Tormod's Crypt",
     "3 Unholy Heat"
    ],
-   "prev": null
+   "prev": 10.3
   },
   {
    "id": "modern-goryo-reanimator",
    "name": "Goryo Reanimator",
-   "share": 6.4,
+   "share": 6.3,
    "tier": 1,
-   "count": 1106,
+   "count": 1081,
    "title": "Charles Pierce · ReCQ - Modern - SCG CON Los Angeles - Sunday - 1:00 pm (8th Place)",
    "url": "https://melee.gg/Decklist/View/6a5a6ec6-92eb-4091-9bf6-b4e00145effd",
    "main": [
@@ -145,14 +145,14 @@
     "1 Spell Snare",
     "2 Relic of Progenitus"
    ],
-   "prev": null
+   "prev": 6.4
   },
   {
    "id": "modern-affinity",
    "name": "Affinity",
-   "share": 6,
+   "share": 5.9,
    "tier": 1,
-   "count": 1035,
+   "count": 1016,
    "title": "musasabi · Modern Challenge 32 (1st Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-10-1112856172#deck_musasabi",
    "main": [
@@ -192,14 +192,14 @@
     "1 Vexing Bauble",
     "2 Whipflare"
    ],
-   "prev": null
+   "prev": 6
   },
   {
    "id": "modern-esper-blink",
    "name": "Esper Blink",
    "share": 5.9,
    "tier": 1,
-   "count": 1023,
+   "count": 1012,
    "title": "Barneygumbal · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_Barneygumbal",
    "main": [
@@ -240,14 +240,14 @@
     "1 White Orchid Phantom",
     "2 Wrath of the Skies"
    ],
-   "prev": null
+   "prev": 5.9
   },
   {
    "id": "modern-tron",
    "name": "Tron",
    "share": 4.3,
    "tier": 1,
-   "count": 754,
+   "count": 743,
    "title": "Mattmatic · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_Mattmatic",
    "main": [
@@ -282,14 +282,14 @@
     "2 Mystical Dispute",
     "2 Trinisphere"
    ],
-   "prev": null
+   "prev": 4.3
   },
   {
    "id": "modern-azorius-control",
    "name": "Azorius Control",
    "share": 4.3,
    "tier": 1,
-   "count": 751,
+   "count": 742,
    "title": "Evariel · ReCQ - Modern - SCG CON Los Angeles - Sunday - 1:00 pm (6th Place)",
    "url": "https://melee.gg/Decklist/View/a2049b8e-c972-473b-8984-b4e001303d47",
    "main": [
@@ -334,14 +334,14 @@
     "4 Mystical Dispute",
     "1 Supreme Verdict"
    ],
-   "prev": null
+   "prev": 4.3
   },
   {
    "id": "modern-boros-energy",
    "name": "Boros Energy",
    "share": 4.2,
    "tier": 1,
-   "count": 731,
+   "count": 711,
    "title": "Anaxkoraz · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_Anaxkoraz",
    "main": [
@@ -379,14 +379,14 @@
     "2 Wear // Tear",
     "2 Wrath of the Skies"
    ],
-   "prev": null
+   "prev": 4.2
   },
   {
    "id": "modern-domain-zoo",
    "name": "Domain Zoo",
    "share": 3.5,
    "tier": 2,
-   "count": 601,
+   "count": 597,
    "title": "Mike Wang · ReCQ - Modern - SCG CON Los Angeles - Sunday - 1:00 pm (1st Place)",
    "url": "https://melee.gg/Decklist/View/bc5f9be7-6a86-48b3-8f7c-b4e00142e108",
    "main": [
@@ -424,57 +424,14 @@
     "2 Containment Priest",
     "2 Brotherhood's End"
    ],
-   "prev": null
-  },
-  {
-   "id": "modern-ramp-eldrazi",
-   "name": "Ramp Eldrazi",
-   "share": 2.9,
-   "tier": 2,
-   "count": 507,
-   "title": "Rohit Golconda · LCQ - Modern - SCG CON Los Angeles - Friday - 10:30 am (1st Place)",
-   "url": "https://melee.gg/Decklist/View/7f994c38-0e97-43ed-9c5a-b4de011db62a",
-   "main": [
-    "1 Gemstone Caverns",
-    "2 Ugin, Eye of the Storms",
-    "4 Slumbering Trudge",
-    "4 Ugin's Labyrinth",
-    "4 Forest",
-    "2 Ulamog, the Ceaseless Hunger",
-    "1 Dryad Arbor",
-    "1 Dismember",
-    "4 Green Sun's Zenith",
-    "4 Eldrazi Temple",
-    "4 Disciple of Freyalise",
-    "1 Cavern of Souls",
-    "4 Kozilek's Command",
-    "1 Mosswort Bridge",
-    "4 Malevolent Rumble",
-    "4 Sowing Mycospawn",
-    "2 Drowner of Truth",
-    "4 Emrakul, the Promised End",
-    "1 Boseiju, Who Endures",
-    "4 Fanatic of Rhonas",
-    "4 Fight Rigging"
-   ],
-   "side": [
-    "2 Endurance",
-    "2 Thought-Knot Seer",
-    "1 Torpor Orb",
-    "3 Trinisphere",
-    "2 Grafdigger's Cage",
-    "2 Warping Wail",
-    "2 Force of Vigor",
-    "1 Elder Gargaroth"
-   ],
-   "prev": null
+   "prev": 3.5
   },
   {
    "id": "modern-ruby-storm",
    "name": "Ruby Storm",
    "share": 2.9,
    "tier": 2,
-   "count": 504,
+   "count": 500,
    "title": "comicbookday · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_comicbookday",
    "main": [
@@ -513,14 +470,57 @@
     "2 Shattering Spree",
     "2 Wear // Tear"
    ],
-   "prev": null
+   "prev": 2.9
+  },
+  {
+   "id": "modern-ramp-eldrazi",
+   "name": "Ramp Eldrazi",
+   "share": 2.9,
+   "tier": 2,
+   "count": 497,
+   "title": "Rohit Golconda · LCQ - Modern - SCG CON Los Angeles - Friday - 10:30 am (1st Place)",
+   "url": "https://melee.gg/Decklist/View/7f994c38-0e97-43ed-9c5a-b4de011db62a",
+   "main": [
+    "1 Gemstone Caverns",
+    "2 Ugin, Eye of the Storms",
+    "4 Slumbering Trudge",
+    "4 Ugin's Labyrinth",
+    "4 Forest",
+    "2 Ulamog, the Ceaseless Hunger",
+    "1 Dryad Arbor",
+    "1 Dismember",
+    "4 Green Sun's Zenith",
+    "4 Eldrazi Temple",
+    "4 Disciple of Freyalise",
+    "1 Cavern of Souls",
+    "4 Kozilek's Command",
+    "1 Mosswort Bridge",
+    "4 Malevolent Rumble",
+    "4 Sowing Mycospawn",
+    "2 Drowner of Truth",
+    "4 Emrakul, the Promised End",
+    "1 Boseiju, Who Endures",
+    "4 Fanatic of Rhonas",
+    "4 Fight Rigging"
+   ],
+   "side": [
+    "2 Endurance",
+    "2 Thought-Knot Seer",
+    "1 Torpor Orb",
+    "3 Trinisphere",
+    "2 Grafdigger's Cage",
+    "2 Warping Wail",
+    "2 Force of Vigor",
+    "1 Elder Gargaroth"
+   ],
+   "prev": 2.9
   },
   {
    "id": "modern-dimir-frog",
    "name": "Dimir Frog",
    "share": 2.8,
    "tier": 2,
-   "count": 490,
+   "count": 479,
    "title": "roqueg · ReCQ - Modern - SCG CON Los Angeles - Saturday - 2:00 pm (1st Place)",
    "url": "https://melee.gg/Decklist/View/e947fb1b-57c6-4c14-95db-b4df014e0938",
    "main": [
@@ -566,14 +566,14 @@
     "2 Nihil Spellbomb",
     "2 Engineered Explosives"
    ],
-   "prev": null
+   "prev": 2.8
   },
   {
    "id": "modern-amulet-titan",
    "name": "Amulet Titan",
    "share": 2.3,
    "tier": 2,
-   "count": 399,
+   "count": 393,
    "title": "claudio0907 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_claudio0907",
    "main": [
@@ -614,14 +614,14 @@
     "3 Stock Up",
     "3 Trinisphere"
    ],
-   "prev": null
+   "prev": 2.3
   },
   {
    "id": "modern-living-end",
    "name": "Living End",
    "share": 2.2,
    "tier": 2,
-   "count": 386,
+   "count": 384,
    "title": "HanDamon · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_HanDamon",
    "main": [
@@ -659,14 +659,14 @@
     "4 Mystical Dispute",
     "2 Teferi, Time Raveler"
    ],
-   "prev": null
+   "prev": 2.2
   },
   {
    "id": "modern-boros-ponza",
    "name": "Boros Ponza",
    "share": 2.2,
    "tier": 2,
-   "count": 374,
+   "count": 369,
    "title": "MauroPardal · 10º Black League Modern (1st Place)",
    "url": "https://melee.gg/Decklist/View/a8d869db-5044-428d-83ef-b4e000198267",
    "main": [
@@ -701,14 +701,14 @@
     "2 Containment Priest",
     "2 Clarion Conqueror"
    ],
-   "prev": null
+   "prev": 2.2
   },
   {
    "id": "modern-neobrand",
    "name": "Neobrand",
-   "share": 1.9,
+   "share": 1.8,
    "tier": 2,
-   "count": 323,
+   "count": 312,
    "title": "ElvisMarton · 10º Black League Modern (4th Place)",
    "url": "https://melee.gg/Decklist/View/e829647a-389b-421f-bfba-b4e000148731",
    "main": [
@@ -751,14 +751,14 @@
     "1 Avacyn, Angel of Hope",
     "1 Terastodon"
    ],
-   "prev": null
+   "prev": 1.9
   },
   {
    "id": "modern-devoted-combo",
    "name": "Devoted Combo",
-   "share": 1.4,
+   "share": 1.3,
    "tier": 2,
-   "count": 236,
+   "count": 228,
    "title": "MC_amp2267 · Modern Challenge 32 (8th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-10-0812856339#deck_MC_amp2267",
    "main": [
@@ -802,14 +802,14 @@
     "1 Kraul Harpooner",
     "2 Vexing Bauble"
    ],
-   "prev": null
+   "prev": 1.4
   },
   {
    "id": "modern-abzan-midrange",
    "name": "Abzan Midrange",
    "share": 1.3,
    "tier": 2,
-   "count": 225,
+   "count": 222,
    "title": "Matthew Loukides · $uper $unday RCQ - Modern - SCG CON Los Angeles - Sunday - 10:00 am (3st Place)",
    "url": "https://melee.gg/Decklist/View/9eb2319c-f245-4cf1-9719-b4e00050866d",
    "main": [
@@ -854,14 +854,14 @@
     "1 Crystal Barricade",
     "1 Ashiok, Dream Render"
    ],
-   "prev": null
+   "prev": 1.3
   },
   {
    "id": "modern-rakdos-midrange",
    "name": "Rakdos Midrange",
    "share": 1.2,
    "tier": 2,
-   "count": 212,
+   "count": 209,
    "title": "BurnMann · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_BurnMann",
    "main": [
@@ -898,14 +898,14 @@
     "3 Obsidian Charmaw",
     "1 Surgical Extraction"
    ],
-   "prev": null
+   "prev": 1.2
   },
   {
    "id": "modern-jeskai-energy",
    "name": "Jeskai Energy",
-   "share": 1.1,
+   "share": 1.2,
    "tier": 2,
-   "count": 199,
+   "count": 198,
    "title": "ThalesFranca · 10º Black League Modern (5th Place)",
    "url": "https://melee.gg/Decklist/View/bf65caa5-6f07-40f5-9051-b4de015df35c",
    "main": [
@@ -944,14 +944,14 @@
     "2 High Noon",
     "1 Orim's Chant"
    ],
-   "prev": null
+   "prev": 1.1
   },
   {
    "id": "modern-blue-belcher",
    "name": "Blue Belcher",
    "share": 1,
    "tier": 2,
-   "count": 174,
+   "count": 172,
    "title": "Savior0117 · Modern Challenge 16 (8th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-16-2026-10-0812856163#deck_Savior0117",
    "main": [
@@ -985,50 +985,7 @@
     "1 Tormod's Crypt",
     "2 Unable to Scream"
    ],
-   "prev": null
-  },
-  {
-   "id": "modern-grixis-reanimator",
-   "name": "Grixis Reanimator",
-   "share": 0.8,
-   "tier": 2,
-   "count": 145,
-   "title": "JPA93 · Modern Challenge 96 (4th Place)",
-   "url": "https://www.mtgo.com/decklist/modern-challenge-96-2026-10-0512855500#deck_JPA93",
-   "main": [
-    "4 Abhorrent Oculus",
-    "4 Archon of Cruelty",
-    "1 Blood Crypt",
-    "4 Bloodstained Mire",
-    "3 Emperor of Bones",
-    "4 Faithless Looting",
-    "4 Fatal Push",
-    "4 Persist",
-    "4 Polluted Delta",
-    "4 Psychic Frog",
-    "1 Raucous Theater",
-    "1 Scalding Tarn",
-    "1 Snow-Covered Island",
-    "2 Snow-Covered Swamp",
-    "2 Spell Pierce",
-    "1 Steam Vents",
-    "4 Thought Scour",
-    "4 Thoughtseize",
-    "1 Thundering Falls",
-    "1 Undercity Sewers",
-    "4 Unearth",
-    "2 Watery Grave"
-   ],
-   "side": [
-    "4 Consign to Memory",
-    "2 Damping Sphere",
-    "2 Meltdown",
-    "1 Mystical Dispute",
-    "2 Pyroclasm",
-    "2 Spell Snare",
-    "2 Vexing Bauble"
-   ],
-   "prev": null
+   "prev": 1
   },
   {
    "id": "modern-jeskai-blink",
@@ -1077,14 +1034,94 @@
     "1 The Wandering Emperor",
     "1 Wrath of the Skies"
    ],
-   "prev": null
+   "prev": 0.8
+  },
+  {
+   "id": "modern-grixis-reanimator",
+   "name": "Grixis Reanimator",
+   "share": 0.8,
+   "tier": 2,
+   "count": 139,
+   "title": "JPA93 · Modern Challenge 96 (4th Place)",
+   "url": "https://www.mtgo.com/decklist/modern-challenge-96-2026-10-0512855500#deck_JPA93",
+   "main": [
+    "4 Abhorrent Oculus",
+    "4 Archon of Cruelty",
+    "1 Blood Crypt",
+    "4 Bloodstained Mire",
+    "3 Emperor of Bones",
+    "4 Faithless Looting",
+    "4 Fatal Push",
+    "4 Persist",
+    "4 Polluted Delta",
+    "4 Psychic Frog",
+    "1 Raucous Theater",
+    "1 Scalding Tarn",
+    "1 Snow-Covered Island",
+    "2 Snow-Covered Swamp",
+    "2 Spell Pierce",
+    "1 Steam Vents",
+    "4 Thought Scour",
+    "4 Thoughtseize",
+    "1 Thundering Falls",
+    "1 Undercity Sewers",
+    "4 Unearth",
+    "2 Watery Grave"
+   ],
+   "side": [
+    "4 Consign to Memory",
+    "2 Damping Sphere",
+    "2 Meltdown",
+    "1 Mystical Dispute",
+    "2 Pyroclasm",
+    "2 Spell Snare",
+    "2 Vexing Bauble"
+   ],
+   "prev": 0.8
+  },
+  {
+   "id": "modern-necrodominance",
+   "name": "Necrodominance",
+   "share": 0.8,
+   "tier": 2,
+   "count": 133,
+   "title": "bokk · Modern League (5-0)",
+   "url": "https://www.mtgo.com/decklist/modern-league-2026-10-0911161#deck_bokk",
+   "main": [
+    "4 Boggart Trawler",
+    "3 Castle Locthwain",
+    "4 Dauthi Voidwalker",
+    "4 Fatal Push",
+    "4 Fell the Profane",
+    "2 Force of Despair",
+    "2 Inquisition of Kozilek",
+    "3 March of Wretched Sorrow",
+    "4 Necrodominance",
+    "4 Orcish Bowmasters",
+    "3 Sheoldred, the Apocalypse",
+    "4 Soul Spike",
+    "12 Swamp",
+    "4 Thoughtseize",
+    "3 Vraska's Final Mercy"
+   ],
+   "side": [
+    "1 Ashiok, Dream Render",
+    "4 Break the Ice",
+    "2 Damnation",
+    "1 Force of Despair",
+    "2 Ratchet Bomb",
+    "2 Requiting Hex",
+    "1 Shatter Assumptions",
+    "2 Surgical Extraction"
+   ],
+   "prev": 0.8
   },
   {
    "id": "modern-boros-aggro",
    "name": "Boros Aggro",
    "share": 0.8,
    "tier": 2,
-   "count": 136,
+   "count": 132,
    "title": "Bambil · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1111161#deck_Bambil",
    "main": [
@@ -1117,51 +1154,14 @@
     "2 Vexing Bauble",
     "2 Wear // Tear"
    ],
-   "prev": null
-  },
-  {
-   "id": "modern-necrodominance",
-   "name": "Necrodominance",
-   "share": 0.8,
-   "tier": 2,
-   "count": 136,
-   "title": "bokk · Modern League (5-0)",
-   "url": "https://www.mtgo.com/decklist/modern-league-2026-10-0911161#deck_bokk",
-   "main": [
-    "4 Boggart Trawler",
-    "3 Castle Locthwain",
-    "4 Dauthi Voidwalker",
-    "4 Fatal Push",
-    "4 Fell the Profane",
-    "2 Force of Despair",
-    "2 Inquisition of Kozilek",
-    "3 March of Wretched Sorrow",
-    "4 Necrodominance",
-    "4 Orcish Bowmasters",
-    "3 Sheoldred, the Apocalypse",
-    "4 Soul Spike",
-    "12 Swamp",
-    "4 Thoughtseize",
-    "3 Vraska's Final Mercy"
-   ],
-   "side": [
-    "1 Ashiok, Dream Render",
-    "4 Break the Ice",
-    "2 Damnation",
-    "1 Force of Despair",
-    "2 Ratchet Bomb",
-    "2 Requiting Hex",
-    "1 Shatter Assumptions",
-    "2 Surgical Extraction"
-   ],
-   "prev": null
+   "prev": 0.8
   },
   {
    "id": "modern-cosmo-fling",
    "name": "Cosmo Fling",
    "share": 0.7,
    "tier": 2,
-   "count": 114,
+   "count": 112,
    "title": "Gerschi · Modern Challenge 32 (1st Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-10-0812856335#deck_Gerschi",
    "main": [
@@ -1196,7 +1196,7 @@
     "4 Veil of Summer",
     "2 Vexing Bauble"
    ],
-   "prev": null
+   "prev": 0.7
   },
   {
    "id": "modern-burn",
@@ -1234,56 +1234,7 @@
     "2 Deflecting Palm",
     "2 Surgical Extraction"
    ],
-   "prev": null
-  },
-  {
-   "id": "modern-yawgmoth",
-   "name": "Yawgmoth",
-   "share": 0.6,
-   "tier": 2,
-   "count": 108,
-   "title": "Moorehardcore · Modern Challenge 32 (8th Place)",
-   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-10-1112856172#deck_Moorehardcore",
-   "main": [
-    "4 Agatha's Soul Cauldron",
-    "4 Badgermole Cub",
-    "2 Boseiju, Who Endures",
-    "4 Delighted Halfling",
-    "3 Dredger's Insight",
-    "1 Dryad Arbor",
-    "1 Endurance",
-    "2 Forest",
-    "1 Formidable Speaker",
-    "2 Green Sun's Zenith",
-    "1 Grist, the Hunger Tide",
-    "4 Malevolent Rumble",
-    "3 Orcish Bowmasters",
-    "1 Ouroboroid",
-    "3 Overgrown Tomb",
-    "3 Spymaster's Vault",
-    "1 Strangleroot Geist",
-    "1 Swamp",
-    "1 Underground Mortuary",
-    "4 Verdant Catacombs",
-    "3 Walking Ballista",
-    "4 Windswept Heath",
-    "3 Yawgmoth, Thran Physician",
-    "4 Young Wolf"
-   ],
-   "side": [
-    "1 Abrupt Decay",
-    "2 Ashiok, Dream Render",
-    "1 Culling Ritual",
-    "2 Fatal Push",
-    "1 Force of Vigor",
-    "1 Murderous Cut",
-    "1 Outland Liberator",
-    "1 Scavenging Ooze",
-    "1 Soulless Jailer",
-    "2 Thoughtseize",
-    "2 Vexing Bauble"
-   ],
-   "prev": null
+   "prev": 0.6
   },
   {
    "id": "modern-dimir-control",
@@ -1325,14 +1276,14 @@
     "2 Damnation",
     "2 Kaito, Bane of Nightmares"
    ],
-   "prev": null
+   "prev": 0.6
   },
   {
    "id": "modern-simic-ritual",
    "name": "Simic Ritual",
    "share": 0.6,
    "tier": 2,
-   "count": 106,
+   "count": 104,
    "title": "ARK0581 · 11 AM Modern CASH Tournament (5th Place)",
    "url": "https://melee.gg/Decklist/View/230e4f02-8a5e-4ef5-81bb-b4e000d5118b",
    "main": [
@@ -1369,7 +1320,56 @@
     "4 Consign to Memory",
     "4 Fatal Push"
    ],
-   "prev": null
+   "prev": 0.6
+  },
+  {
+   "id": "modern-yawgmoth",
+   "name": "Yawgmoth",
+   "share": 0.6,
+   "tier": 2,
+   "count": 102,
+   "title": "Moorehardcore · Modern Challenge 32 (8th Place)",
+   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-10-1112856172#deck_Moorehardcore",
+   "main": [
+    "4 Agatha's Soul Cauldron",
+    "4 Badgermole Cub",
+    "2 Boseiju, Who Endures",
+    "4 Delighted Halfling",
+    "3 Dredger's Insight",
+    "1 Dryad Arbor",
+    "1 Endurance",
+    "2 Forest",
+    "1 Formidable Speaker",
+    "2 Green Sun's Zenith",
+    "1 Grist, the Hunger Tide",
+    "4 Malevolent Rumble",
+    "3 Orcish Bowmasters",
+    "1 Ouroboroid",
+    "3 Overgrown Tomb",
+    "3 Spymaster's Vault",
+    "1 Strangleroot Geist",
+    "1 Swamp",
+    "1 Underground Mortuary",
+    "4 Verdant Catacombs",
+    "3 Walking Ballista",
+    "4 Windswept Heath",
+    "3 Yawgmoth, Thran Physician",
+    "4 Young Wolf"
+   ],
+   "side": [
+    "1 Abrupt Decay",
+    "2 Ashiok, Dream Render",
+    "1 Culling Ritual",
+    "2 Fatal Push",
+    "1 Force of Vigor",
+    "1 Murderous Cut",
+    "1 Outland Liberator",
+    "1 Scavenging Ooze",
+    "1 Soulless Jailer",
+    "2 Thoughtseize",
+    "2 Vexing Bauble"
+   ],
+   "prev": 0.6
   }
  ]
 }
