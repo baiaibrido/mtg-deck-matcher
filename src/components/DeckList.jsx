@@ -1,16 +1,17 @@
 import { ColorPips } from './Mana.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
 import { IconChevron } from './Icons.jsx'
-import { frameOf, euro } from '../lib/deckInfo.js'
+import { frameOf } from '../lib/deckInfo.js'
+import { t, euro, num } from '../i18n/index.js'
 
 const pct = r => Math.round(r * 100)
-export const shareText = s => `${String(s).replace('.', ',')}% del meta`
+export const shareText = s => t('share', num(s))
 
 export function Meter({ label, have, total, ratio }) {
   return (
     <div className="meter">
       <span className="meter-label">{label}</span>
-      <span className="meter-track" role="progressbar" aria-valuenow={pct(ratio)} aria-valuemin={0} aria-valuemax={100} aria-label={`${label}: ${have} su ${total}`}>
+      <span className="meter-track" role="progressbar" aria-valuenow={pct(ratio)} aria-valuemin={0} aria-valuemax={100} aria-label={t('meterAria', label, have, total)}>
         <span className="meter-fill" style={{ '--v': ratio }} />
       </span>
       <span className="meter-num">{have}/{total}</span>
@@ -24,7 +25,7 @@ export const frameStyle = colors => { const f = frameOf(colors); return { '--c1'
 export function costText(cost, missing) {
   if (!missing) return null
   if (!cost || cost.known === 0) return null
-  return `≈ ${euro(cost.eur)}${cost.unknown ? `, più ${cost.unknown} ${cost.unknown === 1 ? 'carta' : 'carte'} senza prezzo` : ''}`
+  return `≈ ${euro(cost.eur)}${cost.unknown ? t('costMore', cost.unknown) : ''}`
 }
 
 function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
@@ -33,7 +34,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
   return (
     <li className={`deck${top ? ' deck-top' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
       <button className="deck-btn" onClick={onOpen}>
-        <span className="deck-rank" aria-label={`Posizione ${rank}`}>{rank}</span>
+        <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
         <span className="deck-main">
           <span className="deck-title">
             <span className="deck-name">{s.deck.name}</span>
@@ -43,19 +44,19 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top }) {
             <TierBadge tier={s.deck.tier} />
             {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
             <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
-            {s.deck.archetype && <span className="arch">variante di {s.deck.archetype}</span>}
+            {s.deck.archetype && <span className="arch">{t('variantOf', s.deck.archetype)}</span>}
           </span>
           <span className="deck-meters">
             <Meter label="Main" {...s.main} />
             {s.side.total > 0 && <Meter label="Side" {...s.side} />}
           </span>
           <span className="deck-need">
-            {missing ? <><span>Ti mancano <b>{missing}</b> {missing === 1 ? 'carta' : 'carte'}</span>{price && <span className="price">{price}</span>}</> : <span className="done">Hai tutte le carte</span>}
+            {missing ? <><span>{t('need', missing)[0]}<b>{missing}</b>{t('need', missing)[1]}</span>{price && <span className="price">{price}</span>}</> : <span className="done">{t('haveAll')}</span>}
           </span>
         </span>
         <span className="deck-score">
           <b>{pct(s.score)}<small>%</small></b>
-          <span>completo</span>
+          <span>{t('complete')}</span>
         </span>
         <IconChevron className="deck-go" />
       </button>

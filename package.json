@@ -1,13 +1,13 @@
 {
   "name": "mtg-deck-matcher",
-  "version": "0.9.4",
+  "version": "0.10.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --test src/lib/*.test.js scripts/*.test.mjs",
+    "test": "node --test src/lib/*.test.js src/i18n/*.test.js scripts/*.test.mjs",
     "sync-meta": "node scripts/sync-meta.mjs"
   },
   "dependencies": {

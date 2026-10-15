@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { t } from '../i18n/index.js'
 
 // Evita la schermata bianca: mostra l'errore e un modo per ripartire
 export default class ErrorBoundary extends Component {
@@ -9,12 +10,12 @@ export default class ErrorBoundary extends Component {
     if (!this.state.error) return this.props.children
     return (
       <div className="panel crash" role="alert">
-        <h2>Qualcosa non ha funzionato</h2>
-        <p>La tua collezione è al sicuro, è salvata in questo browser. Ricarica la pagina; se l'errore si ripete, torna alla lista dei mazzi.</p>
+        <h2>{t('err.title')}</h2>
+        <p>{t('err.text')}</p>
         <pre>{String(this.state.error?.message || this.state.error)}</pre>
         <div className="row">
-          <button className="btn btn-primary" onClick={() => location.reload()}>Ricarica</button>
-          <a className="btn" href="#/mazzi" onClick={() => this.setState({ error: null })}>Torna ai mazzi</a>
+          <button className="btn btn-primary" onClick={() => location.reload()}>{t('err.reload')}</button>
+          <a className="btn" href="#/mazzi" onClick={() => this.setState({ error: null })}>{t('err.back')}</a>
         </div>
       </div>
     )

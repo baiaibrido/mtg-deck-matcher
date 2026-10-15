@@ -5,20 +5,20 @@ import { loadFormats, loadMetaDecks } from './lib/metaDecks.js'
 import { rankDecks } from './lib/matcher.js'
 import { isBasic, withoutBasics } from './lib/normalize.js'
 import { fetchCards, getCached } from './lib/scryfall.js'
-import { deckColors, missingCost, WUBRG, COLOR_NAME } from './lib/deckInfo.js'
+import { deckColors, missingCost, WUBRG, colorName } from './lib/deckInfo.js'
+import { t, LANGS, getLang, setLang, dayMonth } from './i18n/index.js'
 import DeckList from './components/DeckList.jsx'
 import DeckDetail from './components/DeckDetail.jsx'
 import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
 import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { IconDecks, IconBox, IconKey } from './components/Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon } from './components/Icons.jsx'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
-const fmtDate = d => d ? new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long' }) : null
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
-const SORTS = { score: 'Più completi', share: 'Più giocati', cost: 'Meno costosi da finire' }
+const SORTS = ['score', 'share', 'cost']
 
 function useToast() {
   const [t, setT] = useState(null)
@@ -46,6 +46,13 @@ export default function App() {
   const [cardsState, setCardsState] = useState('idle') // idle | loading | ready | error
   const [, setTick] = useState(0)
   const [toastMsg, toast] = useToast()
+  const [lang, setLangState] = useState(getLang())
+  const changeLang = l => { setLang(l); setLangState(l) }
+  const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f3eee2' : '#0f1a1c')
+  }, [theme])
 
   useEffect(() => { loadFormats().then(setFormats) }, [])
   useEffect(() => { setMeta(null); loadMetaDecks(format).then(setMeta) }, [format])
@@ -90,31 +97,43 @@ export default function App() {
 
   const formatName = formats.find(f => f.id === format)?.name || ''
   const updated = meta?.[0]?.updated
-  const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? 'nei tornei MTGO, melee.gg e CardsRealm (dati MTGODecklistCache)' : 'su MTGTop8'
+  const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? t('decks.srcCache') : t('decks.srcTop8')
   const stale = updated && daysAgo(updated) > STALE_DAYS
   const page = route.page === 'collezione' ? 'collezione' : route.page === 'carte' ? 'carte' : sel ? 'mazzo' : 'mazzi'
-  const count = collection.reduce((t, c) => t + c.qty, 0)
+  const count = collection.reduce((s, c) => s + c.qty, 0)
   const navCurrent = p => (p === 'mazzi' ? page === 'mazzi' || page === 'mazzo' : page === p) ? 'page' : undefined
 
-  const formatTabs = (
-    <div className="formats" role="tablist" aria-label="Formato">
+    const formatTabs = (
+    <div className="formats" role="tablist" aria-label={t('format')}>
       {formats.map(f => <button key={f.id} role="tab" aria-selected={f.id === format} onClick={() => setFormat(f.id)}>{f.name}</button>)}
     </div>
   )
 
   return (
     <div className="app">
-      <a className="skip" href="#contenuto" onClick={e => { e.preventDefault(); document.getElementById('contenuto')?.focus() }}>Vai al contenuto</a>
+      <a className="skip" href="#contenuto" onClick={e => { e.preventDefault(); document.getElementById('contenuto')?.focus() }}>{t('skip')}</a>
       <header className="topbar">
-        <a className="brand" href="#/mazzi" aria-label="Deck Matcher, home">
+        <a className="brand" href="#/mazzi" aria-label={t('home')}>
           <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <i key={c} className={`ms ms-${c} ms-cost`} />)}</span>
           Deck Matcher
         </a>
-        <nav className="nav-top" aria-label="Sezioni">
-          <a href="#/mazzi" aria-current={navCurrent('mazzi')}>Mazzi</a>
-          <a href="#/carte" aria-current={navCurrent('carte')}>Carte chiave</a>
-          <a href="#/collezione" aria-current={navCurrent('collezione')}>Collezione <span className="count">{count.toLocaleString('it-IT')}</span></a>
+        <nav className="nav-top" aria-label={t('sections')}>
+          <a href="#/mazzi" aria-current={navCurrent('mazzi')}>{t('nav.decks')}</a>
+          <a href="#/carte" aria-current={navCurrent('carte')}>{t('nav.keycards')}</a>
+          <a href="#/collezione" aria-current={navCurrent('collezione')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
         </nav>
+        <div className="prefs">
+          <label className="select lang-select">
+            <span className="sr-only">{t('language')}</span>
+            <select value={lang} onChange={e => changeLang(e.target.value)} aria-label={t('language')}>
+              {LANGS.map(([k, name]) => <option key={k} value={k} lang={k}>{name}</option>)}
+            </select>
+          </label>
+          <button className="theme-btn" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            aria-label={theme === 'light' ? t('theme.toDark') : t('theme.toLight')} title={theme === 'light' ? t('theme.toDark') : t('theme.toLight')}>
+            {theme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
+          </button>
+        </div>
       </header>
 
       <main className="content" id="contenuto" tabIndex={-1}>
@@ -122,48 +141,48 @@ export default function App() {
           {page === 'mazzi' && <>
             {formatTabs}
             <header className="page-head">
-              <h1>I mazzi {formatName} più vicini alla tua collezione</h1>
-              {meta && decks.length > 0 && <p>Confronto con i {meta.length} archetipi più giocati negli ultimi due mesi {sourceText}{updated ? `, aggiornati il ${fmtDate(updated)}` : ''}. Tier calcolati con il metodo di MTGdecks.</p>}
+              <h1>{t('decks.title', formatName)}</h1>
+              {meta && decks.length > 0 && <p>{t('decks.intro', meta.length, sourceText, dayMonth(updated))}</p>}
             </header>
 
-            {stale && <p className="note note-error">I dati del meta hanno {daysAgo(updated)} giorni: l'aggiornamento automatico potrebbe essersi fermato. Controlla il tab Actions su GitHub.</p>}
+            {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
             {!collection.length && (
               <div className="callout">
-                <p><b>Non hai ancora caricato la collezione.</b> Per ora i mazzi sono in ordine di popolarità.</p>
-                <a className="btn btn-primary" href="#/collezione">Carica la collezione</a>
+                <p><b>{t('decks.noCollB')}</b> {t('decks.noColl')}</p>
+                <a className="btn btn-primary" href="#/collezione">{t('loadCollection')}</a>
               </div>
             )}
 
             {decks.length > 1 && (
               <div className="filters">
                 <label className="select">
-                  <span>Ordina</span>
+                  <span>{t('sort')}</span>
                   <select value={view.sort} onChange={e => setV({ sort: e.target.value })}>
-                    {Object.entries(SORTS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+                    {SORTS.map(k => <option key={k} value={k}>{t(`sort.${k}`)}</option>)}
                   </select>
                 </label>
                 <div className="chips" role="group" aria-label="Tier">
-                  {[0, 1, 2, 3].map(t => <button key={t} aria-pressed={view.tier === t} onClick={() => setV({ tier: t })}>{t ? `Tier ${t}` : 'Tutti i tier'}</button>)}
+                  {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
                 </div>
-                <div className="color-filter" role="group" aria-label="Solo questi colori">
-                  <span>Colori</span>
+                <div className="color-filter" role="group" aria-label={t('onlyColors')}>
+                  <span>{t('colors')}</span>
                   {WUBRG.map(c => (
-                    <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={COLOR_NAME[c]} aria-label={COLOR_NAME[c]}>
+                    <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
                       <i className={`ms ms-${c.toLowerCase()} ms-cost`} />
                     </button>
                   ))}
-                  {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>Azzera</button>}
+                  {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>{t('clearColors')}</button>}
                 </div>
               </div>
             )}
 
             {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
-              : !decks.length ? <p className="empty">Nessun mazzo disponibile per {formatName}. Puoi aggiungerne uno a mano.</p>
+              : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
                 : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors} highlightFirst={false} onOpen={id => go('mazzo', id)} />
-                  : <p className="empty">Nessun mazzo con questi filtri. {view.colors.length > 0 && 'Prova ad aggiungere un colore.'}</p>}
+                  : <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>}
 
-            {cardsState === 'loading' && <p className="hint">Carico colori e prezzi delle carte da Scryfall…</p>}
-            {cardsState === 'error' && <p className="note note-error">Scryfall non risponde: colori, immagini e prezzi non sono disponibili. Il calcolo funziona lo stesso.</p>}
+            {cardsState === 'loading' && <p className="hint">{t('decks.loadingScry')}</p>}
+            {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
 
             <MetaImporter format={format} formatName={formatName} onAdd={ds => setUserDecks([...userDecks, ...ds])} toast={toast} />
           </>}
@@ -185,17 +204,17 @@ export default function App() {
 
       <footer className="site-footer">Deck Matcher v{__APP_VERSION__}</footer>
 
-      <nav className="tabbar" aria-label="Sezioni">
-        <a href="#/mazzi" aria-current={navCurrent('mazzi')}><IconDecks />Mazzi</a>
-        <a href="#/carte" aria-current={navCurrent('carte')}><IconKey />Carte chiave</a>
-        <a href="#/collezione" aria-current={navCurrent('collezione')}><IconBox />Collezione</a>
+      <nav className="tabbar" aria-label={t('sections')}>
+        <a href="#/mazzi" aria-current={navCurrent('mazzi')}><IconDecks />{t('nav.decks')}</a>
+        <a href="#/carte" aria-current={navCurrent('carte')}><IconKey />{t('nav.keycards')}</a>
+        <a href="#/collezione" aria-current={navCurrent('collezione')}><IconBox />{t('nav.collection')}</a>
       </nav>
 
       <div className="toast-zone" aria-live="polite">
         {toastMsg && (
           <div className={`toast${toastMsg.action ? ' toast-action' : ''}`} key={toastMsg.id}>
             {toastMsg.text}
-            {toastMsg.action && <button onClick={() => { toastMsg.action.fn(); toast('Fatto') }}>{toastMsg.action.label}</button>}
+            {toastMsg.action && <button onClick={() => { toastMsg.action.fn(); toast(t('done')) }}>{toastMsg.action.label}</button>}
           </div>
         )}
       </div>

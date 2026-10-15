@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { keyCards } from '../lib/keyCards.js'
 import { getCached } from '../lib/scryfall.js'
-import { euro } from '../lib/deckInfo.js'
+import { t, euro } from '../i18n/index.js'
 import { toText, downloadTxt } from '../lib/export.js'
 import { ManaCost } from './Mana.jsx'
 import { IconCopy, IconDownload } from './Icons.jsx'
@@ -17,22 +17,22 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
   const text = toText(rows.map(e => ({ name: e.name, missing: e.maxMissing })))
 
   const copy = async () => {
-    try { await navigator.clipboard.writeText(text); toast('Lista copiata') } catch { toast('Copia non riuscita: usa "Scarica"') }
+    try { await navigator.clipboard.writeText(text); toast(t('kc.copied')) } catch { toast(t('copyFail')) }
   }
 
   return (
     <div className="keycards">
       <header className="page-head">
-        <h1>Carte chiave {formatName}</h1>
-        <p>Le carte che ti mancano e che compaiono in più mazzi del meta. Comprando queste ti avvicini a più mazzi con meno spesa. Le terre base sono escluse.</p>
+        <h1>{t('kc.title', formatName)}</h1>
+        <p>{t('kc.intro')}</p>
       </header>
 
-      {!hasCollection && <div className="callout"><p><b>Carica la collezione</b> per vedere solo le carte che ti mancano davvero.</p><a className="btn btn-primary" href="#/collezione">Carica la collezione</a></div>}
+      {!hasCollection && <div className="callout"><p><b>{t('kc.loadB')}</b>{t('kc.load')}</p><a className="btn btn-primary" href="#/collezione">{t('loadCollection')}</a></div>}
 
-      <div className="seg" role="tablist" aria-label="Mazzi considerati">
+      <div className="seg" role="tablist" aria-label={t('kc.scope')}>
         <button role="tab" aria-selected={scope === 't1'} onClick={() => setScope('t1')}>Tier 1</button>
-        <button role="tab" aria-selected={scope === 't12'} onClick={() => setScope('t12')}>Tier 1 e 2</button>
-        <button role="tab" aria-selected={scope === 'all'} onClick={() => setScope('all')}>Tutti</button>
+        <button role="tab" aria-selected={scope === 't12'} onClick={() => setScope('t12')}>{t('kc.t12')}</button>
+        <button role="tab" aria-selected={scope === 'all'} onClick={() => setScope('all')}>{t('all')}</button>
       </div>
 
       {rows.length ? <>
@@ -46,11 +46,11 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
                   <ManaCost cost={e.card?.cost} />
                 </span>
                 <span className="key-decks">
-                  In {e.decks.length} mazzi:{' '}
+                  {t('kc.inDecks', e.decks.length)}{' '}
                   {e.decks.slice(0, 4).map((d, j) => (
                     <span key={d.id}>{j > 0 && ', '}<button className="linklike" onClick={() => go('mazzo', d.id)}>{d.name}</button></span>
                   ))}
-                  {e.decks.length > 4 && ` e altri ${e.decks.length - 4}`}
+                  {e.decks.length > 4 && t('kc.more', e.decks.length - 4)}
                 </span>
               </span>
               <span className="key-buy">
@@ -61,13 +61,13 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
           ))}
         </ol>
         <div className="actions">
-          <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />Copia lista</button>
-          <button className="btn" onClick={() => downloadTxt(`carte-chiave-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />Scarica</button>
-          {total > 0 && <span className="key-total">Totale ≈ {euro(total)}</span>}
+          <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
+          <button className="btn" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
+          {total > 0 && <span className="key-total">{t('kc.total')} ≈ {euro(total)}</span>}
         </div>
-      </> : <p className="empty">{hasCollection ? 'Nessuna carta mancante è condivisa da almeno due mazzi: ottimo lavoro.' : 'Nessun dato disponibile.'}</p>}
+      </> : <p className="empty">{hasCollection ? t('kc.none') : t('kc.noData')}</p>}
 
-      <p className="hint">Copie da comprare = il massimo richiesto da uno dei mazzi. Tier calcolati con il metodo di MTGdecks.</p>
+      <p className="hint">{t('kc.hint')}</p>
     </div>
   )
 }

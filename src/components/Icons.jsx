@@ -12,6 +12,8 @@ export const IconCart = p => <I {...p} d={<><path d="M3 4h2l2.4 11h10.2L20 8H6.2
 export const IconDownload = p => <I {...p} d={<><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5" /><path d="M4 19h16" /></>} />
 export const IconUpload = p => <I {...p} d={<><path d="M12 15V4m0 0L7.5 8.5M12 4l4.5 4.5" /><path d="M4 19h16" /></>} />
 export const IconTrash = p => <I {...p} d={<><path d="M4 7h16M10 11v6M14 11v6" /><path d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3" /></>} />
+export const IconSun = p => <I {...p} d={<><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" /></>} />
+export const IconMoon = p => <I {...p} d={<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" />} />
 export const IconSearch = p => <I {...p} d={<><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></>} />
 export const IconCheck = p => <I {...p} d={<path d="m5 12.5 4.5 4.5L19 7.5" />} />
 export const IconExternal = p => <I {...p} d={<><path d="M14 4h6v6M20 4l-9 9" /><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></>} />

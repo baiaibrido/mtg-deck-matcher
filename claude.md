@@ -14,6 +14,8 @@ scripts/sync-meta.mjs      sync notturno: MTGODecklistCache + regole MTGOFormatD
 scripts/sync-mtgtop8.mjs   sync MTGTop8: tier, trend, robots.txt, saveFormat() condiviso (+ test)
 .github/workflows/         sync-meta.yml (notturno), test.yml (test + build a ogni push)
 src/
+  i18n/index.js            traduzioni: t(chiave, ...args), LANGS, setLang, detectLang (salvata > ?lang= > dispositivo > fuso orario > en), euro/num/dayMonth nel formato della lingua
+  i18n/it.js en.js es.js   dizionari (stesse chiavi: lo verifica i18n.test.js). Ogni testo nuovo va aggiunto in tutte e tre
   main.jsx                 entry: font (Marcellus, Alegreya Sans), mana-font, stili
   App.jsx                  layout, stato, rotte, toast, elenco di tutti i mazzi + filtri, fetch Scryfall (prima i mazzi in vista, poi tutti)
   styles.css               design system (token in :root) + tutti gli stili
@@ -40,6 +42,7 @@ src/
 ```
 
 ## Design system (styles.css)
+- Temi: scuro di default; chiaro con `:root[data-theme="light"]` (token ridefiniti, contrasti AA verificati). Scelta in localStorage `mdm.theme`, applicata prima del disegno da uno script in index.html. Pulsante sole/luna e selettore lingua nell'header (`.prefs`).
 - Tema "tappetino da gioco": --felt fondo, --baize superfici, --rail bordi, --bone testo, --lichen secondario, --brass accento oro.
 - Colori mana per le cornici: --mana-w/u/b/r/g, --mana-gold (3+ colori), --mana-c (incolore). Stato carte: --ok / --part / --no.
 - Font: Marcellus (titoli, nomi mazzi, numeri grandi), Alegreya Sans (UI). Numeri lining.
@@ -58,7 +61,7 @@ Alloc       = { rows: Row[], have, total, ratio }
 Row         = { name, qty, have, missing }
 ScryCard    = { name, i (path immagine), ci, type, cost, eur, usd, t } // salvato; getCached() aggiunge img e uri
 ```
-Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view` (modo/ordinamento/filtri), `mdm.collView` (vista/ordine/tipo collezione), `mdm.cards.v3` (max 8000 carte).
+Chiavi localStorage: `mdm.lang` (lingua scelta), `mdm.theme` ('dark' | 'light'), `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view` (modo/ordinamento/filtri), `mdm.collView` (vista/ordine/tipo collezione), `mdm.cards.v3` (max 8000 carte).
 
 ## Core logic (lib/matcher.js)
 1. `toOwnedMap(collection)` → Map(nomeNormalizzato → copie).

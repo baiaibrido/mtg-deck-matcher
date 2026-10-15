@@ -1,6 +1,8 @@
 // Colori dei mazzi, raggruppamento per tipo e simboli di costo (dati da cache Scryfall).
+import { t, euro } from '../i18n/index.js'
+export { euro }
 export const WUBRG = ['W', 'U', 'B', 'R', 'G']
-export const COLOR_NAME = { W: 'Bianco', U: 'Blu', B: 'Nero', R: 'Rosso', G: 'Verde' }
+export const colorName = c => t(`color.${c}`)
 
 // Identità di colore del mazzo: carte non-terra del main. Nei mazzi da 60 un colore conta
 // solo con almeno 2 copie (ignora gli "splash" da 1 carta). Restituisce null se mancano dati.
@@ -28,16 +30,16 @@ export function frameOf(colors) {
 }
 
 export const GROUPS = [
-  ['creature', 'Creature', /\bCreature\b/],
-  ['planeswalker', 'Planeswalker', /\bPlaneswalker\b/],
-  ['spell', 'Istantanei e stregonerie', /\b(Instant|Sorcery)\b/],
-  ['permanent', 'Artefatti e incantesimi', /\b(Artifact|Enchantment|Battle)\b/],
-  ['land', 'Terre', /\bLand\b/],
+  ['creature', /\bCreature\b/],
+  ['planeswalker', /\bPlaneswalker\b/],
+  ['spell', /\b(Instant|Sorcery)\b/],
+  ['permanent', /\b(Artifact|Enchantment|Battle)\b/],
+  ['land', /\bLand\b/],
 ]
 export function groupOf(card) {
   if (!card?.type) return 'other'
   if (/\bLand\b/.test(card.type) && !/\bCreature\b/.test(card.type)) return 'land'
-  return GROUPS.find(([, , re]) => re.test(card.type))?.[0] || 'other'
+  return GROUPS.find(([, re]) => re.test(card.type))?.[0] || 'other'
 }
 
 // "{2}{U}{W/P}" → ['2','u','wp'] (classi mana-font)
@@ -54,15 +56,10 @@ export function missingCost(rows, lookup) {
   }
   return { eur, unknown, known }
 }
-const EUR = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })
-const EUR2 = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' })
-export const euro = (v, cents = false) => (cents ? EUR2 : EUR).format(v)
 
 // Sezioni del "raccoglitore": colore della carta (terre a parte, multicolore, incolore)
-export const BINDER = [
-  ['W', 'Bianco'], ['U', 'Blu'], ['B', 'Nero'], ['R', 'Rosso'], ['G', 'Verde'],
-  ['M', 'Multicolore'], ['C', 'Incolore'], ['L', 'Terre'], ['?', 'Dati in arrivo'],
-]
+export const BINDER = ['W', 'U', 'B', 'R', 'G', 'M', 'C', 'L', '?']
+export const binderName = k => WUBRG.includes(k) ? colorName(k) : t(`binder.${k}`)
 export function binderOf(card) {
   if (!card) return '?'
   if (/\bLand\b/.test(card.type) && !/\bCreature\b/.test(card.type)) return 'L'
@@ -70,9 +67,9 @@ export function binderOf(card) {
   return card.ci.length > 1 ? 'M' : card.ci[0]
 }
 export const TYPE_FILTERS = [
-  ['all', 'Tutte', () => true],
-  ['creature', 'Creature', t => /\bCreature\b/.test(t)],
-  ['spell', 'Istantanei e stregonerie', t => /\b(Instant|Sorcery)\b/.test(t)],
-  ['perm', 'Altri permanenti', t => !/\b(Creature|Land|Instant|Sorcery)\b/.test(t)],
-  ['land', 'Terre', t => /\bLand\b/.test(t) && !/\bCreature\b/.test(t)],
+  ['all', () => true],
+  ['creature', ty => /\bCreature\b/.test(ty)],
+  ['spell', ty => /\b(Instant|Sorcery)\b/.test(ty)],
+  ['perm', ty => !/\b(Creature|Land|Instant|Sorcery)\b/.test(ty)],
+  ['land', ty => /\bLand\b/.test(ty) && !/\bCreature\b/.test(ty)],
 ]

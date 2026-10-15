@@ -2,29 +2,29 @@ import { useEffect, useRef, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
 import { normalizeCollection, fetchCards, getCached, smallImg } from '../lib/scryfall.js'
-import { BINDER, binderOf, TYPE_FILTERS, euro } from '../lib/deckInfo.js'
+import { BINDER, binderOf, binderName, TYPE_FILTERS } from '../lib/deckInfo.js'
+import { t, euro, getLang } from '../i18n/index.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { useLocal } from '../state/useLocal.js'
 import { ManaCost } from './Mana.jsx'
 import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList } from './Icons.jsx'
 
 const STEP = 120 // carte mostrate per volta: le immagini si caricano man mano
-const SORTS = { name: 'Nome', qty: 'Copie', price: 'Valore' }
-const BINDER_NAME = Object.fromEntries(BINDER)
+const SORTS = ['name', 'qty', 'price']
 
 function Stepper({ c, setQty }) {
   return (
     <span className="stepper">
-      <button onClick={() => setQty(c.name, c.qty - 1)} aria-label={`Togli una copia di ${c.name}`}><IconMinus size={16} /></button>
-      <input type="number" min="0" inputMode="numeric" value={c.qty} aria-label={`Copie di ${c.name}`}
+      <button onClick={() => setQty(c.name, c.qty - 1)} aria-label={t('coll.minus', c.name)}><IconMinus size={16} /></button>
+      <input type="number" min="0" inputMode="numeric" value={c.qty} aria-label={t('coll.copiesOf', c.name)}
         onChange={e => setQty(c.name, Math.max(0, parseInt(e.target.value, 10) || 0))} />
-      <button onClick={() => setQty(c.name, c.qty + 1)} aria-label={`Aggiungi una copia di ${c.name}`}><IconPlus size={16} /></button>
+      <button onClick={() => setQty(c.name, c.qty + 1)} aria-label={t('coll.plus', c.name)}><IconPlus size={16} /></button>
     </span>
   )
 }
 
 function DeleteBtn({ name, onDelete, className = 'btn-del' }) {
-  return <button className={className} onClick={() => onDelete(name)} aria-label={`Elimina ${name} dalla collezione`} title="Elimina"><IconTrash size={16} /></button>
+  return <button className={className} onClick={() => onDelete(name)} aria-label={t('coll.delete', name)} title={t('coll.deleteTitle')}><IconTrash size={16} /></button>
 }
 
 function Thumb({ card, name, big }) {
@@ -37,18 +37,18 @@ function Thumb({ card, name, big }) {
 // Barra del raccoglitore: quante carte per colore, cliccabile per saltare alla sezione
 function Spine({ sections, total }) {
   return (
-    <nav className="spine" aria-label="Sezioni della collezione">
+    <nav className="spine" aria-label={t('coll.spine')}>
       <div className="spine-bar" aria-hidden="true">
-        {sections.map(([k, list]) => <span key={k} className={`bc-${k}`} style={{ flexGrow: list.reduce((t, c) => t + c.qty, 0) }} />)}
+        {sections.map(([k, list]) => <span key={k} className={`bc-${k}`} style={{ flexGrow: list.reduce((s, c) => s + c.qty, 0) }} />)}
       </div>
       <ul>
         {sections.map(([k, list]) => {
-          const n = list.reduce((t, c) => t + c.qty, 0)
+          const n = list.reduce((s, c) => s + c.qty, 0)
           return (
             <li key={k}>
               <a href={`#sez-${k}`} onClick={e => { e.preventDefault(); document.getElementById(`sez-${k}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }}>
-                <span className={`dot bc-${k}`} aria-hidden="true" />{BINDER_NAME[k]} <b>{n}</b>
-                <span className="sr-only"> carte, {Math.round(n / total * 100)}%</span>
+                <span className={`dot bc-${k}`} aria-hidden="true" />{binderName(k)} <b>{n}</b>
+                <span className="sr-only">{t('coll.spineSr', Math.round(n / total * 100))}</span>
               </a>
             </li>
           )
@@ -88,47 +88,47 @@ export default function CollectionManager({ collection, setCollection, toast }) 
     return () => { alive = false }
   }, [namesKey])
 
-  const total = collection.reduce((t, c) => t + c.qty, 0)
+  const total = collection.reduce((s, c) => s + c.qty, 0)
   const rows = collection.map(c => ({ ...c, card: getCached(c.name) }))
-  const value = rows.reduce((t, r) => t + (r.card?.eur ?? 0) * r.qty, 0)
+  const value = rows.reduce((s, r) => s + (r.card?.eur ?? 0) * r.qty, 0)
   const priced = rows.some(r => r.card?.eur != null)
 
   const filtered = (() => {
     const s = q.trim().toLowerCase()
-    const tf = TYPE_FILTERS.find(([k]) => k === type)?.[2] || (() => true)
+    const tf = TYPE_FILTERS.find(([k]) => k === type)?.[1] || (() => true)
     const list = rows.filter(r => (!s || r.name.toLowerCase().includes(s)) && (type === 'all' || (r.card && tf(r.card.type))))
     const by = { name: (a, b) => a.name.localeCompare(b.name), qty: (a, b) => b.qty - a.qty || a.name.localeCompare(b.name), price: (a, b) => (b.card?.eur ?? -1) * b.qty - (a.card?.eur ?? -1) * a.qty }
     return list.sort(by[sort])
   })()
-  const sections = BINDER.map(([k]) => [k, filtered.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
-  const allSections = BINDER.map(([k]) => [k, rows.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
+  const sections = BINDER.map(k => [k, filtered.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
+  const allSections = BINDER.map(k => [k, rows.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
 
   const apply = replace => {
     const parsed = parseCollection(text)
-    if (!parsed.length) return setMsg({ kind: 'error', text: 'Nessuna carta riconosciuta. Scrivi una carta per riga, ad esempio "4 Lightning Bolt", oppure incolla un CSV con le colonne Name e Qty.' })
-    const n = parsed.reduce((t, c) => t + c.qty, 0)
+    if (!parsed.length) return setMsg({ kind: 'error', text: t('coll.noneRecognized') })
+    const n = parsed.reduce((s, c) => s + c.qty, 0)
     setCollection(replace ? parsed : mergeEntries([...collection, ...parsed]))
     setText(''); setMsg(null); setImportOpen(false)
-    toast(replace ? `Collezione sostituita: ${n} carte` : `${n} carte aggiunte`)
+    toast(replace ? t('coll.replaced', n) : t('coll.added', n))
   }
-  const readFile = async f => { if (f) { setText(await f.text()); setMsg({ kind: 'info', text: `File "${f.name}" pronto: scegli se aggiungerlo o sostituire la collezione.` }) } }
+  const readFile = async f => { if (f) { setText(await f.text()); setMsg({ kind: 'info', text: t('coll.fileReady', f.name) }) } }
   const normalize = async () => {
-    setBusy(true); setMsg({ kind: 'info', text: 'Controllo i nomi su Scryfall…' })
+    setBusy(true); setMsg({ kind: 'info', text: t('coll.checking') })
     try {
-      const { list, notFound, suggestions } = await normalizeCollection(collection, (d, t) => setMsg({ kind: 'info', text: `Controllo i nomi su Scryfall… ${d}/${t}` }))
+      const { list, notFound, suggestions } = await normalizeCollection(collection, (d, tot) => setMsg({ kind: 'info', text: `${t('coll.checking')} ${d}/${tot}` }))
       const fixedCount = collection.filter(c => !list.some(x => x.name === c.name)).length
       setCollection(list)
-      const names = notFound.map(n => suggestions?.[n] ? `${n} (forse ${suggestions[n].join(' o ')}?)` : n)
-      setMsg(notFound.length ? { kind: 'error', text: `Nomi non riconosciuti (${notFound.length}): ${names.join(', ')}. Sono troppo diversi da qualsiasi carta: correggili a mano o eliminali dalla sezione "Dati in arrivo".` } : null)
-      if (!notFound.length) toast(fixedCount ? `Nomi corretti: ${fixedCount}` : 'Tutti i nomi erano già giusti')
-    } catch (err) { setMsg({ kind: 'error', text: `Scryfall non risponde (${err.message}). Riprova tra qualche minuto.` }) }
+      const names = notFound.map(n => suggestions?.[n] ? t('coll.maybe', n, suggestions[n]) : n)
+      setMsg(notFound.length ? { kind: 'error', text: t('coll.unrecognized', notFound.length, names.join(', '), binderName('?')) } : null)
+      if (!notFound.length) toast(fixedCount ? t('coll.fixed', fixedCount) : t('coll.allGood'))
+    } catch (err) { setMsg({ kind: 'error', text: t('coll.scryErr', err.message) }) }
     setBusy(false)
   }
   const setQty = (name, qty) => setCollection(collection.map(c => c.name === name ? { ...c, qty } : c).filter(c => c.qty > 0))
   const remove = name => {
     const prev = collection
     setCollection(collection.filter(c => c.name !== name))
-    toast(`${name} eliminata`, { label: 'Annulla', fn: () => setCollection(prev) })
+    toast(t('coll.removed', name), { label: t('undo'), fn: () => setCollection(prev) })
   }
   const setP = patch => { setPrefs({ ...prefs, ...patch }); setLimit(STEP) }
 
@@ -139,30 +139,30 @@ export default function CollectionManager({ collection, setCollection, toast }) 
 
   const importPanel = (
     <section className="panel import" aria-labelledby="imp-title">
-      <h2 id="imp-title">Aggiungi carte</h2>
+      <h2 id="imp-title">{t('coll.addCards')}</h2>
       <label className={`drop${drag ? ' drag' : ''}`}
         onDragOver={e => { e.preventDefault(); setDrag(true) }} onDragLeave={() => setDrag(false)}
         onDrop={e => { e.preventDefault(); setDrag(false); readFile(e.dataTransfer.files[0]) }}>
         <IconUpload size={22} />
-        <span><b>Carica un file</b> .csv o .txt <span className="muted">oppure trascinalo qui. Vanno bene gli export di ManaBox, Moxfield, Deckbox, Dragon Shield e Cardmarket.</span></span>
+        <span><b>{t('coll.uploadB')}</b>{t('coll.uploadExt')}<span className="muted">{t('coll.uploadMore')}</span></span>
         <input type="file" accept=".csv,.txt" onChange={e => { readFile(e.target.files[0]); e.target.value = '' }} />
       </label>
-      <textarea ref={textRef} rows={5} value={text} onChange={e => setText(e.target.value)} aria-label="Elenco carte"
-        placeholder={'Oppure scrivi o incolla l\'elenco, una carta per riga, con le copie prima o dopo il nome:\n4 Lightning Bolt\nCounterspell 2\nSnow-Covered Island x1'} />
+      <textarea ref={textRef} rows={5} value={text} onChange={e => setText(e.target.value)} aria-label={t('coll.listAria')}
+        placeholder={t('coll.placeholder')} />
       <div className="row">
-        <button className="btn btn-primary" onClick={() => apply(false)} disabled={!text.trim()}>Aggiungi alla collezione</button>
-        <button className="btn" onClick={() => apply(true)} disabled={!text.trim()}>Sostituisci collezione</button>
-        {collection.length > 0 && <button className="btn btn-quiet" onClick={() => setImportOpen(false)}>Chiudi</button>}
+        <button className="btn btn-primary" onClick={() => apply(false)} disabled={!text.trim()}>{t('coll.addTo')}</button>
+        <button className="btn" onClick={() => apply(true)} disabled={!text.trim()}>{t('coll.replace')}</button>
+        {collection.length > 0 && <button className="btn btn-quiet" onClick={() => setImportOpen(false)}>{t('close')}</button>}
       </div>
-      <p className="hint">Le terre base (Plains, Island, Swamp, Mountain, Forest) non servono: le consideriamo sempre possedute e vengono ignorate se sono nel file. Per spostare la collezione su un altro dispositivo scarica il backup e caricalo lì con "Sostituisci collezione".</p>
+      <p className="hint">{t('coll.importHint')}</p>
     </section>
   )
 
   if (!collection.length) return (
     <div className="coll">
       <header className="page-head">
-        <h1>La tua collezione</h1>
-        <p>Aggiungi le carte che possiedi per scoprire quali mazzi puoi completare. La collezione resta salvata solo su questo dispositivo.</p>
+        <h1>{t('coll.title')}</h1>
+        <p>{t('coll.emptyIntro')}</p>
       </header>
       {importPanel}
       {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
@@ -172,52 +172,52 @@ export default function CollectionManager({ collection, setCollection, toast }) 
   return (
     <div className="coll">
       <header className="page-head coll-head">
-        <h1>La tua collezione</h1>
+        <h1>{t('coll.title')}</h1>
         <p>
-          {total.toLocaleString('it-IT')} carte, {collection.length.toLocaleString('it-IT')} diverse
-          {priced && <>, valore stimato <b>≈ {euro(value)}</b></>}.
-          {' '}Salvata solo su questo dispositivo.
+          {t('coll.summary', total.toLocaleString(getLang()), collection.length.toLocaleString(getLang()))}
+          {priced && <>{t('coll.value')}<b>≈ {euro(value)}</b></>}.
+          {' '}{t('coll.savedHere')}
         </p>
       </header>
 
       <Spine sections={allSections} total={total} />
 
       <div className="coll-actions">
-        <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />Aggiungi carte</button>
-        <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} />Correggi i nomi</button>
-        <button className="btn btn-quiet" onClick={() => { downloadTxt(`collezione-${new Date().toISOString().slice(0, 10)}.csv`, collectionCsv(collection), 'text/csv'); toast('Backup scaricato') }}><IconDownload size={18} />Backup</button>
-        <button className="btn btn-quiet btn-danger" onClick={() => { if (!confirm('Svuotare tutta la collezione?')) return; const prev = collection; setCollection([]); toast('Collezione svuotata', { label: 'Annulla', fn: () => setCollection(prev) }) }}>Svuota</button>
+        <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
+        <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} />{t('coll.fixNames')}</button>
+        <button className="btn btn-quiet" onClick={() => { downloadTxt(`${t('coll.file')}-${new Date().toISOString().slice(0, 10)}.csv`, collectionCsv(collection), 'text/csv'); toast(t('coll.backupDone')) }}><IconDownload size={18} />{t('coll.backup')}</button>
+        <button className="btn btn-quiet btn-danger" onClick={() => { if (!confirm(t('coll.confirmClear'))) return; const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }}>{t('coll.clear')}</button>
       </div>
       {importOpen && importPanel}
       {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
-      {load.total > 0 && load.done < load.total && !load.error && <p className="hint" role="status">Carico immagini e prezzi da Scryfall… {load.done}/{load.total}</p>}
-      {load.error && <p className="note note-error">Scryfall non risponde: immagini e prezzi non sono disponibili, la collezione funziona lo stesso.</p>}
+      {load.total > 0 && load.done < load.total && !load.error && <p className="hint" role="status">{t('coll.loadingImg', load.done, load.total)}</p>}
+      {load.error && <p className="note note-error">{t('coll.scryDown')}</p>}
 
       <div className="coll-tools">
         <label className="search">
           <IconSearch size={18} />
-          <input type="search" value={q} onChange={e => { setQ(e.target.value); setLimit(STEP) }} placeholder="Cerca una carta" aria-label="Cerca una carta" />
+          <input type="search" value={q} onChange={e => { setQ(e.target.value); setLimit(STEP) }} placeholder={t('coll.search')} aria-label={t('coll.search')} />
         </label>
-        <div className="chips" role="group" aria-label="Tipo di carta">
-          {TYPE_FILTERS.map(([k, label]) => <button key={k} aria-pressed={type === k} onClick={() => setP({ type: k })}>{label}</button>)}
+        <div className="chips" role="group" aria-label={t('coll.typeAria')}>
+          {TYPE_FILTERS.map(([k]) => <button key={k} aria-pressed={type === k} onClick={() => setP({ type: k })}>{t(`type.${k}`)}</button>)}
         </div>
         <label className="select">
-          <span>Ordina</span>
+          <span>{t('sort')}</span>
           <select value={sort} onChange={e => setP({ sort: e.target.value })}>
-            {Object.entries(SORTS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+            {SORTS.map(k => <option key={k} value={k}>{t(`coll.sort.${k}`)}</option>)}
           </select>
         </label>
-        <div className="seg seg-icons" role="group" aria-label="Vista">
-          <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title="Griglia"><IconGrid size={18} /><span className="sr-only">Griglia</span></button>
-          <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title="Elenco"><IconList size={18} /><span className="sr-only">Elenco</span></button>
+        <div className="seg seg-icons" role="group" aria-label={t('view')}>
+          <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('coll.grid')}><IconGrid size={18} /><span className="sr-only">{t('coll.grid')}</span></button>
+          <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
         </div>
       </div>
 
-      {!filtered.length && <p className="empty">Nessuna carta corrisponde {q ? `a "${q}"` : 'a questo filtro'}.</p>}
+      {!filtered.length && <p className="empty">{q ? t('coll.noMatchQ', q) : t('coll.noMatch')}</p>}
 
       {visible.map(([k, list, part]) => part.length > 0 && (
         <section key={k} id={`sez-${k}`} className="binder-sec" aria-labelledby={`h-${k}`}>
-          <h2 id={`h-${k}`}><span className={`dot bc-${k}`} aria-hidden="true" />{BINDER_NAME[k]} <span>{list.reduce((t, c) => t + c.qty, 0)} carte</span></h2>
+          <h2 id={`h-${k}`}><span className={`dot bc-${k}`} aria-hidden="true" />{binderName(k)} <span>{t('coll.cards', list.reduce((s, c) => s + c.qty, 0))}</span></h2>
           {view === 'grid' ? (
             <ul className="ctiles">
               {part.map(r => (
@@ -254,7 +254,7 @@ export default function CollectionManager({ collection, setCollection, toast }) 
       ))}
 
       {filtered.length > shownCount && (
-        <button className="btn more" onClick={() => setLimit(l => l + STEP)}>Mostra altre carte ({filtered.length - shownCount} rimanenti)</button>
+        <button className="btn more" onClick={() => setLimit(l => l + STEP)}>{t('coll.more', filtered.length - shownCount)}</button>
       )}
     </div>
   )
