@@ -82,24 +82,6 @@ export function personality(collection, getCard) {
   return { kind: 'pair', colors: [a[0], b[0]], guild: GUILDS[key] || GUILDS[pair], pct: Math.round((pa + pb) * 100) }
 }
 
-// ── Bustina: 5 carte del meta del formato (una "rara" = carta caratteristica di un mazzo), con il mazzo che le gioca
-export function openPack(decks, rnd = Math.random, isLand = () => false) {
-  const all = [...metaOnly(decks), ...decks.filter(d => d.rogue)]
-  if (!all.length) return []
-  const freq = cardFreq(all)
-  const owner = new Map()
-  for (const d of [...all].sort((a, b) => (b.share || 0) - (a.share || 0)))
-    for (const c of d.main || []) if (!BASICS.test(c.name) && !isLand(c.name) && !owner.has(norm(c.name))) owner.set(norm(c.name), { name: c.name, deck: d })
-  const pool = [...owner.values()]
-  const pick = () => pool[Math.floor(rnd() * pool.length)]
-  const out = new Map()
-  for (let i = 0; out.size < Math.min(4, pool.length) && i < 50; i++) { const p = pick(); out.set(norm(p.name), { ...p, rare: false }) }
-  const rd = all[Math.floor(rnd() * all.length)]
-  const rare = pickSignature(rd.main || [], freq, isLand, rd.name)
-  if (rare && !out.has(norm(rare))) out.set(norm(rare), { name: rare, deck: rd, rare: true })
-  return [...out.values()]
-}
-
 // ── Che mazzo sei?: profilo del mazzo (velocità, creature, colori, prezzo, popolarità) e vicinanza alle risposte
 const cmcOf = cost => (cost || '').match(/\{([^}]+)\}/g)?.reduce((s, x) => { const v = x.slice(1, -1); return s + (/^\d+$/.test(v) ? +v : v === 'X' ? 0 : 1) }, 0) ?? 0
 export function deckProfile(deck, getCard) {
@@ -128,21 +110,32 @@ export function quizMatch(decks, answers, getCard, colorsOf) {
   return best
 }
 
-// ── Traguardi: condizioni sui dati locali (collezione, preferiti, giochi)
+// ── Traguardi: condizioni sui dati locali (collezione, preferiti, mazzi aperti, giochi)
 export const ACHIEVEMENTS = [
+  // collezione
   { id: 'first', icon: '🌱', test: c => c.cards >= 1 },
   { id: 'c100', icon: '📦', test: c => c.cards >= 100 },
+  { id: 'c500', icon: '🗃️', test: c => c.cards >= 500 },
   { id: 'c1000', icon: '🏛️', test: c => c.cards >= 1000 },
+  { id: 'value', icon: '💰', test: c => c.value >= 100 },
   { id: 'color', icon: '🎨', test: c => c.maxColor >= 100 },
-  { id: 'complete', icon: '🏆', test: c => c.fun.completed },
+  { id: 'rainbow', icon: '🌈', test: c => c.minColor >= 20 },
+  // mazzi
+  { id: 'almost', icon: '🎯', test: c => !!c.fun.almost },
+  { id: 'complete', icon: '🏆', test: c => (c.fun.completeMax || 0) >= 1 },
+  { id: 'three', icon: '👑', test: c => (c.fun.completeMax || 0) >= 3 },
   { id: 'fan', icon: '⭐', test: c => c.pins >= 3 },
+  { id: 'curious', icon: '🔭', test: c => (c.fun.seen || []).length >= 25 },
+  { id: 'rogue', icon: '🌶️', test: c => !!c.fun.rogueSeen },
+  { id: 'globe', icon: '🌍', test: c => (c.fun.formats || []).length >= 7 },
+  // scoperta e giochi
   { id: 'explorer', icon: '🧭', test: c => (c.fun.opens || 0) >= 7 },
   { id: 'streak', icon: '🔥', test: c => (c.fun.bestStreak || 0) >= 5 },
   { id: 'detective', icon: '🔎', test: c => (c.fun.guessWins || 0) >= 1 },
-  { id: 'sharp', icon: '🎯', test: c => !!c.fun.guessFirst },
-  { id: 'packs', icon: '🎁', test: c => (c.fun.packs || 0) >= 10 },
+  { id: 'sleuth', icon: '🕵️', test: c => (c.fun.guessWins || 0) >= 5 },
+  { id: 'sharp', icon: '🦅', test: c => !!c.fun.guessFirst },
   { id: 'quiz', icon: '🪞', test: c => !!c.fun.quiz },
   { id: 'lucky', icon: '🎰', test: c => (c.fun.lucky || 0) >= 1 },
-  { id: 'globe', icon: '🌍', test: c => (c.fun.formats || []).length >= 7 },
+  { id: 'night', icon: '🌙', test: c => !!c.fun.night },
 ]
 export const unlockedNow = ctx => ACHIEVEMENTS.filter(a => a.test(ctx)).map(a => a.id)

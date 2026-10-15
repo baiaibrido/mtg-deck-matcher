@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { bumpStreak, liveStreak, guessDeck, revealOrder, shareGrid, weather, almostThere, personality, openPack, quizMatch, unlockedNow } from './fun.js'
+import { bumpStreak, liveStreak, guessDeck, revealOrder, shareGrid, weather, almostThere, personality, quizMatch, unlockedNow } from './fun.js'
 
 const mk = (name, share, main, extra = {}) => ({ id: name, name, share, main: main.map(([qty, n]) => ({ qty, name: n })), ...extra })
 const decks = [
@@ -37,11 +37,6 @@ test('personalità della collezione: mono o gilda', () => {
   assert.equal(personality([{ name: 'R', qty: 15 }, { name: 'U', qty: 14 }], n => cards[n]).guild, 'Izzet')
   assert.equal(personality([{ name: 'R', qty: 3 }], n => cards[n]), null)
 })
-test('bustina: carte del meta, una rara', () => {
-  let i = 0; const rnd = () => [0.1, 0.5, 0.9, 0.3, 0.7, 0.2][i++ % 6]
-  const p = openPack(decks, rnd)
-  assert.ok(p.length >= 3 && p.length <= 5); assert.ok(p.every(c => c.deck && c.name !== 'Mountain'))
-})
 test('quiz: risposte veloci+creature+verde → Elves', () => {
   const data = { 'Lightning Bolt': { type: 'Instant', cost: '{R}' }, Fireblast: { type: 'Instant', cost: '{4}{R}{R}' }, Common: { type: 'Artifact', cost: '{2}' },
     'Spellstutter Sprite': { type: 'Creature', cost: '{1}{U}' }, Counterspell: { type: 'Instant', cost: '{U}{U}' }, 'Llanowar Elves': { type: 'Creature', cost: '{G}' }, Mountain: { type: 'Basic Land' } }
@@ -50,5 +45,5 @@ test('quiz: risposte veloci+creature+verde → Elves', () => {
   assert.equal(m.d.name, 'Elves')
 })
 test('traguardi', () => {
-  assert.deepEqual(unlockedNow({ cards: 120, maxColor: 10, pins: 0, fun: { lucky: 1 } }), ['first', 'c100', 'lucky'])
+  assert.deepEqual(unlockedNow({ cards: 120, value: 0, maxColor: 10, minColor: 0, pins: 0, fun: { lucky: 1, completeMax: 3 } }), ['first', 'c100', 'complete', 'three', 'lucky'])
 })

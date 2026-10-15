@@ -81,7 +81,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .topbar.compact .lang-select select { min-height: 32px; }
 html { scroll-padding-top: calc(var(--head-h, 72px) + 12px); }
 .rogue-jump {
-  display: inline-flex; align-items: center; gap: 10px; margin: 2px 0 16px; padding: 10px 18px; min-height: 44px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 10px; margin: 0; padding: 10px 18px; min-height: 44px; cursor: pointer;
   border-radius: 999px; border: 1px solid color-mix(in oklab, var(--mana-r) 70%, var(--edge)); color: var(--bone); font-weight: 700;
   background: linear-gradient(100deg, color-mix(in oklab, var(--mana-r) 22%, var(--baize)), var(--baize) 80%);
   transition: transform .2s var(--ease), box-shadow .2s var(--ease);
@@ -773,7 +773,6 @@ main:focus { outline: none; }
 .mystery.fresh .mystery-cta { animation: none; } }
 
 /* ───────── v0.15: giochi e piccoli extra ───────── */
-@media (max-width: 719px) { .tabbar { grid-template-columns: repeat(4, 1fr); } }
 
 /* Meteo del meta (sotto l'introduzione dei mazzi) */
 .weather { margin-top: 16px; }
@@ -794,18 +793,6 @@ main:focus { outline: none; }
 .pers .linklike { color: var(--bone); }
 .mystery-streak { color: var(--brass); font-weight: 700; }
 
-/* Pagina Gioca */
-.play-grid { display: grid; gap: 16px; margin-top: 16px; }
-@media (min-width: 900px) { .play-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; } .play-ach, .play-pack { grid-column: 1 / -1; } }
-.play-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 14px; margin-bottom: 6px; }
-.play-head h2 { font: 1.3rem var(--font-title); }
-.play-sub { font-size: .88rem; color: var(--lichen); font-variant-numeric: tabular-nums; }
-.play-intro { margin: 0 0 14px; color: var(--lichen); font-size: .92rem; max-width: 62ch; }
-.play-card { display: block; }
-.play-card-back { box-shadow: inset 0 0 0 1px var(--rail); }
-.play-back { display: grid; place-items: center; height: 100%; font: 2rem var(--font-title); color: var(--lichen);
-  background: radial-gradient(circle at 50% 45%, var(--baize-2), var(--felt) 70%); }
-
 /* Indovina il mazzo */
 .guess-cards { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; max-width: 760px; }
 @media (max-width: 560px) { .guess-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } }
@@ -823,38 +810,89 @@ main:focus { outline: none; }
 .guess-done p { margin: 0 0 10px; }
 .guess-win b { color: var(--ok); } .guess-lose b { color: var(--bone); }
 
-/* Mi sento fortunato */
-.slot { display: grid; place-items: center; gap: 6px; min-height: 92px; margin: 0 0 14px; padding: 12px; border: 1px solid var(--rail); border-radius: var(--r-lg); background: var(--felt); text-align: center; overflow: hidden; }
-.slot-name { font: 1.45rem/1.15 var(--font-title); color: var(--lichen); }
-.slot.spinning .slot-name { filter: blur(.6px); }
-.slot.landed .slot-name { color: var(--bone); animation: land .4s var(--ease); }
-@keyframes land { from { transform: translateY(-10px); opacity: .4; } }
-.slot-meta { display: inline-flex; align-items: center; gap: 8px; }
 
-/* Apri una bustina */
-.pack-cards { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; perspective: 900px; }
-@media (max-width: 560px) { .pack-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.pack-cards li { animation: pack-in .5s var(--ease) backwards; animation-delay: calc(var(--i) * 110ms); }
-@keyframes pack-in { from { opacity: 0; transform: translateY(18px) rotateY(80deg); } }
-.pack-card { display: grid; gap: 4px; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; }
-.pack-card:hover .tile { transform: translateY(-3px); }
-.pack-from { font-size: .76rem; color: var(--lichen); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.foil { box-shadow: 0 0 0 2px var(--brass), 0 6px 18px -6px var(--brass); }
-.foil::after { content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: soft-light;
-  background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.55) 40%, rgba(120,200,255,.35) 50%, rgba(255,120,220,.3) 60%, transparent 80%); background-size: 250% 100%; animation: foil 3.5s linear infinite; }
-@keyframes foil { from { background-position: 100% 0; } to { background-position: -150% 0; } }
-.pack-rare { position: absolute; top: 5px; left: 5px; padding: 0 7px; border-radius: 99px; font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; background: var(--brass); color: var(--brass-ink); }
+/* header con 4 sezioni: sugli schermi medi codici brevi (IT, EUR) e voci più strette; sotto i 900px solo il simbolo del marchio */
+@media (min-width: 720px) and (max-width: 999px) { .nav-top a { padding: 7px 11px; white-space: nowrap; } .topbar { gap: 10px; } }
+@media (min-width: 720px) and (max-width: 899px) { .brand-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
 
-/* Che mazzo sei? */
-.quiz-ask { font: 1.1rem/1.3 var(--font-title); margin: 0 0 10px; }
-.quiz-dots { display: flex; gap: 6px; margin-top: 14px; }
-.quiz-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--rail); }
-.quiz-dots span.on { background: var(--brass); }
-.quiz-q .chips button { display: inline-flex; align-items: center; gap: 6px; }
-.quiz-you { margin: 0; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
-.quiz-deck { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 2px 0 6px; font: 1.6rem/1.15 var(--font-title); }
+/* ───────── v0.16: pulsanti della home, finestre dei giochi, traguardi nella collezione ───────── */
+.play-card { display: block; }
+.play-card-back { box-shadow: inset 0 0 0 1px var(--rail); }
+.play-back { display: grid; place-items: center; height: 100%; font: 2rem var(--font-title); color: var(--lichen); background: radial-gradient(circle at 50% 45%, var(--baize-2), var(--felt) 70%); }
 
-/* Traguardi */
+.home-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 16px; }
+.pill-btn {
+  --tint: var(--brass); display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 10px 18px; cursor: pointer;
+  border-radius: 999px; border: 1px solid color-mix(in oklab, var(--tint) 55%, var(--edge)); color: var(--bone); font-weight: 700;
+  background: linear-gradient(100deg, color-mix(in oklab, var(--tint) 16%, var(--baize)), var(--baize) 80%);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.pill-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px -12px var(--tint); }
+.pill-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.rogue-jump { --tint: var(--mana-r); }
+.pill-quiz { --tint: var(--mana-u); }
+.pill-guess { --tint: var(--mana-g); }
+.pill-lucky { --tint: var(--brass); }
+.pill-lucky .pill-text { display: inline-block; min-width: 9.5em; text-align: left; }
+.pill-lucky.spinning .pill-text { color: var(--brass); }
+.pill-badge, .pill-new { padding: 0 8px; border-radius: 999px; font-size: .74rem; line-height: 1.6; font-variant-numeric: tabular-nums; }
+.pill-badge { color: var(--lichen); box-shadow: inset 0 0 0 1px var(--rail); font-weight: 600; }
+.pill-new { background: var(--mana-g); color: #0f1a1c; }
+@media (max-width: 560px) { .home-actions .pill-btn { flex: 1 1 100%; justify-content: center; } .pill-lucky .pill-text { min-width: 0; text-align: center; } }
+
+/* Finestra (dialog) */
+html.modal-open { overflow: hidden; }
+.modal { padding: 0; border: 1px solid var(--rail); border-radius: 24px; background: var(--baize); color: var(--bone);
+  width: min(540px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+.modal-wide { width: min(760px, calc(100vw - 32px)); }
+.modal::backdrop { background: rgba(6, 12, 14, .62); backdrop-filter: blur(6px); }
+.modal[open] { animation: modal-in .28s var(--ease); }
+.modal[open]::backdrop { animation: fade-in .28s ease; }
+.modal.closing { animation: modal-out .18s ease forwards; }
+.modal.closing::backdrop { animation: fade-in .18s ease reverse forwards; }
+@keyframes modal-in { from { opacity: 0; transform: translateY(14px) scale(.97); } }
+@keyframes modal-out { to { opacity: 0; transform: translateY(10px) scale(.97); } }
+@keyframes fade-in { from { opacity: 0; } }
+.modal-body { position: relative; padding: 32px 28px 26px; }
+.modal-x { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--lichen); font-size: 1.6rem; line-height: 1; cursor: pointer; }
+.modal-x:hover { background: var(--baize-2); color: var(--bone); }
+@media (max-width: 560px) { .modal-body { padding: 28px 18px 20px; } }
+
+.game { display: grid; justify-items: center; text-align: center; gap: 10px; }
+.game-kicker { margin: 0; font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brass); }
+.game-text { margin: 0; color: var(--lichen); max-width: 46ch; }
+.game-step { margin: 6px 0 0; font-size: .85rem; color: var(--lichen); font-variant-numeric: tabular-nums; }
+.game-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; }
+
+/* Quiz */
+.quiz-bar { width: min(260px, 70%); height: 4px; border-radius: 99px; background: var(--rail); overflow: hidden; }
+.quiz-bar span { display: block; height: 100%; background: var(--brass); transition: width .35s var(--ease); }
+.quiz-q { display: grid; gap: 16px; width: 100%; animation: q-in .35s var(--ease); }
+@keyframes q-in { from { opacity: 0; transform: translateX(24px); } }
+.quiz-ask { font: 1.55rem/1.2 var(--font-title); margin: 6px 0 0; text-wrap: balance; }
+.quiz-opts { display: grid; gap: 8px; width: 100%; max-width: 380px; margin: 0 auto; }
+.quiz-colors { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 400px; }
+.quiz-opt { display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 10px 16px; border: 1px solid var(--edge); border-radius: 16px; background: var(--felt); color: var(--bone); font: inherit; font-weight: 600; text-align: left; cursor: pointer;
+  animation: opt-in .35s var(--ease) backwards; animation-delay: calc(var(--i) * 45ms + 80ms); transition: border-color .15s, transform .15s var(--ease), background .15s; }
+.quiz-opt:hover, .quiz-opt:focus-visible { border-color: var(--brass); background: var(--baize-2); transform: translateY(-1px); outline: none; }
+.quiz-opt > span:first-child, .quiz-opt > i { font-size: 1.25rem; width: 1.4em; text-align: center; flex: none; }
+@keyframes opt-in { from { opacity: 0; transform: translateY(8px); } }
+.quiz-res { animation: q-in .35s var(--ease); }
+.quiz-reveal { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 20px; align-items: center; text-align: left; margin: 8px 0 4px; }
+.quiz-reveal .quiz-card { transform: rotate(-5deg); box-shadow: 0 14px 30px rgba(0,0,0,.45); animation: card-reveal .6s var(--ease) .1s backwards; }
+@keyframes card-reveal { from { opacity: 0; transform: rotate(-5deg) rotateY(90deg) scale(.9); } }
+.quiz-reveal > div { display: grid; gap: 8px; justify-items: start; }
+.quiz-deck { font: 1.9rem/1.1 var(--font-title); margin: 0; }
+@media (max-width: 460px) { .quiz-reveal { grid-template-columns: 96px minmax(0, 1fr); gap: 14px; } .quiz-deck { font-size: 1.5rem; } }
+
+/* Indovina il mazzo (in finestra) */
+.game-guess .guess-cards { width: 100%; margin: 6px 0 4px; }
+.guess-status { font: 1.45rem var(--font-title); margin: 0; }
+.game-guess .guess-input { width: 100%; max-width: 420px; text-align: left; }
+.game-guess .guess-tried { justify-content: center; }
+.guess-done { display: grid; justify-items: center; gap: 4px; }
+
+/* Traguardi nella collezione */
 .ach-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
 .ach-list li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--rail); border-radius: var(--r-md); background: var(--felt); opacity: .55; }
 .ach-list li.on { opacity: 1; border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); }
@@ -862,16 +900,23 @@ main:focus { outline: none; }
 .ach-list li:not(.on) .ach-icon { filter: grayscale(1); }
 .ach-text { display: grid; line-height: 1.25; min-width: 0; }
 .ach-text small { color: var(--lichen); font-size: .8rem; }
-
-@media (prefers-reduced-motion: reduce) {
-  .guess-cards li.in .play-card, .pack-cards li, .slot.landed .slot-name, .foil::after { animation: none; }
-}
+.ach { margin: 14px 0 0; border: 1px solid var(--rail); border-radius: var(--r-lg); background: var(--baize); }
+.ach summary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 12px 16px; cursor: pointer; list-style: none; }
+.ach summary::-webkit-details-marker { display: none; }
+.ach summary::after { content: ''; width: 8px; height: 8px; margin-left: auto; border-right: 2px solid var(--lichen); border-bottom: 2px solid var(--lichen); transform: rotate(45deg); transition: transform .2s var(--ease); }
+.ach[open] summary::after { transform: rotate(-135deg); }
+.ach-sum-title { font-weight: 700; }
+.ach-sum-count { color: var(--lichen); font-size: .9rem; font-variant-numeric: tabular-nums; }
+.ach-bar { flex: 1 1 120px; max-width: 220px; height: 6px; border-radius: 99px; background: var(--track); overflow: hidden; }
+.ach-bar span { display: block; height: 100%; background: var(--brass); }
+.ach .ach-list { padding: 0 16px; }
+.ach .hint { padding: 0 16px 14px; }
 @media (max-width: 560px) {
   .ach-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
   .ach-list li { flex-direction: column; align-items: flex-start; gap: 4px; padding: 10px; }
   .ach-icon { width: auto; font-size: 1.2rem; }
 }
-.pack-cards { max-width: 760px; }
-/* header con 4 sezioni: sugli schermi medi codici brevi (IT, EUR) e voci più strette; sotto i 900px solo il simbolo del marchio */
-@media (min-width: 720px) and (max-width: 999px) { .nav-top a { padding: 7px 11px; white-space: nowrap; } .topbar { gap: 10px; } }
-@media (min-width: 720px) and (max-width: 899px) { .brand-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .modal[open], .modal[open]::backdrop, .modal.closing, .quiz-q, .quiz-opt, .quiz-res, .quiz-reveal .quiz-card, .guess-cards li.in .play-card { animation: none; }
+}

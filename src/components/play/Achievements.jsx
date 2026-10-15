@@ -5,8 +5,9 @@ import { ACHIEVEMENTS } from '../../lib/fun.js'
 export default function Achievements({ unlocked }) {
   const got = ACHIEVEMENTS.filter(a => unlocked[a.id]).length
   return (
-    <section className="panel play-ach" aria-labelledby="ach-title">
-      <div className="play-head"><h2 id="ach-title">{t('ach.title')}</h2><span className="play-sub">{t('ach.count', got, ACHIEVEMENTS.length)}</span></div>
+    <details className="ach">
+      <summary><span className="ach-sum-title">🏅 {t('ach.title')}</span><span className="ach-sum-count">{t('ach.count', got, ACHIEVEMENTS.length)}</span>
+        <span className="ach-bar" aria-hidden="true"><span style={{ width: `${got / ACHIEVEMENTS.length * 100}%` }} /></span></summary>
       <ul className="ach-list">
         {ACHIEVEMENTS.map(a => {
           const on = !!unlocked[a.id]
@@ -20,6 +21,6 @@ export default function Achievements({ unlocked }) {
         })}
       </ul>
       <p className="hint">{t('ach.hint')}</p>
-    </section>
+    </details>
   )
 }

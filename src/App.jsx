@@ -15,13 +15,17 @@ import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
 import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins, IconDice } from './components/Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins } from './components/Icons.jsx'
 import Picker from './components/Picker.jsx'
 import MysteryDeck from './components/MysteryDeck.jsx'
 import { pickDaily, signatureOf } from './lib/daily.js'
-import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS } from './lib/fun.js'
+import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS, guessDeck, GUESS_TRIES } from './lib/fun.js'
 import MetaWeather from './components/MetaWeather.jsx'
-import PlayPage from './components/play/PlayPage.jsx'
+import Modal from './components/Modal.jsx'
+import LuckyButton from './components/LuckyButton.jsx'
+import Quiz from './components/play/Quiz.jsx'
+import GuessGame from './components/play/GuessGame.jsx'
+import { dayKey } from './lib/daily.js'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
@@ -69,7 +73,9 @@ export default function App() {
   // Giochi e traguardi: tutto solo su questo dispositivo
   const [fun, setFun] = useLocal('mdm.fun', {})
   const bumpFun = patch => setFun(f => ({ ...f, ...(typeof patch === 'function' ? patch(f) : patch) }))
-  const [almostOff, setAlmostOff] = useLocal('mdm.almostOff', []) // mazzi preferiti: restano in cima qualunque filtro ci sia
+  const [almostOff, setAlmostOff] = useLocal('mdm.almostOff', [])
+  const [guessStore, setGuessStore] = useLocal('mdm.guess', {})
+  const [game, setGame] = useState(null) // 'quiz' | 'guess': finestra aperta sopra la pagina mazzi // mazzi preferiti: restano in cima qualunque filtro ci sia
   const togglePin = id => setPins(pins.includes(id) ? pins.filter(x => x !== id) : [...pins, id])
   const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
   // Header sempre visibile: si compatta scorrendo (soglie diverse in su e in giù per non sfarfallare)
@@ -171,7 +177,7 @@ export default function App() {
   const updated = meta?.[0]?.updated
   const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? t('decks.srcCache') : t('decks.srcTop8')
   const stale = updated && daysAgo(updated) > STALE_DAYS
-  const page = ['collection', 'key-cards', 'play'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
+  const page = ['collection', 'key-cards'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
   const count = collection.reduce((s, c) => s + c.qty, 0)
   const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
   const meteo = useMemo(() => meta ? weather(meta) : null, [meta])
@@ -179,12 +185,19 @@ export default function App() {
   const openDaily = (id, fresh) => { bumpFun(f => { const st = bumpStreak(f.streak); return { streak: st, bestStreak: Math.max(f.bestStreak || 0, st.n), opens: (f.opens || 0) + (fresh ? 1 : 0) } }); go('deck', id) }
   // formati visitati e mazzi completati (per i traguardi)
   useEffect(() => { if (format && !(fun.formats || []).includes(format)) bumpFun(f => ({ formats: [...new Set([...(f.formats || []), format])] })) }, [format])
-  const anyComplete = collection.length > 0 && ranked.some(s => s.deck.source !== 'utente' && s.missing.length === 0 && s.main.total > 0)
-  useEffect(() => { if (anyComplete && !fun.completed) bumpFun({ completed: true }) }, [anyComplete])
+  const completeCount = collection.length ? ranked.filter(s => s.deck.source !== 'utente' && s.missing.length === 0 && s.main.total > 0).length : 0
+  useEffect(() => { if (completeCount > (fun.completeMax || 0)) bumpFun({ completeMax: completeCount }) }, [completeCount])
+  useEffect(() => { if (almost && !fun.almost) bumpFun({ almost: true }) }, [!!almost])
+  useEffect(() => { const h = new Date().getHours(); if (h < 5 && !fun.night) bumpFun({ night: true }) }, [])
+  useEffect(() => { // mazzi aperti (per "Curioso" e "Fuori dal coro")
+    if (!sel) return
+    bumpFun(f => ({ seen: (f.seen || []).includes(sel.deck.id) ? f.seen : [...(f.seen || []), sel.deck.id].slice(-200), rogueSeen: f.rogueSeen || !!sel.deck.rogue }))
+  }, [sel?.deck.id])
   const achCtx = useMemo(() => {
     const by = {}
     for (const c of collection) { const ci = getCached(c.name)?.ci; if (ci?.length === 1) by[ci[0]] = (by[ci[0]] || 0) + c.qty }
-    return { cards: count, maxColor: Math.max(0, ...Object.values(by)), pins: pins.length, fun }
+    const value = collection.reduce((v, c) => v + (getCached(c.name)?.eur ?? 0) * c.qty, 0)
+    return { cards: count, value, maxColor: Math.max(0, ...Object.values(by)), minColor: Math.min(...'WUBRG'.split('').map(x => by[x] || 0)), pins: pins.length, fun }
   }, [collection, pins, fun, cardsState])
   const unlockedIds = unlockedNow(achCtx).join()
   useEffect(() => { // nuovo traguardo: un solo avviso discreto; al primo avvio si segnano senza avvisi quelli già raggiunti
@@ -215,7 +228,6 @@ export default function App() {
           <a href="#/decks" aria-current={navCurrent('decks')}>{t('nav.decks')}</a>
           <a href="#/key-cards" aria-current={navCurrent('key-cards')}>{t('nav.keycards')}</a>
           <a href="#/collection" aria-current={navCurrent('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
-          <a href="#/play" aria-current={navCurrent('play')}>{t('nav.play')}</a>
         </nav>
         <div className="prefs">
           <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow}
@@ -243,11 +255,22 @@ export default function App() {
             </div>
 
             {banNotice}
-            {rogueShown.length > 0 && (
-              <button className="rogue-jump" onClick={toRogue}>
-                <span aria-hidden="true">🌶</span>{t('rogue.jump', rogueShown.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
-              </button>
-            )}
+            <div className="home-actions">
+              {rogueShown.length > 0 && (
+                <button className="pill-btn rogue-jump" onClick={toRogue}>
+                  <span aria-hidden="true">🌶</span>{t('rogue.jump', rogueShown.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
+                </button>
+              )}
+              <LuckyButton pool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onPick={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
+              {meta && <button className="pill-btn pill-quiz" onClick={() => setGame('quiz')}><span aria-hidden="true">🪞</span>{t('quiz.btn')}</button>}
+              {meta && (() => {
+                const g = guessStore[`${format}|${dayKey()}`] || [], ans = guessDeck(meta, format)?.name
+                const badge = g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
+                return <button className="pill-btn pill-guess" onClick={() => setGame('guess')}>
+                  <span aria-hidden="true">🔎</span>{t('guess.btn')}{badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}
+                </button>
+              })()}
+            </div>
 
             {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
             {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
@@ -324,7 +347,7 @@ export default function App() {
           {page === 'deck' && (
             <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
               onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
-              pinned={pins.includes(sel.deck.id)} onPin={togglePin} owned={collection.length > 0} signature={signatureOf(sel.deck, meta || [], isLand)}
+              pinned={pins.includes(sel.deck.id)} onPin={togglePin}
               onBack={() => history.length > 1 ? history.back() : go('decks')}
               onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}
@@ -334,13 +357,8 @@ export default function App() {
             <KeyCards ranked={ranked} formatName={formatName} collection={collection} playset={format === 'commander' ? 1 : 4} toast={toast} />
           </>}
 
-          {page === 'play' && <>
-            {formatTabs}
-            <PlayPage meta={meta} format={format} formatName={formatName} colorsOf={colorsOf} getCard={getCached} isLand={isLand}
-              onOpen={id => go('deck', id)} toast={toast} bumpFun={bumpFun} unlocked={fun.unlocked || {}} />
-          </>}
           {page === 'collection' && banNotice}
-          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} />}
+          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
         </ErrorBoundary>
       </main>
 
@@ -363,13 +381,20 @@ export default function App() {
         <a href="#/decks" aria-current={navCurrent('decks')}><IconDecks />{t('nav.decks')}</a>
         <a href="#/key-cards" aria-current={navCurrent('key-cards')}><IconKey />{t('nav.keycards')}</a>
         <a href="#/collection" aria-current={navCurrent('collection')}><IconBox />{t('nav.collection')}</a>
-        <a href="#/play" aria-current={navCurrent('play')}><IconDice />{t('nav.play')}</a>
       </nav>
 
       <button className={`to-top${showTop ? ' show' : ''}`} onClick={() => scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}
         aria-label={t('toTop')} title={t('toTop')} tabIndex={showTop ? 0 : -1} aria-hidden={!showTop}>
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
+      <Modal open={game === 'quiz'} onClose={() => setGame(null)} label={t('quiz.title')} className="modal-game">
+        {close => <Quiz decks={meta || []} getCard={getCached} colorsOf={colorsOf} isLand={isLand}
+          onGo={id => { close(); go('deck', id) }} onDone={() => bumpFun({ quiz: true })} />}
+      </Modal>
+      <Modal open={game === 'guess'} onClose={() => setGame(null)} label={t('guess.title')} className="modal-game modal-wide">
+        {close => <GuessGame decks={meta || []} format={format} formatName={formatName} isLand={isLand} toast={toast} store={guessStore} setStore={setGuessStore}
+          onGo={id => { close(); go('deck', id) }} onWin={n => bumpFun(f => ({ guessWins: (f.guessWins || 0) + 1, guessFirst: f.guessFirst || n === 1 }))} />}
+      </Modal>
       <div className="toast-zone" aria-live="polite">
         {toastMsg && (
           <div className={`toast${toastMsg.action ? ' toast-action' : ''}`} key={toastMsg.id}>
