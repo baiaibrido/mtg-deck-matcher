@@ -142,9 +142,10 @@ export default {
   'pers.mono': c => `pure ${c}`, 'pers.line': (w, p) => `Your collection screams ${w} (${p}% of the cards).`, 'pers.best': 'Closest deck:',
   'streak.title': 'Days in a row you opened the mystery deck', 'streak.days': n => `${n} days in a row`,
   'ach.complete.d': 'Complete a meta deck 100%',
-  'lucky.btn': "I'm feeling lucky", 'quiz.btn': "Don't know what to play? Take the quiz", 'quiz.back': 'back', 'guess.btn': 'Guess the deck of the day', 'guess.new': 'new',
+  'lucky.btn': "I'm feeling lucky", 'quiz.btn': "Don't know what to play? Take the quiz!", 'quiz.back': 'back', 'guess.btn': 'Guess the deck of the day', 'guess.new': 'new',
   'ach.c500': 'Full binder', 'ach.c500.d': '500 cards in your collection', 'ach.value': 'Treasure', 'ach.value.d': 'A collection worth at least €100', 'ach.rainbow': 'Rainbow', 'ach.rainbow.d': 'At least 20 cards of each of the 5 colors',
   'ach.almost': 'Almost there', 'ach.almost.d': 'Get within 5 cards of a meta deck', 'ach.three': 'Hat trick', 'ach.three.d': 'Complete 3 decks of the same format',
   'ach.curious': 'Curious', 'ach.curious.d': 'Open 25 different decks', 'ach.rogue': 'Off the beaten path', 'ach.rogue.d': 'Open a rogue deck', 'ach.sleuth': 'Sleuth', 'ach.sleuth.d': 'Guess 5 decks',
   'ach.night': 'Night owl', 'ach.night.d': 'Browse decks between midnight and 5 am',
+  'daily.group': 'Every day', 'lucky.sub': 'let a twister drop you into a random deck', 'lucky.hint': 'A random deck of the format, meta or rogue',
 }

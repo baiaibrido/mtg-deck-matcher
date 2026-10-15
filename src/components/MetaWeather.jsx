@@ -1,7 +1,7 @@
 import { t, num } from '../i18n/index.js'
 
 // Meteo del meta: chi sale, chi scende e chi resta in vetta rispetto all'aggiornamento precedente
-export default function MetaWeather({ w, onOpen }) {
+export default function MetaWeather({ w, onOpen, children }) {
   const link = d => <button className="linklike" onClick={() => onOpen(d.id)}>{d.name}</button>
   return (
     <div className="weather">
@@ -11,6 +11,7 @@ export default function MetaWeather({ w, onOpen }) {
         {w.down && <li><span aria-hidden="true">⛈️</span>{t('weather.down')} {link(w.down.d)} <span className="trend trend-down">−{num(Math.abs(w.down.delta))}</span></li>}
         <li><span aria-hidden="true">🌤️</span>{t('weather.top')} {link(w.top)} <span className="weather-share">{num(w.top.share)}%</span></li>
       </ul>
+      {children}
     </div>
   )
 }

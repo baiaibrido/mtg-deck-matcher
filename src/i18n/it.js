@@ -152,9 +152,10 @@ export default {
   'pers.mono': c => `${c} puro`, 'pers.line': (w, p) => `La tua collezione urla ${w} (${p}% delle carte).`, 'pers.best': 'Il mazzo più vicino:',
   'streak.title': 'Giorni di fila in cui hai aperto il mazzo misterioso', 'streak.days': n => `${n} giorni di fila`,
   'ach.complete.d': 'Completa al 100% un mazzo del meta',
-  'lucky.btn': 'Mi sento fortunato', 'quiz.btn': 'Non sai cosa giocare? Fai il quiz', 'quiz.back': 'indietro', 'guess.btn': 'Indovina il mazzo del giorno', 'guess.new': 'nuovo',
+  'lucky.btn': 'Mi sento fortunato', 'quiz.btn': 'Non sai cosa giocare? Fai il quiz!', 'quiz.back': 'indietro', 'guess.btn': 'Indovina il mazzo del giorno', 'guess.new': 'nuovo',
   'ach.c500': 'Raccoglitore pieno', 'ach.c500.d': '500 carte in collezione', 'ach.value': 'Tesoretto', 'ach.value.d': 'Collezione dal valore di almeno 100 €', 'ach.rainbow': 'Arcobaleno', 'ach.rainbow.d': 'Almeno 20 carte per ciascuno dei 5 colori',
   'ach.almost': 'Ci sei quasi', 'ach.almost.d': 'Arriva a 5 carte o meno da un mazzo del meta', 'ach.three': 'Tris', 'ach.three.d': 'Completa 3 mazzi dello stesso formato',
   'ach.curious': 'Curioso', 'ach.curious.d': 'Apri 25 mazzi diversi', 'ach.rogue': 'Fuori dal coro', 'ach.rogue.d': 'Apri un mazzo rogue', 'ach.sleuth': 'Investigatore', 'ach.sleuth.d': 'Indovina 5 mazzi',
   'ach.night': 'Nottambulo', 'ach.night.d': 'Cerca mazzi tra mezzanotte e le 5',
+  'daily.group': 'Ogni giorno', 'lucky.sub': 'lasciati portare da una tromba d\'aria in un mazzo a caso', 'lucky.hint': 'Un mazzo a caso del formato, tra meta e rogue',
 }

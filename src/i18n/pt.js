@@ -143,9 +143,10 @@ export default {
   'pers.mono': c => `${c} puro`, 'pers.line': (w, p) => `Sua coleção grita ${w} (${p}% das cartas).`, 'pers.best': 'O deck mais próximo:',
   'streak.title': 'Dias seguidos abrindo o deck misterioso', 'streak.days': n => `${n} dias seguidos`,
   'ach.complete.d': 'Complete 100% de um deck do meta',
-  'lucky.btn': 'Estou com sorte', 'quiz.btn': 'Não sabe o que jogar? Faça o quiz', 'quiz.back': 'voltar', 'guess.btn': 'Adivinhe o deck do dia', 'guess.new': 'novo',
+  'lucky.btn': 'Estou com sorte', 'quiz.btn': 'Não sabe o que jogar? Faça o quiz!', 'quiz.back': 'voltar', 'guess.btn': 'Adivinhe o deck do dia', 'guess.new': 'novo',
   'ach.c500': 'Fichário cheio', 'ach.c500.d': '500 cartas na coleção', 'ach.value': 'Tesouro', 'ach.value.d': 'Uma coleção que vale pelo menos 100 €', 'ach.rainbow': 'Arco-íris', 'ach.rainbow.d': 'Pelo menos 20 cartas de cada uma das 5 cores',
   'ach.almost': 'Quase lá', 'ach.almost.d': 'Fique a 5 cartas ou menos de um deck do meta', 'ach.three': 'Trinca', 'ach.three.d': 'Complete 3 decks do mesmo formato',
   'ach.curious': 'Curioso', 'ach.curious.d': 'Abra 25 decks diferentes', 'ach.rogue': 'Fora da curva', 'ach.rogue.d': 'Abra um deck rogue', 'ach.sleuth': 'Investigador', 'ach.sleuth.d': 'Adivinhe 5 decks',
   'ach.night': 'Coruja', 'ach.night.d': 'Procure decks entre meia-noite e 5 da manhã',
+  'daily.group': 'Todo dia', 'lucky.sub': 'deixe um tornado te levar a um deck aleatório', 'lucky.hint': 'Um deck aleatório do formato, do meta ou rogue',
 }

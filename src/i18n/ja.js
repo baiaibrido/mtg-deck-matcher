@@ -140,9 +140,10 @@ export default {
   'pers.mono': c => `純${c}`, 'pers.line': (w, p) => `あなたのコレクションは${w}色が強め（カードの${p}%）。`, 'pers.best': '一番近いデッキ：',
   'streak.title': 'ミステリーデッキを開いた連続日数', 'streak.days': n => `${n}日連続`,
   'ach.complete.d': 'メタのデッキを100%そろえる',
-  'lucky.btn': 'おまかせ', 'quiz.btn': '何を使うか迷ったら？クイズに挑戦', 'quiz.back': '戻る', 'guess.btn': '今日のデッキ当て', 'guess.new': 'NEW',
+  'lucky.btn': 'おまかせ', 'quiz.btn': '何を使うか迷ったら？クイズに挑戦！', 'quiz.back': '戻る', 'guess.btn': '今日のデッキ当て', 'guess.new': 'NEW',
   'ach.c500': 'バインダー満杯', 'ach.c500.d': 'コレクション500枚', 'ach.value': 'お宝', 'ach.value.d': 'コレクションの価値が100ユーロ以上', 'ach.rainbow': '虹', 'ach.rainbow.d': '5色それぞれ20枚以上',
   'ach.almost': 'あと少し', 'ach.almost.d': 'メタのデッキまで残り5枚以下', 'ach.three': 'ハットトリック', 'ach.three.d': '同じフォーマットのデッキを3つそろえる',
   'ach.curious': '好奇心', 'ach.curious.d': '25種類のデッキを開く', 'ach.rogue': '少数派', 'ach.rogue.d': 'ローグデッキを開く', 'ach.sleuth': '捜査官', 'ach.sleuth.d': 'デッキを5回当てる',
   'ach.night': '夜ふかし', 'ach.night.d': '深夜0時から5時の間にデッキを探す',
+  'daily.group': '毎日のおたのしみ', 'lucky.sub': '竜巻に乗ってランダムなデッキへ', 'lucky.hint': 'メタやローグからランダムなデッキ',
 }

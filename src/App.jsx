@@ -249,28 +249,32 @@ export default function App() {
               <header className="page-head">
                 <h1>{t('decks.title', formatName)}</h1>
                 {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.filter(d => d.source !== 'utente').length, sourceText, dayMonth(updated))}</p>}
-                {meteo && <MetaWeather w={meteo} onOpen={id => go('deck', id)} />}
+                {meteo && <MetaWeather w={meteo} onOpen={id => go('deck', id)}>
+                  <LuckyButton pool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onPick={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
+                </MetaWeather>}
               </header>
-              {daily && <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={openDaily} streak={liveStreak(fun.streak)} />}
+              {daily && <section className="daily" aria-labelledby="daily-title">
+                <h2 className="daily-title" id="daily-title">{t('daily.group')}</h2>
+                <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={openDaily} streak={liveStreak(fun.streak)} />
+                <div className="daily-games">
+                  <button className="game-btn game-quiz" onClick={() => setGame('quiz')}><span aria-hidden="true">🪞</span><span>{t('quiz.btn')}</span></button>
+                  {(() => {
+                    const g = guessStore[`${format}|${dayKey()}`] || [], ans = guessDeck(meta, format)?.name
+                    const badge = g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
+                    return <button className="game-btn game-guess-btn" onClick={() => setGame('guess')}>
+                      <span aria-hidden="true">🔎</span><span>{t('guess.btn')}</span>{badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}
+                    </button>
+                  })()}
+                </div>
+              </section>}
             </div>
 
             {banNotice}
-            <div className="home-actions">
-              {rogueShown.length > 0 && (
-                <button className="pill-btn rogue-jump" onClick={toRogue}>
-                  <span aria-hidden="true">🌶</span>{t('rogue.jump', rogueShown.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
-                </button>
-              )}
-              <LuckyButton pool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onPick={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
-              {meta && <button className="pill-btn pill-quiz" onClick={() => setGame('quiz')}><span aria-hidden="true">🪞</span>{t('quiz.btn')}</button>}
-              {meta && (() => {
-                const g = guessStore[`${format}|${dayKey()}`] || [], ans = guessDeck(meta, format)?.name
-                const badge = g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
-                return <button className="pill-btn pill-guess" onClick={() => setGame('guess')}>
-                  <span aria-hidden="true">🔎</span>{t('guess.btn')}{badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}
-                </button>
-              })()}
-            </div>
+            {rogueShown.length > 0 && (
+              <button className="rogue-jump" onClick={toRogue}>
+                <span aria-hidden="true">🌶</span>{t('rogue.jump', rogueShown.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
+              </button>
+            )}
 
             {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
             {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}

@@ -21,8 +21,10 @@ export default function LuckyButton({ pool, onPick }) {
     tick()
   }
   return (
-    <button className={`pill-btn pill-lucky${name ? ' spinning' : ''}`} onClick={spin} aria-live="polite">
-      <span aria-hidden="true">🎰</span><span className="pill-text">{name || t('lucky.btn')}</span>
+    <button className={`lucky${name ? ' spinning' : ''}`} onClick={spin} aria-live="polite" title={t('lucky.hint')}>
+      <span aria-hidden="true" className="lucky-icon">🌪️</span>
+      <span className="lucky-text">{name || t('lucky.btn')}</span>
+      {!name && <span className="lucky-sub">{t('lucky.sub')}</span>}
     </button>
   )
 }
