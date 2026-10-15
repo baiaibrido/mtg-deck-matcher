@@ -20,6 +20,7 @@ src/
   state/useLocal.js        useState persistito su localStorage
   state/useRoute.js        rotte nell'hash: #/mazzi, #/carte, #/collezione, #/mazzo/<id> (tasto indietro ok)
   lib/normalize.js         normalizzazione nomi carta (chiave di match)
+  lib/closestName.js       nome di carta più vicino (distanza di modifica) per Correggi i nomi
   lib/parser.js            parser collezione (CSV / testo) e decklist (main/side)
   lib/scryfall.js          client Scryfall + cache compatta con prezzi (localStorage 'mdm.cards.v3', scadenza 3 giorni)
   lib/deckInfo.js          colori del mazzo, cornice, gruppi per tipo, simboli di costo, missingCost(), euro()
@@ -71,7 +72,7 @@ Chiavi localStorage: `mdm.format`, `mdm.collection`, `mdm.userDecks`, `mdm.view`
 
 ## Normalizzazione nomi (lib/normalize.js)
 minuscolo, senza accenti, apostrofi uniformati, spazi compressi, solo faccia frontale (`A // B` → `a`).
-Scryfall (pulsante "Correggi i nomi") corregge refusi: `/cards/collection` (75 per richiesta) + `/cards/named?fuzzy` per i non trovati (max 150). I nomi già segnati come sconosciuti in sessione vanno dritti al fuzzy (bug fino alla v0.9.0: venivano saltati). Ogni carta in collezione ha il cestino (elimina con Annulla nel toast).
+Scryfall (pulsante "Correggi i nomi") corregge refusi: `/cards/collection` (75 per richiesta) + `/cards/named?fuzzy` per i non trovati (max 150); se anche il fuzzy fallisce, `closestName.js` confronta il nome con l'elenco completo `/catalog/card-names` (scaricato solo se serve, ~1 errore ogni 4 lettere, se ambiguo propone suggerimenti). I nomi già segnati come sconosciuti in sessione vanno dritti al fuzzy (bug fino alla v0.9.0: venivano saltati). Ogni carta in collezione ha il cestino (elimina con Annulla nel toast).
 
 ## Formati input accettati
 - CSV con intestazione (`Name`/`Nome`/`Card` + `Qty`/`Quantity`/`Count`/`Quantità`).

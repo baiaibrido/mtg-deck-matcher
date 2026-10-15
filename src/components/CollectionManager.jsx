@@ -109,10 +109,12 @@ export default function CollectionManager({ collection, setCollection, toast }) 
   const normalize = async () => {
     setBusy(true); setMsg({ kind: 'info', text: 'Controllo i nomi su Scryfall…' })
     try {
-      const { list, notFound } = await normalizeCollection(collection, (d, t) => setMsg({ kind: 'info', text: `Controllo i nomi su Scryfall… ${d}/${t}` }))
+      const { list, notFound, suggestions } = await normalizeCollection(collection, (d, t) => setMsg({ kind: 'info', text: `Controllo i nomi su Scryfall… ${d}/${t}` }))
+      const fixedCount = collection.filter(c => !list.some(x => x.name === c.name)).length
       setCollection(list)
-      setMsg(notFound.length ? { kind: 'error', text: `Nomi non riconosciuti (${notFound.length}): ${notFound.join(', ')}. Correggili o eliminali dalla sezione "Dati in arrivo".` } : null)
-      if (!notFound.length) toast('Nomi corretti')
+      const names = notFound.map(n => suggestions?.[n] ? `${n} (forse ${suggestions[n].join(' o ')}?)` : n)
+      setMsg(notFound.length ? { kind: 'error', text: `Nomi non riconosciuti (${notFound.length}): ${names.join(', ')}. Sono troppo diversi da qualsiasi carta: correggili a mano o eliminali dalla sezione "Dati in arrivo".` } : null)
+      if (!notFound.length) toast(fixedCount ? `Nomi corretti: ${fixedCount}` : 'Tutti i nomi erano già giusti')
     } catch (err) { setMsg({ kind: 'error', text: `Scryfall non risponde (${err.message}). Riprova tra qualche minuto.` }) }
     setBusy(false)
   }
@@ -214,11 +216,13 @@ export default function CollectionManager({ collection, setCollection, toast }) 
             <ul className="ctiles">
               {part.map(r => (
                 <li key={r.name} className="ctile">
-                  <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
-                    <Thumb card={r.card} name={r.name} big />
-                    <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
-                  </a>
-                  <DeleteBtn name={r.name} onDelete={remove} className="btn-del ctile-del" />
+                  <div className="ctile-art">
+                    <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
+                      <Thumb card={r.card} name={r.name} big />
+                      <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
+                    </a>
+                    <DeleteBtn name={r.name} onDelete={remove} className="btn-del ctile-del" />
+                  </div>
                   <span className="ctile-name">{r.name}</span>
                   <Stepper c={r} setQty={setQty} />
                 </li>

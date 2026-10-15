@@ -10,6 +10,8 @@ globalThis.fetch = async (url, opt) => {
     const ids = JSON.parse(opt.body).identifiers
     return { ok: true, json: async () => ({ data: ids.filter(i => ['Rancor', 'Armadillo Cloak'].includes(i.name)).map(i => card(i.name)), not_found: ids.filter(i => !['Rancor', 'Armadillo Cloak'].includes(i.name)) }) }
   }
+  if (String(url).includes('/catalog/card-names')) return { ok: true, json: async () => ({ data: ['Of One Mind', 'Armadillo Cloak', 'Rancor'] }) }
+  if (String(url).includes('exact=')) return { ok: true, json: async () => card(decodeURIComponent(String(url).split('exact=')[1])) }
   const q = decodeURIComponent(String(url).split('fuzzy=')[1])
   return q.toLowerCase() === 'armadillo cloack' ? { ok: true, json: async () => card('Armadillo Cloak') } : { ok: false }
 }
@@ -18,8 +20,9 @@ test('Correggi i nomi funziona anche dopo che la collezione ha già cercato il n
   // 1) caricamento immagini della collezione: il nome sbagliato finisce tra gli sconosciuti
   await fetchCards(['Armadillo Cloack', 'Rancor'])
   // 2) "Correggi i nomi": deve comunque provare la ricerca approssimata
-  const { list, notFound } = await normalizeCollection([{ name: 'Armadillo Cloack', qty: 4 }, { name: 'Armadillo Cloak', qty: 1 }, { name: 'Rancor', qty: 2 }, { name: 'Boh Qualcosa', qty: 1 }])
-  assert.deepEqual(list, [{ name: 'Armadillo Cloak', qty: 5 }, { name: 'Rancor', qty: 2 }, { name: 'Boh Qualcosa', qty: 1 }])
+  const { list, notFound } = await normalizeCollection([{ name: 'Armadillo Cloack', qty: 4 }, { name: 'Armadillo Cloak', qty: 1 }, { name: 'Rancor', qty: 2 }, { name: 'Boh Qualcosa', qty: 1 }, { name: 'of ine mind', qty: 3 }])
+  // "of ine mind": la ricerca approssimata di Scryfall fallisce, la trova l'elenco completo dei nomi
+  assert.deepEqual(list, [{ name: 'Armadillo Cloak', qty: 5 }, { name: 'Rancor', qty: 2 }, { name: 'Boh Qualcosa', qty: 1 }, { name: 'Of One Mind', qty: 3 }])
   assert.deepEqual(notFound, ['Boh Qualcosa'])
   assert.ok(calls.some(u => u.includes('fuzzy=Armadillo%20Cloack')))
 })

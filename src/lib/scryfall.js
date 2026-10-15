@@ -1,4 +1,5 @@
 import { norm, mergeEntries } from './normalize.js'
+import { closestName } from './closestName.js'
 
 const API = 'https://api.scryfall.com'
 const CK = 'mdm.cards.v3' // v3: formato compatto + prezzi
@@ -73,23 +74,35 @@ export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
     await sleep(120)
   }
   if (!fuzzy) return { notFound }
-  const unresolved = []
+  // 1) ricerca approssimata di Scryfall; 2) se non basta, confronto con l'elenco completo dei nomi
+  const unresolved = [], suggestions = {}
   for (const [i, n] of notFound.entries()) {
-    if (i >= FUZZY_MAX) { unresolved.push(n); continue }
-    const r = await fetch(`${API}/cards/named?fuzzy=${encodeURIComponent(n)}`, { headers: HEAD })
-    if (r.ok) { put(await r.json(), n); unknown.delete(norm(n)) } else unresolved.push(n)
     onProgress?.(i + 1, notFound.length)
+    if (i >= FUZZY_MAX) { unresolved.push(n); continue }
+    let r = await fetch(`${API}/cards/named?fuzzy=${encodeURIComponent(n)}`, { headers: HEAD })
     await sleep(110)
+    if (!r.ok) {
+      const { name, suggestions: s } = closestName(n, await cardNames())
+      if (name) { r = await fetch(`${API}/cards/named?exact=${encodeURIComponent(name)}`, { headers: HEAD }); await sleep(110) }
+      else if (s.length) suggestions[n] = s
+    }
+    if (r.ok) { put(await r.json(), n); unknown.delete(norm(n)) } else unresolved.push(n)
   }
   save()
-  return { notFound: unresolved }
+  return { notFound: unresolved, suggestions }
 }
+
+// Elenco di tutti i nomi di carta (~35.000), scaricato solo se serve e tenuto in memoria per la sessione
+let namesP
+const cardNames = () => namesP ??= fetch(`${API}/catalog/card-names`, { headers: HEAD })
+  .then(r => r.ok ? r.json() : Promise.reject(new Error(r.status))).then(j => j.data || [])
+  .catch(() => { namesP = null; return [] })
 
 // Sostituisce i nomi con quelli ufficiali Scryfall e unisce i duplicati.
 export async function normalizeCollection(list, onProgress) {
-  const { notFound } = await fetchCards(list.map(x => x.name), { fuzzy: true, onProgress })
+  const { notFound, suggestions } = await fetchCards(list.map(x => x.name), { fuzzy: true, onProgress })
   const fixed = list.map(x => ({ name: getCached(x.name)?.name || x.name, qty: x.qty }))
-  return { list: mergeEntries(fixed), notFound }
+  return { list: mergeEntries(fixed), notFound, suggestions }
 }
 
 // Stessa immagine in formato piccolo (146px) per miniature e griglie

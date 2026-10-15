@@ -332,16 +332,17 @@ textarea { resize: vertical; line-height: 1.45; }
 .binder-sec h2 .dot { width: 14px; height: 14px; }
 .ctiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 14px 12px; }
 @media (max-width: 560px) { .ctiles { grid-template-columns: repeat(3, 1fr); gap: 12px 8px; } }
-.ctile { display: grid; gap: 6px; min-width: 0; position: relative; }
+.ctile { display: grid; gap: 6px; min-width: 0; }
+.ctile-art { position: relative; }
 .btn-del { width: 34px; height: 34px; display: grid; place-items: center; flex: none; background: var(--baize-2); border: 1px solid var(--edge); border-radius: var(--r-sm); color: var(--lichen); cursor: pointer; }
 .btn-del:hover { color: var(--no); border-color: var(--no); }
-.ctile-del { position: absolute; top: 6px; right: 6px; width: 32px; height: 32px; border-radius: 99px; background: rgba(10, 14, 15, .9); }
+.ctile-del { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 32px; height: 32px; border-radius: 99px; background: rgba(10, 14, 15, .9); }
 .crow-ctl { display: inline-flex; gap: 6px; align-items: center; }
 .ctile-img { position: relative; display: block; aspect-ratio: 488 / 680; border-radius: 4.8% / 3.5%; overflow: hidden; background: var(--baize-2); box-shadow: 0 2px 8px rgba(0,0,0,.35); color: var(--bone); text-decoration: none; transition: transform .2s var(--ease); }
 .ctile-img:hover { transform: translateY(-3px) rotate(-.6deg); }
 .ctile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ctile-ph { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 8px; font-size: .8rem; line-height: 1.25; border: 1px solid var(--rail); border-radius: inherit; }
-.ctile-qty { position: absolute; left: 6px; top: 6px; min-width: 2.1em; text-align: center; padding: 1px 7px; border-radius: 99px; font-weight: 700; font-size: .85rem; background: rgba(10, 14, 15, .9); color: var(--bone); box-shadow: inset 0 0 0 1.5px var(--brass); font-variant-numeric: tabular-nums; }
+.ctile-qty { position: absolute; left: 6px; bottom: 6px; min-width: 2.1em; text-align: center; padding: 1px 7px; border-radius: 99px; font-weight: 700; font-size: .85rem; background: rgba(10, 14, 15, .9); color: var(--bone); box-shadow: inset 0 0 0 1.5px var(--brass); font-variant-numeric: tabular-nums; }
 .ctile-name { font-size: .85rem; line-height: 1.2; color: var(--lichen); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ctile .stepper { justify-self: stretch; display: grid; grid-template-columns: 1fr 1.2fr 1fr; }
 .ctile .stepper button { width: auto; }
@@ -387,7 +388,8 @@ textarea { resize: vertical; line-height: 1.45; }
   .stepper button, .stepper input, .ctile .stepper button, .ctile .stepper input { height: 44px; }
   .stepper button { width: 44px; }
   .crows .btn-del { width: 44px; height: 44px; }
-  .ctile-del { width: 40px; height: 40px; }
+  .ctile-del { width: 36px; height: 36px; }
+  .ctile-qty { left: 4px; bottom: 4px; padding: 1px 5px; min-width: 1.9em; font-size: .8rem; }
   .spine a { min-height: 44px; }
 }
 
