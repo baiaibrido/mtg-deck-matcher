@@ -169,4 +169,5 @@ export default {
   'ins.flex': 'Espaços livres', 'ins.flex.intro': 'Cartas que mudam de lista para lista: dá para trocar pelo que você tem.',
   'ins.side': 'Sideboard contra você', 'ins.side.intro': 'As cartas de sideboard mais comuns nos decks que costumam vencer este:', 'ins.side.hint': 'Uma indicação a partir de listas e matchups: não dá para saber o que realmente entra nas partidas.',
   'ins.side.n': (n, t) => `em ${n} de ${t} decks`,
+  'st.limited': 'Para este formato as listas vêm do MTGTop8, sem as rodadas dos torneios: por enquanto só há a saúde do formato.',
 }

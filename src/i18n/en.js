@@ -168,4 +168,5 @@ export default {
   'ins.flex': 'Flex slots', 'ins.flex.intro': 'Cards that change from list to list: you can swap them for what you have.',
   'ins.side': 'Sideboard against you', 'ins.side.intro': 'The most common sideboard cards in the decks that often beat this one:', 'ins.side.hint': 'An indication from lists and matchups: we cannot know what actually comes in during games.',
   'ins.side.n': (n, t) => `in ${n} of ${t} decks`,
+  'st.limited': 'For this format the lists come from MTGTop8, without tournament rounds: for now only format health is available.',
 }

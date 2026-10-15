@@ -101,6 +101,8 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
         </section>}
       </div>
 
+      {!st && <p className="note">{t('st.limited')}</p>}
+
       {pts.length >= 5 && <section className="panel st-value">
         <h2>{t('st.value')}</h2>
         <p className="st-note">{t('st.value.intro')}</p>

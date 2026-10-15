@@ -178,4 +178,5 @@ export default {
   'ins.flex': 'Posti liberi', 'ins.flex.intro': 'Carte che cambiano da lista a lista: puoi sostituirle con quello che hai.',
   'ins.side': 'Side contro di te', 'ins.side.intro': 'Le carte di sideboard più comuni nei mazzi che battono spesso questo:', 'ins.side.hint': 'Indicazione dalle liste e dai matchup, non possiamo sapere cosa entra davvero in partita.',
   'ins.side.n': (n, t) => `in ${n} mazzi su ${t}`,
+  'st.limited': 'Per questo formato le liste arrivano da MTGTop8, senza i turni dei tornei: per ora c\'è solo la salute del formato.',
 }

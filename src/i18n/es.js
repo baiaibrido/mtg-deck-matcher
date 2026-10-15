@@ -168,4 +168,5 @@ export default {
   'ins.flex': 'Huecos libres', 'ins.flex.intro': 'Cartas que cambian de lista en lista: puedes sustituirlas por lo que tengas.',
   'ins.side': 'Sideboard contra ti', 'ins.side.intro': 'Las cartas de sideboard más comunes en los mazos que suelen ganarle a este:', 'ins.side.hint': 'Una indicación a partir de listas y matchups: no podemos saber qué entra realmente en las partidas.',
   'ins.side.n': (n, t) => `en ${n} de ${t} mazos`,
+  'st.limited': 'Para este formato las listas vienen de MTGTop8, sin las rondas de los torneos: por ahora solo está la salud del formato.',
 }
