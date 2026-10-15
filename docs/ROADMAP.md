@@ -76,6 +76,7 @@ Principi:
 | v0.13.6: collezione con un solo "Importa da file" (export di altre app o backup): con collezione vuota carica subito, altrimenti chiede Aggiungi/Sostituisci (annullabile); file trascinabile su tutta la pagina; "Aggiungi carte" solo per scrivere/incollare | Meno pulsanti doppi |
 | v0.13.7: pulsante "Torna su" in basso a destra dopo circa due schermate di scorrimento | Navigazione nelle pagine lunghe |
 | v0.13.8: menu a tendina su misura (Picker) al posto dei <select> del sistema: lingua (icona globo), valuta (icona monete), Ordina e Budget; arrotondati, con spunta sulla voce scelta, usabili da tastiera | Grafica coerente |
+| v0.14.0: "Mazzo misterioso del giorno" accanto al titolo dei mazzi: uno tra i meno giocati (metà bassa del meta) e i rogue, uguale per tutti e diverso ogni giorno per formato; nome nascosto finché non ci passi sopra, carta caratteristica sfocata, frase a effetto, conto alla rovescia a mezzanotte, pallino "non l'hai ancora aperto" | Far scoprire mazzi nuovi |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

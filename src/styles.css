@@ -721,3 +721,47 @@ main:focus { outline: none; }
   .pref-picker .picker-btn { padding: 4px 6px 4px 9px; gap: 4px; }
 }
 @media (prefers-reduced-motion: reduce) { .picker-list { animation: none; } .picker-caret { transition: none; } }
+
+/* v0.13.9: mazzo misterioso del giorno accanto al titolo */
+.decks-head { display: grid; gap: 4px 28px; }
+@media (min-width: 900px) { .decks-head.has-daily { grid-template-columns: minmax(0, 1fr) minmax(320px, 410px); align-items: start; } .decks-head .mystery { margin-top: 18px; } }
+.mystery {
+  --spin: 0deg; position: relative; isolation: isolate; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; align-items: center;
+  width: 100%; margin: 6px 0 14px; padding: 14px 16px 14px 14px; text-align: left; cursor: pointer; color: var(--bone);
+  border: 2px solid transparent; border-radius: 20px;
+  background: linear-gradient(var(--baize), var(--baize)) padding-box,
+    conic-gradient(from var(--spin), var(--mana-w, #f8e7b9), var(--mana-u, #4b8fd6), var(--mana-b, #9d8fb0), var(--mana-r, #e3613f), var(--mana-g, #3f9d63), var(--mana-w, #f8e7b9)) border-box;
+  animation: mystery-spin 6s linear infinite; transition: transform .25s var(--ease);
+}
+@property --spin { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes mystery-spin { to { --spin: 360deg; } }
+.mystery:hover, .mystery:focus-visible { transform: translateY(-3px) rotate(-.4deg); }
+.mystery:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+.mystery-bg { position: absolute; inset: 0; z-index: -1; border-radius: 18px; background: var(--baize); }
+.mystery-glow { position: absolute; inset: -10px; z-index: -2; border-radius: 28px; filter: blur(22px); opacity: .35;
+  background: conic-gradient(from var(--spin), var(--mana-u, #4b8fd6), var(--mana-r, #e3613f), var(--mana-g, #3f9d63), var(--mana-u, #4b8fd6)); animation: mystery-spin 6s linear infinite; }
+.mystery-art { position: relative; aspect-ratio: 488 / 680; border-radius: 6px; overflow: hidden; transform: rotate(-6deg); box-shadow: 0 8px 20px rgba(0,0,0,.5); background: var(--baize-2); transition: transform .35s var(--ease); }
+.mystery-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; filter: blur(3px) saturate(.6) brightness(.6); transform: scale(1.08); transition: filter .35s var(--ease), transform .35s var(--ease); }
+.mystery-back { position: absolute; inset: 0; background: repeating-linear-gradient(45deg, var(--baize-2) 0 8px, var(--felt) 8px 16px); }
+.mystery-q { position: absolute; inset: 0; display: grid; place-items: center; font: 2.6rem var(--font-title); color: var(--bone); text-shadow: 0 2px 12px rgba(0,0,0,.8); transition: opacity .3s; }
+.mystery:hover .mystery-art, .mystery:focus-visible .mystery-art { transform: rotate(0) scale(1.06); }
+.mystery:hover .mystery-art img, .mystery:focus-visible .mystery-art img { filter: none; transform: none; }
+.mystery:hover .mystery-q, .mystery:focus-visible .mystery-q { opacity: 0; }
+.mystery-body { display: grid; gap: 4px; min-width: 0; }
+.mystery-label { display: inline-flex; align-items: center; gap: 7px; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.mystery-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--no); box-shadow: 0 0 0 0 var(--no); animation: mystery-ping 1.6s ease-out infinite; }
+@keyframes mystery-ping { 70%, 100% { box-shadow: 0 0 0 7px transparent; } }
+.mystery-line { font: 1.08rem/1.25 var(--font-title); font-style: italic; }
+.mystery-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-weight: 700; letter-spacing: .04em; }
+.mystery-real { display: none; }
+.mystery:hover .mystery-masked, .mystery:focus-visible .mystery-masked { display: none; }
+.mystery:hover .mystery-real, .mystery:focus-visible .mystery-real { display: inline; }
+.mystery-sig { font-size: .85rem; color: var(--lichen); font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mystery-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; font-size: .8rem; color: var(--lichen); }
+.mystery-timer { color: var(--part); }
+.mystery-cta { justify-self: start; margin-top: 4px; padding: 5px 14px; border-radius: 999px; background: var(--brass); color: var(--brass-ink); font-weight: 700; font-size: .9rem; transition: transform .2s var(--ease); }
+.mystery:hover .mystery-cta { transform: translateX(4px); }
+.mystery.fresh .mystery-cta { animation: mystery-nudge 3.2s var(--ease) infinite; }
+@keyframes mystery-nudge { 0%, 82%, 100% { transform: none; } 86% { transform: rotate(-4deg) scale(1.05); } 90% { transform: rotate(4deg) scale(1.05); } 94% { transform: rotate(-2deg); } }
+@media (max-width: 560px) { .mystery { grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 12px; } .mystery-line { font-size: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .mystery, .mystery-glow, .mystery-dot, .mystery.fresh .mystery-cta { animation: none; } }

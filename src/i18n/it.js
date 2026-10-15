@@ -127,4 +127,8 @@ export default {
   'coll.importFileHint': 'export o backup',
   'coll.fileChoice': (f, n) => `«${f}»: ${n} carte riconosciute. Cosa vuoi farne?`,
   toTop: 'Torna su',
+  'daily.label': 'Mazzo misterioso del giorno', 'daily.only': 'Solo oggi', 'daily.changes': (h, m) => `cambia tra ${h} h ${m} min`,
+  'daily.lines': ['Nessuno se lo aspetta. Nemmeno tu.', 'Il tuo avversario non ha mai visto questa lista.', 'Netdecka quello che nessuno netdecka.', 'Aprilo. Poi non dirlo a nessuno.', 'Oggi il meta trema. Un pochino.', 'Il mazzo che ti farà dire «ah, ma esiste?»', 'Pochi lo giocano. Ancora meno lo battono.'],
+  'daily.sig': c => `Carta caratteristica: ${c}`, 'daily.share': s => `Lo gioca solo il ${s}% del meta`, 'daily.cta': 'Scoprilo', 'daily.new': 'Non l\'hai ancora aperto', 'daily.reveal': 'Passaci sopra per sbirciare',
+  'daily.aria': n => `Mazzo misterioso del giorno: ${n}. Apri il mazzo`,
 }

@@ -117,4 +117,8 @@ export default {
   'coll.importFileHint': 'export or backup',
   'coll.fileChoice': (f, n) => `"${f}": ${n} cards recognized. What do you want to do?`,
   toTop: 'Back to top',
+  'daily.label': 'Mystery deck of the day', 'daily.only': 'Today only', 'daily.changes': (h, m) => `changes in ${h} h ${m} min`,
+  'daily.lines': ['Nobody sees it coming. Not even you.', 'Your opponent has never seen this list.', 'Netdeck what nobody netdecks.', 'Open it. Then tell no one.', 'Today the meta trembles. A little.', 'The deck that makes you say "wait, that exists?"', 'Few play it. Even fewer beat it.'],
+  'daily.sig': c => `Key card: ${c}`, 'daily.share': s => `Only ${s}% of the meta plays it`, 'daily.cta': 'Reveal it', 'daily.new': "You haven't opened it yet", 'daily.reveal': 'Hover to peek',
+  'daily.aria': n => `Mystery deck of the day: ${n}. Open the deck`,
 }

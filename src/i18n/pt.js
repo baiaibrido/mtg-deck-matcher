@@ -118,4 +118,8 @@ export default {
   'coll.importFileHint': 'exportação ou backup',
   'coll.fileChoice': (f, n) => `«${f}»: ${n} cartas reconhecidas. O que você quer fazer?`,
   toTop: 'Voltar ao topo',
+  'daily.label': 'Deck misterioso do dia', 'daily.only': 'Só hoje', 'daily.changes': (h, m) => `muda em ${h} h ${m} min`,
+  'daily.lines': ['Ninguém espera. Nem você.', 'Seu oponente nunca viu esta lista.', 'Netdecke o que ninguém netdecka.', 'Abra. Depois não conte para ninguém.', 'Hoje o meta treme. Um pouquinho.', 'O deck que vai te fazer dizer «ué, isso existe?»', 'Poucos jogam. Menos ainda vencem.'],
+  'daily.sig': c => `Carta característica: ${c}`, 'daily.share': s => `Só ${s}% do meta joga com ele`, 'daily.cta': 'Descubra', 'daily.new': 'Você ainda não abriu', 'daily.reveal': 'Passe o mouse para espiar',
+  'daily.aria': n => `Deck misterioso do dia: ${n}. Abrir o deck`,
 }

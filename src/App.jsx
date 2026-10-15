@@ -17,6 +17,8 @@ import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins } from './components/Icons.jsx'
 import Picker from './components/Picker.jsx'
+import MysteryDeck from './components/MysteryDeck.jsx'
+import { pickDaily, signatureOf } from './lib/daily.js'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
@@ -99,6 +101,9 @@ export default function App() {
   // Rogue della settimana: stessi calcoli, ordinati per vicinanza alla collezione
   const rogue = useMemo(() => rankDecks((meta || []).filter(d => d.rogue), collection, Infinity).map((s, i) => ({ ...s, rank: i + 1 })), [meta, collection])
   const top = ranked.slice(0, FIRST_BATCH)
+  // Mazzo misterioso del giorno (tra i meno giocati e i rogue) e la sua carta caratteristica
+  const daily = useMemo(() => meta ? pickDaily(meta, format) : null, [meta, format])
+  const dailySig = daily ? signatureOf(daily, meta, n => /\bLand\b/.test(getCached(n)?.type || '')) : null
   const sel = route.page === 'deck' ? ranked.find(s => s.deck.id === route.id) || rogue.find(s => s.deck.id === route.id) : null
 
   // Dati Scryfall: prima i mazzi in vista (colori subito), poi tutti gli altri del formato (prezzi, filtri, carte chiave)
@@ -198,10 +203,13 @@ export default function App() {
         <ErrorBoundary key={page}>
           {page === 'decks' && <>
             {formatTabs}
-            <header className="page-head">
-              <h1>{t('decks.title', formatName)}</h1>
-              {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.filter(d => d.source !== 'utente').length, sourceText, dayMonth(updated))}</p>}
-            </header>
+            <div className={`decks-head${daily ? ' has-daily' : ''}`}>
+              <header className="page-head">
+                <h1>{t('decks.title', formatName)}</h1>
+                {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.filter(d => d.source !== 'utente').length, sourceText, dayMonth(updated))}</p>}
+              </header>
+              {daily && <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={id => go('deck', id)} />}
+            </div>
 
             {banNotice}
             {rogueShown.length > 0 && (
