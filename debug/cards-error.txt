@@ -1,6 +1,6 @@
-2026-10-15T09:57:28.212Z
-Error: indirizzo del file Scryfall mancante
-    at downloadOracle (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/cards-data.mjs:60:34)
+2026-10-15T10:01:03.224Z
+Error: indirizzo del file Scryfall mancante (HTTP 200: {"object":"list","has_more":false,"data":[{"object":"bulk_data","id":"27bf3214-1271-490b-bdfe-c0be6c23d02e","type":"oracle_cards","updated_at":"2026-10-15T09:02:01.217+00:00","uri":"https://api.scryfall.com/bulk-data/27bf3214-1271-490b-bdfe-c0be6c23d02e","name":"Oracle Cards","description":"A JSON f)
+    at downloadOracle (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/cards-data.mjs:63:34)
     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
     at async syncCards (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/sync-meta.mjs:312:28)
     at async main (file:///home/runner/work/mtg-deck-matcher/mtg-deck-matcher/scripts/sync-meta.mjs:384:3)
