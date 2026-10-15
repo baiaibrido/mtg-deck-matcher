@@ -87,4 +87,5 @@ export default {
   'rogue.title': '今週の注目ローグデッキ',
   'rogue.intro': '使用率上位30以外のデッキのうち、直近7日間に大会でトップ8、またはLeagueで5-0を達成したもの。あなたのコレクションに近い順に並べています。',
   'rogue.results': n => `今週${n}回入賞`, 'rogue.best': r => `最高成績:${r}`, 'rogue.signature': c => `象徴的なカード:${c}`,
+  'rogue.jump': n => `今週の注目ローグデッキ${n}個を見る`,
 }

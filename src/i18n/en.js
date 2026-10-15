@@ -89,4 +89,5 @@ export default {
   'rogue.title': 'Spicy rogue decks of the week',
   'rogue.intro': 'Decks outside the 30 most played that made top 8 in a tournament or went 5-0 in a League in the last 7 days. Sorted by how close they are to your collection.',
   'rogue.results': n => `${n} ${p(n, 'result', 'results')} this week`, 'rogue.best': r => `best: ${r}`, 'rogue.signature': c => `signature card: ${c}`,
+  'rogue.jump': n => `Discover ${p(n, 'the spicy rogue deck', `${n} spicy rogue decks`)} of the week`,
 }

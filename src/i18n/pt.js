@@ -90,4 +90,5 @@ export default {
   'rogue.title': 'Rogues apimentados da semana',
   'rogue.intro': 'Decks fora dos 30 mais jogados que nos últimos 7 dias fizeram top 8 em um torneio ou 5-0 em uma League. Ordenados pela proximidade com a sua coleção.',
   'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} na semana`, 'rogue.best': r => `melhor: ${r}`, 'rogue.signature': c => `carta-símbolo: ${c}`,
+  'rogue.jump': n => `Descubra ${p(n, 'o rogue apimentado', `os ${n} rogues apimentados`)} da semana`,
 }

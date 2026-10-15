@@ -89,4 +89,5 @@ export default {
   'rogue.title': 'Rogues picantes de la semana',
   'rogue.intro': 'Mazos fuera de los 30 más jugados que en los últimos 7 días hicieron top 8 en un torneo o 5-0 en una League. Ordenados por lo cerca que están de tu colección.',
   'rogue.results': n => `${n} ${p(n, 'resultado', 'resultados')} esta semana`, 'rogue.best': r => `mejor: ${r}`, 'rogue.signature': c => `carta insignia: ${c}`,
+  'rogue.jump': n => `Descubre ${p(n, 'el rogue picante', `los ${n} rogues picantes`)} de la semana`,
 }

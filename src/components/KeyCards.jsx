@@ -27,7 +27,7 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
         <p>{t('kc.intro')}</p>
       </header>
 
-      {!hasCollection && <div className="callout"><p><b>{t('kc.loadB')}</b>{t('kc.load')}</p><a className="btn btn-primary" href="#/collezione">{t('loadCollection')}</a></div>}
+      {!hasCollection && <div className="callout"><p><b>{t('kc.loadB')}</b>{t('kc.load')}</p><a className="btn btn-primary" href="#/collection">{t('loadCollection')}</a></div>}
 
       <div className="seg" role="tablist" aria-label={t('kc.scope')}>
         <button role="tab" aria-selected={scope === 't1'} onClick={() => setScope('t1')}>Tier 1</button>
@@ -48,7 +48,7 @@ export default function KeyCards({ ranked, formatName, hasCollection, toast }) {
                 <span className="key-decks">
                   {t('kc.inDecks', e.decks.length)}{' '}
                   {e.decks.slice(0, 4).map((d, j) => (
-                    <span key={d.id}>{j > 0 && ', '}<button className="linklike" onClick={() => go('mazzo', d.id)}>{d.name}</button></span>
+                    <span key={d.id}>{j > 0 && ', '}<button className="linklike" onClick={() => go('deck', d.id)}>{d.name}</button></span>
                   ))}
                   {e.decks.length > 4 && t('kc.more', e.decks.length - 4)}
                 </span>

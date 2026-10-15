@@ -22,7 +22,7 @@ src/
   App.jsx                  layout, stato, rotte, toast, elenco di tutti i mazzi + filtri, fetch Scryfall (prima i mazzi in vista, poi tutti)
   styles.css               design system (token in :root) + tutti gli stili
   state/useLocal.js        useState persistito su localStorage
-  state/useRoute.js        rotte nell'hash: #/mazzi, #/carte, #/collezione, #/mazzo/<id> (tasto indietro ok)
+  state/useRoute.js        rotte nell'hash in inglese: #/decks, #/key-cards, #/collection, #/deck/<id> (i vecchi #/mazzi… vengono convertiti; tasto indietro ok)
   lib/normalize.js         normalizzazione nomi carta (chiave di match)
   lib/closestName.js       nome di carta più vicino (distanza di modifica) per Correggi i nomi
   lib/parser.js            parser collezione (CSV / testo) e decklist (main/side)
@@ -44,6 +44,7 @@ src/
 ```
 
 ## Design system (styles.css)
+- Header sticky che si compatta dopo 40px di scorrimento (classe `.compact`); la sua altezza è in `--head-h` (usata da `.coll-tools` e da `scroll-padding-top`). Bottone "🌶 Scopri i rogue" sotto l'intro: scorre alla sezione rogue.
 - Temi: scuro di default; chiaro con `:root[data-theme="light"]` (token ridefiniti, contrasti AA verificati). Scelta in localStorage `mdm.theme`, applicata prima del disegno da uno script in index.html. Pulsante sole/luna e selettore lingua nell'header (`.prefs`).
 - Tema "tappetino da gioco": --felt fondo, --baize superfici, --rail bordi, --bone testo, --lichen secondario, --brass accento oro.
 - Colori mana per le cornici: --mana-w/u/b/r/g, --mana-gold (3+ colori), --mana-c (incolore). Stato carte: --ok / --part / --no.

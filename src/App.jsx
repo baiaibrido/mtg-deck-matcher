@@ -49,6 +49,24 @@ export default function App() {
   const [lang, setLangState] = useState(getLang())
   const changeLang = l => { setLang(l); setLangState(l) }
   const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
+  // Header sempre visibile: si compatta scorrendo (soglie diverse in su e in giù per non sfarfallare)
+  const headRef = useRef(null)
+  const [compact, setCompact] = useState(false)
+  useEffect(() => {
+    const on = () => setCompact(c => c ? scrollY > 8 : scrollY > 40)
+    on(); addEventListener('scroll', on, { passive: true })
+    return () => removeEventListener('scroll', on)
+  }, [])
+  useEffect(() => { // altezza dell'header per gli altri elementi fissi e per lo scorrimento alle sezioni
+    const el = headRef.current; if (!el) return
+    const ro = new ResizeObserver(() => document.documentElement.style.setProperty('--head-h', `${el.offsetHeight}px`))
+    ro.observe(el); return () => ro.disconnect()
+  }, [])
+  const toRogue = () => {
+    const el = document.getElementById('rogue-title')
+    el?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
+    el?.focus({ preventScroll: true })
+  }
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f3eee2' : '#0f1a1c')
@@ -63,7 +81,7 @@ export default function App() {
   // Rogue della settimana: stessi calcoli, ordinati per vicinanza alla collezione
   const rogue = useMemo(() => rankDecks((meta || []).filter(d => d.rogue), collection, Infinity).map((s, i) => ({ ...s, rank: i + 1 })), [meta, collection])
   const top = ranked.slice(0, FIRST_BATCH)
-  const sel = route.page === 'mazzo' ? ranked.find(s => s.deck.id === route.id) || rogue.find(s => s.deck.id === route.id) : null
+  const sel = route.page === 'deck' ? ranked.find(s => s.deck.id === route.id) || rogue.find(s => s.deck.id === route.id) : null
 
   // Dati Scryfall: prima i mazzi in vista (colori subito), poi tutti gli altri del formato (prezzi, filtri, carte chiave)
   const namesOf = list => [...new Set(list.flatMap(s => [...s.deck.main, ...s.deck.side].map(c => c.name)))]
@@ -102,9 +120,9 @@ export default function App() {
   const updated = meta?.[0]?.updated
   const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? t('decks.srcCache') : t('decks.srcTop8')
   const stale = updated && daysAgo(updated) > STALE_DAYS
-  const page = route.page === 'collezione' ? 'collezione' : route.page === 'carte' ? 'carte' : sel ? 'mazzo' : 'mazzi'
+  const page = route.page === 'collection' ? 'collection' : route.page === 'key-cards' ? 'key-cards' : sel ? 'deck' : 'decks'
   const count = collection.reduce((s, c) => s + c.qty, 0)
-  const navCurrent = p => (p === 'mazzi' ? page === 'mazzi' || page === 'mazzo' : page === p) ? 'page' : undefined
+  const navCurrent = p => (p === 'decks' ? page === 'decks' || page === 'deck' : page === p) ? 'page' : undefined
 
     const formatTabs = (
     <div className="formats" role="tablist" aria-label={t('format')}>
@@ -115,15 +133,15 @@ export default function App() {
   return (
     <div className="app">
       <a className="skip" href="#contenuto" onClick={e => { e.preventDefault(); document.getElementById('contenuto')?.focus() }}>{t('skip')}</a>
-      <header className="topbar">
-        <a className="brand" href="#/mazzi" aria-label={t('home')}>
+      <header className={`topbar${compact ? ' compact' : ''}`} ref={headRef}>
+        <a className="brand" href="#/decks" aria-label={t('home')}>
           <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <i key={c} className={`ms ms-${c} ms-cost`} />)}</span>
           Netdeckable
         </a>
         <nav className="nav-top" aria-label={t('sections')}>
-          <a href="#/mazzi" aria-current={navCurrent('mazzi')}>{t('nav.decks')}</a>
-          <a href="#/carte" aria-current={navCurrent('carte')}>{t('nav.keycards')}</a>
-          <a href="#/collezione" aria-current={navCurrent('collezione')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
+          <a href="#/decks" aria-current={navCurrent('decks')}>{t('nav.decks')}</a>
+          <a href="#/key-cards" aria-current={navCurrent('key-cards')}>{t('nav.keycards')}</a>
+          <a href="#/collection" aria-current={navCurrent('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
         </nav>
         <div className="prefs">
           <label className="select lang-select">
@@ -141,18 +159,24 @@ export default function App() {
 
       <main className="content" id="contenuto" tabIndex={-1}>
         <ErrorBoundary key={page}>
-          {page === 'mazzi' && <>
+          {page === 'decks' && <>
             {formatTabs}
             <header className="page-head">
               <h1>{t('decks.title', formatName)}</h1>
               {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.length, sourceText, dayMonth(updated))}</p>}
             </header>
 
+            {rogue.length > 0 && (
+              <button className="rogue-jump" onClick={toRogue}>
+                <span aria-hidden="true">🌶</span>{t('rogue.jump', rogue.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
+              </button>
+            )}
+
             {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
             {!collection.length && (
               <div className="callout">
                 <p><b>{t('decks.noCollB')}</b> {t('decks.noColl')}</p>
-                <a className="btn btn-primary" href="#/collezione">{t('loadCollection')}</a>
+                <a className="btn btn-primary" href="#/collection">{t('loadCollection')}</a>
               </div>
             )}
 
@@ -181,16 +205,16 @@ export default function App() {
 
             {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
               : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
-                : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors} highlightFirst={false} onOpen={id => go('mazzo', id)} />
+                : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors} highlightFirst={false} onOpen={id => go('deck', id)} />
                   : <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>}
 
             {rogue.length > 0 && (
               <section className="rogue" aria-labelledby="rogue-title">
                 <header className="rogue-head">
-                  <h2 id="rogue-title"><span aria-hidden="true">🌶</span> {t('rogue.title')}</h2>
+                  <h2 id="rogue-title" tabIndex={-1}><span aria-hidden="true">🌶</span> {t('rogue.title')}</h2>
                   <p>{t('rogue.intro')}</p>
                 </header>
-                <DeckList ranked={rogue} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('mazzo', id)} />
+                <DeckList ranked={rogue} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('deck', id)} />
               </section>
             )}
 
@@ -200,27 +224,27 @@ export default function App() {
             <MetaImporter format={format} formatName={formatName} onAdd={ds => setUserDecks([...userDecks, ...ds])} toast={toast} />
           </>}
 
-          {page === 'mazzo' && (
+          {page === 'deck' && (
             <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
-              onBack={() => history.length > 1 ? history.back() : go('mazzi')}
-              onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('mazzi') } : null} />
+              onBack={() => history.length > 1 ? history.back() : go('decks')}
+              onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}
 
-          {page === 'carte' && <>
+          {page === 'key-cards' && <>
             {formatTabs}
             <KeyCards ranked={ranked} formatName={formatName} hasCollection={collection.length > 0} toast={toast} />
           </>}
 
-          {page === 'collezione' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} />}
+          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} />}
         </ErrorBoundary>
       </main>
 
       <footer className="site-footer">Netdeckable v{__APP_VERSION__}</footer>
 
       <nav className="tabbar" aria-label={t('sections')}>
-        <a href="#/mazzi" aria-current={navCurrent('mazzi')}><IconDecks />{t('nav.decks')}</a>
-        <a href="#/carte" aria-current={navCurrent('carte')}><IconKey />{t('nav.keycards')}</a>
-        <a href="#/collezione" aria-current={navCurrent('collezione')}><IconBox />{t('nav.collection')}</a>
+        <a href="#/decks" aria-current={navCurrent('decks')}><IconDecks />{t('nav.decks')}</a>
+        <a href="#/key-cards" aria-current={navCurrent('key-cards')}><IconKey />{t('nav.keycards')}</a>
+        <a href="#/collection" aria-current={navCurrent('collection')}><IconBox />{t('nav.collection')}</a>
       </nav>
 
       <div className="toast-zone" aria-live="polite">
