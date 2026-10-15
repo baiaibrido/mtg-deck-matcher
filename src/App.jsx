@@ -9,7 +9,7 @@ import { deckColors, missingCost, WUBRG, colorName } from './lib/deckInfo.js'
 import { t, LANGS, getLang, setLang, dayMonth, locale } from './i18n/index.js'
 import { money, localBudget, setRates, CURRENCIES, currency, setCurrency, currencySymbol } from './lib/currency.js'
 import { newBans, formatList } from './lib/bans.js'
-import DeckList, { costText } from './components/DeckList.jsx'
+import DeckList from './components/DeckList.jsx'
 import DeckDetail from './components/DeckDetail.jsx'
 import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
@@ -261,14 +261,18 @@ export default function App() {
                 <h2 className="daily-title" id="daily-title">{t('daily.group')}</h2>
                 <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={openDaily} streak={liveStreak(fun.streak)} />
                 <div className="daily-games">
-                  <button className="game-btn game-quiz" onClick={() => setGame('quiz')}><span aria-hidden="true">🪞</span><span>{t('quiz.btn')}</span></button>
                   {(() => {
                     const g = guessStore[`${format}|${dayKey()}`] || [], ans = guessDeck(meta, format)?.name
                     const badge = g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
                     return <button className="game-btn game-guess-btn" onClick={() => setGame('guess')}>
-                      <span aria-hidden="true">🔎</span><span>{t('guess.btn')}</span>{badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}
+                      <span aria-hidden="true">🔎</span>
+                      <span className="game-btn-text"><b>{t('guess.btn')} {badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}</b><small>{t('guess.sub')}</small></span>
                     </button>
                   })()}
+                  <button className="game-btn game-quiz" onClick={() => setGame('quiz')}>
+                    <span aria-hidden="true">🪞</span>
+                    <span className="game-btn-text"><b>{t('quiz.btn')}</b><small>{t('quiz.sub')}</small></span>
+                  </button>
                 </div>
               </section>}
             </div>

@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import { t, num } from '../i18n/index.js'
 import { ColorPips } from './Mana.jsx'
 import { getCached } from '../lib/scryfall.js'
-import { dayKey, untilMidnight } from '../lib/daily.js'
+import { dayKey, untilMidnight, hash } from '../lib/daily.js'
 import { useLocal } from '../state/useLocal.js'
 
-const hash = s => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
 // "Red Madness" → "R?? M??????": il nome si svela solo passandoci sopra
 const mask = name => name.replace(/\p{L}+/gu, w => w[0] + '?'.repeat(w.length - 1))
 

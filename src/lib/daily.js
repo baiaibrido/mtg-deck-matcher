@@ -4,7 +4,7 @@ import { BASICS } from './keyCards.js'
 // Mazzo misterioso del giorno: uno tra i meno blasonati del formato (metà bassa del meta per quota + rogue),
 // uguale per tutti nello stesso giorno, cambia a mezzanotte (ora locale).
 export const dayKey = (d = new Date()) => `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
-const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0 }
+export const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0 } // FNV-1a: stesso risultato per tutti nello stesso giorno
 
 export function dailyPool(decks) {
   const meta = decks.filter(d => !d.rogue && d.source !== 'utente').sort((a, b) => (b.share || 0) - (a.share || 0))

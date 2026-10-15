@@ -4,14 +4,14 @@ import { IconCheck } from './Icons.jsx'
 import { hoverProps } from './DeckDetail.jsx'
 
 // Nel dettaglio mazzo (colonna destra): conversione in top 8, cuore della lista / posti liberi, side contro di te
+export const ConvLine = ({ deck }) => deck.conv ? <p className="ins-conv">🏁 {t('ins.conv', num(deck.conv[1]), num(deck.conv[0]), num(Math.round(deck.conv[1] / deck.conv[0] * 10) / 10))}</p> : null
+
 export default function DeckInsights({ deck, decks, owned, onOpen, idOf }) {
   const cw = coreWithOwned(deck, owned)
   const sa = sideAgainst(deck, decks)
   const hasColl = owned.size > 0
   const own = (have, qty) => <span className={`ins-own ${have >= qty ? 'ok' : have ? 'part' : 'no'}`}>{have >= qty ? <IconCheck size={12} /> : `${have}/${qty}`}</span>
   return <>
-    {deck.conv && <p className="ins-conv">🏁 {t('ins.conv', num(deck.conv[1]), num(deck.conv[0]), num(Math.round(deck.conv[1] / deck.conv[0] * 10) / 10))}</p>}
-
     {cw && <section className="ins" aria-labelledby="core-title">
       <h2 id="core-title">{t('ins.core')}</h2>
       <p className="ins-note">{t('ins.core.intro', num(cw.lists))}{hasColl && (cw.missing ? ` ${t('ins.core.missing', cw.missing)}` : ` ${t('ins.core.have')}`)}</p>

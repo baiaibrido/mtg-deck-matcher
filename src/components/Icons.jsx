@@ -28,6 +28,5 @@ export const IconFilter = p => <I {...p} d={<path d="M4 6h16M7 12h10M10 18h4" />
 export const IconGlobe = p => <I {...p} d={<><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9M12 3C9.4 5.6 8.2 8.6 8.2 12s1.2 6.4 3.8 9" /></>} />
 export const IconCoins = p => <I {...p} d={<><ellipse cx="9" cy="7" rx="6" ry="3" /><path d="M3 7v4c0 1.7 2.7 3 6 3s6-1.3 6-3V7" /><path d="M9 14v3c0 1.7 2.7 3 6 3s6-1.3 6-3v-4c0-1.7-2.7-3-6-3" /></>} />
 export const IconCaret = p => <I {...p} d={<path d="M7 10l5 5 5-5" />} />
-export const IconDice = p => <I {...p} d={<><rect x="4" y="4" width="16" height="16" rx="3.5" /><circle cx="9" cy="9" r="1.1" fill="currentColor" /><circle cx="15" cy="15" r="1.1" fill="currentColor" /><circle cx="15" cy="9" r="1.1" fill="currentColor" /><circle cx="9" cy="15" r="1.1" fill="currentColor" /></>} />
 export const IconShare = p => <I {...p} d={<><path d="M12 15V4m0 0L8 8m4-4 4 4" /><path d="M6 12v6.5A1.5 1.5 0 0 0 7.5 20h9a1.5 1.5 0 0 0 1.5-1.5V12" /></>} />
 export const IconChart = p => <I {...p} d={<><path d="M4 20h16" /><path d="M7 16v-5M12 16V7M17 16v-8" /></>} />

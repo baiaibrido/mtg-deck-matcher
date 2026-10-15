@@ -219,7 +219,6 @@ export default function CollectionManager({ collection, setCollection, toast, be
         return <p className="pers"><span aria-hidden="true">📣</span>{t('pers.line', who, p.pct)}
           {best && best.score > 0 && <> {t('pers.best')} <button className="linklike" onClick={() => onOpen(best.deck.id)}>{best.deck.name}</button> ({Math.round(best.score * 100)}%).</>}</p>
       })()}
-      <Achievements unlocked={unlocked} />
 
       <div className="coll-actions">
         <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
@@ -241,6 +240,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
       {load.total > 0 && load.done < load.total && !load.error && <p className="hint" role="status">{t('coll.loadingImg', load.done, load.total)}</p>}
       {load.error && <p className="note note-error">{t('coll.scryDown')}</p>}
+      <Achievements unlocked={unlocked} />
 
       <div className="coll-tools">
         <label className="search">

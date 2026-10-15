@@ -1,5 +1,5 @@
 import ConfirmButton from './ConfirmButton.jsx'
-import DeckInsights from './DeckInsights.jsx'
+import DeckInsights, { ConvLine } from './DeckInsights.jsx'
 import { useMemo, useState } from 'react'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
@@ -183,6 +183,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
 
       {hasMeta && <aside className="detail-side meta-tab" aria-label={t('tab.meta')}>
         {s.deck.history && s.deck.historyWeeks && <HistoryChart weeks={s.deck.historyWeeks} values={s.deck.history} />}
+        <ConvLine deck={s.deck} />
         {s.deck.field && <Matchups deck={s.deck} onOpen={onOpen} idOf={idOf} />}
         <DeckInsights deck={s.deck} decks={decks} owned={owned} onOpen={onOpen} idOf={idOf} />
       </aside>}

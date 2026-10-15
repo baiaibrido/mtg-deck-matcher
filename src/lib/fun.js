@@ -1,9 +1,8 @@
 // Funzioni "giocose" (pure, testate in fun.test.js): giochi, meteo del meta, traguardi.
 import { norm } from './normalize.js'
 import { BASICS } from './keyCards.js'
-import { dayKey, pickSignature } from './daily.js'
+import { dayKey, pickSignature, hash } from './daily.js'
 
-export const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0 }
 const prevDay = key => { const [y, m, d] = key.split('-').map(Number); return dayKey(new Date(y, m - 1, d - 1)) }
 const metaOnly = decks => decks.filter(d => !d.rogue && d.source !== 'utente')
 
