@@ -117,4 +117,5 @@ export default {
   'coll.importFile': 'Importar de arquivo',
   'coll.importFileHint': 'exportação ou backup',
   'coll.fileChoice': (f, n) => `«${f}»: ${n} cartas reconhecidas. O que você quer fazer?`,
+  toTop: 'Voltar ao topo',
 }

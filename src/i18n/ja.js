@@ -114,4 +114,5 @@ export default {
   'coll.importFile': 'ファイルから読み込む',
   'coll.importFileHint': 'エクスポート・バックアップ',
   'coll.fileChoice': (f, n) => `「${f}」：${n}枚を認識しました。どうしますか？`,
+  toTop: 'ページの先頭へ',
 }

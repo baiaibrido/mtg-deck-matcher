@@ -679,3 +679,14 @@ main:focus { outline: none; }
 .trend { font-size: .86rem; }
 .coll-drag { outline: 2px dashed var(--brass); outline-offset: 8px; border-radius: var(--r-lg); }
 .confirm-file { margin-top: 12px; border-color: var(--rail); background: var(--baize); }
+
+/* Torna su: compare dopo circa due schermate, sopra la barra in basso su telefono */
+.to-top {
+  position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 16px); z-index: 25;
+  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+  border: 1px solid var(--rail); background: var(--pop-bg); color: var(--bone); backdrop-filter: blur(10px); box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s var(--ease), border-color .2s;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { border-color: var(--brass); color: var(--brass); }
+@media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }

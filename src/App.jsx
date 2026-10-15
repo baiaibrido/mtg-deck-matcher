@@ -65,8 +65,9 @@ export default function App() {
   // Header sempre visibile: si compatta scorrendo (soglie diverse in su e in giù per non sfarfallare)
   const headRef = useRef(null)
   const [compact, setCompact] = useState(false)
+  const [showTop, setShowTop] = useState(false) // pulsante "Torna su" dopo circa due schermate
   useEffect(() => {
-    const on = () => setCompact(c => c ? scrollY > 8 : scrollY > 40)
+    const on = () => { setCompact(c => c ? scrollY > 8 : scrollY > 40); setShowTop(scrollY > innerHeight * 1.5) }
     on(); addEventListener('scroll', on, { passive: true })
     return () => removeEventListener('scroll', on)
   }, [])
@@ -324,6 +325,10 @@ export default function App() {
         <a href="#/collection" aria-current={navCurrent('collection')}><IconBox />{t('nav.collection')}</a>
       </nav>
 
+      <button className={`to-top${showTop ? ' show' : ''}`} onClick={() => scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}
+        aria-label={t('toTop')} title={t('toTop')} tabIndex={showTop ? 0 : -1} aria-hidden={!showTop}>
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      </button>
       <div className="toast-zone" aria-live="polite">
         {toastMsg && (
           <div className={`toast${toastMsg.action ? ' toast-action' : ''}`} key={toastMsg.id}>
