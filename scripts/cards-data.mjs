@@ -71,5 +71,17 @@ export async function downloadOracle(fetchImpl = fetch) {
   // il file può arrivare compresso (gzip) senza che il server lo dichiari: si decomprime a mano
   let buf = Buffer.from(await r.arrayBuffer())
   if (buf[0] === 0x1f && buf[1] === 0x8b) buf = gunzipSync(buf)
-  return JSON.parse(buf.toString('utf8'))
+  return parseCards(buf.toString('utf8'))
+}
+
+// Array JSON classico oppure una carta per riga (JSON Lines): accetta entrambi
+export function parseCards(text) {
+  try { const j = JSON.parse(text); return Array.isArray(j) ? j : j.data || [] } catch { /* non è un unico JSON */ }
+  const out = []
+  for (let line of text.split('\n')) {
+    line = line.trim().replace(/,$/, '')
+    if (!line || line === '[' || line === ']') continue
+    out.push(JSON.parse(line))
+  }
+  return out
 }

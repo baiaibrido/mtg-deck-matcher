@@ -31,3 +31,10 @@ test('scaricamento: indirizzo dal catalogo bulk, intestazioni richieste da Scryf
   assert.equal(seen[1][0], 'https://data.scryfall.io/oracle.json')
   assert.ok(seen.every(([, h]) => h['User-Agent'] && h.Accept))
 })
+
+test('file Scryfall: array JSON o una carta per riga', async () => {
+  const { parseCards } = await import('./cards-data.mjs')
+  assert.equal(parseCards(JSON.stringify(oracle)).length, 4)
+  assert.equal(parseCards(oracle.map(c => JSON.stringify(c)).join('\n') + '\n').length, 4)
+  assert.equal(parseCards('[\n' + oracle.map(c => JSON.stringify(c)).join(',\n') + '\n]').length, 4)
+})
