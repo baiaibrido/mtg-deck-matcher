@@ -115,7 +115,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
             <TierBadge tier={s.deck.tier} />
             {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
-            <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} />
+            <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} />
           </>}
           {s.deck.archetype && <span>{t('detail.variant', s.deck.archetype)}</span>}
           {price && <span className="price">{t('detail.toComplete', price)}</span>}

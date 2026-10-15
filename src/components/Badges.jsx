@@ -6,8 +6,10 @@ export function TierBadge({ tier }) {
   return <span className={`tier tier-${tier}`} title={`Tier ${tier}`}>Tier {tier}</span>
 }
 
-export function Trend({ share, prev, prevDate }) {
+export function Trend({ share, prev, prevDate, history }) {
   if (!prevDate) return null
+  // "nuovo" solo se il mazzo non compariva nemmeno nelle settimane precedenti (non solo fuori dalla classifica dell'ultimo sync)
+  if (prev == null && (history || []).slice(0, -1).filter(v => v != null).length >= 2) return null
   if (prev == null) return <span className="trend trend-new" title={t('trend.newTitle')}>{t('trend.new')}</span>
   const d = Math.round((share - prev) * 10) / 10
   if (Math.abs(d) < 0.5) return <span className="trend trend-flat" title={t('trend.flatTitle')}>{t('trend.flat')}</span>

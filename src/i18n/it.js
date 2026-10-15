@@ -83,11 +83,11 @@ export default {
   'coll.listAria': 'Elenco carte',
   'coll.placeholder': "Oppure scrivi o incolla l'elenco, una carta per riga, con le copie prima o dopo il nome:\n4 Lightning Bolt\nCounterspell 2\nSnow-Covered Island x1",
   'coll.addTo': 'Aggiungi alla collezione', 'coll.replace': 'Sostituisci collezione',
-  'coll.importHint': 'Le terre base non servono: le consideriamo sempre possedute. Per spostare la collezione su un altro dispositivo scarica il backup e caricalo lì con "Sostituisci collezione".',
+  'coll.importHint': 'Le terre base non servono: le consideriamo sempre possedute. Per spostare la collezione su un altro dispositivo usa "Esporta" qui e "Importa backup" lì.',
   'coll.title': 'La tua collezione',
   'coll.emptyIntro': 'Aggiungi le carte che possiedi per scoprire quali mazzi puoi completare. La collezione resta salvata solo su questo dispositivo.',
   'coll.summary': (tot, dist) => `${tot} carte, ${dist} diverse`, 'coll.value': ', valore stimato ', 'coll.savedHere': 'Salvata solo su questo dispositivo.',
-  'coll.fixNames': 'Correggi i nomi', 'coll.backup': 'Backup', 'coll.backupDone': 'Backup scaricato', 'coll.file': 'collezione',
+  'coll.fixNames': 'Correggi i nomi', 'coll.backup': 'Esporta', 'coll.backupDone': 'Backup scaricato', 'coll.file': 'collezione',
   'coll.clear': 'Svuota', 'coll.confirmClear': 'Svuotare tutta la collezione?', 'coll.cleared': 'Collezione svuotata',
   'coll.loadingImg': (d, tot) => `Carico immagini e prezzi da Scryfall… ${d}/${tot}`,
   'coll.scryDown': 'Scryfall non risponde: immagini e prezzi non sono disponibili, la collezione funziona lo stesso.',
@@ -103,7 +103,7 @@ export default {
 
   // filtro budget, storico, matchup, ban
   budget: 'Budget', 'budget.any': 'Qualsiasi', 'budget.max': e => `fino a ${e}`, 'sort.meta': 'Migliori contro il meta',
-  wrShort: p => `${p}% vittorie`, 'tab.meta': 'Andamento e matchup',
+  wrShort: p => `${p}% contro il meta`, 'tab.meta': 'Andamento e matchup',
   'hist.title': 'Quota del meta, ultime 12 settimane', 'hist.point': (d, v) => `Settimana dal ${d}: ${v}`, 'hist.na': 'dati insufficienti',
   'hist.aria': (a, b) => `Quota del meta passata da ${a}% a ${b}% nelle ultime 12 settimane`,
   'mu.title': 'Matchup', 'mu.meta': 'vittorie contro il meta', 'mu.metaHint': 'media pesata su quanto è giocato ogni avversario, corretta per i matchup con poche partite',
@@ -120,4 +120,8 @@ export default {
   'coll.fixHint': 'corregge gli errori di battitura',
   'coll.clearYes': 'Sì, svuota',
   'detail.deleteYes': 'Sì, elimina',
+  completeSub: 'main + side',
+  deckCost: p => `Costo del mazzo ${p}`,
+  'coll.restore': 'Importa backup',
+  filters: 'Filtri',
 }

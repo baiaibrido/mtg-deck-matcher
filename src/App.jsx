@@ -15,7 +15,7 @@ import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
 import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar } from './components/Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter } from './components/Icons.jsx'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
@@ -44,6 +44,7 @@ export default function App() {
   const [userDecks, setUserDecks] = useLocal('mdm.userDecks', [])
   const [viewRaw, setView] = useLocal('mdm.view', {})
   const view = { sort: 'score', tier: 0, colors: [], budget: 0, ...viewRaw }
+  const activeFilters = (view.sort !== 'score') + (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
   const [seenBans, setSeenBans] = useLocal('mdm.bansSeen', null)
   const [formats, setFormats] = useState([])
   const [meta, setMeta] = useState(null)
@@ -57,6 +58,7 @@ export default function App() {
   // schermi stretti: nei selettori solo i codici (IT, EUR…) per far stare tutto nell'header
   const [narrow, setNarrow] = useState(() => matchMedia('(max-width: 519px)').matches)
   useEffect(() => { const m = matchMedia('(max-width: 519px)'); const on = () => setNarrow(m.matches); m.addEventListener('change', on); return () => m.removeEventListener('change', on) }, [])
+  const [filtersOpen, setFiltersOpen] = useState(false) // su telefono i filtri stanno chiusi dietro un pulsante
   const [pins, setPins] = useLocal('mdm.pins', []) // mazzi preferiti: restano in cima qualunque filtro ci sia
   const togglePin = id => setPins(pins.includes(id) ? pins.filter(x => x !== id) : [...pins, id])
   const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
@@ -223,8 +225,11 @@ export default function App() {
               </div>
             )}
 
+            {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
+              <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
+            </button>}
             {decks.length > 1 && (
-              <div className="filters">
+              <div className={`filters${filtersOpen ? ' open' : ''}`}>
                 <label className="select">
                   <span>{t('sort')}</span>
                   <select value={view.sort} onChange={e => setV({ sort: e.target.value })}>
@@ -258,10 +263,10 @@ export default function App() {
                   {pinned.length > 0 && (
                     <section className="pinned" aria-labelledby="pinned-title">
                       <h2 id="pinned-title" className="pinned-title"><IconStar size={18} filled /> {t('pins.title')}</h2>
-                      <DeckList ranked={pinned} colorsOf={colorsOf} costOf={costOf} animKey={format + 'pins'} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} />
+                      <DeckList ranked={pinned} colorsOf={colorsOf} costOf={costOf} animKey={format + 'pins'} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} owned={collection.length > 0} />
                     </section>
                   )}
-                  {all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors + view.budget} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} />
+                  {all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors + view.budget} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} owned={collection.length > 0} />
                   : <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>}
                 </>}
 
@@ -271,7 +276,7 @@ export default function App() {
                   <h2 id="rogue-title" tabIndex={-1}><span aria-hidden="true">🌶</span> {t('rogue.title')}</h2>
                   <p>{t('rogue.intro', metaMain.length)}</p>
                 </header>
-                <DeckList ranked={rogueShown} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} />
+                <DeckList ranked={rogueShown} colorsOf={colorsOf} costOf={costOf} animKey={format + 'rogue'} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} owned={collection.length > 0} />
               </section>
             )}
 

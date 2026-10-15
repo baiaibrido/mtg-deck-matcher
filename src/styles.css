@@ -661,3 +661,19 @@ main:focus { outline: none; }
 .btn-2l { display: inline-grid; line-height: 1.15; text-align: left; }
 .btn-2l small { font-weight: 400; font-size: .74rem; color: var(--lichen); }
 @media (max-width: 559px) { .confirm { width: 100%; padding: 10px 12px; } .confirm-q { flex-basis: 100%; } }
+
+/* v0.13.5: filtri richiudibili su telefono, testi delle schede più leggibili */
+.filters-toggle { display: none; }
+@media (max-width: 719px) {
+  .filters-toggle { display: inline-flex; margin: 0 0 12px; }
+  .filters-toggle.open { border-color: var(--brass); color: var(--brass); }
+  .filters-toggle .count { margin-left: 2px; background: var(--brass); color: var(--felt); }
+  .filters:not(.open) { display: none; }
+}
+.deck-sub { font-size: .92rem; }
+.deck-need { font-size: .92rem; }
+.meter { font-size: .86rem; }
+.tier, .ban-chip { font-size: .8rem; }
+.deck-score span { font-size: .82rem; }
+.deck-score .deck-score-sub { font-size: .72rem; margin-top: 1px; opacity: .8; }
+.trend { font-size: .86rem; }

@@ -134,6 +134,13 @@ export default function CollectionManager({ collection, setCollection, toast }) 
     } catch (err) { setMsg({ kind: 'error', text: t('coll.scryErr', err.message) }) }
     setBusy(false)
   }
+  // Importa backup: sostituisce la collezione con quella del file (annullabile)
+  const restore = text => {
+    const parsed = parseCollection(text)
+    if (!parsed.length) { setMsg({ kind: 'error', text: t('coll.noneRecognized') }); return }
+    const prev = collection; setCollection(parsed)
+    toast(t('coll.replaced', parsed.reduce((s, c) => s + c.qty, 0)), { label: t('undo'), fn: () => setCollection(prev) })
+  }
   const setQty = (name, qty) => setCollection(collection.map(c => c.name === name ? { ...c, qty } : c).filter(c => c.qty > 0))
   const remove = name => {
     const prev = collection
@@ -196,6 +203,9 @@ export default function CollectionManager({ collection, setCollection, toast }) 
         <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
         <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} /><span className="btn-2l">{t('coll.fixNames')}<small>{t('coll.fixHint')}</small></span></button>
         <button className="btn btn-quiet" onClick={() => { downloadTxt(`${t('coll.file')}-${new Date().toISOString().slice(0, 10)}.csv`, collectionCsv(collection), 'text/csv'); toast(t('coll.backupDone')) }}><IconDownload size={18} />{t('coll.backup')}</button>
+        <label className="btn btn-quiet"><IconUpload size={18} />{t('coll.restore')}
+          <input type="file" accept=".csv,.txt,text/csv,text/plain" hidden onChange={async e => { const f = e.target.files?.[0]; e.target.value = ''; if (f) restore(await f.text()) }} />
+        </label>
         <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
           onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
       </div>
