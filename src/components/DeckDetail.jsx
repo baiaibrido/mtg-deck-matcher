@@ -159,7 +159,9 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
           <a className="btn" href={tcgplayerUrl(s.missing)} target="_blank" rel="noreferrer"><IconCart size={18} />TCGplayer</a>
           <button className="btn" onClick={() => downloadTxt(`${t('detail.file')}-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.txt`, list)}><IconDownload size={18} />{t('download')}</button>
+          {cost.known > 0 && <span className="key-total">{t('detail.total')} ≈ {money(cost.amount)}{cost.unknown ? ` (${t('noPrice', cost.unknown)})` : ''}</span>}
         </div>
+        <p className="hint hint-top">{t('detail.hint', priceSource())}</p>
         <ul className="need-list">
           {missRows.map(r => {
             const c = getCached(r.name)
@@ -172,16 +174,8 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
               </li>
             )
           })}
-          {cost.known > 0 && (
-            <li className="need-total">
-              <span />
-              <span>{t('detail.total')}{cost.unknown ? ` (${t('noPrice', cost.unknown)})` : ''}</span>
-              <span />
-              <span className="need-price">{money(cost.amount, true)}</span>
-            </li>
-          )}
         </ul>
-        <p className="hint">{t('detail.hint', priceSource())}</p>
+
       </> : <p className="empty">{t('detail.haveAll')}</p>)}
       </div>
 
