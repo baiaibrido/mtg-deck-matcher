@@ -58,6 +58,7 @@ Principi:
 | v0.9.1: cestino per eliminare una carta dalla collezione (con Annulla), correzione nomi affidabile, terre base fuori dalla % di completamento | Segnalazioni dall'uso in negozio |
 | v0.9.2: Correggi i nomi con l'elenco completo delle carte quando la ricerca di Scryfall non basta; copie in basso a sinistra e cestino in basso al centro sulle miniature | Refusi come "of ine mind" non venivano corretti; badge e cestino coprivano nome e forza/costituzione |
 | v0.9.3: cursore già nella casella dopo "Aggiungi carte"; copie prima o dopo il nome ("4 Bolt", "Bolt 4", "Bolt x4", "Bolt (4)") | Inserimento più veloce al banco |
+| v0.9.4: elenco mazzi su due colonne con tutti i 30 mazzi (via la scheda "I 5 migliori"); copie in basso a sinistra anche nelle carte del mazzo | Meno scorrimento, tutto il meta a colpo d'occhio |
 
 ## Dopo (gennaio e oltre, da valutare)
 - **Collezione sincronizzata tra dispositivi** (Firebase, già usato negli altri progetti).

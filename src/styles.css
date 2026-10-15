@@ -123,6 +123,7 @@ textarea { resize: vertical; line-height: 1.45; }
 
 /* ───────── Lista mazzi: cornici nei colori del mazzo ───────── */
 .decks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 720px) { .decks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .deck-btn { height: 100%; } }
 .deck {
   --c1: var(--mana-c); --c2: var(--mana-c);
   border: 2px solid transparent; border-radius: var(--r-lg);
@@ -247,7 +248,7 @@ textarea { resize: vertical; line-height: 1.45; }
 .tile-ph { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 8px; font-size: .78rem; line-height: 1.25; border: 1px solid var(--rail); border-radius: inherit; }
 .tile-no img, .tile-no .tile-ph { filter: grayscale(.85) brightness(.55); }
 .tile-qty {
-  position: absolute; right: 5px; bottom: 5px; display: inline-flex; align-items: center; gap: 3px;
+  position: absolute; left: 5px; bottom: 5px; display: inline-flex; align-items: center; gap: 3px;
   padding: 2px 7px; border-radius: 99px; font-size: .75rem; font-weight: 700; font-variant-numeric: tabular-nums;
   background: rgba(10, 14, 15, .88); box-shadow: inset 0 0 0 1.5px var(--st, var(--rail));
 }

@@ -1,6 +1,6 @@
 # MTG Deck Matcher — claude.md
 
-App web (React + Vite, solo frontend, PWA). Confronta la collezione dell'utente con i mazzi meta di un formato: Top 5 / tutti (fino a 30) con filtri, tier, trend, costo per completare, mancolista, carte chiave. Piano: `docs/ROADMAP.md`.
+App web (React + Vite, solo frontend, PWA). Confronta la collezione dell'utente con i mazzi meta di un formato: tutti i mazzi (fino a 30, due colonne da 720px) con filtri, tier, trend, costo per completare, mancolista, carte chiave. Piano: `docs/ROADMAP.md`.
 
 ## Project map
 ```

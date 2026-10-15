@@ -14,7 +14,7 @@ import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import { IconDecks, IconBox, IconKey } from './components/Icons.jsx'
 
-const TOP_N = 5
+const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
 const STALE_DAYS = 3
 const fmtDate = d => d ? new Date(d + 'T12:00:00').toLocaleDateString('it-IT', { day: 'numeric', month: 'long' }) : null
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
@@ -40,7 +40,7 @@ export default function App() {
   useEffect(() => { if (collection.some(c => isBasic(c.name))) setCollection(collection) }, []) // pulizia collezioni salvate prima
   const [userDecks, setUserDecks] = useLocal('mdm.userDecks', [])
   const [viewRaw, setView] = useLocal('mdm.view', {})
-  const view = { mode: 'top', sort: 'score', tier: 0, colors: [], ...viewRaw }
+  const view = { sort: 'score', tier: 0, colors: [], ...viewRaw }
   const [formats, setFormats] = useState([])
   const [meta, setMeta] = useState(null)
   const [cardsState, setCardsState] = useState('idle') // idle | loading | ready | error
@@ -52,7 +52,7 @@ export default function App() {
 
   const decks = useMemo(() => [...(meta || []), ...userDecks.filter(d => d.format === format)], [meta, userDecks, format])
   const ranked = useMemo(() => rankDecks(decks, collection, Infinity), [decks, collection])
-  const top = ranked.slice(0, TOP_N)
+  const top = ranked.slice(0, FIRST_BATCH)
   const sel = route.page === 'mazzo' ? ranked.find(s => s.deck.id === route.id) : null
 
   // Dati Scryfall: prima i mazzi in vista (colori subito), poi tutti gli altri del formato (prezzi, filtri, carte chiave)
@@ -76,7 +76,7 @@ export default function App() {
   const colorsOf = deck => deckColors(deck, getCached) ?? (cardsState === 'error' ? undefined : null)
   const costOf = s => missingCost(s.missing, getCached)
 
-  // Vista "Tutti": filtri per tier e colori, ordinamento
+  // Tutti i mazzi del formato: filtri per tier e colori, ordinamento
   const all = useMemo(() => {
     let list = ranked.map((s, i) => ({ ...s, rank: i + 1 }))
     if (view.tier) list = list.filter(s => s.deck.tier === view.tier)
@@ -134,14 +134,7 @@ export default function App() {
               </div>
             )}
 
-            {decks.length > TOP_N && (
-              <div className="seg" role="tablist" aria-label="Quali mazzi">
-                <button role="tab" aria-selected={view.mode === 'top'} onClick={() => setV({ mode: 'top' })}>I 5 migliori</button>
-                <button role="tab" aria-selected={view.mode === 'all'} onClick={() => setV({ mode: 'all' })}>Tutti <span className="count">{decks.length}</span></button>
-              </div>
-            )}
-
-            {view.mode === 'all' && decks.length > TOP_N && (
+            {decks.length > 1 && (
               <div className="filters">
                 <label className="select">
                   <span>Ordina</span>
@@ -164,14 +157,12 @@ export default function App() {
               </div>
             )}
 
-            {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 5 }, (_, i) => <li key={i} className="deck" />)}</ol>
+            {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
               : !decks.length ? <p className="empty">Nessun mazzo disponibile per {formatName}. Puoi aggiungerne uno a mano.</p>
-                : view.mode === 'all' && decks.length > TOP_N
-                  ? (all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors} highlightFirst={false} onOpen={id => go('mazzo', id)} />
-                    : <p className="empty">Nessun mazzo con questi filtri. {view.colors.length > 0 && 'Prova ad aggiungere un colore.'}</p>)
-                  : <DeckList ranked={top} colorsOf={colorsOf} costOf={costOf} animKey={format} onOpen={id => go('mazzo', id)} />}
+                : all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors} highlightFirst={false} onOpen={id => go('mazzo', id)} />
+                  : <p className="empty">Nessun mazzo con questi filtri. {view.colors.length > 0 && 'Prova ad aggiungere un colore.'}</p>}
 
-            {cardsState === 'loading' && view.mode === 'all' && <p className="hint">Carico colori e prezzi delle carte da Scryfall…</p>}
+            {cardsState === 'loading' && <p className="hint">Carico colori e prezzi delle carte da Scryfall…</p>}
             {cardsState === 'error' && <p className="note note-error">Scryfall non risponde: colori, immagini e prezzi non sono disponibili. Il calcolo funziona lo stesso.</p>}
 
             <MetaImporter format={format} formatName={formatName} onAdd={ds => setUserDecks([...userDecks, ...ds])} toast={toast} />
