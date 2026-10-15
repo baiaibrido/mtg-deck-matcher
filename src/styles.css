@@ -615,11 +615,6 @@ main:focus { outline: none; }
 
 /* Carte chiave: possedute/mancanti sul playset e vista a immagini */
 .key-buy { text-align: right; }
-.key-own { font-size: .86rem; color: var(--lichen); }
-.key-buy.tile-ok .key-own { color: var(--ok); }
-.key-buy.tile-part .key-own { color: var(--part); }
-.key-buy b { font-size: 1.05rem; }
-.key-full { display: inline-flex; align-items: center; gap: 4px; color: var(--ok) !important; font-size: .95rem !important; }
 .key-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px 12px; }
 @media (max-width: 560px) { .key-tiles { grid-template-columns: repeat(2, 1fr); } }
 .key-tiles li { display: grid; gap: 6px; align-content: start; }
@@ -632,3 +627,20 @@ main:focus { outline: none; }
 .detail-side .mu-num em { display: inline; }
 .detail-side .mu-num em .sep { display: inline; }
 .detail-side .hist-axis { font-size: 19px; }
+
+/* v0.13.1 */
+.actions-top { margin: 0 0 12px; }
+@media (max-width: 719px) { .actions-top { position: static; box-shadow: none; backdrop-filter: none; background: var(--baize); } }
+.hover-card { position: fixed; z-index: 50; width: 244px; aspect-ratio: 488 / 680; border-radius: 12px; box-shadow: 0 12px 36px rgba(0,0,0,.55); pointer-events: none; }
+@media (min-width: 720px) {
+  .detail-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 320px); gap: 8px 32px; align-items: center; }
+  .detail-head .detail-meta, .detail-head .detail-links { margin-bottom: 0; }
+  .detail-head .detail-links { margin-top: 2px; }
+}
+.detail-info > .note { margin: 10px 0 0; }
+.key-list { display: grid; gap: 8px; border: 0; background: none; overflow: visible; }
+.key-list li { border: 1px solid var(--rail) !important; border-radius: var(--r-lg); background: var(--baize); }
+@media (min-width: 820px) { .key-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.key-main .key-own { display: inline-flex; align-items: center; gap: 4px; font-size: .88rem; font-weight: 600; color: var(--no-ink); }
+.key-main .key-own.tile-part { color: var(--part); }
+.key-main .key-own.tile-ok { color: var(--ok); }

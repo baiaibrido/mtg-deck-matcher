@@ -27,6 +27,25 @@ function CardTile({ r }) {
   )
 }
 
+// Anteprima della carta al passaggio del mouse sul nome (solo con mouse: su touch il link apre Scryfall)
+let setPreview = () => {}
+const canHover = typeof matchMedia !== 'undefined' && matchMedia('(hover: hover) and (pointer: fine)').matches
+export const hoverProps = name => canHover ? {
+  onMouseEnter: e => { const c = getCached(name); if (c?.img) setPreview({ img: c.img, name, x: e.clientX, y: e.clientY }) },
+  onMouseMove: e => setPreview(p => p && { ...p, x: e.clientX, y: e.clientY }),
+  onMouseLeave: () => setPreview(null),
+} : {}
+
+function HoverCard() {
+  const [p, set] = useState(null)
+  setPreview = set
+  if (!p) return null
+  const W = 244, H = 340
+  const left = p.x + 24 + W > innerWidth ? p.x - 24 - W : p.x + 24
+  const top = Math.max(8, Math.min(p.y - H / 2, innerHeight - H - 8))
+  return <img className="hover-card" src={p.img} alt="" style={{ left, top }} />
+}
+
 // Riga della lista testuale: copie possedute/richieste, nome, costo
 function CardLine({ r }) {
   const c = getCached(r.name)
@@ -34,7 +53,7 @@ function CardLine({ r }) {
   return (
     <li className={`tline tile-${st}`}>
       <span className="tline-qty">{r.have}/{r.qty}</span>
-      <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="tline-name">{r.name}</a>
+      <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="tline-name" {...hoverProps(r.name)}>{r.name}</a>
       <ManaCost cost={c?.cost} />
     </li>
   )
@@ -81,9 +100,11 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
 
   return (
     <article className="detail" style={frameStyle(colors)}>
+      <HoverCard />
       <button className="back" onClick={onBack}><IconBack size={18} />{t('detail.back')}</button>
 
       <header className="detail-head">
+        <div className="detail-info">
         <div className="detail-title">
           <h1>{s.deck.name}</h1>
           <ColorPips colors={colors} size="1.15rem" />
@@ -103,6 +124,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecks')} <IconExternal size={14} /></a>}
         </p>
         {bans.length > 0 && <p className="note note-error">⚠ {t('ban.deck', bans.join(', '))}</p>}
+        </div>
         <div className="detail-meters">
           <Meter label="Main" {...s.main} />
           {s.side.total > 0 && <Meter label="Side" {...s.side} />}
@@ -133,13 +155,18 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       </>}
 
       {tab === 'need' && (missingCount ? <>
+        <div className="actions actions-top">
+          <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
+          <a className="btn" href={tcgplayerUrl(s.missing)} target="_blank" rel="noreferrer"><IconCart size={18} />TCGplayer</a>
+          <button className="btn" onClick={() => downloadTxt(`${t('detail.file')}-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.txt`, list)}><IconDownload size={18} />{t('download')}</button>
+        </div>
         <ul className="need-list">
           {missRows.map(r => {
             const c = getCached(r.name)
             return (
               <li key={r.name + r.qty}>
                 <span className="need-qty">{r.missing}</span>
-                <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="need-name">{r.name}</a>
+                <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="need-name" {...hoverProps(r.name)}>{r.name}</a>
                 <ManaCost cost={c?.cost} />
                 <span className="need-price">{priceOf(c) != null ? money(priceOf(c) * r.missing, true) : '—'}</span>
               </li>
@@ -154,11 +181,6 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
             </li>
           )}
         </ul>
-        <div className="actions">
-          <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
-          <a className="btn" href={tcgplayerUrl(s.missing)} target="_blank" rel="noreferrer"><IconCart size={18} />TCGplayer</a>
-          <button className="btn" onClick={() => downloadTxt(`${t('detail.file')}-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.txt`, list)}><IconDownload size={18} />{t('download')}</button>
-        </div>
         <p className="hint">{t('detail.hint', priceSource())}</p>
       </> : <p className="empty">{t('detail.haveAll')}</p>)}
       </div>

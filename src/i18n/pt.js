@@ -47,7 +47,7 @@ export default {
   'kc.scope': 'Decks considerados', 'kc.t12': 'Tier 1 e 2', 'kc.inDecks': n => `Em ${n} decks:`, 'kc.more': n => ` e mais ${n}`, 'kc.total': 'Total',
   'kc.none': 'Nenhuma carta que falta é compartilhada por pelo menos dois decks: ótimo trabalho.', 'kc.noData': 'Nenhum dado disponível.',
   'kc.hint': 'Cópias a comprar = as que faltam para um playset (4 cópias, 1 no Commander). Tiers calculados com o método do MTGdecks.',
-  'view.cards': 'Imagens das cartas', 'kc.own': (h, p) => `Você tem ${h}/${p}`, 'kc.need': n => `faltam ${n}`, 'kc.full': 'Playset completo', 'kc.inN': n => `Em ${n} decks`, 'kc.file': 'cartas-chave',
+  'view.cards': 'Imagens das cartas', 'kc.own': (h, p, n) => `Você tem ${h}/${p}, faltam ${n} para o playset completo`, 'kc.ownFull': h => `Você tem ${h}: playset completo`, 'kc.need': n => `faltam ${n}`, 'kc.inN': n => `Em ${n} decks`, 'kc.file': 'cartas-chave',
 
   'mi.err': 'Lista não reconhecida: uma carta por linha, com a linha "Sideboard" antes do sideboard.', 'mi.defaultName': 'Deck adicionado',
   'mi.added': 'Deck adicionado', 'mi.imported': n => `${n} ${p(n, 'deck importado', 'decks importados')}`, 'mi.badJson': 'Arquivo JSON inválido.',

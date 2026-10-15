@@ -68,6 +68,7 @@ Principi:
 | v0.12.3: font dei simboli di mana ridotto (−400 KB alla prima visita), dati carte preparati di notte dal file Oracle di Scryfall (quasi zero chiamate API dai visitatori), crediti e testo Fan Content Policy nel footer, aggiornamento notturno tenuto attivo | Sostenibilità a costo zero: più visitatori nel tetto gratuito di Vercel e nessun carico eccessivo su Scryfall |
 | v0.12.4: simboli di mana di nuovo centrati nei cerchi (correzione del font ridotto) | Correzione grafica della v0.12.3 |
 | v0.13.0: carte chiave con copie possedute/mancanti sul playset (4, 1 in Commander) e vista a immagini; dettaglio mazzo con lista testuale a sinistra e andamento + matchup a destra, vista a immagini con un tasto | Meno clic: tutto il mazzo in una schermata |
+| v0.13.1: pulsanti (copia, scarica, TCGplayer) sopra le liste; anteprima della carta passando il mouse sul nome; intestazione del mazzo più bassa (barre a destra); carte chiave su due colonne con "ne hai X/4, ne mancano Y per il playset completo" | Rifiniture d'uso |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

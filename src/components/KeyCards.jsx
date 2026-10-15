@@ -21,13 +21,14 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
   const list = useMemo(() => keyCards(pool), [pool])
   // copie possedute e mancanti rispetto a un playset (4 copie, 1 in Commander)
   const rows = list.map(e => {
-    const have = Math.min(owned.get(norm(e.name)) || 0, playset)
-    return { ...e, card: getCached(e.name), have, need: playset - have }
+    const have = owned.get(norm(e.name)) || 0 // anche più di un playset
+    return { ...e, card: getCached(e.name), have, need: Math.max(0, playset - have) }
   })
   const total = rows.reduce((s, e) => s + (priceOf(e.card) ?? 0) * e.need, 0)
   const text = toText(rows.filter(e => e.need).map(e => ({ name: e.name, missing: e.need })))
   const st = e => e.need === 0 ? 'ok' : e.have === 0 ? 'no' : 'part'
   const scry = e => e.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${e.name}"`)}`
+  const ownText = e => e.need ? t('kc.own', e.have, playset, e.need) : t('kc.ownFull', e.have)
   const price = e => priceOf(e.card) != null ? money(priceOf(e.card) * e.need, true) : '—'
 
   const copy = async () => {
@@ -56,14 +57,19 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
       </div>
 
       {rows.length ? <>
+        <div className="actions actions-top">
+          <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
+          <button className="btn" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
+          {total > 0 && <span className="key-total">{t('kc.total')} ≈ {money(total)}</span>}
+        </div>
         {look === 'cards' ? (
           <ol className="key-tiles">
             {rows.map((e, i) => (
               <li key={e.name}>
-                <a className={`tile tile-${st(e)}`} href={scry(e)} target="_blank" rel="noreferrer" title={`${e.name} — ${t('kc.own', e.have, playset)}`}>
+                <a className={`tile tile-${st(e)}`} href={scry(e)} target="_blank" rel="noreferrer" title={`${e.name} — ${ownText(e)}`}>
                   {e.card?.img ? <img src={e.card.img} alt={e.name} loading="lazy" /> : <span className="tile-ph"><span>{e.name}</span><ManaCost cost={e.card?.cost} /></span>}
                   <span className="key-tile-rank">{i + 1}</span>
-                  <span className="tile-qty">{st(e) === 'ok' && <IconCheck size={13} />}{e.have}/{playset}</span>
+                  <span className="tile-qty">{st(e) === 'ok' ? <><IconCheck size={13} />{e.have}</> : `${e.have}/${playset}`}</span>
                 </a>
                 <span className="key-tile-info">{t('kc.inN', e.decks.length)}{e.need > 0 && <> · <b>{t('kc.need', e.need)}</b> {price(e)}</>}</span>
               </li>
@@ -86,21 +92,13 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
                   ))}
                   {e.decks.length > 4 && t('kc.more', e.decks.length - 4)}
                 </span>
+                <span className={`key-own tile-${st(e)}`}>{st(e) === 'ok' && <IconCheck size={14} />}{ownText(e)}</span>
               </span>
-              <span className={`key-buy tile-${st(e)}`}>
-                <span className="key-own">{t('kc.own', e.have, playset)}</span>
-                {e.need > 0 ? <b>{t('kc.need', e.need)}</b> : <b className="key-full"><IconCheck size={14} /> {t('kc.full')}</b>}
-                {e.need > 0 && <span>{price(e)}</span>}
-              </span>
+              <span className="key-buy">{e.need > 0 && <><b>{e.need}×</b><span>{price(e)}</span></>}</span>
             </li>
           ))}
         </ol>
         )}
-        <div className="actions">
-          <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
-          <button className="btn" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
-          {total > 0 && <span className="key-total">{t('kc.total')} ≈ {money(total)}</span>}
-        </div>
       </> : <p className="empty">{hasCollection ? t('kc.none') : t('kc.noData')}</p>}
 
       <p className="hint">{t('kc.hint')}</p>
