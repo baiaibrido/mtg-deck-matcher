@@ -33,10 +33,13 @@ export function costText(cost, missing) {
 }
 
 // Rogue: risultati della settimana e carta simbolo al posto di tier e quota
+// "1st Place", "2st Place"… (come arrivano dai tornei) → "1° posto" nella lingua del sito
+const resultText = r => { const m = /^(\d+)\s*\w*\s*place$/i.exec(r.trim()); return m ? t('rogue.place', +m[1]) : r }
+
 export function RogueInfo({ deck }) {
   return <>
     <span className="tier tier-rogue">Rogue</span>
-    <span>{t('rogue.results', deck.results)}{deck.best ? ` · ${t('rogue.best', deck.best)}` : ''}</span>
+    <span>{t('rogue.results', deck.results)}{deck.best ? ` · ${t('rogue.best', resultText(deck.best))}` : ''}</span>
     {deck.signature && <span className="sig">{t('rogue.signature', deck.signature)}</span>}
   </>
 }

@@ -215,6 +215,7 @@ export default function App() {
             )}
 
             {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
+            {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
             {!collection.length && (
               <div className="callout">
                 <p><b>{t('decks.noCollB')}</b> {t('decks.noColl')}</p>
@@ -275,7 +276,6 @@ export default function App() {
             )}
 
             {cardsState === 'loading' && <p className="hint">{t('decks.loadingScry')}</p>}
-            {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
 
             <MetaImporter format={format} formatName={formatName} onAdd={ds => setUserDecks([...userDecks, ...ds])} toast={toast} />
           </>}
@@ -304,6 +304,7 @@ export default function App() {
           {' · '}{t('footer.archetypes')}: <a href="https://github.com/Badaro/MTGOFormatData" target="_blank" rel="noreferrer">MTGOFormatData</a>
           {' · '}{t('footer.cards')}: <a href="https://scryfall.com" target="_blank" rel="noreferrer">Scryfall</a>
           {' · '}{t('footer.rates')}: <a href="https://www.ecb.europa.eu" target="_blank" rel="noreferrer">BCE/ECB</a>
+          {' · '}{t('footer.tiers')}
         </p>
         {/* testo richiesto dalla Fan Content Policy di Wizards of the Coast (in inglese, come da policy) */}
         <p className="footer-legal" lang="en">

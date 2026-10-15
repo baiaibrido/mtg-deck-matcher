@@ -653,3 +653,4 @@ main:focus { outline: none; }
   .crows li:first-child { border-top: 1px solid var(--rail); }
   .crow-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
 }
+.content > .note { margin-bottom: 16px; }
