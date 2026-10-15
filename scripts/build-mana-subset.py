@@ -18,8 +18,14 @@ for sel, body in re.findall(r'([^{}]+)\{([^{}]*)\}', css):
     cps.update(re.findall(r'content:\s*"\\(e[0-9a-f]{3})"', body))
 
 opts = subset.Options(); opts.flavor = 'woff2'; opts.layout_features = ['*']; opts.notdef_outline = True
-font = TTFont('node_modules/mana-font/fonts/mana.ttf')
+font = TTFont('node_modules/mana-font/fonts/mana.woff2')  # la stessa versione che il sito usava prima
 sub = subset.Subsetter(opts); sub.populate(unicodes=[int(c, 16) for c in cps]); sub.subset(font)
+# Il font originale ha il margine sinistro (lsb) a 0 in hmtx: senza questa correzione i simboli escono spostati a sinistra
+hm, gl = font['hmtx'].metrics, font['glyf']
+for n in hm:
+    g = gl[n]; g.recalcBounds(gl)  # i bordi salvati nel font sono sbagliati: si ricalcolano
+    if g.numberOfContours:
+        hm[n] = (hm[n][0], g.xMin)
 font.flavor = 'woff2'; font.save('src/fonts/mana-cost.woff2')
 
 head = '''/* Simboli di mana (mana-font 1.18, MIT): solo i simboli di costo usati dal sito.
