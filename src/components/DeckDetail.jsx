@@ -1,3 +1,4 @@
+import ConfirmButton from './ConfirmButton.jsx'
 import { useMemo, useState } from 'react'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
@@ -185,7 +186,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       </aside>}
       </div>
 
-      {onDelete && <button className="btn btn-danger del" onClick={() => confirm(t('detail.confirmDelete')) && onDelete()}>{t('detail.delete')}</button>}
+      {onDelete && <div className="del"><ConfirmButton className="btn btn-danger" label={t('detail.delete')} question={t('detail.confirmDelete')} yes={t('detail.deleteYes')} onConfirm={onDelete} /></div>}
     </article>
   )
 }

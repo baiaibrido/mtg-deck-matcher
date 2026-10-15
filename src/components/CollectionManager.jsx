@@ -1,3 +1,4 @@
+import ConfirmButton from './ConfirmButton.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
 import { mergeEntries } from '../lib/normalize.js'
@@ -193,9 +194,10 @@ export default function CollectionManager({ collection, setCollection, toast }) 
 
       <div className="coll-actions">
         <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
-        <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} />{t('coll.fixNames')}</button>
+        <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} /><span className="btn-2l">{t('coll.fixNames')}<small>{t('coll.fixHint')}</small></span></button>
         <button className="btn btn-quiet" onClick={() => { downloadTxt(`${t('coll.file')}-${new Date().toISOString().slice(0, 10)}.csv`, collectionCsv(collection), 'text/csv'); toast(t('coll.backupDone')) }}><IconDownload size={18} />{t('coll.backup')}</button>
-        <button className="btn btn-quiet btn-danger" onClick={() => { if (!confirm(t('coll.confirmClear'))) return; const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }}>{t('coll.clear')}</button>
+        <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
+          onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
       </div>
       {importOpen && importPanel}
       {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
@@ -217,8 +219,8 @@ export default function CollectionManager({ collection, setCollection, toast }) 
           </select>
         </label>
         <div className="seg seg-icons" role="group" aria-label={t('view')}>
-          <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('coll.grid')}><IconGrid size={18} /><span className="sr-only">{t('coll.grid')}</span></button>
           <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
+          <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
         </div>
       </div>
 

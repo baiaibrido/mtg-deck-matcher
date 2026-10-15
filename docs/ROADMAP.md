@@ -71,6 +71,7 @@ Principi:
 | v0.13.1: pulsanti (copia, scarica, TCGplayer) sopra le liste; anteprima della carta passando il mouse sul nome; intestazione del mazzo più bassa (barre a destra); carte chiave su due colonne con "ne hai X/4, ne mancano Y per il playset completo" | Rifiniture d'uso |
 | v0.13.2: totale e nota sui prezzi in cima alla mancolista; collezione in vista elenco su due colonne | Rifiniture d'uso |
 | v0.13.3 (revisione UX, parte A): "2st Place" → "2° posto" tradotto; avviso dati vecchi senza istruzioni tecniche; avviso Scryfall in cima ai mazzi; "Cerca il mazzo su Google"; "Variante di «x»"; "Senza dati"; testi introduttivi più corti, metodo dei tier spostato nel footer | Chiarezza dei testi |
+| v0.13.4 (revisione UX, parte B): stesso ordine del tasto vista ovunque (elenco, immagini); scheda "Mazzo | Mancolista"; "Aggiungi carte" e "Totale stimato" ovunque; filtro tier delle carte chiave con lo stesso stile dei mazzi; conferme nello stile del sito (ConfirmButton) al posto di confirm(); "(3 senza prezzo)", "carta caratteristica", "Colori del mazzo" con spiegazione, "Matchup", sottotitolo di Correggi i nomi | Coerenza tra sezioni |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

@@ -17,15 +17,15 @@ export default {
   'decks.srcCache': 'nei tornei MTGO, melee.gg e CardsRealm (dati MTGODecklistCache)', 'decks.srcTop8': 'su MTGTop8',
   'decks.intro': (n, src, date) => `I ${n} archetipi più giocati negli ultimi due mesi${date ? `, aggiornati il ${date}` : ''}.`,
   'decks.stale': d => `I dati del meta potrebbero non essere aggiornati: l'ultimo aggiornamento è di ${d} giorni fa.`,
-  'decks.noCollB': 'Non hai ancora caricato la collezione.', 'decks.noColl': 'Per ora i mazzi sono in ordine di popolarità.',
-  loadCollection: 'Carica la collezione',
-  allTiers: 'Tutti i tier', onlyColors: 'Solo questi colori', colors: 'Colori', clearColors: 'Azzera',
+  'decks.noCollB': 'Non hai ancora aggiunto le tue carte.', 'decks.noColl': 'Per ora i mazzi sono in ordine di popolarità.',
+  loadCollection: 'Aggiungi carte',
+  allTiers: 'Tutti i tier', onlyColors: 'Solo questi colori', colors: 'Colori del mazzo', clearColors: 'Azzera',
   'decks.none': f => `Nessun mazzo disponibile per ${f}. Puoi aggiungerne uno a mano.`,
   'decks.noneFilter': 'Nessun mazzo con questi filtri.', 'decks.tryColor': 'Prova ad aggiungere un colore.',
   'decks.loadingScry': 'Carico colori e prezzi delle carte da Scryfall…',
   'decks.scryDown': 'Scryfall non risponde: colori, immagini e prezzi non sono disponibili. Il calcolo funziona lo stesso.',
   share: s => `${s}% del meta`, meterAria: (l, h, tot) => `${l}: ${h} su ${tot}`, rank: n => `Posizione ${n}`,
-  costMore: n => `, più ${n} ${carte(n)} senza prezzo`, variantOf: a => `variante di ${a}`,
+  costMore: n => ` (${n} senza prezzo)`, variantOf: a => `variante di ${a}`,
   need: n => n === 1 ? ['Ti manca ', ' carta'] : ['Ti mancano ', ' carte'], haveAll: 'Hai tutte le carte', complete: 'completo',
 
   // andamento
@@ -39,7 +39,7 @@ export default {
   'detail.copied': 'Mancolista copiata', copyFail: 'Copia non riuscita: usa "Scarica"', 'detail.back': 'Tutti i mazzi',
   'detail.variant': a => `Variante di «${a}»`, 'detail.toComplete': p => `Per completarlo ${p}`,
   'detail.original': 'Lista originale', 'detail.mtgdecks': 'Cerca il mazzo su Google', view: 'Vista',
-  'tab.list': 'Lista', 'tab.need': 'Mancolista', 'detail.onlyMissing': 'Mostra solo le carte che ti mancano',
+  'tab.list': 'Mazzo', 'tab.need': 'Mancolista', 'detail.onlyMissing': 'Mostra solo le carte che ti mancano',
   'detail.haveAll': 'Hai tutte le carte di questo mazzo.', 'detail.total': 'Totale stimato',
   'detail.hint': src => `La lista copiata si incolla su Scryfall o Moxfield. Prezzi indicativi ${src} (via Scryfall) della stampa più recente, convertiti nella tua valuta: le ristampe economiche possono costare meno.`,
   'detail.confirmDelete': 'Eliminare questo mazzo aggiunto da te?', 'detail.delete': 'Elimina mazzo', 'detail.file': 'mancolista',
@@ -47,11 +47,11 @@ export default {
   // carte chiave
   'kc.copied': 'Lista copiata', 'kc.title': f => `Carte chiave ${f}`,
   'kc.intro': 'Le carte che ti mancano e che compaiono in più mazzi del meta. Comprando queste ti avvicini a più mazzi con meno spesa. Le terre base sono escluse.',
-  'kc.loadB': 'Carica la collezione', 'kc.load': ' per vedere solo le carte che ti mancano davvero.',
+  'kc.loadB': 'Aggiungi le tue carte', 'kc.load': ' per vedere solo le carte che ti mancano davvero.',
   'kc.scope': 'Mazzi considerati', 'kc.t12': 'Tier 1 e 2', 'kc.inDecks': n => `In ${n} mazzi:`, 'kc.more': n => ` e altri ${n}`, 'kc.total': 'Totale',
   'kc.none': 'Nessuna carta mancante è condivisa da almeno due mazzi: ottimo lavoro.', 'kc.noData': 'Nessun dato disponibile.',
   'kc.hint': 'Copie da comprare = quelle che ti mancano per un playset (4 copie, 1 in Commander).',
-  'view.cards': 'Immagini delle carte', 'kc.own': (h, p, n) => `Ne hai ${h}/${p}, ne mancano ${n} per il playset completo`, 'kc.ownFull': h => `Ne hai ${h}: playset completo`, 'kc.need': n => `ne mancano ${n}`, 'kc.inN': n => `In ${n} mazzi`, 'kc.file': 'carte-chiave',
+  'view.cards': 'Immagini', 'kc.own': (h, p, n) => `Ne hai ${h}/${p}, ne mancano ${n} per il playset completo`, 'kc.ownFull': h => `Ne hai ${h}: playset completo`, 'kc.need': n => `ne mancano ${n}`, 'kc.inN': n => `In ${n} mazzi`, 'kc.file': 'carte-chiave',
 
   // mazzo a mano
   'mi.err': 'Lista non riconosciuta: una carta per riga, con la riga "Sideboard" prima del side.', 'mi.defaultName': 'Mazzo aggiunto',
@@ -98,7 +98,7 @@ export default {
   // rogue della settimana
   'rogue.title': 'Rogue piccanti della settimana',
   'rogue.intro': n => `Mazzi fuori dai ${n} più giocati che negli ultimi 7 giorni hanno fatto top 8 in un torneo o 5-0 in una League. In ordine di vicinanza alla tua collezione.`,
-  'rogue.results': n => `${n} ${p(n, 'risultato', 'risultati')} in settimana`, 'rogue.best': r => `migliore: ${r}`, 'rogue.signature': c => `carta simbolo: ${c}`,
+  'rogue.results': n => `${n} ${p(n, 'risultato', 'risultati')} in settimana`, 'rogue.best': r => `migliore: ${r}`, 'rogue.signature': c => `carta caratteristica: ${c}`,
   'rogue.jump': n => `Scopri ${p(n, 'il rogue piccante', `i ${n} rogue piccanti`)} della settimana`,
 
   // filtro budget, storico, matchup, ban
@@ -106,7 +106,7 @@ export default {
   wrShort: p => `${p}% vittorie`, 'tab.meta': 'Andamento e matchup',
   'hist.title': 'Quota del meta, ultime 12 settimane', 'hist.point': (d, v) => `Settimana dal ${d}: ${v}`, 'hist.na': 'dati insufficienti',
   'hist.aria': (a, b) => `Quota del meta passata da ${a}% a ${b}% nelle ultime 12 settimane`,
-  'mu.title': 'Contro cosa vince', 'mu.meta': 'vittorie contro il meta', 'mu.metaHint': 'media pesata su quanto è giocato ogni avversario, corretta per i matchup con poche partite',
+  'mu.title': 'Matchup', 'mu.meta': 'vittorie contro il meta', 'mu.metaHint': 'media pesata su quanto è giocato ogni avversario, corretta per i matchup con poche partite',
   'mu.field': (p, n) => `${p}% su ${n} partite contro tutti`, 'mu.row': (p, n) => `${p}% · ${n} partite`, 'mu.few': 'pochi dati',
   'mu.note': 'Partite di tornei con turni pubblicati (MTGO Challenge, melee.gg, CardsRealm) negli ultimi due mesi. Mirror esclusi; una patta vale mezza vittoria.',
   'mu.none': 'Ancora pochi dati sulle partite di questo mazzo.', 'mu.showAll': n => `Mostra tutti (${n})`,
@@ -116,4 +116,8 @@ export default {
   'footer.lists': 'Liste', 'footer.archetypes': 'Archetipi', 'footer.cards': 'Carte, immagini e prezzi', 'footer.rates': 'Cambi',
   'rogue.place': n => `${n}° posto`,
   'footer.tiers': 'Tier: metodo MTGdecks',
+  'colors.hint': 'Mostra i mazzi che usano solo i colori scelti',
+  'coll.fixHint': 'corregge gli errori di battitura',
+  'coll.clearYes': 'Sì, svuota',
+  'detail.deleteYes': 'Sì, elimina',
 }

@@ -654,3 +654,10 @@ main:focus { outline: none; }
   .crow-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
 }
 .content > .note { margin-bottom: 16px; }
+
+/* v0.13.4: conferme nello stile del sito, pulsante con sottotitolo */
+.confirm { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 6px 6px 6px 14px; border: 1px solid color-mix(in oklab, var(--no) 55%, var(--rail)); border-radius: var(--r-lg); background: color-mix(in oklab, var(--no) 8%, var(--baize)); animation: enter .2s var(--ease) backwards; }
+.confirm-q { font-weight: 600; color: var(--bone); }
+.btn-2l { display: inline-grid; line-height: 1.15; text-align: left; }
+.btn-2l small { font-weight: 400; font-size: .74rem; color: var(--lichen); }
+@media (max-width: 559px) { .confirm { width: 100%; padding: 10px 12px; } .confirm-q { flex-basis: 100%; } }

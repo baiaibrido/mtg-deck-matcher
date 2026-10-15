@@ -45,10 +45,10 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
       {!hasCollection && <div className="callout"><p><b>{t('kc.loadB')}</b>{t('kc.load')}</p><a className="btn btn-primary" href="#/collection">{t('loadCollection')}</a></div>}
 
       <div className="list-tools">
-      <div className="seg" role="tablist" aria-label={t('kc.scope')}>
-        <button role="tab" aria-selected={scope === 't1'} onClick={() => setScope('t1')}>Tier 1</button>
-        <button role="tab" aria-selected={scope === 't12'} onClick={() => setScope('t12')}>{t('kc.t12')}</button>
-        <button role="tab" aria-selected={scope === 'all'} onClick={() => setScope('all')}>{t('all')}</button>
+      <div className="chips" role="group" aria-label={t('kc.scope')}>
+        <button aria-pressed={scope === 'all'} onClick={() => setScope('all')}>{t('allTiers')}</button>
+        <button aria-pressed={scope === 't1'} onClick={() => setScope('t1')}>Tier 1</button>
+        <button aria-pressed={scope === 't12'} onClick={() => setScope('t12')}>{t('kc.t12')}</button>
       </div>
       <div className="seg seg-icons" role="group" aria-label={t('view')}>
         <button aria-pressed={look !== 'cards'} onClick={() => setLook('list')} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
@@ -60,7 +60,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
         <div className="actions actions-top">
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
           <button className="btn" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
-          {total > 0 && <span className="key-total">{t('kc.total')} ≈ {money(total)}</span>}
+          {total > 0 && <span className="key-total">{t('detail.total')} ≈ {money(total)}</span>}
         </div>
         {look === 'cards' ? (
           <ol className="key-tiles">

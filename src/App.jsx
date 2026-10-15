@@ -240,7 +240,7 @@ export default function App() {
                 <div className="chips" role="group" aria-label="Tier">
                   {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
                 </div>
-                <div className="color-filter" role="group" aria-label={t('onlyColors')}>
+                <div className="color-filter" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
                   <span>{t('colors')}</span>
                   {WUBRG.map(c => (
                     <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
