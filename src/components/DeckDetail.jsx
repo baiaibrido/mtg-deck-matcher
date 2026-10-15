@@ -1,4 +1,5 @@
 import ConfirmButton from './ConfirmButton.jsx'
+import DeckInsights from './DeckInsights.jsx'
 import { useMemo, useState } from 'react'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
@@ -82,7 +83,7 @@ function Section({ title, rows, onlyMissing, visual }) {
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
 
-export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin }) {
+export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, decks = [], owned = new Map() }) {
   const [tab, setTab] = useState('list')
   const [onlyMissing, setOnlyMissing] = useState(false)
   const [look, setLook] = useLocal('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
@@ -92,7 +93,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
   const cost = missingCost(s.missing, getCached)
   const price = costText(cost, missingCount)
   const bans = deckBans(s.deck, getCached)
-  const hasMeta = !!(s.deck.history || s.deck.field)
+  const hasMeta = !!(s.deck.history || s.deck.field || s.deck.core)
 
   const copy = async () => {
     try { await navigator.clipboard.writeText(list); toast(t('detail.copied')) }
@@ -183,6 +184,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       {hasMeta && <aside className="detail-side meta-tab" aria-label={t('tab.meta')}>
         {s.deck.history && s.deck.historyWeeks && <HistoryChart weeks={s.deck.historyWeeks} values={s.deck.history} />}
         {s.deck.field && <Matchups deck={s.deck} onOpen={onOpen} idOf={idOf} />}
+        <DeckInsights deck={s.deck} decks={decks} owned={owned} onOpen={onOpen} idOf={idOf} />
       </aside>}
       </div>
 

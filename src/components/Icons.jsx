@@ -30,3 +30,4 @@ export const IconCoins = p => <I {...p} d={<><ellipse cx="9" cy="7" rx="6" ry="3
 export const IconCaret = p => <I {...p} d={<path d="M7 10l5 5 5-5" />} />
 export const IconDice = p => <I {...p} d={<><rect x="4" y="4" width="16" height="16" rx="3.5" /><circle cx="9" cy="9" r="1.1" fill="currentColor" /><circle cx="15" cy="15" r="1.1" fill="currentColor" /><circle cx="15" cy="9" r="1.1" fill="currentColor" /><circle cx="9" cy="15" r="1.1" fill="currentColor" /></>} />
 export const IconShare = p => <I {...p} d={<><path d="M12 15V4m0 0L8 8m4-4 4 4" /><path d="M6 12v6.5A1.5 1.5 0 0 0 7.5 20h9a1.5 1.5 0 0 0 1.5-1.5V12" /></>} />
+export const IconChart = p => <I {...p} d={<><path d="M4 20h16" /><path d="M7 16v-5M12 16V7M17 16v-8" /></>} />

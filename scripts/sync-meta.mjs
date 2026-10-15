@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url'
 import { FORMATS, assignTiers, loadRobots, syncFormat, saveFormat } from './sync-mtgtop8.mjs'
 import { downloadOracle, indexCards, cardsByFormat } from './cards-data.mjs'
 import { pickSignature } from '../src/lib/daily.js'
+import { coreFlex, weeklyPresence, cardTrends, sideMeta, conversion, mergePrices } from './stats.mjs'
 
 const DECKS_REPO = 'https://github.com/Jiliac/MTGODecklistCache'
 const RULES_REPO = 'https://github.com/Badaro/MTGOFormatData'
@@ -189,8 +190,19 @@ export function aggregate(entries, classify, id, { from = '' } = {}) {
   })
   const history = weeklyHistory(allE, decks.map(d => d.name))
   decks.forEach(d => { d.history = history.byName.get(d.name) })
-  addMatchups(allE.filter(e => e.date >= from), decks)
-  return { decks, rogue: findRogue(all.slice(TOP_N), unknownList, { classify, freq, total, id }), historyWeeks: history.weeks, total, unknownPct: total ? Math.round(unknown / total * 1000) / 10 : 100 }
+  const mainE = allE.filter(e => e.date >= from)
+  addMatchups(mainE, decks)
+  // statistiche su tutte le liste: cuore/posti liberi, conversione in top 8, carte in ascesa, side del meta
+  const conv = conversion(mainE, decks.map(d => d.name))
+  for (const d of decks) {
+    const a = all.find(x => x.name === d.name), cf = a && coreFlex(a.list)
+    if (cf) { d.core = cf.core; d.flex = cf.flex; d.lists = cf.n }
+    if (conv.get(d.name)) d.conv = conv.get(d.name)
+  }
+  const isLand = n => classify.isLand?.(n) || false
+  const trends = cardTrends(weeklyPresence(allE, 'Mainboard'), { isLand })
+  const stats = { cardsUp: trends.up, cardsDown: trends.down, side: sideMeta(weeklyPresence(allE, 'Sideboard')) }
+  return { decks, stats, rogue: findRogue(all.slice(TOP_N), unknownList, { classify, freq, total, id }), historyWeeks: history.weeks, total, unknownPct: total ? Math.round(unknown / total * 1000) / 10 : 100 }
 }
 
 // Storico: quota settimanale (%) di ogni archetipo nelle ultime HISTORY_WEEKS settimane, dalla più vecchia.
@@ -317,6 +329,11 @@ async function syncCards() {
       const { missing, ...json } = data
       writeFileSync(new URL(`../public/meta/cards-${id}.json`, import.meta.url), JSON.stringify(json) + '\n')
       console.log(`  carte ${id}: ${Object.keys(json.cards).length} salvate, ${missing} non trovate`)
+      // storico prezzi (EUR) delle stesse carte: un valore al giorno, per "carte in salita, prezzi fermi"
+      const pf = new URL(`../public/meta/prices-${id}.json`, import.meta.url)
+      let old = null; try { old = JSON.parse(readFileSync(pf, 'utf8')) } catch { /* primo giorno */ }
+      const today = json.updated
+      writeFileSync(pf, JSON.stringify(mergePrices(old, today, Object.fromEntries(Object.values(json.cards).map(c => [c.name, c.eur])))) + '\n')
     }
     console.log(`Dati carte Scryfall pronti in ${Math.round((Date.now() - t0) / 1000)}s`)
   } catch (e) {
@@ -372,7 +389,7 @@ async function main() {
     try {
       const r = results.get(id)
       if (r) {
-        await saveFormat(id, r.decks, { source: 'MTGODecklistCache', sourceNote: 'tornei MTGO, melee.gg e CardsRealm', decksAnalyzed: r.total, unknownPct: r.unknownPct, rogue: r.rogue, historyWeeks: r.historyWeeks })
+        await saveFormat(id, r.decks, { source: 'MTGODecklistCache', sourceNote: 'tornei MTGO, melee.gg e CardsRealm', decksAnalyzed: r.total, unknownPct: r.unknownPct, rogue: r.rogue, historyWeeks: r.historyWeeks, stats: r.stats })
         ok++; continue
       }
       console.log(`${id} (MTGTop8)`)

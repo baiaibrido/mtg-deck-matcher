@@ -15,12 +15,14 @@ import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
 import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins } from './components/Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins, IconChart } from './components/Icons.jsx'
 import Picker from './components/Picker.jsx'
 import MysteryDeck from './components/MysteryDeck.jsx'
 import { pickDaily, signatureOf } from './lib/daily.js'
 import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS, guessDeck, GUESS_TRIES } from './lib/fun.js'
 import MetaWeather from './components/MetaWeather.jsx'
+import StatsPage from './components/StatsPage.jsx'
+import { toOwnedMap } from './lib/matcher.js'
 import Modal from './components/Modal.jsx'
 import LuckyButton from './components/LuckyButton.jsx'
 import Quiz from './components/play/Quiz.jsx'
@@ -177,7 +179,8 @@ export default function App() {
   const updated = meta?.[0]?.updated
   const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? t('decks.srcCache') : t('decks.srcTop8')
   const stale = updated && daysAgo(updated) > STALE_DAYS
-  const page = ['collection', 'key-cards'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
+  const page = ['collection', 'key-cards', 'stats'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
+  const ownedMap = useMemo(() => toOwnedMap(collection), [collection])
   const count = collection.reduce((s, c) => s + c.qty, 0)
   const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
   const meteo = useMemo(() => meta ? weather(meta) : null, [meta])
@@ -228,6 +231,7 @@ export default function App() {
           <a href="#/decks" aria-current={navCurrent('decks')}>{t('nav.decks')}</a>
           <a href="#/key-cards" aria-current={navCurrent('key-cards')}>{t('nav.keycards')}</a>
           <a href="#/collection" aria-current={navCurrent('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
+          <a href="#/stats" aria-current={navCurrent('stats')}>{t('nav.stats')}</a>
         </nav>
         <div className="prefs">
           <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow}
@@ -351,7 +355,7 @@ export default function App() {
           {page === 'deck' && (
             <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
               onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
-              pinned={pins.includes(sel.deck.id)} onPin={togglePin}
+              pinned={pins.includes(sel.deck.id)} onPin={togglePin} decks={meta || []} owned={ownedMap}
               onBack={() => history.length > 1 ? history.back() : go('decks')}
               onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}
@@ -361,6 +365,10 @@ export default function App() {
             <KeyCards ranked={ranked} formatName={formatName} collection={collection} playset={format === 'commander' ? 1 : 4} toast={toast} />
           </>}
 
+          {page === 'stats' && <>
+            {formatTabs}
+            <StatsPage meta={meta} ranked={ranked} format={format} formatName={formatName} colorsOf={colorsOf} costOf={costOf} hasCollection={collection.length > 0} onOpen={id => go('deck', id)} />
+          </>}
           {page === 'collection' && banNotice}
           {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
         </ErrorBoundary>
@@ -385,6 +393,7 @@ export default function App() {
         <a href="#/decks" aria-current={navCurrent('decks')}><IconDecks />{t('nav.decks')}</a>
         <a href="#/key-cards" aria-current={navCurrent('key-cards')}><IconKey />{t('nav.keycards')}</a>
         <a href="#/collection" aria-current={navCurrent('collection')}><IconBox />{t('nav.collection')}</a>
+        <a href="#/stats" aria-current={navCurrent('stats')}><IconChart />{t('nav.stats')}</a>
       </nav>
 
       <button className={`to-top${showTop ? ' show' : ''}`} onClick={() => scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}

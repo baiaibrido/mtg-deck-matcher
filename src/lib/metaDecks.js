@@ -22,11 +22,18 @@ export async function loadMetaDecks(format) {
     if (!r.ok) return []
     const j = await r.json()
     // i rogue della settimana arrivano con rogue: true (fuori dall'elenco principale e dalle carte chiave)
-    return [...(j.decks || []), ...(j.rogue || []).map(d => ({ ...d, rogue: true }))].map(d => ({
+    const list = [...(j.decks || []), ...(j.rogue || []).map(d => ({ ...d, rogue: true }))].map(d => ({
       ...d, format, historyWeeks: j.historyWeeks || null, source: d.source || j.source || 'cache', updated: d.updated || j.updated, prevDate: d.rogue ? null : j.prevDate || null,
       main: toEntries(d.main), side: toEntries(d.side),
     }))
+    list.stats = j.stats || null // statistiche del formato (carte in ascesa, side del meta…), vedi scripts/stats.mjs
+    return list
   } catch { return [] }
 }
 
 export { toEntries }
+
+// Storico prezzi del formato (scritto ogni notte): { dates, p: { carta: [EUR…] } }; null se non ancora disponibile
+export async function loadPrices(format) {
+  try { const r = await fetch(`${base}meta/prices-${format}.json`); return r.ok ? await r.json() : null } catch { return null }
+}
