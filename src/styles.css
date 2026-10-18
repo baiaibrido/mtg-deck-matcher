@@ -1115,3 +1115,9 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 .tline.tile-plain { --st-ink: var(--lichen); }
 /* promemoria backup: non è un errore, niente rosso */
 .backup-nudge { border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); margin-top: 10px; }
+/* tema chiaro: la carta segreta resta sfocata ma chiara, come una carta sotto carta velina */
+:root[data-theme="light"] .mystery-art { box-shadow: 0 8px 18px rgba(60, 40, 10, .22); }
+:root[data-theme="light"] .mystery-art img { filter: blur(3px) saturate(.7) brightness(1) contrast(.88); }
+:root[data-theme="light"] .mystery-art::after { content: ''; position: absolute; inset: 0; background: color-mix(in oklab, var(--baize) 22%, transparent); transition: opacity .35s var(--ease); pointer-events: none; }
+:root[data-theme="light"] .mystery:hover .mystery-art::after, :root[data-theme="light"] .mystery:focus-visible .mystery-art::after { opacity: 0; }
+:root[data-theme="light"] .mystery-q { z-index: 1; color: var(--bone); text-shadow: 0 1px 10px rgba(255, 250, 240, .9); }

@@ -88,6 +88,7 @@ Principi:
 | v0.19.0: prima visita — invito a caricare la collezione in cima; mazzo misterioso e giochi in una fila che scorre su telefono; senza collezione liste neutre (niente "0/4" rossi, niente barre); "?" sulle metriche del sito (tier, meteo, % vs meta); profilo del mazzo (curva, creature, interazione dai tag Scryfall); "Ho già questo mazzo" con Annulla; promemoria backup dopo molte modifiche | Analisi da utente nuovo |
 | v0.19.1: tolto il trasferimento della collezione via link e ogni riferimento allo spostarla su altri dispositivi (arriverà il login) | Decisione di Baia |
 | v0.19.2: "Ho già questo mazzo" accanto alla stella del preferito; profilo del mazzo come piccole statistiche (valore sopra, etichetta sotto) invece di una riga di testo | Richiesta di Baia |
+| v0.19.3: tema chiaro, carta segreta del mazzo misterioso più chiara (sfocata e velata invece che scurita) | Segnalazione di Baia |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.
