@@ -90,6 +90,7 @@ Principi:
 | v0.19.2: "Ho già questo mazzo" accanto alla stella del preferito; profilo del mazzo come piccole statistiche (valore sopra, etichetta sotto) invece di una riga di testo | Richiesta di Baia |
 | v0.19.3: tema chiaro, carta segreta del mazzo misterioso più chiara (sfocata e velata invece che scurita) | Segnalazione di Baia |
 | v0.19.4: tema chiaro, la carta segreta torna nitida passandoci sopra | Segnalazione di Baia |
+| v0.19.5: il "?" accanto ai filtri tier è tondo come nel resto del sito | Segnalazione di Baia |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

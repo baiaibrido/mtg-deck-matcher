@@ -1123,3 +1123,5 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 :root[data-theme="light"] .mystery-q { z-index: 1; color: var(--bone); text-shadow: 0 1px 10px rgba(255, 250, 240, .9); }
 :root[data-theme="light"] .mystery:hover .mystery-art img, :root[data-theme="light"] .mystery:focus-visible .mystery-art img { filter: none; transform: none; }
 :root[data-theme="light"] .mystery:hover .mystery-q, :root[data-theme="light"] .mystery:focus-visible .mystery-q { opacity: 0; }
+/* il "?" dentro una fila di pillole resta un cerchio come nel resto del sito */
+.chips .info .info-btn, .filters .chips .info .info-btn { width: 20px; height: 20px; min-height: 0; padding: 0; border-radius: 50%; flex: none; }
