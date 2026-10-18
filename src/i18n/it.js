@@ -235,7 +235,7 @@ export default {
   'info.wr': 'Percentuale di vittorie contro il meta: media pesata su quanto è giocato ogni avversario.',
   'own.deck': 'Ho già questo mazzo', 'own.title': 'Aggiunge alla collezione le carte che ti mancano per questo mazzo',
   'own.done': n => `${n} ${carte(n)} aggiunte alla collezione`,
-  'desc.curve': v => `curva media ${v}`, 'desc.crea': n => `${n} creature`, 'desc.label': 'Profilo del mazzo',
+  'desc.curveL': 'Curva media', 'desc.creaL': 'Creature', 'desc.label': 'Profilo del mazzo',
   'backup.nudge': 'Hai fatto parecchie modifiche: la collezione sta solo su questo dispositivo, conviene salvarne una copia.',
   'backup.now': 'Esporta backup', 'backup.later': 'Più tardi',
 }

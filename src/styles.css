@@ -1092,11 +1092,24 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 .chips .info-pop { left: auto; right: 0; transform: none; }
 .tier-wrap { display: inline-flex; align-items: center; gap: 6px; }
 .tier-wrap .info-pop { left: 0; transform: none; }
-/* profilo del mazzo in una riga */
-.detail-desc { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: -6px 0 14px; font-size: .92rem; color: var(--lichen); }
-.detail-desc > b:first-child { color: var(--bone); font-weight: 700; }
-.detail-desc span b { color: var(--bone); font-weight: 700; margin-left: 2px; }
-.own-btn { margin: -6px 0 8px -12px; }
+/* azioni accanto al nome: preferito + "Ho già questo mazzo", stessa altezza e stesso bordo */
+.detail-actions { display: inline-flex; align-items: center; gap: 8px; }
+.own-btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px 0 13px; border: 1px solid var(--edge); border-radius: 99px;
+  background: transparent; color: var(--lichen); font: 700 .9rem var(--font-ui); cursor: pointer; white-space: nowrap; transition: color .15s, background .15s, border-color .15s; }
+.own-btn:hover { color: var(--brass); border-color: color-mix(in oklab, var(--brass) 55%, var(--edge)); background: color-mix(in oklab, var(--brass) 10%, transparent); }
+.own-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* profilo del mazzo: piccole statistiche separate, valore sopra ed etichetta sotto */
+.profile { display: flex; flex-wrap: wrap; gap: 10px 0; margin: 4px 0 18px; padding: 0; }
+.detail-head .profile { margin-top: 14px; }
+.profile > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; padding: 0 18px; border-left: 1px solid var(--rail); }
+.profile > div:first-child { padding-left: 0; border-left: 0; }
+.profile dt { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--lichen); white-space: nowrap; }
+.profile dd { margin: 0; font: 1.3rem/1.1 var(--font-title); color: var(--bone); font-variant-numeric: tabular-nums lining-nums; }
+@media (max-width: 560px) {
+  .profile { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 10px; }
+  .profile > div, .profile > div:first-child { padding: 0; border: 0; }
+  .profile dt { white-space: normal; line-height: 1.25; }
+}
 /* senza collezione: liste neutre, senza rosso */
 .tile-plain .tile-qty { color: var(--bone); }
 .tline.tile-plain { --st-ink: var(--lichen); }

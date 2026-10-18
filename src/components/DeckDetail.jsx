@@ -6,7 +6,7 @@ import { loadTags } from '../lib/tagsLoader.js'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
 import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
-import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList } from './Icons.jsx'
+import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox } from './Icons.jsx'
 import { useLocal } from '../state/useLocal.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
@@ -118,7 +118,10 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         <div className="detail-title">
           <h1>{s.deck.name}</h1>
           <ColorPips colors={colors} size="1.15rem" />
-          <PinButton deck={s.deck} pinned={pinned} onPin={onPin} className="pin-btn pin-btn-detail" />
+          <span className="detail-actions">
+            <PinButton deck={s.deck} pinned={pinned} onPin={onPin} className="pin-btn pin-btn-detail" />
+            {missingCount > 0 && onOwnDeck && <button className="own-btn" onClick={onOwnDeck} title={t('own.title')}><IconBox size={18} />{t('own.deck')}</button>}
+          </span>
         </div>
         <p className="detail-meta">
           {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
@@ -129,17 +132,15 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {s.deck.archetype && <span>{t('detail.variant', s.deck.archetype)}</span>}
           {price && <span className="price">{hasColl ? t('detail.toComplete', price) : t('deckCost', price)}</span>}
         </p>
-        {desc && <p className="detail-desc" aria-label={t('desc.label')}>
-          <b>{t('desc.label')}</b>
-          <span>{t('desc.curve', num(desc.curve))}</span>
-          <span>{t('desc.crea', desc.creatures)}</span>
-          {desc.inter.map(([k, n]) => <span key={k}>{t(`otag.${k}`)} <b>{n}</b></span>)}
-        </p>}
+        {desc && <dl className="profile" aria-label={t('desc.label')}>
+          <div><dt>{t('desc.curveL')}</dt><dd>{num(desc.curve)}</dd></div>
+          <div><dt>{t('desc.creaL')}</dt><dd>{desc.creatures}</dd></div>
+          {desc.inter.map(([k, n]) => <div key={k}><dt>{t(`otag.${k}`)}</dt><dd>{n}</dd></div>)}
+        </dl>}
         <p className="detail-links">
           {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? ` (${s.deck.title})` : ''} <IconExternal size={14} /></a>}
           {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecks')} <IconExternal size={14} /></a>}
         </p>
-        {missingCount > 0 && onOwnDeck && <button className="btn btn-quiet own-btn" onClick={onOwnDeck} title={t('own.title')}><IconCheck size={18} />{t('own.deck')}</button>}
         {bans.length > 0 && <p className="note note-error">⚠ {t('ban.deck', bans.join(', '))}</p>}
         </div>
         {hasColl && <div className="detail-meters">

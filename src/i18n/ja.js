@@ -223,7 +223,7 @@ export default {
   'info.wr': 'メタに対する勝率：各対戦相手の使用率で重み付けした平均。',
   'own.deck': 'このデッキを持っている', 'own.title': 'このデッキに足りないカードをコレクションに追加します',
   'own.done': n => `${n}枚をコレクションに追加しました`,
-  'desc.curve': v => `平均マナ総量 ${v}`, 'desc.crea': n => `クリーチャー ${n}枚`, 'desc.label': 'デッキの特徴',
+  'desc.curveL': '平均マナ総量', 'desc.creaL': 'クリーチャー', 'desc.label': 'デッキの特徴',
   'backup.nudge': '多くの変更がありました。コレクションはこの端末にのみ保存されているので、コピーを保存しましょう。',
   'backup.now': 'バックアップを書き出す', 'backup.later': 'あとで',
 }

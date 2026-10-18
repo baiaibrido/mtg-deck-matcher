@@ -226,7 +226,7 @@ export default {
   'info.wr': 'Taxa de vitórias contra o meta: média ponderada por quanto cada adversário é jogado.',
   'own.deck': 'Já tenho este deck', 'own.title': 'Adiciona à coleção as cartas que faltam para este deck',
   'own.done': n => `${n} ${n === 1 ? 'carta adicionada' : 'cartas adicionadas'} à coleção`,
-  'desc.curve': v => `curva média ${v}`, 'desc.crea': n => `${n} criaturas`, 'desc.label': 'Perfil do deck',
+  'desc.curveL': 'Curva média', 'desc.creaL': 'Criaturas', 'desc.label': 'Perfil do deck',
   'backup.nudge': 'Você fez várias alterações: a coleção fica só neste dispositivo, vale a pena salvar uma cópia.',
   'backup.now': 'Exportar backup', 'backup.later': 'Mais tarde',
 }

@@ -225,7 +225,7 @@ export default {
   'info.wr': 'Win rate against the meta: weighted by how much each opponent is played.',
   'own.deck': 'I already own this deck', 'own.title': "Adds the cards you're missing for this deck to your collection",
   'own.done': n => `${n} ${cards(n)} added to your collection`,
-  'desc.curve': v => `avg. mana value ${v}`, 'desc.crea': n => `${n} creatures`, 'desc.label': 'Deck profile',
+  'desc.curveL': 'Avg. mana value', 'desc.creaL': 'Creatures', 'desc.label': 'Deck profile',
   'backup.nudge': "You've made quite a few changes: your collection lives only on this device, it's worth saving a copy.",
   'backup.now': 'Export backup', 'backup.later': 'Later',
 }
