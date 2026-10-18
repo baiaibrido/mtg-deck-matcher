@@ -213,8 +213,17 @@ export default function App() {
   }, [unlockedIds])
   const navCurrent = p => (p === 'decks' ? page === 'decks' || page === 'deck' : page === p) ? 'page' : undefined
 
-    const formatTabs = (
-    <div className="formats" role="tablist" aria-label={t('format')}>
+  // su telefono la fila dei formati scorre: il formato scelto resta sempre visibile
+  const fmtRow = useRef(null)
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      const row = fmtRow.current, b = row?.querySelector('[aria-selected="true"]')
+      if (row && b && row.scrollWidth > row.clientWidth) row.scrollTo({ left: b.offsetLeft - row.offsetLeft - (row.clientWidth - b.offsetWidth) / 2 })
+    })
+    return () => cancelAnimationFrame(id)
+  }, [format, formats, page])
+  const formatTabs = (
+    <div className="formats" role="tablist" aria-label={t('format')} ref={fmtRow}>
       {formats.map(f => <button key={f.id} role="tab" aria-selected={f.id === format} onClick={() => setFormat(f.id)}>{f.name}</button>)}
     </div>
   )

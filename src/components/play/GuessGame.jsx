@@ -1,10 +1,12 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { t } from '../../i18n/index.js'
 import { norm } from '../../lib/normalize.js'
 import { dayKey } from '../../lib/daily.js'
 import { guessDeck, revealOrder, shareGrid, GUESS_TRIES } from '../../lib/fun.js'
 import CardFace from './CardFace.jsx'
 import { IconShare } from '../Icons.jsx'
+
+const touch = typeof matchMedia !== 'undefined' && matchMedia('(pointer: coarse)').matches
 
 // Indovina il mazzo del giorno: a ogni tentativo sbagliato si scopre una carta in più
 export default function GuessGame({ decks, format, formatName, isLand, onWin, onGo, toast, store, setStore }) {
@@ -13,6 +15,15 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
   const names = useMemo(() => [...new Set(decks.filter(d => !d.rogue && d.source !== 'utente').map(d => d.name))].sort(), [decks])
   const key = `${format}|${dayKey()}`
   const [q, setQ] = useState('')
+  const [typing, setTyping] = useState(false)
+  const input = useRef(null)
+  // su telefono la tastiera copre metà schermo: il campo resta in vista e i suggerimenti compaiono sopra
+  useEffect(() => {
+    if (!typing) return
+    const keep = () => requestAnimationFrame(() => input.current?.scrollIntoView({ block: 'nearest' }))
+    keep(); const vv = window.visualViewport
+    vv?.addEventListener('resize', keep); return () => vv?.removeEventListener('resize', keep)
+  }, [typing, q, store])
   if (!deck || order.length < 2) return null
   const g = store[key] || []
   const tries = Math.min(GUESS_TRIES, order.length)
@@ -33,7 +44,7 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
   }
 
   return (
-    <div className="game game-guess">
+    <div className={`game game-guess${typing && !done ? ' typing' : ''}`}>
       <p className="game-kicker">{t('guess.title')} · {formatName}</p>
       <h2 className="guess-status">{done ? (won ? t('guess.won', g.length) : t('guess.lost')) : t('guess.try', g.length + 1, tries)}</h2>
       <p className="game-text">{t('guess.intro')}</p>
@@ -44,10 +55,11 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
       </ol>
       {!done ? (
         <div className="guess-input">
-          <input type="search" autoFocus value={q} onChange={e => setQ(e.target.value)} placeholder={t('guess.placeholder')} aria-label={t('guess.placeholder')}
+          <input ref={input} type="search" autoFocus={!touch} enterKeyHint="go" autoCorrect="off" autoCapitalize="off" spellCheck={false} value={q}
+            onFocus={() => setTyping(true)} onBlur={() => setTyping(false)} onChange={e => setQ(e.target.value)} placeholder={t('guess.placeholder')} aria-label={t('guess.placeholder')}
             onKeyDown={e => { if (e.key === 'Enter' && sugg[0]) guess(sugg[0]) }} autoComplete="off" />
           {sugg.length > 0 && <ul className="guess-sugg" role="listbox">
-            {sugg.map(n => <li key={n} role="option" aria-selected="false"><button onClick={() => guess(n)}>{n}</button></li>)}
+            {sugg.map(n => <li key={n} role="option" aria-selected="false"><button onPointerDown={e => e.preventDefault()} onClick={() => guess(n)}>{n}</button></li>)}
           </ul>}
         </div>
       ) : (

@@ -1037,3 +1037,26 @@ html.modal-open { overflow: hidden; }
 .coll-tools .search { flex: 1 1 240px; }
 .coll-tools-right { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-left: auto; }
 @media (max-width: 719px) { .coll-tools-right { flex: 1 1 100%; margin-left: 0; } .coll-tools-right .select { flex: 1; } }
+
+/* ───────── Telefono: tastiera e liste a comparsa (v0.18.2) ───────── */
+/* iOS non rimpicciolisce la pagina quando esce la tastiera: la finestra si sposta nella parte visibile */
+html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-top: 0; max-height: calc(var(--vvh, 100dvh) - 16px); }
+@media (max-width: 719px) {
+  .picker-list { max-width: calc(100vw - 24px); }
+  .picker-list li { min-height: 44px; }
+  .picker-list li > span { overflow: hidden; text-overflow: ellipsis; }
+  /* Indovina il mazzo: mentre si scrive le carte si rimpiccioliscono e i suggerimenti salgono sopra il campo */
+  .game-guess .guess-input { display: flex; flex-direction: column-reverse; }
+  .game-guess .guess-sugg { position: static; margin: 0 0 6px; display: flex; flex-direction: column-reverse; box-shadow: none; }
+  .guess-sugg button { min-height: 44px; }
+  .game-guess.typing .game-text { display: none; }
+  .game-guess.typing .guess-cards { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; margin: 0; }
+  .game-guess.typing .guess-cards .tile-ph { font-size: .55rem; padding: 3px; }
+  .game-guess.typing .play-back { font-size: 1rem; }
+}
+/* telefoni stretti (≤ 380px): le icone di lingua/valuta lasciano posto al pulsante del tema */
+@media (max-width: 380px) {
+  .pref-picker .picker-btn > svg:first-child { display: none; }
+  .pref-picker .picker-btn { padding: 4px 4px 4px 10px; }
+  .brand-name { font-size: 1.15rem; }
+}

@@ -26,7 +26,14 @@ export default function Picker({ value, options, onChange, label, icon, short, a
 
   const show = () => {
     const r = btn.current.getBoundingClientRect()
-    setPos({ top: r.bottom + 6, minWidth: r.width, ...(align === 'right' ? { right: document.documentElement.clientWidth - r.right } : { left: r.left }) })
+    // sotto c'è poco spazio (fondo schermo, barra in basso del telefono)? la lista si apre verso l'alto
+    const bar = document.querySelector('.tabbar')?.getBoundingClientRect().height || 0
+    const vh = window.visualViewport?.height || innerHeight
+    const below = vh - bar - r.bottom - 12, above = r.top - 12
+    const up = below < Math.min(240, options.length * 42 + 14) && above > below
+    const room = Math.max(120, Math.min(340, (up ? above : below) - 6))
+    setPos({ ...(up ? { bottom: innerHeight - r.top + 6 } : { top: r.bottom + 6 }), maxHeight: room, minWidth: r.width,
+      ...(align === 'right' ? { right: document.documentElement.clientWidth - r.right } : { left: r.left }) })
     setActive(idx); setOpen(true)
   }
   const pick = i => { setOpen(false); btn.current?.focus(); if (options[i].value !== value) onChange(options[i].value) }
