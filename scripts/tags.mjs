@@ -13,7 +13,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms))
 export const ORACLE_TAGS = [
   ['removal', ['removal']], ['counter', ['counterspell']], ['draw', ['draw', 'card-advantage']], ['ramp', ['ramp']],
   ['tutor', ['tutor']], ['wipe', ['board-wipe', 'sweeper']], ['burn', ['burn']], ['lifegain', ['lifegain', 'gain-life']],
-  ['tokens', ['token-generator', 'create-token', 'tokens']], ['mill', ['mill']], ['discard', ['discard', 'hand-disruption']],
+  ['tokens', ['token-generator', 'token-maker', 'creates-tokens', 'token-creation', 'create-token', 'tokens']], ['mill', ['mill']], ['discard', ['discard', 'hand-disruption']],
   ['reanimate', ['reanimate', 'reanimation']], ['recursion', ['recursion']], ['protection', ['protects-creature', 'protection']],
   ['cantrip', ['cantrip']], ['sacrifice', ['sacrifice-outlet']],
 ]
