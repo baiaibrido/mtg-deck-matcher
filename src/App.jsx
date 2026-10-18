@@ -21,7 +21,6 @@ import MysteryDeck from './components/MysteryDeck.jsx'
 import { pickDaily, signatureOf } from './lib/daily.js'
 import { Info } from './components/Badges.jsx'
 import { mergeCollection } from './lib/normalize.js'
-import { decodeCollection } from './lib/transfer.js'
 import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS, guessDeck, GUESS_TRIES } from './lib/fun.js'
 import MetaWeather from './components/MetaWeather.jsx'
 import StatsPage from './components/StatsPage.jsx'
@@ -203,19 +202,6 @@ export default function App() {
     setCollection(mergeCollection([...collection, ...add]))
     toast(t('own.done', add.reduce((n, r) => n + r.qty, 0)), { label: t('undo'), fn: () => setCollection(before) })
   }
-
-  // collezione arrivata da un altro dispositivo (#/import/<codice>): con collezione vuota si carica subito, altrimenti si chiede
-  const [incoming, setIncoming] = useState(null)
-  useEffect(() => {
-    if (route.page !== 'import') return
-    const code = route.id
-    location.replace('#/collection')
-    if (!code) return
-    decodeCollection(code).then(list => {
-      if (!list.length) throw new Error('vuota')
-      if (!collection.length) { setCollection(mergeCollection(list), { count: false }); toast(t('imp.done')) } else setIncoming(list)
-    }).catch(() => toast(t('imp.bad')))
-  }, [route.page, route.id])
   const count = collection.reduce((s, c) => s + c.qty, 0)
   const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
   const meteo = useMemo(() => meta ? weather(meta) : null, [meta])
@@ -452,17 +438,6 @@ export default function App() {
         aria-label={t('toTop')} title={t('toTop')} tabIndex={showTop ? 0 : -1} aria-hidden={!showTop}>
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
-      <Modal open={!!incoming} onClose={() => setIncoming(null)} label={t('imp.title', incoming?.reduce((n, e) => n + e.qty, 0) || 0)}>
-        {close => <div className="imp">
-          <h2>{t('imp.title', incoming.reduce((n, e) => n + e.qty, 0))}</h2>
-          <p>{t('imp.text')}</p>
-          <div className="game-actions">
-            <button className="btn btn-primary" onClick={() => { setCollection(mergeCollection([...collection, ...incoming])); toast(t('imp.done')); close() }}>{t('imp.merge')}</button>
-            <button className="btn" onClick={() => { setCollection(mergeCollection(incoming)); toast(t('imp.done')); close() }}>{t('imp.replace')}</button>
-            <button className="btn btn-quiet" onClick={close}>{t('cancel')}</button>
-          </div>
-        </div>}
-      </Modal>
       <Modal open={game === 'quiz'} onClose={() => setGame(null)} label={t('quiz.title')} className="modal-game">
         {close => <Quiz decks={meta || []} getCard={getCached} colorsOf={colorsOf} isLand={isLand}
           onGo={id => { close(); go('deck', id) }} onDone={() => bumpFun({ quiz: true })} />}

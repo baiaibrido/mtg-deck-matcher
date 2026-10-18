@@ -15,8 +15,7 @@ import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { loadTags } from '../lib/tagsLoader.js' // tag di Scryfall: caricati solo quando si aprono i filtri
 import { useLocal } from '../state/useLocal.js'
 import { ManaCost } from './Mana.jsx'
-import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter, IconShare } from './Icons.jsx'
-import { encodeCollection } from '../lib/transfer.js'
+import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter } from './Icons.jsx'
 
 const STEP = 120 // carte mostrate per volta: le immagini si caricano man mano
 
@@ -100,19 +99,12 @@ export default function CollectionManager({ collection, setCollection, toast, be
     if (!opened.current) { opened.current = true; return }
     if (importOpen) textRef.current?.focus()
   }, [importOpen])
-  // backup e trasferimento: la collezione vive solo in questo browser
+  // backup: la collezione vive solo in questo browser
   const exportBackup = () => {
     downloadTxt(`${t('coll.file')}-${new Date().toISOString().slice(0, 10)}.csv`, collectionCsv(collection), 'text/csv')
     setBackup({ changes: 0, at: Date.now() }); toast(t('coll.backupDone'))
   }
   const nudge = collection.length >= 20 && (backup.changes || 0) >= 10
-  const transfer = async () => {
-    const url = `${location.origin}${location.pathname}#/import/${await encodeCollection(collection)}`
-    try {
-      if (navigator.share && matchMedia('(pointer: coarse)').matches) await navigator.share({ title: t('coll.transferShare'), url })
-      else { await navigator.clipboard.writeText(url); toast(t('coll.transferCopied')) }
-    } catch (e) { if (e?.name !== 'AbortError') toast(t('copyFail')) }
-  }
   const [prefs, setPrefs] = useLocal('mdm.collView', {})
   const view = prefs.view || 'grid', sort = COLL_SORTS.includes(prefs.sort) ? prefs.sort : 'name', type = prefs.type || 'all'
   const [more, setMore] = useState(false) // altri filtri (artista, set, rarità, tag)
@@ -259,7 +251,6 @@ export default function CollectionManager({ collection, setCollection, toast, be
         <label className="btn btn-quiet"><IconUpload size={18} /><span className="btn-2l">{t('coll.importFile')}<small>{t('coll.importFileHint')}</small></span>{fileInput}</label>
         <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} /><span className="btn-2l">{t('coll.fixNames')}<small>{t('coll.fixHint')}</small></span></button>
         <button className="btn btn-quiet" onClick={exportBackup}><IconDownload size={18} />{t('coll.backup')}</button>
-        {collection.length > 0 && <button className="btn btn-quiet" onClick={transfer}><IconShare size={18} /><span className="btn-2l">{t('coll.transfer')}<small>{t('coll.transferSub')}</small></span></button>}
         <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
           onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
       </div>

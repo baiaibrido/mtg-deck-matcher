@@ -1100,9 +1100,5 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 /* senza collezione: liste neutre, senza rosso */
 .tile-plain .tile-qty { color: var(--bone); }
 .tline.tile-plain { --st-ink: var(--lichen); }
-/* collezione da un altro dispositivo */
-.imp { display: grid; gap: 8px; text-align: center; justify-items: center; }
-.imp h2 { font: 1.35rem var(--font-title); margin: 0; padding: 0 24px; }
-.imp p { margin: 0; color: var(--lichen); }
 /* promemoria backup: non è un errore, niente rosso */
 .backup-nudge { border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); margin-top: 10px; }
