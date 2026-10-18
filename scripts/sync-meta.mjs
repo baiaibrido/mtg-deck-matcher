@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url'
 import { FORMATS, assignTiers, loadRobots, syncFormat, saveFormat } from './sync-mtgtop8.mjs'
 import { downloadOracle, indexCards, cardsByFormat } from './cards-data.mjs'
 import { pickSignature } from '../src/lib/daily.js'
+import { syncTags } from './tags.mjs'
 import { coreFlex, weeklyPresence, cardTrends, sideMeta, conversion, mergePrices } from './stats.mjs'
 
 const DECKS_REPO = 'https://github.com/Jiliac/MTGODecklistCache'
@@ -402,6 +403,7 @@ async function main() {
   }
   console.log(`Formati aggiornati: ${ok}/${want.length}`)
   await syncCards()
+  try { await syncTags() } catch (e) { console.warn(`Tag Scryfall non aggiornati (${e.message})`) }
   if (!ok) process.exit(1)
 }
 

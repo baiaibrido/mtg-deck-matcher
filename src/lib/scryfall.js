@@ -1,8 +1,8 @@
-import { norm, mergeEntries } from './normalize.js'
+import { norm, mergeCollection } from './normalize.js'
 import { closestName } from './closestName.js'
 
 const API = 'https://api.scryfall.com'
-const CK = 'mdm.cards.v4' // v4: formato compatto + prezzi + ban/restrizioni per formato
+const CK = 'mdm.cards.v5' // v5: + artista, set, rarità, uscita, costo di mana convertito, numero (per la collezione)
 const MAX_AGE = 3 * 864e5   // i prezzi si aggiornano ogni 3 giorni
 const IMG = 'https://cards.scryfall.io/normal/'
 const HEAD = { Accept: 'application/json' }
@@ -19,7 +19,7 @@ const save = () => {
     } catch { /* ignora */ }
   }
 }
-try { ['mdm.cards.v3', 'mdm.cards.v2', 'mdm.cards'].forEach(k => localStorage.removeItem(k)) } catch { /* vecchie cache */ }
+try { ['mdm.cards.v4', 'mdm.cards.v3', 'mdm.cards.v2', 'mdm.cards'].forEach(k => localStorage.removeItem(k)) } catch { /* vecchie cache */ }
 
 // Formati del sito: per ogni carta salviamo dove è bannata (bn) o ristretta (rs)
 export const FORMAT_IDS = ['standard', 'pioneer', 'modern', 'pauper', 'legacy', 'vintage', 'commander']
@@ -39,10 +39,16 @@ const slim = c => {
     eur: num(c.prices?.eur) ?? num(c.prices?.eur_foil),
     usd: num(c.prices?.usd) ?? num(c.prices?.usd_foil),
     bn: legal(c, 'banned'), rs: legal(c, 'restricted'),
+    a: c.artist || f?.artist || null, s: c.set || null, sn: c.set_name || null, n: c.collector_number || null,
+    r: c.rarity || null, d: c.released_at || null, v: c.cmc ?? null,
     t: Date.now(),
   }
 }
-const expand = c => c && { ...c, img: c.i ? (c.i.startsWith('http') ? c.i : IMG + c.i) : null, uri: `https://scryfall.com/search?q=${encodeURIComponent(`!"${c.name}"`)}` }
+const expand = c => c && {
+  ...c, img: c.i ? (c.i.startsWith('http') ? c.i : IMG + c.i) : null,
+  artist: c.a || null, set: c.s || null, setName: c.sn || null, rarity: c.r || null, released: c.d || null, cmc: c.v ?? null,
+  uri: c.s && c.n ? `https://scryfall.com/card/${c.s}/${encodeURIComponent(c.n)}` : `https://scryfall.com/search?q=${encodeURIComponent(`!"${c.name}"`)}`,
+}
 const put = (c, key) => { const s = slim(c); getCache()[norm(s.name)] = s; if (key) getCache()[norm(key)] = s; return s }
 
 // Carte dei mazzi preparate ogni notte (public/meta/cards-<formato>.json): solo in memoria, non occupano localStorage
@@ -54,12 +60,15 @@ export const seedCards = (cards, updated) => {
 const newest = k => { const a = seeded.get(k), b = getCache()[k]; return !a ? b : !b ? a : (b.t || 0) > (a.t || 0) ? b : a }
 
 const memo = new Map()
+const expanded = raw => { let e = memo.get(raw); if (!e) { e = expand(raw); memo.set(raw, e) } return e }
 export const getCached = name => {
   const raw = newest(norm(name))
-  if (!raw) return undefined
-  let e = memo.get(raw); if (!e) { e = expand(raw); memo.set(raw, e) }
-  return e
+  return raw ? expanded(raw) : undefined
 }
+
+// Stampe della collezione: chiave per Scryfall ID, set + numero, o set + nome; senza stampa si usa la carta per nome
+export const printKey = e => e.sid ? `id:${e.sid}` : e.set && e.num ? `p:${e.set}/${e.num}` : e.set ? `ps:${e.set}/${norm(e.name)}` : null
+export const getPrinting = e => { const k = printKey(e), raw = k && getCache()[k]; return raw ? expanded(raw) : getCached(e.name) }
 const fresh = e => e && Date.now() - (e.t || 0) < MAX_AGE
 const unknown = new Set() // nomi che Scryfall non riconosce: non li richiede di nuovo in questa sessione
 
@@ -105,6 +114,27 @@ export async function fetchCards(names, { fuzzy = false, onProgress } = {}) {
   return { notFound: unresolved, suggestions }
 }
 
+// Dati delle stampe precise (artista, set, rarità…) per le voci della collezione che hanno set/numero o Scryfall ID
+export async function fetchPrintings(entries, { onProgress } = {}) {
+  const c = getCache()
+  const want = [...new Map(entries.map(e => [printKey(e), e]).filter(([k]) => k && !fresh(c[k]) && !unknown.has(k))).values()]
+  const ident = e => e.sid ? { id: e.sid } : e.num ? { set: e.set, collector_number: e.num } : { name: e.name, set: e.set }
+  for (let i = 0; i < want.length; i += 75) {
+    const chunk = want.slice(i, i + 75)
+    const r = await fetch(`${API}/cards/collection`, { method: 'POST', headers: { ...HEAD, 'Content-Type': 'application/json' }, body: JSON.stringify({ identifiers: chunk.map(ident) }) })
+    if (!r.ok) throw new Error(`Scryfall ${r.status}`)
+    const j = await r.json()
+    for (const card of j.data) {
+      const sl = slim(card)
+      c[`id:${card.id}`] = sl; c[`p:${card.set}/${card.collector_number}`] = sl; c[`ps:${card.set}/${norm(card.name)}`] = sl
+    }
+    for (const nf of j.not_found || []) unknown.add(nf.id ? `id:${nf.id}` : nf.collector_number ? `p:${nf.set}/${nf.collector_number}` : `ps:${nf.set}/${norm(nf.name || '')}`)
+    onProgress?.(Math.min(i + 75, want.length), want.length)
+    save()
+    await sleep(120)
+  }
+}
+
 // Elenco di tutti i nomi di carta (~35.000), scaricato solo se serve e tenuto in memoria per la sessione
 let namesP
 const cardNames = () => namesP ??= fetch(`${API}/catalog/card-names`, { headers: HEAD })
@@ -114,8 +144,8 @@ const cardNames = () => namesP ??= fetch(`${API}/catalog/card-names`, { headers:
 // Sostituisce i nomi con quelli ufficiali Scryfall e unisce i duplicati.
 export async function normalizeCollection(list, onProgress) {
   const { notFound, suggestions } = await fetchCards(list.map(x => x.name), { fuzzy: true, onProgress })
-  const fixed = list.map(x => ({ name: getCached(x.name)?.name || x.name, qty: x.qty }))
-  return { list: mergeEntries(fixed), notFound, suggestions }
+  const fixed = list.map(x => ({ ...x, name: getCached(x.name)?.name || x.name }))
+  return { list: mergeCollection(fixed), notFound, suggestions }
 }
 
 // Stessa immagine in formato piccolo (146px) per miniature e griglie

@@ -25,6 +25,8 @@ export function slim(c) {
     eur: num(c.prices?.eur) ?? num(c.prices?.eur_foil),
     usd: num(c.prices?.usd) ?? num(c.prices?.usd_foil),
     bn: legal(c, 'banned'), rs: legal(c, 'restricted'),
+    // dati della stampa (solo se presenti, per non appesantire il file)
+    ...Object.fromEntries(Object.entries({ a: c.artist || f?.artist, s: c.set, sn: c.set_name, n: c.collector_number, r: c.rarity, d: c.released_at, v: c.cmc }).filter(([, v]) => v != null && v !== '')),
   }
 }
 

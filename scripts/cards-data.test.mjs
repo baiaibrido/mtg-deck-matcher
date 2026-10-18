@@ -38,3 +38,9 @@ test('file Scryfall: array JSON o una carta per riga', async () => {
   assert.equal(parseCards(oracle.map(c => JSON.stringify(c)).join('\n') + '\n').length, 4)
   assert.equal(parseCards('[\n' + oracle.map(c => JSON.stringify(c)).join(',\n') + '\n]').length, 4)
 })
+
+test('dati della stampa (artista, set, rarità…) quando ci sono', async () => {
+  const { slim } = await import('./cards-data.mjs')
+  const c = slim({ name: 'Opt', type_line: 'Instant', mana_cost: '{U}', image_uris: { normal: 'https://cards.scryfall.io/normal/front/x.jpg' }, artist: 'Tyler Jacobson', set: 'xln', set_name: 'Ixalan', collector_number: '65', rarity: 'common', released_at: '2017-09-29', cmc: 1, prices: {}, legalities: {} })
+  assert.equal(c.a, 'Tyler Jacobson'); assert.equal(c.s, 'xln'); assert.equal(c.r, 'common'); assert.equal(c.v, 1)
+})

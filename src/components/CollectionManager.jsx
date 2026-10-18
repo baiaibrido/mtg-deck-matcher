@@ -4,8 +4,9 @@ import { personality } from '../lib/fun.js'
 import Achievements from './play/Achievements.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { parseCollection } from '../lib/parser.js'
-import { mergeEntries } from '../lib/normalize.js'
-import { normalizeCollection, fetchCards, getCached, smallImg } from '../lib/scryfall.js'
+import { mergeCollection, entryKey } from '../lib/normalize.js'
+import { COLL_SORTS, applyFilters, sortRows, facets, tagIndex } from '../lib/collection.js'
+import { normalizeCollection, fetchCards, fetchPrintings, getCached, getPrinting, printKey, smallImg } from '../lib/scryfall.js'
 import { BINDER, binderOf, binderName, TYPE_FILTERS } from '../lib/deckInfo.js'
 import { t, getLang } from '../i18n/index.js'
 import { money, priceOf } from '../lib/currency.js'
@@ -13,25 +14,30 @@ import { formatList } from '../lib/bans.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { useLocal } from '../state/useLocal.js'
 import { ManaCost } from './Mana.jsx'
-import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList } from './Icons.jsx'
+import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter } from './Icons.jsx'
 
 const STEP = 120 // carte mostrate per volta: le immagini si caricano man mano
-const SORTS = ['name', 'qty', 'price']
+const base = import.meta.env?.BASE_URL || '/'
+let tagsP // tag di Scryfall (public/meta/tags.json): caricati solo quando si aprono i filtri
+const loadTags = () => tagsP ??= fetch(`${base}meta/tags.json`).then(r => r.ok ? r.json() : null).then(tagIndex).catch(() => { tagsP = null; return tagIndex(null) })
 
 function Stepper({ c, setQty }) {
   return (
     <span className="stepper">
-      <button onClick={() => setQty(c.name, c.qty - 1)} aria-label={t('coll.minus', c.name)}><IconMinus size={16} /></button>
+      <button onClick={() => setQty(c.key, c.qty - 1)} aria-label={t('coll.minus', c.name)}><IconMinus size={16} /></button>
       <input type="number" min="0" inputMode="numeric" value={c.qty} aria-label={t('coll.copiesOf', c.name)}
-        onChange={e => setQty(c.name, Math.max(0, parseInt(e.target.value, 10) || 0))} />
-      <button onClick={() => setQty(c.name, c.qty + 1)} aria-label={t('coll.plus', c.name)}><IconPlus size={16} /></button>
+        onChange={e => setQty(c.key, Math.max(0, parseInt(e.target.value, 10) || 0))} />
+      <button onClick={() => setQty(c.key, c.qty + 1)} aria-label={t('coll.plus', c.name)}><IconPlus size={16} /></button>
     </span>
   )
 }
 
-function DeleteBtn({ name, onDelete, className = 'btn-del' }) {
-  return <button className={className} onClick={() => onDelete(name)} aria-label={t('coll.delete', name)} title={t('coll.deleteTitle')}><IconTrash size={16} /></button>
+function DeleteBtn({ r, onDelete, className = 'btn-del' }) {
+  return <button className={className} onClick={() => onDelete(r)} aria-label={t('coll.delete', r.name)} title={t('coll.deleteTitle')}><IconTrash size={16} /></button>
 }
+
+// Set e artista della stampa (se noti)
+const printLine = c => [c?.set?.toUpperCase(), c?.artist].filter(Boolean).join(' · ')
 
 // Carta bannata in almeno un formato del sito (o ristretta in Vintage)
 function BanChip({ card }) {
@@ -71,6 +77,17 @@ function Spine({ sections, total }) {
   )
 }
 
+// Filtro a tendina con "Tutti" in cima; vuoto finché i dati non ci sono
+function FilterPick({ label, value, onChange, options, all, loading }) {
+  if (!options.length && !loading) return null
+  return (
+    <span className={`select fpick${value ? ' on' : ''}`}>
+      <span aria-hidden="true">{label}</span>
+      <Picker label={label} value={value || ''} onChange={v => onChange(v || null)} options={[{ value: '', label: loading ? '…' : all }, ...options]} />
+    </span>
+  )
+}
+
 export default function CollectionManager({ collection, setCollection, toast, best, onOpen, unlocked = {} }) {
   const [text, setText] = useState('')
   const [q, setQ] = useState('')
@@ -85,41 +102,46 @@ export default function CollectionManager({ collection, setCollection, toast, be
     if (importOpen) textRef.current?.focus()
   }, [importOpen])
   const [prefs, setPrefs] = useLocal('mdm.collView', {})
-  const view = prefs.view || 'grid', sort = prefs.sort || 'name', type = prefs.type || 'all'
+  const view = prefs.view || 'grid', sort = COLL_SORTS.includes(prefs.sort) ? prefs.sort : 'name', type = prefs.type || 'all'
+  const [more, setMore] = useState(false) // altri filtri (artista, set, rarità, tag)
+  const [flt, setFlt] = useState({}) // { artist, set, rarity, otag, atag }
+  const [tags, setTags] = useState(null)
+  useEffect(() => { if ((more || flt.otag || flt.atag) && !tags) loadTags().then(setTags) }, [more, flt.otag, flt.atag])
   const [limit, setLimit] = useState(STEP)
   const [load, setLoad] = useState({ done: 0, total: 0, error: false })
   const [, setTick] = useState(0)
 
-  // Dati Scryfall (immagini, colori, tipi, prezzi) per tutta la collezione, a blocchi
-  const namesKey = collection.map(c => c.name).join('|')
+  // Dati Scryfall (immagini, colori, tipi, prezzi, artista, set) per tutta la collezione, a blocchi:
+  // prima le carte per nome, poi le stampe precise (set + numero o Scryfall ID) quando l'import le conteneva
+  const namesKey = collection.map(entryKey).join('|')
   useEffect(() => {
     if (!collection.length) return
     let alive = true
-    fetchCards(collection.map(c => c.name), { onProgress: (done, total) => { if (alive) { setLoad({ done, total, error: false }); setTick(t => t + 1) } } })
+    const prog = (done, total) => { if (alive) { setLoad({ done, total, error: false }); setTick(t => t + 1) } }
+    fetchCards(collection.map(c => c.name), { onProgress: prog })
+      .then(() => fetchPrintings(collection.filter(printKey), { onProgress: prog }))
       .then(() => alive && (setLoad(l => ({ ...l, done: l.total })), setTick(t => t + 1)))
       .catch(() => alive && setLoad(l => ({ ...l, error: true })))
     return () => { alive = false }
   }, [namesKey])
 
   const total = collection.reduce((s, c) => s + c.qty, 0)
-  const rows = collection.map(c => ({ ...c, card: getCached(c.name) }))
+  const rows = collection.map(c => ({ ...c, key: entryKey(c), card: getPrinting(c) }))
   const value = rows.reduce((s, r) => s + (priceOf(r.card) ?? 0) * r.qty, 0)
   const priced = rows.some(r => priceOf(r.card) != null)
 
-  const filtered = (() => {
-    const s = q.trim().toLowerCase()
-    const tf = TYPE_FILTERS.find(([k]) => k === type)?.[1] || (() => true)
-    const list = rows.filter(r => (!s || r.name.toLowerCase().includes(s)) && (type === 'all' || (r.card && tf(r.card.type))))
-    const by = { name: (a, b) => a.name.localeCompare(b.name), qty: (a, b) => b.qty - a.qty || a.name.localeCompare(b.name), price: (a, b) => (priceOf(b.card) ?? -1) * b.qty - (priceOf(a.card) ?? -1) * a.qty }
-    return list.sort(by[sort])
-  })()
+  const typeTest = type === 'all' ? null : TYPE_FILTERS.find(([k]) => k === type)?.[1]
+  const filtered = sortRows(applyFilters(rows, { q, typeTest, ...flt }, tags), sort, priceOf)
+  const fx = facets(rows)
+  const nFlt = Object.values(flt).filter(Boolean).length
+  const setF = patch => { setFlt(f => ({ ...f, ...patch })); setLimit(STEP) }
   const sections = BINDER.map(k => [k, filtered.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
   const allSections = BINDER.map(k => [k, rows.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
 
   const apply = () => {
     const parsed = parseCollection(text)
     if (!parsed.length) return setMsg({ kind: 'error', text: t('coll.noneRecognized') })
-    setCollection(mergeEntries([...collection, ...parsed]))
+    setCollection(mergeCollection([...collection, ...parsed]))
     setText(''); setMsg(null); setImportOpen(false)
     toast(t('coll.added', parsed.reduce((s, c) => s + c.qty, 0)))
   }
@@ -136,7 +158,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
   }
   const usePending = replace => {
     const { list } = pending, prev = collection, n = list.reduce((s, c) => s + c.qty, 0)
-    setCollection(replace ? list : mergeEntries([...collection, ...list])); setPending(null); setImportOpen(false)
+    setCollection(replace ? list : mergeCollection([...collection, ...list])); setPending(null); setImportOpen(false)
     toast(replace ? t('coll.replaced', n) : t('coll.added', n), { label: t('undo'), fn: () => setCollection(prev) })
   }
   const dropProps = {
@@ -148,7 +170,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
     setBusy(true); setMsg({ kind: 'info', text: t('coll.checking') })
     try {
       const { list, notFound, suggestions } = await normalizeCollection(collection, (d, tot) => setMsg({ kind: 'info', text: `${t('coll.checking')} ${d}/${tot}` }))
-      const fixedCount = collection.filter(c => !list.some(x => x.name === c.name)).length
+      const fixedCount = collection.filter(c => !list.some(x => entryKey(x) === entryKey(c))).length
       setCollection(list)
       const names = notFound.map(n => suggestions?.[n] ? t('coll.maybe', n, suggestions[n]) : n)
       setMsg(notFound.length ? { kind: 'error', text: t('coll.unrecognized', notFound.length, names.join(', '), binderName('?')) } : null)
@@ -156,11 +178,11 @@ export default function CollectionManager({ collection, setCollection, toast, be
     } catch (err) { setMsg({ kind: 'error', text: t('coll.scryErr', err.message) }) }
     setBusy(false)
   }
-  const setQty = (name, qty) => setCollection(collection.map(c => c.name === name ? { ...c, qty } : c).filter(c => c.qty > 0))
-  const remove = name => {
+  const setQty = (key, qty) => setCollection(collection.map(c => entryKey(c) === key ? { ...c, qty } : c).filter(c => c.qty > 0))
+  const remove = r => {
     const prev = collection
-    setCollection(collection.filter(c => c.name !== name))
-    toast(t('coll.removed', name), { label: t('undo'), fn: () => setCollection(prev) })
+    setCollection(collection.filter(c => entryKey(c) !== r.key))
+    toast(t('coll.removed', r.name), { label: t('undo'), fn: () => setCollection(prev) })
   }
   const setP = patch => { setPrefs({ ...prefs, ...patch }); setLimit(STEP) }
 
@@ -247,18 +269,41 @@ export default function CollectionManager({ collection, setCollection, toast, be
           <IconSearch size={18} />
           <input type="search" value={q} onChange={e => { setQ(e.target.value); setLimit(STEP) }} placeholder={t('coll.search')} aria-label={t('coll.search')} />
         </label>
+
         <div className="chips" role="group" aria-label={t('coll.typeAria')}>
           {TYPE_FILTERS.map(([k]) => <button key={k} aria-pressed={type === k} onClick={() => setP({ type: k })}>{t(`type.${k}`)}</button>)}
         </div>
+        <span className="coll-tools-right">
+        <button className={`btn btn-quiet more-btn${more ? ' open' : ''}`} aria-expanded={more} onClick={() => setMore(m => !m)}>
+          <IconFilter size={18} />{t('coll.moreFilters')}{nFlt > 0 && <span className="count">{nFlt}</span>}
+        </button>
         <span className="select">
           <span aria-hidden="true">{t('sort')}</span>
-          <Picker label={t('sort')} value={sort} onChange={v => setP({ sort: v })} options={SORTS.map(k => ({ value: k, label: t(`coll.sort.${k}`) }))} align="right" />
+          <Picker label={t('sort')} value={sort} onChange={v => setP({ sort: v })} options={COLL_SORTS.map(k => ({ value: k, label: t(`coll.sort.${k}`) }))} align="right" />
         </span>
         <div className="seg seg-icons" role="group" aria-label={t('view')}>
           <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
           <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
         </div>
+        </span>
       </div>
+
+      {more && (
+        <div className="more-filters">
+          <FilterPick label={t('coll.f.artist')} value={flt.artist} onChange={v => setF({ artist: v })} all={t('coll.f.all')}
+            options={fx.artists.map(([a, n]) => ({ value: a, label: `${a} (${n})` }))} />
+          <FilterPick label={t('coll.f.set')} value={flt.set} onChange={v => setF({ set: v })} all={t('coll.f.all')}
+            options={fx.sets.map(x => ({ value: x.code, label: `${x.name} (${x.n})` }))} />
+          <FilterPick label={t('coll.f.rarity')} value={flt.rarity} onChange={v => setF({ rarity: v })} all={t('coll.f.all')}
+            options={fx.rarities.map(([r, n]) => ({ value: r, label: `${t(`rarity.${r}`)} (${n})` }))} />
+          <FilterPick label={t('coll.f.otag')} value={flt.otag} onChange={v => setF({ otag: v })} all={t('coll.f.all')} loading={!tags}
+            options={(tags?.ids.oracle || []).map(id => ({ value: id, label: t(`otag.${id}`) }))} />
+          <FilterPick label={t('coll.f.atag')} value={flt.atag} onChange={v => setF({ atag: v })} all={t('coll.f.all')} loading={!tags}
+            options={(tags?.ids.art || []).map(id => ({ value: id, label: t(`atag.${id}`) }))} />
+          {nFlt > 0 && <button className="linklike" onClick={() => setF({ artist: null, set: null, rarity: null, otag: null, atag: null })}>{t('coll.f.clear')}</button>}
+          <p className="hint more-hint">{t('coll.f.hint')}</p>
+        </div>
+      )}
 
       {!filtered.length && <p className="empty">{q ? t('coll.noMatchQ', q) : t('coll.noMatch')}</p>}
 
@@ -268,16 +313,17 @@ export default function CollectionManager({ collection, setCollection, toast, be
           {view === 'grid' ? (
             <ul className="ctiles">
               {part.map(r => (
-                <li key={r.name} className="ctile">
+                <li key={r.key} className="ctile">
                   <div className="ctile-art">
                     <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
                       <Thumb card={r.card} name={r.name} big />
                       <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
                       <BanChip card={r.card} />
                     </a>
-                    <DeleteBtn name={r.name} onDelete={remove} className="btn-del ctile-del" />
+                    <DeleteBtn r={r} onDelete={remove} className="btn-del ctile-del" />
                   </div>
                   <span className="ctile-name">{r.name}</span>
+                  {printLine(r.card) && <span className="ctile-print" title={printLine(r.card)}>{printLine(r.card)}</span>}
                   <Stepper c={r} setQty={setQty} />
                 </li>
               ))}
@@ -285,15 +331,15 @@ export default function CollectionManager({ collection, setCollection, toast, be
           ) : (
             <ul className="crows">
               {part.map(r => (
-                <li key={r.name}>
+                <li key={r.key}>
                   <Thumb card={r.card} name={r.name} />
                   <span className="crow-main">
                     <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
-                    <span className="crow-type">{r.card?.type || '—'} <BanChip card={r.card} /></span>
+                    <span className="crow-type">{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')} <BanChip card={r.card} /></span>
                   </span>
                   <ManaCost cost={r.card?.cost} />
                   <span className="crow-price">{priceOf(r.card) != null ? money(priceOf(r.card) * r.qty, true) : '—'}</span>
-                  <span className="crow-ctl"><Stepper c={r} setQty={setQty} /><DeleteBtn name={r.name} onDelete={remove} /></span>
+                  <span className="crow-ctl"><Stepper c={r} setQty={setQty} /><DeleteBtn r={r} onDelete={remove} /></span>
                 </li>
               ))}
             </ul>

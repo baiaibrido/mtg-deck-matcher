@@ -1023,3 +1023,17 @@ html.modal-open { overflow: hidden; }
   .st-conv .st-name { grid-area: name; } .st-conv .st-bars { grid-area: bars; width: 100%; max-width: 200px; } .st-conv .st-num { grid-area: num; }
 }
 .detail-side .ins-conv { margin-top: -12px; }
+
+/* v0.18: filtri della collezione (artista, set, rarità, tag di Scryfall) */
+.more-btn.open { color: var(--brass); border-color: color-mix(in oklab, var(--brass) 50%, var(--rail)); }
+.more-btn .count { margin-left: 4px; background: var(--brass); color: var(--brass-ink); }
+.more-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 16px; padding: 14px 16px; border: 1px solid var(--rail); border-radius: var(--r-lg); background: var(--baize); animation: q-in .25s var(--ease); }
+.fpick .picker-btn { max-width: 15em; }
+.fpick .picker-val { overflow: hidden; text-overflow: ellipsis; }
+.fpick.on .picker-btn { border-color: var(--brass); color: var(--brass); }
+.more-hint { flex-basis: 100%; margin: 0; font-size: .8rem; }
+.ctile-print { font-size: .74rem; color: var(--lichen); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: -2px; }
+@media (max-width: 560px) { .more-filters { padding: 12px; } .fpick { flex: 1 1 100%; justify-content: space-between; } .fpick .picker-btn { max-width: 60vw; } }
+.coll-tools .search { flex: 1 1 240px; }
+.coll-tools-right { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-left: auto; }
+@media (max-width: 719px) { .coll-tools-right { flex: 1 1 100%; margin-left: 0; } .coll-tools-right .select { flex: 1; } }

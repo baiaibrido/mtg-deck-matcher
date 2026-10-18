@@ -34,13 +34,13 @@ test('norm: accenti, DFC, maiuscole', () => {
 })
 
 test('parser collezione: testo e CSV', () => {
-  assert.deepEqual(parseCollection('4 Lightning Bolt (2X2) 117\n2x Counterspell\nBrainstorm x3\n1 lightning bolt'),
-    [{ name: 'Lightning Bolt', qty: 5 }, { name: 'Counterspell', qty: 2 }, { name: 'Brainstorm', qty: 3 }])
+  assert.deepEqual(parseCollection('4 Lightning Bolt (2X2) 117\n2x Counterspell\nBrainstorm x3\n1 lightning bolt\n1 Lightning Bolt (2x2) 117'),
+    [{ name: 'Lightning Bolt', qty: 5, set: '2x2', num: '117' }, { name: 'Counterspell', qty: 2 }, { name: 'Brainstorm', qty: 3 }, { name: 'lightning bolt', qty: 1 }])
   // copie prima o dopo il nome, a scelta
   assert.deepEqual(parseCollection('Of One Mind 4\nRancor x2\nArmadillo Cloak 3x\nBrainstorm (4)\nPonder - 2\nx3 Counterspell\nFire // Ice 2\n4 Ninja of the Deep Hours').map(c => [c.name, c.qty]),
     [['Of One Mind', 4], ['Rancor', 2], ['Armadillo Cloak', 3], ['Brainstorm', 4], ['Ponder', 2], ['Counterspell', 3], ['Fire // Ice', 2], ['Ninja of the Deep Hours', 4]])
-  assert.deepEqual(parseCollection('Name,Qty,Set\n"Fire // Ice",2,MH2\nOpt,4,XLN'),
-    [{ name: 'Fire // Ice', qty: 2 }, { name: 'Opt', qty: 4 }])
+  assert.deepEqual(parseCollection('Name,Qty,Set\n"Fire // Ice",2,MH2\nOpt,4,XLN\nOpt,1,Ixalan'),
+    [{ name: 'Fire // Ice', qty: 2, set: 'mh2' }, { name: 'Opt', qty: 4, set: 'xln' }, { name: 'Opt', qty: 1 }])
 })
 
 test('parser decklist: header Sideboard e riga vuota', () => {
@@ -57,6 +57,11 @@ test('parser: CSV delle app più diffuse', () => {
   assert.deepEqual(pc('sep=,\nFolder Name,Quantity,Trade Quantity,Card Name,Set Code\nMain,4,0,Opt,XLN'), [['Opt', 4]]) // Dragon Shield
   assert.deepEqual(pc('idArticle;idProduct;English Name;Local Name;Exp.;Amount\n1;2;Brainstorm;Brainstorm;ICE;4'), [['Brainstorm', 4]]) // Cardmarket
   assert.deepEqual(pc('\uFEFFName,Qty\n"Fire // Ice",2'), [['Fire // Ice', 2]]) // backup di questa app (con BOM)
+  // stampa: set + numero (ManaBox, Dragon Shield), Scryfall ID (ManaBox)
+  assert.deepEqual(parseCollection('Name,Set code,Set name,Collector number,Foil,Rarity,Quantity,ManaBox ID,Scryfall ID\nLightning Bolt,2X2,Double Masters 2022,117,normal,uncommon,3,1,e3285e6b-3e79-4d7c-bf96-d920f973b80d'),
+    [{ name: 'Lightning Bolt', qty: 3, set: '2x2', num: '117', sid: 'e3285e6b-3e79-4d7c-bf96-d920f973b80d' }])
+  assert.deepEqual(parseCollection('"Count","Tradelist Count","Name","Edition","Condition","Language","Foil","Tags","Last Modified","Collector Number"\n"2","0","Counterspell","mh2","NM","English","","","","267"'),
+    [{ name: 'Counterspell', qty: 2, set: 'mh2', num: '267' }])
 })
 
 test('terre base: sempre possedute, fuori dalla percentuale, mai in collezione', () => {
@@ -70,4 +75,11 @@ test('terre base: sempre possedute, fuori dalla percentuale, mai in collezione',
   const madness = scoreDeck({ main: [{ name: 'Lightning Bolt', qty: 4 }, { name: 'Mountain', qty: 18 }, { name: 'Fiery Temper', qty: 38 }], side: [] }, owned)
   assert.ok(bogles.main.ratio > madness.main.ratio)
   assert.deepEqual(parseCollection('20 Mountain\n4 Island\n2 Snow-Covered Island\n4 Opt').map(c => c.name), ['Snow-Covered Island', 'Opt'])
+})
+
+test('backup con la stampa: si rilegge uguale', async () => {
+  const { collectionCsv } = await import('./export.js')
+  const list = [{ name: 'Opt', qty: 4, set: 'xln', num: '65' }, { name: 'Opt', qty: 1 }, { name: 'Bolt "x"', qty: 2, sid: 'e3285e6b-3e79-4d7c-bf96-d920f973b80d' }]
+  const back = parseCollection(collectionCsv(list))
+  assert.deepEqual(back.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))), list.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))))
 })
