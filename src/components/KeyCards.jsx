@@ -26,9 +26,9 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
   })
   const total = rows.reduce((s, e) => s + (priceOf(e.card) ?? 0) * e.need, 0)
   const text = toText(rows.filter(e => e.need).map(e => ({ name: e.name, missing: e.need })))
-  const st = e => e.need === 0 ? 'ok' : e.have === 0 ? 'no' : 'part'
+  const st = e => !hasCollection ? 'plain' : e.need === 0 ? 'ok' : e.have === 0 ? 'no' : 'part' // senza collezione niente rosso
   const scry = e => e.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${e.name}"`)}`
-  const ownText = e => e.need ? t('kc.own', e.have, playset, e.need) : t('kc.ownFull', e.have)
+  const ownText = e => !hasCollection ? `${playset}×` : e.need ? t('kc.own', e.have, playset, e.need) : t('kc.ownFull', e.have)
   const price = e => priceOf(e.card) != null ? money(priceOf(e.card) * e.need, true) : '—'
 
   const copy = async () => {
@@ -69,7 +69,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
                 <a className={`tile tile-${st(e)}`} href={scry(e)} target="_blank" rel="noreferrer" title={`${e.name} — ${ownText(e)}`}>
                   {e.card?.img ? <img src={e.card.img} alt={e.name} loading="lazy" /> : <span className="tile-ph"><span>{e.name}</span><ManaCost cost={e.card?.cost} /></span>}
                   <span className="key-tile-rank">{i + 1}</span>
-                  <span className="tile-qty">{st(e) === 'ok' ? <><IconCheck size={13} />{e.have}</> : `${e.have}/${playset}`}</span>
+                  <span className="tile-qty">{st(e) === 'ok' ? <><IconCheck size={13} />{e.have}</> : st(e) === 'plain' ? `${playset}×` : `${e.have}/${playset}`}</span>
                 </a>
                 <span className="key-tile-info">{t('kc.inN', e.decks.length)}{e.need > 0 && <> · <b>{t('kc.need', e.need)}</b> {price(e)}</>}</span>
               </li>
@@ -92,7 +92,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
                   ))}
                   {e.decks.length > 4 && t('kc.more', e.decks.length - 4)}
                 </span>
-                <span className={`key-own tile-${st(e)}`}>{st(e) === 'ok' && <IconCheck size={14} />}{ownText(e)}</span>
+                {hasCollection && <span className={`key-own tile-${st(e)}`}>{st(e) === 'ok' && <IconCheck size={14} />}{ownText(e)}</span>}
               </span>
               <span className="key-buy">{e.need > 0 && <><b>{e.need}×</b><span>{price(e)}</span></>}</span>
             </li>

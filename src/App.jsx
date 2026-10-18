@@ -19,6 +19,9 @@ import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, I
 import Picker from './components/Picker.jsx'
 import MysteryDeck from './components/MysteryDeck.jsx'
 import { pickDaily, signatureOf } from './lib/daily.js'
+import { Info } from './components/Badges.jsx'
+import { mergeCollection } from './lib/normalize.js'
+import { decodeCollection } from './lib/transfer.js'
 import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS, guessDeck, GUESS_TRIES } from './lib/fun.js'
 import MetaWeather from './components/MetaWeather.jsx'
 import StatsPage from './components/StatsPage.jsx'
@@ -39,10 +42,15 @@ function useToast() {
   const [t, setT] = useState(null)
   const timer = useRef()
   // action facoltativa: { label, fn } (es. "Annulla" dopo un'azione distruttiva)
-  const toast = useCallback((text, action) => {
+  const cur = useRef(null) // un avviso con "Annulla" non viene coperto da uno semplice: quello aspetta il suo turno
+  const toast = useCallback(function show(text, action, now = false) {
+    const busy = cur.current?.action && cur.current.until > Date.now()
+    if (busy && !action && !now) { setTimeout(() => show(text), cur.current.until - Date.now() + 50); return }
     clearTimeout(timer.current)
+    const ms = action ? 6000 : 2600
+    cur.current = { action, until: Date.now() + ms }
     setT({ text, action, id: Date.now() })
-    timer.current = setTimeout(() => setT(null), action ? 6000 : 2600)
+    timer.current = setTimeout(() => { cur.current = null; setT(null) }, ms)
   }, [])
   return [t, toast]
 }
@@ -51,8 +59,13 @@ export default function App() {
   const route = useRoute()
   const [format, setFormat] = useLocal('mdm.format', 'pauper')
   const [collection, setCollectionRaw] = useLocal('mdm.collection', [])
-  const setCollection = list => setCollectionRaw(withoutBasics(list)) // le terre base non stanno in collezione
-  useEffect(() => { if (collection.some(c => isBasic(c.name))) setCollection(collection) }, []) // pulizia collezioni salvate prima
+  // backup: conta le modifiche dall'ultimo export, per ricordare con garbo di salvarne una copia
+  const [backup, setBackup] = useLocal('mdm.backup', { changes: 0 })
+  const setCollection = (list, { count = true } = {}) => {
+    setCollectionRaw(withoutBasics(list)) // le terre base non stanno in collezione
+    if (count) setBackup(b => ({ ...b, changes: (b.changes || 0) + 1 }))
+  }
+  useEffect(() => { if (collection.some(c => isBasic(c.name))) setCollection(collection, { count: false }) }, []) // pulizia collezioni salvate prima
   const [userDecks, setUserDecks] = useLocal('mdm.userDecks', [])
   const [viewRaw, setView] = useLocal('mdm.view', {})
   const view = { sort: 'score', tier: 0, colors: [], budget: 0, ...viewRaw }
@@ -181,6 +194,28 @@ export default function App() {
   const stale = updated && daysAgo(updated) > STALE_DAYS
   const page = ['collection', 'key-cards', 'stats'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
   const ownedMap = useMemo(() => toOwnedMap(collection), [collection])
+
+  // "Ho già questo mazzo": aggiunge le copie che mancano (main + side), con Annulla
+  const ownDeck = s => {
+    const add = s.missing.filter(r => r.missing > 0 && !isBasic(r.name)).map(r => ({ name: r.name, qty: r.missing }))
+    if (!add.length) return
+    const before = collection
+    setCollection(mergeCollection([...collection, ...add]))
+    toast(t('own.done', add.reduce((n, r) => n + r.qty, 0)), { label: t('undo'), fn: () => setCollection(before) })
+  }
+
+  // collezione arrivata da un altro dispositivo (#/import/<codice>): con collezione vuota si carica subito, altrimenti si chiede
+  const [incoming, setIncoming] = useState(null)
+  useEffect(() => {
+    if (route.page !== 'import') return
+    const code = route.id
+    location.replace('#/collection')
+    if (!code) return
+    decodeCollection(code).then(list => {
+      if (!list.length) throw new Error('vuota')
+      if (!collection.length) { setCollection(mergeCollection(list), { count: false }); toast(t('imp.done')) } else setIncoming(list)
+    }).catch(() => toast(t('imp.bad')))
+  }, [route.page, route.id])
   const count = collection.reduce((s, c) => s + c.qty, 0)
   const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
   const meteo = useMemo(() => meta ? weather(meta) : null, [meta])
@@ -262,12 +297,19 @@ export default function App() {
               <header className="page-head">
                 <h1>{t('decks.title', formatName)}</h1>
                 {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.filter(d => d.source !== 'utente').length, sourceText, dayMonth(updated))}</p>}
+                {!collection.length && (
+                  <div className="callout callout-onb">
+                    <p><b>{t('decks.noCollB')}</b> {t('decks.noColl')}</p>
+                    <a className="btn btn-primary" href="#/collection">{t('loadCollection')}</a>
+                  </div>
+                )}
                 {meteo && <MetaWeather w={meteo} onOpen={id => go('deck', id)}>
                   <LuckyButton pool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onPick={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
                 </MetaWeather>}
               </header>
               {daily && <section className="daily" aria-labelledby="daily-title">
                 <h2 className="daily-title" id="daily-title">{t('daily.group')}</h2>
+                <div className="daily-row">
                 <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={openDaily} streak={liveStreak(fun.streak)} />
                 <div className="daily-games">
                   {(() => {
@@ -283,6 +325,7 @@ export default function App() {
                     <span className="game-btn-text"><b>{t('quiz.btn')}</b><small>{t('quiz.sub')}</small></span>
                   </button>
                 </div>
+                </div>
               </section>}
             </div>
 
@@ -295,12 +338,6 @@ export default function App() {
 
             {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
             {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
-            {!collection.length && (
-              <div className="callout">
-                <p><b>{t('decks.noCollB')}</b> {t('decks.noColl')}</p>
-                <a className="btn btn-primary" href="#/collection">{t('loadCollection')}</a>
-              </div>
-            )}
 
             {almost && (
               <p className="almost">
@@ -324,6 +361,7 @@ export default function App() {
                 </span>
                 <div className="chips" role="group" aria-label="Tier">
                   {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
+                  <Info text={t('info.tier')} label={t('info.label')} />
                 </div>
                 <div className="color-filter" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
                   <span>{t('colors')}</span>
@@ -368,7 +406,8 @@ export default function App() {
           {page === 'deck' && (
             <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
               onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
-              pinned={pins.includes(sel.deck.id)} onPin={togglePin} decks={meta || []} owned={ownedMap}
+              pinned={pins.includes(sel.deck.id)} onPin={togglePin} decks={meta || []} owned={ownedMap} hasColl={collection.length > 0}
+              onOwnDeck={() => ownDeck(sel)}
               onBack={() => history.length > 1 ? history.back() : go('decks')}
               onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}
@@ -383,7 +422,7 @@ export default function App() {
             <StatsPage meta={meta} ranked={ranked} format={format} formatName={formatName} colorsOf={colorsOf} costOf={costOf} hasCollection={collection.length > 0} onOpen={id => go('deck', id)} />
           </>}
           {page === 'collection' && banNotice}
-          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
+          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} backup={backup} setBackup={setBackup} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
         </ErrorBoundary>
       </main>
 
@@ -413,6 +452,17 @@ export default function App() {
         aria-label={t('toTop')} title={t('toTop')} tabIndex={showTop ? 0 : -1} aria-hidden={!showTop}>
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
+      <Modal open={!!incoming} onClose={() => setIncoming(null)} label={t('imp.title', incoming?.reduce((n, e) => n + e.qty, 0) || 0)}>
+        {close => <div className="imp">
+          <h2>{t('imp.title', incoming.reduce((n, e) => n + e.qty, 0))}</h2>
+          <p>{t('imp.text')}</p>
+          <div className="game-actions">
+            <button className="btn btn-primary" onClick={() => { setCollection(mergeCollection([...collection, ...incoming])); toast(t('imp.done')); close() }}>{t('imp.merge')}</button>
+            <button className="btn" onClick={() => { setCollection(mergeCollection(incoming)); toast(t('imp.done')); close() }}>{t('imp.replace')}</button>
+            <button className="btn btn-quiet" onClick={close}>{t('cancel')}</button>
+          </div>
+        </div>}
+      </Modal>
       <Modal open={game === 'quiz'} onClose={() => setGame(null)} label={t('quiz.title')} className="modal-game">
         {close => <Quiz decks={meta || []} getCard={getCached} colorsOf={colorsOf} isLand={isLand}
           onGo={id => { close(); go('deck', id) }} onDone={() => bumpFun({ quiz: true })} />}
@@ -425,7 +475,7 @@ export default function App() {
         {toastMsg && (
           <div className={`toast${toastMsg.action ? ' toast-action' : ''}`} key={toastMsg.id}>
             {toastMsg.text}
-            {toastMsg.action && <button onClick={() => { toastMsg.action.fn(); toast(t('done')) }}>{toastMsg.action.label}</button>}
+            {toastMsg.action && <button onClick={() => { toastMsg.action.fn(); toast(t("done"), null, true) }}>{toastMsg.action.label}</button>}
           </div>
         )}
       </div>

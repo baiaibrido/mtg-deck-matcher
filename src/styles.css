@@ -1060,3 +1060,49 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
   .pref-picker .picker-btn { padding: 4px 4px 4px 10px; }
   .brand-name { font-size: 1.15rem; }
 }
+
+/* ───────── Prima visita e chiarezza (v0.19.0) ───────── */
+/* collezione vuota: invito in cima, sotto il titolo */
+.page-head .callout-onb { margin: 14px 0 6px; border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); }
+/* mazzo misterioso + giochi: su telefono una sola fila che scorre di lato */
+.daily-row { display: grid; gap: 10px; }
+@media (max-width: 719px) {
+  .daily-row { grid-auto-flow: column; grid-auto-columns: 86%; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin: 0 -16px; padding: 2px 16px 8px; scroll-padding: 0 16px; }
+  .daily-row::-webkit-scrollbar { display: none; }
+  .daily-row > * { scroll-snap-align: start; }
+  .daily-row .daily-games { display: contents; }
+  .daily-row .game-btn { min-height: 0; height: 100%; align-content: center; }
+}
+/* "?" con spiegazione */
+.info { position: relative; display: inline-flex; vertical-align: middle; }
+.info-btn { width: 20px; height: 20px; padding: 0; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--edge); background: transparent;
+  color: var(--lichen); font: 700 .7rem/1 var(--font-ui); cursor: help; }
+.info-btn:hover, .info.open .info-btn { color: var(--bone); border-color: var(--lichen); }
+.info-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.info-btn::after { content: ''; position: absolute; inset: -12px; } /* area di tocco più grande */
+.info-pop { position: absolute; z-index: 40; left: 50%; top: calc(100% + 8px); transform: translateX(-50%); width: max-content; max-width: min(300px, 80vw);
+  padding: 10px 12px; border: 1px solid var(--rail); border-radius: var(--r-md); background: var(--baize); box-shadow: 0 12px 30px rgba(0,0,0,.4);
+  font: 400 .85rem/1.4 var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--bone); text-align: left; white-space: normal;
+  opacity: 0; visibility: hidden; transition: opacity .15s; pointer-events: none; }
+.info:hover .info-pop, .info.open .info-pop { opacity: 1; visibility: visible; }
+.weather-label .info { margin-left: 4px; }
+.weather-label .info-pop { left: 0; transform: none; }
+.chips .info { margin-left: 2px; align-self: center; }
+.chips .info-pop { left: auto; right: 0; transform: none; }
+.tier-wrap { display: inline-flex; align-items: center; gap: 6px; }
+.tier-wrap .info-pop { left: 0; transform: none; }
+/* profilo del mazzo in una riga */
+.detail-desc { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: -6px 0 14px; font-size: .92rem; color: var(--lichen); }
+.detail-desc > b:first-child { color: var(--bone); font-weight: 700; }
+.detail-desc span b { color: var(--bone); font-weight: 700; margin-left: 2px; }
+.own-btn { margin: -6px 0 8px -12px; }
+/* senza collezione: liste neutre, senza rosso */
+.tile-plain .tile-qty { color: var(--bone); }
+.tline.tile-plain { --st-ink: var(--lichen); }
+/* collezione da un altro dispositivo */
+.imp { display: grid; gap: 8px; text-align: center; justify-items: center; }
+.imp h2 { font: 1.35rem var(--font-title); margin: 0; padding: 0 24px; }
+.imp p { margin: 0; color: var(--lichen); }
+/* promemoria backup: non è un errore, niente rosso */
+.backup-nudge { border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); margin-top: 10px; }

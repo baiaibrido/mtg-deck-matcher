@@ -70,7 +70,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
               {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
               <Sparkline values={s.deck.history} />
               <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} />
-              {s.deck.metaWr != null && <span className="wr">{t('wrShort', num(s.deck.metaWr))}</span>}
+              {s.deck.metaWr != null && <span className="wr" title={t('info.wr')}>{t('wrShort', num(s.deck.metaWr))}</span>}
               {s.deck.archetype && <span className="arch">{t('variantOf', s.deck.archetype)}</span>}
             </>}
             {deckBans(s.deck, getCached).length > 0 && <span className="ban-chip">⚠ {t('ban.short')}</span>}

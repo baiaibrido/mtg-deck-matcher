@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { t, num, dayMonth } from '../i18n/index.js'
 
 // Tier (metodo MTGdecks) e andamento della quota di meta rispetto al sync precedente
@@ -18,6 +19,18 @@ export function Trend({ share, prev, prevDate, history }) {
     <span className={`trend ${up ? 'trend-up' : 'trend-down'}`} title={t('trend.title', `${up ? '+' : ''}${num(d)}`, dayMonth(prevDate))}>
       <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d={up ? 'M5 1 9 8H1z' : 'M5 9 1 2h8z'} fill="currentColor" /></svg>
       {up ? '+' : '−'}{num(Math.abs(d))}
+    </span>
+  )
+}
+
+// "?" con una riga di spiegazione: compare passandoci sopra o toccandolo (solo per le metriche del sito)
+export function Info({ text, label }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <span className={`info${open ? ' open' : ''}`}>
+      <button type="button" className="info-btn" aria-label={label || text} aria-expanded={open}
+        onClick={e => { e.stopPropagation(); setOpen(o => !o) }} onBlur={() => setOpen(false)}>?</button>
+      <span className="info-pop" role="tooltip">{text}</span>
     </span>
   )
 }

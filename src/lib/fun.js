@@ -82,7 +82,7 @@ export function personality(collection, getCard) {
 }
 
 // ── Che mazzo sei?: profilo del mazzo (velocità, creature, colori, prezzo, popolarità) e vicinanza alle risposte
-const cmcOf = cost => (cost || '').match(/\{([^}]+)\}/g)?.reduce((s, x) => { const v = x.slice(1, -1); return s + (/^\d+$/.test(v) ? +v : v === 'X' ? 0 : 1) }, 0) ?? 0
+export const cmcOf = cost => (cost || '').match(/\{([^}]+)\}/g)?.reduce((s, x) => { const v = x.slice(1, -1); return s + (/^\d+$/.test(v) ? +v : v === 'X' ? 0 : 1) }, 0) ?? 0
 export function deckProfile(deck, getCard) {
   let n = 0, cmc = 0, crea = 0, price = 0
   for (const c of deck.main || []) {
