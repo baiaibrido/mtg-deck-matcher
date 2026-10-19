@@ -224,8 +224,10 @@ export default {
   'desc.curveL': 'Curva média', 'desc.creaL': 'Criaturas', 'desc.label': 'Perfil do deck',
   'backup.nudge': 'Você fez várias alterações: a coleção fica só neste dispositivo, vale a pena salvar uma cópia.',
   'backup.now': 'Exportar backup', 'backup.later': 'Mais tarde',
-  'today.title': 'Hoje no meta', 'today.weather': 'Clima · últimas 4 semanas', 'today.mystery': 'Mistério', 'today.lucky': 'Sorte',
+  'today.title': 'Hoje no meta', 'today.weather': 'Clima · últimas 4 semanas',
   'hero.text': 'Carregue suas cartas: dizemos de quais decks do meta você está mais perto e o que falta.',
   'hero.cta': 'Adicione suas cartas', 'hero.browse': 'ou explore os decks ↓',
   'decks.listMeta': (n, date) => `${n} decks${date ? ` · atualizado em ${date}` : ''}`,
+  'daily.lines': ['Ninguém espera. Nem você.', 'Seu oponente nunca viu esta lista.', 'Netdecke o que ninguém netdecka.', 'Abra. Depois não conte para ninguém.', 'Hoje o meta treme. Um pouquinho.', 'O deck que vai te fazer dizer «ué, isso existe?»', 'Poucos jogam. Menos ainda vencem.'],
+  'daily.share': s => `Só ${s}% do meta joga com ele`,
 }

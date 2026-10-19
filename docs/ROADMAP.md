@@ -93,6 +93,7 @@ Principi:
 | v0.19.5: il "?" accanto ai filtri tier è tondo come nel resto del sito | Segnalazione di Baia |
 | v0.20.0: home su telefono compatta — titolo più piccolo, meteo in una riga, Mi sento fortunato senza sottotitolo, mazzo misterioso in una striscia, Indovina e quiz affiancati con titoli brevi; tolta la fila che scorreva di lato (tornava indietro da sola su iPhone). Filtri e primo mazzo visibili molto prima | Segnalazione di Baia da iPhone |
 | v0.21.0: home ridisegnata «una cosa alla volta» — prima visita con frase e un solo pulsante dorato (+ «oppure sfoglia i mazzi»); meteo, mazzo misterioso, Indovina, quiz e Mi sento fortunato in un unico riquadro «Oggi nel meta» (su telefono: striscia con quattro tessere); Rogue tra i filtri; riga «50 mazzi · aggiornato il…» sopra la lista | Richiesta di Baia |
+| v0.21.1: «Oggi nel meta» più chiaro — tornano frase divertente, carta caratteristica e quota del mazzo misterioso; ogni gioco con la sua riga di spiegazione, anche su telefono (righe al posto delle tessere) | Richiesta di Baia |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

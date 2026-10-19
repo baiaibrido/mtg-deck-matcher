@@ -4,15 +4,15 @@ import { ColorPips } from './Mana.jsx'
 import { Info } from './Badges.jsx'
 import { IconChevron } from './Icons.jsx'
 import { getCached } from '../lib/scryfall.js'
-import { dayKey, untilMidnight } from '../lib/daily.js'
+import { dayKey, untilMidnight, hash } from '../lib/daily.js'
 import { useLocal } from '../state/useLocal.js'
 import LuckyButton from './LuckyButton.jsx'
 
 // "Red Madness" → "R?? M??????": il nome si svela solo passandoci sopra
 const mask = name => name.replace(/\p{L}+/gu, w => w[0] + '?'.repeat(w.length - 1))
 
-// "Oggi nel meta": un solo riquadro con meteo, mazzo misterioso, i due giochi e Mi sento fortunato.
-// Su telefono diventa una striscia: meteo in una riga e quattro tessere affiancate.
+// "Oggi nel meta": un solo riquadro con meteo, mazzo misterioso, i due giochi e Mi sento fortunato,
+// ognuno con la sua riga di spiegazione (anche su telefono, dove il meteo sta in una riga)
 export default function TodayCard({ weather, daily, signature, dailyColors, format, onOpenDaily, onOpen, streak = 0, guess, onGame, luckyPool, onLucky }) {
   const [left, setLeft] = useState(untilMidnight())
   useEffect(() => { const id = setInterval(() => setLeft(untilMidnight()), 30000); return () => clearInterval(id) }, [])
@@ -20,6 +20,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
   const key = `${format}|${dayKey()}`
   const fresh = daily && seen[format] !== key
   const sig = signature ? getCached(signature) : null
+  const lines = t('daily.lines'), line = lines[hash(key) % lines.length]
   const openDaily = () => { setSeen({ ...seen, [format]: key }); onOpenDaily(daily.id, fresh) }
   const link = d => <button className="linklike" onClick={() => onOpen(d.id)}>{d.name}</button>
 
@@ -38,16 +39,18 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
 
       <ul className="today-list">
         {daily && <li>
-          <button className={`today-item today-mystery${fresh ? ' fresh' : ''}`} onClick={openDaily} aria-label={t('daily.aria', daily.name)}
-            title={signature ? t('daily.sig', signature) : undefined}>
+          <button className={`today-item today-mystery${fresh ? ' fresh' : ''}`} onClick={openDaily} aria-label={t('daily.aria', daily.name)}>
             <span className="today-icon mystery-mini" aria-hidden="true">
               {sig?.img && <img src={sig.img} alt="" loading="lazy" onError={e => { e.currentTarget.style.display = 'none' }} />}
               <span>?</span>
             </span>
             <span className="today-text">
-              <b>{fresh && <span className="today-dot" />}<span className="t-long">{t('daily.label')}</span><span className="t-short">{t('today.mystery')}</span></b>
+              <b>{fresh && <span className="today-dot" />}{t('daily.label')}</b>
+              <i className="mystery-line">{line}</i>
+              <span className="mystery-name"><span className="mystery-masked">{mask(daily.name)}</span><span className="mystery-real">{daily.name}</span><ColorPips colors={dailyColors} /></span>
+              {signature && <small className="today-sub mystery-sig">{t('daily.sig', signature)}</small>}
               <small className="today-sub">
-                <span className="mystery-name"><span className="mystery-masked">{mask(daily.name)}</span><span className="mystery-real">{daily.name}</span><ColorPips colors={dailyColors} /></span>
+                {daily.rogue ? <span>{t('rogue.results', daily.results)}</span> : daily.share > 0 && <span>{t('daily.share', num(daily.share))}</span>}
                 <span className="today-timer">{streak >= 2 && <span title={t('streak.title')}>🔥 {streak} · </span>}{t('daily.changes', left.h, left.m)}</span>
               </small>
             </span>
@@ -55,21 +58,21 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
           </button>
         </li>}
         <li>
-          <button className="today-item" onClick={() => onGame('guess')} title={t('guess.sub')}>
+          <button className="today-item" onClick={() => onGame('guess')}>
             <span className="today-icon" aria-hidden="true">🔎</span>
             <span className="today-text">
-              <b><span className="t-long">{t('guess.btn')}</span><span className="t-short">{t('guess.title')}</span>{' '}{guess ? <span className="pill-badge">{guess}</span> : <span className="pill-new">{t('guess.new')}</span>}</b>
-              <small className="today-sub sub-hint">{t('guess.sub')}</small>
+              <b>{t('guess.btn')}{' '}{guess ? <span className="pill-badge">{guess}</span> : <span className="pill-new">{t('guess.new')}</span>}</b>
+              <small className="today-sub">{t('guess.sub')}</small>
             </span>
             <IconChevron className="today-go" />
           </button>
         </li>
         <li>
-          <button className="today-item" onClick={() => onGame('quiz')} title={t('quiz.sub')}>
+          <button className="today-item" onClick={() => onGame('quiz')}>
             <span className="today-icon" aria-hidden="true">🪞</span>
             <span className="today-text">
-              <b><span className="t-long">{t('quiz.btn')}</span><span className="t-short">{t('quiz.title')}</span></b>
-              <small className="today-sub sub-hint">{t('quiz.sub')}</small>
+              <b>{t('quiz.btn')}</b>
+              <small className="today-sub">{t('quiz.sub')}</small>
             </span>
             <IconChevron className="today-go" />
           </button>

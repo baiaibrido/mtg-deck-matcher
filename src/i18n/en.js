@@ -223,8 +223,10 @@ export default {
   'desc.curveL': 'Avg. mana value', 'desc.creaL': 'Creatures', 'desc.label': 'Deck profile',
   'backup.nudge': "You've made quite a few changes: your collection lives only on this device, it's worth saving a copy.",
   'backup.now': 'Export backup', 'backup.later': 'Later',
-  'today.title': 'Today in the meta', 'today.weather': 'Weather · last 4 weeks', 'today.mystery': 'Mystery', 'today.lucky': 'Lucky',
+  'today.title': 'Today in the meta', 'today.weather': 'Weather · last 4 weeks',
   'hero.text': "Load your cards: we'll tell you which meta decks you're closest to completing and what you're missing.",
   'hero.cta': 'Add your cards', 'hero.browse': 'or browse the decks ↓',
   'decks.listMeta': (n, date) => `${n} decks${date ? ` · updated ${date}` : ''}`,
+  'daily.lines': ['Nobody sees it coming. Not even you.', 'Your opponent has never seen this list.', 'Netdeck what nobody netdecks.', 'Open it. Then tell no one.', 'Today the meta trembles. A little.', 'The deck that makes you say "wait, that exists?"', 'Few play it. Even fewer beat it.'],
+  'daily.share': s => `Only ${s}% of the meta plays it`,
 }

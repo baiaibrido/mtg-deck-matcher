@@ -25,8 +25,8 @@ export default function LuckyButton({ pool, onPick }) {
     <button className={`today-item lucky${name ? ' spinning' : ''}`} onClick={spin} aria-live="polite" title={t('lucky.hint')}>
       <span aria-hidden="true" className="today-icon lucky-icon">🌪️</span>
       <span className="today-text">
-        <b className="lucky-text"><span className="t-long">{name || t('lucky.btn')}</span><span className="t-short">{name || t('today.lucky')}</span></b>
-        <small className="today-sub sub-hint">{t('lucky.sub')}</small>
+        <b className="lucky-text">{name || t('lucky.btn')}</b>
+        <small className="today-sub">{t('lucky.sub')}</small>
       </span>
       <IconChevron className="today-go" />
     </button>

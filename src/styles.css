@@ -1049,12 +1049,14 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 .today-text { display: grid; gap: 1px; min-width: 0; }
 .today-text b { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-weight: 700; font-size: .95rem; line-height: 1.3; }
 .today-sub { display: flex; flex-wrap: wrap; gap: 0 10px; font-size: .8rem; color: var(--lichen); line-height: 1.35; }
-.today-sub.sub-hint { display: none; } /* la spiegazione dei giochi resta nel tooltip: righe più basse */
 .today-go { color: var(--lichen); opacity: .55; transition: transform .2s var(--ease), opacity .2s; }
 .today-item:hover .today-go { opacity: 1; transform: translateX(2px); }
-.t-short { display: none; }
 /* carta coperta in miniatura: si sbircia passandoci sopra */
-.mystery-mini { position: relative; width: 25px; height: 35px; margin: 0 auto; border-radius: 4px; overflow: hidden; transform: rotate(-6deg);
+.today-mystery { align-items: start; }
+.today-mystery .today-icon.mystery-mini { width: 32px; height: 45px; margin-top: 4px; }
+.mystery-line { font: italic 1rem/1.3 var(--font-title); color: var(--bone); margin: 2px 0 1px; }
+.mystery-sig { font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
+.mystery-mini { position: relative; width: 32px; height: 45px; margin: 0 auto; border-radius: 4px; overflow: hidden; transform: rotate(-6deg);
   background: repeating-linear-gradient(45deg, var(--baize-2) 0 5px, var(--felt) 5px 10px); box-shadow: 0 0 0 1px var(--rail), 0 4px 10px rgba(0,0,0,.3); transition: transform .3s var(--ease); }
 .mystery-mini img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(2px) saturate(.6); transform: scale(1.1); transition: filter .3s var(--ease); }
 .mystery-mini span { position: absolute; inset: 0; display: grid; place-items: center; font: 1.05rem var(--font-title); color: #f3eee2; text-shadow: 0 1px 6px rgba(0,0,0,.8); transition: opacity .3s; }
@@ -1086,13 +1088,10 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
   .today-label { display: none; }
   .today-weather ul { display: flex; flex-wrap: wrap; gap: 2px 16px; font-size: .88rem; }
   .weather-word, .today-weather .weather-top { display: none; }
-  .today-list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding-top: 10px; }
-  .today-item { grid-template-columns: 1fr; justify-items: center; gap: 4px; height: 100%; padding: 8px 4px; border: 1px solid var(--rail); text-align: center; }
-  .today-icon { width: 28px; height: 28px; font-size: 1.1rem; }
-  .mystery-mini { width: 20px; height: 28px; }
-  .today-text b { justify-content: center; font-size: .78rem; line-height: 1.2; gap: 0 4px; }
-  .t-long, .today-sub, .today-go, .today-text .pill-new, .today-text .pill-badge { display: none; }
-  .t-short { display: inline; }
-  .today-item { position: relative; }
-  .today-dot { position: absolute; top: 7px; right: 7px; }
+  .today-item { grid-template-columns: 30px minmax(0, 1fr) auto; gap: 10px; padding: 8px 4px; }
+  .today-icon { width: 30px; height: 30px; font-size: 1.1rem; }
+  .today-text b { font-size: .92rem; }
+  .today-sub { font-size: .78rem; }
+  .mystery-line { font-size: .92rem; }
+  .today-mystery .today-icon.mystery-mini { width: 26px; height: 36px; }
 }

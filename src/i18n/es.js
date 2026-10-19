@@ -223,8 +223,10 @@ export default {
   'desc.curveL': 'Curva media', 'desc.creaL': 'Criaturas', 'desc.label': 'Perfil del mazo',
   'backup.nudge': 'Has hecho bastantes cambios: tu colección solo está en este dispositivo, conviene guardar una copia.',
   'backup.now': 'Exportar copia', 'backup.later': 'Más tarde',
-  'today.title': 'Hoy en el meta', 'today.weather': 'Tiempo · últimas 4 semanas', 'today.mystery': 'Misterioso', 'today.lucky': 'Suerte',
+  'today.title': 'Hoy en el meta', 'today.weather': 'Tiempo · últimas 4 semanas',
   'hero.text': 'Carga tus cartas: te decimos qué mazos del meta tienes más cerca de completar y qué te falta.',
   'hero.cta': 'Añade tus cartas', 'hero.browse': 'o explora los mazos ↓',
   'decks.listMeta': (n, date) => `${n} mazos${date ? ` · actualizado el ${date}` : ''}`,
+  'daily.lines': ['Nadie se lo espera. Ni siquiera tú.', 'Tu rival nunca ha visto esta lista.', 'Netdeckea lo que nadie netdeckea.', 'Ábrelo. Y no se lo digas a nadie.', 'Hoy el meta tiembla. Un poquito.', 'El mazo que te hará decir «¿pero esto existe?»', 'Pocos lo juegan. Menos aún le ganan.'],
+  'daily.share': s => `Solo lo juega el ${s}% del meta`,
 }
