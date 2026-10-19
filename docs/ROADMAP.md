@@ -91,6 +91,7 @@ Principi:
 | v0.19.3: tema chiaro, carta segreta del mazzo misterioso più chiara (sfocata e velata invece che scurita) | Segnalazione di Baia |
 | v0.19.4: tema chiaro, la carta segreta torna nitida passandoci sopra | Segnalazione di Baia |
 | v0.19.5: il "?" accanto ai filtri tier è tondo come nel resto del sito | Segnalazione di Baia |
+| v0.20.0: home su telefono compatta — titolo più piccolo, meteo in una riga, Mi sento fortunato senza sottotitolo, mazzo misterioso in una striscia, Indovina e quiz affiancati con titoli brevi; tolta la fila che scorreva di lato (tornava indietro da sola su iPhone). Filtri e primo mazzo visibili molto prima | Segnalazione di Baia da iPhone |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

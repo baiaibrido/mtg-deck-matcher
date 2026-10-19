@@ -295,7 +295,6 @@ export default function App() {
               </header>
               {daily && <section className="daily" aria-labelledby="daily-title">
                 <h2 className="daily-title" id="daily-title">{t('daily.group')}</h2>
-                <div className="daily-row">
                 <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={openDaily} streak={liveStreak(fun.streak)} />
                 <div className="daily-games">
                   {(() => {
@@ -303,14 +302,13 @@ export default function App() {
                     const badge = g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
                     return <button className="game-btn game-guess-btn" onClick={() => setGame('guess')}>
                       <span aria-hidden="true">🔎</span>
-                      <span className="game-btn-text"><b>{t('guess.btn')} {badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}</b><small>{t('guess.sub')}</small></span>
+                      <span className="game-btn-text"><b><span className="g-long">{t('guess.btn')}</span><span className="g-short">{t('guess.title')}</span> {badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}</b><small>{t('guess.sub')}</small></span>
                     </button>
                   })()}
                   <button className="game-btn game-quiz" onClick={() => setGame('quiz')}>
                     <span aria-hidden="true">🪞</span>
-                    <span className="game-btn-text"><b>{t('quiz.btn')}</b><small>{t('quiz.sub')}</small></span>
+                    <span className="game-btn-text"><b><span className="g-long">{t('quiz.btn')}</span><span className="g-short">{t('quiz.title')}</span></b><small>{t('quiz.sub')}</small></span>
                   </button>
-                </div>
                 </div>
               </section>}
             </div>

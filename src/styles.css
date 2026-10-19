@@ -910,7 +910,6 @@ html.modal-open { overflow: hidden; }
 .game-btn > span:first-child { font-size: 1.25rem; }
 .game-btn > span:nth-child(2) { flex: 1 1 60%; min-width: 0; }
 .game-guess-btn { --tint: var(--mana-g); }
-@media (max-width: 420px) { .daily-games { grid-template-columns: 1fr; } }
 
 .lucky { display: inline-grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: center; margin-top: 14px; padding: 8px 16px 8px 12px; min-height: 44px; cursor: pointer; text-align: left;
   border: 1px dashed color-mix(in oklab, var(--brass) 55%, var(--edge)); border-radius: 16px; background: transparent; color: var(--bone); transition: border-color .2s, background .2s; }
@@ -1064,16 +1063,6 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 /* ───────── Prima visita e chiarezza (v0.19.0) ───────── */
 /* collezione vuota: invito in cima, sotto il titolo */
 .page-head .callout-onb { margin: 14px 0 6px; border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); }
-/* mazzo misterioso + giochi: su telefono una sola fila che scorre di lato */
-.daily-row { display: grid; gap: 10px; }
-@media (max-width: 719px) {
-  .daily-row { grid-auto-flow: column; grid-auto-columns: 86%; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
-    margin: 0 -16px; padding: 2px 16px 8px; scroll-padding: 0 16px; }
-  .daily-row::-webkit-scrollbar { display: none; }
-  .daily-row > * { scroll-snap-align: start; }
-  .daily-row .daily-games { display: contents; }
-  .daily-row .game-btn { min-height: 0; height: 100%; align-content: center; }
-}
 /* "?" con spiegazione */
 .info { position: relative; display: inline-flex; vertical-align: middle; }
 .info-btn { width: 20px; height: 20px; padding: 0; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--edge); background: transparent;
@@ -1125,3 +1114,41 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 :root[data-theme="light"] .mystery:hover .mystery-q, :root[data-theme="light"] .mystery:focus-visible .mystery-q { opacity: 0; }
 /* il "?" dentro una fila di pillole resta un cerchio come nel resto del sito */
 .chips .info .info-btn, .filters .chips .info .info-btn { width: 20px; height: 20px; min-height: 0; padding: 0; border-radius: 50%; flex: none; }
+
+.g-short { display: none; }
+/* ───────── Home su telefono (v0.20.0): tutto più compatto, i mazzi si vedono subito ───────── */
+@media (max-width: 719px) {
+  .decks-head .page-head { margin: 12px 0 8px; }
+  .decks-head .page-head h1 { font-size: 1.5rem; }
+  .decks-head .page-head > p { font-size: .9rem; margin-top: 4px; }
+  .page-head .callout-onb { margin: 10px 0 2px; padding: 10px 12px; gap: 8px 12px; flex-wrap: nowrap; }
+  .page-head .callout-onb p { font-size: .88rem; line-height: 1.35; }
+  .page-head .callout-onb .btn { flex: none; min-height: 40px; padding: 6px 14px; }
+  /* meteo in una riga: solo icone, mazzi e variazione */
+  .weather { margin-top: 10px; }
+  .weather-label { margin-bottom: 4px; }
+  .weather ul { gap: 4px 16px; font-size: .9rem; }
+  .weather-word, .weather .weather-top { display: none; }
+  .lucky { margin-top: 10px; min-height: 40px; padding: 6px 14px 6px 10px; }
+  .lucky-sub { display: none; }
+  .lucky-icon { grid-row: auto; font-size: 1.1rem; }
+  .lucky-text { min-width: 0; }
+  /* ogni giorno: mazzo misterioso in una striscia, i due giochi affiancati e senza sottotitolo */
+  .daily { gap: 8px; margin-bottom: 10px; }
+  .daily .mystery { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 10px 12px; border-radius: 16px; }
+  .daily .mystery-bg { border-radius: 14px; }
+  .daily .mystery-art { transform: rotate(-4deg); }
+  .daily .mystery-q { font-size: 1.5rem; }
+  .daily .mystery-body { gap: 2px; }
+  .daily .mystery-line, .daily .mystery-sig, .daily .mystery-cta, .daily .mystery-meta > span:not(.mystery-timer):not(.mystery-streak) { display: none; }
+  .daily .mystery-label { font-size: .68rem; }
+  .daily .mystery-name { font-size: .95rem; }
+  .daily .mystery-meta { font-size: .78rem; }
+  .daily-games { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .daily-games .game-btn { min-height: 52px; padding: 8px 10px; gap: 8px; align-items: center; flex-wrap: nowrap; }
+  .daily-games .game-btn > span:first-child { font-size: 1.1rem; }
+  .daily-games .game-btn-text small, .daily-games .g-long { display: none; }
+  .daily-games .g-short { display: inline; }
+  .daily-games .game-btn-text b { font-size: .88rem; line-height: 1.25; }
+  .rogue-jump { margin: 0 0 10px; padding: 6px 14px; min-height: 40px; font-size: .9rem; gap: 8px; }
+}
