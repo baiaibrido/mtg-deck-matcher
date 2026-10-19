@@ -229,4 +229,6 @@ export default {
   'decks.listMeta': (n, date) => `${n} decks${date ? ` · updated ${date}` : ''}`,
   'daily.lines': ['Nobody sees it coming. Not even you.', 'Your opponent has never seen this list.', 'Netdeck what nobody netdecks.', 'Open it. Then tell no one.', 'Today the meta trembles. A little.', 'The deck that makes you say "wait, that exists?"', 'Few play it. Even fewer beat it.'],
   'daily.share': s => `Only ${s}% of the meta plays it`,
+  'seo.deck': (n, f) => `${n} (${f}): decklist, meta share, matchups and how many cards you're missing to build it.`,
+  'seo.home': f => `The ${f} meta decks closest to your collection: what you're missing and what it costs.`,
 }

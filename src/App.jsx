@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocal } from './state/useLocal.js'
-import { useRoute, go } from './state/useRoute.js'
+import { useRoute, go, linkProps, setNavFormat } from './state/useRoute.js'
 import { loadFormats, loadMetaDecks } from './lib/metaDecks.js'
 import { rankDecks } from './lib/matcher.js'
 import { isBasic, withoutBasics } from './lib/normalize.js'
@@ -54,7 +54,23 @@ function useToast() {
 
 export default function App() {
   const route = useRoute()
-  const [format, setFormat] = useLocal('mdm.format', 'pauper')
+  const [savedFormat, setFormat] = useLocal('mdm.format', 'pauper')
+  const [formats, setFormats] = useState([])
+  // il formato nell'indirizzo (/modern/…) vince su quello salvato; quello salvato vale per / e /deck/…
+  const urlFormat = route.format && (!formats.length || formats.some(f => f.id === route.format)) ? route.format : null
+  const format = urlFormat || savedFormat
+  setNavFormat(format)
+  useEffect(() => { if (formats.length && urlFormat && urlFormat !== savedFormat) setFormat(urlFormat) }, [urlFormat, formats]) // si salva solo un formato esistente
+  useEffect(() => {
+    if (!formats.length) return
+    if (route.format && !urlFormat) return go(route.page, route.id, { replace: true, format: savedFormat }) // formato inesistente
+    // vecchi link /deck/pauper-… senza formato: lo si ricava dal nome del mazzo
+    if (route.page === 'deck' && !route.format) {
+      const f = formats.find(x => route.id?.startsWith(`${x.id}-`))
+      if (f) go('deck', route.id, { replace: true, format: f.id })
+    }
+  }, [formats, route.format, route.page, route.id])
+  const changeFormat = id => { setFormat(id); go(page === 'deck' ? 'decks' : page, null, { replace: true, format: id }) }
   const [collection, setCollectionRaw] = useLocal('mdm.collection', [])
   // backup: conta le modifiche dall'ultimo export, per ricordare con garbo di salvarne una copia
   const [backup, setBackup] = useLocal('mdm.backup', { changes: 0 })
@@ -68,7 +84,6 @@ export default function App() {
   const view = { sort: 'score', tier: 0, colors: [], budget: 0, ...viewRaw }
   const activeFilters = (view.sort !== 'score') + (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
   const [seenBans, setSeenBans] = useLocal('mdm.bansSeen', null)
-  const [formats, setFormats] = useState([])
   const [meta, setMeta] = useState(null)
   const [cardsState, setCardsState] = useState('idle') // idle | loading | ready | error
   const [, setTick] = useState(0)
@@ -194,6 +209,18 @@ export default function App() {
   const updated = meta?.[0]?.updated
   const stale = updated && daysAgo(updated) > STALE_DAYS
   const page = ['collection', 'key-cards', 'stats'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
+  // titolo e descrizione della scheda del browser (e di Google) per ogni pagina
+  useEffect(() => {
+    if (!formatName && page !== 'collection') return
+    const title = page === 'deck' && sel ? `${sel.deck.name} — ${formatName}` : page === 'key-cards' ? t('kc.title', formatName)
+      : page === 'stats' ? t('st.title', formatName) : page === 'collection' ? t('coll.title') : t('decks.title', formatName)
+    document.title = `${title} · Netdeckable`
+    const desc = page === 'deck' && sel ? t('seo.deck', sel.deck.name, formatName) : t('seo.home', formatName)
+    document.querySelector('meta[name="description"]')?.setAttribute('content', desc)
+    let canon = document.querySelector('link[rel="canonical"]')
+    if (!canon) { canon = document.createElement('link'); canon.rel = 'canonical'; document.head.append(canon) }
+    canon.href = location.origin + location.pathname
+  }, [page, sel?.deck.id, formatName, lang])
   const ownedMap = useMemo(() => toOwnedMap(collection), [collection])
 
   // "Ho già questo mazzo": aggiunge le copie che mancano (main + side), con Annulla
@@ -251,7 +278,7 @@ export default function App() {
   }, [format, formats, page])
   const formatTabs = (
     <div className="formats" role="tablist" aria-label={t('format')} ref={fmtRow}>
-      {formats.map(f => <button key={f.id} role="tab" aria-selected={f.id === format} onClick={() => setFormat(f.id)}>{f.name}</button>)}
+      {formats.map(f => <button key={f.id} role="tab" aria-selected={f.id === format} onClick={() => changeFormat(f.id)}>{f.name}</button>)}
     </div>
   )
 
@@ -259,15 +286,15 @@ export default function App() {
     <div className="app">
       <a className="skip" href="#contenuto" onClick={e => { e.preventDefault(); document.getElementById('contenuto')?.focus() }}>{t('skip')}</a>
       <header className={`topbar${compact ? ' compact' : ''}`} ref={headRef}>
-        <a className="brand" href="#/decks" aria-label={t('home')}>
+        <a className="brand" {...linkProps('decks')} aria-label={t('home')}>
           <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <i key={c} className={`ms ms-${c} ms-cost`} />)}</span>
           <span className="brand-name">Netdeckable</span>
         </a>
         <nav className="nav-top" aria-label={t('sections')}>
-          <a href="#/decks" aria-current={navCurrent('decks')}>{t('nav.decks')}</a>
-          <a href="#/key-cards" aria-current={navCurrent('key-cards')}>{t('nav.keycards')}</a>
-          <a href="#/collection" aria-current={navCurrent('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
-          <a href="#/stats" aria-current={navCurrent('stats')}>{t('nav.stats')}</a>
+          <a {...linkProps('decks')} aria-current={navCurrent('decks')}>{t('nav.decks')}</a>
+          <a {...linkProps('key-cards')} aria-current={navCurrent('key-cards')}>{t('nav.keycards')}</a>
+          <a {...linkProps('collection')} aria-current={navCurrent('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
+          <a {...linkProps('stats')} aria-current={navCurrent('stats')}>{t('nav.stats')}</a>
         </nav>
         <div className="prefs">
           <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow}
@@ -291,7 +318,7 @@ export default function App() {
                 {!collection.length && <>
                   <p className="hero-text">{t('hero.text')}</p>
                   <p className="hero-actions">
-                    <a className="btn btn-primary" href="#/collection">{t('hero.cta')}</a>
+                    <a className="btn btn-primary" {...linkProps('collection')}>{t('hero.cta')}</a>
                     <button className="linklike hero-browse" onClick={toList}>{t('hero.browse')}</button>
                   </p>
                 </>}
@@ -411,10 +438,10 @@ export default function App() {
       </footer>
 
       <nav className="tabbar" aria-label={t('sections')}>
-        <a href="#/decks" aria-current={navCurrent('decks')}><IconDecks />{t('nav.decks')}</a>
-        <a href="#/key-cards" aria-current={navCurrent('key-cards')}><IconKey />{t('nav.keycards')}</a>
-        <a href="#/collection" aria-current={navCurrent('collection')}><IconBox />{t('nav.collection')}</a>
-        <a href="#/stats" aria-current={navCurrent('stats')}><IconChart />{t('nav.stats')}</a>
+        <a {...linkProps('decks')} aria-current={navCurrent('decks')}><IconDecks />{t('nav.decks')}</a>
+        <a {...linkProps('key-cards')} aria-current={navCurrent('key-cards')}><IconKey />{t('nav.keycards')}</a>
+        <a {...linkProps('collection')} aria-current={navCurrent('collection')}><IconBox />{t('nav.collection')}</a>
+        <a {...linkProps('stats')} aria-current={navCurrent('stats')}><IconChart />{t('nav.stats')}</a>
       </nav>
 
       <button className={`to-top${showTop ? ' show' : ''}`} onClick={() => scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}

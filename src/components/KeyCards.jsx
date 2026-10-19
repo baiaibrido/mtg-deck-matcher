@@ -9,7 +9,7 @@ import { IconCopy, IconDownload, IconGrid, IconList, IconCheck } from './Icons.j
 import { toOwnedMap } from '../lib/matcher.js'
 import { norm } from '../lib/normalize.js'
 import { useLocal } from '../state/useLocal.js'
-import { go } from '../state/useRoute.js'
+import { go, linkProps } from '../state/useRoute.js'
 
 // Carte che ti mancano e che servono a più mazzi del formato: i primi acquisti che rendono di più.
 export default function KeyCards({ ranked, formatName, collection, playset, toast }) {
@@ -42,7 +42,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
         <p>{t('kc.intro')}</p>
       </header>
 
-      {!hasCollection && <div className="callout"><p><b>{t('kc.loadB')}</b>{t('kc.load')}</p><a className="btn btn-primary" href="#/collection">{t('loadCollection')}</a></div>}
+      {!hasCollection && <div className="callout"><p><b>{t('kc.loadB')}</b>{t('kc.load')}</p><a className="btn btn-primary" {...linkProps('collection')}>{t('loadCollection')}</a></div>}
 
       <div className="list-tools">
       <div className="chips" role="group" aria-label={t('kc.scope')}>

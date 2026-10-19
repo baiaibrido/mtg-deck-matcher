@@ -230,4 +230,6 @@ export default {
   'decks.listMeta': (n, date) => `${n} decks${date ? ` · atualizado em ${date}` : ''}`,
   'daily.lines': ['Ninguém espera. Nem você.', 'Seu oponente nunca viu esta lista.', 'Netdecke o que ninguém netdecka.', 'Abra. Depois não conte para ninguém.', 'Hoje o meta treme. Um pouquinho.', 'O deck que vai te fazer dizer «ué, isso existe?»', 'Poucos jogam. Menos ainda vencem.'],
   'daily.share': s => `Só ${s}% do meta joga com ele`,
+  'seo.deck': (n, f) => `${n} (${f}): lista, participação no meta, matchups e quantas cartas faltam para completá-lo.`,
+  'seo.home': f => `Os decks ${f} do meta mais perto da sua coleção: o que falta e quanto custa.`,
 }

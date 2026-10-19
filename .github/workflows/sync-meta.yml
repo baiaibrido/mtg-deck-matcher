@@ -23,7 +23,7 @@ jobs:
           git config user.name "meta-bot"
           git config user.email "meta-bot@users.noreply.github.com"
           git rm -rq --cached debug 2>/dev/null || true
-          git add public/meta
+          git add public/meta public/sitemap.xml
           if [ -d debug ]; then git add -f debug; fi
           git diff --staged --quiet || (git commit -m "meta: aggiornamento $(date -u +%F)" && git push)
       # GitHub spegne le esecuzioni programmate dopo 60 giorni senza attività nel repository: le riattiviamo a ogni giro

@@ -15,7 +15,7 @@ export default class ErrorBoundary extends Component {
         <pre>{String(this.state.error?.message || this.state.error)}</pre>
         <div className="row">
           <button className="btn btn-primary" onClick={() => location.reload()}>{t('err.reload')}</button>
-          <a className="btn" href="#/decks" onClick={() => this.setState({ error: null })}>{t('err.back')}</a>
+          <a className="btn" href="/" onClick={() => this.setState({ error: null })}>{t('err.back')}</a>
         </div>
       </div>
     )

@@ -6,6 +6,15 @@
   <title>Netdeckable</title>
   <meta name="description" content="Netdeckable: which Magic: The Gathering meta decks can you build with your collection, and what are you missing? Also in Italian, Spanish, Portuguese and Japanese." />
   <meta name="theme-color" content="#181b1d" />
+  <!-- anteprima quando si condivide un link (WhatsApp, Discord, Telegram, social) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Netdeckable" />
+  <meta property="og:title" content="Netdeckable — quali mazzi del meta puoi già costruire?" />
+  <meta property="og:description" content="Carica la tua collezione di Magic: ti diciamo quali mazzi del meta sei più vicino a completare, cosa ti manca e quanto costa." />
+  <meta property="og:image" content="https://mtg-deck-matcher-mu.vercel.app/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
   <script>
     // tema prima del primo disegno (niente lampo chiaro/scuro): scuro di default
     try { document.documentElement.dataset.theme = JSON.parse(localStorage.getItem('mdm.theme')) === 'light' ? 'light' : 'dark' } catch (e) { document.documentElement.dataset.theme = 'dark' }

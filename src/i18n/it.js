@@ -239,4 +239,6 @@ export default {
   'decks.listMeta': (n, date) => `${n} mazzi${date ? ` · aggiornato il ${date}` : ''}`,
   'daily.lines': ['Nessuno se lo aspetta. Nemmeno tu.', 'Il tuo avversario non ha mai visto questa lista.', 'Netdecka quello che nessuno netdecka.', 'Aprilo. Poi non dirlo a nessuno.', 'Oggi il meta trema. Un pochino.', 'Il mazzo che ti farà dire «ah, ma esiste?»', 'Pochi lo giocano. Ancora meno lo battono.'],
   'daily.share': s => `Lo gioca solo il ${s}% del meta`,
+  'seo.deck': (n, f) => `${n} (${f}): lista, quota nel meta, matchup e quante carte ti mancano per completarlo.`,
+  'seo.home': f => `I mazzi ${f} del meta più vicini alla tua collezione: cosa ti manca e quanto costa.`,
 }
