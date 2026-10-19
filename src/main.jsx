@@ -8,7 +8,9 @@ import './mana-cost.css' // simboli di mana ridotti (scripts/build-mana-subset.p
 import App from './App.jsx'
 import './styles.css'
 import './print.css'
-createRoot(document.getElementById('root')).render(<App />)
+import { getLang, loadLang } from './i18n/index.js'
+// prima la lingua giusta, poi il disegno (niente lampo in italiano per chi legge in un'altra lingua)
+loadLang(getLang()).catch(() => {}).finally(() => createRoot(document.getElementById('root')).render(<App />))
 
 // Tastiera su telefono: iOS non ridimensiona la pagina quando compare, quindi teniamo traccia
 // della parte visibile (--vvh/--vvtop) e le finestre si spostano lì sopra (html.kb-open)

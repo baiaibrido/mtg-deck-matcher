@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocal } from './state/useLocal.js'
 import { useRoute, go, linkProps, setNavFormat } from './state/useRoute.js'
 import { loadFormats, loadMetaDecks } from './lib/metaDecks.js'
@@ -6,14 +6,11 @@ import { rankDecks } from './lib/matcher.js'
 import { isBasic, withoutBasics } from './lib/normalize.js'
 import { fetchCards, getCached } from './lib/scryfall.js'
 import { deckColors, missingCost, WUBRG, colorName } from './lib/deckInfo.js'
-import { t, LANGS, getLang, setLang, dayMonth, locale } from './i18n/index.js'
+import { t, LANGS, getLang, setLang, loadLang, dayMonth, locale } from './i18n/index.js'
 import { money, localBudget, setRates, CURRENCIES, currency, setCurrency, currencySymbol } from './lib/currency.js'
 import { newBans, formatList } from './lib/bans.js'
 import DeckList from './components/DeckList.jsx'
-import DeckDetail from './components/DeckDetail.jsx'
-import CollectionManager from './components/CollectionManager.jsx'
 import MetaImporter from './components/MetaImporter.jsx'
-import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins, IconChart } from './components/Icons.jsx'
 import Picker from './components/Picker.jsx'
@@ -22,12 +19,18 @@ import { pickDaily, signatureOf } from './lib/daily.js'
 import { Info } from './components/Badges.jsx'
 import { mergeCollection } from './lib/normalize.js'
 import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS, guessDeck, GUESS_TRIES } from './lib/fun.js'
-import StatsPage from './components/StatsPage.jsx'
 import { toOwnedMap } from './lib/matcher.js'
 import Modal from './components/Modal.jsx'
+// pagine e giochi caricati solo quando servono: la home parte più leggera
+const loadDeck = () => import('./components/DeckDetail.jsx')
+const DeckDetail = lazy(loadDeck)
+const CollectionManager = lazy(() => import('./components/CollectionManager.jsx'))
+const KeyCards = lazy(() => import('./components/KeyCards.jsx'))
+const StatsPage = lazy(() => import('./components/StatsPage.jsx'))
+const Quiz = lazy(() => import('./components/play/Quiz.jsx'))
+const GuessGame = lazy(() => import('./components/play/GuessGame.jsx'))
+const Loading = () => <p className="hint page-loading" role="status">…</p>
 import { useMedia } from './state/useMedia.js'
-import Quiz from './components/play/Quiz.jsx'
-import GuessGame from './components/play/GuessGame.jsx'
 import { dayKey } from './lib/daily.js'
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
@@ -90,7 +93,7 @@ export default function App() {
   const [, setTick] = useState(0)
   const [toastMsg, toast] = useToast()
   const [lang, setLangState] = useState(getLang())
-  const changeLang = l => { setLang(l); setLangState(l) }
+  const changeLang = async l => { await loadLang(l); setLang(l); setLangState(l) }
   const [cur, setCur] = useState(currency())
   const changeCur = c => { setCurrency(c, true); setCur(c) }
   // schermi stretti: nei selettori solo i codici (IT, EUR…) per far stare tutto nell'header
@@ -271,6 +274,8 @@ export default function App() {
   const todayCard = <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
     onOpenDaily={openDaily} onOpen={id => go('deck', id)} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame}
     luckyPool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onLucky={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
+  // la pagina del mazzo è la più aperta: la si scarica in anticipo quando il browser è libero
+  useEffect(() => { const idle = window.requestIdleCallback || (f => setTimeout(f, 1500)); idle(() => loadDeck()) }, [])
   const navCurrent = p => (p === 'decks' ? page === 'decks' || page === 'deck' : page === p) ? 'page' : undefined
 
   // su telefono la fila dei formati scorre: il formato scelto resta sempre visibile
@@ -316,6 +321,7 @@ export default function App() {
 
       <main className="content" id="contenuto" tabIndex={-1}>
         <ErrorBoundary key={page}>
+        <Suspense fallback={<Loading />}>
           {page === 'decks' && <>
             {formatTabs}
             <div className={`home${collection.length ? '' : ' home-new'}`}>
@@ -432,6 +438,7 @@ export default function App() {
           </>}
           {page === 'collection' && banNotice}
           {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} backup={backup} setBackup={setBackup} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
+        </Suspense>
         </ErrorBoundary>
       </main>
 
@@ -462,12 +469,12 @@ export default function App() {
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
       <Modal open={game === 'quiz'} onClose={() => setGame(null)} label={t('quiz.title')} className="modal-game">
-        {close => <Quiz decks={meta || []} getCard={getCached} colorsOf={colorsOf} isLand={isLand}
-          onGo={id => { close(); go('deck', id) }} onDone={() => bumpFun({ quiz: true })} />}
+        {close => <Suspense fallback={<Loading />}><Quiz decks={meta || []} getCard={getCached} colorsOf={colorsOf} isLand={isLand}
+          onGo={id => { close(); go('deck', id) }} onDone={() => bumpFun({ quiz: true })} /></Suspense>}
       </Modal>
       <Modal open={game === 'guess'} onClose={() => setGame(null)} label={t('guess.title')} className="modal-game modal-wide">
-        {close => <GuessGame decks={meta || []} format={format} formatName={formatName} isLand={isLand} toast={toast} store={guessStore} setStore={setGuessStore}
-          onGo={id => { close(); go('deck', id) }} onWin={n => bumpFun(f => ({ guessWins: (f.guessWins || 0) + 1, guessFirst: f.guessFirst || n === 1 }))} />}
+        {close => <Suspense fallback={<Loading />}><GuessGame decks={meta || []} format={format} formatName={formatName} isLand={isLand} toast={toast} store={guessStore} setStore={setGuessStore}
+          onGo={id => { close(); go('deck', id) }} onWin={n => bumpFun(f => ({ guessWins: (f.guessWins || 0) + 1, guessFirst: f.guessFirst || n === 1 }))} /></Suspense>}
       </Modal>
       <div className="toast-zone" aria-live="polite">
         {toastMsg && (

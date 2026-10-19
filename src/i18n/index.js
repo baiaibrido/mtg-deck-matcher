@@ -1,12 +1,11 @@
 // Traduzioni IT / EN / ES / PT / JA. t('chiave', ...argomenti): i valori sono testi o funzioni (plurali, numeri, nomi).
+// L'italiano è sempre caricato (fa anche da riserva); le altre lingue si scaricano solo se servono.
 import it from './it.js'
-import en from './en.js'
-import es from './es.js'
-import pt from './pt.js'
-import ja from './ja.js'
+const LOADERS = { en: () => import('./en.js'), es: () => import('./es.js'), pt: () => import('./pt.js'), ja: () => import('./ja.js') }
 
 export const LANGS = [['it', 'Italiano'], ['en', 'English'], ['es', 'Español'], ['pt', 'Português'], ['ja', '日本語']]
-const DICTS = { it, en, es, pt, ja }
+const DICTS = { it }
+export async function loadLang(l) { if (!DICTS[l] && LOADERS[l]) DICTS[l] = (await LOADERS[l]()).default }
 const LOCALES = { it: 'it-IT', en: 'en-GB', es: 'es-ES', pt: 'pt-BR', ja: 'ja-JP' }
 const KEY = 'mdm.lang'
 
@@ -18,7 +17,7 @@ const TZ_JA = /^Asia\/Tokyo$/
 
 // Ordine: scelta salvata → ?lang= nell'indirizzo → lingue del dispositivo → fuso orario → inglese
 export function detectLang({ saved, search = '', languages = [], timeZone = '' } = {}) {
-  const ok = l => l && DICTS[l] ? l : null
+  const ok = l => l && LANGS.some(([k]) => k === l) ? l : null
   const fromUrl = new URLSearchParams(search).get('lang')
   const fromDevice = languages.map(l => ok(String(l).slice(0, 2).toLowerCase())).find(Boolean)
   const fromTz = TZ_IT.test(timeZone) ? 'it' : TZ_ES.test(timeZone) ? 'es' : TZ_PT.test(timeZone) ? 'pt' : TZ_JA.test(timeZone) ? 'ja' : null
@@ -40,7 +39,7 @@ let lang = detectLang(env())
 export const getLang = () => lang
 export const locale = () => LOCALES[lang]
 export function setLang(l) {
-  if (!DICTS[l]) return
+  if (!DICTS[l]) return // prima va scaricata con loadLang
   lang = l
   try { localStorage.setItem(KEY, l) } catch { /* bloccato */ }
   if (globalThis.document) document.documentElement.lang = l
@@ -48,7 +47,7 @@ export function setLang(l) {
 if (globalThis.document) document.documentElement.lang = lang
 
 export function t(key, ...args) {
-  const v = DICTS[lang][key] ?? DICTS.it[key]
+  const v = DICTS[lang]?.[key] ?? DICTS.it[key]
   if (v === undefined) return key
   return typeof v === 'function' ? v(...args) : v
 }
