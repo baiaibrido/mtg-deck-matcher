@@ -80,16 +80,7 @@ button, input, textarea{ font: inherit; color: inherit; }
 .topbar.compact .theme-btn { width: 32px; height: 32px; }
 
 html { scroll-padding-top: calc(var(--head-h, 72px) + 12px); }
-.rogue-jump {
-  display: inline-flex; align-items: center; gap: 10px; margin: 2px 0 16px; padding: 10px 18px; min-height: 44px; cursor: pointer;
-  border-radius: 999px; border: 1px solid color-mix(in oklab, var(--mana-r) 70%, var(--edge)); color: var(--bone); font-weight: 700;
-  background: linear-gradient(100deg, color-mix(in oklab, var(--mana-r) 22%, var(--baize)), var(--baize) 80%);
-  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
-}
-.rogue-jump:hover { transform: translateY(-1px); box-shadow: 0 8px 22px -12px var(--mana-r); }
-.rogue-jump-arrow { color: var(--mana-r); animation: nudge 1.8s var(--ease) infinite; }
-@keyframes nudge { 0%, 60%, 100% { transform: none; } 30% { transform: translateY(3px); } }
-@media (prefers-reduced-motion: reduce) { .rogue-jump-arrow { animation: none; } .topbar, .topbar * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .topbar, .topbar * { transition: none !important; } }
 .rogue-head h2:focus { outline: none; }
 .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--bone); text-decoration: none; font: 1.35rem var(--font-title); letter-spacing: .02em; }
 .brand-mark { display: inline-flex; gap: 2px; font-size: .62rem; }
@@ -714,65 +705,9 @@ main:focus { outline: none; }
 }
 @media (prefers-reduced-motion: reduce) { .picker-list { animation: none; } .picker-caret { transition: none; } }
 
-/* v0.13.9: mazzo misterioso del giorno accanto al titolo */
-.decks-head { display: grid; gap: 4px 28px; }
-@media (min-width: 900px) { .decks-head.has-daily { grid-template-columns: minmax(0, 1fr) minmax(320px, 410px); align-items: start; } .daily { margin-top: 18px; } }
-.mystery {
-  --spin: 0deg; position: relative; isolation: isolate; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; align-items: center;
-  width: 100%; margin: 6px 0 14px; padding: 14px 16px 14px 14px; text-align: left; cursor: pointer; color: var(--bone);
-  border: 2px solid transparent; border-radius: 20px;
-  background: linear-gradient(var(--baize), var(--baize)) padding-box,
-    conic-gradient(from var(--spin), var(--mana-w, #f8e7b9), var(--mana-u, #4b8fd6), var(--mana-b, #9d8fb0), var(--mana-r, #e3613f), var(--mana-g, #3f9d63), var(--mana-w, #f8e7b9)) border-box;
-  animation: mystery-spin 6s linear infinite; transition: transform .25s var(--ease);
-}
-@property --spin { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-@keyframes mystery-spin { to { --spin: 360deg; } }
-.mystery:hover, .mystery:focus-visible { transform: translateY(-2px); }
-.mystery:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
-.mystery-bg { position: absolute; inset: 0; z-index: -1; border-radius: 18px; background: var(--baize); }
-.mystery-glow { position: absolute; inset: -10px; z-index: -2; border-radius: 28px; filter: blur(22px); opacity: .35;
-  background: conic-gradient(from var(--spin), var(--mana-u, #4b8fd6), var(--mana-r, #e3613f), var(--mana-g, #3f9d63), var(--mana-u, #4b8fd6)); animation: mystery-spin 6s linear infinite; }
-.mystery-art { position: relative; aspect-ratio: 488 / 680; border-radius: 6px; overflow: hidden; transform: rotate(-6deg); box-shadow: 0 8px 20px rgba(0,0,0,.5); background: var(--baize-2); transition: transform .35s var(--ease); }
-.mystery-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; filter: blur(3px) saturate(.6) brightness(.6); transform: scale(1.08); transition: filter .35s var(--ease), transform .35s var(--ease); }
-.mystery-back { position: absolute; inset: 0; background: repeating-linear-gradient(45deg, var(--baize-2) 0 8px, var(--felt) 8px 16px); }
-.mystery-q { position: absolute; inset: 0; display: grid; place-items: center; font: 2.6rem var(--font-title); color: var(--bone); text-shadow: 0 2px 12px rgba(0,0,0,.8); transition: opacity .3s; }
-.mystery:hover .mystery-art, .mystery:focus-visible .mystery-art { transform: rotate(0) scale(1.06); }
-.mystery:hover .mystery-art img, .mystery:focus-visible .mystery-art img { filter: none; transform: none; }
-.mystery:hover .mystery-q, .mystery:focus-visible .mystery-q { opacity: 0; }
-.mystery-body { display: grid; gap: 4px; min-width: 0; }
-.mystery-label { display: inline-flex; align-items: center; gap: 7px; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
-.mystery-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--no); box-shadow: 0 0 0 0 var(--no); animation: mystery-ping 1.6s ease-out infinite; }
-@keyframes mystery-ping { 70%, 100% { box-shadow: 0 0 0 7px transparent; } }
-.mystery-line { font: 1.08rem/1.25 var(--font-title); font-style: italic; }
-.mystery-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-weight: 700; letter-spacing: .04em; }
-.mystery-real { display: none; }
-.mystery:hover .mystery-masked, .mystery:focus-visible .mystery-masked { display: none; }
-.mystery:hover .mystery-real, .mystery:focus-visible .mystery-real { display: inline; }
-.mystery-sig { font-size: .85rem; color: var(--lichen); font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.mystery-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; font-size: .8rem; color: var(--lichen); }
-.mystery-timer { color: var(--part); }
-.mystery-cta { justify-self: start; margin-top: 4px; padding: 5px 14px; border-radius: 999px; background: var(--brass); color: var(--brass-ink); font-weight: 700; font-size: .9rem; transition: transform .2s var(--ease); }
-.mystery:hover .mystery-cta { transform: translateX(4px); }
-.mystery.fresh .mystery-art { animation: mystery-wiggle 3.2s var(--ease) infinite; }
-.mystery.fresh:hover .mystery-art { animation: none; }
-@keyframes mystery-wiggle { 0%, 82%, 100% { transform: rotate(-6deg); } 86% { transform: rotate(-10deg); } 90% { transform: rotate(-2deg); } 94% { transform: rotate(-7deg); } }
-.mystery.fresh .mystery-cta { animation: mystery-nudge 3.2s var(--ease) infinite; }
-@keyframes mystery-nudge { 0%, 82%, 100% { transform: none; } 87% { transform: scale(1.07); } 92% { transform: scale(.98); } }
-@media (max-width: 560px) { .mystery { grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 12px; } .mystery-line { font-size: 1rem; } }
-@media (prefers-reduced-motion: reduce) { .mystery, .mystery-glow, .mystery-dot, .mystery.fresh .mystery-art { animation: mystery-wiggle 3.2s var(--ease) infinite; }
-.mystery.fresh:hover .mystery-art { animation: none; }
-@keyframes mystery-wiggle { 0%, 82%, 100% { transform: rotate(-6deg); } 86% { transform: rotate(-10deg); } 90% { transform: rotate(-2deg); } 94% { transform: rotate(-7deg); } }
-.mystery.fresh .mystery-cta { animation: none; } }
 
 /* ───────── v0.15: giochi e piccoli extra ───────── */
 
-/* Meteo del meta (sotto l'introduzione dei mazzi) */
-.weather { margin-top: 16px; }
-.weather-label { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lichen); margin-bottom: 6px; }
-.weather ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .92rem; color: var(--lichen); }
-.weather li { display: inline-flex; align-items: baseline; gap: 6px; }
-.weather .linklike { color: var(--bone); }
-.weather-share { font-variant-numeric: tabular-nums; }
 
 /* Ci sei quasi (una riga, chiudibile) */
 .almost { display: flex; align-items: center; gap: 10px; width: fit-content; max-width: 100%; margin: 0 0 14px; padding: 6px 6px 6px 14px; border: 1px solid var(--rail); border-radius: 999px; background: var(--baize); color: var(--lichen); font-size: .92rem; }
@@ -783,7 +718,6 @@ main:focus { outline: none; }
 /* La tua collezione urla… */
 .pers { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 6px; margin: 10px 0 0; color: var(--lichen); font-size: .92rem; }
 .pers .linklike { color: var(--bone); }
-.mystery-streak { color: var(--brass); font-weight: 700; }
 
 /* Indovina il mazzo */
 .guess-cards { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; max-width: 760px; }
@@ -897,31 +831,7 @@ html.modal-open { overflow: hidden; }
   .modal[open], .modal[open]::backdrop, .modal.closing, .quiz-q, .quiz-opt, .quiz-res, .quiz-reveal .quiz-card, .guess-cards li.in .play-card { animation: none; }
 }
 
-/* v0.16.1: gruppo "Ogni giorno" (mazzo misterioso + giochi), Mi sento fortunato nel meteo, rogue a parte */
-.daily { display: grid; gap: 10px; margin-bottom: 16px; }
-.daily-title { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lichen); margin: 0; }
-.daily .mystery { margin: 0; }
-.daily-games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.game-btn { --tint: var(--mana-u); position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 56px; padding: 10px 14px; text-align: left; cursor: pointer;
-  border: 1px solid color-mix(in oklab, var(--tint) 45%, var(--rail)); border-radius: 16px; color: var(--bone); font-weight: 700; font-size: .92rem; line-height: 1.2;
-  background: linear-gradient(120deg, color-mix(in oklab, var(--tint) 14%, var(--baize)), var(--baize) 75%); transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
-.game-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px var(--tint); }
-.game-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
-.game-btn > span:first-child { font-size: 1.25rem; }
-.game-btn > span:nth-child(2) { flex: 1 1 60%; min-width: 0; }
-.game-guess-btn { --tint: var(--mana-g); }
 
-.lucky { display: inline-grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: center; margin-top: 14px; padding: 8px 16px 8px 12px; min-height: 44px; cursor: pointer; text-align: left;
-  border: 1px dashed color-mix(in oklab, var(--brass) 55%, var(--edge)); border-radius: 16px; background: transparent; color: var(--bone); transition: border-color .2s, background .2s; }
-.lucky:hover { border-style: solid; background: color-mix(in oklab, var(--brass) 8%, transparent); }
-.lucky:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
-.lucky-icon { grid-row: span 2; font-size: 1.4rem; }
-.lucky-text { font-weight: 700; min-width: 11em; }
-.lucky-sub { font-size: .8rem; color: var(--lichen); }
-.lucky.spinning .lucky-text { color: var(--brass); }
-.lucky.spinning .lucky-icon { animation: twist .5s linear infinite; }
-@keyframes twist { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .lucky.spinning .lucky-icon { animation: none; } }
 
 /* ───────── v0.17: Statistiche ───────── */
 @media (max-width: 719px) { .tabbar { grid-template-columns: repeat(4, 1fr); } }
@@ -1008,15 +918,8 @@ html.modal-open { overflow: hidden; }
   .st-watch .st-num { grid-row: 1 / span 2; grid-column: 2; }
 }
 
-/* v0.17.2: pulsanti dei giochi su due righe (titolo + sottotitolo) */
-.game-btn { align-items: flex-start; }
-.game-btn-text { display: grid; gap: 3px; flex: 1 1 0; min-width: 0; }
-.game-btn-text b { font-weight: 700; }
-.game-btn-text small { font-weight: 400; font-size: .8rem; color: var(--lichen); line-height: 1.3; }
 
 /* v0.17.2: rifiniture */
-.game-btn { padding-right: 14px; }
-.game-btn-text .pill-badge, .game-btn-text .pill-new { display: inline-block; margin-left: 4px; vertical-align: 1px; white-space: nowrap; }
 @media (max-width: 560px) {
   .st-conv .st-rows li { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'name num' 'bars num'; row-gap: 6px; }
   .st-conv .st-name { grid-area: name; } .st-conv .st-bars { grid-area: bars; width: 100%; max-width: 200px; } .st-conv .st-num { grid-area: num; }
@@ -1061,8 +964,6 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 }
 
 /* ───────── Prima visita e chiarezza (v0.19.0) ───────── */
-/* collezione vuota: invito in cima, sotto il titolo */
-.page-head .callout-onb { margin: 14px 0 6px; border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); }
 /* "?" con spiegazione */
 .info { position: relative; display: inline-flex; vertical-align: middle; }
 .info-btn { width: 20px; height: 20px; padding: 0; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--edge); background: transparent;
@@ -1075,8 +976,6 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
   font: 400 .85rem/1.4 var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--bone); text-align: left; white-space: normal;
   opacity: 0; visibility: hidden; transition: opacity .15s; pointer-events: none; }
 .info:hover .info-pop, .info.open .info-pop { opacity: 1; visibility: visible; }
-.weather-label .info { margin-left: 4px; }
-.weather-label .info-pop { left: 0; transform: none; }
 .chips .info { margin-left: 2px; align-self: center; }
 .chips .info-pop { left: auto; right: 0; transform: none; }
 .tier-wrap { display: inline-flex; align-items: center; gap: 6px; }
@@ -1104,51 +1003,96 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 .tline.tile-plain { --st-ink: var(--lichen); }
 /* promemoria backup: non è un errore, niente rosso */
 .backup-nudge { border-color: color-mix(in oklab, var(--brass) 45%, var(--rail)); background: color-mix(in oklab, var(--brass) 7%, var(--baize)); margin-top: 10px; }
-/* tema chiaro: la carta segreta resta sfocata ma chiara, come una carta sotto carta velina */
-:root[data-theme="light"] .mystery-art { box-shadow: 0 8px 18px rgba(60, 40, 10, .22); }
-:root[data-theme="light"] .mystery-art img { filter: blur(3px) saturate(.7) brightness(1) contrast(.88); }
-:root[data-theme="light"] .mystery-art::after { content: ''; position: absolute; inset: 0; background: color-mix(in oklab, var(--baize) 22%, transparent); transition: opacity .35s var(--ease); pointer-events: none; }
-:root[data-theme="light"] .mystery:hover .mystery-art::after, :root[data-theme="light"] .mystery:focus-visible .mystery-art::after { opacity: 0; }
-:root[data-theme="light"] .mystery-q { z-index: 1; color: var(--bone); text-shadow: 0 1px 10px rgba(255, 250, 240, .9); }
-:root[data-theme="light"] .mystery:hover .mystery-art img, :root[data-theme="light"] .mystery:focus-visible .mystery-art img { filter: none; transform: none; }
-:root[data-theme="light"] .mystery:hover .mystery-q, :root[data-theme="light"] .mystery:focus-visible .mystery-q { opacity: 0; }
 /* il "?" dentro una fila di pillole resta un cerchio come nel resto del sito */
 .chips .info .info-btn, .filters .chips .info .info-btn { width: 20px; height: 20px; min-height: 0; padding: 0; border-radius: 50%; flex: none; }
 
-.g-short { display: none; }
-/* ───────── Home su telefono (v0.20.0): tutto più compatto, i mazzi si vedono subito ───────── */
+
+/* ───────── Home (v0.21.0): una cosa alla volta ─────────
+   titolo + (prima visita) frase e un solo pulsante dorato · "Oggi nel meta" in un unico riquadro · filtri · lista */
+.home { display: grid; grid-template-areas: 'head' 'tools' 'today'; gap: 0 40px; margin-bottom: 6px; }
+.home-head { grid-area: head; }
+.today { grid-area: today; }
+.home-tools { grid-area: tools; }
+@media (min-width: 900px) {
+  .home { grid-template-columns: minmax(0, 1fr) minmax(300px, 350px); grid-template-areas: 'head today' 'tools today'; grid-template-rows: auto 1fr; align-items: start; }
+  .today { margin-top: 18px; }
+}
+.home-head { margin-bottom: 16px; }
+.hero-text { max-width: 50ch; margin: 10px 0 0; font-size: 1.08rem; line-height: 1.5; color: var(--lichen); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 18px 0 0; }
+.hero-browse { color: var(--lichen); }
+.hero-browse:hover { color: var(--bone); }
+.home-head .almost { margin: 14px 0 0; }
+.list-meta { margin: 4px 0 12px; font-size: .85rem; color: var(--lichen); }
+.list-meta:focus { outline: none; }
+.chips .chip-rogue { border-color: color-mix(in oklab, var(--mana-r) 55%, var(--edge)); color: var(--bone); }
+.chips .chip-rogue:hover { background: color-mix(in oklab, var(--mana-r) 12%, transparent); }
+.chip-rogue .count { margin-left: 2px; }
+
+/* "Oggi nel meta" */
+.today { border: 1px solid var(--rail); border-radius: var(--r-lg); background: var(--baize); padding: 14px 10px 8px; }
+.today-title, .today-label { display: flex; align-items: center; gap: 6px; margin: 0; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lichen); }
+.today-title { padding: 0 8px; color: var(--brass); }
+.today-weather { padding: 10px 8px 12px; }
+.today-label { letter-spacing: .06em; margin-bottom: 6px; }
+.today-label .info-pop { left: auto; right: -40px; transform: none; }
+.today-weather ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: .92rem; color: var(--lichen); }
+.today-weather li { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.today-weather .linklike { color: var(--bone); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.weather-share { font-variant-numeric: tabular-nums; }
+.today-list { list-style: none; margin: 0; padding: 6px 0 0; border-top: 1px solid var(--rail); display: grid; gap: 2px; }
+.today-item { width: 100%; display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 9px 8px; border: 0; border-radius: 12px;
+  background: transparent; color: var(--bone); text-align: left; cursor: pointer; transition: background .15s; }
+.today-item:hover { background: var(--baize-2); }
+.today-item:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; }
+.today-icon { width: 34px; height: 34px; display: grid; place-items: center; font-size: 1.2rem; }
+.today-text { display: grid; gap: 1px; min-width: 0; }
+.today-text b { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-weight: 700; font-size: .95rem; line-height: 1.3; }
+.today-sub { display: flex; flex-wrap: wrap; gap: 0 10px; font-size: .8rem; color: var(--lichen); line-height: 1.35; }
+.today-sub.sub-hint { display: none; } /* la spiegazione dei giochi resta nel tooltip: righe più basse */
+.today-go { color: var(--lichen); opacity: .55; transition: transform .2s var(--ease), opacity .2s; }
+.today-item:hover .today-go { opacity: 1; transform: translateX(2px); }
+.t-short { display: none; }
+/* carta coperta in miniatura: si sbircia passandoci sopra */
+.mystery-mini { position: relative; width: 25px; height: 35px; margin: 0 auto; border-radius: 4px; overflow: hidden; transform: rotate(-6deg);
+  background: repeating-linear-gradient(45deg, var(--baize-2) 0 5px, var(--felt) 5px 10px); box-shadow: 0 0 0 1px var(--rail), 0 4px 10px rgba(0,0,0,.3); transition: transform .3s var(--ease); }
+.mystery-mini img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(2px) saturate(.6); transform: scale(1.1); transition: filter .3s var(--ease); }
+.mystery-mini span { position: absolute; inset: 0; display: grid; place-items: center; font: 1.05rem var(--font-title); color: #f3eee2; text-shadow: 0 1px 6px rgba(0,0,0,.8); transition: opacity .3s; }
+.today-mystery:hover .mystery-mini, .today-mystery:focus-visible .mystery-mini { transform: rotate(0) scale(1.15); }
+.today-mystery:hover .mystery-mini img, .today-mystery:focus-visible .mystery-mini img { filter: none; transform: none; }
+.today-mystery:hover .mystery-mini span, .today-mystery:focus-visible .mystery-mini span { opacity: 0; }
+.mystery-name { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; letter-spacing: .04em; color: var(--bone); }
+.mystery-real { display: none; }
+.today-mystery:hover .mystery-masked, .today-mystery:focus-visible .mystery-masked { display: none; }
+.today-mystery:hover .mystery-real, .today-mystery:focus-visible .mystery-real { display: inline; }
+.today-timer { color: var(--part); }
+.today-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--no); animation: today-ping 1.6s ease-out infinite; }
+@keyframes today-ping { 0% { box-shadow: 0 0 0 0 var(--no); } 70%, 100% { box-shadow: 0 0 0 6px transparent; } }
+.lucky.spinning .lucky-text { color: var(--brass); }
+.lucky.spinning .lucky-icon { animation: twist .5s linear infinite; }
+@keyframes twist { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .today-dot, .lucky.spinning .lucky-icon { animation: none; } .mystery-mini, .today-go { transition: none; } }
+
+/* telefono: titolo compatto, poi filtri, poi "Oggi nel meta" come striscia con quattro tessere */
 @media (max-width: 719px) {
-  .decks-head .page-head { margin: 12px 0 8px; }
-  .decks-head .page-head h1 { font-size: 1.5rem; }
-  .decks-head .page-head > p { font-size: .9rem; margin-top: 4px; }
-  .page-head .callout-onb { margin: 10px 0 2px; padding: 10px 12px; gap: 8px 12px; flex-wrap: nowrap; }
-  .page-head .callout-onb p { font-size: .88rem; line-height: 1.35; }
-  .page-head .callout-onb .btn { flex: none; min-height: 40px; padding: 6px 14px; }
-  /* meteo in una riga: solo icone, mazzi e variazione */
-  .weather { margin-top: 10px; }
-  .weather-label { margin-bottom: 4px; }
-  .weather ul { gap: 4px 16px; font-size: .9rem; }
-  .weather-word, .weather .weather-top { display: none; }
-  .lucky { margin-top: 10px; min-height: 40px; padding: 6px 14px 6px 10px; }
-  .lucky-sub { display: none; }
-  .lucky-icon { grid-row: auto; font-size: 1.1rem; }
-  .lucky-text { min-width: 0; }
-  /* ogni giorno: mazzo misterioso in una striscia, i due giochi affiancati e senza sottotitolo */
-  .daily { gap: 8px; margin-bottom: 10px; }
-  .daily .mystery { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 10px 12px; border-radius: 16px; }
-  .daily .mystery-bg { border-radius: 14px; }
-  .daily .mystery-art { transform: rotate(-4deg); }
-  .daily .mystery-q { font-size: 1.5rem; }
-  .daily .mystery-body { gap: 2px; }
-  .daily .mystery-line, .daily .mystery-sig, .daily .mystery-cta, .daily .mystery-meta > span:not(.mystery-timer):not(.mystery-streak) { display: none; }
-  .daily .mystery-label { font-size: .68rem; }
-  .daily .mystery-name { font-size: .95rem; }
-  .daily .mystery-meta { font-size: .78rem; }
-  .daily-games { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .daily-games .game-btn { min-height: 52px; padding: 8px 10px; gap: 8px; align-items: center; flex-wrap: nowrap; }
-  .daily-games .game-btn > span:first-child { font-size: 1.1rem; }
-  .daily-games .game-btn-text small, .daily-games .g-long { display: none; }
-  .daily-games .g-short { display: inline; }
-  .daily-games .game-btn-text b { font-size: .88rem; line-height: 1.25; }
-  .rogue-jump { margin: 0 0 10px; padding: 6px 14px; min-height: 40px; font-size: .9rem; gap: 8px; }
+  .home-head { margin: 4px 0 12px; }
+  .home-head h1 { font-size: 1.5rem; }
+  .hero-text { font-size: .95rem; margin-top: 8px; }
+  .hero-actions { margin-top: 12px; gap: 8px 16px; }
+  .home-tools { margin-bottom: 12px; }
+  .today { padding: 10px; }
+  .today-title { padding: 0 2px; }
+  .today-weather { padding: 6px 2px 10px; }
+  .today-label { display: none; }
+  .today-weather ul { display: flex; flex-wrap: wrap; gap: 2px 16px; font-size: .88rem; }
+  .weather-word, .today-weather .weather-top { display: none; }
+  .today-list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding-top: 10px; }
+  .today-item { grid-template-columns: 1fr; justify-items: center; gap: 4px; height: 100%; padding: 8px 4px; border: 1px solid var(--rail); text-align: center; }
+  .today-icon { width: 28px; height: 28px; font-size: 1.1rem; }
+  .mystery-mini { width: 20px; height: 28px; }
+  .today-text b { justify-content: center; font-size: .78rem; line-height: 1.2; gap: 0 4px; }
+  .t-long, .today-sub, .today-go, .today-text .pill-new, .today-text .pill-badge { display: none; }
+  .t-short { display: inline; }
+  .today-item { position: relative; }
+  .today-dot { position: absolute; top: 7px; right: 7px; }
 }

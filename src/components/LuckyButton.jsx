@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { t } from '../i18n/index.js'
+import { IconChevron } from './Icons.jsx'
 
 // Mi sento fortunato: i nomi dei mazzi scorrono nel pulsante, si fermano su uno a caso e lo aprono
 export default function LuckyButton({ pool, onPick }) {
@@ -21,10 +22,13 @@ export default function LuckyButton({ pool, onPick }) {
     tick()
   }
   return (
-    <button className={`lucky${name ? ' spinning' : ''}`} onClick={spin} aria-live="polite" title={t('lucky.hint')}>
-      <span aria-hidden="true" className="lucky-icon">🌪️</span>
-      <span className="lucky-text">{name || t('lucky.btn')}</span>
-      {!name && <span className="lucky-sub">{t('lucky.sub')}</span>}
+    <button className={`today-item lucky${name ? ' spinning' : ''}`} onClick={spin} aria-live="polite" title={t('lucky.hint')}>
+      <span aria-hidden="true" className="today-icon lucky-icon">🌪️</span>
+      <span className="today-text">
+        <b className="lucky-text"><span className="t-long">{name || t('lucky.btn')}</span><span className="t-short">{name || t('today.lucky')}</span></b>
+        <small className="today-sub sub-hint">{t('lucky.sub')}</small>
+      </span>
+      <IconChevron className="today-go" />
     </button>
   )
 }

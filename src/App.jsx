@@ -17,16 +17,14 @@ import KeyCards from './components/KeyCards.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconStar, IconFilter, IconGlobe, IconCoins, IconChart } from './components/Icons.jsx'
 import Picker from './components/Picker.jsx'
-import MysteryDeck from './components/MysteryDeck.jsx'
+import TodayCard from './components/TodayCard.jsx'
 import { pickDaily, signatureOf } from './lib/daily.js'
 import { Info } from './components/Badges.jsx'
 import { mergeCollection } from './lib/normalize.js'
 import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS, guessDeck, GUESS_TRIES } from './lib/fun.js'
-import MetaWeather from './components/MetaWeather.jsx'
 import StatsPage from './components/StatsPage.jsx'
 import { toOwnedMap } from './lib/matcher.js'
 import Modal from './components/Modal.jsx'
-import LuckyButton from './components/LuckyButton.jsx'
 import Quiz from './components/play/Quiz.jsx'
 import GuessGame from './components/play/GuessGame.jsx'
 import { dayKey } from './lib/daily.js'
@@ -106,6 +104,11 @@ export default function App() {
     const ro = new ResizeObserver(() => document.documentElement.style.setProperty('--head-h', `${el.offsetHeight}px`))
     ro.observe(el); return () => ro.disconnect()
   }, [])
+  const toList = () => {
+    const el = document.getElementById('deck-list')
+    el?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
+    el?.focus({ preventScroll: true })
+  }
   const toRogue = () => {
     const el = document.getElementById('rogue-title')
     el?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
@@ -189,7 +192,6 @@ export default function App() {
 
   const formatName = formats.find(f => f.id === format)?.name || ''
   const updated = meta?.[0]?.updated
-  const sourceText = meta?.[0]?.source === 'MTGODecklistCache' ? t('decks.srcCache') : t('decks.srcTop8')
   const stale = updated && daysAgo(updated) > STALE_DAYS
   const page = ['collection', 'key-cards', 'stats'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
   const ownedMap = useMemo(() => toOwnedMap(collection), [collection])
@@ -206,6 +208,10 @@ export default function App() {
   const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
   const meteo = useMemo(() => meta ? weather(meta) : null, [meta])
   const almost = collection.length ? almostThere(ranked, 5, almostOff) : null
+  const guessBadge = (() => {
+    const g = guessStore[`${format}|${dayKey()}`] || [], ans = meta ? guessDeck(meta, format)?.name : null
+    return g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
+  })()
   const openDaily = (id, fresh) => { bumpFun(f => { const st = bumpStreak(f.streak); return { streak: st, bestStreak: Math.max(f.bestStreak || 0, st.n), opens: (f.opens || 0) + (fresh ? 1 : 0) } }); go('deck', id) }
   // formati visitati e mazzi completati (per i traguardi)
   useEffect(() => { if (format && !(fun.formats || []).includes(format)) bumpFun(f => ({ formats: [...new Set([...(f.formats || []), format])] })) }, [format])
@@ -279,85 +285,64 @@ export default function App() {
         <ErrorBoundary key={page}>
           {page === 'decks' && <>
             {formatTabs}
-            <div className={`decks-head${daily ? ' has-daily' : ''}`}>
-              <header className="page-head">
+            <div className={`home${collection.length ? '' : ' home-new'}`}>
+              <header className="page-head home-head">
                 <h1>{t('decks.title', formatName)}</h1>
-                {meta && decks.length > 0 && <p>{t('decks.intro', metaMain.filter(d => d.source !== 'utente').length, sourceText, dayMonth(updated))}</p>}
-                {!collection.length && (
-                  <div className="callout callout-onb">
-                    <p><b>{t('decks.noCollB')}</b> {t('decks.noColl')}</p>
-                    <a className="btn btn-primary" href="#/collection">{t('loadCollection')}</a>
+                {!collection.length && <>
+                  <p className="hero-text">{t('hero.text')}</p>
+                  <p className="hero-actions">
+                    <a className="btn btn-primary" href="#/collection">{t('hero.cta')}</a>
+                    <button className="linklike hero-browse" onClick={toList}>{t('hero.browse')}</button>
+                  </p>
+                </>}
+                {almost && (
+                  <p className="almost">
+                    <span aria-hidden="true">🎯</span>
+                    <span>{t('almost.line', almost.n)} <button className="linklike" onClick={() => go('deck', almost.s.deck.id)}>{almost.s.deck.name}</button>{costOf(almost.s).amount > 0 ? ` (≈ ${money(costOf(almost.s).amount, true)})` : ''}</span>
+                    <button className="almost-x" onClick={() => setAlmostOff([...almostOff, almost.s.deck.id])} aria-label={t('almost.hide')} title={t('almost.hide')}>×</button>
+                  </p>
+                )}
+              </header>
+              {meta && <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
+                onOpenDaily={openDaily} onOpen={id => go('deck', id)} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame}
+                luckyPool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onLucky={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />}
+              <div className="home-tools">
+                {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
+                  <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
+                </button>}
+                {decks.length > 1 && (
+                  <div className={`filters${filtersOpen ? ' open' : ''}`}>
+                    <span className="select">
+                      <span aria-hidden="true">{t('sort')}</span>
+                      <Picker label={t('sort')} value={view.sort} onChange={v => setV({ sort: v })} options={SORTS.map(k => ({ value: k, label: t(`sort.${k}`) }))} />
+                    </span>
+                    <span className="select">
+                      <span aria-hidden="true">{t('budget')}</span>
+                      <Picker label={t('budget')} value={view.budget} onChange={v => setV({ budget: v })} options={BUDGETS.map(b => ({ value: b, label: b ? t('budget.max', money(localBudget(b))) : t('budget.any') }))} />
+                    </span>
+                    <div className="chips" role="group" aria-label="Tier">
+                      {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
+                      <Info text={t('info.tier')} label={t('info.label')} />
+                      {rogueShown.length > 0 && <button className="chip-rogue" onClick={toRogue} title={t('rogue.title')}><span aria-hidden="true">🌶</span> Rogue <span className="count">{rogueShown.length}</span> <span aria-hidden="true">↓</span></button>}
+                    </div>
+                    <div className="color-filter" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
+                      <span>{t('colors')}</span>
+                      {WUBRG.map(c => (
+                        <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
+                          <i className={`ms ms-${c.toLowerCase()} ms-cost`} />
+                        </button>
+                      ))}
+                      {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>{t('clearColors')}</button>}
+                    </div>
                   </div>
                 )}
-                {meteo && <MetaWeather w={meteo} onOpen={id => go('deck', id)}>
-                  <LuckyButton pool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onPick={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
-                </MetaWeather>}
-              </header>
-              {daily && <section className="daily" aria-labelledby="daily-title">
-                <h2 className="daily-title" id="daily-title">{t('daily.group')}</h2>
-                <MysteryDeck deck={daily} signature={dailySig} colors={colorsOf(daily)} format={format} onOpen={openDaily} streak={liveStreak(fun.streak)} />
-                <div className="daily-games">
-                  {(() => {
-                    const g = guessStore[`${format}|${dayKey()}`] || [], ans = guessDeck(meta, format)?.name
-                    const badge = g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
-                    return <button className="game-btn game-guess-btn" onClick={() => setGame('guess')}>
-                      <span aria-hidden="true">🔎</span>
-                      <span className="game-btn-text"><b><span className="g-long">{t('guess.btn')}</span><span className="g-short">{t('guess.title')}</span> {badge ? <span className="pill-badge">{badge}</span> : <span className="pill-new">{t('guess.new')}</span>}</b><small>{t('guess.sub')}</small></span>
-                    </button>
-                  })()}
-                  <button className="game-btn game-quiz" onClick={() => setGame('quiz')}>
-                    <span aria-hidden="true">🪞</span>
-                    <span className="game-btn-text"><b><span className="g-long">{t('quiz.btn')}</span><span className="g-short">{t('quiz.title')}</span></b><small>{t('quiz.sub')}</small></span>
-                  </button>
-                </div>
-              </section>}
+              </div>
             </div>
 
             {banNotice}
-            {rogueShown.length > 0 && (
-              <button className="rogue-jump" onClick={toRogue}>
-                <span aria-hidden="true">🌶</span>{t('rogue.jump', rogueShown.length)}<span aria-hidden="true" className="rogue-jump-arrow">↓</span>
-              </button>
-            )}
-
             {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
             {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
-
-            {almost && (
-              <p className="almost">
-                <span aria-hidden="true">🎯</span>
-                <span>{t('almost.line', almost.n)} <button className="linklike" onClick={() => go('deck', almost.s.deck.id)}>{almost.s.deck.name}</button>{costOf(almost.s).amount > 0 ? ` (≈ ${money(costOf(almost.s).amount, true)})` : ''}</span>
-                <button className="almost-x" onClick={() => setAlmostOff([...almostOff, almost.s.deck.id])} aria-label={t('almost.hide')} title={t('almost.hide')}>×</button>
-              </p>
-            )}
-            {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
-              <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
-            </button>}
-            {decks.length > 1 && (
-              <div className={`filters${filtersOpen ? ' open' : ''}`}>
-                <span className="select">
-                  <span aria-hidden="true">{t('sort')}</span>
-                  <Picker label={t('sort')} value={view.sort} onChange={v => setV({ sort: v })} options={SORTS.map(k => ({ value: k, label: t(`sort.${k}`) }))} />
-                </span>
-                <span className="select">
-                  <span aria-hidden="true">{t('budget')}</span>
-                  <Picker label={t('budget')} value={view.budget} onChange={v => setV({ budget: v })} options={BUDGETS.map(b => ({ value: b, label: b ? t('budget.max', money(localBudget(b))) : t('budget.any') }))} />
-                </span>
-                <div className="chips" role="group" aria-label="Tier">
-                  {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
-                  <Info text={t('info.tier')} label={t('info.label')} />
-                </div>
-                <div className="color-filter" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
-                  <span>{t('colors')}</span>
-                  {WUBRG.map(c => (
-                    <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
-                      <i className={`ms ms-${c.toLowerCase()} ms-cost`} />
-                    </button>
-                  ))}
-                  {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>{t('clearColors')}</button>}
-                </div>
-              </div>
-            )}
+            {meta && decks.length > 0 && <p className="list-meta" id="deck-list" tabIndex={-1}>{t('decks.listMeta', metaMain.filter(d => d.source !== 'utente').length, dayMonth(updated))}</p>}
 
             {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
               : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
