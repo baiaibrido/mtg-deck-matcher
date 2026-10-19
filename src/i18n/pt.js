@@ -232,4 +232,5 @@ export default {
   'daily.share': s => `Só ${s}% do meta joga com ele`,
   'seo.deck': (n, f) => `${n} (${f}): lista, participação no meta, matchups e quantas cartas faltam para completá-lo.`,
   'seo.home': f => `Os decks ${f} do meta mais perto da sua coleção: o que falta e quanto custa.`,
+  'tab.metaShort': 'Meta',
 }

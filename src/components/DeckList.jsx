@@ -96,11 +96,11 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
   )
 }
 
-export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true, pins = [], onPin, owned = true }) {
+export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true, pins = [], onPin, owned = true, start = 0 }) {
   return (
     <ol className="decks" key={animKey}>
       {ranked.map((s, i) => (
-        <DeckRow key={s.deck.id} s={s} rank={s.rank ?? i + 1} index={Math.min(i, 8)} top={highlightFirst && i === 0}
+        <DeckRow key={s.deck.id} s={s} rank={s.rank ?? start + i + 1} index={Math.min(i, 8)} top={highlightFirst && i === 0}
           colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} pinned={pins.includes(s.deck.id)} onPin={onPin} owned={owned} />
       ))}
     </ol>

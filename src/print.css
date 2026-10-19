@@ -248,3 +248,6 @@ input:not([type=checkbox]):not([type=file]), textarea { border-radius: var(--r-m
 /* «La tua collezione urla…»: l'icona resta sulla stessa riga del testo */
 .pers { display: block; }
 .pers > span[aria-hidden] { margin-right: 6px; }
+/* telefono: «Oggi nel meta» tra i primi tre mazzi e il resto della classifica */
+.today-inline { margin: 14px 0; }
+.today-inline + .decks { border-top-width: 2px; }

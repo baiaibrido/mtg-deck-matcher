@@ -25,6 +25,7 @@ import { bumpStreak, liveStreak, weather, almostThere, unlockedNow, ACHIEVEMENTS
 import StatsPage from './components/StatsPage.jsx'
 import { toOwnedMap } from './lib/matcher.js'
 import Modal from './components/Modal.jsx'
+import { useMedia } from './state/useMedia.js'
 import Quiz from './components/play/Quiz.jsx'
 import GuessGame from './components/play/GuessGame.jsx'
 import { dayKey } from './lib/daily.js'
@@ -265,6 +266,11 @@ export default function App() {
     bumpFun(f => ({ unlocked: { ...(f.unlocked || {}), ...Object.fromEntries(fresh.map(id => [id, today])) } }))
     if (had) toast(t('ach.toast', t(`ach.${fresh[0]}`), ACHIEVEMENTS.find(a => a.id === fresh[0]).icon))
   }, [unlockedIds])
+  // su telefono «Oggi nel meta» va dopo i primi mazzi: la classifica si vede subito
+  const phone = useMedia('(max-width: 719px)')
+  const todayCard = <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
+    onOpenDaily={openDaily} onOpen={id => go('deck', id)} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame}
+    luckyPool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onLucky={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
   const navCurrent = p => (p === 'decks' ? page === 'decks' || page === 'deck' : page === p) ? 'page' : undefined
 
   // su telefono la fila dei formati scorre: il formato scelto resta sempre visibile
@@ -330,9 +336,7 @@ export default function App() {
                   </p>
                 )}
               </header>
-              {meta && <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
-                onOpenDaily={openDaily} onOpen={id => go('deck', id)} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame}
-                luckyPool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onLucky={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />}
+              {meta && !phone && todayCard}
               <div className="home-tools">
                 {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
                   <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
@@ -380,7 +384,16 @@ export default function App() {
                       <DeckList ranked={pinned} colorsOf={colorsOf} costOf={costOf} animKey={format + 'pins'} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} owned={collection.length > 0} />
                     </section>
                   )}
-                  {all.length ? <DeckList ranked={all} colorsOf={colorsOf} costOf={costOf} animKey={format + view.sort + view.tier + view.colors + view.budget} highlightFirst={false} onOpen={id => go('deck', id)} pins={pins} onPin={togglePin} owned={collection.length > 0} />
+                  {all.length ? (() => {
+                    const props = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: togglePin, owned: collection.length > 0 }
+                    const key = format + view.sort + view.tier + view.colors + view.budget
+                    if (!phone || !meta) return <DeckList ranked={all} animKey={key} {...props} />
+                    return <>
+                      <DeckList ranked={all.slice(0, 3)} animKey={key} {...props} />
+                      <div className="today-inline">{todayCard}</div>
+                      {all.length > 3 && <DeckList ranked={all.slice(3)} start={3} animKey={key + 'b'} {...props} />}
+                    </>
+                  })()
                   : <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>}
                 </>}
 

@@ -231,4 +231,5 @@ export default {
   'daily.share': s => `Solo lo juega el ${s}% del meta`,
   'seo.deck': (n, f) => `${n} (${f}): lista, cuota del meta, matchups y cuántas cartas te faltan para completarlo.`,
   'seo.home': f => `Los mazos ${f} del meta más cercanos a tu colección: qué te falta y cuánto cuesta.`,
+  'tab.metaShort': 'Meta',
 }

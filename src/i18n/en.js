@@ -231,4 +231,5 @@ export default {
   'daily.share': s => `Only ${s}% of the meta plays it`,
   'seo.deck': (n, f) => `${n} (${f}): decklist, meta share, matchups and how many cards you're missing to build it.`,
   'seo.home': f => `The ${f} meta decks closest to your collection: what you're missing and what it costs.`,
+  'tab.metaShort': 'Meta',
 }

@@ -8,6 +8,7 @@ import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox } from './Icons.jsx'
 import { useLocal } from '../state/useLocal.js'
+import { useMedia } from '../state/useMedia.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
 import { t, num } from '../i18n/index.js'
@@ -90,6 +91,9 @@ const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=$
 
 export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, decks = [], owned = new Map(), hasColl = true, onOwnDeck }) {
   const [tab, setTab] = useState('list')
+  // su telefono andamento e matchup diventano una terza scheda invece di stare in fondo alla lista
+  const narrow = useMedia('(max-width: 899px)')
+  useEffect(() => { if (!narrow && tab === 'meta') setTab('list') }, [narrow])
   const [onlyMissing, setOnlyMissing] = useState(false)
   const [look, setLook] = useLocal('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
   const list = toText(s.missing)
@@ -154,6 +158,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       <div className="seg" role="tablist" aria-label={t('view')}>
         <button role="tab" aria-selected={tab === 'list'} onClick={() => setTab('list')}>{t('tab.list')}</button>
         <button role="tab" aria-selected={tab === 'need'} onClick={() => setTab('need')}>{t('tab.need')} <span className="count">{missingCount}</span></button>
+        {narrow && hasMeta && <button role="tab" aria-selected={tab === 'meta'} onClick={() => setTab('meta')}>{t('tab.metaShort')}</button>}
       </div>
 
       {tab === 'list' && <>
@@ -197,7 +202,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       </> : <p className="empty">{t('detail.haveAll')}</p>)}
       </div>
 
-      {hasMeta && <aside className="detail-side meta-tab" aria-label={t('tab.meta')}>
+      {hasMeta && (!narrow || tab === 'meta') && <aside className="detail-side meta-tab" aria-label={t('tab.meta')}>
         {s.deck.history && s.deck.historyWeeks && <HistoryChart weeks={s.deck.historyWeeks} values={s.deck.history} />}
         <ConvLine deck={s.deck} />
         {s.deck.field && <Matchups deck={s.deck} onOpen={onOpen} idOf={idOf} />}
