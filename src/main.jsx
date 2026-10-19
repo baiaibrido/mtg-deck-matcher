@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client'
-import '@fontsource/marcellus/400.css'
 import '@fontsource/alegreya-sans/400.css'
 import '@fontsource/alegreya-sans/500.css'
 import '@fontsource/alegreya-sans/700.css'
@@ -8,7 +7,7 @@ import '@fontsource-variable/doto' // carattere a punti (stampante ad aghi) dell
 import './mana-cost.css' // simboli di mana ridotti (scripts/build-mana-subset.py)
 import App from './App.jsx'
 import './styles.css'
-import './v2.css'
+import './print.css'
 createRoot(document.getElementById('root')).render(<App />)
 
 // Tastiera su telefono: iOS non ridimensiona la pagina quando compare, quindi teniamo traccia

@@ -1,0 +1,250 @@
+/* ═══════════ Grafica «la classifica stampata» (v0.22) ═══════════
+   La home come il foglio delle classifiche di un torneo stampato su carta a modulo continuo:
+   righe verdi alternate, fori di trascinamento ai lati, numeri a punti da stampante ad aghi,
+   l'evidenziatore sul mazzo in testa. Formati come linguette di un raccoglitore,
+   «Oggi nel meta» come un tagliando perforato. I token stanno in styles.css, qui la forma. */
+
+:root body { background: var(--p-paper); }
+:root :focus-visible { outline-color: var(--p-ribbon); border-radius: 2px; }
+
+/* ── Testata: logo a punti, voci di menu come testo sottolineato ── */
+:root .brand { font: 900 1.55rem/1 var(--font-dot); letter-spacing: .02em; gap: 10px; }
+:root .topbar.compact .brand { font-size: 1.25rem; }
+:root .nav-top { background: none; border: 0; padding: 0; gap: 2px; }
+:root .nav-top a { border-radius: 0; padding: 8px 12px; color: var(--p-faded); }
+:root .nav-top a:hover { color: var(--p-ink); }
+:root .nav-top a[aria-current] { background: none; color: var(--p-ink); font-weight: 700; box-shadow: inset 0 -2px 0 var(--p-ink); }
+:root .count { background: none; box-shadow: inset 0 0 0 1px var(--p-rule); border-radius: 2px; color: var(--p-faded); }
+:root .topbar.compact { box-shadow: 0 0 0 100vmax var(--bar-bg); }
+:root .picker-btn, :root .theme-btn { border-radius: 3px; background: transparent; }
+:root .picker-list { border-radius: 4px; border-color: var(--p-ink); box-shadow: 4px 4px 0 var(--p-rule); }
+
+/* ── Formati: linguette di un raccoglitore appoggiate sul foglio ── */
+:root .formats { gap: 4px; margin: 10px -16px 0; padding: 0 16px; mask-image: none; box-shadow: inset 0 -1.5px 0 var(--p-ink); }
+:root .formats button {
+  border-radius: 8px 8px 0 0; border: 1px solid var(--p-rule); border-bottom: 0; background: var(--p-bar);
+  color: var(--p-faded); padding: 9px 18px 8px; font-weight: 600; transition: color .15s, background .15s;
+}
+:root .formats button:hover { color: var(--p-ink); border-color: var(--p-rule); }
+:root .formats button[aria-selected="true"] {
+  background: var(--p-paper); color: var(--p-ink); border: 1.5px solid var(--p-ink); border-bottom: 0;
+  font-weight: 800; position: relative; box-shadow: 0 2px 0 var(--p-paper);
+}
+
+/* ── Titolo e invito ── */
+:root .home-head h1 { font: 800 clamp(2.1rem, 4.6vw, 3.3rem)/1.02 var(--font-ui); letter-spacing: -.015em; text-wrap: balance; max-width: 16ch; }
+:root .hero-text { color: var(--p-faded); }
+:root .btn { border-radius: 3px; }
+:root .btn-primary { background: var(--p-ink); border-color: var(--p-ink); color: var(--p-paper); font-weight: 800; box-shadow: 3px 3px 0 var(--p-ribbon); transition: transform .12s, box-shadow .12s; }
+:root .btn-primary:hover:not(:disabled) { background: var(--p-ink); border-color: var(--p-ink); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--p-ribbon); }
+:root .btn-primary:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--p-ribbon); }
+:root .hero-browse { color: var(--p-ink); text-decoration-thickness: 1px; }
+:root .almost { border-radius: 3px; border-style: dashed; background: none; }
+
+/* ── «Oggi nel meta»: tagliando con i bordi perforati ── */
+:root .today {
+  --bite: radial-gradient(circle at 50% 0, transparent 5px, #000 5.5px) top / 16px 51% repeat-x,
+          radial-gradient(circle at 50% 100%, transparent 5px, #000 5.5px) bottom / 16px 51% repeat-x;
+  border: 0; border-radius: 0; padding: 20px 12px 16px;
+  background: color-mix(in oklab, var(--p-ribbon) 9%, var(--p-sheet));
+  -webkit-mask: var(--bite); mask: var(--bite);
+}
+:root .today-title { font: 800 1.2rem/1.2 var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--p-ink); }
+:root .today-label { text-transform: none; letter-spacing: 0; font-size: .85rem; font-weight: 700; color: var(--p-faded); }
+:root .today-list { border-top: 1px dashed var(--p-faded); }
+:root .today-list li + li { border-top: 1px dashed var(--p-rule); }
+:root .today-item { border-radius: 0; }
+:root .today-item:hover { background: color-mix(in oklab, var(--p-ink) 5%, transparent); }
+:root .mystery-mini { border-radius: 2px; box-shadow: 0 0 0 1px var(--p-ink), 2px 2px 0 var(--p-rule); }
+:root .mystery-line { font-family: var(--font-ui); font-weight: 600; }
+:root .today-timer, :root .mystery-name { font-variant-numeric: tabular-nums; }
+
+/* computer: titolo, poi la striscia di biglietti «Oggi nel meta» a tutta larghezza, poi filtri e classifica */
+@media (min-width: 900px) {
+  :root .home { grid-template-columns: 1fr; grid-template-areas: 'head' 'today' 'tools'; }
+  :root .home-new .home-head { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: 48px; align-items: end; }
+  :root .home-new .home-head h1 { grid-row: span 2; }
+  :root .home-new .hero-text { margin: 0; }
+  :root .home-head .almost { grid-column: 1 / -1; }
+  :root .today { margin: 6px 0 22px; padding: 20px 6px 18px; display: grid; grid-template-columns: 1.1fr 1.7fr 1fr 1fr 1fr; grid-template-rows: auto 1fr; }
+  :root .today-title { grid-column: 1; grid-row: 1; padding: 0 14px; }
+  :root .today-weather { grid-column: 1; grid-row: 2; padding: 8px 14px 0; }
+  :root .today-list { display: contents; }
+  :root .today-list > li { grid-row: 1 / 3; border-top: 0; border-left: 1px dashed var(--p-faded); padding: 0 6px; display: flex; }
+  :root .today-list li + li { border-top: 0; }
+  :root .today-item { grid-template-columns: 1fr; align-content: start; gap: 8px; padding: 2px 10px 6px; }
+  :root .today-mystery { grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; }
+  :root .today-item .today-go { display: none; }
+  :root .today-item:hover { background: none; }
+  :root .today-item:hover .today-text b { text-decoration: underline; text-underline-offset: 3px; }
+  :root .today-weather ul { font-size: .92rem; gap: 6px; }
+  :root .today-weather .weather-word { display: none; }
+  :root .home-head h1 { max-width: 24ch; }
+}
+
+/* ── Filtri: barra sopra la classifica, interruttori rettangolari ── */
+:root .filters { padding-top: 12px; border-top: 1px solid var(--p-rule); }
+:root .chips button { border-radius: 3px; min-height: 36px; border-color: var(--p-rule); color: var(--p-faded); }
+:root .chips button[aria-pressed="true"] { background: var(--p-ink); border-color: var(--p-ink); color: var(--p-paper); font-weight: 700; }
+:root .chips .chip-rogue { border-color: color-mix(in oklab, var(--mana-r) 60%, var(--p-rule)); }
+:root .filters-toggle { border-radius: 3px; }
+:root .list-meta { color: var(--p-faded); font-size: .9rem; margin-top: 18px; }
+
+/* ── La classifica: modulo continuo con righe verdi e fori di trascinamento ── */
+:root .decks {
+  --hole: radial-gradient(circle at 50% 50%, var(--p-paper) 4.5px, color-mix(in oklab, var(--p-ink) 30%, var(--p-paper)) 5px, transparent 5.6px);
+  grid-template-columns: 1fr; gap: 0; padding: 0 30px; position: relative;
+  background:
+    var(--hole) left 0 top 6px / 30px 26px repeat-y,
+    var(--hole) right 0 top 6px / 30px 26px repeat-y,
+    var(--p-sheet);
+  border-top: 2px solid var(--p-ink); border-bottom: 2px solid var(--p-ink);
+}
+/* linee tratteggiate dello strappo, tra i fori e il foglio */
+:root .decks::before, :root .decks::after { content: ''; position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--p-rule); }
+:root .decks::before { left: 30px; }
+:root .decks::after { right: 30px; }
+:root .deck {
+  border: 0; border-radius: 0; background: transparent; animation: none; transition: background .12s;
+  border-bottom: 1px solid color-mix(in oklab, var(--p-rule) 70%, transparent);
+}
+:root .deck:nth-child(odd) { background: var(--p-bar); }
+:root .deck:hover { transform: none; box-shadow: none; background: color-mix(in oklab, var(--p-ribbon) 10%, var(--p-sheet)); }
+:root .deck-btn {
+  grid-template-columns: 4.4rem minmax(0, 1fr) auto 22px; gap: 18px; padding: 16px 18px 16px 10px;
+  border-radius: 0; background: none; position: relative;
+}
+/* i colori del mazzo come la cornice della carta: una barra sul bordo sinistro */
+:root .deck-btn::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 4px; background: linear-gradient(var(--c1), var(--c2)); }
+:root .deck-rank { font: 900 2.6rem/1 var(--font-dot); color: var(--p-ink); width: auto; text-align: right; font-variant-numeric: tabular-nums; }
+:root .deck-name { font: 800 1.3rem/1.15 var(--font-ui); letter-spacing: -.005em; }
+:root .deck-sub { color: var(--p-faded); }
+:root .tier { border-radius: 2px; font-weight: 800; padding: 0 6px; }
+:root .tier-1 { background: var(--p-ink); color: var(--p-paper); }
+:root .tier-2 { box-shadow: inset 0 0 0 1.5px var(--p-ink); color: var(--p-ink); }
+:root .tier-3 { box-shadow: inset 0 0 0 1px var(--p-faded); color: var(--p-faded); }
+:root .spark path { stroke: var(--p-ribbon); }
+:root .deck-meters { max-width: 420px; }
+@media (min-width: 720px) { :root .deck-meters { grid-template-columns: 1fr 1fr; column-gap: 28px; max-width: 620px; } }
+:root .meter-track { border-radius: 0; height: 7px; background: color-mix(in oklab, var(--p-ink) 10%, transparent); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--p-ink) 18%, transparent); }
+:root .meter-fill { border-radius: 0; background: var(--p-ink); }
+:root .deck-score b { font: 900 2.9rem/1 var(--font-dot); color: var(--p-ink); }
+:root .deck-score small { font-family: var(--font-ui); font-weight: 700; }
+:root .deck-go { color: var(--p-faded); }
+:root .pin-btn { border-radius: 3px; top: 10px; right: 6px; }
+/* l'evidenziatore sul primo mazzo della classifica */
+:root .list-meta + .decks > .deck:first-child .deck-name {
+  background: linear-gradient(100deg, transparent .3em, var(--p-marker) .3em, var(--p-marker) calc(100% - .2em), transparent calc(100% - .2em)) 0 62% / 100% 70% no-repeat;
+  color: #1d2126; padding: 0 .25em; margin-left: -.25em; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* ── Barra in basso del telefono ── */
+@media (max-width: 719px) {
+  :root .tabbar { border-top: 1.5px solid var(--p-ink); }
+  :root .tabbar a[aria-current] { color: var(--p-ink); font-weight: 800; box-shadow: inset 0 2px 0 var(--p-ink); }
+  :root .formats { margin-top: 6px; }
+  :root .formats button { padding: 8px 14px 7px; }
+  :root .home-head h1 { font-size: 1.85rem; max-width: none; }
+  /* su telefono i fori restano solo a sinistra, più stretti */
+  :root .decks { padding: 0 0 0 20px; background: var(--hole) left -5px top 6px / 30px 26px repeat-y, var(--p-sheet); margin: 0 -16px; }
+  :root .decks::before { left: 20px; }
+  :root .decks::after { display: none; }
+  :root .deck-btn { grid-template-columns: 2.6rem minmax(0, 1fr) auto; gap: 12px; padding: 14px 14px 14px 6px; }
+  :root .deck-go { display: none; }
+  :root .deck-rank { font-size: 1.8rem; }
+  :root .deck-name { font-size: 1.12rem; }
+  :root .deck-score b { font-size: 2.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { :root .btn-primary { transition: none; } }
+/* il logo a punti è più largo: su telefono si stringe per lasciare posto a lingua, valuta e tema */
+@media (max-width: 519px) { :root .brand, :root .topbar.compact .brand { font-size: 1.15rem; letter-spacing: 0; } }
+@media (max-width: 380px) { :root .brand, :root .topbar.compact .brand { font-size: 1rem; } }
+
+/* ═══════════ Tutto il sito ═══════════ */
+/* barre di avanzamento e quote: tacche diritte, come stampate */
+.meter-track, .meter-fill, .mu-bar, .quiz-bar, .ach-bar, .st-bar1, .spine-bar, .spine-bar span { border-radius: 0; }
+
+/* pannelli e riquadri: fogli con il bordo superiore in inchiostro, niente ombre */
+.panel, .need-list, .tlines, .crows, .mu-list, .ach, .key-list li, .st-card, .detail-side {
+  border-radius: var(--r-lg);
+}
+.panel > h2, .list-section h2, .detail-title h1, .page-head h1, .modal h2 { letter-spacing: -.01em; }
+.page-head h1 { font-size: clamp(1.9rem, 4.4vw, 3rem); line-height: 1.04; }
+.callout, .note, .confirm, .almost { border-radius: var(--r-md); }
+.callout { background: color-mix(in oklab, var(--p-marker) 14%, var(--p-sheet)); border: 1px dashed color-mix(in oklab, var(--p-ink) 45%, transparent); }
+.note { background: var(--p-sheet); }
+.btn { border-radius: var(--r-md); }
+.btn-primary { background: var(--p-ink); border-color: var(--p-ink); color: var(--p-paper); font-weight: 800; box-shadow: 3px 3px 0 var(--p-ribbon); transition: transform .12s, box-shadow .12s; }
+.btn-primary:hover:not(:disabled) { background: var(--p-ink); border-color: var(--p-ink); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--p-ribbon); }
+.btn-primary:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--p-ribbon); }
+input:not([type=checkbox]):not([type=file]), textarea { border-radius: var(--r-md); background: var(--p-sheet); }
+.count { background: none; box-shadow: inset 0 0 0 1px var(--p-rule); border-radius: 2px; }
+
+/* segmenti (Mazzo/Mancolista, viste): linguette come i formati */
+.seg { background: none; border: 0; padding: 0; gap: 4px; border-radius: 0; box-shadow: inset 0 -1.5px 0 var(--p-ink); }
+.seg button { border-radius: 6px 6px 0 0; border: 1px solid var(--p-rule); border-bottom: 0; background: var(--p-bar); color: var(--p-faded); font-weight: 600; }
+.seg button[aria-selected="true"] { background: var(--p-paper); color: var(--p-ink); border: 1.5px solid var(--p-ink); border-bottom: 0; box-shadow: 0 2px 0 var(--p-paper); font-weight: 800; }
+/* gruppi di icone (lista/immagini): interruttori rettangolari */
+.seg-icons { box-shadow: none; gap: 0; border: 1px solid var(--p-rule); border-radius: var(--r-md); overflow: hidden; }
+.seg-icons button, .seg-icons button[aria-pressed] { border: 0; border-radius: 0; background: none; box-shadow: none; padding: 8px 12px; }
+.seg-icons button[aria-pressed="true"] { background: var(--p-ink); color: var(--p-paper); box-shadow: none; }
+.switch-ui { border-radius: 2px; }
+.switch-ui::after { border-radius: 1px; }
+
+/* intestazione del mazzo: il foglio d'iscrizione al torneo, con i colori del mazzo come cornice */
+.detail-head { background: var(--p-sheet); border: 1px solid var(--p-rule); border-top: 0; border-radius: 0 0 var(--r-lg) var(--r-lg); }
+.detail-head::before { height: 6px; }
+.detail-title h1 { font-size: clamp(2rem, 5vw, 2.9rem); }
+.profile dd { font: 900 1.7rem/1 var(--font-dot); }
+.detail-meters .meter-fill, .meter-fill { background: var(--p-ink); }
+.pin-btn-detail, .own-btn { border-radius: var(--r-md); }
+.own-btn:hover { color: var(--p-ink); border-color: var(--p-ink); background: none; }
+
+/* liste di carte: righe del modulo continuo, verdi alternate */
+.tlines, .need-list, .crows { background: var(--p-sheet); border-color: var(--p-rule); }
+.tline:nth-child(even), .need-list li:nth-child(even), .crows li:nth-child(even) { background: var(--p-bar); }
+.tline-qty, .need-qty { font-variant-numeric: tabular-nums; }
+.tile, .ctile-img { border-radius: 4.5% / 3.3%; }
+.tile:hover, .ctile-img:hover { transform: translateY(-2px); }
+.tile-qty, .ctile-qty, .key-tile-rank { border-radius: 2px; }
+
+/* grafici e matchup */
+.hist-line { stroke: var(--p-ribbon); }
+.hist-area { fill: color-mix(in oklab, var(--p-ribbon) 12%, transparent); }
+.hist-dot { fill: var(--p-ribbon); }
+.mu-big b { font: 900 2.6rem/1 var(--font-dot); }
+
+/* carte chiave: la classifica delle carte, stesso foglio dei mazzi */
+.key-rank { font: 900 1.9rem/1 var(--font-dot); color: var(--p-ink); }
+.key-list li { background: var(--p-sheet); border-color: var(--p-rule); }
+.key-list li:nth-child(4n+1), .key-list li:nth-child(4n+2) { background: var(--p-bar); }
+@media (max-width: 819px) { .key-list li:nth-child(n) { background: var(--p-sheet); } .key-list li:nth-child(odd) { background: var(--p-bar); } }
+
+/* finestre: fogli con l'ombra stampata sfalsata */
+.modal { border: 1.5px solid var(--p-ink); border-radius: var(--r-lg); background: var(--p-sheet); box-shadow: 8px 8px 0 color-mix(in oklab, var(--p-ink) 22%, transparent); }
+.modal::backdrop { background: color-mix(in oklab, var(--p-paper) 70%, transparent); backdrop-filter: blur(3px); }
+.modal-x { border-radius: var(--r-md); }
+.game-kicker { text-transform: none; letter-spacing: 0; font-size: .9rem; color: var(--p-faded); }
+.quiz-opt { border-radius: var(--r-md); }
+.quiz-opt:hover, .quiz-opt:focus-visible { border-color: var(--p-ink); background: var(--p-bar); transform: none; }
+.guess-sugg { border-radius: var(--r-md); }
+.guess-sugg button { border-radius: 2px; }
+.play-card-back .play-back { font-family: var(--font-dot); font-weight: 800; }
+
+/* avvisi in basso: un'etichetta stampata */
+.toast { border-radius: var(--r-md); background: var(--p-ink); color: var(--p-paper); box-shadow: 4px 4px 0 var(--p-ribbon); }
+.to-top { border-radius: var(--r-md); }
+
+/* statistiche: numeri grandi a punti */
+.st-hero b { font: 900 3.4rem/1 var(--font-dot); color: var(--p-ink); }
+.spine-bar { gap: 0; }
+
+/* telefono: il tagliando «Oggi nel meta» più corto — le spiegazioni dei giochi su una riga */
+@media (max-width: 719px) {
+  :root .today-list li:not(:first-child) .today-sub { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  :root .today-item { padding: 7px 4px; }
+  :root .today { padding: 18px 10px 14px; }
+}
+/* «La tua collezione urla…»: l'icona resta sulla stessa riga del testo */
+.pers { display: block; }
+.pers > span[aria-hidden] { margin-right: 6px; }
