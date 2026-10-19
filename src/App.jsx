@@ -194,6 +194,8 @@ export default function App() {
   const updated = meta?.[0]?.updated
   const stale = updated && daysAgo(updated) > STALE_DAYS
   const page = ['collection', 'key-cards', 'stats'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
+  // nuova grafica in prova: per ora solo sulla home (pagina mazzi)
+  useEffect(() => { document.documentElement.classList.toggle('v2', page === 'decks') }, [page])
   const ownedMap = useMemo(() => toOwnedMap(collection), [collection])
 
   // "Ho già questo mazzo": aggiunge le copie che mancano (main + side), con Annulla
