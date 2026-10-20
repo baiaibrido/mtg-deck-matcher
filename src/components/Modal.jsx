@@ -28,7 +28,7 @@ export default function Modal({ open, onClose, label, children, className = '' }
   const close = () => {
     const d = ref.current
     if (!d || matchMedia('(prefers-reduced-motion: reduce)').matches) return onClose()
-    d.classList.add('closing'); setTimeout(() => { d.classList.remove('closing'); onClose() }, 180)
+    d.classList.add('closing'); setTimeout(() => { d.classList.remove('closing'); onClose() }, 260)
   }
   return (
     <dialog ref={ref} className={`modal ${className}`} aria-label={label}

@@ -14,6 +14,7 @@ export const IconUpload = p => <I {...p} d={<><path d="M12 15V4m0 0L7.5 8.5M12 4
 export const IconTrash = p => <I {...p} d={<><path d="M4 7h16M10 11v6M14 11v6" /><path d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3" /></>} />
 export const IconSun = p => <I {...p} d={<><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" /></>} />
 export const IconMoon = p => <I {...p} d={<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" />} />
+export const IconClip = ({ filled, ...p }) => <I {...p} strokeWidth={filled ? 2.4 : 1.8} d={<path d="M8.5 12.5V7a3.5 3.5 0 0 1 7 0v10a5.5 5.5 0 0 1-11 0V8.5" transform="rotate(-28 12 12)" />} />
 export const IconStar = ({ filled, ...p }) => <I {...p} fill={filled ? 'currentColor' : 'none'} d={<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" />} />
 export const IconSearch = p => <I {...p} d={<><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></>} />
 export const IconCheck = p => <I {...p} d={<path d="m5 12.5 4.5 4.5L19 7.5" />} />

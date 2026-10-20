@@ -1,0 +1,167 @@
+/* ═══════════ «Ufficio di carta» (v0.26) ═══════════
+   Sopra la «classifica stampata»: grana della carta, modulo continuo ovunque, timbri, evidenziatori,
+   scontrino, raccoglitore ad anelli, graffette, note a penna, carta carbone nel tema scuro, piccoli movimenti. */
+
+:root {
+  --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  --hl-miss: #f4dd3f; --hl-ok: #9be6a6; --hl-ink: #1d2126;
+  --stamp-ban: #b02d24; --stamp-rs: #8f4a06; --stamp-ok: #0f6b33; --stamp-date: var(--p-ribbon);
+  --pen: var(--p-ribbon);
+  --hole: radial-gradient(circle at 50% 50%, var(--p-paper) 4.5px, color-mix(in oklab, var(--p-ink) 30%, var(--p-paper)) 5px, transparent 5.6px);
+  /* grana: puntini scuri sulla carta chiara, chiari sulla carta carbone */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* inchiostro irregolare dei timbri: qualche puntino dove il timbro non ha preso */
+  --ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.2 2.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+:root[data-theme="light"] {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Tema scuro come carta carbone: nero-bluastro, inchiostro che sembra ricalcato ── */
+:root:not([data-theme="light"]) {
+  --p-paper: #11141c; --p-sheet: #171b26; --p-bar: #1a2030; --p-ink: #dfe4f3; --p-faded: #9aa3bd;
+  --p-rule: #313951; --bar-bg: rgba(17, 20, 28, .86); --pop-bg: rgba(23, 27, 38, .96);
+  --stamp-ban: #ff8b7e; --stamp-rs: #ffb867; --stamp-ok: #7fe0a0;
+}
+:root:not([data-theme="light"]) :is(h1, .deck-name, .deck-rank, .deck-score b, .key-rank, .st-hero b, .mu-big b) {
+  text-shadow: .6px .4px 0 color-mix(in oklab, var(--p-ribbon) 45%, transparent), 0 0 1.2px color-mix(in oklab, var(--p-ink) 55%, transparent);
+}
+
+/* ── Grana della carta ── */
+body { background-image: var(--grain); }
+.panel, .detail-head, .detail-side, .modal, .today, .ach, .key-list li, .st-card { background-image: var(--grain); }
+
+/* ── Modulo continuo anche per lista del mazzo, collezione in elenco e carte chiave ── */
+.tlines, .crows {
+  position: relative; padding-left: 26px; border-radius: 0; border-left: 0; border-right: 0; border-top: 2px solid var(--p-ink);
+  background: var(--hole) left -2px top 6px / 30px 26px repeat-y, var(--p-sheet);
+}
+.tlines::before, .crows::before { content: ''; position: absolute; left: 26px; top: 0; bottom: 0; border-left: 1px dashed var(--p-rule); }
+.key-list {
+  position: relative; padding: 14px 30px; border-top: 2px solid var(--p-ink); border-bottom: 2px solid var(--p-ink);
+  background: var(--hole) left 0 top 6px / 30px 26px repeat-y, var(--hole) right 0 top 6px / 30px 26px repeat-y, var(--p-sheet);
+}
+.key-list::before, .key-list::after { content: ''; position: absolute; top: 0; bottom: 0; border-left: 1px dashed var(--p-rule); }
+.key-list::before { left: 30px; } .key-list::after { right: 30px; }
+@media (max-width: 719px) {
+  .key-list { padding: 10px 10px 10px 24px; margin: 0 -16px; background: var(--hole) left -5px top 6px / 30px 26px repeat-y, var(--p-sheet); }
+  .key-list::before { left: 22px; } .key-list::after { display: none; }
+}
+
+/* ── Timbri a inchiostro ── */
+.stamp {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 1px; width: max-content; max-width: 100%;
+  padding: 3px 9px 4px; color: var(--stamp, var(--stamp-ban)); border: 2px solid currentColor; border-radius: 4px;
+  box-shadow: inset 0 0 0 1px var(--p-sheet), inset 0 0 0 2px currentColor;
+  font: 700 .72rem/1.15 var(--font-ui); text-align: center; text-transform: uppercase; letter-spacing: .04em;
+  transform: rotate(-4deg); -webkit-mask: var(--ink-mask); mask: var(--ink-mask); opacity: .92;
+}
+.stamp b { font: 900 .92rem/1 var(--font-ui); letter-spacing: .14em; }
+.stamp-ban { --stamp: var(--stamp-ban); }
+.stamp-rs { --stamp: var(--stamp-rs); transform: rotate(3deg); }
+.stamp-ok { --stamp: var(--stamp-ok); }
+.ban-stamps { display: flex; flex-wrap: wrap; gap: 8px 6px; padding: 4px 2px 2px; }
+.crows .ban-stamps { padding-top: 6px; }
+/* «Completo» timbrato sopra la percentuale */
+.deck-score { position: relative; }
+.deck-stamp { position: absolute; left: 50%; top: 40%; translate: -50% -50%; transform: rotate(-12deg); font: 900 1.05rem/1 var(--font-ui); padding: 6px 12px; letter-spacing: .18em; background: color-mix(in oklab, var(--p-sheet) 82%, transparent); pointer-events: none; }
+/* la data della classifica come un timbro datario */
+.date-stamp {
+  display: inline-block; margin: 0 2px; padding: 3px 7px 2px; color: var(--stamp-date); border: 1.5px solid currentColor; border-radius: 3px;
+  font: 700 .78rem/1 var(--font-ui); letter-spacing: .1em; text-transform: uppercase; transform: rotate(-2.5deg);
+  -webkit-mask: var(--ink-mask); mask: var(--ink-mask);
+}
+
+/* ── Evidenziatore con un significato: giallo = ti manca, verde = ce l'hai ── */
+.tline.tile-ok .tline-qty, .tline.tile-part .tline-qty, .tline.tile-no .tline-qty, .need-qty {
+  justify-self: end; color: var(--hl-ink); padding: 0 .35em; line-height: 1.35;
+  background: linear-gradient(97deg, transparent .12em, var(--hl) .22em, var(--hl) calc(100% - .2em), transparent calc(100% - .08em));
+  border-radius: .2em .5em .25em .55em / .55em .25em .5em .2em; transform: rotate(-1.5deg);
+}
+.tline.tile-ok .tline-qty { --hl: var(--hl-ok); }
+.tline.tile-part .tline-qty, .tline.tile-no .tline-qty, .need-qty { --hl: var(--hl-miss); }
+.tline.tile-no .tline-name { color: var(--p-ink); }
+/* appena aggiunte in collezione: una passata di evidenziatore sul nome */
+.just-added :is(.ctile-name, .crow-name) {
+  color: var(--hl-ink); width: max-content; max-width: 100%;
+  background: linear-gradient(var(--hl-ok), var(--hl-ok)) 0 60% / 0% 85% no-repeat; animation: hl-swipe 2.6s var(--ease) forwards;
+}
+@keyframes hl-swipe { 0% { background-size: 0% 85%; color: var(--hl-ink); } 18%, 82% { background-size: 100% 85%; color: var(--hl-ink); } 100% { background-size: 100% 0%; color: inherit; } }
+@media (max-width: 719px) { .deck-best .deck-score::before { inset: -8px -6px -6px -4px; } .deck-stamp { left: auto; right: -2px; translate: 0 -50%; font-size: .82rem; padding: 4px 8px; letter-spacing: .12em; } .hand-note { display: none; } }
+
+/* ── La mancolista come scontrino ── */
+.receipt {
+  --zz: conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / 14px 51% repeat-x,
+        conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 14px 51% repeat-x;
+  max-width: 480px; margin: 8px auto 0; padding: 26px 22px 30px; color: #24262a;
+  background: #fbfaf4 var(--grain); font: 500 .92rem/1.35 ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  -webkit-mask: var(--zz); mask: var(--zz); transform: rotate(-.4deg);
+}
+.receipt-head { display: grid; justify-items: center; gap: 2px; margin: 0 0 12px; padding-bottom: 12px; border-bottom: 1px dashed #8d9188; text-align: center; text-transform: uppercase; letter-spacing: .06em; }
+.receipt-head b { font-size: 1.05rem; letter-spacing: .2em; }
+.receipt-head span { font-size: .8rem; color: #5a5e58; }
+.receipt .need-list { border: 0; border-radius: 0; background: none; padding: 0; }
+.receipt .need-list li, .receipt .need-list li:nth-child(even) { background: none; border-top: 0; padding: 4px 0; gap: 10px; }
+.receipt .need-name { color: #24262a; }
+.receipt .need-price { color: #24262a; font-variant-numeric: tabular-nums; grid-column: 4; }
+.receipt .need-qty { font: 700 .95rem/1.35 ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.receipt-total { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; margin: 12px 0 0; padding-top: 10px; border-top: 3px double #24262a; text-transform: uppercase; letter-spacing: .08em; }
+.receipt-total b { font-size: 1.1rem; }
+.receipt-total small { flex-basis: 100%; text-transform: none; letter-spacing: 0; color: #5a5e58; }
+@media (max-width: 560px) { .receipt { padding: 24px 14px 28px; font-size: .86rem; } .receipt .need-list li { grid-template-columns: 2em 1fr auto; } .receipt .mana-cost { display: none; } .receipt .need-price { grid-column: 3; } }
+
+/* ── La collezione come raccoglitore ad anelli, con i divisori colorati ── */
+.binder-sec { position: relative; padding-left: 38px; }
+.binder-sec::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 26px; border-right: 1px dashed var(--p-rule);
+  background: radial-gradient(circle at 50% 50%, var(--p-paper) 5px, color-mix(in oklab, var(--p-ink) 55%, var(--p-paper)) 5.5px 7.5px, transparent 8px) center top 28px / 26px 150px repeat-y;
+}
+.binder-sec h2 { border-bottom: 2px solid var(--bc); }
+.binder-sec h2 > .dot { display: none; }
+.binder-sec h2::before {
+  content: ''; flex: none; width: 10px; height: 1.3em; margin-left: -38px; margin-right: 18px; background: var(--bc); border-radius: 0 4px 4px 0;
+  box-shadow: 1px 1px 0 color-mix(in oklab, var(--p-ink) 25%, transparent);
+}
+@media (max-width: 719px) { .binder-sec { padding-left: 24px; } .binder-sec::before { width: 16px; background-size: 16px 150px; } .binder-sec h2::before { margin-left: -24px; margin-right: 12px; } }
+
+/* ── Preferiti fissati con la graffetta ── */
+.pin-btn[aria-pressed="true"], .pin-btn-detail[aria-pressed="true"] { color: var(--p-ink); }
+.deck-pinned { position: relative; }
+.deck-pinned::after {
+  content: ''; position: absolute; left: 8px; top: -12px; width: 16px; height: 44px; pointer-events: none; z-index: 1;
+  --clip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 44'%3E%3Cpath d='M11 14v20a3 3 0 0 1-6 0V8a5 5 0 0 1 10 0v28a7 7 0 0 1-14 0V12' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background: color-mix(in oklab, var(--p-ink) 65%, var(--p-paper)); transform: rotate(6deg);
+  -webkit-mask: var(--clip) center / contain no-repeat; mask: var(--clip) center / contain no-repeat;
+}
+.pinned-title svg { transform: rotate(-20deg); }
+@media (max-width: 719px) { .deck-pinned::after { left: 2px; } }
+
+/* ── Note a penna sul margine ── */
+.today-weather .trend { font: 700 1.25rem/1 var(--font-hand); letter-spacing: 0; color: var(--pen); }
+.today-weather .trend-up::after { content: '↗'; font-family: var(--font-ui); font-size: .8em; margin-left: 1px; }
+.today-weather .trend-down::after { content: '↘'; font-family: var(--font-ui); font-size: .8em; margin-left: 1px; }
+/* il mazzo più vicino cerchiato a penna, con una nota (il cerchio non deve allargare la pagina) */
+.decks { overflow-x: clip; }
+.deck-best .deck-score::before {
+  content: ''; position: absolute; inset: -14px -18px -10px -22px; pointer-events: none; background: var(--pen);
+  --circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80' preserveAspectRatio='none'%3E%3Cpath d='M70 6C38 2 8 14 6 38s30 38 62 36 48-14 46-36S86 4 52 9' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  -webkit-mask: var(--circle) center / 100% 100% no-repeat; mask: var(--circle) center / 100% 100% no-repeat;
+}
+.hand-note { position: absolute; right: calc(100% + 22px); top: 18%; font: 700 1.15rem/1 var(--font-hand); color: var(--pen); transform: rotate(-6deg); white-space: nowrap; pointer-events: none; }
+
+/* ── Finestre: fogli impilati, che si strappano alla chiusura ── */
+.modal {
+  box-shadow: 6px 6px 0 -1px var(--p-sheet), 6px 6px 0 0 var(--p-rule), 12px 12px 0 -1px var(--p-sheet), 12px 12px 0 0 var(--p-rule);
+}
+.modal.closing { animation: tear .26s cubic-bezier(.5, 0, .9, .6) forwards; transform-origin: 20% 0; }
+@keyframes tear { 30% { transform: rotate(-1.5deg); } to { opacity: 0; transform: translateY(70px) rotate(7deg); } }
+
+/* ── «Oggi nel meta» esce dalla stampante, riga per riga (solo alla prima apertura) ── */
+.today.printing { animation: print-feed .9s steps(9, end) both; }
+@keyframes print-feed { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@media (min-width: 900px) { .today.printing { animation-duration: .7s; animation-timing-function: steps(6, end); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .just-added :is(.ctile-name, .crow-name), .today.printing { animation: none; }
+  .modal.closing { animation: none; }
+}
