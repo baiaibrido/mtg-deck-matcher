@@ -109,7 +109,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
   const [prefs, setPrefs] = useSession('mdm.collView', {})
   // colonne della griglia: da 2 fino a quante ne stanno (7 su computer, 3 su telefono)
   const winW = useWinWidth()
-  const colsMax = winW <= 560 ? 3 : Math.max(3, Math.min(7, Math.floor((Math.min(winW, 1040) - 32 + 12) / (96 + 12))))
+  const colsMax = winW <= 560 ? 3 : Math.max(3, Math.min(7, Math.floor((Math.min(winW, 1040) - 32 + 12) / (116 + 12))))
   const colsAuto = winW <= 560 ? 3 : Math.max(2, Math.min(colsMax, Math.floor((Math.min(winW, 1040) - 32 + 12) / (132 + 12))))
   const cols = Math.min(colsMax, Math.max(2, prefs.cols || colsAuto))
   const view = prefs.view || 'grid', sort = COLL_SORTS.includes(prefs.sort) ? prefs.sort : 'name', type = prefs.type || 'all'
@@ -342,11 +342,13 @@ export default function CollectionManager({ collection, setCollection, toast, be
                       <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
                       <BanChip card={r.card} />
                     </a>
-                    <DeleteBtn r={r} onDelete={remove} className="btn-del ctile-del" />
                   </div>
                   <span className="ctile-name">{r.name}</span>
                   {printLine(r.card) && <span className="ctile-print" title={printLine(r.card)}>{printLine(r.card)}</span>}
-                  <Stepper c={r} setQty={setQty} />
+                  <div className="ctile-ctl">
+                    <DeleteBtn r={r} onDelete={remove} className="btn-del ctile-del" />
+                    <Stepper c={r} setQty={setQty} />
+                  </div>
                 </li>
               ))}
             </ul>
