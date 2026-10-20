@@ -125,7 +125,8 @@ body { background-image: var(--grain); }
 @media (max-width: 719px) { .binder-sec { padding-left: 24px; } .binder-sec::before { width: 16px; background-size: 16px 150px; } .binder-sec h2::before { margin-left: -24px; margin-right: 12px; } }
 
 /* ── Preferiti fissati con la graffetta ── */
-.pin-btn[aria-pressed="true"], .pin-btn-detail[aria-pressed="true"] { color: var(--p-ink); }
+/* fissato: tasto pieno in inchiostro, come gli altri interruttori accesi del sito */
+:root .pin-btn[aria-pressed="true"], :root .pin-btn[aria-pressed="true"]:hover { background: var(--p-ink); color: var(--p-paper); border-color: var(--p-ink); }
 .deck-pinned { position: relative; }
 .deck-pinned::after {
   content: ''; position: absolute; left: 8px; top: -12px; width: 16px; height: 44px; pointer-events: none; z-index: 1;
