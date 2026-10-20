@@ -5,7 +5,6 @@ import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
 import { getCached } from '../lib/scryfall.js'
 import { go, linkProps } from '../state/useRoute.js'
 import { useSession } from '../state/useSession.js'
-import { useMedia } from '../state/useMedia.js'
 import DeckList from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
@@ -31,7 +30,6 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   const toggleColor = c => setV({ colors: view.colors.includes(c) ? view.colors.filter(x => x !== c) : [...view.colors, c] })
   const activeFilters = (view.sort !== 'share') + (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
   const [filtersOpen, setFiltersOpen] = useState(false) // su telefono i filtri stanno chiusi dietro un pulsante
-  const phone = useMedia('(max-width: 719px)') // su telefono «Oggi nel meta» va dopo i primi mazzi
   const owned = collection.length > 0
   const updated = meta?.[0]?.updated
   const stale = updated && daysAgo(updated) > STALE_DAYS
@@ -76,7 +74,6 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
           </p>
         )}
       </header>
-      {meta && !phone && todayCard}
       <div className="home-tools">
         {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
           <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
@@ -124,8 +121,8 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
               <DeckList ranked={pinned} animKey={format + 'pins'} {...listProps} />
             </section>
           )}
-          {!all.length ? <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>
-            : !phone || !meta ? <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
+          {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && <div className="today-inline">{todayCard}</div>}</>
+            : !meta ? <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
               : <>
                 <DeckList ranked={all.slice(0, 3)} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
                 <div className="today-inline">{todayCard}</div>

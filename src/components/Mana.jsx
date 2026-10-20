@@ -2,9 +2,10 @@ import { costSymbols, colorName } from '../lib/deckInfo.js'
 import { t } from '../i18n/index.js'
 
 // Costo di mana con i simboli ufficiali (mana-font)
-export function ManaCost({ cost, size }) {
+// slot: senza costo (terre) resta una casella vuota, così le righe a griglia non si spostano
+export function ManaCost({ cost, size, slot }) {
   const syms = costSymbols(cost)
-  if (!syms.length) return null
+  if (!syms.length) return slot ? <span className="mana-cost mana-empty" aria-hidden="true" /> : null
   return (
     <span className="mana-cost" style={size ? { fontSize: size } : undefined} role="img" aria-label={t('manaCost', cost)}>
       {syms.map((s, i) => <i key={i} className={`ms ms-${s} ms-cost`} />)}

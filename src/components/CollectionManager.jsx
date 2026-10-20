@@ -48,6 +48,9 @@ function BanStamps({ card: c }) {
   </span>
 }
 
+// scintille sopra le foil: si riconoscono anche senza una carta normale accanto
+const Sparkles = ({ n = 5 }) => <span className="sparkles" aria-hidden="true">{Array.from({ length: n }, (_, i) => <i key={i} />)}</span>
+
 // sizes segue le colonne scelte: con 2 colonne serve l'immagine grande, non la miniatura
 function Thumb({ card, name, big, cols = 7 }) {
   if (!card?.img) return <span className={big ? 'ctile-ph' : 'thumb thumb-ph'} aria-hidden="true">{big && <><span>{name}</span><ManaCost cost={card?.cost} /></>}</span>
@@ -297,8 +300,6 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
       {load.total > 0 && load.done < load.total && !load.error && <p className="hint" role="status">{t('coll.loadingImg', load.done, load.total)}</p>}
       {load.error && <p className="note note-error">{t('coll.scryDown')}</p>}
-      <Achievements unlocked={unlocked} />
-
       <div className="coll-tools" ref={toolsRef}>
         <label className="search">
           <IconSearch size={18} />
@@ -360,6 +361,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
                   <div className="ctile-art">
                     <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
                       <Thumb card={r.card} name={r.name} big cols={cols} />
+                      {r.foil && <Sparkles />}
                       <span className="ctile-qty" aria-hidden="true">×{r.qty}{r.foil && <span className="foil-tag">Foil</span>}</span>
                     </a>
                   </div>
@@ -377,13 +379,13 @@ export default function CollectionManager({ collection, setCollection, toast, be
             <ul className="crows">
               {part.map(r => (
                 <li key={r.key} className={fresh.has(r.key) ? 'just-added' : undefined}>
-                  <span className={`thumb-box${r.foil ? ' foil' : ''}`}><Thumb card={r.card} name={r.name} /></span>
+                  <span className={`thumb-box${r.foil ? ' foil' : ''}`}><Thumb card={r.card} name={r.name} />{r.foil && <Sparkles n={2} />}</span>
                   <span className="crow-main">
                     <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
                     <span className="crow-type">{r.foil && <span className="foil-tag">Foil</span>}{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')}</span>
                     {flt.ban && <BanStamps card={r.card} />}
                   </span>
-                  <ManaCost cost={r.card?.cost} />
+                  <ManaCost cost={r.card?.cost} slot />
                   <span className="crow-price">{priceOf(r.card) != null ? money(priceOf(r.card) * r.qty, true) : '—'}</span>
                   <span className="crow-ctl"><Stepper c={r} setQty={setQty} /><DeleteBtn r={r} onDelete={remove} /></span>
                 </li>
@@ -396,6 +398,8 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {filtered.length > shownCount && (
         <button className="btn more" onClick={() => setLimit(l => l + STEP)}>{t('coll.more', filtered.length - shownCount)}</button>
       )}
+      {/* i traguardi sono un extra: vengono dopo le carte */}
+      <div className="coll-ach"><Achievements unlocked={unlocked} /></div>
     </div>
   )
 }

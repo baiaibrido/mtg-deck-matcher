@@ -31,8 +31,8 @@ export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onThem
       </a>
       <nav className="nav-top" aria-label={t('sections')}>
         <a {...linkProps('decks')} aria-current={current('decks')}>{t('nav.decks')}</a>
-        <a {...linkProps('key-cards')} aria-current={current('key-cards')}>{t('nav.keycards')}</a>
         <a {...linkProps('collection')} aria-current={current('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
+        <a {...linkProps('key-cards')} aria-current={current('key-cards')}>{t('nav.keycards')}</a>
         <a {...linkProps('stats')} aria-current={current('stats')}>{t('nav.stats')}</a>
       </nav>
       <div className="prefs">
@@ -54,8 +54,8 @@ export function TabBar({ current }) {
   return (
     <nav className="tabbar" aria-label={t('sections')}>
       <a {...linkProps('decks')} aria-current={current('decks')}><IconDecks />{t('nav.decks')}</a>
-      <a {...linkProps('key-cards')} aria-current={current('key-cards')}><IconKey />{t('nav.keycards')}</a>
       <a {...linkProps('collection')} aria-current={current('collection')}><IconBox />{t('nav.collection')}</a>
+      <a {...linkProps('key-cards')} aria-current={current('key-cards')}><IconKey />{t('nav.keycards')}</a>
       <a {...linkProps('stats')} aria-current={current('stats')}><IconChart />{t('nav.stats')}</a>
     </nav>
   )

@@ -29,7 +29,7 @@ function CardTile({ r, hasColl }) {
   const label = st === 'plain' ? `×${r.qty}` : st === 'ok' ? t('tile.owned') : st === 'no' ? t('tile.missing') : t('tile.partial', r.have)
   return (
     <a className={`tile tile-${st}`} href={scryUrl(r.name)} target="_blank" rel="noreferrer" title={`${r.name} — ${label}`}>
-      {c?.img ? <img src={c.img} alt={r.name} loading="lazy" /> : <span className="tile-ph"><span>{r.name}</span><ManaCost cost={c?.cost} /></span>}
+      {c?.img ? <img src={c.img} alt={r.name} loading="lazy" /> : <span className="tile-ph"><span>{r.name}</span><ManaCost cost={c?.cost} slot /></span>}
       <span className="tile-qty">{st === 'ok' && <IconCheck size={13} />}{st === 'plain' ? `×${r.qty}` : `${r.have}/${r.qty}`}</span>
     </a>
   )
@@ -64,7 +64,7 @@ function CardLine({ r, hasColl }) {
     <li className={`tline tile-${st}`}>
       <span className="tline-qty">{st === 'plain' ? r.qty : `${r.have}/${r.qty}`}</span>
       <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="tline-name" {...hoverProps(r.name)}>{r.name}</a>
-      <ManaCost cost={c?.cost} />
+      <ManaCost cost={c?.cost} slot />
     </li>
   )
 }
@@ -136,7 +136,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
             <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} />
           </>}
           {s.deck.archetype && <span>{t('detail.variant', s.deck.archetype)}</span>}
-          {price && <span className="price">{hasColl ? t('detail.toComplete', price) : t('deckCost', price)}</span>}
+          {price && !hasColl && <span className="price">{t('deckCost', price)}</span>}
         </p>
         {desc && <dl className="profile" aria-label={t('desc.label')}>
           <div><dt>{t('desc.curveL')}</dt><dd>{num(desc.curve)}</dd></div>
@@ -149,9 +149,16 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         </p>
         {bans.length > 0 && <p className="note note-error">⚠ {t('ban.deck', bans.join(', '))}</p>}
         </div>
+        {/* con una collezione la cosa più importante è quanto manca: percentuale, barre e carte mancanti insieme */}
         {hasColl && <div className="detail-meters">
+          <p className="detail-score"><b>{Math.round(s.score * 100)}<small>%</small></b><span>{t('complete')}</span></p>
           <Meter label="Main" {...s.main} />
           {s.side.total > 0 && <Meter label="Side" {...s.side} />}
+          {missingCount > 0
+            ? <button className="linklike detail-need" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
+                {t('need', missingCount)[0]}<b>{missingCount}</b>{t('need', missingCount)[1]}{price && <> · {t('detail.toComplete', price)}</>}
+              </button>
+            : <span className="done">{t('haveAll')}</span>}
         </div>}
       </header>
 
@@ -196,7 +203,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
               <li key={r.name + r.qty}>
                 <span className="need-qty">{r.missing}</span>
                 <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="need-name" {...hoverProps(r.name)}>{r.name}</a>
-                <ManaCost cost={c?.cost} />
+                <ManaCost cost={c?.cost} slot />
                 <span className="need-price">{priceOf(c) != null ? money(priceOf(c) * r.missing, true) : '—'}</span>
               </li>
             )
