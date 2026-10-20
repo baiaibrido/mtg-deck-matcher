@@ -512,7 +512,7 @@ main:focus { outline: none; }
   .filters .chips button, .coll-tools .chips button { min-height: 44px; }
   .need-name { display: block; padding: 9px 0; }
   .brand { padding: 8px 0; }
-  .ctile .stepper { grid-template-columns: 1fr .8fr 1fr; }
+  .ctile .stepper { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 /* ───────── Storico, matchup, ban (v0.12) ───────── */
