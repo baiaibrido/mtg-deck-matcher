@@ -31,3 +31,14 @@ test('menu dei filtri e tag', () => {
   assert.deepEqual(applyFilters(rows, { atag: 'fire' }, tags).map(x => x.name), ['Lightning Bolt'])
   assert.deepEqual(tags.ids.oracle, ['removal', 'burn'])
 })
+
+test('filtro bannate: in almeno un formato o in uno preciso', () => {
+  const rows = [
+    { name: 'Gush', qty: 4, card: { bn: ['modern', 'pauper'], rs: ['vintage'] } },
+    { name: 'Ponder', qty: 2, card: { bn: [], rs: ['vintage'] } },
+    { name: 'Bolt', qty: 4, card: { bn: [], rs: [] } },
+  ]
+  assert.deepEqual(applyFilters(rows, { ban: 'any' }).map(r => r.name), ['Gush', 'Ponder'])
+  assert.deepEqual(applyFilters(rows, { ban: 'pauper' }).map(r => r.name), ['Gush'])
+  assert.deepEqual(facets(rows).bans, [['any', 6], ['modern', 4], ['pauper', 4], ['vintage', 6]])
+})

@@ -25,6 +25,7 @@ export function applyFilters(rows, f, tags) {
     if (f.rarity && c?.rarity !== f.rarity) return false
     if (f.otag && !tags?.oracle.get(norm(r.name))?.has(f.otag)) return false
     if (f.atag && !tags?.art.get(norm(r.name))?.has(f.atag)) return false
+    if (f.ban && !(f.ban === 'any' ? banFormats(c).length : banFormats(c).includes(f.ban))) return false
     return matches(r, f.q)
   })
 }
@@ -45,10 +46,16 @@ export function sortRows(rows, sort, priceOf) {
 }
 
 // Valori presenti nella collezione per i menu dei filtri (con quante copie)
+// formati in cui la carta è bannata o ristretta
+const BAN_ORDER = ['standard', 'pioneer', 'modern', 'pauper', 'legacy', 'vintage', 'commander']
+export const banFormats = c => [...(c?.bn || []), ...(c?.rs || [])]
+
 export function facets(rows) {
-  const artists = new Map(), sets = new Map(), rarities = new Map()
+  const artists = new Map(), sets = new Map(), rarities = new Map(), bans = new Map()
   for (const r of rows) {
     const c = r.card; if (!c) continue
+    const bf = banFormats(c)
+    if (bf.length) { bans.set('any', (bans.get('any') || 0) + r.qty); for (const f of new Set(bf)) bans.set(f, (bans.get(f) || 0) + r.qty) }
     if (c.artist) artists.set(c.artist, (artists.get(c.artist) || 0) + r.qty)
     if (c.set) { const s = sets.get(c.set) || { code: c.set, name: c.setName || c.set.toUpperCase(), released: c.released || '', n: 0 }; s.n += r.qty; sets.set(c.set, s) }
     if (c.rarity) rarities.set(c.rarity, (rarities.get(c.rarity) || 0) + r.qty)
@@ -57,6 +64,7 @@ export function facets(rows) {
     artists: [...artists].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
     sets: [...sets.values()].sort((a, b) => b.released.localeCompare(a.released) || a.name.localeCompare(b.name)),
     rarities: RARITIES.filter(x => rarities.has(x)).map(x => [x, rarities.get(x)]),
+    bans: ['any', ...BAN_ORDER].filter(f => bans.has(f)).map(f => [f, bans.get(f)]),
   }
 }
 

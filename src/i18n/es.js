@@ -173,7 +173,7 @@ export default {
   'coll.f.set': 'Set',
   'coll.f.rarity': 'Rareza',
   'coll.f.otag': 'Función',
-  'coll.f.atag': 'Ilustración',
+  'coll.f.atag': 'Ilustración', 'coll.f.ban': 'Prohibidas', 'coll.f.banAny': 'En algún formato',
   'coll.f.all': 'Todos',
   'coll.f.clear': 'Quitar filtros',
   'coll.f.hint': 'Función e ilustración vienen de las etiquetas de la comunidad de Scryfall. Artista y set son los de tu impresión si el archivo importado los incluía; si no, de la impresión más reciente.',

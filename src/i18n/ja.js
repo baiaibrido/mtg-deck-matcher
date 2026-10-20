@@ -171,7 +171,7 @@ export default {
   'coll.f.set': 'セット',
   'coll.f.rarity': 'レアリティ',
   'coll.f.otag': '機能',
-  'coll.f.atag': 'イラスト',
+  'coll.f.atag': 'イラスト', 'coll.f.ban': '禁止・制限', 'coll.f.banAny': 'いずれかのフォーマット',
   'coll.f.all': 'すべて',
   'coll.f.clear': '絞り込みを解除',
   'coll.f.hint': '機能とイラストはScryfallコミュニティのタグです。アーティストとセットは、読み込んだファイルに含まれていればお手持ちの版、なければ最新の版のものです。',

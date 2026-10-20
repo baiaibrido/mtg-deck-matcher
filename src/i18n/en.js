@@ -173,7 +173,7 @@ export default {
   'coll.f.set': 'Set',
   'coll.f.rarity': 'Rarity',
   'coll.f.otag': 'Function',
-  'coll.f.atag': 'Artwork',
+  'coll.f.atag': 'Artwork', 'coll.f.ban': 'Banned', 'coll.f.banAny': 'In any format',
   'coll.f.all': 'All',
   'coll.f.clear': 'Clear filters',
   'coll.f.hint': 'Function and artwork come from Scryfall community tags. Artist and set are those of your printing if the imported file included them, otherwise of the latest printing.',

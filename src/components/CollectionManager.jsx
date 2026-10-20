@@ -10,7 +10,7 @@ import { normalizeCollection, fetchCards, fetchPrintings, getCached, getPrinting
 import { BINDER, binderOf, binderName, TYPE_FILTERS } from '../lib/deckInfo.js'
 import { t, getLang } from '../i18n/index.js'
 import { money, priceOf } from '../lib/currency.js'
-import { formatList } from '../lib/bans.js'
+import { formatList, FORMAT_LABEL } from '../lib/bans.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { loadTags } from '../lib/tagsLoader.js' // tag di Scryfall: caricati solo quando si aprono i filtri
 import { useSession } from '../state/useSession.js'
@@ -38,12 +38,8 @@ function DeleteBtn({ r, onDelete, className = 'btn-del' }) {
 // Set e artista della stampa (se noti)
 const printLine = c => [c?.set?.toUpperCase(), c?.artist].filter(Boolean).join(' · ')
 
-// Carta bannata in almeno un formato del sito (o ristretta in Vintage)
-function BanChip({ card }) {
-  if (!card?.bn?.length && !card?.rs?.length) return null
-  const title = [card.bn.length && t('ban.card', formatList(card.bn)), card.rs?.length && t('ban.restricted', formatList(card.rs))].filter(Boolean).join(' · ')
-  return <span className="ban-chip ban-chip-card" title={title}>{card.bn.length ? 'BAN' : 'R'}<span className="sr-only">: {title}</span></span>
-}
+// Dove la carta è bannata (o ristretta in Vintage): mostrato solo col filtro «Bannate»
+const banLine = c => [c?.bn?.length && t('ban.card', formatList(c.bn)), c?.rs?.length && t('ban.restricted', formatList(c.rs))].filter(Boolean).join(' · ')
 
 function Thumb({ card, name, big }) {
   if (!card?.img) return <span className={big ? 'ctile-ph' : 'thumb thumb-ph'} aria-hidden="true">{big && <><span>{name}</span><ManaCost cost={card?.cost} /></>}</span>
@@ -322,7 +318,9 @@ export default function CollectionManager({ collection, setCollection, toast, be
             options={(tags?.ids.oracle || []).map(id => ({ value: id, label: t(`otag.${id}`) }))} />
           <FilterPick label={t('coll.f.atag')} value={flt.atag} onChange={v => setF({ atag: v })} all={t('coll.f.all')} loading={!tags}
             options={(tags?.ids.art || []).map(id => ({ value: id, label: t(`atag.${id}`) }))} />
-          {nFlt > 0 && <button className="linklike" onClick={() => setF({ artist: null, set: null, rarity: null, otag: null, atag: null })}>{t('coll.f.clear')}</button>}
+          <FilterPick label={t('coll.f.ban')} value={flt.ban} onChange={v => setF({ ban: v })} all={t('coll.f.all')}
+            options={fx.bans.map(([f, n]) => ({ value: f, label: `${f === 'any' ? t('coll.f.banAny') : FORMAT_LABEL[f]} (${n})` }))} />
+          {nFlt > 0 && <button className="linklike" onClick={() => setF({ artist: null, set: null, rarity: null, otag: null, atag: null, ban: null })}>{t('coll.f.clear')}</button>}
           <p className="hint more-hint">{t('coll.f.hint')}</p>
         </div>
       )}
@@ -340,11 +338,11 @@ export default function CollectionManager({ collection, setCollection, toast, be
                     <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
                       <Thumb card={r.card} name={r.name} big />
                       <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
-                      <BanChip card={r.card} />
                     </a>
                   </div>
                   <span className="ctile-name">{r.name}</span>
                   {printLine(r.card) && <span className="ctile-print" title={printLine(r.card)}>{printLine(r.card)}</span>}
+                  {flt.ban && <span className="ctile-ban">{banLine(r.card)}</span>}
                   <div className="ctile-ctl">
                     <DeleteBtn r={r} onDelete={remove} className="btn-del ctile-del" />
                     <Stepper c={r} setQty={setQty} />
@@ -359,7 +357,8 @@ export default function CollectionManager({ collection, setCollection, toast, be
                   <Thumb card={r.card} name={r.name} />
                   <span className="crow-main">
                     <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
-                    <span className="crow-type">{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')} <BanChip card={r.card} /></span>
+                    <span className="crow-type">{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')}</span>
+                    {flt.ban && <span className="crow-ban">{banLine(r.card)}</span>}
                   </span>
                   <ManaCost cost={r.card?.cost} />
                   <span className="crow-price">{priceOf(r.card) != null ? money(priceOf(r.card) * r.qty, true) : '—'}</span>
