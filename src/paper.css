@@ -1,11 +1,11 @@
-/* ═══════════ Prova «ufficio di carta» ═══════════
+/* ═══════════ «Ufficio di carta» (v0.26) ═══════════
    Sopra la «classifica stampata»: grana della carta, modulo continuo ovunque, timbri, evidenziatori,
    scontrino, raccoglitore ad anelli, graffette, note a penna, carta carbone nel tema scuro, piccoli movimenti. */
 
 :root {
   --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
   --hl-miss: #f4dd3f; --hl-ok: #9be6a6; --hl-ink: #1d2126;
-  --stamp-ban: #c2342a; --stamp-rs: #b8650c; --stamp-ok: #14843f; --stamp-date: var(--p-ribbon);
+  --stamp-ban: #b02d24; --stamp-rs: #8f4a06; --stamp-ok: #0f6b33; --stamp-date: var(--p-ribbon);
   --pen: var(--p-ribbon);
   --hole: radial-gradient(circle at 50% 50%, var(--p-paper) 4.5px, color-mix(in oklab, var(--p-ink) 30%, var(--p-paper)) 5px, transparent 5.6px);
   /* grana: puntini scuri sulla carta chiara, chiari sulla carta carbone */
@@ -87,7 +87,7 @@ body { background-image: var(--grain); }
   background: linear-gradient(var(--hl-ok), var(--hl-ok)) 0 60% / 0% 85% no-repeat; animation: hl-swipe 2.6s var(--ease) forwards;
 }
 @keyframes hl-swipe { 0% { background-size: 0% 85%; color: var(--hl-ink); } 18%, 82% { background-size: 100% 85%; color: var(--hl-ink); } 100% { background-size: 100% 0%; color: inherit; } }
-@media (max-width: 719px) { .deck-stamp { left: auto; right: -2px; translate: 0 -50%; font-size: .82rem; padding: 4px 8px; letter-spacing: .12em; } .hand-note { display: none; } }
+@media (max-width: 719px) { .deck-best .deck-score::before { inset: -8px -6px -6px -4px; } .deck-stamp { left: auto; right: -2px; translate: 0 -50%; font-size: .82rem; padding: 4px 8px; letter-spacing: .12em; } .hand-note { display: none; } }
 
 /* ── La mancolista come scontrino ── */
 .receipt {
@@ -140,7 +140,8 @@ body { background-image: var(--grain); }
 .today-weather .trend { font: 700 1.25rem/1 var(--font-hand); letter-spacing: 0; color: var(--pen); }
 .today-weather .trend-up::after { content: '↗'; font-family: var(--font-ui); font-size: .8em; margin-left: 1px; }
 .today-weather .trend-down::after { content: '↘'; font-family: var(--font-ui); font-size: .8em; margin-left: 1px; }
-/* il mazzo più vicino cerchiato a penna, con una nota */
+/* il mazzo più vicino cerchiato a penna, con una nota (il cerchio non deve allargare la pagina) */
+.decks { overflow-x: clip; }
 .deck-best .deck-score::before {
   content: ''; position: absolute; inset: -14px -18px -10px -22px; pointer-events: none; background: var(--pen);
   --circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80' preserveAspectRatio='none'%3E%3Cpath d='M70 6C38 2 8 14 6 38s30 38 62 36 48-14 46-36S86 4 52 9' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
