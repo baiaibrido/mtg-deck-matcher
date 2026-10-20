@@ -40,6 +40,13 @@ const printLine = c => [c?.set?.toUpperCase(), c?.artist].filter(Boolean).join('
 
 // Dove la carta è bannata (o ristretta in Vintage): mostrato solo col filtro «Bannate»
 const banLine = c => [c?.bn?.length && t('ban.card', formatList(c.bn)), c?.rs?.length && t('ban.restricted', formatList(c.rs))].filter(Boolean).join(' · ')
+// …come timbri a inchiostro: «BANNATA» con i formati sotto
+function BanStamps({ card: c }) {
+  return <span className="ban-stamps" title={banLine(c)}>
+    {c?.bn?.length > 0 && <span className="stamp stamp-ban"><b>{t('stamp.ban')}</b>{formatList(c.bn)}</span>}
+    {c?.rs?.length > 0 && <span className="stamp stamp-rs"><b>{t('stamp.rs')}</b>{formatList(c.rs)}</span>}
+  </span>
+}
 
 function Thumb({ card, name, big }) {
   if (!card?.img) return <span className={big ? 'ctile-ph' : 'thumb thumb-ph'} aria-hidden="true">{big && <><span>{name}</span><ManaCost cost={card?.cost} /></>}</span>
@@ -152,10 +159,14 @@ export default function CollectionManager({ collection, setCollection, toast, be
   const sections = BINDER.map(k => [k, filtered.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
   const allSections = BINDER.map(k => [k, rows.filter(r => binderOf(r.card) === k)]).filter(([, l]) => l.length)
 
+  // carte appena aggiunte: per un attimo una passata di evidenziatore sul nome
+  const [fresh, setFresh] = useState(() => new Set())
+  const freshTimer = useRef()
+  const markFresh = keys => { setFresh(new Set(keys)); clearTimeout(freshTimer.current); freshTimer.current = setTimeout(() => setFresh(new Set()), 2600) }
   const apply = () => {
     const parsed = parseCollection(text)
     if (!parsed.length) return setMsg({ kind: 'error', text: t('coll.noneRecognized') })
-    setCollection(mergeCollection([...collection, ...parsed]))
+    setCollection(mergeCollection([...collection, ...parsed])); markFresh(parsed.map(entryKey))
     setText(''); setMsg(null); setImportOpen(false)
     toast(t('coll.added', parsed.reduce((s, c) => s + c.qty, 0)))
   }
@@ -172,7 +183,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
   }
   const usePending = replace => {
     const { list } = pending, prev = collection, n = list.reduce((s, c) => s + c.qty, 0)
-    setCollection(replace ? list : mergeCollection([...collection, ...list])); setPending(null); setImportOpen(false)
+    setCollection(replace ? list : mergeCollection([...collection, ...list])); setPending(null); setImportOpen(false); markFresh(list.map(entryKey))
     toast(replace ? t('coll.replaced', n) : t('coll.added', n), { label: t('undo'), fn: () => setCollection(prev) })
   }
   const dropProps = {
@@ -192,7 +203,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
     } catch (err) { setMsg({ kind: 'error', text: t('coll.scryErr', err.message) }) }
     setBusy(false)
   }
-  const setQty = (key, qty) => setCollection(collection.map(c => entryKey(c) === key ? { ...c, qty } : c).filter(c => c.qty > 0))
+  const setQty = (key, qty) => (qty > (collection.find(c => entryKey(c) === key)?.qty || 0) && markFresh([key]), setCollection(collection.map(c => entryKey(c) === key ? { ...c, qty } : c).filter(c => c.qty > 0)))
   const remove = r => {
     const prev = collection
     setCollection(collection.filter(c => entryKey(c) !== r.key))
@@ -335,12 +346,12 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {!filtered.length && <p className="empty">{q ? t('coll.noMatchQ', q) : t('coll.noMatch')}</p>}
 
       {visible.map(([k, list, part]) => part.length > 0 && (
-        <section key={k} id={`sez-${k}`} className="binder-sec" aria-labelledby={`h-${k}`}>
+        <section key={k} id={`sez-${k}`} className={`binder-sec bc-${k}`} aria-labelledby={`h-${k}`}>
           <h2 id={`h-${k}`}><span className={`dot bc-${k}`} aria-hidden="true" />{binderName(k)} <span>{t('coll.cards', list.reduce((s, c) => s + c.qty, 0))}</span></h2>
           {view === 'grid' ? (
             <ul className="ctiles" style={{ '--cols': cols }}>
               {part.map(r => (
-                <li key={r.key} className="ctile">
+                <li key={r.key} className={`ctile${fresh.has(r.key) ? ' just-added' : ''}`}>
                   <div className="ctile-art">
                     <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
                       <Thumb card={r.card} name={r.name} big />
@@ -349,7 +360,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
                   </div>
                   <span className="ctile-name">{r.name}</span>
                   {printLine(r.card) && <span className="ctile-print" title={printLine(r.card)}>{printLine(r.card)}</span>}
-                  {flt.ban && <span className="ctile-ban">{banLine(r.card)}</span>}
+                  {flt.ban && <BanStamps card={r.card} />}
                   <div className="ctile-ctl">
                     <DeleteBtn r={r} onDelete={remove} className="btn-del ctile-del" />
                     <Stepper c={r} setQty={setQty} />
@@ -360,12 +371,12 @@ export default function CollectionManager({ collection, setCollection, toast, be
           ) : (
             <ul className="crows">
               {part.map(r => (
-                <li key={r.key}>
+                <li key={r.key} className={fresh.has(r.key) ? 'just-added' : undefined}>
                   <Thumb card={r.card} name={r.name} />
                   <span className="crow-main">
                     <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
                     <span className="crow-type">{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')}</span>
-                    {flt.ban && <span className="crow-ban">{banLine(r.card)}</span>}
+                    {flt.ban && <BanStamps card={r.card} />}
                   </span>
                   <ManaCost cost={r.card?.cost} />
                   <span className="crow-price">{priceOf(r.card) != null ? money(priceOf(r.card) * r.qty, true) : '—'}</span>

@@ -174,7 +174,7 @@ export default {
   'coll.f.set': 'Coleção',
   'coll.f.rarity': 'Raridade',
   'coll.f.otag': 'Função',
-  'coll.f.atag': 'Ilustração', 'coll.f.ban': 'Banidas', 'coll.f.banAny': 'Em algum formato',
+  'coll.f.atag': 'Ilustração', 'stamp.ban': 'Banida', 'stamp.rs': 'Restrita', 'stamp.complete': 'Completo', 'note.closest': 'o mais perto!', 'coll.f.ban': 'Banidas', 'coll.f.banAny': 'Em algum formato',
   'coll.f.all': 'Todos',
   'coll.f.clear': 'Limpar filtros',
   'coll.f.hint': 'Função e ilustração vêm das tags da comunidade do Scryfall. Artista e coleção são os da sua impressão se o arquivo importado os tinha; senão, da impressão mais recente.',

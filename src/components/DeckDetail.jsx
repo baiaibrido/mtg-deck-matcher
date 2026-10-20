@@ -11,7 +11,7 @@ import { useSession } from '../state/useSession.js'
 import { useMedia } from '../state/useMedia.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
-import { t, num } from '../i18n/index.js'
+import { t, num, dayMonth } from '../i18n/index.js'
 import { money, priceOf, priceSource } from '../lib/currency.js'
 import { toText, tcgplayerUrl, downloadTxt } from '../lib/export.js'
 import { HistoryChart, Matchups } from './Charts.jsx'
@@ -184,9 +184,11 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
           <a className="btn" href={tcgplayerUrl(s.missing)} target="_blank" rel="noreferrer"><IconCart size={18} />TCGplayer</a>
           <button className="btn" onClick={() => downloadTxt(`${t('detail.file')}-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.txt`, list)}><IconDownload size={18} />{t('download')}</button>
-          {cost.known > 0 && <span className="key-total">{t('detail.total')} ≈ {money(cost.amount)}{cost.unknown ? ` (${t('noPrice', cost.unknown)})` : ''}</span>}
         </div>
         <p className="hint hint-top">{t('detail.hint', priceSource())}</p>
+        {/* la mancolista come uno scontrino da portare in negozio */}
+        <div className="receipt">
+        <p className="receipt-head"><b>{t('tab.need')}</b><span>{s.deck.name}</span><span>{dayMonth(new Date().toISOString().slice(0, 10))}</span></p>
         <ul className="need-list">
           {missRows.map(r => {
             const c = getCached(r.name)
@@ -200,7 +202,8 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
             )
           })}
         </ul>
-
+        {cost.known > 0 && <p className="receipt-total"><span>{t('detail.total')}</span><b>≈ {money(cost.amount)}</b>{cost.unknown > 0 && <small>{t('noPrice', cost.unknown)}</small>}</p>}
+        </div>
       </> : <p className="empty">{t('detail.haveAll')}</p>)}
       </div>
 

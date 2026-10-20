@@ -10,7 +10,7 @@ import DeckList from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
-import { IconStar, IconFilter } from '../components/Icons.jsx'
+import { IconClip, IconFilter } from '../components/Icons.jsx'
 
 const STALE_DAYS = 3
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
@@ -53,7 +53,9 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   if (view.colors.length) all = all.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
   if (view.budget) all = all.filter(withinBudget)
   const rogueShown = (view.budget ? rogue.filter(withinBudget) : rogue).filter(s => !pins.includes(s.deck.id))
-  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: togglePin, owned }
+  // il mazzo più vicino alla collezione: cerchiato a penna nella classifica
+  const best = owned ? ordered.filter(s => s.score < 1).reduce((a, b) => (b.score > (a?.score ?? 0) ? b : a), null) : null
+  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: togglePin, owned, bestId: best?.deck.id }
 
   return <>
     <div className={`home${owned ? '' : ' home-new'}`}>
@@ -111,14 +113,14 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     {banNotice}
     {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
     {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
-    {meta && decks.length > 0 && <p className="list-meta" id="deck-list" tabIndex={-1}>{t('decks.listMeta', metaMain.filter(d => d.source !== 'utente').length, dayMonth(updated))}</p>}
+    {meta && decks.length > 0 && <p className="list-meta" id="deck-list" tabIndex={-1}>{(() => { const [a, b = ''] = t('decks.listMeta', metaMain.filter(d => d.source !== 'utente').length, '\u0000').split('\u0000'); return updated ? <>{a}<span className="date-stamp">{dayMonth(updated)}</span>{b}</> : t('decks.listMeta', metaMain.filter(d => d.source !== 'utente').length, '') })()}</p>}
 
     {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
       : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
         : <>
           {pinned.length > 0 && (
             <section className="pinned" aria-labelledby="pinned-title">
-              <h2 id="pinned-title" className="pinned-title"><IconStar size={18} filled /> {t('pins.title')}</h2>
+              <h2 id="pinned-title" className="pinned-title"><IconClip size={18} filled /> {t('pins.title')}</h2>
               <DeckList ranked={pinned} animKey={format + 'pins'} {...listProps} />
             </section>
           )}

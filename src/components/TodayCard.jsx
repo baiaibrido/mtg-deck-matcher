@@ -17,6 +17,8 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
   const [left, setLeft] = useState(untilMidnight())
   useEffect(() => { const id = setInterval(() => setLeft(untilMidnight()), 30000); return () => clearInterval(id) }, [])
   const [seen, setSeen] = useLocal('mdm.dailySeen', {})
+  // alla prima apertura del sito il tagliando «esce dalla stampante» riga per riga
+  const [printing] = useState(() => { try { if (sessionStorage.getItem('mdm.printed')) return false; sessionStorage.setItem('mdm.printed', '1'); return true } catch { return false } })
   const key = `${format}|${dayKey()}`
   const fresh = daily && seen[format] !== key
   const sig = signature ? getCached(signature) : null
@@ -25,7 +27,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
   const link = d => <button className="linklike" onClick={() => onOpen(d.id)}>{d.name}</button>
 
   return (
-    <section className="today" aria-labelledby="today-title">
+    <section className={`today${printing ? ' printing' : ''}`} aria-labelledby="today-title">
       <h2 className="today-title" id="today-title">{t('today.title')}</h2>
 
       {weather && <div className="today-weather">

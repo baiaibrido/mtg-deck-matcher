@@ -7,7 +7,9 @@ import '@fontsource-variable/doto' // carattere a punti (stampante ad aghi) dell
 import './mana-cost.css' // simboli di mana ridotti (scripts/build-mana-subset.py)
 import App from './App.jsx'
 import './styles.css'
+import '@fontsource/caveat/latin-700.css'
 import './theme.css' // la grafica «classifica stampata»: si appoggia a styles.css (struttura)
+import './paper.css' // PROVA «ufficio di carta»
 import { getLang, loadLang } from './i18n/index.js'
 // prima la lingua giusta, poi il disegno (niente lampo in italiano per chi legge in un'altra lingua)
 loadLang(getLang()).catch(() => {}).finally(() => createRoot(document.getElementById('root')).render(<App />))
