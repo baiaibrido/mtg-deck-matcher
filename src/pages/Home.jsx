@@ -10,6 +10,7 @@ import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
 import { IconClip, IconFilter } from '../components/Icons.jsx'
+import { useMedia } from '../state/useMedia.js'
 
 const STALE_DAYS = 3
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
@@ -24,6 +25,7 @@ const scrollToId = id => {
 // Home: i mazzi del formato più vicini alla collezione (titolo, «Oggi nel meta», filtri, classifica, rogue)
 export default function Home({ format, formatName, meta, metaMain, decks, ranked, rogue, collection, almost, onHideAlmost,
   colorsOf, costOf, pins, togglePin, cardsState, banNotice, todayCard, userDecks, setUserDecks, toast }) {
+  const phone = useMedia('(max-width: 719px)') // su telefono «Oggi nel meta» va dopo i primi mazzi
   const [viewRaw, setView] = useSession('mdm.view', {})
   const view = { sort: 'share', tier: 0, colors: [], budget: 0, ...viewRaw }
   const setV = patch => setView({ ...view, ...patch })
@@ -74,6 +76,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
           </p>
         )}
       </header>
+      {meta && !phone && todayCard}
       <div className="home-tools">
         {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
           <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
@@ -121,8 +124,8 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
               <DeckList ranked={pinned} animKey={format + 'pins'} {...listProps} />
             </section>
           )}
-          {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && <div className="today-inline">{todayCard}</div>}</>
-            : !meta ? <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
+          {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && phone && <div className="today-inline">{todayCard}</div>}</>
+            : !phone || !meta ? <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
               : <>
                 <DeckList ranked={all.slice(0, 3)} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
                 <div className="today-inline">{todayCard}</div>

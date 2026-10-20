@@ -105,6 +105,7 @@ Principi:
 | v0.26.1: graffetta dei preferiti: una volta fissato il tasto diventa pieno (inchiostro) così si vede subito | Richiesta utente |
 | v0.27.0: carte foil in collezione: «foil», «F», «*F*» o «(foil)» in fondo alla riga (e colonna Foil/Printing/isFoil nei CSV); voce separata con riflesso olografico ed etichetta FOIL; prezzo foil di Scryfall nel valore; filtro «Foil»; il backup conserva le foil; per i mazzi contano insieme alle normali. Immagini nitide anche con poche colonne; su telefono il nome in elenco non si taglia più | Richiesta utente |
 | v0.28.0: foil con scintille e lampo di luce (riconoscibili anche da sole); righe della collezione in elenco che non sbordano più con le carte senza costo (terre); gerarchia: Collezione prima di Carte chiave nel menu, «Oggi nel meta» dopo i primi tre mazzi anche su computer, nella pagina del mazzo la percentuale di completamento con barre e carte mancanti subito sotto il nome, Traguardi in fondo alla collezione, evidenziatore solo con il suo significato (non più sul primo mazzo) | Richiesta utente |
+| v0.28.1: «Oggi nel meta» torna in cima alla home su computer (su telefono resta dopo i primi tre mazzi) | Richiesta utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.
