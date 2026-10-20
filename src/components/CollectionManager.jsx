@@ -48,10 +48,11 @@ function BanStamps({ card: c }) {
   </span>
 }
 
-function Thumb({ card, name, big }) {
+// sizes segue le colonne scelte: con 2 colonne serve l'immagine grande, non la miniatura
+function Thumb({ card, name, big, cols = 7 }) {
   if (!card?.img) return <span className={big ? 'ctile-ph' : 'thumb thumb-ph'} aria-hidden="true">{big && <><span>{name}</span><ManaCost cost={card?.cost} /></>}</span>
   return big
-    ? <img src={smallImg(card.img)} srcSet={`${smallImg(card.img)} 146w, ${card.img} 488w`} sizes="(max-width: 560px) 31vw, 140px" alt={name} loading="lazy" />
+    ? <img src={smallImg(card.img)} srcSet={`${smallImg(card.img)} 146w, ${card.img} 488w`} sizes={`(max-width: 560px) ${Math.ceil(96 / cols)}vw, ${Math.ceil(1010 / cols)}px`} alt={name} loading="lazy" />
     : <img className="thumb" src={smallImg(card.img)} alt="" loading="lazy" />
 }
 
@@ -147,7 +148,9 @@ export default function CollectionManager({ collection, setCollection, toast, be
   }, [namesKey])
 
   const total = collection.reduce((s, c) => s + c.qty, 0)
-  const rows = collection.map(c => ({ ...c, key: entryKey(c), card: getPrinting(c) }))
+// le foil usano il prezzo foil di Scryfall (se c'è)
+  const foilCard = c => c && (c.ef != null || c.uf != null) ? { ...c, eur: c.ef ?? c.eur, usd: c.uf ?? c.usd } : c
+  const rows = collection.map(c => ({ ...c, key: entryKey(c), card: c.foil ? foilCard(getPrinting(c)) : getPrinting(c) }))
   const value = rows.reduce((s, r) => s + (priceOf(r.card) ?? 0) * r.qty, 0)
   const priced = rows.some(r => priceOf(r.card) != null)
 
@@ -227,7 +230,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
           {fileInput}
         </label>
       )}
-      <textarea ref={textRef} rows={5} value={text} onChange={e => setText(e.target.value)} aria-label={t('coll.listAria')}
+      <textarea ref={textRef} rows={8} value={text} onChange={e => setText(e.target.value)} aria-label={t('coll.listAria')}
         placeholder={t('coll.placeholder')} />
       <div className="row">
         <button className="btn btn-primary" onClick={apply} disabled={!text.trim()}>{t('coll.addTo')}</button>
@@ -335,9 +338,11 @@ export default function CollectionManager({ collection, setCollection, toast, be
               options={(tags?.ids.oracle || []).map(id => ({ value: id, label: t(`otag.${id}`) }))} />
             <FilterPick label={t('coll.f.atag')} value={flt.atag} onChange={v => setF({ atag: v })} all={t('coll.f.all')} loading={!tags}
               options={(tags?.ids.art || []).map(id => ({ value: id, label: t(`atag.${id}`) }))} />
+            <FilterPick label={t('coll.f.foil')} value={flt.foil} onChange={v => setF({ foil: v })} all={t('coll.f.all')}
+              options={fx.foil[0] ? [{ value: 'foil', label: t('coll.f.foilOnly', fx.foil[0]) }, { value: 'normal', label: t('coll.f.nonFoil', fx.foil[1]) }] : []} />
             <FilterPick label={t('coll.f.ban')} value={flt.ban} onChange={v => setF({ ban: v })} all={t('coll.f.all')}
               options={fx.bans.map(([f, n]) => ({ value: f, label: `${f === 'any' ? t('coll.f.banAny') : FORMAT_LABEL[f]} (${n})` }))} />
-            {nFlt > 0 && <button className="linklike" onClick={() => setF({ artist: null, set: null, rarity: null, otag: null, atag: null, ban: null })}>{t('coll.f.clear')}</button>}
+            {nFlt > 0 && <button className="linklike" onClick={() => setF({ artist: null, set: null, rarity: null, otag: null, atag: null, ban: null, foil: null })}>{t('coll.f.clear')}</button>}
             <p className="hint more-hint">{t('coll.f.hint')}</p>
           </div>
         )}
@@ -351,14 +356,14 @@ export default function CollectionManager({ collection, setCollection, toast, be
           {view === 'grid' ? (
             <ul className="ctiles" style={{ '--cols': cols }}>
               {part.map(r => (
-                <li key={r.key} className={`ctile${fresh.has(r.key) ? ' just-added' : ''}`}>
+                <li key={r.key} className={`ctile${fresh.has(r.key) ? ' just-added' : ''}${r.foil ? ' foil' : ''}`}>
                   <div className="ctile-art">
                     <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
-                      <Thumb card={r.card} name={r.name} big />
-                      <span className="ctile-qty" aria-hidden="true">×{r.qty}</span>
+                      <Thumb card={r.card} name={r.name} big cols={cols} />
+                      <span className="ctile-qty" aria-hidden="true">×{r.qty}{r.foil && <span className="foil-tag">Foil</span>}</span>
                     </a>
                   </div>
-                  <span className="ctile-name">{r.name}</span>
+                  <span className="ctile-name">{r.name}{r.foil && <span className="sr-only"> (foil)</span>}</span>
                   {printLine(r.card) && <span className="ctile-print" title={printLine(r.card)}>{printLine(r.card)}</span>}
                   {flt.ban && <BanStamps card={r.card} />}
                   <div className="ctile-ctl">
@@ -372,10 +377,10 @@ export default function CollectionManager({ collection, setCollection, toast, be
             <ul className="crows">
               {part.map(r => (
                 <li key={r.key} className={fresh.has(r.key) ? 'just-added' : undefined}>
-                  <Thumb card={r.card} name={r.name} />
+                  <span className={`thumb-box${r.foil ? ' foil' : ''}`}><Thumb card={r.card} name={r.name} /></span>
                   <span className="crow-main">
                     <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
-                    <span className="crow-type">{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')}</span>
+                    <span className="crow-type">{r.foil && <span className="foil-tag">Foil</span>}{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')}</span>
                     {flt.ban && <BanStamps card={r.card} />}
                   </span>
                   <ManaCost cost={r.card?.cost} />

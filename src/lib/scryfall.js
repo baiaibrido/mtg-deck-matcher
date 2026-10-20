@@ -38,6 +38,7 @@ const slim = c => {
     cost: f?.mana_cost ?? c.mana_cost ?? '',
     eur: num(c.prices?.eur) ?? num(c.prices?.eur_foil),
     usd: num(c.prices?.usd) ?? num(c.prices?.usd_foil),
+    ef: num(c.prices?.eur_foil), uf: num(c.prices?.usd_foil), // prezzi delle foil (se Scryfall li ha)
     bn: legal(c, 'banned'), rs: legal(c, 'restricted'),
     a: c.artist || f?.artist || null, s: c.set || null, sn: c.set_name || null, n: c.collector_number || null,
     r: c.rarity || null, d: c.released_at || null, v: c.cmc ?? null,

@@ -20,5 +20,5 @@ export function downloadTxt(filename, text, type = 'text/plain') {
 // Backup della collezione: CSV "Name,Qty,Set code,Collector number,Scryfall ID" che l'app stessa (e la maggior parte dei siti) sa rileggere
 const q = v => v == null ? '' : `"${String(v).replace(/"/g, '""')}"`
 export const collectionCsv = list =>
-  'Name,Qty,Set code,Collector number,Scryfall ID\n' + [...list].sort((a, b) => a.name.localeCompare(b.name) || (a.set || '').localeCompare(b.set || ''))
-    .map(c => [q(c.name), c.qty, c.set || '', q(c.num), c.sid || ''].join(',')).join('\n') + '\n'
+  'Name,Qty,Set code,Collector number,Scryfall ID,Foil\n' + [...list].sort((a, b) => a.name.localeCompare(b.name) || (a.set || '').localeCompare(b.set || '') || !!a.foil - !!b.foil)
+    .map(c => [q(c.name), c.qty, c.set || '', q(c.num), c.sid || '', c.foil ? 'foil' : ''].join(',')).join('\n') + '\n'

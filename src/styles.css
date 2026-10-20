@@ -1083,3 +1083,30 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 .cols-ctl input::-moz-range-thumb { width: 10px; height: 18px; border-radius: 2px; background: var(--p-paper); border: 2px solid var(--p-ink); }
 .cols-ctl input:focus-visible { outline: 2px solid var(--p-marker); outline-offset: 2px; border-radius: 2px; box-shadow: none; }
 @media (max-width: 719px) { .cols-ctl { flex: 1 1 100%; } .cols-ctl input { flex: 1; width: auto; height: 36px; } }
+
+/* foil: riflesso olografico sopra l'immagine (le foil sono una voce a parte della collezione) */
+.ctile-qty { z-index: 1; display: inline-flex; align-items: center; gap: 5px; }
+.foil-tag {
+  display: inline-block; padding: 0 5px; border-radius: 2px; font: 800 .62rem/1.55 var(--font-ui); letter-spacing: .08em; text-transform: uppercase;
+  color: #1d2126; background: linear-gradient(110deg, #ffc9e4, #fff1a6 30%, #bff7d6 55%, #bfe9ff 78%, #e3ccff);
+}
+.crow-type .foil-tag { margin-right: 6px; vertical-align: 1px; }
+/* telefono: nome (e tipo) su tutta la riga, sotto costo, prezzo e contatore — così il nome non si taglia */
+@media (max-width: 600px) {
+  .crows li { grid-template-columns: 40px auto 1fr auto; grid-template-areas: 't m m m' 't c p s'; row-gap: 6px; }
+  .crows .crow-name { white-space: normal; line-height: 1.2; }
+  .crows .crow-price { text-align: right; }
+  .crows .thumb-box { grid-area: t; align-self: start; }
+}
+.thumb-box { position: relative; display: block; width: 40px; border-radius: 3px; overflow: hidden; }
+.ctile.foil .ctile-img::after, .thumb-box.foil::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 28%, rgba(255, 255, 255, .8) 40%, transparent 52%),
+    linear-gradient(125deg, #ff3c9b 0%, #ffb11f 17%, #f5f53c 32%, #36f59a 48%, #2ad4ff 64%, #b45cff 80%, #ff3c9b 100%);
+  background-size: 260% 260%, 320% 320%; background-position: 0% 50%, 0% 50%;
+  mix-blend-mode: soft-light; opacity: .62; animation: holo 7s ease-in-out infinite alternate;
+}
+.ctile.foil .ctile-img:hover::after { animation-duration: 2.4s; }
+@keyframes holo { to { background-position: 100% 50%, 100% 50%; } }
+@media (prefers-reduced-motion: reduce) { .ctile.foil .ctile-img::after, .thumb-box.foil::after { animation: none; background-position: 45% 50%, 45% 50%; } }

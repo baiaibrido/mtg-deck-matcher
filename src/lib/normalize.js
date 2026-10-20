@@ -26,8 +26,9 @@ export const printingOf = e => ({
   set: e.set && SET_RE.test(e.set) ? e.set.toLowerCase() : undefined,
   num: e.set && e.num ? String(e.num).trim() : undefined,
   sid: e.sid || undefined,
+  foil: e.foil ? true : undefined, // le foil restano una voce a parte (stessa carta, effetto olografico)
 })
-export const entryKey = e => { const p = printingOf(e); return `${norm(e.name)}|${p.sid || ''}|${p.set || ''}|${p.num || ''}` }
+export const entryKey = e => { const p = printingOf(e); return `${norm(e.name)}|${p.sid || ''}|${p.set || ''}|${p.num || ''}${p.foil ? '|f' : ''}` }
 export function mergeCollection(list) {
   const map = new Map()
   for (const e of list) {

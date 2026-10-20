@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { scoreDeck, rankDecks, toOwnedMap } from './matcher.js'
 import { parseCollection, parseDeck } from './parser.js'
 import { norm } from './normalize.js'
+import { collectionCsv } from './export.js'
 
 const fill = (prefix, n) => Array.from({ length: n / 4 }, (_, i) => ({ name: `${prefix}${i}`, qty: 4 }))
 const deck = (id) => ({ id, name: id, main: fill('M', 60), side: [...fill('S', 12), { name: 'S9', qty: 3 }] })
@@ -82,4 +83,26 @@ test('backup con la stampa: si rilegge uguale', async () => {
   const list = [{ name: 'Opt', qty: 4, set: 'xln', num: '65' }, { name: 'Opt', qty: 1 }, { name: 'Bolt "x"', qty: 2, sid: 'e3285e6b-3e79-4d7c-bf96-d920f973b80d' }]
   const back = parseCollection(collectionCsv(list))
   assert.deepEqual(back.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))), list.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))))
+})
+
+test('foil: segnata in fondo alla riga, voce separata dalla stessa carta non foil', () => {
+  const c = parseCollection('3 Lightning Bolt\n1 Lightning Bolt foil\nCounterspell 2 F\n1 Brainstorm *F*\n4 Foil\nPonder, 1, (foil)')
+  const by = n => c.filter(e => e.name === n)
+  assert.deepEqual(by('Lightning Bolt').map(e => [e.qty, !!e.foil]), [[3, false], [1, true]])
+  assert.equal(by('Counterspell')[0].foil, true)
+  assert.equal(by('Brainstorm')[0].foil, true)
+  assert.deepEqual(by('Foil').map(e => [e.qty, !!e.foil]), [[4, false]]) // la carta «Foil» esiste
+  assert.equal(by('Ponder')[0].foil, true)
+  // per i mazzi conta il totale: 4 Lightning Bolt
+  assert.equal(toOwnedMap(c).get('lightning bolt'), 4)
+})
+
+test('foil da CSV (ManaBox, Dragon Shield, Cardmarket) e backup che la conserva', () => {
+  assert.equal(parseCollection('Name,Quantity,Foil\nLightning Bolt,2,foil\nCounterspell,1,normal')[0].foil, true)
+  assert.equal(parseCollection('Name,Quantity,Foil\nCounterspell,1,normal')[0].foil, undefined)
+  assert.equal(parseCollection('Card Name,Quantity,Printing\nPonder,1,Foil')[0].foil, true)
+  assert.equal(parseCollection('Name,Amount,isFoil\nGush,1,1')[0].foil, true)
+  const list = [{ name: 'Lightning Bolt', qty: 3 }, { name: 'Lightning Bolt', qty: 1, foil: true }]
+  const back = parseCollection(collectionCsv(list))
+  assert.deepEqual(back.map(e => [e.qty, !!e.foil]), [[3, false], [1, true]])
 })
