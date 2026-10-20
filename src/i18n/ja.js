@@ -76,7 +76,7 @@ export default {
   'coll.clear': '空にする', 'coll.confirmClear': 'コレクションをすべて削除しますか?', 'coll.cleared': 'コレクションを空にしました',
   'coll.loadingImg': (d, tot) => `Scryfallから画像と価格を読み込み中… ${d}/${tot}`,
   'coll.scryDown': 'Scryfallが応答しません。画像と価格は表示できませんが、コレクションはそのまま使えます。',
-  'coll.search': 'カード名・アーティスト・セットで検索', 'coll.typeAria': 'カードの種類', 'coll.list': 'リスト',
+  'coll.search': 'カード名・アーティスト・セットで検索', 'coll.typeAria': 'カードの種類', 'coll.list': 'リスト', 'coll.cols': '列数',
   'coll.noMatchQ': q => `「${q}」に一致するカードはありません。`, 'coll.noMatch': 'この条件に一致するカードはありません。',
   'coll.cards': n => `${n}枚`, 'coll.more': n => `さらに表示(残り${n}枚)`,
 

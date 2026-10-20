@@ -10,3 +10,10 @@ export function useMedia(query) {
   }, [query])
   return on
 }
+
+// larghezza della finestra, aggiornata quando cambia
+export function useWinWidth() {
+  const [w, setW] = useState(() => typeof innerWidth === 'number' ? innerWidth : 1024)
+  useEffect(() => { const up = () => setW(innerWidth); addEventListener('resize', up); return () => removeEventListener('resize', up) }, [])
+  return w
+}

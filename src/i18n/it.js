@@ -86,7 +86,7 @@ export default {
   'coll.clear': 'Svuota', 'coll.confirmClear': 'Svuotare tutta la collezione?', 'coll.cleared': 'Collezione svuotata',
   'coll.loadingImg': (d, tot) => `Carico immagini e prezzi da Scryfall… ${d}/${tot}`,
   'coll.scryDown': 'Scryfall non risponde: immagini e prezzi non sono disponibili, la collezione funziona lo stesso.',
-  'coll.search': 'Cerca per nome, artista o set', 'coll.typeAria': 'Tipo di carta', 'coll.list': 'Elenco',
+  'coll.search': 'Cerca per nome, artista o set', 'coll.typeAria': 'Tipo di carta', 'coll.list': 'Elenco', 'coll.cols': 'Colonne',
   'coll.noMatchQ': q => `Nessuna carta corrisponde a "${q}".`, 'coll.noMatch': 'Nessuna carta corrisponde a questo filtro.',
   'coll.cards': n => `${n} ${carte(n)}`, 'coll.more': n => `Mostra altre carte (${n} rimanenti)`,
 

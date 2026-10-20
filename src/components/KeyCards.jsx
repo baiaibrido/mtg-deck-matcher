@@ -8,13 +8,13 @@ import { ManaCost } from './Mana.jsx'
 import { IconCopy, IconDownload, IconGrid, IconList, IconCheck } from './Icons.jsx'
 import { toOwnedMap } from '../lib/matcher.js'
 import { norm } from '../lib/normalize.js'
-import { useLocal } from '../state/useLocal.js'
+import { useSession } from '../state/useSession.js'
 import { go, linkProps } from '../state/useRoute.js'
 
 // Carte che ti mancano e che servono a più mazzi del formato: i primi acquisti che rendono di più.
 export default function KeyCards({ ranked, formatName, collection, playset, toast }) {
   const [scope, setScope] = useState('t12')
-  const [look, setLook] = useLocal('mdm.kcView', 'list')
+  const [look, setLook] = useSession('mdm.kcView', 'list')
   const hasCollection = collection.length > 0
   const owned = useMemo(() => toOwnedMap(collection), [collection])
   const pool = useMemo(() => scope === 'all' ? ranked : ranked.filter(s => !s.deck.tier || s.deck.tier <= 2 && (scope === 't12' || s.deck.tier === 1)), [ranked, scope])

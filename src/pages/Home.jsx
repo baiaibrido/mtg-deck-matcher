@@ -4,7 +4,7 @@ import { money, localBudget } from '../lib/currency.js'
 import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
 import { getCached } from '../lib/scryfall.js'
 import { go, linkProps } from '../state/useRoute.js'
-import { useLocal } from '../state/useLocal.js'
+import { useSession } from '../state/useSession.js'
 import { useMedia } from '../state/useMedia.js'
 import DeckList from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
@@ -14,7 +14,7 @@ import { IconStar, IconFilter } from '../components/Icons.jsx'
 
 const STALE_DAYS = 3
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
-const SORTS = ['score', 'share', 'meta', 'cost']
+const SORTS = ['share', 'score', 'meta', 'cost']
 const BUDGETS = [0, 10, 25, 50, 100, 200] // tetto di spesa in euro, mostrato e confrontato nella valuta locale (0 = nessuno)
 const scrollToId = id => {
   const el = document.getElementById(id)
@@ -25,11 +25,11 @@ const scrollToId = id => {
 // Home: i mazzi del formato più vicini alla collezione (titolo, «Oggi nel meta», filtri, classifica, rogue)
 export default function Home({ format, formatName, meta, metaMain, decks, ranked, rogue, collection, almost, onHideAlmost,
   colorsOf, costOf, pins, togglePin, cardsState, banNotice, todayCard, userDecks, setUserDecks, toast }) {
-  const [viewRaw, setView] = useLocal('mdm.view', {})
-  const view = { sort: 'score', tier: 0, colors: [], budget: 0, ...viewRaw }
+  const [viewRaw, setView] = useSession('mdm.view', {})
+  const view = { sort: 'share', tier: 0, colors: [], budget: 0, ...viewRaw }
   const setV = patch => setView({ ...view, ...patch })
   const toggleColor = c => setV({ colors: view.colors.includes(c) ? view.colors.filter(x => x !== c) : [...view.colors, c] })
-  const activeFilters = (view.sort !== 'score') + (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
+  const activeFilters = (view.sort !== 'share') + (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
   const [filtersOpen, setFiltersOpen] = useState(false) // su telefono i filtri stanno chiusi dietro un pulsante
   const phone = useMedia('(max-width: 719px)') // su telefono «Oggi nel meta» va dopo i primi mazzi
   const owned = collection.length > 0
@@ -37,20 +37,21 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   const stale = updated && daysAgo(updated) > STALE_DAYS
 
   const withinBudget = s => !s.missing.length || costOf(s).amount <= localBudget(view.budget)
-  // Preferiti: nell'ordine in cui sono stati fissati, sempre visibili e fuori dai filtri
-  const pinned = pins.map(id => ranked.find(s => s.deck.id === id) || rogue.find(s => s.deck.id === id)).filter(Boolean)
-    .map(s => s.rank ? s : { ...s, rank: ranked.indexOf(s) + 1 })
-  // Tutti i mazzi del formato: filtri per tier, colori e budget, ordinamento
-  const all = (() => { // ricalcolato a ogni disegno: dipende anche da valuta e cambi
-    let list = ranked.map((s, i) => ({ ...s, rank: i + 1 })).filter(s => !pins.includes(s.deck.id))
-    if (view.tier) list = list.filter(s => s.deck.tier === view.tier)
-    if (view.colors.length) list = list.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
-    if (view.budget) list = list.filter(withinBudget)
+  // Tutti i mazzi del formato nell'ordine scelto: il numero a sinistra è la posizione in quest'ordine
+  const ordered = (() => { // ricalcolato a ogni disegno: dipende anche da valuta e cambi
+    const list = [...ranked]
     if (view.sort === 'share') list.sort((a, b) => (b.deck.share || 0) - (a.deck.share || 0))
     if (view.sort === 'meta') list.sort((a, b) => (b.deck.metaWr ?? -1) - (a.deck.metaWr ?? -1))
     if (view.sort === 'cost') list.sort((a, b) => costOf(a).amount - costOf(b).amount || b.score - a.score)
-    return list
+    return list.map((s, i) => ({ ...s, rank: i + 1 }))
   })()
+  // Preferiti: nell'ordine in cui sono stati fissati, sempre visibili e fuori dai filtri
+  const pinned = pins.map(id => ordered.find(s => s.deck.id === id) || rogue.find(s => s.deck.id === id)).filter(Boolean)
+  // filtri per tier, colori e budget
+  let all = ordered.filter(s => !pins.includes(s.deck.id))
+  if (view.tier) all = all.filter(s => s.deck.tier === view.tier)
+  if (view.colors.length) all = all.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
+  if (view.budget) all = all.filter(withinBudget)
   const rogueShown = (view.budget ? rogue.filter(withinBudget) : rogue).filter(s => !pins.includes(s.deck.id))
   const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: togglePin, owned }
 

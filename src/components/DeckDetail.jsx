@@ -7,7 +7,7 @@ import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './
 import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox } from './Icons.jsx'
-import { useLocal } from '../state/useLocal.js'
+import { useSession } from '../state/useSession.js'
 import { useMedia } from '../state/useMedia.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
@@ -95,7 +95,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
   const narrow = useMedia('(max-width: 899px)')
   useEffect(() => { if (!narrow && tab === 'meta') setTab('list') }, [narrow])
   const [onlyMissing, setOnlyMissing] = useState(false)
-  const [look, setLook] = useLocal('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
+  const [look, setLook] = useSession('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
   const list = toText(s.missing)
   const missingCount = s.missing.reduce((t, r) => t + r.missing, 0)
   const missRows = useMemo(() => [...s.missing].sort((a, b) => b.missing - a.missing || a.name.localeCompare(b.name)), [s])

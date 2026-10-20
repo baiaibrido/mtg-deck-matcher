@@ -13,7 +13,8 @@ import { money, priceOf } from '../lib/currency.js'
 import { formatList } from '../lib/bans.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { loadTags } from '../lib/tagsLoader.js' // tag di Scryfall: caricati solo quando si aprono i filtri
-import { useLocal } from '../state/useLocal.js'
+import { useSession } from '../state/useSession.js'
+import { useWinWidth } from '../state/useMedia.js'
 import { ManaCost } from './Mana.jsx'
 import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter } from './Icons.jsx'
 
@@ -105,7 +106,12 @@ export default function CollectionManager({ collection, setCollection, toast, be
     setBackup({ changes: 0, at: Date.now() }); toast(t('coll.backupDone'))
   }
   const nudge = collection.length >= 20 && (backup.changes || 0) >= 10
-  const [prefs, setPrefs] = useLocal('mdm.collView', {})
+  const [prefs, setPrefs] = useSession('mdm.collView', {})
+  // colonne della griglia: da 2 fino a quante ne stanno (7 su computer, 3 su telefono)
+  const winW = useWinWidth()
+  const colsMax = winW <= 560 ? 3 : Math.max(3, Math.min(7, Math.floor((Math.min(winW, 1040) - 32 + 12) / (96 + 12))))
+  const colsAuto = winW <= 560 ? 3 : Math.max(2, Math.min(colsMax, Math.floor((Math.min(winW, 1040) - 32 + 12) / (132 + 12))))
+  const cols = Math.min(colsMax, Math.max(2, prefs.cols || colsAuto))
   const view = prefs.view || 'grid', sort = COLL_SORTS.includes(prefs.sort) ? prefs.sort : 'name', type = prefs.type || 'all'
   const [more, setMore] = useState(false) // altri filtri (artista, set, rarità, tag)
   const [flt, setFlt] = useState({}) // { artist, set, rarity, otag, atag }
@@ -296,6 +302,11 @@ export default function CollectionManager({ collection, setCollection, toast, be
           <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
           <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
         </div>
+        {view === 'grid' && <label className="cols-ctl">
+          <span>{t('coll.cols')}</span>
+          <input type="range" min="2" max={colsMax} step="1" value={cols} onChange={e => setPrefs({ ...prefs, cols: +e.target.value })} style={{ '--fill': `${(cols - 2) / (colsMax - 2) * 100}%` }} />
+          <output aria-hidden="true">{cols}</output>
+        </label>}
         </span>
       </div>
 
@@ -322,7 +333,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
         <section key={k} id={`sez-${k}`} className="binder-sec" aria-labelledby={`h-${k}`}>
           <h2 id={`h-${k}`}><span className={`dot bc-${k}`} aria-hidden="true" />{binderName(k)} <span>{t('coll.cards', list.reduce((s, c) => s + c.qty, 0))}</span></h2>
           {view === 'grid' ? (
-            <ul className="ctiles">
+            <ul className="ctiles" style={{ '--cols': cols }}>
               {part.map(r => (
                 <li key={r.key} className="ctile">
                   <div className="ctile-art">
