@@ -30,7 +30,7 @@ export default function DeckInsights({ deck, decks, owned, onOpen, idOf }) {
 
     {sa.cards.length > 0 && <section className="ins" aria-labelledby="sa-title">
       <h2 id="sa-title">{t('ins.side')}</h2>
-      <p className="ins-note">{t('ins.side.intro')} {sa.opponents.slice(0, 4).map((n, i) => { const id = idOf(n); return <span key={n}>{i > 0 && ', '}{id ? <button className="linklike" onClick={() => onOpen(id)}>{n}</button> : n}</span> })}{sa.opponents.length > 4 && ` ${t('kc.more', sa.opponents.length - 4)}`}.</p>
+      <p className="ins-note">{t('ins.side.intro')} {sa.opponents.slice(0, 4).map((n, i, a) => { const id = idOf(n); return <span key={n}>{i > 0 && ' '}<span className="nb">{id ? <button className="linklike" onClick={() => onOpen(id)}>{n}</button> : n}{i < a.length - 1 && ','}</span></span> })}{sa.opponents.length > 4 && ` ${t('kc.more', sa.opponents.length - 4)}`}.</p>
       <ul className="ins-list">
         {sa.cards.map(c => <li key={c.name}><span className="ins-q" aria-hidden="true">•</span><span className="ins-n" {...hoverProps(c.name)}>{c.name}</span><span className="ins-avg">{t('ins.side.n', c.n, sa.opponents.length)}</span></li>)}
       </ul>

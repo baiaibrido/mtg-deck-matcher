@@ -81,7 +81,7 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
           <h2>{t('st.health')}</h2>
           <p className="st-hero"><b>{hl.now}</b> <span>{t('st.health.decks', hl.now)}</span></p>
           <p className={`st-kind st-kind-${hl.kind}`}>{t(`st.health.${hl.kind}`)}</p>
-          <p className="st-note">{t('st.health.top')} {hl.top.map((d, i) => <span key={d.id}>{i > 0 && ', '}{link(d)}</span>)}.</p>
+          <p className="st-note">{t('st.health.top')} {hl.top.map((d, i, a) => <span key={d.id}>{i > 0 && ' '}<span className="nb">{link(d)}{i < a.length - 1 && ','}</span></span>)}.</p>
           {hl.series.filter(v => v != null).length > 2 && <p className="st-note st-trendline"><Spark values={hl.series} w={120} h={26} /> {t('st.health.weeks')}</p>}
         </section>}
 

@@ -100,6 +100,7 @@ Principi:
 | v0.24.0: collezione a immagini con cursore «Colonne» (da 2 a 7 su computer, 2–3 su telefono); mazzi ordinati per «Più giocati» all'apertura e numero = posizione nell'ordine scelto; ordinamenti, filtri e viste ripartono dai predefiniti a ogni apertura del sito (collezione, formato, tema, lingua, valuta e preferiti restano salvati) | Richiesta utente |
 | v0.24.1: cestino della collezione a immagini spostato sotto la carta, accanto al «−» (non copre più forza/costituzione né costo di mana); fino a 6 colonne sui tablet | Richiesta utente |
 | v0.25.0: tolte le etichette BAN/R sulle carte della collezione; nuovo filtro «Bannate» (in almeno un formato o in uno preciso, con conteggi) che mostra sotto ogni carta dove è bannata o ristretta; carte della griglia allineate anche con testi di altezza diversa | Richiesta utente |
+| v0.25.1: pannello «Filtri» della collezione dentro la barra fissa (resta visibile scorrendo; saltando a un colore il titolo non finisce sotto la barra); spiegazioni «?» mai tagliate né fuori schermo (si posizionano da sole); avvisi in basso visibili anche sopra i giochi e con «riduci movimento» attivo; anteprima carta che sparisce scorrendo; virgole che non vanno a capo da sole; fondo pagina non coperto dal tasto «torna su» | Check incongruenze |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

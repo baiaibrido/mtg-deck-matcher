@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useId, useLayoutEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { t, num, dayMonth } from '../i18n/index.js'
 
 // Tier (metodo MTGdecks) e andamento della quota di meta rispetto al sync precedente
@@ -25,12 +26,32 @@ export function Trend({ share, prev, prevDate, history }) {
 
 // "?" con una riga di spiegazione: compare passandoci sopra o toccandolo (solo per le metriche del sito)
 export function Info({ text, label }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false) // toccato o cliccato
+  const [hover, setHover] = useState(false) // mouse sopra
+  const [pos, setPos] = useState(null)
+  const btn = useRef(null), pop = useRef(null), id = useId()
+  const vis = open || hover
+  // la nuvoletta sta in <body> con posizione fissa: non viene tagliata dai riquadri e resta dentro lo schermo
+  useLayoutEffect(() => {
+    if (!vis) { setPos(null); return }
+    const r = btn.current.getBoundingClientRect(), w = pop.current.offsetWidth, h = pop.current.offsetHeight
+    const W = document.documentElement.clientWidth, H = window.visualViewport?.height || innerHeight
+    const bar = document.querySelector('.tabbar')?.getBoundingClientRect().height || 0
+    const left = Math.max(8, Math.min(r.left + r.width / 2 - w / 2, W - w - 8))
+    const below = r.bottom + 8, above = r.top - 8 - h
+    setPos({ left, top: below + h > H - bar - 8 && above > 8 ? above : below })
+    const close = () => { setOpen(false); setHover(false) }
+    addEventListener('scroll', close, true); addEventListener('resize', close)
+    return () => { removeEventListener('scroll', close, true); removeEventListener('resize', close) }
+  }, [vis])
   return (
-    <span className={`info${open ? ' open' : ''}`}>
-      <button type="button" className="info-btn" aria-label={label || text} aria-expanded={open}
-        onClick={e => { e.stopPropagation(); setOpen(o => !o) }} onBlur={() => setOpen(false)}>?</button>
-      <span className="info-pop" role="tooltip">{text}</span>
+    <span className={`info${vis ? ' open' : ''}`}>
+      <button ref={btn} type="button" className="info-btn" aria-label={label || text} aria-expanded={open} aria-describedby={id}
+        onPointerEnter={e => e.pointerType === 'mouse' && setHover(true)} onPointerLeave={e => e.pointerType === 'mouse' && setHover(false)}
+        onFocus={e => e.target.matches(':focus-visible') && setHover(true)}
+        onClick={e => { e.stopPropagation(); setOpen(o => !o) }} onBlur={() => { setOpen(false); setHover(false) }}
+        onKeyDown={e => { if (e.key === 'Escape') { setOpen(false); setHover(false) } }}>?</button>
+      {createPortal(<span ref={pop} id={id} className={`info-pop${vis && pos ? ' on' : ''}`} role="tooltip" style={pos || undefined}>{text}</span>, document.body)}
     </span>
   )
 }

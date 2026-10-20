@@ -87,8 +87,8 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
                 </span>
                 <span className="key-decks">
                   {t('kc.inDecks', e.decks.length)}{' '}
-                  {e.decks.slice(0, 4).map((d, j) => (
-                    <span key={d.id}>{j > 0 && ', '}<button className="linklike" onClick={() => go('deck', d.id)}>{d.name}</button></span>
+                  {e.decks.slice(0, 4).map((d, j, a) => (
+                    <span key={d.id}>{j > 0 && ' '}<span className="nb"><button className="linklike" onClick={() => go('deck', d.id)}>{d.name}</button>{j < a.length - 1 && ','}</span></span>
                   ))}
                   {e.decks.length > 4 && t('kc.more', e.decks.length - 4)}
                 </span>

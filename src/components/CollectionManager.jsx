@@ -109,6 +109,14 @@ export default function CollectionManager({ collection, setCollection, toast, be
   const colsAuto = winW <= 560 ? 3 : Math.max(2, Math.min(colsMax, Math.floor((Math.min(winW, 1040) - 32 + 12) / (132 + 12))))
   const cols = Math.min(colsMax, Math.max(2, prefs.cols || colsAuto))
   const view = prefs.view || 'grid', sort = COLL_SORTS.includes(prefs.sort) ? prefs.sort : 'name', type = prefs.type || 'all'
+  // altezza della barra fissa (cambia aprendo i filtri): serve per non nascondere i titoli quando si salta a una sezione
+  const toolsRef = useRef(null)
+  useEffect(() => {
+    const el = toolsRef.current, root = document.documentElement
+    if (!el) return
+    const ro = new ResizeObserver(() => root.style.setProperty('--tools-h', getComputedStyle(el).position === 'sticky' ? `${el.offsetHeight}px` : '0px'))
+    ro.observe(el); return () => { ro.disconnect(); root.style.removeProperty('--tools-h') }
+  }, [collection.length > 0])
   const [more, setMore] = useState(false) // altri filtri (artista, set, rarità, tag)
   const [flt, setFlt] = useState({}) // { artist, set, rarity, otag, atag }
   const [tags, setTags] = useState(null)
@@ -277,7 +285,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {load.error && <p className="note note-error">{t('coll.scryDown')}</p>}
       <Achievements unlocked={unlocked} />
 
-      <div className="coll-tools">
+      <div className="coll-tools" ref={toolsRef}>
         <label className="search">
           <IconSearch size={18} />
           <input type="search" value={q} onChange={e => { setQ(e.target.value); setLimit(STEP) }} placeholder={t('coll.search')} aria-label={t('coll.search')} />
@@ -304,26 +312,25 @@ export default function CollectionManager({ collection, setCollection, toast, be
           <output aria-hidden="true">{cols}</output>
         </label>}
         </span>
+        {more && (
+          <div className="more-filters">
+            <FilterPick label={t('coll.f.artist')} value={flt.artist} onChange={v => setF({ artist: v })} all={t('coll.f.all')}
+              options={fx.artists.map(([a, n]) => ({ value: a, label: `${a} (${n})` }))} />
+            <FilterPick label={t('coll.f.set')} value={flt.set} onChange={v => setF({ set: v })} all={t('coll.f.all')}
+              options={fx.sets.map(x => ({ value: x.code, label: `${x.name} (${x.n})` }))} />
+            <FilterPick label={t('coll.f.rarity')} value={flt.rarity} onChange={v => setF({ rarity: v })} all={t('coll.f.all')}
+              options={fx.rarities.map(([r, n]) => ({ value: r, label: `${t(`rarity.${r}`)} (${n})` }))} />
+            <FilterPick label={t('coll.f.otag')} value={flt.otag} onChange={v => setF({ otag: v })} all={t('coll.f.all')} loading={!tags}
+              options={(tags?.ids.oracle || []).map(id => ({ value: id, label: t(`otag.${id}`) }))} />
+            <FilterPick label={t('coll.f.atag')} value={flt.atag} onChange={v => setF({ atag: v })} all={t('coll.f.all')} loading={!tags}
+              options={(tags?.ids.art || []).map(id => ({ value: id, label: t(`atag.${id}`) }))} />
+            <FilterPick label={t('coll.f.ban')} value={flt.ban} onChange={v => setF({ ban: v })} all={t('coll.f.all')}
+              options={fx.bans.map(([f, n]) => ({ value: f, label: `${f === 'any' ? t('coll.f.banAny') : FORMAT_LABEL[f]} (${n})` }))} />
+            {nFlt > 0 && <button className="linklike" onClick={() => setF({ artist: null, set: null, rarity: null, otag: null, atag: null, ban: null })}>{t('coll.f.clear')}</button>}
+            <p className="hint more-hint">{t('coll.f.hint')}</p>
+          </div>
+        )}
       </div>
-
-      {more && (
-        <div className="more-filters">
-          <FilterPick label={t('coll.f.artist')} value={flt.artist} onChange={v => setF({ artist: v })} all={t('coll.f.all')}
-            options={fx.artists.map(([a, n]) => ({ value: a, label: `${a} (${n})` }))} />
-          <FilterPick label={t('coll.f.set')} value={flt.set} onChange={v => setF({ set: v })} all={t('coll.f.all')}
-            options={fx.sets.map(x => ({ value: x.code, label: `${x.name} (${x.n})` }))} />
-          <FilterPick label={t('coll.f.rarity')} value={flt.rarity} onChange={v => setF({ rarity: v })} all={t('coll.f.all')}
-            options={fx.rarities.map(([r, n]) => ({ value: r, label: `${t(`rarity.${r}`)} (${n})` }))} />
-          <FilterPick label={t('coll.f.otag')} value={flt.otag} onChange={v => setF({ otag: v })} all={t('coll.f.all')} loading={!tags}
-            options={(tags?.ids.oracle || []).map(id => ({ value: id, label: t(`otag.${id}`) }))} />
-          <FilterPick label={t('coll.f.atag')} value={flt.atag} onChange={v => setF({ atag: v })} all={t('coll.f.all')} loading={!tags}
-            options={(tags?.ids.art || []).map(id => ({ value: id, label: t(`atag.${id}`) }))} />
-          <FilterPick label={t('coll.f.ban')} value={flt.ban} onChange={v => setF({ ban: v })} all={t('coll.f.all')}
-            options={fx.bans.map(([f, n]) => ({ value: f, label: `${f === 'any' ? t('coll.f.banAny') : FORMAT_LABEL[f]} (${n})` }))} />
-          {nFlt > 0 && <button className="linklike" onClick={() => setF({ artist: null, set: null, rarity: null, otag: null, atag: null, ban: null })}>{t('coll.f.clear')}</button>}
-          <p className="hint more-hint">{t('coll.f.hint')}</p>
-        </div>
-      )}
 
       {!filtered.length && <p className="empty">{q ? t('coll.noMatchQ', q) : t('coll.noMatch')}</p>}
 

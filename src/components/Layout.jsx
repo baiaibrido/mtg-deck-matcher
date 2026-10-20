@@ -115,8 +115,15 @@ export function SiteFooter() {
 
 // Avviso in basso (con eventuale "Annulla")
 export function ToastZone({ msg, toast }) {
+  // la zona sta nello "strato superiore" del browser: l'avviso resta visibile anche sopra le finestre dei giochi
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!msg || !el?.showPopover) return
+    try { if (el.matches(':popover-open')) el.hidePopover(); el.showPopover() } catch { /* non supportato */ }
+  }, [msg])
   return (
-    <div className="toast-zone" aria-live="polite">
+    <div className="toast-zone" aria-live="polite" ref={ref} popover="manual">
       {msg && (
         <div className={`toast${msg.action ? ' toast-action' : ''}`} key={msg.id}>
           {msg.text}

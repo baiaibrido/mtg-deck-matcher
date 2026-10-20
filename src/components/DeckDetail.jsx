@@ -47,6 +47,8 @@ export const hoverProps = name => canHover ? {
 function HoverCard() {
   const [p, set] = useState(null)
   setPreview = set
+  // scorrendo con la rotella la carta sotto il mouse cambia: l'anteprima vecchia sparisce
+  useEffect(() => { if (!p) return; const off = () => set(null); addEventListener('scroll', off, { passive: true }); return () => removeEventListener('scroll', off) }, [!!p])
   if (!p) return null
   const W = 244, H = 340
   const left = p.x + 24 + W > innerWidth ? p.x - 24 - W : p.x + 24
