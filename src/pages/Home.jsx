@@ -5,11 +5,11 @@ import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
 import { getCached } from '../lib/scryfall.js'
 import { go, linkProps } from '../state/useRoute.js'
 import { useSession } from '../state/useSession.js'
-import DeckList from '../components/DeckList.jsx'
+import DeckList, { PinnedList } from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
-import { IconClip, IconFilter } from '../components/Icons.jsx'
+import { IconClip, IconFilter, IconChevron } from '../components/Icons.jsx'
 import { useMedia } from '../state/useMedia.js'
 
 const STALE_DAYS = 3
@@ -52,14 +52,14 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     if (view.sort === 'cost') list.sort((a, b) => costOf(a).amount - costOf(b).amount || b.score - a.score)
     return list.map((s, i) => ({ ...s, rank: i + 1 }))
   })()
-  // Preferiti: nell'ordine in cui sono stati fissati, sempre visibili e fuori dai filtri
+  // Preferiti: nell'ordine in cui sono stati fissati, sempre visibili e fuori dai filtri (restano anche al loro posto in classifica)
   const pinned = pins.map(id => ordered.find(s => s.deck.id === id) || rogue.find(s => s.deck.id === id)).filter(Boolean)
   // filtri per tier, colori e budget
-  let all = ordered.filter(s => !pins.includes(s.deck.id))
+  let all = ordered
   if (view.tier) all = all.filter(s => s.deck.tier === view.tier)
   if (view.colors.length) all = all.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
   if (view.budget) all = all.filter(withinBudget)
-  const rogueShown = (view.budget ? rogue.filter(withinBudget) : rogue).filter(s => !pins.includes(s.deck.id))
+  const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
   // il mazzo più vicino alla collezione: cerchiato a penna nella classifica
   const best = owned ? ordered.filter(s => s.score < 1).reduce((a, b) => (b.score > (a?.score ?? 0) ? b : a), null) : null
   const cedh = format === 'commander' // cEDH: le percentuali si riferiscono alla lista di un torneo
@@ -84,6 +84,13 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   }, [pins])
   const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: pinWithMotion, owned, bestId: best?.deck.id, cedh }
 
+  const listMeta = (() => { // «50 mazzi, aggiornati il [18 OTT]»: la data è un timbro datario
+    const n = metaMain.filter(d => d.source !== 'utente').length
+    if (!updated) return t('decks.listMeta', n, '')
+    const [a, b = ''] = t('decks.listMeta', n, '\u0000').split('\u0000')
+    return <>{a}<span className="date-stamp">{dayMonth(updated)}</span>{b}</>
+  })()
+
   return <>
     <div className={`home${owned ? '' : ' home-new'}`}>
       {meta && !phone && todayCard}
@@ -104,44 +111,57 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
           </p>
         )}
       </header>
-      <div className="home-tools">
-        {/* ordinamento e filtri insieme: l'ordine cambia anche il titolo */}
-        {decks.length > 1 && <div className="sort-tabs" role="group" aria-label={t('sort')}>
-          <span className="sort-tabs-label" aria-hidden="true">{t('sort')}</span>
-          {sorts.map(k => <button key={k} aria-pressed={view.sort === k} onClick={() => setV({ sort: k })}>{sortLabel(k)}</button>)}
-        </div>}
-        {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
+
+      {/* ordine e filtri in un unico blocco: l'ordine cambia anche il titolo */}
+      {decks.length > 1 && <div className="toolbar home-tools">
+        <div className="toolbar-row">
+          <span className="field-label" id="sort-label">{t('sort')}</span>
+          <div className="seg seg-fill" role="group" aria-labelledby="sort-label">
+            {sorts.map(k => <button key={k} aria-pressed={view.sort === k} onClick={() => setV({ sort: k })}>
+              <span className="lbl-long">{sortLabel(k)}</span><span className="lbl-short" aria-hidden="true">{t(`sort.s.${k === 'cost' && !owned ? 'cheap' : k}`)}</span>
+            </button>)}
+          </div>
+        </div>
+        <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} aria-controls="home-filters" onClick={() => setFiltersOpen(o => !o)}>
           <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
-        </button>}
-        {decks.length > 1 && (
-          <div className={`filters${filtersOpen ? ' open' : ''}`}>
-            <span className="select">
-              <span aria-hidden="true">{t('budget')}</span>
-              <Picker label={t('budget')} value={view.budget} onChange={v => setV({ budget: v })} options={BUDGETS.map(b => ({ value: b, label: b ? t('budget.max', money(localBudget(b))) : t('budget.any') }))} />
+        </button>
+        <div className={`toolbar-row filters${filtersOpen ? ' open' : ''}`} id="home-filters">
+          <span className="field">
+            <span className="field-label" aria-hidden="true">{t('budget')}</span>
+            <Picker label={t('budget')} value={view.budget} onChange={v => setV({ budget: v })} options={BUDGETS.map(b => ({ value: b, label: b ? t('budget.max', money(localBudget(b))) : t('budget.any') }))} />
+          </span>
+          <span className="field">
+            <span className="field-label" id="tier-label">Tier</span>
+            <span className="seg" role="group" aria-labelledby="tier-label">
+              {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} aria-label={n ? `Tier ${n}` : t('allTiers')} onClick={() => setV({ tier: n })}>{n || t('tier.all')}</button>)}
             </span>
-            <div className="chips" role="group" aria-label="Tier">
-              {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
-              <Info text={t('info.tier')} label={t('info.label')} />
-            </div>
-            <div className="color-filter" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
-              <span>{t('colors')}</span>
+            <Info text={t('info.tier')} label={t('info.label')} />
+          </span>
+          <span className="field color-filter">
+            <span className="field-label" aria-hidden="true">{t('colors.s')}</span>
+            <span className="seg seg-icons seg-colors" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
               {WUBRG.map(c => (
                 <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
                   <i className={`ms ms-${c.toLowerCase()} ms-cost`} />
                 </button>
               ))}
-              {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>{t('clearColors')}</button>}
-            </div>
-          </div>
-        )}
-        {rogueShown.length > 0 && <button className="btn chip-rogue rogue-jump" onClick={() => scrollToId('rogue-title')} title={t('rogue.title')}><span aria-hidden="true">🌶</span> {t('rogue.title')} <span className="count">{rogueShown.length}</span> <span aria-hidden="true">↓</span></button>}
-      </div>
+            </span>
+            {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>{t('clearColors')}</button>}
+          </span>
+        </div>
+      </div>}
     </div>
 
     {banNotice}
     {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
     {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
-    {meta && decks.length > 0 && <p className="list-meta" id="deck-list" tabIndex={-1}>{(() => { const [a, b = ''] = t('decks.listMeta', metaMain.filter(d => d.source !== 'utente').length, '\u0000').split('\u0000'); return updated ? <>{a}<span className="date-stamp">{dayMonth(updated)}</span>{b}</> : t('decks.listMeta', metaMain.filter(d => d.source !== 'utente').length, '') })()}</p>}
+    {meta && decks.length > 0 && <div className="list-meta" id="deck-list" tabIndex={-1}>
+      <p>{listMeta}</p>
+      {rogueShown.length > 0 && <button className="btn btn-quiet rogue-jump" onClick={() => scrollToId('rogue-title')}>
+        <span aria-hidden="true">🌶</span><span className="lbl-long">{t('rogue.jump', rogueShown.length)}</span><span className="lbl-short" aria-hidden="true">{t('rogue.jumpS', rogueShown.length)}</span>
+        <IconChevron size={16} className="rogue-jump-go" />
+      </button>}
+    </div>}
 
     {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
       : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
@@ -149,7 +169,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
           {pinned.length > 0 && (
             <section className="pinned" aria-labelledby="pinned-title">
               <h2 id="pinned-title" className="pinned-title"><IconClip size={18} filled /> {t('pins.title')}</h2>
-              <DeckList ranked={pinned} animKey={format + 'pins'} {...listProps} />
+              <PinnedList ranked={pinned} colorsOf={colorsOf} onOpen={id => go('deck', id)} onPin={pinWithMotion} owned={owned} cedh={cedh} />
             </section>
           )}
           {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && phone && <div className="today-inline">{todayCard}</div>}</>

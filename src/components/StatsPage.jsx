@@ -48,7 +48,7 @@ function ValueChart({ points, onOpen }) {
             </g>
           ))}
         </svg>
-        {h && <div className="st-tip" style={{ left: `${x(h.price) / W * 100}%`, top: `${y(h.wr) / H * 100}%` }}><b>{h.s.deck.name}</b><span>{num(h.wr)}% · {money(h.price)}</span></div>}
+        {h && <div className="st-tip" style={{ left: `${x(h.price) / W * 100}%`, top: `${y(h.wr) / H * 100}%` }}><b>{h.s.deck.name}</b><span>{num(h.wr)}%, {money(h.price)}</span></div>}
       </div>
       <figcaption className="st-cap">{t('st.value.cap')}</figcaption>
       <table className="sr-only"><tbody>{points.map(p => <tr key={p.s.deck.id}><th scope="row">{p.s.deck.name}</th><td>{num(p.wr)}%</td><td>{money(p.price)}</td></tr>)}</tbody></table>

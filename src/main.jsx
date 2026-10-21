@@ -4,12 +4,21 @@ import '@fontsource/alegreya-sans/500.css'
 import '@fontsource/alegreya-sans/700.css'
 import '@fontsource/alegreya-sans/800.css'
 import '@fontsource-variable/doto' // carattere a punti (stampante ad aghi) della nuova grafica
+import '@fontsource/caveat/latin-700.css' // solo per le note a penna
 import './mana-cost.css' // simboli di mana ridotti (scripts/build-mana-subset.py)
 import App from './App.jsx'
-import './styles.css'
-import '@fontsource/caveat/latin-700.css'
-import './theme.css' // la grafica «classifica stampata»: si appoggia a styles.css (struttura)
-import './paper.css' // «ufficio di carta» (v0.26): timbri, evidenziatori, scontrino, raccoglitore, graffette, note a penna
+// Grafica «la classifica stampata»: un solo sistema (token → base → controlli → impaginazione → carta → pagine)
+import './css/tokens.css'
+import './css/base.css'
+import './css/controls.css'
+import './css/layout.css'
+import './css/paper.css'
+import './css/home.css'
+import './css/deck.css'
+import './css/collection.css'
+import './css/keycards.css'
+import './css/stats.css'
+import './css/games.css'
 import { getLang, loadLang } from './i18n/index.js'
 // prima la lingua giusta, poi il disegno (niente lampo in italiano per chi legge in un'altra lingua)
 loadLang(getLang()).catch(() => {}).finally(() => createRoot(document.getElementById('root')).render(<App />))

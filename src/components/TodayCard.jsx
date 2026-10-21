@@ -39,7 +39,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
       </div>}
 
       <ul className="today-list">
-        {daily && <li>
+        {daily && <li className="today-cell-mystery">
           <button className={`today-item today-mystery${fresh ? ' fresh' : ''}`} onClick={openDaily} aria-label={t('daily.aria', daily.name)}>
             <span className="today-icon mystery-mini" aria-hidden="true">
               {sig?.img && <img src={sig.img} alt="" loading="lazy" onError={e => { e.currentTarget.style.display = 'none' }} />}
@@ -52,13 +52,14 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
               {signature && <small className="today-sub mystery-sig">{t('daily.sig', signature)}</small>}
               <small className="today-sub">
                 {daily.rogue ? <span>{t('rogue.results', daily.results)}</span> : daily.share > 0 && <span>{t('daily.share', num(daily.share))}</span>}
-                <span className="today-timer">{streak >= 2 && <span title={t('streak.title')}>🔥 {streak} · </span>}{t('daily.changes', left.h, left.m)}</span>
+                {streak >= 2 && <span className="today-streak" title={t('streak.title')}>🔥 {streak}</span>}
+                <span className="today-timer">{t('daily.changes', left.h, left.m)}</span>
               </small>
             </span>
             <IconChevron className="today-go" />
           </button>
         </li>}
-        <li>
+        <li className="today-cell-guess">
           <button className="today-item" onClick={() => onGame('guess')}>
             <span className="today-icon" aria-hidden="true">🔎</span>
             <span className="today-text">
@@ -68,7 +69,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
             <IconChevron className="today-go" />
           </button>
         </li>
-        <li>
+        <li className="today-cell-quiz">
           <button className="today-item" onClick={() => onGame('quiz')}>
             <span className="today-icon" aria-hidden="true">🪞</span>
             <span className="today-text">

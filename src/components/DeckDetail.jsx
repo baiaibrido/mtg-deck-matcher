@@ -3,7 +3,7 @@ import DeckInsights, { ConvLine } from './DeckInsights.jsx'
 import { useEffect, useMemo, useState } from 'react'
 import { describeDeck } from '../lib/deckDesc.js'
 import { loadTags } from '../lib/tagsLoader.js'
-import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton } from './DeckList.jsx'
+import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton, resultText } from './DeckList.jsx'
 import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox } from './Icons.jsx'
@@ -88,6 +88,9 @@ function Section({ title, rows, onlyMissing, visual, hasColl }) {
   )
 }
 
+// "Ghost94 · IPT FUMA CHE PAUPERUMA (1st Place)" → "Ghost94, IPT FUMA CHE PAUPERUMA, 1° posto"
+const sourceText = title => { const m = /^(.*?) · (.*) \(([^()]+)\)$/.exec(title); return m ? `${m[1]}, ${m[2]}, ${resultText(m[3])}` : title }
+
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
 
@@ -147,7 +150,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {desc.inter.map(([k, n]) => <div key={k}><dt>{t(`otag.${k}`)}</dt><dd>{n}</dd></div>)}
         </dl>}
         <p className="detail-links">
-          {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? ` (${s.deck.title})` : ''} <IconExternal size={14} /></a>}
+          {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''} <IconExternal size={14} /></a>}
           {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecks')} <IconExternal size={14} /></a>}
         </p>
         {bans.length > 0 && <p className="note note-error">⚠ {t('ban.deck', bans.join(', '))}</p>}
@@ -158,16 +161,19 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <Meter label="Main" {...s.main} />
           {s.side.total > 0 && <Meter label="Side" {...s.side} />}
           {missingCount > 0
-            ? <button className="linklike detail-need" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
-                {t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}{price && <> · {t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</>}
-              </button>
+            ? <p className="detail-need">
+                <button className="linklike" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
+                  {t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}
+                </button>
+                {price && <span>{t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</span>}
+              </p>
             : <span className="done">{t('haveAll')}</span>}
         </div>}
       </header>
 
       <div className={`detail-split${hasMeta ? ' has-meta' : ''}`}>
       <div className="detail-main">
-      <div className="seg" role="tablist" aria-label={t('view')}>
+      <div className="tabs tabs-deck" role="tablist" aria-label={t('view')}>
         <button role="tab" aria-selected={tab === 'list'} onClick={() => setTab('list')}>{t('tab.list')}</button>
         <button role="tab" aria-selected={tab === 'need'} onClick={() => setTab('need')}>{t('tab.need')} <span className="count">{missingCount}</span></button>
         {narrow && hasMeta && <button role="tab" aria-selected={tab === 'meta'} onClick={() => setTab('meta')}>{t('tab.metaShort')}</button>}
@@ -190,7 +196,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       </>}
 
       {tab === 'need' && (missingCount ? <>
-        <div className="actions actions-top">
+        <div className="toolbar need-tools">
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
           {store && (store.copy
             ? <a className="btn" href={store.url} target="_blank" rel="noreferrer" onClick={copyFor} title={t('store.copyTitle', store.name)}><IconCart size={18} />{store.name}</a>

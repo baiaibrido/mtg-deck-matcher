@@ -34,12 +34,13 @@ export function costText(cost, missing) {
 
 // Rogue: risultati della settimana e carta simbolo al posto di tier e quota
 // "1st Place", "2st Place"… (come arrivano dai tornei) → "1° posto" nella lingua del sito
-const resultText = r => { const m = /^(\d+)\s*\w*\s*place$/i.exec(r.trim()); return m ? t('rogue.place', +m[1]) : r }
+export const resultText = r => { const m = /^(\d+)\s*\w*\s*place$/i.exec(r.trim()); return m ? t('rogue.place', +m[1]) : r }
 
 export function RogueInfo({ deck }) {
   return <>
     <span className="tier tier-rogue">Rogue</span>
-    <span>{t('rogue.results', deck.results)}{deck.best ? ` · ${t('rogue.best', resultText(deck.best))}` : ''}</span>
+    <span>{t('rogue.results', deck.results)}</span>
+    {deck.best && <span>{t('rogue.best', resultText(deck.best))}</span>}
     {deck.signature && <span className="sig">{t('rogue.signature', deck.signature)}</span>}
   </>
 }
@@ -51,11 +52,34 @@ export function PinButton({ deck, pinned, onPin, className = 'pin-btn' }) {
   return <button className={className} aria-pressed={pinned} aria-label={label} title={label} onClick={() => onPin(deck.id)}><IconClip size={18} filled={pinned} /></button>
 }
 
+// Preferiti in cima: una riga compatta per mazzo (posizione, nome, colori, percentuale). Il mazzo resta
+// anche al suo posto in classifica, segnato con la graffetta, così la numerazione non ha buchi.
+export function PinnedList({ ranked, colorsOf, onOpen, onPin, owned, cedh }) {
+  return (
+    <ol className="pins">
+      {ranked.map(s => {
+        const colors = colorsOf(s.deck)
+        return (
+          <li key={s.deck.id} data-deck={s.deck.id} className="pin-row" style={frameStyle(colors)}>
+            <button className="pin-row-btn" onClick={() => onOpen(s.deck.id)}>
+              {s.deck.rogue ? <span className="tier tier-rogue">Rogue</span> : <span className="pin-row-rank" aria-label={t('rank', s.rank)}>{s.rank}</span>}
+              <span className="pin-row-name">{s.deck.name}</span>
+              <ColorPips colors={colors} />
+              <span className="pin-row-num">{owned ? <><b>{pct(s.score)}<small>%</small></b> {t(cedh ? 'complete.list' : 'complete')}</> : s.deck.share > 0 ? shareText(s.deck.share) : null}</span>
+            </button>
+            <PinButton deck={s.deck} pinned onPin={onPin} />
+          </li>
+        )
+      })}
+    </ol>
+  )
+}
+
 function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, owned, best, cedh }) {
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
   const price = costText(cost, missing)
   return (
-    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
+    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}${owned ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
       <PinButton deck={s.deck} pinned={pinned} onPin={onPin} />
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
@@ -64,13 +88,13 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
             <span className="deck-name">{s.deck.name}</span>
             <ColorPips colors={colors} />
           </span>
-          <span className="deck-sub">
+          {/* sempre le stesse caselle (anche vuote): su schermi larghi i dati stanno in colonna da una riga all'altra */}
+          <span className={`deck-sub${s.deck.rogue ? ' deck-sub-rogue' : ''}`}>
             {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
-              <TierBadge tier={s.deck.tier} />
-              {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
-              <Sparkline values={s.deck.history} />
-              <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} />
-              {s.deck.metaWr != null && <span className="wr" title={t('info.wr')}>{t('wrShort', num(s.deck.metaWr))}</span>}
+              <span className="ds-tier"><TierBadge tier={s.deck.tier} /></span>
+              <span className="ds-share">{s.deck.share > 0 && shareText(s.deck.share)}</span>
+              <span className="ds-trend"><Sparkline values={s.deck.history} /><Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} /></span>
+              <span className="ds-wr">{s.deck.metaWr != null && <span className="wr" title={t('info.wr')}>{t('wrShort', num(s.deck.metaWr))}</span>}</span>
               {s.deck.archetype && <span className="arch">{t('variantOf', s.deck.archetype)}</span>}
             </>}
             {deckBans(s.deck, getCached).length > 0 && <span className="ban-chip">⚠ {t('ban.short')}</span>}
@@ -91,7 +115,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
           {!cedh && <span className="deck-score-sub">{t('completeSub')}</span>}
           {s.score >= 1 && <span className="stamp stamp-ok deck-stamp" aria-hidden="true">{t('stamp.complete')}</span>}
           {best && s.score < 1 && <span className="hand-note" aria-hidden="true">{t('note.closest')}</span>}
-        </span> : <span />}
+        </span> : null}
         <IconChevron className="deck-go" />
       </button>
     </li>

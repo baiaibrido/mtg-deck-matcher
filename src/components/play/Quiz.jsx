@@ -41,7 +41,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
           </div>
         </div>
         <div className="game-actions">
-          <button className="btn btn-primary" onClick={() => onGo(res.d.id)}>{t('quiz.open')} →</button>
+          <button className="btn btn-primary" onClick={() => onGo(res.d.id)}>{t('quiz.open')}</button>
           <button className="btn btn-quiet" onClick={restart}>{t('quiz.again')}</button>
         </div>
       </div>
@@ -51,7 +51,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
   return (
     <div className="game">
       <p className="game-kicker">{t('quiz.title')}</p>
-      <div className="quiz-bar" aria-hidden="true"><span style={{ width: `${step / QS.length * 100}%` }} /></div>
+      <div className="quiz-progress"><span className="quiz-bar" aria-hidden="true"><span style={{ width: `${(step + 1) / QS.length * 100}%` }} /></span><span className="game-step">{step + 1} / {QS.length}</span></div>
       <div className="quiz-q" key={k}>
         <h2 className="quiz-ask">{t(`quiz.${k}`)}</h2>
         <div className={`quiz-opts${k === 'color' ? ' quiz-colors' : ''}`}>
@@ -63,7 +63,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
           ))}
         </div>
       </div>
-      <p className="game-step">{step + 1} / {QS.length}{step > 0 && <> · <button className="linklike" onClick={() => setStep(step - 1)}>{t('quiz.back')}</button></>}</p>
+      {step > 0 && <p className="game-step"><button className="linklike" onClick={() => setStep(step - 1)}>{t('quiz.back')}</button></p>}
     </div>
   )
 }
