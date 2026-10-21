@@ -19,6 +19,8 @@ import TodayCard from './components/TodayCard.jsx'
 import Modal from './components/Modal.jsx'
 import { TopBar, TabBar, FormatTabs, ToTop, SiteFooter, ToastZone } from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
+import { useAccount } from './state/useAccount.js'
+import { AccountPanel } from './components/Account.jsx'
 
 // pagine e giochi caricati solo quando servono: la home parte più leggera
 const loadDeck = () => import('./components/DeckDetail.jsx')
@@ -28,6 +30,7 @@ const KeyCards = lazy(() => import('./components/KeyCards.jsx'))
 const StatsPage = lazy(() => import('./components/StatsPage.jsx'))
 const Quiz = lazy(() => import('./components/play/Quiz.jsx'))
 const GuessGame = lazy(() => import('./components/play/GuessGame.jsx'))
+const Privacy = lazy(() => import('./components/Privacy.jsx'))
 const Loading = () => <p className="hint page-loading" role="status">…</p>
 
 const FIRST_BATCH = 6 // mazzi di cui caricare subito i dati Scryfall (quelli in cima alla pagina)
@@ -76,6 +79,10 @@ export default function App() {
   }, [theme])
 
   const [msg, toast] = useToast()
+  // profilo facoltativo: la collezione si porta su tutti i dispositivi
+  const acc = useAccount({ collection, setCollection, toast, t })
+  const [accountOpen, setAccountOpen] = useState(false)
+  useEffect(() => { if (acc.needEmail || acc.conflict) setAccountOpen(true) }, [acc.needEmail, !!acc.conflict])
   const [, setTick] = useState(0)
   const [seenBans, setSeenBans] = useLocal('mdm.bansSeen', null)
   const [pins, setPins] = useLocal('mdm.pins', []) // mazzi preferiti: restano in cima qualunque filtro ci sia
@@ -99,7 +106,7 @@ export default function App() {
   // Rogue della settimana: stessi calcoli, ordinati per vicinanza alla collezione
   const rogue = useMemo(() => rankDecks((meta || []).filter(d => d.rogue), collection, Infinity).map((s, i) => ({ ...s, rank: i + 1 })), [meta, collection])
   const sel = route.page === 'deck' ? ranked.find(s => s.deck.id === route.id) || rogue.find(s => s.deck.id === route.id) : null
-  const page = ['collection', 'key-cards', 'stats'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
+  const page = ['collection', 'key-cards', 'stats', 'privacy'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
   const changeFormat = id => { setFormat(id); go(page === 'deck' ? 'decks' : page, null, { replace: true, format: id }) }
   usePageMeta({ page, deck: sel?.deck, formatName, lang })
 
@@ -171,7 +178,7 @@ export default function App() {
   return (
     <div className="app">
       <a className="skip" href="#contenuto" onClick={e => { e.preventDefault(); document.getElementById('contenuto')?.focus() }}>{t('skip')}</a>
-      <TopBar current={current} count={collection.reduce((s, c) => s + c.qty, 0)} lang={lang} onLang={changeLang} cur={cur} onCur={changeCur} theme={theme} onTheme={setTheme} />
+      <TopBar current={current} count={collection.reduce((s, c) => s + c.qty, 0)} lang={lang} onLang={changeLang} cur={cur} onCur={changeCur} theme={theme} onTheme={setTheme} account={acc.state} onAccount={() => setAccountOpen(true)} />
 
       <main className="content" id="contenuto" tabIndex={-1}>
         <ErrorBoundary key={page}>
@@ -203,7 +210,8 @@ export default function App() {
             <StatsPage meta={meta} ranked={ranked} format={format} formatName={formatName} colorsOf={colorsOf} costOf={costOf} hasCollection={collection.length > 0} onOpen={id => go('deck', id)} />
           </>}
           {page === 'collection' && banNotice}
-          {page === 'collection' && <CollectionManager collection={collection} setCollection={setCollection} backup={backup} setBackup={setBackup} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
+          {page === 'privacy' && <Privacy />}
+          {page === 'collection' && <CollectionManager acc={acc} onAccount={() => setAccountOpen(true)} collection={collection} setCollection={setCollection} backup={backup} setBackup={setBackup} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
         </Suspense>
         </ErrorBoundary>
       </main>
@@ -218,6 +226,9 @@ export default function App() {
       <Modal open={game === 'guess'} onClose={() => setGame(null)} label={t('guess.title')} className="modal-game modal-wide">
         {close => <Suspense fallback={<Loading />}><GuessGame decks={meta || []} format={format} formatName={formatName} isLand={isLand} toast={toast} store={guessStore} setStore={setGuessStore}
           onGo={id => { close(); go('deck', id) }} onWin={n => bumpFun(f => ({ guessWins: (f.guessWins || 0) + 1, guessFirst: f.guessFirst || n === 1 }))} /></Suspense>}
+      </Modal>
+      <Modal open={accountOpen} onClose={() => setAccountOpen(false)} label={t('acc.title')}>
+        {close => <AccountPanel acc={acc} local={collection} onClose={close} />}
       </Modal>
       <ToastZone msg={msg} toast={toast} />
     </div>

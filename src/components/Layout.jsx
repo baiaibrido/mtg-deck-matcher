@@ -4,12 +4,12 @@ import { CURRENCIES, currencySymbol } from '../lib/currency.js'
 import { linkProps } from '../state/useRoute.js'
 import { useMedia } from '../state/useMedia.js'
 import Picker from './Picker.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconGlobe, IconCoins, IconChart } from './Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconGlobe, IconCoins, IconChart, IconUser } from './Icons.jsx'
 
 const smooth = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
 
 // Testata sempre visibile: si compatta scorrendo (soglie diverse in su e in giù per non sfarfallare)
-export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onTheme }) {
+export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onTheme, account, onAccount }) {
   const headRef = useRef(null)
   const [compact, setCompact] = useState(false)
   const narrow = useMedia('(max-width: 999px)') // schermi stretti: nei selettori solo i codici (IT, EUR…)
@@ -44,6 +44,8 @@ export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onThem
           aria-label={theme === 'light' ? t('theme.toDark') : t('theme.toLight')} title={theme === 'light' ? t('theme.toDark') : t('theme.toLight')}>
           {theme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
         </button>
+        {/* profilo: su telefono si raggiunge dalla pagina Collezione */}
+        <button className={`theme-btn acc-btn${account === 'in' ? ' on' : ''}`} onClick={onAccount} aria-label={t('acc.title')} title={t('acc.title')}><IconUser size={18} /></button>
       </div>
     </header>
   )
@@ -108,7 +110,7 @@ export function SiteFooter() {
       <p className="footer-legal" lang="en">
         Netdeckable is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" target="_blank" rel="noreferrer">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
       </p>
-      <p>Netdeckable v{__APP_VERSION__}</p>
+      <p className="footer-meta"><span>Netdeckable v{__APP_VERSION__}</span><a {...linkProps('privacy')}>{t('footer.privacy')}</a></p>
     </footer>
   )
 }
