@@ -260,7 +260,8 @@ export default function CollectionManager({ collection, setCollection, toast, be
       <header className="page-head coll-head">
         <div className="page-head-row">
           <h1>{t('coll.title')}</h1>
-          <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
+          {/* un solo pulsante principale per vista: con il pannello aperto (o una scelta in sospeso) il principale è lì */}
+          <button className={`btn${importOpen || pending ? '' : ' btn-primary'}`} onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
         </div>
         <p>
           {t('coll.summary', total.toLocaleString(getLang()), collection.length.toLocaleString(getLang()))}
@@ -286,7 +287,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {nudge && (
         <div className="confirm backup-nudge" role="status">
           <span className="confirm-q">💾 {t('backup.nudge')}</span>
-          <button className="btn btn-primary" onClick={exportBackup}><IconDownload size={18} />{t('backup.now')}</button>
+          <button className="btn" onClick={exportBackup}><IconDownload size={18} />{t('backup.now')}</button>
           <button className="btn btn-quiet" onClick={() => setBackup(b => ({ ...b, changes: 0 }))}>{t('backup.later')}</button>
         </div>
       )}

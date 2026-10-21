@@ -47,8 +47,9 @@
 }
 .coll-tools .search { flex: 1 1 240px; }
 .coll-tools-right { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); margin-left: auto; }
-.more-btn.open { border-color: var(--ink); color: var(--ink); }
+.more-btn.open, .more-btn.open:hover:not(:disabled) { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .more-btn .count { background: var(--ink); color: var(--paper); box-shadow: none; }
+.more-btn.open .count { background: var(--paper); color: var(--ink); }
 /* il pannello dei filtri sta dentro la barra: resta visibile mentre si scorre */
 .more-filters {
   flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s4); margin: 2px 0 var(--s1);

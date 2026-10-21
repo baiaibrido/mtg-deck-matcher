@@ -13,7 +13,6 @@
 .topbar.compact { padding: var(--s1) 0; box-shadow: 0 0 0 100vmax var(--bar-bg), 0 1px 0 100vmax var(--line); clip-path: inset(0 -100vmax -1px); }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 900 1.5rem/1 var(--font-dot); letter-spacing: .02em; white-space: nowrap; transition: font-size .2s var(--ease); }
 .brand:hover { text-decoration: none; }
-.topbar.compact .brand { font-size: 1.25rem; }
 .brand-mark { display: inline-flex; gap: 2px; font-size: .62rem; }
 .nav-top { display: flex; gap: 2px; }
 .nav-top a {
@@ -57,7 +56,12 @@
 @media (prefers-reduced-motion: reduce) { .topbar, .topbar * { transition: none !important; } }
 
 /* ── Linguette dei formati: appese sotto la testata, scorrono su telefono ── */
-.formats { margin: var(--s1) calc(-1 * var(--gutter)) 0; padding: 0 var(--gutter); scroll-snap-type: x proximity; }
+.formats { margin-top: var(--s1); scroll-snap-type: x proximity; }
+@media (max-width: 719px) {
+  /* su telefono la fila scorre fino ai bordi; le sfumature dicono che ci sono altre linguette */
+  .formats { margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter);
+    -webkit-mask: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - 28px), transparent); mask: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - 28px), transparent); }
+}
 
 /* ── Titolo di pagina ── */
 .page-head { margin: var(--s5) 0; }

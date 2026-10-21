@@ -2,7 +2,17 @@
 
 .keycards .callout { margin-bottom: var(--s4); }
 .kc-tools .seg-icons { margin-left: auto; }
-.kc-total { margin: var(--s3) 0 var(--s2); justify-content: flex-end; }
+.kc-tools { margin-bottom: var(--s4); }
+.kc-total { margin-left: auto; color: var(--ink-2); font-size: var(--fs-md); white-space: nowrap; }
+.kc-total b { color: var(--ink); }
+.kc-total + .seg-icons { margin-left: 0; }
+@media (max-width: 719px) {
+  /* telefono: la scelta dei tier su tutta la riga, sotto le azioni e la vista */
+  .kc-tools > .seg:first-child { display: flex; width: 100%; }
+  .kc-tools > .seg:first-child > button { flex: 1 1 0; min-width: 0; padding: 0 var(--s2); }
+  .kc-tools > .btn { flex: 1 1 auto; }
+  .kc-total { margin-left: 0; margin-right: auto; } /* totale a sinistra, vista a destra, sulla stessa riga */
+}
 .keycards > .hint { margin-top: var(--s4); }
 
 /* elenco: righe del modulo continuo, due colonne su schermi larghi */

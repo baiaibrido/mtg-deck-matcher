@@ -51,8 +51,9 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
           <button aria-pressed={scope === 't12'} onClick={() => setScope('t12')}>{t('kc.t12')}</button>
         </div>
         {rows.length > 0 && <>
-          <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
+          <button className={`btn${hasCollection ? ' btn-primary' : ''}`} onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
           <button className="btn" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
+          {total > 0 && <span className="kc-total">{t('detail.total')} <b>≈ {money(total)}</b></span>}
         </>}
         <div className="seg seg-icons" role="group" aria-label={t('view')}>
           <button aria-pressed={look !== 'cards'} onClick={() => setLook('list')} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
@@ -61,7 +62,6 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
       </div>
 
       {rows.length ? <>
-        {total > 0 && <p className="list-meta kc-total"><span>{t('detail.total')} <b>≈ {money(total)}</b></span></p>}
         {look === 'cards' ? (
           <ol className="key-tiles">
             {rows.map((e, i) => (

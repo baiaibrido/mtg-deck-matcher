@@ -126,7 +126,7 @@ a.tile:hover { transform: translateY(-2px); }
 .hist-plot svg { display: block; width: 100%; height: auto; touch-action: pan-y; cursor: crosshair; }
 .hist-grid { stroke: var(--line); stroke-width: 1; }
 .hist-axis { fill: var(--ink-2); font: 12px var(--font-ui); }
-.detail-side .hist-axis { font-size: 19px; } /* il grafico è rimpicciolito nella colonna stretta */
+.detail-side .hist-axis { font-size: 23px; } /* il grafico è rimpicciolito (circa metà) nella colonna stretta: ~12px a schermo */
 .hist-line { fill: none; stroke: var(--ribbon); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
 .hist-area { fill: color-mix(in oklab, var(--ribbon) 12%, transparent); }
 .hist-dot { fill: var(--ribbon); stroke: var(--sheet); stroke-width: 2; }

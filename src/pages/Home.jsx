@@ -5,7 +5,7 @@ import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
 import { getCached } from '../lib/scryfall.js'
 import { go, linkProps } from '../state/useRoute.js'
 import { useSession } from '../state/useSession.js'
-import DeckList from '../components/DeckList.jsx'
+import DeckList, { PinnedList } from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
@@ -52,14 +52,14 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     if (view.sort === 'cost') list.sort((a, b) => costOf(a).amount - costOf(b).amount || b.score - a.score)
     return list.map((s, i) => ({ ...s, rank: i + 1 }))
   })()
-  // Preferiti: nell'ordine in cui sono stati fissati, sempre visibili e fuori dai filtri
+  // Preferiti: nell'ordine in cui sono stati fissati, sempre visibili e fuori dai filtri (restano anche al loro posto in classifica)
   const pinned = pins.map(id => ordered.find(s => s.deck.id === id) || rogue.find(s => s.deck.id === id)).filter(Boolean)
   // filtri per tier, colori e budget
-  let all = ordered.filter(s => !pins.includes(s.deck.id))
+  let all = ordered
   if (view.tier) all = all.filter(s => s.deck.tier === view.tier)
   if (view.colors.length) all = all.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
   if (view.budget) all = all.filter(withinBudget)
-  const rogueShown = (view.budget ? rogue.filter(withinBudget) : rogue).filter(s => !pins.includes(s.deck.id))
+  const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
   // il mazzo più vicino alla collezione: cerchiato a penna nella classifica
   const best = owned ? ordered.filter(s => s.score < 1).reduce((a, b) => (b.score > (a?.score ?? 0) ? b : a), null) : null
   const cedh = format === 'commander' // cEDH: le percentuali si riferiscono alla lista di un torneo
@@ -137,13 +137,15 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             </span>
             <Info text={t('info.tier')} label={t('info.label')} />
           </span>
-          <span className="field color-filter" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
+          <span className="field color-filter">
             <span className="field-label" aria-hidden="true">{t('colors.s')}</span>
-            {WUBRG.map(c => (
-              <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
-                <i className={`ms ms-${c.toLowerCase()} ms-cost`} />
-              </button>
-            ))}
+            <span className="seg seg-icons seg-colors" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
+              {WUBRG.map(c => (
+                <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
+                  <i className={`ms ms-${c.toLowerCase()} ms-cost`} />
+                </button>
+              ))}
+            </span>
             {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>{t('clearColors')}</button>}
           </span>
         </div>
@@ -167,7 +169,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
           {pinned.length > 0 && (
             <section className="pinned" aria-labelledby="pinned-title">
               <h2 id="pinned-title" className="pinned-title"><IconClip size={18} filled /> {t('pins.title')}</h2>
-              <DeckList ranked={pinned} animKey={format + 'pins'} {...listProps} />
+              <PinnedList ranked={pinned} colorsOf={colorsOf} onOpen={id => go('deck', id)} onPin={pinWithMotion} owned={owned} cedh={cedh} />
             </section>
           )}
           {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && phone && <div className="today-inline">{todayCard}</div>}</>

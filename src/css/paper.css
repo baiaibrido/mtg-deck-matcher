@@ -119,17 +119,18 @@
 /* ── Note a penna sul margine ── */
 /* il mazzo più vicino cerchiato a penna, con una nota (il cerchio non deve allargare la pagina) */
 .decks { overflow-x: clip; }
-.deck-best .deck-score::before {
-  content: ''; position: absolute; inset: -14px -18px -10px -22px; pointer-events: none; background: var(--pen);
+.deck-best .deck-score b { position: relative; }
+.deck-best .deck-score b::before {
+  content: ''; position: absolute; inset: -12px -14px -9px -16px; pointer-events: none; background: var(--pen);
   --circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80' preserveAspectRatio='none'%3E%3Cpath d='M70 6C38 2 8 14 6 38s30 38 62 36 48-14 46-36S86 4 52 9' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
   -webkit-mask: var(--circle) center / 100% 100% no-repeat; mask: var(--circle) center / 100% 100% no-repeat;
 }
 .hand-note { position: absolute; right: calc(100% + 22px); top: 18%; color: var(--pen); font: 700 1.15rem/1 var(--font-hand); transform: rotate(-6deg); white-space: nowrap; pointer-events: none; }
-@media (max-width: 1099px) { .hand-note { display: none; } } /* serve spazio libero a sinistra della percentuale */
+@media (max-width: 1099px) { .hand-note, .deck-best .deck-score b::before { display: none; } } /* cerchio e nota vanno insieme, e la nota vuole spazio */
+.deck-score:has(.deck-stamp) > b { visibility: hidden; } /* «Completo» timbrato al posto del 100% */
 /* «Completo» timbrato sopra la percentuale */
 .deck-stamp { position: absolute; left: 50%; top: 40%; translate: -50% -50%; transform: rotate(-12deg); padding: 6px 12px; background: color-mix(in oklab, var(--sheet) 82%, transparent); font: 900 1.05rem/1 var(--font-ui); letter-spacing: .18em; pointer-events: none; }
 @media (max-width: 719px) {
-  .deck-best .deck-score::before { inset: -8px -6px -6px -4px; }
   .deck-stamp { left: auto; right: -2px; translate: 0 -50%; padding: 4px 8px; font-size: .82rem; letter-spacing: .12em; }
   .hand-note { display: none; }
 }
