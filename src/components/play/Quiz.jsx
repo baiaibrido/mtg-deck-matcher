@@ -41,7 +41,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
           </div>
         </div>
         <div className="game-actions">
-          <button className="btn btn-primary" onClick={() => onGo(res.d.id)}>{t('quiz.open')} →</button>
+          <button className="btn btn-primary" onClick={() => onGo(res.d.id)}>{t('quiz.open')}</button>
           <button className="btn btn-quiet" onClick={restart}>{t('quiz.again')}</button>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
           ))}
         </div>
       </div>
-      <p className="game-step">{step + 1} / {QS.length}{step > 0 && <> · <button className="linklike" onClick={() => setStep(step - 1)}>{t('quiz.back')}</button></>}</p>
+      <p className="game-step"><span>{step + 1} / {QS.length}</span>{step > 0 && <button className="linklike" onClick={() => setStep(step - 1)}>{t('quiz.back')}</button>}</p>
     </div>
   )
 }

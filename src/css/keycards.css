@@ -1,0 +1,47 @@
+/* ═══════════ Carte chiave: la classifica delle carte, stesso foglio dei mazzi ═══════════ */
+
+.keycards .callout { margin-bottom: var(--s4); }
+.kc-tools .seg-icons { margin-left: auto; }
+.kc-total { margin: var(--s3) 0 var(--s2); justify-content: flex-end; }
+.keycards > .hint { margin-top: var(--s4); }
+
+/* elenco: righe del modulo continuo, due colonne su schermi larghi */
+.key-list { display: grid; }
+.key-list li {
+  display: grid; grid-template-columns: 2.25rem minmax(0, 1fr) auto; align-items: center; gap: var(--s3);
+  padding: var(--s3) var(--s4) var(--s3) var(--s3); border-top: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+  animation: deal .45s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 40ms);
+}
+@keyframes deal { from { opacity: 0; transform: translateY(14px); } }
+.key-list li:first-child { border-top: 0; }
+.key-list li:nth-child(even) { background: var(--bar); }
+@media (min-width: 820px) {
+  .key-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .key-list li:nth-child(2) { border-top: 0; }
+  .key-list li:nth-child(odd) { border-right: 1px dashed var(--line); }
+  .key-list li:nth-child(n) { background: none; }
+  .key-list li:nth-child(4n+1), .key-list li:nth-child(4n+2) { background: var(--bar); }
+}
+.key-rank { font: 900 1.75rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
+.key-main { display: grid; gap: 2px; min-width: 0; }
+.key-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.key-name a { color: var(--ink); font-weight: 700; text-decoration: none; }
+.key-name a:hover { text-decoration: underline; }
+.key-decks { color: var(--ink-2); font-size: var(--fs-sm); }
+.key-decks .linklike { color: var(--ink-2); }
+.key-decks .linklike:hover { color: var(--ink); }
+.key-own { display: inline-flex; align-items: center; gap: 4px; color: var(--no-ink); font-size: var(--fs-sm); font-weight: 700; }
+.key-own.tile-part { color: var(--part); }
+.key-own.tile-ok { color: var(--ok); }
+.key-buy { display: grid; justify-items: end; gap: 4px; text-align: right; font-variant-numeric: tabular-nums; }
+.key-buy span { color: var(--ink-2); font-size: var(--fs-sm); }
+
+/* immagini */
+.key-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s4) var(--s3); margin: 0; padding: 0; list-style: none; }
+@media (max-width: 560px) { .key-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.key-tiles li { display: grid; align-content: start; gap: 6px; }
+.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.8em; padding: 2px 6px; border-radius: 2px; background: var(--overlay-bg); color: var(--overlay-ink); font: 900 .9rem/1.2 var(--font-dot); text-align: center; }
+.key-tile-info { display: flex; flex-wrap: wrap; gap: 0 var(--s2); color: var(--ink-2); font-size: var(--fs-sm); line-height: 1.35; }
+.key-tile-info b { color: var(--no-ink); }
+
+@media (prefers-reduced-motion: reduce) { .key-list li { animation: none !important; } }

@@ -1,0 +1,237 @@
+/* ═══════════ Home: «Oggi nel meta», titolo, ordine e filtri, classifica ═══════════
+   Computer: tagliando · titolo (una riga) · ordina · filtri · riga della lista · classifica.
+   Telefono: titolo · ordina · filtri (chiusi) · riga della lista · primi tre mazzi · tagliando · resto. */
+
+/* ── «Oggi nel meta»: tagliando con i bordi perforati ── */
+.today {
+  --bite: radial-gradient(circle at 50% 0, transparent 5px, #000 5.5px) top / 16px 51% repeat-x,
+          radial-gradient(circle at 50% 100%, transparent 5px, #000 5.5px) bottom / 16px 51% repeat-x;
+  margin-top: var(--s3); padding: 18px var(--s3) 14px;
+  background: color-mix(in oklab, var(--ribbon) 8%, var(--sheet)) var(--grain);
+  -webkit-mask: var(--bite); mask: var(--bite);
+}
+.today-title { color: var(--ink); font: 800 var(--fs-body)/1.25 var(--font-ui); }
+.today-label { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; color: var(--ink-2); font: 500 var(--fs-xs)/1.3 var(--font-ui); }
+.today-weather ul { display: grid; gap: 1px; margin: 0; padding: 0; list-style: none; color: var(--ink-2); font-size: var(--fs-md); line-height: 1.35; }
+.today-weather li { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.today-weather .linklike { overflow: hidden; color: var(--ink); text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.weather-word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } /* l'emoji lo dice a chi vede; il testo resta per chi ascolta */
+.weather-share { font-variant-numeric: tabular-nums; }
+/* l'andamento scritto a penna a margine */
+.today-weather .trend { color: var(--pen); font: 700 1.2rem/1 var(--font-hand); letter-spacing: 0; }
+.today-weather .trend-up::after { content: '↗'; margin-left: 1px; font: .8em var(--font-ui); }
+.today-weather .trend-down::after { content: '↘'; margin-left: 1px; font: .8em var(--font-ui); }
+
+.today-list { display: grid; margin: 0; padding: 0; list-style: none; }
+.today-item {
+  width: 100%; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 10px;
+  padding: var(--s2) var(--s1); border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+}
+.today-item:focus-visible { outline-offset: -2px; }
+.today-item:hover .today-text b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.today-icon { width: 28px; height: 28px; display: grid; place-items: center; font-size: 1.15rem; }
+.today-text { display: grid; gap: 2px; min-width: 0; }
+.today-text b { display: block; font: 700 var(--fs-ctl)/1.3 var(--font-ui); }
+.today-text b .pill-badge, .today-text b .pill-new { margin-left: 6px; vertical-align: 1px; }
+.today-sub { display: flex; flex-wrap: wrap; gap: 0 10px; color: var(--ink-2); font-size: var(--fs-sm); line-height: 1.35; }
+.today-go { color: var(--ink-2); transition: transform .2s var(--ease); }
+.today-item:hover .today-go { transform: translateX(2px); color: var(--ink); }
+/* mazzo misterioso: carta coperta in miniatura, si sbircia passandoci sopra */
+.today-mystery { align-items: start; }
+.mystery-mini {
+  position: relative; width: 28px; height: 39px; margin: 2px auto 0; overflow: hidden; border-radius: 2px; transform: rotate(-6deg);
+  background: repeating-linear-gradient(45deg, var(--bar) 0 5px, var(--paper) 5px 10px); box-shadow: 0 0 0 1px var(--ink), 2px 2px 0 var(--line);
+  transition: transform .3s var(--ease);
+}
+.mystery-mini img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(2px) saturate(.6); transform: scale(1.1); transition: filter .3s var(--ease); }
+.mystery-mini span { position: absolute; inset: 0; display: grid; place-items: center; color: #f3eee2; font: 1rem var(--font-title); text-shadow: 0 1px 6px rgba(0, 0, 0, .8); transition: opacity .3s; }
+.today-mystery:is(:hover, :focus-visible) .mystery-mini { transform: rotate(0) scale(1.15); }
+.today-mystery:is(:hover, :focus-visible) .mystery-mini img { filter: none; transform: none; }
+.today-mystery:is(:hover, :focus-visible) .mystery-mini span { opacity: 0; }
+.mystery-line { color: var(--ink); font: italic 500 var(--fs-md)/1.3 var(--font-ui); }
+.mystery-name { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.mystery-real { display: none; }
+.today-mystery:is(:hover, :focus-visible) .mystery-masked { display: none; }
+.today-mystery:is(:hover, :focus-visible) .mystery-real { display: inline; }
+.mystery-sig { display: block; overflow: hidden; font-style: italic; text-overflow: ellipsis; white-space: nowrap; }
+.today-timer { color: var(--part); font-variant-numeric: tabular-nums; }
+.today-streak { color: var(--ink); }
+.today-dot { display: inline-block; margin-right: 6px; vertical-align: 2px; width: 7px; height: 7px; border-radius: 50%; background: var(--no); animation: today-ping 1.6s ease-out infinite; }
+@keyframes today-ping { 0% { box-shadow: 0 0 0 0 var(--no); } 70%, 100% { box-shadow: 0 0 0 6px transparent; } }
+
+/* telefono: titolo, meteo in una riga, poi le tre voci una sotto l'altra */
+@media (max-width: 599px) {
+  .today-label { display: none; }
+  .today-weather { padding: var(--s1) 0 var(--s2); }
+  .today-weather ul { display: flex; flex-wrap: wrap; gap: 2px var(--s4); }
+  .today-weather .weather-top { display: none; }
+  .today-list { border-top: 1px dashed var(--ink-2); }
+  .today-list li + li { border-top: 1px dashed var(--line); }
+  .today-list li:not(.today-cell-mystery) .today-sub { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+/* tablet: meteo e mazzo misterioso sopra, i due giochi sotto */
+@media (min-width: 600px) and (max-width: 899px) {
+  .today { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+  .today-title { grid-area: 1 / 1; padding: 0 var(--s1); }
+  .today-weather { grid-area: 2 / 1; padding: var(--s1) var(--s1) var(--s2); }
+  .today-list { display: contents; }
+  .today-cell-mystery { grid-area: 1 / 2 / 3 / 3; padding-left: var(--s2); border-left: 1px dashed var(--ink-2); }
+  .today-cell-guess { grid-area: 3 / 1; border-top: 1px dashed var(--ink-2); }
+  .today-cell-quiz { grid-area: 3 / 2; padding-left: var(--s2); border-top: 1px dashed var(--ink-2); border-left: 1px dashed var(--ink-2); }
+}
+/* computer: una striscia sola. Il titolo sta sulla matrice del biglietto, scritto in verticale;
+   poi meteo, mazzo misterioso e i due giochi, divisi dalla perforazione */
+@media (min-width: 900px) {
+  .today { display: grid; grid-template-columns: auto minmax(0, 1.1fr) minmax(0, 1.85fr) minmax(0, 1fr) minmax(0, 1fr); align-items: start; padding: 16px var(--s1) 13px 0; }
+  .today-title { grid-area: 1 / 1; align-self: stretch; padding: 0 var(--s4) 0 var(--s3); writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: var(--fs-ctl); line-height: 1; white-space: nowrap; }
+  .today-weather { grid-area: 1 / 2; padding: 0 var(--s3); border-left: 1px dashed var(--ink-2); }
+  .today-list { display: contents; }
+  .today-list > li { display: flex; grid-row: 1; align-self: stretch; padding: 0 var(--s1); border-left: 1px dashed var(--ink-2); }
+  .today-item { grid-template-columns: 28px minmax(0, 1fr); align-items: start; align-content: start; padding: 0 var(--s2); }
+  :root:lang(ja) .today-title { transform: none; } /* in giapponese la scrittura verticale si legge dall'alto, senza girarla */
+  .today-go, .mystery-sig { display: none; } /* la carta caratteristica è già la miniatura coperta */
+  .today-mystery .today-sub { font-size: var(--fs-xs); }
+  .today-list li:not(.today-cell-mystery) .today-sub { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+}
+@media (prefers-reduced-motion: reduce) { .today-dot { animation: none !important; } }
+/* portatili bassi (finestra sotto i 700px): meno aria sopra la classifica, il primo mazzo resta in vista */
+@media (min-width: 720px) and (max-height: 700px) {
+  .today { margin-top: var(--s2); padding-top: 14px; padding-bottom: 11px; }
+  .home-head { margin-top: var(--s4); }
+}
+
+/* ── Titolo (sempre una riga: cambia con l'ordine senza spostare la pagina) ── */
+.home-head { margin: var(--s5) 0 var(--s3); }
+.home-title { overflow: hidden; padding-bottom: .06em; font: var(--fs-2xl)/1.2 var(--font-title); letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
+.home-title .t-short { display: none; }
+.home-title .info { margin-left: var(--s2); vertical-align: .25em; }
+@media (max-width: 719px) {
+  .home-head { margin: var(--s4) 0 var(--s3); }
+  .home-title { font-size: clamp(1.375rem, 6.2vw, 1.75rem); }
+  .home-title .t-long { display: none; }
+  .home-title .t-short { display: inline; }
+}
+/* prima visita: una frase e un solo pulsante principale */
+.hero-text { margin-top: var(--s2); max-width: 58ch; color: var(--ink-2); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); margin-top: var(--s4); }
+.hero-browse { color: var(--ink); }
+@media (min-width: 900px) {
+  /* una riga sola: la frase e il pulsante; la lista è subito sotto, il link «sfoglia» non serve */
+  .home-new .home-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: var(--s5); }
+  .home-new .home-title, .home-new .almost { grid-column: 1 / -1; }
+  .home-new .hero-text { max-width: none; }
+  .home-new .hero-actions { margin-top: var(--s2); }
+  .home-new .hero-browse { display: none; }
+}
+/* «Ci sei quasi» (una riga, chiudibile) */
+.almost { display: flex; align-items: center; gap: var(--s2); width: fit-content; max-width: 100%; margin-top: var(--s3); padding: 2px 2px 2px var(--s3);
+  border: 1px dashed var(--line-2); border-radius: var(--r); color: var(--ink-2); font-size: var(--fs-md); }
+.almost .linklike { color: var(--ink); font-weight: 700; }
+.almost-x { width: 32px; height: 32px; flex: none; padding: 0; border: 0; border-radius: var(--r); background: transparent; color: var(--ink-2); font-size: 1.25rem; line-height: 1; cursor: pointer; }
+.almost-x:hover { background: var(--bar); color: var(--ink); }
+@media (pointer: coarse) { .almost-x { width: 44px; height: 44px; } }
+
+/* ── Ordina e filtri: un blocco solo, due righe ── */
+.home-tools { display: grid; justify-items: start; gap: var(--s2); }
+/* le etichette all'inizio delle due righe hanno la stessa misura: menu e segmenti partono allineati */
+.home-tools > .toolbar-row:first-child { column-gap: var(--s2); }
+.home-tools > .toolbar-row > .field-label:first-child, .home-tools .filters > .field:first-child > .field-label { min-width: 3.4rem; }
+.filters-toggle { display: none; }
+.filters-toggle.open { border-color: var(--ink); }
+.filters-toggle .count { background: var(--ink); color: var(--paper); box-shadow: none; }
+@media (max-width: 719px) {
+  .home-tools { justify-items: stretch; }
+  .home-tools > .toolbar-row:first-child .field-label { display: none; } /* il gruppo resta etichettato per chi ascolta */
+  .filters-toggle { display: inline-flex; justify-self: start; }
+  .filters:not(.open) { display: none; }
+  .filters { gap: var(--s3); padding: var(--s3); border: 1px solid var(--line); border-radius: var(--r); background: var(--sheet); }
+}
+
+/* riga della lista: quanti mazzi, la data come timbro, la scorciatoia ai Rogue */
+.content > .list-meta { min-height: 32px; margin: var(--s3) 0 var(--s2); }
+.rogue-jump { min-height: 32px; margin: 0 calc(-1 * var(--s3)) 0 auto; color: var(--ink-2); font-weight: 700; }
+.rogue-jump-go { transform: rotate(90deg); }
+@media (pointer: coarse) { .rogue-jump { min-height: 44px; } }
+@media (max-width: 719px) {
+  .rogue-jump .lbl-long { display: none; }
+  .rogue-jump .lbl-short { display: inline; }
+}
+
+/* ── La classifica: righe del modulo continuo ── */
+.decks { display: grid; }
+.deck { position: relative; --c1: var(--mana-c); --c2: var(--mana-c); border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent); transition: background-color .12s; }
+.deck:last-child { border-bottom: 0; }
+.deck:nth-child(odd) { background: var(--bar); }
+.deck:hover { background: color-mix(in oklab, var(--ribbon) 9%, var(--sheet)); }
+.deck-btn {
+  position: relative; width: 100%; display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) 7.5rem 40px; align-items: center; gap: var(--s4);
+  padding: var(--s3) var(--s2) var(--s3) var(--s3); border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.deck-btn:focus-visible { outline-offset: -3px; }
+/* i colori del mazzo come la cornice della carta: una barra sul bordo sinistro */
+.deck-btn::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 4px; background: linear-gradient(var(--c1), var(--c2)); }
+.deck-rank { font: 900 2.5rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
+.deck-main { display: grid; gap: 5px; min-width: 0; }
+.deck-title { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.deck-name { font: 800 1.25rem/1.2 var(--font-ui); letter-spacing: -.005em; }
+.deck-btn:hover .deck-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.deck-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px; color: var(--ink-2); font-size: var(--fs-md); }
+.deck-meters { display: grid; gap: 4px; max-width: 600px; }
+.deck-need { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; color: var(--ink-2); font-size: var(--fs-md); }
+.deck-need b { color: var(--ink); }
+.deck-need .done { color: var(--ok); font-weight: 700; }
+.deck-score { position: relative; display: grid; justify-items: end; line-height: 1; text-align: right; }
+.deck-score b { font: 900 2.75rem/1 var(--font-dot); font-variant-numeric: tabular-nums; }
+.deck-score small { margin-left: 2px; color: var(--ink-2); font: 700 .45em var(--font-ui); }
+.deck-score b + span { margin-top: 6px; color: var(--ink-2); font-size: var(--fs-sm); }
+.deck-score .deck-score-sub { margin-top: 2px; color: var(--ink-2); font-size: var(--fs-xs); }
+.deck-go { display: none; } /* tutta la riga apre il mazzo */
+.deck-plain .deck-btn { grid-template-columns: 3.5rem minmax(0, 1fr) 40px; }
+@media (min-width: 720px) { .deck-meters { grid-template-columns: 1fr 1fr; column-gap: 28px; } }
+
+/* graffetta dei preferiti: al centro della colonna di destra; fissato = tasto pieno in inchiostro */
+.pin-btn {
+  width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 1px solid transparent; border-radius: var(--r);
+  background: transparent; color: var(--ink-2); cursor: pointer; transition: color .15s, background-color .15s, border-color .15s;
+}
+.pin-btn:hover { color: var(--ink); border-color: var(--line-2); }
+.pin-btn[aria-pressed="true"], .pin-btn[aria-pressed="true"]:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.deck > .pin-btn { position: absolute; z-index: 2; top: 50%; right: var(--s2); translate: 0 -50%; }
+
+@media (max-width: 719px) {
+  .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr) auto 36px; gap: 10px; padding: var(--s3) var(--s1) var(--s3) var(--s2); }
+  .deck-plain .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr) 36px; }
+  .deck-btn::before { top: 8px; bottom: 8px; }
+  .deck-rank { align-self: start; font-size: 1.75rem; }
+  .deck-name { font-size: 1.125rem; }
+  .deck-sub, .deck-need { gap: 2px 10px; font-size: var(--fs-sm); }
+  .deck-score b { font-size: 2rem; }
+  .deck > .pin-btn { right: 0; width: 44px; height: 44px; }
+}
+
+/* preferiti in cima, rogue in fondo */
+.pinned { margin-bottom: var(--s5); }
+.pinned-title { display: flex; align-items: center; gap: var(--s2); margin-bottom: var(--s2); color: var(--ink); font: 800 var(--fs-ctl)/1.3 var(--font-ui); }
+.deck.just-pinned { animation: pinned-glow 1.6s ease-out; }
+@keyframes pinned-glow { 0%, 35% { background: color-mix(in oklab, var(--ribbon) 22%, var(--sheet)); } 100% { background: inherit; } }
+.rogue { margin-top: var(--s7); }
+.rogue-head { max-width: 62ch; margin-bottom: var(--s4); }
+.rogue-head h2 { font: var(--fs-xl)/1.2 var(--font-title); letter-spacing: -.005em; }
+.rogue-head p { margin-top: var(--s2); color: var(--ink-2); }
+.today-inline { margin: var(--s4) 0; }
+
+/* in caricamento */
+.skeleton .deck { position: relative; height: 112px; overflow: hidden; background: var(--sheet); }
+.skeleton .deck:nth-child(odd) { background: var(--bar); }
+.skeleton .deck::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, var(--shimmer), transparent); animation: shimmer 1.4s infinite; }
+@keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+
+/* aggiungere un mazzo a mano */
+.add-deck { margin-top: var(--s5); }
+.importer { display: grid; gap: var(--s3); margin-top: var(--s5); }
+.importer > h2:first-child { margin-bottom: var(--s1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .deck.just-pinned { animation: none !important; outline: 2px solid var(--ribbon); outline-offset: -2px; }
+  .mystery-mini, .today-go { transition: none; }
+}

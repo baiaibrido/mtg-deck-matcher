@@ -35,11 +35,12 @@ function DeleteBtn({ r, onDelete, className = 'btn-del' }) {
   return <button className={className} onClick={() => onDelete(r)} aria-label={t('coll.delete', r.name)} title={t('coll.deleteTitle')}><IconTrash size={16} /></button>
 }
 
-// Set e artista della stampa (se noti)
-const printLine = c => [c?.set?.toUpperCase(), c?.artist].filter(Boolean).join(' · ')
+// Set e artista della stampa (se noti): il codice del set come stampato sulla carta, poi l'artista
+const printText = c => [c?.set?.toUpperCase(), c?.artist].filter(Boolean).join(', ')
+const PrintLine = ({ card: c }) => <>{c?.set && <span className="set-code">{c.set.toUpperCase()}</span>}{c?.artist}</>
 
 // Dove la carta è bannata (o ristretta in Vintage): mostrato solo col filtro «Bannate»
-const banLine = c => [c?.bn?.length && t('ban.card', formatList(c.bn)), c?.rs?.length && t('ban.restricted', formatList(c.rs))].filter(Boolean).join(' · ')
+const banLine = c => [c?.bn?.length && t('ban.card', formatList(c.bn)), c?.rs?.length && t('ban.restricted', formatList(c.rs))].filter(Boolean).join('; ')
 // …come timbri a inchiostro: «BANNATA» con i formati sotto
 function BanStamps({ card: c }) {
   return <span className="ban-stamps" title={banLine(c)}>
@@ -87,8 +88,8 @@ function Spine({ sections, total }) {
 function FilterPick({ label, value, onChange, options, all, loading }) {
   if (!options.length && !loading) return null
   return (
-    <span className={`select fpick${value ? ' on' : ''}`}>
-      <span aria-hidden="true">{label}</span>
+    <span className={`field fpick${value ? ' on' : ''}`}>
+      <span className="field-label" aria-hidden="true">{label}</span>
       <Picker label={label} value={value || ''} onChange={v => onChange(v || null)} options={[{ value: '', label: loading ? '…' : all }, ...options]} />
     </span>
   )
@@ -257,12 +258,22 @@ export default function CollectionManager({ collection, setCollection, toast, be
   return (
     <div className={`coll${drag ? ' coll-drag' : ''}`} {...dropProps}>
       <header className="page-head coll-head">
-        <h1>{t('coll.title')}</h1>
+        <div className="page-head-row">
+          <h1>{t('coll.title')}</h1>
+          <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
+        </div>
         <p>
           {t('coll.summary', total.toLocaleString(getLang()), collection.length.toLocaleString(getLang()))}
           {priced && <>{t('coll.value')}<b>≈ {money(value)}</b></>}.
           {' '}{t('coll.savedHere')}
         </p>
+        <div className="coll-actions">
+          <label className="btn btn-quiet" title={t('coll.importFileHint')}><IconUpload size={18} />{t('coll.importFile')}{fileInput}</label>
+          <button className="btn btn-quiet" onClick={normalize} disabled={busy} title={t('coll.fixHint')}><IconWand size={18} />{t('coll.fixNames')}</button>
+          <button className="btn btn-quiet" onClick={exportBackup}><IconDownload size={18} />{t('coll.backup')}</button>
+          <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
+            onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
+        </div>
       </header>
 
       <Spine sections={allSections} total={total} />
@@ -272,15 +283,6 @@ export default function CollectionManager({ collection, setCollection, toast, be
         return <p className="pers"><span aria-hidden="true">📣</span>{t('pers.line', who, p.pct)}
           {best && best.score > 0 && <> {t('pers.best')} <button className="linklike" onClick={() => onOpen(best.deck.id)}>{best.deck.name}</button> ({Math.round(best.score * 100)}%).</>}</p>
       })()}
-
-      <div className="coll-actions">
-        <button className="btn btn-primary" onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
-        <label className="btn btn-quiet"><IconUpload size={18} /><span className="btn-2l">{t('coll.importFile')}<small>{t('coll.importFileHint')}</small></span>{fileInput}</label>
-        <button className="btn btn-quiet" onClick={normalize} disabled={busy}><IconWand size={18} /><span className="btn-2l">{t('coll.fixNames')}<small>{t('coll.fixHint')}</small></span></button>
-        <button className="btn btn-quiet" onClick={exportBackup}><IconDownload size={18} />{t('coll.backup')}</button>
-        <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
-          onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
-      </div>
       {nudge && (
         <div className="confirm backup-nudge" role="status">
           <span className="confirm-q">💾 {t('backup.nudge')}</span>
@@ -306,15 +308,15 @@ export default function CollectionManager({ collection, setCollection, toast, be
           <input type="search" value={q} onChange={e => { setQ(e.target.value); setLimit(STEP) }} placeholder={t('coll.search')} aria-label={t('coll.search')} />
         </label>
 
-        <div className="chips" role="group" aria-label={t('coll.typeAria')}>
+        <div className="seg seg-scroll" role="group" aria-label={t('coll.typeAria')}>
           {TYPE_FILTERS.map(([k]) => <button key={k} aria-pressed={type === k} onClick={() => setP({ type: k })}>{t(`type.${k}`)}</button>)}
         </div>
         <span className="coll-tools-right">
         <button className={`btn btn-quiet more-btn${more ? ' open' : ''}`} aria-expanded={more} onClick={() => setMore(m => !m)}>
           <IconFilter size={18} />{t('coll.moreFilters')}{nFlt > 0 && <span className="count">{nFlt}</span>}
         </button>
-        <span className="select">
-          <span aria-hidden="true">{t('sort')}</span>
+        <span className="field">
+          <span className="field-label" aria-hidden="true">{t('sort')}</span>
           <Picker label={t('sort')} value={sort} onChange={v => setP({ sort: v })} options={COLL_SORTS.map(k => ({ value: k, label: t(`coll.sort.${k}`) }))} align="right" />
         </span>
         <div className="seg seg-icons" role="group" aria-label={t('view')}>
@@ -366,7 +368,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
                     </a>
                   </div>
                   <span className="ctile-name">{r.name}{r.foil && <span className="sr-only"> (foil)</span>}</span>
-                  {printLine(r.card) && <span className="ctile-print" title={printLine(r.card)}>{printLine(r.card)}</span>}
+                  {printText(r.card) && <span className="ctile-print" title={printText(r.card)}><PrintLine card={r.card} /></span>}
                   {flt.ban && <BanStamps card={r.card} />}
                   <div className="ctile-ctl">
                     <DeleteBtn r={r} onDelete={remove} className="btn-del ctile-del" />
@@ -382,7 +384,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
                   <span className={`thumb-box${r.foil ? ' foil' : ''}`}><Thumb card={r.card} name={r.name} />{r.foil && <Sparkles n={2} />}</span>
                   <span className="crow-main">
                     <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
-                    <span className="crow-type">{r.foil && <span className="foil-tag">Foil</span>}{[r.card?.type || '—', printLine(r.card)].filter(Boolean).join(' · ')}</span>
+                    <span className="crow-type">{r.foil && <span className="foil-tag">Foil</span>}{r.card?.type || '—'}{printText(r.card) && <span className="crow-print"><PrintLine card={r.card} /></span>}</span>
                     {flt.ban && <BanStamps card={r.card} />}
                   </span>
                   <ManaCost cost={r.card?.cost} slot />

@@ -72,7 +72,7 @@ export function FormatTabs({ formats, format, onChange }) {
     return () => cancelAnimationFrame(id)
   }, [format, formats])
   return (
-    <div className="formats" role="tablist" aria-label={t('format')} ref={row}>
+    <div className="tabs formats" role="tablist" aria-label={t('format')} ref={row}>
       {formats.map(f => <button key={f.id} role="tab" aria-selected={f.id === format} onClick={() => onChange(f.id)}>{f.name}</button>)}
     </div>
   )
@@ -97,13 +97,13 @@ export function ToTop() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <p className="footer-credits">
-        {t('footer.lists')}: <a href="https://github.com/Jiliac/MTGODecklistCache" target="_blank" rel="noreferrer">MTGODecklistCache</a>, <a href="https://www.mtgtop8.com" target="_blank" rel="noreferrer">MTGTop8</a>
-        {' · '}{t('footer.archetypes')}: <a href="https://github.com/Badaro/MTGOFormatData" target="_blank" rel="noreferrer">MTGOFormatData</a>
-        {' · '}{t('footer.cards')}: <a href="https://scryfall.com" target="_blank" rel="noreferrer">Scryfall</a>
-        {' · '}{t('footer.rates')}: <a href="https://www.ecb.europa.eu" target="_blank" rel="noreferrer">BCE/ECB</a>
-        {' · '}{t('footer.tiers')}
-      </p>
+      <ul className="footer-credits">
+        <li>{t('footer.lists')}: <a href="https://github.com/Jiliac/MTGODecklistCache" target="_blank" rel="noreferrer">MTGODecklistCache</a>, <a href="https://www.mtgtop8.com" target="_blank" rel="noreferrer">MTGTop8</a></li>
+        <li>{t('footer.archetypes')}: <a href="https://github.com/Badaro/MTGOFormatData" target="_blank" rel="noreferrer">MTGOFormatData</a></li>
+        <li>{t('footer.cards')}: <a href="https://scryfall.com" target="_blank" rel="noreferrer">Scryfall</a></li>
+        <li>{t('footer.rates')}: <a href="https://www.ecb.europa.eu" target="_blank" rel="noreferrer">BCE/ECB</a></li>
+        <li>{t('footer.tiers')}</li>
+      </ul>
       {/* testo richiesto dalla Fan Content Policy di Wizards of the Coast (in inglese, come da policy) */}
       <p className="footer-legal" lang="en">
         Netdeckable is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" target="_blank" rel="noreferrer">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.

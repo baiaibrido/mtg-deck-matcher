@@ -39,7 +39,8 @@ const resultText = r => { const m = /^(\d+)\s*\w*\s*place$/i.exec(r.trim()); ret
 export function RogueInfo({ deck }) {
   return <>
     <span className="tier tier-rogue">Rogue</span>
-    <span>{t('rogue.results', deck.results)}{deck.best ? ` · ${t('rogue.best', resultText(deck.best))}` : ''}</span>
+    <span>{t('rogue.results', deck.results)}</span>
+    {deck.best && <span>{t('rogue.best', resultText(deck.best))}</span>}
     {deck.signature && <span className="sig">{t('rogue.signature', deck.signature)}</span>}
   </>
 }
@@ -55,7 +56,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
   const price = costText(cost, missing)
   return (
-    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
+    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}${owned ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
       <PinButton deck={s.deck} pinned={pinned} onPin={onPin} />
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
@@ -91,7 +92,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
           {!cedh && <span className="deck-score-sub">{t('completeSub')}</span>}
           {s.score >= 1 && <span className="stamp stamp-ok deck-stamp" aria-hidden="true">{t('stamp.complete')}</span>}
           {best && s.score < 1 && <span className="hand-note" aria-hidden="true">{t('note.closest')}</span>}
-        </span> : <span />}
+        </span> : null}
         <IconChevron className="deck-go" />
       </button>
     </li>

@@ -91,7 +91,7 @@ export function Matchups({ deck, onOpen, idOf }) {
             <li key={vs} className={few ? 'few' : ''}>
               {id ? <button className="linklike mu-name" onClick={() => onOpen(id)}>{vs}</button> : <span className="mu-name">{vs}</span>}
               <span className="mu-bar" aria-hidden="true"><span className={p >= 50 ? 'pos' : 'neg'} style={{ '--w': `${Math.min(25, Math.abs(p - 50)) * 4}%` }} /></span>
-              <span className="mu-num">{t('mu.row', num(p, 0), games)}{few && <em><span className="sep"> · </span>{t('mu.few')}</em>}</span>
+              <span className="mu-num">{t('mu.row', num(p, 0), games)}{few && <em>, {t('mu.few')}</em>}</span>
             </li>
           )
         })}

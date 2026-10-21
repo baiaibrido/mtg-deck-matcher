@@ -158,16 +158,19 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <Meter label="Main" {...s.main} />
           {s.side.total > 0 && <Meter label="Side" {...s.side} />}
           {missingCount > 0
-            ? <button className="linklike detail-need" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
-                {t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}{price && <> · {t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</>}
-              </button>
+            ? <p className="detail-need">
+                <button className="linklike" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
+                  {t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}
+                </button>
+                {price && <span>{t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</span>}
+              </p>
             : <span className="done">{t('haveAll')}</span>}
         </div>}
       </header>
 
       <div className={`detail-split${hasMeta ? ' has-meta' : ''}`}>
       <div className="detail-main">
-      <div className="seg" role="tablist" aria-label={t('view')}>
+      <div className="tabs tabs-deck" role="tablist" aria-label={t('view')}>
         <button role="tab" aria-selected={tab === 'list'} onClick={() => setTab('list')}>{t('tab.list')}</button>
         <button role="tab" aria-selected={tab === 'need'} onClick={() => setTab('need')}>{t('tab.need')} <span className="count">{missingCount}</span></button>
         {narrow && hasMeta && <button role="tab" aria-selected={tab === 'meta'} onClick={() => setTab('meta')}>{t('tab.metaShort')}</button>}
@@ -190,7 +193,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       </>}
 
       {tab === 'need' && (missingCount ? <>
-        <div className="actions actions-top">
+        <div className="toolbar need-tools">
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
           {store && (store.copy
             ? <a className="btn" href={store.url} target="_blank" rel="noreferrer" onClick={copyFor} title={t('store.copyTitle', store.name)}><IconCart size={18} />{store.name}</a>

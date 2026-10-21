@@ -1,0 +1,115 @@
+/* ═══════════ Token ═══════════
+   «La classifica stampata»: il foglio delle classifiche di un torneo su carta a modulo continuo.
+   Carta, inchiostro, righe verdi, nastro blu della stampante ad aghi, evidenziatore.
+   Un solo posto per colori, caratteri, spazi e misure: il resto del CSS usa solo questi nomi.
+   Scuro di default (carta grafite), chiaro con [data-theme="light"]. */
+
+@font-face { /* Alegreya Sans 800 con un nome suo: i titoli restano pieni anche con font-weight normale */
+  font-family: 'Netdeck Display'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../../node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-800-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Netdeck Display'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../../node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-ext-800-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* ── Carta e inchiostro ── */
+  --paper: #181b1d;      /* la carta (grafite) */
+  --sheet: #1f2427;      /* fogli, tagliandi, superfici */
+  --bar: #1e2826;        /* la riga verde del modulo continuo */
+  --ink: #e5e8e0;        /* inchiostro */
+  --ink-2: #a1aaa2;      /* inchiostro sbiadito: testo secondario */
+  --line: #3a4442;       /* linee di stampa, bordi quieti */
+  --line-2: #7a8681;     /* bordi dei campi: contrasto ≥ 3:1 (WCAG 1.4.11) */
+  --ribbon: #a9b6ff;     /* nastro blu della stampante: link, fuoco, accento */
+  --ribbon-ink: #14171a; /* testo sopra il nastro */
+  --marker: #e5d243;     /* evidenziatore */
+
+  /* ── Stati ── */
+  --ok: #6fcf8e; --part: #e4b24c; --no: #f0806f; --no-ink: #ff9a8c; --danger: #f3a093;
+
+  /* ── Colori di Magic ── */
+  --mana-w: #efe4bd; --mana-u: #4b97d6; --mana-b: #9a8ca8; --mana-r: #e2603e;
+  --mana-g: #41a364; --mana-gold: #d4ad5a; --mana-c: #a3abb0; --land: #8a7a5c;
+
+  /* ── Superfici sovrapposte ── */
+  --bar-bg: rgba(24, 27, 29, .94); --pop-bg: rgba(31, 36, 39, .98);
+  --overlay-bg: rgba(18, 20, 22, .9); --overlay-ink: #e5e8e0;
+  --track: rgba(255, 255, 255, .1); --shimmer: rgba(255, 255, 255, .04);
+  --placeholder: #87908a; --toast-link: #2c3a92;
+  --shadow-pop: 0 14px 36px rgba(0, 0, 0, .45);
+
+  /* ── Ufficio di carta: evidenziatori, timbri, penna ── */
+  --hl-miss: #f4dd3f; --hl-ok: #9be6a6; --hl-ink: #1d2126;
+  --stamp-ban: #ff8b7e; --stamp-rs: #ffb867; --stamp-ok: #7fe0a0; --stamp-date: var(--ribbon);
+  --pen: var(--ribbon);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.2 2.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --hole: radial-gradient(circle at 50% 50%, var(--paper) 4.5px, color-mix(in oklab, var(--ink) 30%, var(--paper)) 5px, transparent 5.6px);
+
+  /* ── Caratteri ── */
+  --font-ui: 'Alegreya Sans', system-ui, sans-serif;
+  --font-title: 'Netdeck Display', 'Alegreya Sans', system-ui, sans-serif;
+  --font-dot: 'Doto Variable', 'Courier New', monospace; /* numeri a punti: rank, percentuali, numeri grandi */
+  --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive; /* solo note a penna */
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; /* solo lo scontrino */
+
+  /* scala dei testi */
+  --fs-xs: .75rem;      /* 12  didascalie */
+  --fs-sm: .8125rem;    /* 13  dati secondari */
+  --fs-md: .875rem;     /* 14  testo secondario */
+  --fs-ctl: .9375rem;   /* 15  controlli */
+  --fs-body: 1.0625rem; /* 17  testo */
+  --fs-lg: 1.25rem;     /* 20  titolo di una voce */
+  --fs-xl: 1.5rem;      /* 24  titolo di sezione */
+  --fs-2xl: 2rem;       /* 32  titolo di pagina */
+  --fs-num: 2.75rem;    /* 44  numeri grandi a punti */
+
+  /* ── Spazi (base 4) ── */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  --gutter: 16px;
+
+  /* ── Controlli: una sola altezza ── */
+  --ctl: 40px;       /* pulsanti, menu, campi, segmenti, linguette */
+  --ctl-sm: 34px;    /* controlli dentro le righe (contatore, cestino) */
+  --r: 3px;          /* raggio dei controlli */
+  --r-lg: 4px;       /* raggio dei fogli */
+
+  /* ── Movimento ── */
+  --ease: cubic-bezier(.2, .8, .2, 1);
+
+  /* misure calcolate da JS */
+  --tabbar-h: 0px;
+}
+
+/* dita: bersagli da 44px */
+@media (pointer: coarse) { :root { --ctl: 44px; --ctl-sm: 44px; } }
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper: #e8ebe3; --sheet: #f1f3ed; --bar: #d7e3d0; --ink: #23272c; --ink-2: #545c55;
+  --line: #b4bdb0; --line-2: #7d877c; --ribbon: #2c3a92; --ribbon-ink: #f6f7f2; --marker: #f1df4b;
+  --ok: #1d6636; --part: #85590a; --no: #b02d24; --no-ink: #b02d24; --danger: #b02d24;
+  --mana-w: #c8b46e; --mana-c: #8f979c; --mana-gold: #b8913c; --land: #9b8a66;
+  --bar-bg: rgba(232, 235, 227, .94); --pop-bg: rgba(241, 243, 237, .98);
+  --overlay-bg: rgba(241, 243, 237, .94); --overlay-ink: #23272c;
+  --track: rgba(35, 39, 44, .12); --shimmer: rgba(0, 0, 0, .04);
+  --placeholder: #6b7369; --toast-link: #c3ccff;
+  --shadow-pop: 0 14px 36px rgba(35, 39, 44, .18);
+  --stamp-ban: #b02d24; --stamp-rs: #8f4a06; --stamp-ok: #0f6b33;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Giapponese: i font del sito non hanno i kana/kanji → font giapponesi di sistema subito dopo */
+:root:lang(ja) {
+  --font-title: 'Netdeck Display', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans JP', system-ui, sans-serif;
+  --font-ui: 'Alegreya Sans', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans JP', system-ui, sans-serif;
+}
+
+/* «più contrasto» nel sistema: i numeri a punti tornano un carattere pieno */
+@media (prefers-contrast: more) { :root { --font-dot: var(--font-title); } }
