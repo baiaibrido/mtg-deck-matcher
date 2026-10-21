@@ -13,6 +13,9 @@ export default {
 
   'sort.score': 'Mais completos', 'sort.share': 'Mais jogados', 'sort.cost': 'Mais baratos de completar',
   'decks.title.share': f => `Os decks de ${f} mais jogados`, 'decks.title.meta': f => `Os decks de ${f} melhores contra o meta`, 'decks.title.cost': f => `Os decks de ${f} mais baratos de completar`, 'decks.title.cheap': f => `Os decks de ${f} mais baratos`, 'sort.cheap': 'Mais baratos',
+  'store.copied': s => `Lista copiada: cole no ${s}`, 'store.copyTitle': s => `Copia a lista e abre o ${s}`,
+  'complete.list': 'da lista', 'need.list': n => ['', n === 1 ? ' carta da lista que você não tem' : ' cartas da lista que você não tem'], 'info.cedh': 'cEDH é o Commander de torneios competitivos (fonte MTGTop8). Cada deck é a lista de 100 cartas únicas de um torneio e cada jogador a personaliza muito: a porcentagem mostra quantas cartas dessa lista você já tem, não se o seu deck está pronto. Para decks casuais veja o EDHREC.',
+  'detail.toList': p => `Para ter a lista toda ${p}`,
   'decks.title': f => `Os decks de ${f} mais próximos da sua coleção`,
   'decks.stale': d => `Os dados do meta podem estar desatualizados: a última atualização foi há ${d} dias.`,
   loadCollection: 'Adicionar cartas',

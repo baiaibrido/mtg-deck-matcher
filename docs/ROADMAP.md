@@ -107,6 +107,7 @@ Principi:
 | v0.28.0: foil con scintille e lampo di luce (riconoscibili anche da sole); righe della collezione in elenco che non sbordano più con le carte senza costo (terre); gerarchia: Collezione prima di Carte chiave nel menu, «Oggi nel meta» dopo i primi tre mazzi anche su computer, nella pagina del mazzo la percentuale di completamento con barre e carte mancanti subito sotto il nome, Traguardi in fondo alla collezione, evidenziatore solo con il suo significato (non più sul primo mazzo) | Richiesta utente |
 | v0.28.1: «Oggi nel meta» torna in cima alla home su computer (su telefono resta dopo i primi tre mazzi) | Richiesta utente |
 | v0.29.0: ordinamento della classifica in evidenza sotto il titolo, e il titolo cambia con lui; predefinito «Più completi» con una collezione, «Più giocati» senza (e senza collezione «Più completi» non compare); tolto «Mi sento fortunato» (e il suo traguardo); tema scuro di nuovo grafite con le righe verdi | Richiesta utente |
+| v0.30.0: tasto per comprare le carte mancanti in base alla valuta: Cardmarket (valute europee: copia la lista e apre la lista desideri), TCGplayer (USD, CAD e resto), LigaMagic (BRL), Hareruya (JPY); Commander diventa «cEDH» con spiegazione «?» e parole adatte («% della lista», «carte della lista che non hai») | Richiesta utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

@@ -185,7 +185,7 @@ export default function App() {
           </>}
 
           {page === 'deck' && (
-            <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} toast={toast}
+            <DeckDetail key={sel.deck.id} s={sel} colors={colorsOf(sel.deck)} formatName={formatName} cedh={format === 'commander'} toast={toast}
               onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
               pinned={pins.includes(sel.deck.id)} onPin={togglePin} decks={meta || []} owned={ownedMap} hasColl={collection.length > 0}
               onOwnDeck={() => ownDeck(sel)}

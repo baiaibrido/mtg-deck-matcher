@@ -11,9 +11,9 @@ import { useSession } from '../state/useSession.js'
 import { useMedia } from '../state/useMedia.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
-import { t, num, dayMonth } from '../i18n/index.js'
-import { money, priceOf, priceSource } from '../lib/currency.js'
-import { toText, tcgplayerUrl, downloadTxt } from '../lib/export.js'
+import { t, num, dayMonth, getLang } from '../i18n/index.js'
+import { money, priceOf, priceSource, currency } from '../lib/currency.js'
+import { toText, storeFor, downloadTxt } from '../lib/export.js'
 import { HistoryChart, Matchups } from './Charts.jsx'
 import { deckBans } from '../lib/bans.js'
 
@@ -91,7 +91,7 @@ function Section({ title, rows, onlyMissing, visual, hasColl }) {
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
 
-export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, decks = [], owned = new Map(), hasColl = true, onOwnDeck }) {
+export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, decks = [], owned = new Map(), hasColl = true, onOwnDeck, cedh = false }) {
   const [tab, setTab] = useState('list')
   // su telefono andamento e matchup diventano una terza scheda invece di stare in fondo alla lista
   const narrow = useMedia('(max-width: 899px)')
@@ -113,6 +113,9 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
     try { await navigator.clipboard.writeText(list); toast(t('detail.copied')) }
     catch { toast(t('copyFail')) }
   }
+  // negozio della propria zona: dove non si può caricare la lista con un link, la si copia mentre il negozio si apre
+  const store = storeFor(currency(), getLang(), s.missing)
+  const copyFor = () => { navigator.clipboard?.writeText(list).then(() => toast(t('store.copied', store.name)), () => toast(t('copyFail'))) }
 
   return (
     <article className="detail" style={frameStyle(colors)}>
@@ -151,12 +154,12 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         </div>
         {/* con una collezione la cosa più importante è quanto manca: percentuale, barre e carte mancanti insieme */}
         {hasColl && <div className="detail-meters">
-          <p className="detail-score"><b>{Math.round(s.score * 100)}<small>%</small></b><span>{t('complete')}</span></p>
+          <p className="detail-score"><b>{Math.round(s.score * 100)}<small>%</small></b><span>{t(cedh ? 'complete.list' : 'complete')}</span></p>
           <Meter label="Main" {...s.main} />
           {s.side.total > 0 && <Meter label="Side" {...s.side} />}
           {missingCount > 0
             ? <button className="linklike detail-need" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
-                {t('need', missingCount)[0]}<b>{missingCount}</b>{t('need', missingCount)[1]}{price && <> · {t('detail.toComplete', price)}</>}
+                {t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}{price && <> · {t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</>}
               </button>
             : <span className="done">{t('haveAll')}</span>}
         </div>}
@@ -189,7 +192,9 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       {tab === 'need' && (missingCount ? <>
         <div className="actions actions-top">
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
-          <a className="btn" href={tcgplayerUrl(s.missing)} target="_blank" rel="noreferrer"><IconCart size={18} />TCGplayer</a>
+          {store.copy
+            ? <a className="btn" href={store.url} target="_blank" rel="noreferrer" onClick={copyFor} title={t('store.copyTitle', store.name)}><IconCart size={18} />{store.name}</a>
+            : <a className="btn" href={store.url} target="_blank" rel="noreferrer"><IconCart size={18} />{store.name}</a>}
           <button className="btn" onClick={() => downloadTxt(`${t('detail.file')}-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.txt`, list)}><IconDownload size={18} />{t('download')}</button>
         </div>
         <p className="hint hint-top">{t('detail.hint', priceSource())}</p>

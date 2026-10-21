@@ -60,12 +60,13 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   const rogueShown = (view.budget ? rogue.filter(withinBudget) : rogue).filter(s => !pins.includes(s.deck.id))
   // il mazzo più vicino alla collezione: cerchiato a penna nella classifica
   const best = owned ? ordered.filter(s => s.score < 1).reduce((a, b) => (b.score > (a?.score ?? 0) ? b : a), null) : null
-  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: togglePin, owned, bestId: best?.deck.id }
+  const cedh = format === 'commander' // cEDH: le percentuali si riferiscono alla lista di un torneo
+  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: togglePin, owned, bestId: best?.deck.id, cedh }
 
   return <>
     <div className={`home${owned ? '' : ' home-new'}`}>
       <header className="page-head home-head">
-        <h1>{title}</h1>
+        <h1>{title}{cedh && <> <Info text={t('info.cedh')} label={t('info.label')} /></>}</h1>
         {!owned && <>
           <p className="hero-text">{t('hero.text')}</p>
           <p className="hero-actions">

@@ -59,6 +59,7 @@ export const setCurrency = (c, persist = false) => {
 }
 // Simbolo breve per il selettore (es. € , $, ¥); se coincide col codice non si ripete
 export const currencySymbol = (c, loc) => { try { return new Intl.NumberFormat(loc, { style: 'currency', currency: c, currencyDisplay: 'narrowSymbol' }).formatToParts(0).find(p => p.type === 'currency')?.value } catch { return c } }
+export const isEuroMarket = (c = CUR) => EUR_BASED.has(c)
 export const priceSource = () => EUR_BASED.has(CUR) ? 'Cardmarket' : 'TCGplayer'
 
 // Prezzo di una carta nella valuta locale; se manca quello del mercato di riferimento si converte l'altro

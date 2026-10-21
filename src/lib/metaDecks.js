@@ -7,7 +7,8 @@ const base = import.meta.env?.BASE_URL || '/'
 
 export async function loadFormats() {
   const r = await fetch(`${base}meta/index.json`)
-  return r.ok ? (await r.json()).formats : []
+  // «Commander» qui sono i mazzi dei tornei competitivi (MTGTop8, cEDH): lo diciamo nel nome. L'indirizzo resta /commander
+  return r.ok ? (await r.json()).formats.map(f => f.id === 'commander' ? { ...f, name: 'cEDH' } : f) : []
 }
 
 // Cache JSON per formato: { updated, source ('MTGODecklistCache' | 'MTGTop8'), decks: [{ id, name, url?, main: ["4 Card"], side: [...] }] }

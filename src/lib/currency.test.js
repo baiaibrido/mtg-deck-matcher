@@ -33,3 +33,16 @@ test('soglie di budget arrotondate nella valuta locale', () => {
   assert.equal(localBudget(10, 'JPY'), 2000)
   assert.equal(localBudget(100, 'JPY'), 20000)
 })
+
+test('negozio in base alla valuta', async () => {
+  const { storeFor } = await import('./export.js')
+  const miss = [{ name: 'Lightning Bolt', missing: 4 }]
+  assert.equal(storeFor('EUR', 'it', miss).name, 'Cardmarket')
+  assert.equal(storeFor('EUR', 'it', miss).url, 'https://www.cardmarket.com/it/Magic/Wants')
+  assert.equal(storeFor('GBP', 'en', miss).url, 'https://www.cardmarket.com/en/Magic/Wants')
+  assert.equal(storeFor('USD', 'en', miss).name, 'TCGplayer')
+  assert.ok(storeFor('USD', 'en', miss).url.includes('4%20Lightning%20Bolt'))
+  assert.equal(storeFor('BRL', 'pt', miss).name, 'LigaMagic')
+  assert.equal(storeFor('JPY', 'ja', miss).url, 'https://www.hareruyamtg.com/ja/')
+  assert.equal(storeFor('MXN', 'es', miss).name, 'TCGplayer')
+})

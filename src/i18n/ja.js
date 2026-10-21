@@ -10,6 +10,9 @@ export default {
 
   'sort.score': '完成度が高い順', 'sort.share': '使用率が高い順', 'sort.cost': '完成までが安い順',
   'decks.title.share': f => `使用率が高い${f}のデッキ`, 'decks.title.meta': f => `メタに強い${f}のデッキ`, 'decks.title.cost': f => `完成までが安い${f}のデッキ`, 'decks.title.cheap': f => `安い${f}のデッキ`, 'sort.cheap': '安い順',
+  'store.copied': s => `リストをコピーしました:${s}に貼り付けてください`, 'store.copyTitle': s => `リストをコピーして${s}を開きます`,
+  'complete.list': 'リスト所持率', 'need.list': n => ['リストのうち未所持 ', '枚'], 'info.cedh': 'cEDHは競技向け大会の統率者戦です(出典:MTGTop8)。各デッキは大会で使われた100枚のシングルトンのリストで、プレイヤーごとに大きく調整されます。割合はそのリストのカードをどれだけ持っているかを示すもので、あなたのデッキが完成しているかではありません。カジュアル向けはEDHRECをご覧ください。',
+  'detail.toList': p => `リストをすべて揃えるには ${p}`,
   'decks.title': f => `あなたのコレクションに近い${f}のデッキ`,
   'decks.stale': d => `メタのデータが古い可能性があります（最終更新は${d}日前）。`,
   loadCollection: 'カードを追加',
