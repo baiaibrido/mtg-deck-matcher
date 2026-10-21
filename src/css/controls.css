@@ -53,10 +53,12 @@
 .tabs > button {
   flex: none; display: inline-flex; align-items: center; gap: var(--s2); min-height: var(--ctl); padding: 0 var(--s4);
   border: 1px solid var(--line); border-bottom: 0; border-radius: 6px 6px 0 0; background: var(--bar);
-  box-shadow: inset 0 -1.5px 0 var(--ink); color: var(--ink-2); font: 700 var(--fs-ctl)/1.2 var(--font-ui);
+  position: relative; color: var(--ink-2); font: 700 var(--fs-ctl)/1.2 var(--font-ui);
   white-space: nowrap; cursor: pointer; scroll-snap-align: start; transition: color .15s;
 }
 .tabs > button:hover { color: var(--ink); }
+/* la linea di base passa davanti ai bordi delle linguette non scelte (anche sugli angoli) */
+.tabs > button:not([aria-selected="true"])::after { content: ''; position: absolute; left: -1px; right: -1px; bottom: 0; height: 1.5px; background: var(--ink); }
 .tabs > button[aria-selected="true"] { background: var(--paper) var(--grain); border: 1.5px solid var(--ink); border-bottom: 0; box-shadow: none; color: var(--ink); }
 .tabs > button:focus-visible { outline-offset: -4px; }
 

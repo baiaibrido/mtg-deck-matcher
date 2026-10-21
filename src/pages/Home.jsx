@@ -172,11 +172,11 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
               <PinnedList ranked={pinned} colorsOf={colorsOf} onOpen={id => go('deck', id)} onPin={pinWithMotion} owned={owned} cedh={cedh} />
             </section>
           )}
-          {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && phone && <div className="today-inline">{todayCard}</div>}</>
+          {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && phone && todayCard && <div className="today-inline">{todayCard}</div>}</>
             : !phone || !meta ? <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
               : <>
                 <DeckList ranked={all.slice(0, 3)} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
-                <div className="today-inline">{todayCard}</div>
+                {todayCard && <div className="today-inline">{todayCard}</div>}
                 {all.length > 3 && <DeckList ranked={all.slice(3)} start={3} animKey={format + view.sort + view.tier + view.colors + view.budget + 'b'} {...listProps} />}
               </>}
         </>}
