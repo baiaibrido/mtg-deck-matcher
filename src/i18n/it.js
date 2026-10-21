@@ -13,11 +13,12 @@ export default {
 
   // elenco mazzi
   'sort.score': 'Più completi', 'sort.share': 'Più giocati', 'sort.cost': 'Meno costosi da finire',
-  'decks.title.share': f => `I mazzi ${f} più giocati`, 'decks.title.meta': f => `I mazzi ${f} migliori contro il meta`, 'decks.title.cost': f => `I mazzi ${f} che costa meno finire`, 'decks.title.cheap': f => `I mazzi ${f} più economici`, 'sort.cheap': 'Più economici',
+  'decks.title.share': f => `I mazzi ${f} più giocati`,'sort.cheap': 'Più economici',
   'store.copied': s => `Lista copiata: incollala su ${s}`, 'store.copyTitle': s => `Copia la lista e apre ${s}`,
   'complete.list': 'della lista', 'need.list': n => ['', n === 1 ? ' carta della lista che non hai' : ' carte della lista che non hai'], 'info.cedh': 'cEDH è il Commander dei tornei competitivi (fonte MTGTop8). Ogni mazzo è la lista di 100 carte singole di un torneo e ognuno la personalizza molto: la percentuale dice quante carte di quella lista hai già, non se il tuo mazzo è pronto. Per i mazzi da partite tra amici guarda EDHREC.',
   'detail.toList': p => `Per avere tutta la lista ${p}`,
-  'decks.title': f => `I mazzi ${f} più vicini alla tua collezione`,
+  'dt.score': 'i più vicini alla tua collezione', 'dt.score.s': 'i più vicini a te', 'dt.share': 'i più giocati', 'dt.meta': 'i migliori contro il meta', 'dt.meta.s': 'i migliori sul meta', 'dt.cost': 'i meno costosi da finire', 'dt.cost.s': 'i meno cari da finire', 'dt.cheap': 'i più economici',
+
   'decks.stale': d => `I dati del meta potrebbero non essere aggiornati: l'ultimo aggiornamento è di ${d} giorni fa.`,
   loadCollection: 'Aggiungi carte',
   allTiers: 'Tutti i tier', colors: 'Colori del mazzo', clearColors: 'Azzera',

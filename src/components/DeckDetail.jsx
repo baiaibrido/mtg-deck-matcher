@@ -115,7 +115,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
   }
   // negozio della propria zona: dove non si può caricare la lista con un link, la si copia mentre il negozio si apre
   const store = storeFor(currency(), getLang(), s.missing)
-  const copyFor = () => { navigator.clipboard?.writeText(list).then(() => toast(t('store.copied', store.name)), () => toast(t('copyFail'))) }
+  const copyFor = () => { if (!store) return; navigator.clipboard?.writeText(list).then(() => toast(t('store.copied', store.name)), () => toast(t('copyFail'))) }
 
   return (
     <article className="detail" style={frameStyle(colors)}>
@@ -192,9 +192,9 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       {tab === 'need' && (missingCount ? <>
         <div className="actions actions-top">
           <button className="btn btn-primary" onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
-          {store.copy
+          {store && (store.copy
             ? <a className="btn" href={store.url} target="_blank" rel="noreferrer" onClick={copyFor} title={t('store.copyTitle', store.name)}><IconCart size={18} />{store.name}</a>
-            : <a className="btn" href={store.url} target="_blank" rel="noreferrer"><IconCart size={18} />{store.name}</a>}
+            : <a className="btn" href={store.url} target="_blank" rel="noreferrer"><IconCart size={18} />{store.name}</a>)}
           <button className="btn" onClick={() => downloadTxt(`${t('detail.file')}-${s.deck.name.replace(/\W+/g, '-').toLowerCase()}.txt`, list)}><IconDownload size={18} />{t('download')}</button>
         </div>
         <p className="hint hint-top">{t('detail.hint', priceSource())}</p>

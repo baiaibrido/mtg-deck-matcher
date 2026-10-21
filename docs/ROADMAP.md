@@ -108,6 +108,7 @@ Principi:
 | v0.28.1: «Oggi nel meta» torna in cima alla home su computer (su telefono resta dopo i primi tre mazzi) | Richiesta utente |
 | v0.29.0: ordinamento della classifica in evidenza sotto il titolo, e il titolo cambia con lui; predefinito «Più completi» con una collezione, «Più giocati» senza (e senza collezione «Più completi» non compare); tolto «Mi sento fortunato» (e il suo traguardo); tema scuro di nuovo grafite con le righe verdi | Richiesta utente |
 | v0.30.0: tasto per comprare le carte mancanti in base alla valuta: Cardmarket (valute europee: copia la lista e apre la lista desideri), TCGplayer (USD, CAD e resto), LigaMagic (BRL), Hareruya (JPY); Commander diventa «cEDH» con spiegazione «?» e parole adatte («% della lista», «carte della lista che non hai») | Richiesta utente |
+| v0.31.0: home: «Oggi nel meta» sopra il titolo (computer); titolo sempre su una riga («Pauper: i più giocati», più corto su telefono); ordinamento e filtri in un unico blocco, tasto Rogue sotto; fissando un mazzo la riga vola tra i preferiti in cima e si illumina; tolti i tasti LigaMagic e Hareruya (portavano solo alla home del sito), restano Cardmarket (lista desideri) e TCGplayer (carrello pieno) | Richiesta utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

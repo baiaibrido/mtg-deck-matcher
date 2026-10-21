@@ -55,7 +55,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
   const price = costText(cost, missing)
   return (
-    <li className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
+    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}`} style={{ ...frameStyle(colors), '--i': index }}>
       <PinButton deck={s.deck} pinned={pinned} onPin={onPin} />
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>

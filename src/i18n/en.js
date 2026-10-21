@@ -11,11 +11,12 @@ export default {
   noPrice: n => `${n} ${cards(n)} without a price`,
 
   'sort.score': 'Most complete', 'sort.share': 'Most played', 'sort.cost': 'Cheapest to finish',
-  'decks.title.share': f => `The most played ${f} decks`, 'decks.title.meta': f => `The ${f} decks that beat the meta`, 'decks.title.cost': f => `The ${f} decks cheapest to finish`, 'decks.title.cheap': f => `The cheapest ${f} decks`, 'sort.cheap': 'Cheapest',
+  'decks.title.share': f => `The most played ${f} decks`,'sort.cheap': 'Cheapest',
   'store.copied': s => `List copied: paste it on ${s}`, 'store.copyTitle': s => `Copies the list and opens ${s}`,
   'complete.list': 'of the list', 'need.list': n => ['', n === 1 ? ' card from the list you don\'t own' : ' cards from the list you don\'t own'], 'info.cedh': 'cEDH is competitive tournament Commander (source: MTGTop8). Each deck is a 100-card singleton list from a tournament and players customise it a lot: the percentage tells you how many cards of that list you already own, not whether your deck is ready. For casual decks check EDHREC.',
   'detail.toList': p => `To get the whole list ${p}`,
-  'decks.title': f => `The ${f} decks closest to your collection`,
+  'dt.score': 'closest to your collection', 'dt.score.s': 'closest to you', 'dt.share': 'most played', 'dt.meta': 'best against the meta', 'dt.meta.s': 'best vs the meta', 'dt.cost': 'cheapest to finish', 'dt.cost.s': 'cheapest to finish', 'dt.cheap': 'cheapest',
+
   'decks.stale': d => `The meta data may be out of date: the last update was ${d} days ago.`,
   loadCollection: 'Add cards',
   allTiers: 'All tiers', colors: 'Deck colors', clearColors: 'Clear',

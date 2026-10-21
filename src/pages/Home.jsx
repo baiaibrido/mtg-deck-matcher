@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { t, dayMonth } from '../i18n/index.js'
 import { money, localBudget } from '../lib/currency.js'
 import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
@@ -33,7 +33,9 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   if (!owned && view.sort === 'score') view.sort = 'share'
   const sorts = owned ? SORTS : SORTS.filter(k => k !== 'score')
   const sortLabel = k => t(k === 'cost' && !owned ? 'sort.cheap' : `sort.${k}`)
-  const title = t({ score: 'decks.title', share: 'decks.title.share', meta: 'decks.title.meta', cost: owned ? 'decks.title.cost' : 'decks.title.cheap' }[view.sort], formatName)
+  // titolo sempre su una riga: «Pauper: i più giocati»; su telefono una versione più corta
+  const tKey = view.sort === 'cost' && !owned ? 'cheap' : view.sort
+  const tShort = ['score', 'meta', 'cost'].includes(tKey) ? `dt.${tKey}.s` : `dt.${tKey}`
   const setV = patch => setView({ ...view, ...patch })
   const toggleColor = c => setV({ colors: view.colors.includes(c) ? view.colors.filter(x => x !== c) : [...view.colors, c] })
   const activeFilters = (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
@@ -61,12 +63,32 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   // il mazzo più vicino alla collezione: cerchiato a penna nella classifica
   const best = owned ? ordered.filter(s => s.score < 1).reduce((a, b) => (b.score > (a?.score ?? 0) ? b : a), null) : null
   const cedh = format === 'commander' // cEDH: le percentuali si riferiscono alla lista di un torneo
-  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: togglePin, owned, bestId: best?.deck.id, cedh }
+  // fissando un mazzo, la riga vola nella sezione dei preferiti in cima (la pagina la segue)
+  const flip = useRef(null)
+  const pinWithMotion = id => {
+    const el = !pins.includes(id) && document.querySelector(`.decks [data-deck="${CSS.escape(id)}"]`)
+    if (el) flip.current = { id, top: el.getBoundingClientRect().top }
+    togglePin(id)
+  }
+  useLayoutEffect(() => {
+    const f = flip.current; flip.current = null
+    const el = f && document.querySelector(`.pinned [data-deck="${CSS.escape(f.id)}"]`)
+    if (!el) return
+    const head = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--head-h')) || 0
+    const title = el.closest('.pinned')
+    if (title.getBoundingClientRect().top < head) scrollTo({ top: title.getBoundingClientRect().top + scrollY - head - 12, behavior: 'instant' })
+    el.classList.add('just-pinned'); setTimeout(() => el.classList.remove('just-pinned'), 1600)
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const dy = f.top - el.getBoundingClientRect().top
+    el.animate([{ transform: `translateY(${dy}px)`, zIndex: 5 }, { transform: 'none', zIndex: 5 }], { duration: Math.min(900, 380 + Math.abs(dy) / 3), easing: 'cubic-bezier(.2,.7,.2,1)' })
+  }, [pins])
+  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: pinWithMotion, owned, bestId: best?.deck.id, cedh }
 
   return <>
     <div className={`home${owned ? '' : ' home-new'}`}>
+      {meta && !phone && todayCard}
       <header className="page-head home-head">
-        <h1>{title}{cedh && <> <Info text={t('info.cedh')} label={t('info.label')} /></>}</h1>
+        <h1 className="home-title"><span className="t-long">{formatName}: {t(`dt.${tKey}`)}</span><span className="t-short">{formatName}: {t(tShort)}</span>{cedh && <> <Info text={t('info.cedh')} label={t('info.label')} /></>}</h1>
         {!owned && <>
           <p className="hero-text">{t('hero.text')}</p>
           <p className="hero-actions">
@@ -74,11 +96,6 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             <button className="linklike hero-browse" onClick={() => scrollToId('deck-list')}>{t('hero.browse')}</button>
           </p>
         </>}
-        {/* l'ordine decide cosa mostra la pagina (e il titolo): sta subito sotto, ben visibile */}
-        {decks.length > 1 && <div className="sort-tabs" role="group" aria-label={t('sort')}>
-          <span className="sort-tabs-label" aria-hidden="true">{t('sort')}</span>
-          {sorts.map(k => <button key={k} aria-pressed={view.sort === k} onClick={() => setV({ sort: k })}>{sortLabel(k)}</button>)}
-        </div>}
         {almost && (
           <p className="almost">
             <span aria-hidden="true">🎯</span>
@@ -87,8 +104,12 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
           </p>
         )}
       </header>
-      {meta && !phone && todayCard}
       <div className="home-tools">
+        {/* ordinamento e filtri insieme: l'ordine cambia anche il titolo */}
+        {decks.length > 1 && <div className="sort-tabs" role="group" aria-label={t('sort')}>
+          <span className="sort-tabs-label" aria-hidden="true">{t('sort')}</span>
+          {sorts.map(k => <button key={k} aria-pressed={view.sort === k} onClick={() => setV({ sort: k })}>{sortLabel(k)}</button>)}
+        </div>}
         {decks.length > 1 && <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} onClick={() => setFiltersOpen(o => !o)}>
           <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
         </button>}
@@ -101,7 +122,6 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             <div className="chips" role="group" aria-label="Tier">
               {[0, 1, 2, 3].map(n => <button key={n} aria-pressed={view.tier === n} onClick={() => setV({ tier: n })}>{n ? `Tier ${n}` : t('allTiers')}</button>)}
               <Info text={t('info.tier')} label={t('info.label')} />
-              {rogueShown.length > 0 && <button className="chip-rogue" onClick={() => scrollToId('rogue-title')} title={t('rogue.title')}><span aria-hidden="true">🌶</span> Rogue <span className="count">{rogueShown.length}</span> <span aria-hidden="true">↓</span></button>}
             </div>
             <div className="color-filter" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
               <span>{t('colors')}</span>
@@ -114,6 +134,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             </div>
           </div>
         )}
+        {rogueShown.length > 0 && <button className="btn chip-rogue rogue-jump" onClick={() => scrollToId('rogue-title')} title={t('rogue.title')}><span aria-hidden="true">🌶</span> {t('rogue.title')} <span className="count">{rogueShown.length}</span> <span aria-hidden="true">↓</span></button>}
       </div>
     </div>
 
