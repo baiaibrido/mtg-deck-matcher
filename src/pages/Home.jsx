@@ -14,7 +14,7 @@ import { useMedia } from '../state/useMedia.js'
 
 const STALE_DAYS = 3
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
-const SORTS = ['share', 'score', 'meta', 'cost']
+const SORTS = ['score', 'share', 'meta', 'cost']
 const BUDGETS = [0, 10, 25, 50, 100, 200] // tetto di spesa in euro, mostrato e confrontato nella valuta locale (0 = nessuno)
 const scrollToId = id => {
   const el = document.getElementById(id)
@@ -26,13 +26,18 @@ const scrollToId = id => {
 export default function Home({ format, formatName, meta, metaMain, decks, ranked, rogue, collection, almost, onHideAlmost,
   colorsOf, costOf, pins, togglePin, cardsState, banNotice, todayCard, userDecks, setUserDecks, toast }) {
   const phone = useMedia('(max-width: 719px)') // su telefono «Oggi nel meta» va dopo i primi mazzi
+  const owned = collection.length > 0
   const [viewRaw, setView] = useSession('mdm.view', {})
-  const view = { sort: 'share', tier: 0, colors: [], budget: 0, ...viewRaw }
+  // ordine predefinito: chi ha carte vede i mazzi più vicini alla collezione, chi non ne ha i mazzi del momento
+  const view = { sort: owned ? 'score' : 'share', tier: 0, colors: [], budget: 0, ...viewRaw }
+  if (!owned && view.sort === 'score') view.sort = 'share'
+  const sorts = owned ? SORTS : SORTS.filter(k => k !== 'score')
+  const sortLabel = k => t(k === 'cost' && !owned ? 'sort.cheap' : `sort.${k}`)
+  const title = t({ score: 'decks.title', share: 'decks.title.share', meta: 'decks.title.meta', cost: owned ? 'decks.title.cost' : 'decks.title.cheap' }[view.sort], formatName)
   const setV = patch => setView({ ...view, ...patch })
   const toggleColor = c => setV({ colors: view.colors.includes(c) ? view.colors.filter(x => x !== c) : [...view.colors, c] })
-  const activeFilters = (view.sort !== 'share') + (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
+  const activeFilters = (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
   const [filtersOpen, setFiltersOpen] = useState(false) // su telefono i filtri stanno chiusi dietro un pulsante
-  const owned = collection.length > 0
   const updated = meta?.[0]?.updated
   const stale = updated && daysAgo(updated) > STALE_DAYS
 
@@ -60,7 +65,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   return <>
     <div className={`home${owned ? '' : ' home-new'}`}>
       <header className="page-head home-head">
-        <h1>{t('decks.title', formatName)}</h1>
+        <h1>{title}</h1>
         {!owned && <>
           <p className="hero-text">{t('hero.text')}</p>
           <p className="hero-actions">
@@ -68,6 +73,11 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             <button className="linklike hero-browse" onClick={() => scrollToId('deck-list')}>{t('hero.browse')}</button>
           </p>
         </>}
+        {/* l'ordine decide cosa mostra la pagina (e il titolo): sta subito sotto, ben visibile */}
+        {decks.length > 1 && <div className="sort-tabs" role="group" aria-label={t('sort')}>
+          <span className="sort-tabs-label" aria-hidden="true">{t('sort')}</span>
+          {sorts.map(k => <button key={k} aria-pressed={view.sort === k} onClick={() => setV({ sort: k })}>{sortLabel(k)}</button>)}
+        </div>}
         {almost && (
           <p className="almost">
             <span aria-hidden="true">🎯</span>
@@ -83,10 +93,6 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
         </button>}
         {decks.length > 1 && (
           <div className={`filters${filtersOpen ? ' open' : ''}`}>
-            <span className="select">
-              <span aria-hidden="true">{t('sort')}</span>
-              <Picker label={t('sort')} value={view.sort} onChange={v => setV({ sort: v })} options={SORTS.map(k => ({ value: k, label: t(`sort.${k}`) }))} />
-            </span>
             <span className="select">
               <span aria-hidden="true">{t('budget')}</span>
               <Picker label={t('budget')} value={view.budget} onChange={v => setV({ budget: v })} options={BUDGETS.map(b => ({ value: b, label: b ? t('budget.max', money(localBudget(b))) : t('budget.any') }))} />

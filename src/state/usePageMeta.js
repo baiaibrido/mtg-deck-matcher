@@ -6,7 +6,7 @@ export function usePageMeta({ page, deck, formatName, lang }) {
   useEffect(() => {
     if (!formatName && page !== 'collection') return
     const title = page === 'deck' && deck ? `${deck.name} — ${formatName}` : page === 'key-cards' ? t('kc.title', formatName)
-      : page === 'stats' ? t('st.title', formatName) : page === 'collection' ? t('coll.title') : t('decks.title', formatName)
+      : page === 'stats' ? t('st.title', formatName) : page === 'collection' ? t('coll.title') : t('decks.title.share', formatName)
     document.title = `${title} · Netdeckable`
     const desc = page === 'deck' && deck ? t('seo.deck', deck.name, formatName) : t('seo.home', formatName)
     document.querySelector('meta[name="description"]')?.setAttribute('content', desc)

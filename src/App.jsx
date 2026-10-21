@@ -160,8 +160,7 @@ export default function App() {
   })()
   const openDaily = (id, fresh) => { bumpFun(f => { const st = bumpStreak(f.streak); return { streak: st, bestStreak: Math.max(f.bestStreak || 0, st.n), opens: (f.opens || 0) + (fresh ? 1 : 0) } }); go('deck', id) }
   const todayCard = <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
-    onOpenDaily={openDaily} onOpen={id => go('deck', id)} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame}
-    luckyPool={[...metaMain, ...(meta || []).filter(d => d.rogue)]} onLucky={d => { bumpFun(f => ({ lucky: (f.lucky || 0) + 1 })); go('deck', d.id) }} />
+    onOpenDaily={openDaily} onOpen={id => go('deck', id)} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame} />
   useFunTracking({ fun, bumpFun, format, collection, ranked, almost, sel, pins, cardsState, toast })
 
   // la pagina del mazzo è la più aperta: la si scarica in anticipo quando il browser è libero

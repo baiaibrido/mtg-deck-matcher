@@ -1,6 +1,6 @@
 /* ═══════════ «Ufficio di carta» (v0.26) ═══════════
    Sopra la «classifica stampata»: grana della carta, modulo continuo ovunque, timbri, evidenziatori,
-   scontrino, raccoglitore ad anelli, graffette, note a penna, carta carbone nel tema scuro, piccoli movimenti. */
+   scontrino, raccoglitore ad anelli, graffette, note a penna, piccoli movimenti. */
 
 :root {
   --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
@@ -8,7 +8,7 @@
   --stamp-ban: #b02d24; --stamp-rs: #8f4a06; --stamp-ok: #0f6b33; --stamp-date: var(--p-ribbon);
   --pen: var(--p-ribbon);
   --hole: radial-gradient(circle at 50% 50%, var(--p-paper) 4.5px, color-mix(in oklab, var(--p-ink) 30%, var(--p-paper)) 5px, transparent 5.6px);
-  /* grana: puntini scuri sulla carta chiara, chiari sulla carta carbone */
+  /* grana: puntini chiari sulla grafite, scuri sulla carta chiara */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   /* inchiostro irregolare dei timbri: qualche puntino dove il timbro non ha preso */
   --ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.2 2.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
@@ -17,15 +17,8 @@
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ── Tema scuro come carta carbone: nero-bluastro, inchiostro che sembra ricalcato ── */
-:root:not([data-theme="light"]) {
-  --p-paper: #11141c; --p-sheet: #171b26; --p-bar: #1a2030; --p-ink: #dfe4f3; --p-faded: #9aa3bd;
-  --p-rule: #313951; --bar-bg: rgba(17, 20, 28, .86); --pop-bg: rgba(23, 27, 38, .96);
-  --stamp-ban: #ff8b7e; --stamp-rs: #ffb867; --stamp-ok: #7fe0a0;
-}
-:root:not([data-theme="light"]) :is(h1, .deck-name, .deck-rank, .deck-score b, .key-rank, .st-hero b, .mu-big b) {
-  text-shadow: .6px .4px 0 color-mix(in oklab, var(--p-ribbon) 45%, transparent), 0 0 1.2px color-mix(in oklab, var(--p-ink) 55%, transparent);
-}
+/* ── Tema scuro: grafite con le righe verdi del modulo continuo (i colori di styles.css); solo timbri più chiari ── */
+:root:not([data-theme="light"]) { --stamp-ban: #ff8b7e; --stamp-rs: #ffb867; --stamp-ok: #7fe0a0; }
 
 /* ── Grana della carta ── */
 body { background-image: var(--grain); }

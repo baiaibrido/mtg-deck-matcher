@@ -134,7 +134,6 @@ export const ACHIEVEMENTS = [
   { id: 'sleuth', icon: '🕵️', test: c => (c.fun.guessWins || 0) >= 5 },
   { id: 'sharp', icon: '🦅', test: c => !!c.fun.guessFirst },
   { id: 'quiz', icon: '🪞', test: c => !!c.fun.quiz },
-  { id: 'lucky', icon: '🎰', test: c => (c.fun.lucky || 0) >= 1 },
   { id: 'night', icon: '🌙', test: c => !!c.fun.night },
 ]
 export const unlockedNow = ctx => ACHIEVEMENTS.filter(a => a.test(ctx)).map(a => a.id)

@@ -1049,10 +1049,7 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 .today-timer { color: var(--part); }
 .today-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--no); animation: today-ping 1.6s ease-out infinite; }
 @keyframes today-ping { 0% { box-shadow: 0 0 0 0 var(--no); } 70%, 100% { box-shadow: 0 0 0 6px transparent; } }
-.lucky.spinning .lucky-text { color: var(--brass); }
-.lucky.spinning .lucky-icon { animation: twist .5s linear infinite; }
-@keyframes twist { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .today-dot, .lucky.spinning .lucky-icon { animation: none; } .mystery-mini, .today-go { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .today-dot { animation: none; } .mystery-mini, .today-go { transition: none; } }
 
 /* telefono: titolo compatto, poi filtri, poi "Oggi nel meta" come striscia con quattro tessere */
 @media (max-width: 719px) {

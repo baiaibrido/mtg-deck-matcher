@@ -45,5 +45,5 @@ test('quiz: risposte veloci+creature+verde → Elves', () => {
   assert.equal(m.d.name, 'Elves')
 })
 test('traguardi', () => {
-  assert.deepEqual(unlockedNow({ cards: 120, value: 0, maxColor: 10, minColor: 0, pins: 0, fun: { lucky: 1, completeMax: 3 } }), ['first', 'c100', 'complete', 'three', 'lucky'])
+  assert.deepEqual(unlockedNow({ cards: 120, value: 0, maxColor: 10, minColor: 0, pins: 0, fun: { completeMax: 3 } }), ['first', 'c100', 'complete', 'three'])
 })

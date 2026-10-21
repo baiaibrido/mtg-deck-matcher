@@ -6,14 +6,13 @@ import { IconChevron } from './Icons.jsx'
 import { getCached } from '../lib/scryfall.js'
 import { dayKey, untilMidnight, hash } from '../lib/daily.js'
 import { useLocal } from '../state/useLocal.js'
-import LuckyButton from './LuckyButton.jsx'
 
 // "Red Madness" → "R?? M??????": il nome si svela solo passandoci sopra
 const mask = name => name.replace(/\p{L}+/gu, w => w[0] + '?'.repeat(w.length - 1))
 
-// "Oggi nel meta": un solo riquadro con meteo, mazzo misterioso, i due giochi e Mi sento fortunato,
+// "Oggi nel meta": un solo riquadro con meteo, mazzo misterioso e i due giochi,
 // ognuno con la sua riga di spiegazione (anche su telefono, dove il meteo sta in una riga)
-export default function TodayCard({ weather, daily, signature, dailyColors, format, onOpenDaily, onOpen, streak = 0, guess, onGame, luckyPool, onLucky }) {
+export default function TodayCard({ weather, daily, signature, dailyColors, format, onOpenDaily, onOpen, streak = 0, guess, onGame }) {
   const [left, setLeft] = useState(untilMidnight())
   useEffect(() => { const id = setInterval(() => setLeft(untilMidnight()), 30000); return () => clearInterval(id) }, [])
   const [seen, setSeen] = useLocal('mdm.dailySeen', {})
@@ -79,7 +78,6 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
             <IconChevron className="today-go" />
           </button>
         </li>
-        {luckyPool.length > 0 && <li><LuckyButton pool={luckyPool} onPick={onLucky} /></li>}
       </ul>
     </section>
   )
