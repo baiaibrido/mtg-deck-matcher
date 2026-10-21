@@ -21,8 +21,15 @@ import './css/stats.css'
 import './css/games.css'
 import './css/account.css'
 import { getLang, loadLang } from './i18n/index.js'
-// prima la lingua giusta, poi il disegno (niente lampo in italiano per chi legge in un'altra lingua)
-loadLang(getLang()).catch(() => {}).finally(() => createRoot(document.getElementById('root')).render(<App />))
+import { leaveOld, arriveNew } from './lib/move.js'
+// trasloco su netdeckable.net (i dati del browser vengono con te), poi la lingua giusta, poi il disegno
+// (niente lampo in italiano per chi legge in un'altra lingua)
+leaveOld().then(async leaving => {
+  if (leaving) return
+  await arriveNew()
+  await loadLang(getLang()).catch(() => {})
+  createRoot(document.getElementById('root')).render(<App />)
+})
 
 // Tastiera su telefono: iOS non ridimensiona la pagina quando compare, quindi teniamo traccia
 // della parte visibile (--vvh/--vvtop) e le finestre si spostano lì sopra (html.kb-open)

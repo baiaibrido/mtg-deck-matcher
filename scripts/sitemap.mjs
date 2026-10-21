@@ -2,7 +2,7 @@
 // Si rigenera ogni notte dopo l'aggiornamento dei mazzi (sync-meta.mjs) → public/sitemap.xml
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 
-export const SITE = 'https://mtg-deck-matcher-mu.vercel.app'
+export const SITE = 'https://netdeckable.net'
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 
 export function sitemapXml(formats, decksOf, today = new Date().toISOString().slice(0, 10)) {
