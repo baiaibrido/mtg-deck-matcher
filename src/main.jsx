@@ -19,6 +19,7 @@ import './css/collection.css'
 import './css/keycards.css'
 import './css/stats.css'
 import './css/games.css'
+import './css/account.css'
 import { getLang, loadLang } from './i18n/index.js'
 // prima la lingua giusta, poi il disegno (niente lampo in italiano per chi legge in un'altra lingua)
 loadLang(getLang()).catch(() => {}).finally(() => createRoot(document.getElementById('root')).render(<App />))

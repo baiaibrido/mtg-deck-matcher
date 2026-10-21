@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 // Indirizzi veri (leggibili da Google e condivisibili): /pauper, /pauper/deck/<id>, /pauper/key-cards,
 // /pauper/stats, /collection. Il formato nell'indirizzo è facoltativo (/deck/<id> usa quello scelto).
 // I vecchi indirizzi con l'hash (#/deck/…, anche quelli italiani #/mazzo/…) vengono convertiti.
-const PAGES = ['decks', 'deck', 'key-cards', 'collection', 'stats']
+const PAGES = ['decks', 'deck', 'key-cards', 'collection', 'stats', 'privacy']
+const NO_FORMAT = ['collection', 'privacy'] // pagine senza formato nell'indirizzo
 const LEGACY = { mazzi: 'decks', mazzo: 'deck', carte: 'key-cards', collezione: 'collection' }
 
 export const parseHash = hash => {
@@ -20,7 +21,7 @@ export function parsePath(pathname = '/', hash = '') {
 }
 
 export function pathOf(page, { id = null, format = null } = {}) {
-  if (page === 'collection') return '/collection'
+  if (NO_FORMAT.includes(page)) return `/${page}`
   const f = format ? `/${encodeURIComponent(format)}` : ''
   if (page === 'decks') return f || '/'
   return `${f}/${page}${id ? `/${encodeURIComponent(id)}` : ''}`
@@ -29,11 +30,11 @@ export function pathOf(page, { id = null, format = null } = {}) {
 // formato corrente per costruire i link (lo aggiorna App a ogni render)
 let navFormat = null
 export const setNavFormat = f => { navFormat = f }
-export const hrefOf = (page, id) => pathOf(page, { id, format: page === 'collection' ? null : navFormat })
+export const hrefOf = (page, id) => pathOf(page, { id, format: NO_FORMAT.includes(page) ? null : navFormat })
 
 const read = () => parsePath(location.pathname, location.hash)
 export function go(page, id, { replace = false, format } = {}) {
-  const url = pathOf(page, { id, format: page === 'collection' ? null : (format ?? navFormat) })
+  const url = pathOf(page, { id, format: NO_FORMAT.includes(page) ? null : (format ?? navFormat) })
   if (url === location.pathname && !location.hash) return
   history[replace ? 'replaceState' : 'pushState'](history.state?.modal ? null : history.state, '', url)
   dispatchEvent(new Event('routechange'))

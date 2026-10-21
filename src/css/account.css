@@ -1,0 +1,49 @@
+/* ═══════════ Profilo e privacy ═══════════ */
+
+/* finestra «Il tuo profilo» */
+.acc { display: grid; gap: var(--s3); }
+.acc-title { padding-right: var(--s6); font: var(--fs-xl)/1.2 var(--font-title); letter-spacing: -.005em; }
+.acc-text { color: var(--ink-2); }
+.acc-google { justify-self: start; }
+.acc-or { margin-top: var(--s2); color: var(--ink-2); font-size: var(--fs-md); }
+.acc-email { display: flex; gap: var(--s2); }
+.acc-email input { flex: 1; min-width: 0; }
+.acc-email .btn { flex: none; }
+.acc-who { display: flex; align-items: center; gap: var(--s2); font-weight: 700; overflow-wrap: anywhere; }
+.acc-who svg { flex: none; color: var(--ink-2); }
+.acc-sync { display: flex; align-items: center; gap: var(--s2); color: var(--ink-2); font-size: var(--fs-md); }
+.acc-sync-saved { color: var(--ok); }
+.acc-sync-error, .acc-sync-offline { color: var(--part); }
+.acc-actions { margin-top: var(--s2); }
+.acc-actions .btn-quiet { margin-left: auto; }
+.acc-privacy { margin-top: var(--s2); padding-top: var(--s3); border-top: 1px solid var(--line); }
+.acc-conflict { display: grid; gap: var(--s2); width: 100%; padding: var(--s3) var(--s4); border-color: color-mix(in oklab, var(--ribbon) 45%, var(--line)); background: color-mix(in oklab, var(--ribbon) 7%, var(--sheet)); }
+.acc-conflict .hint { margin: 0; }
+@media (max-width: 559px) { .acc-email { flex-direction: column; } .acc-google { justify-self: stretch; } }
+
+/* riga nella pagina Collezione */
+.sync-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); padding: var(--s2) var(--s2) var(--s2) var(--s3);
+  border: 1px dashed var(--line-2); border-radius: var(--r); color: var(--ink-2); font-size: var(--fs-md); }
+.sync-line > svg { flex: none; color: var(--ribbon); }
+.sync-line > p { flex: 1 1 14rem; min-width: 0; overflow-wrap: anywhere; }
+.sync-line.on { border-style: solid; border-color: var(--line); }
+.sync-line.on > p { color: var(--ink); }
+.sync-state { color: var(--ink-2); }
+
+/* tasto profilo nella testata (su telefono il profilo sta nella pagina Collezione) */
+.acc-btn.on { color: var(--ink); border-color: var(--ink); }
+@media (max-width: 719px) { .acc-btn { display: none; } }
+
+/* piè di pagina: versione e link alla privacy */
+.footer-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 var(--s4); }
+
+/* pagina Privacy */
+.privacy { max-width: 68ch; margin: var(--s5) 0; }
+.privacy h1 { margin-bottom: var(--s3); font: var(--fs-2xl)/1.15 var(--font-title); letter-spacing: -.01em; }
+.privacy h2 { margin: var(--s5) 0 var(--s2); font: var(--fs-lg)/1.25 var(--font-title); }
+.privacy p, .privacy li { color: var(--ink); line-height: 1.6; }
+.privacy p + p { margin-top: var(--s2); }
+.privacy ul { margin: var(--s2) 0; padding-left: 1.2em; }
+.privacy li + li { margin-top: var(--s1); }
+.pv-lead { color: var(--ink-2) !important; font-size: var(--fs-lg); line-height: 1.5 !important; }
+.privacy .hint { margin-top: var(--s5); }

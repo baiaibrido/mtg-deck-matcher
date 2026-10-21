@@ -21,6 +21,8 @@ test('costruzione degli indirizzi', () => {
   assert.equal(pathOf('decks', { format: 'modern' }), '/modern')
   assert.equal(pathOf('deck', { id: 'a b', format: 'pauper' }), '/pauper/deck/a%20b')
   assert.equal(pathOf('collection', { format: 'pauper' }), '/collection')
+  assert.equal(pathOf('privacy', { format: 'pauper' }), '/privacy')
+  assert.equal(parsePath('/privacy').page, 'privacy')
   for (const p of ['/pauper/deck/x%20y', '/modern/key-cards', '/collection', '/legacy']) {
     const r = parsePath(p); assert.equal(pathOf(r.page, r), p)
   }

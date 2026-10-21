@@ -16,6 +16,7 @@ import { loadTags } from '../lib/tagsLoader.js' // tag di Scryfall: caricati sol
 import { useSession } from '../state/useSession.js'
 import { useWinWidth } from '../state/useMedia.js'
 import { ManaCost } from './Mana.jsx'
+import { SyncLine } from './Account.jsx'
 import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter } from './Icons.jsx'
 
 const STEP = 120 // carte mostrate per volta: le immagini si caricano man mano
@@ -95,7 +96,7 @@ function FilterPick({ label, value, onChange, options, all, loading }) {
   )
 }
 
-export default function CollectionManager({ collection, setCollection, toast, best, onOpen, unlocked = {}, backup = { changes: 0 }, setBackup = () => {} }) {
+export default function CollectionManager({ collection, setCollection, toast, best, onOpen, unlocked = {}, backup = { changes: 0 }, setBackup = () => {}, acc, onAccount }) {
   const [text, setText] = useState('')
   const [q, setQ] = useState('')
   const [msg, setMsg] = useState(null) // { kind: 'info'|'error', text }
@@ -250,6 +251,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
         <h1>{t('coll.title')}</h1>
         <p>{t('coll.emptyIntro')}</p>
       </header>
+      {acc && <SyncLine acc={acc} local={collection} onOpen={onAccount} />}
       {importPanel}
       {msg && <p className={`note note-${msg.kind}`} role="status">{msg.text}</p>}
     </div>
@@ -277,6 +279,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
         </div>
       </header>
 
+      {acc && <SyncLine acc={acc} local={collection} onOpen={onAccount} />}
       <Spine sections={allSections} total={total} />
       {(() => {
         const p = personality(collection, getCached); if (!p) return null
