@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-23",
- "prevDate": "2026-10-22",
+ "updated": "2026-10-24",
+ "prevDate": "2026-10-23",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 2748,
- "unknownPct": 12.4,
+ "decksAnalyzed": 2703,
+ "unknownPct": 12.6,
  "rogue": [
   {
    "id": "standard-rogue-boros-chainsaw",
@@ -585,7 +585,7 @@
     17.8,
     [
      null,
-     7.2,
+     7.6,
      16.2,
      23.6,
      21.7,
@@ -642,7 +642,7 @@
     19.6,
     [
      null,
-     11.6,
+     12.4,
      11.3,
      16,
      22.1,
@@ -699,7 +699,7 @@
     6.5,
     [
      null,
-     10,
+     10.8,
      9,
      3.4,
      7.4,
@@ -739,7 +739,7 @@
     19.1,
     [
      null,
-     22.8,
+     21.1,
      26,
      20.9,
      20.7,
@@ -758,7 +758,7 @@
     17.3,
     [
      null,
-     22,
+     24.3,
      18.2,
      21.2,
      31.4,
@@ -777,7 +777,7 @@
     12.7,
     [
      null,
-     10,
+     11.9,
      11,
      19.3,
      25.8,
@@ -796,7 +796,7 @@
     15,
     [
      null,
-     9.6,
+     9.7,
      6.4,
      11,
      12,
@@ -815,7 +815,7 @@
     9.5,
     [
      null,
-     14.4,
+     16.8,
      15,
      16.6,
      19.7,
@@ -834,7 +834,7 @@
     13.7,
     [
      null,
-     11.6,
+     13.5,
      11.8,
      19.9,
      26.8,
@@ -853,7 +853,7 @@
     14.5,
     [
      null,
-     5.2,
+     4.3,
      4.3,
      8,
      11.7,
@@ -872,7 +872,7 @@
     11.5,
     [
      null,
-     8.8,
+     9.7,
      6.9,
      18.4,
      22.1,
@@ -891,7 +891,7 @@
     14.6,
     [
      null,
-     12,
+     14.1,
      12.1,
      19.9,
      27.4,
@@ -910,7 +910,7 @@
     13.7,
     [
      null,
-     11.6,
+     13.5,
      11.8,
      19.6,
      27.4,
@@ -1030,331 +1030,11 @@
  "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
   {
-   "id": "standard-mono-green-landfall",
-   "name": "Mono Green Landfall",
-   "share": 11.5,
-   "tier": 1,
-   "count": 315,
-   "title": "jtl005 · Standard Challenge 16 (3rd Place)",
-   "url": "https://www.mtgo.com/decklist/standard-challenge-16-2026-10-1012856183#deck_jtl005",
-   "main": [
-    "3 Ba Sing Se",
-    "4 Carnivorous Cultivator",
-    "1 Cryptic Caves",
-    "1 Demolition Field",
-    "4 Earthbender Ascension",
-    "2 Elven Passage",
-    "1 Escape Tunnel",
-    "4 Fabled Passage",
-    "14 Forest",
-    "2 Hard-Hitting Question",
-    "4 Icetill Explorer",
-    "2 Keen-Eyed Curator",
-    "4 Llanowar Elves",
-    "4 Mightform Harmonizer",
-    "4 Mossborn Hydra",
-    "1 Pit of Offerings",
-    "4 Sazh's Chocobo",
-    "1 Snakeskin Veil"
-   ],
-   "side": [
-    "1 Adventurer's Inn",
-    "1 Eumidian Terrabotanist",
-    "2 Hard-Hitting Question",
-    "2 Pick Your Poison",
-    "2 Sapling Nursery",
-    "1 Snakeskin Veil",
-    "2 Surrak, Elusive Hunter",
-    "2 The Scouring Stormsoul",
-    "2 Torpor Orb"
-   ],
-   "history": [
-    null,
-    10.8,
-    10.1,
-    18.7,
-    24.7,
-    23.1,
-    13.8,
-    12.8,
-    12.1,
-    7.8,
-    4.3,
-    7.2
-   ],
-   "field": [
-    181,
-    172,
-    12
-   ],
-   "mu": [
-    [
-     "Izzet Spellementals",
-     17,
-     30,
-     0
-    ],
-    [
-     "Dimir Midrange",
-     15,
-     11,
-     0
-    ],
-    [
-     "Jeskai Control",
-     18,
-     16,
-     0
-    ],
-    [
-     "Lifegain",
-     4,
-     4,
-     0
-    ],
-    [
-     "Boros Dragons",
-     8,
-     2,
-     0
-    ],
-    [
-     "Azorius Control",
-     5,
-     2,
-     4
-    ],
-    [
-     "Dimir Excruciator",
-     21,
-     8,
-     0
-    ],
-    [
-     "Izzet Aggro",
-     2,
-     5,
-     0
-    ],
-    [
-     "Mardu Discard",
-     15,
-     4,
-     0
-    ],
-    [
-     "Boros Aggro",
-     3,
-     1,
-     0
-    ],
-    [
-     "Selesnya Landfall",
-     4,
-     6,
-     0
-    ],
-    [
-     "Reanimator",
-     2,
-     2,
-     0
-    ],
-    [
-     "Azorius Artifacts",
-     2,
-     5,
-     0
-    ],
-    [
-     "Azorius Momo",
-     2,
-     4,
-     0
-    ],
-    [
-     "Golgari Midrange",
-     6,
-     3,
-     0
-    ],
-    [
-     "Rakdos Lizards",
-     1,
-     1,
-     2
-    ],
-    [
-     "Jeskai Lessons",
-     4,
-     8,
-     2
-    ],
-    [
-     "Dimir Control",
-     3,
-     2,
-     0
-    ],
-    [
-     "Mono Red Aggro",
-     3,
-     0,
-     0
-    ],
-    [
-     "Bant Airbending Combo",
-     1,
-     4,
-     0
-    ],
-    [
-     "Azorius Flash",
-     7,
-     2,
-     0
-    ],
-    [
-     "Mono Black Midrange",
-     5,
-     2,
-     0
-    ],
-    [
-     "Sultai Control",
-     3,
-     1,
-     0
-    ],
-    [
-     "Simic Landfall",
-     2,
-     1,
-     0
-    ],
-    [
-     "Jeskai Artifact Aggro",
-     3,
-     1,
-     0
-    ],
-    [
-     "Golgari Control",
-     0,
-     3,
-     2
-    ]
-   ],
-   "metaWr": 51.2,
-   "core": [
-    [
-     "Forest",
-     14
-    ],
-    [
-     "Fabled Passage",
-     4
-    ],
-    [
-     "Sazh's Chocobo",
-     4
-    ],
-    [
-     "Llanowar Elves",
-     4
-    ],
-    [
-     "Icetill Explorer",
-     4
-    ],
-    [
-     "Earthbender Ascension",
-     4
-    ],
-    [
-     "Mightform Harmonizer",
-     4
-    ],
-    [
-     "Escape Tunnel",
-     3
-    ],
-    [
-     "Ba Sing Se",
-     3
-    ]
-   ],
-   "flex": [
-    [
-     "Esper Origins",
-     90,
-     3.5
-    ],
-    [
-     "Sapling Nursery",
-     88,
-     3
-    ],
-    [
-     "Meltstrider's Resolve",
-     73,
-     1.6
-    ],
-    [
-     "Lumbering Worldwagon",
-     64,
-     1.2
-    ],
-    [
-     "Demolition Field",
-     63,
-     1.1
-    ],
-    [
-     "Surrak, Elusive Hunter",
-     62,
-     1.1
-    ],
-    [
-     "Keen-Eyed Curator",
-     60,
-     1.4
-    ],
-    [
-     "Shared Roots",
-     58,
-     2.4
-    ],
-    [
-     "Mossborn Hydra",
-     50,
-     3.1
-    ],
-    [
-     "Elven Passage",
-     29,
-     1.8
-    ],
-    [
-     "Glimpse the Core",
-     26,
-     2.8
-    ]
-   ],
-   "lists": 315,
-   "conv": [
-    11.5,
-    13.3,
-    82
-   ],
-   "prev": 11.5
-  },
-  {
    "id": "standard-izzet-spellementals",
    "name": "Izzet Spellementals",
    "share": 11.4,
    "tier": 1,
-   "count": 313,
+   "count": 309,
    "title": "BigChapulin · ReCQ - Standard - SCG CON Los Angeles - Sunday - 12:30 pm (2st Place)",
    "url": "https://melee.gg/Decklist/View/23e18c6e-6e03-4932-8fa2-b4e00128e45a",
    "main": [
@@ -1388,7 +1068,7 @@
    ],
    "history": [
     null,
-    5.2,
+    4.3,
     3.8,
     6.4,
     11,
@@ -1401,15 +1081,15 @@
     8.9
    ],
    "field": [
-    142,
-    142,
+    140,
+    141,
     19
    ],
    "mu": [
     [
      "Mono Green Landfall",
-     30,
-     17,
+     28,
+     16,
      0
     ],
     [
@@ -1467,15 +1147,15 @@
      0
     ],
     [
-     "Selesnya Landfall",
-     0,
-     7,
-     0
-    ],
-    [
      "Reanimator",
      3,
      1,
+     0
+    ],
+    [
+     "Selesnya Landfall",
+     0,
+     7,
      0
     ],
     [
@@ -1509,6 +1189,12 @@
      0
     ],
     [
+     "Mono Red Aggro",
+     3,
+     1,
+     0
+    ],
+    [
      "Dimir Control",
      1,
      3,
@@ -1518,12 +1204,6 @@
      "Jeskai Lessons",
      2,
      5,
-     0
-    ],
-    [
-     "Mono Red Aggro",
-     3,
-     1,
      0
     ],
     [
@@ -1539,7 +1219,7 @@
      0
     ]
    ],
-   "metaWr": 51.5,
+   "metaWr": 51.4,
    "core": [
     [
      "Island",
@@ -1617,7 +1297,7 @@
     ],
     [
      "Winternight Stories",
-     58,
+     57,
      2.3
     ],
     [
@@ -1632,24 +1312,344 @@
     ],
     [
      "Sear",
-     26,
+     27,
      1
     ]
    ],
-   "lists": 313,
+   "lists": 309,
    "conv": [
     12.6,
     10.6,
-    65
+    64
    ],
    "prev": 11.4
   },
   {
+   "id": "standard-mono-green-landfall",
+   "name": "Mono Green Landfall",
+   "share": 11.1,
+   "tier": 1,
+   "count": 301,
+   "title": "jtl005 · Standard Challenge 16 (3rd Place)",
+   "url": "https://www.mtgo.com/decklist/standard-challenge-16-2026-10-1012856183#deck_jtl005",
+   "main": [
+    "3 Ba Sing Se",
+    "4 Carnivorous Cultivator",
+    "1 Cryptic Caves",
+    "1 Demolition Field",
+    "4 Earthbender Ascension",
+    "2 Elven Passage",
+    "1 Escape Tunnel",
+    "4 Fabled Passage",
+    "14 Forest",
+    "2 Hard-Hitting Question",
+    "4 Icetill Explorer",
+    "2 Keen-Eyed Curator",
+    "4 Llanowar Elves",
+    "4 Mightform Harmonizer",
+    "4 Mossborn Hydra",
+    "1 Pit of Offerings",
+    "4 Sazh's Chocobo",
+    "1 Snakeskin Veil"
+   ],
+   "side": [
+    "1 Adventurer's Inn",
+    "1 Eumidian Terrabotanist",
+    "2 Hard-Hitting Question",
+    "2 Pick Your Poison",
+    "2 Sapling Nursery",
+    "1 Snakeskin Veil",
+    "2 Surrak, Elusive Hunter",
+    "2 The Scouring Stormsoul",
+    "2 Torpor Orb"
+   ],
+   "history": [
+    null,
+    12.4,
+    10.1,
+    18.7,
+    24.7,
+    23.1,
+    13.8,
+    12.8,
+    12.1,
+    7.8,
+    4.3,
+    7.2
+   ],
+   "field": [
+    177,
+    170,
+    12
+   ],
+   "mu": [
+    [
+     "Izzet Spellementals",
+     16,
+     28,
+     0
+    ],
+    [
+     "Dimir Midrange",
+     15,
+     11,
+     0
+    ],
+    [
+     "Jeskai Control",
+     18,
+     16,
+     0
+    ],
+    [
+     "Lifegain",
+     4,
+     4,
+     0
+    ],
+    [
+     "Boros Dragons",
+     6,
+     2,
+     0
+    ],
+    [
+     "Azorius Control",
+     4,
+     2,
+     4
+    ],
+    [
+     "Dimir Excruciator",
+     21,
+     8,
+     0
+    ],
+    [
+     "Izzet Aggro",
+     2,
+     5,
+     0
+    ],
+    [
+     "Mardu Discard",
+     15,
+     4,
+     0
+    ],
+    [
+     "Boros Aggro",
+     3,
+     1,
+     0
+    ],
+    [
+     "Reanimator",
+     2,
+     2,
+     0
+    ],
+    [
+     "Selesnya Landfall",
+     4,
+     6,
+     0
+    ],
+    [
+     "Azorius Artifacts",
+     2,
+     5,
+     0
+    ],
+    [
+     "Golgari Midrange",
+     6,
+     3,
+     0
+    ],
+    [
+     "Azorius Momo",
+     2,
+     4,
+     0
+    ],
+    [
+     "Rakdos Lizards",
+     1,
+     1,
+     2
+    ],
+    [
+     "Jeskai Lessons",
+     4,
+     8,
+     2
+    ],
+    [
+     "Dimir Control",
+     3,
+     2,
+     0
+    ],
+    [
+     "Mono Red Aggro",
+     3,
+     0,
+     0
+    ],
+    [
+     "Bant Airbending Combo",
+     1,
+     4,
+     0
+    ],
+    [
+     "Azorius Flash",
+     7,
+     2,
+     0
+    ],
+    [
+     "Mono Black Midrange",
+     5,
+     2,
+     0
+    ],
+    [
+     "Sultai Control",
+     3,
+     1,
+     0
+    ],
+    [
+     "Simic Landfall",
+     2,
+     1,
+     0
+    ],
+    [
+     "Jeskai Artifact Aggro",
+     3,
+     1,
+     0
+    ],
+    [
+     "Golgari Control",
+     0,
+     3,
+     2
+    ]
+   ],
+   "metaWr": 50.9,
+   "core": [
+    [
+     "Forest",
+     14
+    ],
+    [
+     "Fabled Passage",
+     4
+    ],
+    [
+     "Sazh's Chocobo",
+     4
+    ],
+    [
+     "Llanowar Elves",
+     4
+    ],
+    [
+     "Icetill Explorer",
+     4
+    ],
+    [
+     "Earthbender Ascension",
+     4
+    ],
+    [
+     "Mightform Harmonizer",
+     4
+    ],
+    [
+     "Escape Tunnel",
+     3
+    ],
+    [
+     "Ba Sing Se",
+     3
+    ]
+   ],
+   "flex": [
+    [
+     "Esper Origins",
+     89,
+     3.5
+    ],
+    [
+     "Sapling Nursery",
+     88,
+     3
+    ],
+    [
+     "Meltstrider's Resolve",
+     72,
+     1.6
+    ],
+    [
+     "Lumbering Worldwagon",
+     63,
+     1.2
+    ],
+    [
+     "Demolition Field",
+     62,
+     1.1
+    ],
+    [
+     "Surrak, Elusive Hunter",
+     62,
+     1.1
+    ],
+    [
+     "Keen-Eyed Curator",
+     60,
+     1.4
+    ],
+    [
+     "Shared Roots",
+     57,
+     2.4
+    ],
+    [
+     "Mossborn Hydra",
+     51,
+     3.1
+    ],
+    [
+     "Elven Passage",
+     30,
+     1.8
+    ],
+    [
+     "Glimpse the Core",
+     26,
+     2.8
+    ]
+   ],
+   "lists": 301,
+   "conv": [
+    11.2,
+    13.1,
+    79
+   ],
+   "prev": 11.5
+  },
+  {
    "id": "standard-dimir-midrange",
    "name": "Dimir Midrange",
-   "share": 8.2,
+   "share": 8.1,
    "tier": 1,
-   "count": 224,
+   "count": 219,
    "title": "Oss-28 · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_Oss-28",
    "main": [
@@ -1688,7 +1688,7 @@
    ],
    "history": [
     null,
-    0.8,
+    1.1,
     2.6,
     10.7,
     11.4,
@@ -1701,22 +1701,22 @@
     8.6
    ],
    "field": [
-    97,
+    96,
     93,
     8
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     11,
-     15,
-     0
-    ],
-    [
      "Izzet Spellementals",
      12,
      15,
      2
+    ],
+    [
+     "Mono Green Landfall",
+     11,
+     15,
+     0
     ],
     [
      "Jeskai Control",
@@ -1773,15 +1773,15 @@
      0
     ],
     [
-     "Azorius Momo",
-     3,
-     1,
-     0
-    ],
-    [
      "Golgari Midrange",
      3,
      3,
+     0
+    ],
+    [
+     "Azorius Momo",
+     3,
+     1,
      0
     ],
     [
@@ -1840,11 +1840,11 @@
      4
     ],
     [
-     "Spyglass Siren",
+     "Enduring Curiosity",
      4
     ],
     [
-     "Enduring Curiosity",
+     "Spyglass Siren",
      4
     ],
     [
@@ -1888,17 +1888,17 @@
     ],
     [
      "Spell Snare",
-     76,
+     77,
      1.2
     ],
     [
      "Tishana's Tidebinder",
-     75,
+     74,
      1.6
     ],
     [
      "Spell Pierce",
-     54,
+     53,
      1.2
     ],
     [
@@ -1907,10 +1907,10 @@
      1.1
     ]
    ],
-   "lists": 224,
+   "lists": 219,
    "conv": [
-    8.1,
-    8.8,
+    8,
+    9,
     54
    ],
    "prev": 8.2
@@ -1920,7 +1920,7 @@
    "name": "Jeskai Control",
    "share": 6,
    "tier": 1,
-   "count": 164,
+   "count": 162,
    "title": "Keita Kishino · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (2st Place)",
    "url": "https://melee.gg/Decklist/View/d30942b0-eddc-4bb7-8a35-b4e0012484a1",
    "main": [
@@ -1968,7 +1968,7 @@
    ],
    "history": [
     null,
-    9.2,
+    10.8,
     8.4,
     5.5,
     3,
@@ -1981,22 +1981,22 @@
     5.1
    ],
    "field": [
-    111,
-    106,
+    110,
+    105,
     10
    ],
    "mu": [
-    [
-     "Mono Green Landfall",
-     16,
-     18,
-     0
-    ],
     [
      "Izzet Spellementals",
      16,
      7,
      2
+    ],
+    [
+     "Mono Green Landfall",
+     16,
+     18,
+     0
     ],
     [
      "Dimir Midrange",
@@ -2006,8 +2006,8 @@
     ],
     [
      "Lifegain",
-     9,
-     4,
+     8,
+     3,
      0
     ],
     [
@@ -2065,21 +2065,27 @@
      0
     ],
     [
-     "Azorius Momo",
-     2,
-     2,
-     0
-    ],
-    [
      "Golgari Midrange",
      3,
      1,
      0
     ],
     [
+     "Azorius Momo",
+     2,
+     2,
+     0
+    ],
+    [
      "Rakdos Lizards",
      0,
      3,
+     0
+    ],
+    [
+     "Mono Red Aggro",
+     3,
+     2,
      0
     ],
     [
@@ -2092,12 +2098,6 @@
      "Dimir Control",
      3,
      3,
-     0
-    ],
-    [
-     "Mono Red Aggro",
-     3,
-     2,
      0
     ],
     [
@@ -2125,7 +2125,7 @@
      4
     ]
    ],
-   "metaWr": 48.7,
+   "metaWr": 48.8,
    "core": [
     [
      "Great Hall of the Biblioplex",
@@ -2190,7 +2190,7 @@
     ],
     [
      "Mistrise Village",
-     66,
+     65,
      1.1
     ],
     [
@@ -2204,18 +2204,18 @@
      2.2
     ],
     [
-     "Hallowed Fountain",
-     57,
-     2.2
-    ],
-    [
      "Blood Crypt",
      57,
      2.2
     ],
     [
+     "Hallowed Fountain",
+     57,
+     2.2
+    ],
+    [
      "Firebending Lesson",
-     55,
+     56,
      2.4
     ],
     [
@@ -2224,20 +2224,20 @@
      2
     ]
    ],
-   "lists": 164,
+   "lists": 162,
    "conv": [
-    5.9,
+    6,
     6.5,
-    40
+    39
    ],
-   "prev": 5.9
+   "prev": 6
   },
   {
    "id": "standard-lifegain",
    "name": "Lifegain",
    "share": 4.7,
    "tier": 1,
-   "count": 130,
+   "count": 127,
    "title": "ChessNight5030 · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_ChessNight5030",
    "main": [
@@ -2277,7 +2277,7 @@
    ],
    "history": [
     null,
-    3.2,
+    3.8,
     7.2,
     8.3,
     5.7,
@@ -2290,21 +2290,21 @@
     6.1
    ],
    "field": [
-    44,
-    56,
-    4
+    43,
+    54,
+    2
    ],
    "mu": [
-    [
-     "Mono Green Landfall",
-     4,
-     4,
-     0
-    ],
     [
      "Izzet Spellementals",
      3,
      3,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     4,
+     4,
      0
     ],
     [
@@ -2315,8 +2315,8 @@
     ],
     [
      "Jeskai Control",
-     4,
-     9,
+     3,
+     8,
      0
     ],
     [
@@ -2344,12 +2344,6 @@
      0
     ],
     [
-     "Mardu Discard",
-     0,
-     3,
-     2
-    ],
-    [
      "Boros Aggro",
      1,
      2,
@@ -2374,7 +2368,7 @@
      0
     ]
    ],
-   "metaWr": 48.4,
+   "metaWr": 48.7,
    "core": [
     [
      "Godless Shrine",
@@ -2434,7 +2428,7 @@
     ],
     [
      "Shattered Sanctum",
-     85,
+     86,
      2.3
     ],
     [
@@ -2448,14 +2442,14 @@
      2.5
     ],
     [
-     "Multiversal Passage",
-     58,
-     2.9
+     "Essence Channeler",
+     59,
+     2.5
     ],
     [
-     "Essence Channeler",
-     58,
-     2.5
+     "Multiversal Passage",
+     57,
+     3
     ],
     [
      "Emptiness",
@@ -2463,18 +2457,18 @@
      1.7
     ],
     [
-     "Voice of Victory",
-     45,
-     2.4
+     "Liliana the Faultless",
+     46,
+     2.3
     ],
     [
-     "Liliana the Faultless",
-     45,
+     "Voice of Victory",
+     44,
      2.3
     ],
     [
      "Ajani Resolute",
-     43,
+     44,
      2.7
     ],
     [
@@ -2489,24 +2483,24 @@
     ],
     [
      "Enlightened Confidant",
-     35,
+     36,
      3.1
     ]
    ],
-   "lists": 130,
+   "lists": 127,
    "conv": [
+    3.5,
     3.6,
-    3.9,
-    24
+    22
    ],
    "prev": 4.7
   },
   {
    "id": "standard-boros-dragons",
    "name": "Boros Dragons",
-   "share": 4.5,
+   "share": 4.6,
    "tier": 1,
-   "count": 125,
+   "count": 123,
    "title": "Hanta · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (6th Place)",
    "url": "https://melee.gg/Decklist/View/c2d14af8-44b3-49e5-885e-b4e10035d5b5",
    "main": [
@@ -2555,21 +2549,21 @@
    ],
    "field": [
     51,
-    47,
+    45,
     3
    ],
    "mu": [
-    [
-     "Mono Green Landfall",
-     2,
-     8,
-     0
-    ],
     [
      "Izzet Spellementals",
      6,
      8,
      1
+    ],
+    [
+     "Mono Green Landfall",
+     2,
+     6,
+     0
     ],
     [
      "Dimir Midrange",
@@ -2620,7 +2614,7 @@
      0
     ]
    ],
-   "metaWr": 48,
+   "metaWr": 49.2,
    "core": [
     [
      "Momo, Friendly Flier",
@@ -2703,20 +2697,20 @@
      2
     ]
    ],
-   "lists": 125,
+   "lists": 123,
    "conv": [
     4.5,
-    4.6,
-    28
+    4.3,
+    26
    ],
-   "prev": 4.6
+   "prev": 4.5
   },
   {
    "id": "standard-azorius-control",
    "name": "Azorius Control",
    "share": 3.9,
    "tier": 1,
-   "count": 107,
+   "count": 106,
    "title": "nekosuke · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (4th Place)",
    "url": "https://melee.gg/Decklist/View/984b81a9-880f-46fe-a3fa-b4e0018a9086",
    "main": [
@@ -2756,7 +2750,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.5,
     0,
     0,
     1,
@@ -2769,22 +2763,22 @@
     6.9
    ],
    "field": [
-    53,
-    57,
+    52,
+    56,
     12
    ],
    "mu": [
-    [
-     "Mono Green Landfall",
-     2,
-     5,
-     4
-    ],
     [
      "Izzet Spellementals",
      2,
      2,
      0
+    ],
+    [
+     "Mono Green Landfall",
+     2,
+     4,
+     4
     ],
     [
      "Dimir Midrange",
@@ -2841,12 +2835,6 @@
      0
     ],
     [
-     "Jeskai Artifacts",
-     3,
-     0,
-     0
-    ],
-    [
      "Rakdos Lizards",
      3,
      0,
@@ -2865,7 +2853,7 @@
      0
     ]
    ],
-   "metaWr": 44.6,
+   "metaWr": 45.2,
    "core": [
     [
      "Floodfarm Verge",
@@ -2884,11 +2872,11 @@
      4
     ],
     [
-     "Plains",
+     "Get Lost",
      3
     ],
     [
-     "Get Lost",
+     "Plains",
      3
     ],
     [
@@ -2931,7 +2919,7 @@
     ],
     [
      "Fountainport",
-     62,
+     61,
      1.5
     ],
     [
@@ -2941,7 +2929,7 @@
     ],
     [
      "Demolition Field",
-     50,
+     51,
      1.7
     ],
     [
@@ -2961,251 +2949,38 @@
     ],
     [
      "Theorist's Sanctum",
-     41,
+     42,
      2
     ],
     [
      "Spell Snare",
-     39,
+     40,
      1.5
     ],
     [
      "Countersculpt",
-     39,
+     40,
      3.9
     ],
     [
      "Jace's Machinations",
-     39,
+     40,
      3.3
     ]
    ],
-   "lists": 107,
+   "lists": 106,
    "conv": [
     3.8,
-    4.6,
-    28
+    4.5,
+    27
    ],
    "prev": 3.9
-  },
-  {
-   "id": "standard-izzet-aggro",
-   "name": "Izzet Aggro",
-   "share": 3.6,
-   "tier": 2,
-   "count": 100,
-   "title": "cinno · Standard League (5-0)",
-   "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_cinno",
-   "main": [
-    "4 Boltwave",
-    "4 Burst Lightning",
-    "2 Colorstorm Stallion",
-    "3 Flow State",
-    "2 Great Hall of the Biblioplex",
-    "2 Heroes' Hangout",
-    "4 Hired Claw",
-    "1 Island",
-    "6 Mountain",
-    "4 Pompous Battlemage",
-    "4 Riverpyre Verge",
-    "2 Secret Identity",
-    "4 Sleight of Hand",
-    "4 Slickshot Show-Off",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "3 Stingcaster Mage",
-    "3 Vibrant Outburst"
-   ],
-   "side": [
-    "2 Colorstorm Stallion",
-    "2 Scorching Shot",
-    "2 Secret Identity",
-    "2 Spell Pierce",
-    "1 Stock Up",
-    "3 Sunspine Lynx",
-    "3 Vengeful Tracker"
-   ],
-   "history": [
-    null,
-    2.4,
-    1.7,
-    2.8,
-    3,
-    6,
-    1.1,
-    2.5,
-    2.6,
-    1.1,
-    7.3,
-    6
-   ],
-   "field": [
-    44,
-    36,
-    2
-   ],
-   "mu": [
-    [
-     "Mono Green Landfall",
-     5,
-     2,
-     0
-    ],
-    [
-     "Izzet Spellementals",
-     6,
-     4,
-     0
-    ],
-    [
-     "Dimir Midrange",
-     5,
-     2,
-     0
-    ],
-    [
-     "Jeskai Control",
-     2,
-     2,
-     0
-    ],
-    [
-     "Lifegain",
-     1,
-     3,
-     0
-    ],
-    [
-     "Boros Dragons",
-     3,
-     1,
-     0
-    ],
-    [
-     "Azorius Control",
-     3,
-     3,
-     0
-    ],
-    [
-     "Dimir Excruciator",
-     2,
-     2,
-     0
-    ],
-    [
-     "Mardu Discard",
-     3,
-     1,
-     0
-    ],
-    [
-     "Golgari Midrange",
-     1,
-     3,
-     0
-    ]
-   ],
-   "metaWr": 56.6,
-   "core": [
-    [
-     "Spirebluff Canal",
-     4
-    ],
-    [
-     "Steam Vents",
-     4
-    ],
-    [
-     "Riverpyre Verge",
-     4
-    ]
-   ],
-   "flex": [
-    [
-     "Mountain",
-     88,
-     3.2
-    ],
-    [
-     "Slickshot Show-Off",
-     82,
-     4
-    ],
-    [
-     "Burst Lightning",
-     75,
-     4
-    ],
-    [
-     "Elusive Otter",
-     67,
-     3.9
-    ],
-    [
-     "Vibrant Outburst",
-     67,
-     2.3
-    ],
-    [
-     "Multiversal Passage",
-     66,
-     2.1
-    ],
-    [
-     "Wild Ride",
-     65,
-     2.5
-    ],
-    [
-     "Secret Identity",
-     62,
-     2.1
-    ],
-    [
-     "Starting Town",
-     57,
-     2.4
-    ],
-    [
-     "Sleight of Hand",
-     54,
-     4
-    ],
-    [
-     "Island",
-     52,
-     3.8
-    ],
-    [
-     "Opt",
-     51,
-     3.9
-    ],
-    [
-     "Pompous Battlemage",
-     45,
-     4
-    ],
-    [
-     "Flow State",
-     43,
-     3.9
-    ]
-   ],
-   "lists": 100,
-   "conv": [
-    3.8,
-    2.6,
-    16
-   ],
-   "prev": 3.7
   },
   {
    "id": "standard-dimir-excruciator",
    "name": "Dimir Excruciator",
    "share": 3.6,
-   "tier": 2,
+   "tier": 1,
    "count": 98,
    "title": "Riverflow · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (1st Place)",
    "url": "https://melee.gg/Decklist/View/b5c54499-f2b0-413e-b6db-b4e0017c8c30",
@@ -3248,7 +3023,7 @@
    ],
    "history": [
     null,
-    5.2,
+    5.4,
     5.5,
     6.1,
     4,
@@ -3267,16 +3042,16 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     8,
-     21,
-     0
-    ],
-    [
      "Izzet Spellementals",
      3,
      4,
      2
+    ],
+    [
+     "Mono Green Landfall",
+     8,
+     21,
+     0
     ],
     [
      "Dimir Midrange",
@@ -3339,16 +3114,16 @@
      0
     ],
     [
-     "Azorius Momo",
-     0,
-     1,
-     2
-    ],
-    [
      "Golgari Midrange",
      3,
      1,
      0
+    ],
+    [
+     "Azorius Momo",
+     0,
+     1,
+     2
     ],
     [
      "Jeskai Lessons",
@@ -3369,7 +3144,7 @@
      2
     ]
    ],
-   "metaWr": 47.6,
+   "metaWr": 47.7,
    "core": [
     [
      "Swamp",
@@ -3484,8 +3259,221 @@
    "lists": 98,
    "conv": [
     3.9,
-    3.4,
+    3.5,
     21
+   ],
+   "prev": 3.6
+  },
+  {
+   "id": "standard-izzet-aggro",
+   "name": "Izzet Aggro",
+   "share": 3.6,
+   "tier": 2,
+   "count": 98,
+   "title": "cinno · Standard League (5-0)",
+   "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_cinno",
+   "main": [
+    "4 Boltwave",
+    "4 Burst Lightning",
+    "2 Colorstorm Stallion",
+    "3 Flow State",
+    "2 Great Hall of the Biblioplex",
+    "2 Heroes' Hangout",
+    "4 Hired Claw",
+    "1 Island",
+    "6 Mountain",
+    "4 Pompous Battlemage",
+    "4 Riverpyre Verge",
+    "2 Secret Identity",
+    "4 Sleight of Hand",
+    "4 Slickshot Show-Off",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "3 Stingcaster Mage",
+    "3 Vibrant Outburst"
+   ],
+   "side": [
+    "2 Colorstorm Stallion",
+    "2 Scorching Shot",
+    "2 Secret Identity",
+    "2 Spell Pierce",
+    "1 Stock Up",
+    "3 Sunspine Lynx",
+    "3 Vengeful Tracker"
+   ],
+   "history": [
+    null,
+    1.6,
+    1.7,
+    2.8,
+    3,
+    6,
+    1.1,
+    2.5,
+    2.6,
+    1.1,
+    7.3,
+    6
+   ],
+   "field": [
+    44,
+    36,
+    2
+   ],
+   "mu": [
+    [
+     "Izzet Spellementals",
+     6,
+     4,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     5,
+     2,
+     0
+    ],
+    [
+     "Dimir Midrange",
+     5,
+     2,
+     0
+    ],
+    [
+     "Jeskai Control",
+     2,
+     2,
+     0
+    ],
+    [
+     "Lifegain",
+     1,
+     3,
+     0
+    ],
+    [
+     "Boros Dragons",
+     3,
+     1,
+     0
+    ],
+    [
+     "Azorius Control",
+     3,
+     3,
+     0
+    ],
+    [
+     "Dimir Excruciator",
+     2,
+     2,
+     0
+    ],
+    [
+     "Mardu Discard",
+     3,
+     1,
+     0
+    ],
+    [
+     "Golgari Midrange",
+     1,
+     3,
+     0
+    ]
+   ],
+   "metaWr": 56.6,
+   "core": [
+    [
+     "Spirebluff Canal",
+     4
+    ],
+    [
+     "Steam Vents",
+     4
+    ],
+    [
+     "Riverpyre Verge",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Mountain",
+     88,
+     3.2
+    ],
+    [
+     "Slickshot Show-Off",
+     83,
+     4
+    ],
+    [
+     "Burst Lightning",
+     76,
+     4
+    ],
+    [
+     "Elusive Otter",
+     67,
+     3.9
+    ],
+    [
+     "Vibrant Outburst",
+     67,
+     2.3
+    ],
+    [
+     "Multiversal Passage",
+     66,
+     2.1
+    ],
+    [
+     "Wild Ride",
+     65,
+     2.4
+    ],
+    [
+     "Secret Identity",
+     62,
+     2.1
+    ],
+    [
+     "Starting Town",
+     57,
+     2.4
+    ],
+    [
+     "Sleight of Hand",
+     55,
+     4
+    ],
+    [
+     "Island",
+     53,
+     3.8
+    ],
+    [
+     "Opt",
+     52,
+     3.9
+    ],
+    [
+     "Pompous Battlemage",
+     46,
+     4
+    ],
+    [
+     "Flow State",
+     44,
+     3.9
+    ]
+   ],
+   "lists": 98,
+   "conv": [
+    3.8,
+    2.7,
+    16
    ],
    "prev": 3.6
   },
@@ -3494,7 +3482,7 @@
    "name": "Mardu Discard",
    "share": 2.2,
    "tier": 2,
-   "count": 61,
+   "count": 59,
    "title": "Richard Henriques · ReCQ - Standard - SCG CON Los Angeles - Saturday - 3:00 pm (8th Place)",
    "url": "https://melee.gg/Decklist/View/4849600b-c315-4ce4-ad51-b4df01563270",
    "main": [
@@ -3531,7 +3519,7 @@
    ],
    "history": [
     null,
-    0.8,
+    1.1,
     1.4,
     8,
     7,
@@ -3544,21 +3532,21 @@
     0.8
    ],
    "field": [
-    52,
+    50,
     55,
-    7
+    5
    ],
    "mu": [
-    [
-     "Mono Green Landfall",
-     4,
-     15,
-     0
-    ],
     [
      "Izzet Spellementals",
      6,
      5,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     4,
+     15,
      0
     ],
     [
@@ -3572,12 +3560,6 @@
      6,
      1,
      0
-    ],
-    [
-     "Lifegain",
-     3,
-     0,
-     2
     ],
     [
      "Boros Dragons",
@@ -3616,7 +3598,7 @@
      0
     ]
    ],
-   "metaWr": 48.8,
+   "metaWr": 47.4,
    "core": [
     [
      "Hardened Academic",
@@ -3671,11 +3653,11 @@
      2
     ],
     [
-     "Tersa Lightshatter",
+     "Erode",
      2
     ],
     [
-     "Erode",
+     "Tersa Lightshatter",
      2
     ],
     [
@@ -3690,22 +3672,22 @@
    "flex": [
     [
      "Swamp",
-     89,
+     90,
      1
     ],
     [
      "Requiting Hex",
-     84,
+     83,
      1.9
     ],
     [
      "Carnage, Crimson Chaos",
-     67,
+     66,
      1.9
     ],
     [
      "Cecil, Dark Knight",
-     49,
+     51,
      1.4
     ],
     [
@@ -3716,19 +3698,19 @@
     [
      "Multiversal Passage",
      34,
-     1
+     1.1
     ],
     [
      "Blazemire Verge",
-     33,
+     32,
      1.8
     ]
    ],
-   "lists": 61,
+   "lists": 59,
    "conv": [
+    2.2,
     2.3,
-    2.4,
-    15
+    14
    ],
    "prev": 2.2
   },
@@ -3788,15 +3770,15 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     1,
-     3,
-     0
-    ],
-    [
      "Izzet Spellementals",
      2,
      6,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     1,
+     3,
      0
     ],
     [
@@ -3936,182 +3918,6 @@
    "prev": 2
   },
   {
-   "id": "standard-selesnya-landfall",
-   "name": "Selesnya Landfall",
-   "share": 1.9,
-   "tier": 2,
-   "count": 51,
-   "title": "perezect · ReCQ - Standard - SCG CON Los Angeles - Sunday - 12:30 pm (3st Place)",
-   "url": "https://melee.gg/Decklist/View/f70cc610-c391-4b34-868d-b4e001353399",
-   "main": [
-    "3 Ba Sing Se",
-    "4 Earthbender Ascension",
-    "3 Erode",
-    "3 Escape Tunnel",
-    "3 Esper Origins",
-    "4 Fabled Passage",
-    "9 Forest",
-    "4 Hushwood Verge",
-    "4 Icetill Explorer",
-    "2 Jennifer Walters",
-    "4 Llanowar Elves",
-    "4 Mightform Harmonizer",
-    "4 Mossborn Hydra",
-    "2 Plains",
-    "2 Practiced Offense",
-    "4 Sazh's Chocobo",
-    "1 Temple Garden"
-   ],
-   "side": [
-    "2 Captain America, Super-Soldier",
-    "3 Clarion Conqueror",
-    "3 Rest in Peace",
-    "3 Sheltered by Ghosts",
-    "3 Surrak, Elusive Hunter",
-    "1 Voice of Victory"
-   ],
-   "history": [
-    null,
-    0.8,
-    1.7,
-    0.6,
-    2.7,
-    8.8,
-    1.7,
-    1.9,
-    0.3,
-    2.1,
-    1.3,
-    0.5
-   ],
-   "field": [
-    38,
-    24,
-    2
-   ],
-   "mu": [
-    [
-     "Mono Green Landfall",
-     6,
-     4,
-     0
-    ],
-    [
-     "Izzet Spellementals",
-     7,
-     0,
-     0
-    ],
-    [
-     "Jeskai Control",
-     2,
-     4,
-     0
-    ],
-    [
-     "Dimir Excruciator",
-     3,
-     3,
-     0
-    ],
-    [
-     "Azorius Artifacts",
-     0,
-     1,
-     2
-    ],
-    [
-     "Azorius Momo",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": 57.8,
-   "core": [
-    [
-     "Forest",
-     9
-    ],
-    [
-     "Fabled Passage",
-     4
-    ],
-    [
-     "Llanowar Elves",
-     4
-    ],
-    [
-     "Mightform Harmonizer",
-     4
-    ],
-    [
-     "Sazh's Chocobo",
-     4
-    ],
-    [
-     "Earthbender Ascension",
-     4
-    ],
-    [
-     "Icetill Explorer",
-     4
-    ],
-    [
-     "Erode",
-     4
-    ],
-    [
-     "Temple Garden",
-     4
-    ],
-    [
-     "Mossborn Hydra",
-     3
-    ],
-    [
-     "Escape Tunnel",
-     3
-    ],
-    [
-     "Esper Origins",
-     3
-    ],
-    [
-     "Ba Sing Se",
-     3
-    ],
-    [
-     "Plains",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Hushwood Verge",
-     80,
-     1.3
-    ],
-    [
-     "Dyadrine, Synthesis Amalgam",
-     78,
-     2
-    ],
-    [
-     "Shared Roots",
-     71,
-     2.2
-    ]
-   ],
-   "lists": 51,
-   "conv": [
-    2,
-    2,
-    12
-   ],
-   "prev": 1.8
-  },
-  {
    "id": "standard-azorius-artifacts",
    "name": "Azorius Artifacts",
    "share": 1.8,
@@ -4157,7 +3963,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0,
     0,
     0,
     0,
@@ -4176,15 +3982,15 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     5,
-     2,
-     0
-    ],
-    [
      "Izzet Spellementals",
      3,
      0,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     5,
+     2,
      0
     ],
     [
@@ -4338,10 +4144,186 @@
    "lists": 50,
    "conv": [
     1.2,
-    2.1,
+    2.2,
     13
    ],
    "prev": 1.8
+  },
+  {
+   "id": "standard-selesnya-landfall",
+   "name": "Selesnya Landfall",
+   "share": 1.8,
+   "tier": 2,
+   "count": 50,
+   "title": "perezect · ReCQ - Standard - SCG CON Los Angeles - Sunday - 12:30 pm (3st Place)",
+   "url": "https://melee.gg/Decklist/View/f70cc610-c391-4b34-868d-b4e001353399",
+   "main": [
+    "3 Ba Sing Se",
+    "4 Earthbender Ascension",
+    "3 Erode",
+    "3 Escape Tunnel",
+    "3 Esper Origins",
+    "4 Fabled Passage",
+    "9 Forest",
+    "4 Hushwood Verge",
+    "4 Icetill Explorer",
+    "2 Jennifer Walters",
+    "4 Llanowar Elves",
+    "4 Mightform Harmonizer",
+    "4 Mossborn Hydra",
+    "2 Plains",
+    "2 Practiced Offense",
+    "4 Sazh's Chocobo",
+    "1 Temple Garden"
+   ],
+   "side": [
+    "2 Captain America, Super-Soldier",
+    "3 Clarion Conqueror",
+    "3 Rest in Peace",
+    "3 Sheltered by Ghosts",
+    "3 Surrak, Elusive Hunter",
+    "1 Voice of Victory"
+   ],
+   "history": [
+    null,
+    1.1,
+    1.7,
+    0.6,
+    2.7,
+    8.8,
+    1.7,
+    1.9,
+    0.3,
+    2.1,
+    1.3,
+    0.5
+   ],
+   "field": [
+    38,
+    24,
+    2
+   ],
+   "mu": [
+    [
+     "Izzet Spellementals",
+     7,
+     0,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     6,
+     4,
+     0
+    ],
+    [
+     "Jeskai Control",
+     2,
+     4,
+     0
+    ],
+    [
+     "Dimir Excruciator",
+     3,
+     3,
+     0
+    ],
+    [
+     "Azorius Artifacts",
+     0,
+     1,
+     2
+    ],
+    [
+     "Azorius Momo",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": 57.9,
+   "core": [
+    [
+     "Forest",
+     9
+    ],
+    [
+     "Fabled Passage",
+     4
+    ],
+    [
+     "Llanowar Elves",
+     4
+    ],
+    [
+     "Mightform Harmonizer",
+     4
+    ],
+    [
+     "Sazh's Chocobo",
+     4
+    ],
+    [
+     "Earthbender Ascension",
+     4
+    ],
+    [
+     "Icetill Explorer",
+     4
+    ],
+    [
+     "Erode",
+     4
+    ],
+    [
+     "Temple Garden",
+     4
+    ],
+    [
+     "Mossborn Hydra",
+     3
+    ],
+    [
+     "Escape Tunnel",
+     3
+    ],
+    [
+     "Esper Origins",
+     3
+    ],
+    [
+     "Ba Sing Se",
+     3
+    ],
+    [
+     "Plains",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Hushwood Verge",
+     80,
+     1.3
+    ],
+    [
+     "Dyadrine, Synthesis Amalgam",
+     78,
+     1.9
+    ],
+    [
+     "Shared Roots",
+     70,
+     2.2
+    ]
+   ],
+   "lists": 50,
+   "conv": [
+    1.9,
+    2,
+    12
+   ],
+   "prev": 1.9
   },
   {
    "id": "standard-reanimator",
@@ -4390,7 +4372,7 @@
    ],
    "history": [
     null,
-    4,
+    4.3,
     4.3,
     0.9,
     0,
@@ -4409,15 +4391,15 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     2,
-     2,
-     0
-    ],
-    [
      "Izzet Spellementals",
      1,
      3,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     2,
+     2,
      0
     ],
     [
@@ -4541,7 +4523,7 @@
    "lists": 49,
    "conv": [
     1.8,
-    2.6,
+    2.7,
     16
    ],
    "prev": 1.8
@@ -4551,7 +4533,7 @@
    "name": "Azorius Momo",
    "share": 1.6,
    "tier": 2,
-   "count": 45,
+   "count": 43,
    "title": "zippzipp_ · Standard Championship Week Finals (2nd Place)",
    "url": "https://www.mtgo.com/decklist/standard-championship-week-finals-2026-10-0812856137#deck_zippzipp_",
    "main": [
@@ -4606,16 +4588,16 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     4,
-     2,
-     0
-    ],
-    [
      "Izzet Spellementals",
      2,
      7,
      2
+    ],
+    [
+     "Mono Green Landfall",
+     4,
+     2,
+     0
     ],
     [
      "Dimir Midrange",
@@ -4648,11 +4630,15 @@
      0
     ]
    ],
-   "metaWr": 49.4,
+   "metaWr": 49.3,
    "core": [
     [
      "Plains",
      6
+    ],
+    [
+     "Daydream",
+     4
     ],
     [
      "Hallowed Fountain",
@@ -4664,10 +4650,6 @@
     ],
     [
      "Floodfarm Verge",
-     4
-    ],
-    [
-     "Daydream",
      4
     ],
     [
@@ -4699,22 +4681,22 @@
     ],
     [
      "Erode",
-     80,
+     81,
      2
     ],
     [
      "Nurturing Pixie",
-     76,
+     74,
      1.7
     ],
     [
      "Steamcore Scholar",
-     71,
+     70,
      3.4
     ],
     [
      "Seam Rip",
-     60,
+     63,
      2.1
     ],
     [
@@ -4729,37 +4711,37 @@
     ],
     [
      "Haliya, Guided by Light",
-     36,
-     1.9
-    ],
-    [
-     "Cosmogrand Zenith",
-     29,
+     35,
      1.9
     ],
     [
      "Starting Town",
-     27,
+     28,
      2.1
     ],
     [
+     "Cosmogrand Zenith",
+     28,
+     2
+    ],
+    [
      "Island",
-     27,
-     1.8
+     26,
+     1.9
     ]
    ],
-   "lists": 45,
+   "lists": 43,
    "conv": [
     1.8,
-    1.6,
+    1.7,
     10
    ],
-   "prev": 1.7
+   "prev": 1.6
   },
   {
    "id": "standard-golgari-midrange",
    "name": "Golgari Midrange",
-   "share": 1.5,
+   "share": 1.6,
    "tier": 2,
    "count": 42,
    "title": "Burkoon · Standard League (5-0)",
@@ -4822,15 +4804,15 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     3,
-     6,
-     0
-    ],
-    [
      "Izzet Spellementals",
      3,
      1,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     3,
+     6,
      0
     ],
     [
@@ -4970,7 +4952,7 @@
    "lists": 42,
    "conv": [
     1.5,
-    1.6,
+    1.7,
     10
    ],
    "prev": 1.5
@@ -5033,16 +5015,16 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     1,
-     1,
-     2
-    ],
-    [
      "Izzet Spellementals",
      3,
      3,
      0
+    ],
+    [
+     "Mono Green Landfall",
+     1,
+     1,
+     2
     ],
     [
      "Dimir Midrange",
@@ -5152,7 +5134,7 @@
    ],
    "lists": 36,
    "conv": [
-    1.4,
+    1.5,
     0.8,
     5
    ],
@@ -5163,7 +5145,7 @@
    "name": "Jeskai Artifacts",
    "share": 1.3,
    "tier": 2,
-   "count": 35,
+   "count": 34,
    "title": "VoVictori · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-0111129#deck_VoVictori",
    "main": [
@@ -5218,7 +5200,7 @@
    ],
    "field": [
     15,
-    13,
+    12,
     0
    ],
    "mu": [
@@ -5226,12 +5208,6 @@
      "Izzet Spellementals",
      1,
      2,
-     0
-    ],
-    [
-     "Azorius Control",
-     0,
-     3,
      0
     ]
    ],
@@ -5313,35 +5289,35 @@
    "flex": [
     [
      "Dusk Rose Reliquary",
-     86,
+     85,
      1.9
     ],
     [
      "Starting Town",
-     86,
+     85,
      1
     ],
     [
      "Spring-Loaded Sawblades",
-     74,
+     76,
      1.3
     ],
     [
      "Unidentified Hovership",
-     66,
+     68,
      1
     ],
     [
      "Island",
-     51,
+     50,
      1
     ]
    ],
-   "lists": 35,
+   "lists": 34,
    "conv": [
     1.1,
-    0.7,
-    4
+    0.5,
+    3
    ],
    "prev": 1.3
   },
@@ -5413,15 +5389,15 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     2,
-     3,
-     0
-    ],
-    [
      "Izzet Spellementals",
      3,
      1,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     2,
+     3,
      0
     ],
     [
@@ -5624,16 +5600,16 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     8,
-     4,
-     2
-    ],
-    [
      "Izzet Spellementals",
      5,
      2,
      0
+    ],
+    [
+     "Mono Green Landfall",
+     8,
+     4,
+     2
     ],
     [
      "Jeskai Control",
@@ -5773,7 +5749,7 @@
    ],
    "lists": 24,
    "conv": [
-    0.7,
+    0.8,
     0.7,
     4
    ],
@@ -5782,7 +5758,7 @@
   {
    "id": "standard-mono-red-aggro",
    "name": "Mono Red Aggro",
-   "share": 0.8,
+   "share": 0.9,
    "tier": 2,
    "count": 23,
    "title": "deleon91 · Standard League (5-0)",
@@ -5812,7 +5788,7 @@
    ],
    "history": [
     null,
-    1.6,
+    2.2,
     1.4,
     1.5,
     1,
@@ -5831,14 +5807,14 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     0,
+     "Izzet Spellementals",
+     1,
      3,
      0
     ],
     [
-     "Izzet Spellementals",
-     1,
+     "Mono Green Landfall",
+     0,
      3,
      0
     ],
@@ -5945,7 +5921,7 @@
    "name": "Mono Black Aggro",
    "share": 0.8,
    "tier": 2,
-   "count": 22,
+   "count": 21,
    "title": "eresopacaso · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1111129#deck_eresopacaso",
    "main": [
@@ -5974,7 +5950,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.5,
     0,
     0.3,
     1,
@@ -6024,7 +6000,7 @@
     ],
     [
      "Dissection Practice",
-     4
+     3
     ],
     [
      "Soulstone Sanctuary",
@@ -6047,16 +6023,16 @@
     ],
     [
      "Mudflat Village",
-     55,
+     57,
      2
     ],
     [
      "Realm of Koh",
-     50,
+     48,
      1.9
     ]
    ],
-   "lists": 22,
+   "lists": 21,
    "conv": [
     0.8,
     0.8,
@@ -6109,7 +6085,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.5,
     0,
     0.6,
     1.7,
@@ -6128,15 +6104,15 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     4,
-     1,
-     0
-    ],
-    [
      "Izzet Spellementals",
      1,
      3,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     4,
+     1,
      0
     ],
     [
@@ -6250,7 +6226,7 @@
    ],
    "lists": 19,
    "conv": [
-    0.7,
+    0.8,
     0.7,
     4
    ],
@@ -6317,15 +6293,15 @@
    ],
    "mu": [
     [
-     "Mono Green Landfall",
-     2,
-     7,
-     0
-    ],
-    [
      "Izzet Spellementals",
      4,
      2,
+     0
+    ],
+    [
+     "Mono Green Landfall",
+     2,
+     7,
      0
     ],
     [
@@ -6341,7 +6317,7 @@
      0
     ]
    ],
-   "metaWr": 44.2,
+   "metaWr": 44.3,
    "core": [
     [
      "Plains",
@@ -6631,7 +6607,7 @@
    "name": "Mono Black Midrange",
    "share": 0.6,
    "tier": 2,
-   "count": 16,
+   "count": 15,
    "title": "TheRealJulys · Standard Challenge 32 (6th Place)",
    "url": "https://www.mtgo.com/decklist/standard-challenge-32-2026-09-2512854913#deck_TheRealJulys",
    "main": [
@@ -6661,7 +6637,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.5,
     1.2,
     1.2,
     0.3,
@@ -6675,7 +6651,7 @@
    ],
    "field": [
     7,
-    18,
+    16,
     0
    ],
    "mu": [
@@ -6705,79 +6681,79 @@
    ],
    "flex": [
     [
-     "Shoot the Sheriff",
-     69,
-     2.9
+     "Forsaken Miner",
+     73,
+     4
     ],
     [
-     "Forsaken Miner",
-     69,
-     4
+     "Shoot the Sheriff",
+     67,
+     3
     ],
     [
      "Soulstone Sanctuary",
-     63,
-     2.6
+     60,
+     2.7
     ],
     [
      "Bitter Triumph",
-     56,
-     2.2
-    ],
-    [
-     "Timeline Culler",
-     56,
-     3.7
-    ],
-    [
-     "Corpses of the Lost",
-     50,
-     4
-    ],
-    [
-     "Sunset Saboteur",
-     50,
-     3.8
-    ],
-    [
-     "Gollum, Riddle Master",
-     44,
+     53,
      2.4
     ],
     [
-     "Iridescent Vinelasher",
-     44,
-     3.4
+     "Corpses of the Lost",
+     53,
+     4
+    ],
+    [
+     "Timeline Culler",
+     53,
+     3.6
+    ],
+    [
+     "Sunset Saboteur",
+     53,
+     3.8
     ],
     [
      "Realm of Koh",
-     44,
+     47,
      1.9
     ],
     [
-     "Deep-Cavern Bat",
-     38,
+     "Gollum, Riddle Master",
+     40,
+     2.7
+    ],
+    [
+     "Iridescent Vinelasher",
+     40,
      3.3
     ],
     [
-     "Mudflat Village",
-     31,
-     3.2
-    ],
-    [
      "Desolation Prowler",
-     31,
+     33,
      4
     ],
     [
      "Dissection Practice",
-     31,
+     33,
      4
+    ],
+    [
+     "Nighthowl Pursuer",
+     33,
+     4
+    ],
+    [
+     "Deep-Cavern Bat",
+     33,
+     3.6
     ]
    ],
-   "lists": 16,
+   "lists": 15,
    "conv": [
-    0.7,
+    0.6,
     0.5,
     3
    ],
@@ -7006,7 +6982,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.5,
     0,
     0.6,
     0.7,
@@ -7507,7 +7483,7 @@
    ],
    "lists": 9,
    "conv": [
-    0.3,
+    0.4,
     0.3,
     2
    ],
@@ -8065,7 +8041,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0,
     0,
     0.9,
     0.7,
@@ -8746,7 +8722,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.5,
     0,
     0,
     0,
@@ -9992,7 +9968,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.5,
     0,
     0,
     0,
