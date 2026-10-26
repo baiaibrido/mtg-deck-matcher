@@ -113,6 +113,7 @@ Principi:
 | v0.33.0: profilo facoltativo per portarsi dietro la collezione: accesso con Google o con un link via email (Firebase), collezione salvata nel profilo (Firestore in Europa) e tenuta uguale su tutti i dispositivi, scelta «unisci / profilo / dispositivo» se le due collezioni sono diverse, uscita ed eliminazione del profilo; pagina Informativa privacy; il sito resta usabile senza account | Richiesta utente |
 | v0.33.1: in cEDH niente «Oggi nel meta» (pochi mazzi, liste tutte diverse); linguette dei formati: la linea di base passa davanti ai bordi delle linguette non scelte | Richiesta utente |
 | v0.34.0: il sito passa a netdeckable.net: il vecchio indirizzo manda al nuovo portandosi dietro collezione, preferiti e impostazioni salvati nel browser (nel link, compressi; presi solo se sul nuovo non c'è già niente); sitemap, robots e immagine di anteprima sul nuovo dominio | Richiesta utente |
+| v0.34.1: «Indovina il mazzo» sceglie tra i 50 mazzi più giocati (prima 20) e lo stesso mazzo non può tornare prima di 5 giorni; la nuova regola vale da domani (27 ottobre), così chi ha già giocato oggi ritrova il suo mazzo | Richiesta utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

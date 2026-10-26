@@ -20,11 +20,37 @@ export function cardFreq(decks) {
   return n => f.get(norm(n)) || 0
 }
 
-// ── Indovina il mazzo: un mazzo noto (i 20 più giocati), carte svelate dalla più comune alla più caratteristica
+// ── Indovina il mazzo: uno dei 50 più giocati, carte svelate dalla più comune alla più caratteristica.
+// Estrazione a caso ma uguale per tutti; un mazzo non torna prima di 5 giorni.
 export const GUESS_TRIES = 6
+export const GUESS_POOL = 50, GUESS_GAP = 5
+const DAY = 864e5
+const GUESS_FROM = Date.UTC(2026, 9, 27) // regola nuova da questo giorno (prima: i 20 più giocati, senza memoria)
+const utcOf = key => { const [y, m, d] = key.split('-').map(Number); return Date.UTC(y, m - 1, d) }
+const keyOf = ms => { const d = new Date(ms); return `${d.getUTCFullYear()}-${d.getUTCMonth() + 1}-${d.getUTCDate()}` }
+const byShare = decks => metaOnly(decks).sort((a, b) => (b.share || 0) - (a.share || 0))
+let memo = { k: '', v: null }
+
 export function guessDeck(decks, format, day = dayKey()) {
-  const pool = metaOnly(decks).sort((a, b) => (b.share || 0) - (a.share || 0)).slice(0, 20)
-  return pool.length ? pool[hash(`guess|${format}|${day}`) % pool.length] : null
+  const at = utcOf(day)
+  if (at < GUESS_FROM) { // giorni passati: come prima, così chi aveva già giocato ritrova il suo mazzo
+    const old = byShare(decks).slice(0, 20)
+    return old.length ? old[hash(`guess|${format}|${day}`) % old.length] : null
+  }
+  const pool = byShare(decks).slice(0, GUESS_POOL)
+  if (!pool.length) return null
+  const k = `${format}|${day}|${pool.map(d => d.id).join(',')}`
+  if (memo.k === k) return memo.v
+  // si ripercorrono i giorni dall'inizio della regola: ognuno esclude i mazzi usciti nei giorni prima
+  const gap = Math.min(GUESS_GAP, pool.length - 1), recent = []
+  let pick = null
+  for (let t = GUESS_FROM; t <= at; t += DAY) {
+    const free = pool.filter(d => !recent.includes(d.id))
+    pick = free[hash(`guess|${format}|${keyOf(t)}`) % free.length]
+    recent.push(pick.id); if (recent.length > gap) recent.shift()
+  }
+  memo = { k, v: pick }
+  return pick
 }
 export function revealOrder(deck, decks, isLand = () => false) {
   const freq = cardFreq(decks)

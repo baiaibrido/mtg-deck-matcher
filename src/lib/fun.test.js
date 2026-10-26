@@ -22,6 +22,17 @@ test('indovina: stesso mazzo tutto il giorno, carte dalla più comune alla più 
   assert.equal(order[0], 'Common'); assert.ok(!order.includes('Mountain')); assert.equal(order.length, 3)
   assert.equal(shareGrid(['A', 'B', 'X'], 'X'), '🟥🟥🟩⬛⬛⬛')
 })
+test('indovina: tra i 50 più giocati e mai lo stesso mazzo per 5 giorni', () => {
+  const many = Array.from({ length: 60 }, (_, i) => mk(`D${i}`, 60 - i, []))
+  const days = Array.from({ length: 200 }, (_, i) => { const d = new Date(Date.UTC(2026, 9, 27 + i)); return `${d.getUTCFullYear()}-${d.getUTCMonth() + 1}-${d.getUTCDate()}` })
+  const picks = days.map(d => guessDeck(many, 'pauper', d).name)
+  for (let i = 0; i < picks.length; i++) for (let j = Math.max(0, i - 5); j < i; j++) assert.notEqual(picks[i], picks[j], `${days[i]} ripete ${days[j]}`)
+  assert.ok(picks.every(n => +n.slice(1) < 50)) // solo i 50 più giocati
+  assert.ok(new Set(picks).size > 40) // e li usa quasi tutti
+  assert.equal(guessDeck(many, 'pauper', '2026-11-3').name, picks[7]) // stesso risultato chiedendo un giorno da solo
+  // pochi mazzi: si esclude quel che si può, senza bloccarsi
+  assert.ok(guessDeck(decks, 'pauper', '2026-12-1'))
+})
 test('meteo: chi sale e chi scende (storico settimanale se c\'è)', () => {
   assert.equal(weather([mk('A', 5, [], { history: [1, 1, 2, 3, 4, 6] }), mk('B', 3, [], { history: [5, 5, 4, 4, 3, 3] })]).up.delta, 5)
   const w = weather(decks)
