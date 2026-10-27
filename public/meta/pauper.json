@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-26",
- "prevDate": "2026-10-25",
+ "updated": "2026-10-27",
+ "prevDate": "2026-10-26",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 6525,
+ "decksAnalyzed": 6397,
  "unknownPct": 0.6,
  "rogue": [
   {
@@ -43,49 +43,6 @@
    ]
   },
   {
-   "id": "pauper-rogue-dimir-midrange",
-   "name": "Dimir Midrange",
-   "rogue": true,
-   "results": 1,
-   "best": "1st Place",
-   "signature": "Vedalken Engineer",
-   "share": 0.2,
-   "title": "Laurence Hinds · Manaforge Friday Pauper League Week 5 (1st Place)",
-   "url": "https://melee.gg/Decklist/View/bbe1b421-0809-4ce6-a96a-b4ec011c7ea4",
-   "main": [
-    "4 Counterspell",
-    "2 Pactdoll Terror",
-    "4 Island",
-    "4 Mistvault Bridge",
-    "4 Baleful Strix",
-    "1 Bojuka Bog",
-    "2 Eviscerator's Insight",
-    "2 Reckoner's Bargain",
-    "2 Blood Fountain",
-    "4 Cryogen Relic",
-    "2 Swamp",
-    "1 Nihil Spellbomb",
-    "4 Thoughtcast",
-    "4 Vault of Whispers",
-    "4 Refurbished Familiar",
-    "2 Banishing Knack",
-    "2 Retraction Helix",
-    "4 Seat of the Synod",
-    "4 Vedalken Engineer",
-    "4 Sewer-veillance Cam"
-   ],
-   "side": [
-    "2 Arms of Hadar",
-    "1 Thorn of the Black Rose",
-    "2 Campfire",
-    "2 Lose Focus",
-    "2 Duress",
-    "1 Dispel",
-    "2 Blue Elemental Blast",
-    "3 Hydroblast"
-   ]
-  },
-  {
    "id": "pauper-rogue-jund-graveyard",
    "name": "Jund Graveyard",
    "rogue": true,
@@ -121,6 +78,49 @@
     "4 Fang Dragon",
     "3 Momentary Blink",
     "2 Protege's Awakening"
+   ]
+  },
+  {
+   "id": "pauper-rogue-dimir-midrange",
+   "name": "Dimir Midrange",
+   "rogue": true,
+   "results": 1,
+   "best": "1st Place",
+   "signature": "Vedalken Engineer",
+   "share": 0.1,
+   "title": "Laurence Hinds · Manaforge Friday Pauper League Week 5 (1st Place)",
+   "url": "https://melee.gg/Decklist/View/bbe1b421-0809-4ce6-a96a-b4ec011c7ea4",
+   "main": [
+    "4 Counterspell",
+    "2 Pactdoll Terror",
+    "4 Island",
+    "4 Mistvault Bridge",
+    "4 Baleful Strix",
+    "1 Bojuka Bog",
+    "2 Eviscerator's Insight",
+    "2 Reckoner's Bargain",
+    "2 Blood Fountain",
+    "4 Cryogen Relic",
+    "2 Swamp",
+    "1 Nihil Spellbomb",
+    "4 Thoughtcast",
+    "4 Vault of Whispers",
+    "4 Refurbished Familiar",
+    "2 Banishing Knack",
+    "2 Retraction Helix",
+    "4 Seat of the Synod",
+    "4 Vedalken Engineer",
+    "4 Sewer-veillance Cam"
+   ],
+   "side": [
+    "2 Arms of Hadar",
+    "1 Thorn of the Black Rose",
+    "2 Campfire",
+    "2 Lose Focus",
+    "2 Duress",
+    "1 Dispel",
+    "2 Blue Elemental Blast",
+    "3 Hydroblast"
    ]
   },
   {
@@ -455,7 +455,7 @@
     17.2,
     12.7,
     [
-     10.7,
+     11,
      9,
      8.9,
      9.8,
@@ -474,7 +474,7 @@
     12.6,
     8.9,
     [
-     4.8,
+     4.7,
      3,
      3.6,
      3.1,
@@ -493,7 +493,7 @@
     8.5,
     5.2,
     [
-     7.1,
+     7,
      7.2,
      5.6,
      7.6,
@@ -512,7 +512,7 @@
     10.4,
     7.2,
     [
-     4.1,
+     3.7,
      2.5,
      2.7,
      4.5,
@@ -531,7 +531,7 @@
     22.1,
     19,
     [
-     15.2,
+     15.4,
      13.4,
      16.5,
      15.8,
@@ -569,7 +569,7 @@
     25.9,
     22.9,
     [
-     20.3,
+     21.2,
      23.3,
      24.5,
      23,
@@ -588,7 +588,7 @@
     4.8,
     1.9,
     [
-     0.1,
+     0.2,
      0.2,
      0.2,
      0.1,
@@ -609,7 +609,7 @@
     4.9,
     8.5,
     [
-     7.4,
+     6.8,
      7.2,
      6.4,
      6.7,
@@ -624,30 +624,11 @@
     ]
    ],
    [
-    "Sewer-veillance Cam",
-    4.5,
-    6.7,
-    [
-     6.8,
-     9.1,
-     7.8,
-     8,
-     8.3,
-     9.5,
-     8.1,
-     6.8,
-     8.1,
-     4.6,
-     4.8,
-     4.3
-    ]
-   ],
-   [
     "Novice Inspector",
     5,
     7.2,
     [
-     4.4,
+     4.7,
      4.9,
      5.4,
      4.5,
@@ -662,11 +643,30 @@
     ]
    ],
    [
+    "Sewer-veillance Cam",
+    4.5,
+    6.7,
+    [
+     7.2,
+     9.1,
+     7.8,
+     8,
+     8.3,
+     9.5,
+     8.1,
+     6.8,
+     8.1,
+     4.6,
+     4.8,
+     4.3
+    ]
+   ],
+   [
     "Refurbished Familiar",
     14.5,
     16.7,
     [
-     11.1,
+     12.3,
      12.3,
      12.3,
      11.3,
@@ -685,7 +685,7 @@
     6.4,
     8.5,
     [
-     9.4,
+     9.3,
      13.1,
      15.4,
      13.5,
@@ -704,7 +704,7 @@
     4.5,
     6.5,
     [
-     3.8,
+     4.2,
      4.6,
      5.1,
      3.9,
@@ -827,9 +827,9 @@
   {
    "id": "pauper-red-madness",
    "name": "Red Madness",
-   "share": 11.9,
+   "share": 12,
    "tier": 1,
-   "count": 777,
+   "count": 768,
    "title": "Thomas Ellis · $1K Pauper - SCG CON Hartford - Sunday - 9:30 am (4th Place)",
    "url": "https://melee.gg/Decklist/View/d610b108-1e1b-4a00-8120-b4ee00d25804",
    "main": [
@@ -854,7 +854,7 @@
     "4 Pyroblast"
    ],
    "history": [
-    7.7,
+    8.6,
     8.8,
     9.6,
     13.9,
@@ -868,8 +868,8 @@
     13
    ],
    "field": [
-    759,
-    676,
+    758,
+    673,
     58
    ],
    "mu": [
@@ -882,7 +882,7 @@
     [
      "Elves",
      70,
-     21,
+     20,
      4
     ],
     [
@@ -892,16 +892,16 @@
      4
     ],
     [
-     "Grixis Affinity",
-     37,
-     34,
-     0
-    ],
-    [
      "Dimir Faeries",
      31,
      21,
      4
+    ],
+    [
+     "Grixis Affinity",
+     37,
+     34,
+     0
     ],
     [
      "Spy Combo",
@@ -918,7 +918,7 @@
     [
      "White Aggro",
      33,
-     22,
+     21,
      4
     ],
     [
@@ -928,16 +928,16 @@
      0
     ],
     [
-     "Jund Midrange",
-     31,
-     19,
-     2
-    ],
-    [
      "Esper Affinity",
      24,
      39,
      0
+    ],
+    [
+     "Jund Midrange",
+     31,
+     19,
+     2
     ],
     [
      "Mono Blue Faeries",
@@ -952,21 +952,9 @@
      2
     ],
     [
-     "Jeskai Ephemerate",
-     15,
-     15,
-     0
-    ],
-    [
      "Ephemerate Tron",
      21,
      19,
-     0
-    ],
-    [
-     "Gruul Ponza",
-     16,
-     5,
      0
     ],
     [
@@ -974,6 +962,18 @@
      5,
      13,
      2
+    ],
+    [
+     "Jeskai Ephemerate",
+     15,
+     15,
+     0
+    ],
+    [
+     "Gruul Ponza",
+     16,
+     5,
+     0
     ],
     [
      "Rakdos Madness",
@@ -1000,6 +1000,12 @@
      0
     ],
     [
+     "Esper Midrange",
+     10,
+     13,
+     0
+    ],
+    [
      "Turbo Fog",
      13,
      8,
@@ -1012,33 +1018,15 @@
      0
     ],
     [
-     "Esper Midrange",
-     10,
-     13,
-     0
-    ],
-    [
      "Azorius Familiars",
      11,
      7,
      0
     ],
     [
-     "Mono Black Sacrifice",
-     17,
-     5,
-     0
-    ],
-    [
      "Dimir Terror",
      8,
      10,
-     0
-    ],
-    [
-     "Izzet Terror",
-     6,
-     11,
      0
     ],
     [
@@ -1054,6 +1042,18 @@
      0
     ],
     [
+     "Izzet Terror",
+     6,
+     11,
+     0
+    ],
+    [
+     "Mono Black Sacrifice",
+     16,
+     5,
+     0
+    ],
+    [
      "Mardu Midrange",
      4,
      6,
@@ -1066,16 +1066,16 @@
      0
     ],
     [
-     "Golgari Midrange",
-     5,
-     4,
-     2
-    ],
-    [
      "Orzhov Midrange",
      7,
      7,
      0
+    ],
+    [
+     "Golgari Midrange",
+     5,
+     3,
+     2
     ],
     [
      "Mardu Synthesizer",
@@ -1088,6 +1088,12 @@
      6,
      6,
      0
+    ],
+    [
+     "Boros Synthesizer",
+     3,
+     5,
+     2
     ],
     [
      "Dimir Affinity",
@@ -1120,15 +1126,9 @@
      0
     ],
     [
-     "Boros Synthesizer",
-     3,
+     "Infect",
      5,
-     2
-    ],
-    [
-     "Mono Red Burn",
-     2,
-     5,
+     1,
      0
     ],
     [
@@ -1138,9 +1138,9 @@
      0
     ],
     [
-     "Infect",
+     "Mono Red Burn",
+     2,
      5,
-     1,
      0
     ],
     [
@@ -1182,7 +1182,7 @@
     ],
     [
      "Guttersnipe",
-     3
+     4
     ],
     [
      "Fireblast",
@@ -1205,10 +1205,10 @@
      3.8
     ]
    ],
-   "lists": 777,
+   "lists": 768,
    "conv": [
-    12.1,
-    12.3,
+    12.2,
+    12.4,
     170
    ],
    "prev": 11.9
@@ -1218,7 +1218,7 @@
    "name": "Mono Blue Terror",
    "share": 6.5,
    "tier": 1,
-   "count": 425,
+   "count": 414,
    "title": "Luminati · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_Luminati",
    "main": [
@@ -1244,7 +1244,7 @@
     "4 Hydroblast"
    ],
    "history": [
-    5.5,
+    6.3,
     9.3,
     10.2,
     9.3,
@@ -1258,8 +1258,8 @@
     6.7
    ],
    "field": [
-    419,
-    413,
+    410,
+    409,
     53
    ],
    "mu": [
@@ -1270,21 +1270,21 @@
      4
     ],
     [
-     "Tron",
-     28,
-     26,
-     6
-    ],
-    [
      "Elves",
      20,
      22,
      0
     ],
     [
+     "Tron",
+     24,
+     25,
+     6
+    ],
+    [
      "Dimir Faeries",
      4,
-     19,
+     18,
      1
     ],
     [
@@ -1342,27 +1342,27 @@
      4
     ],
     [
-     "Jeskai Ephemerate",
-     11,
-     7,
-     4
-    ],
-    [
-     "Gruul Ponza",
-     4,
-     2,
-     0
-    ],
-    [
      "Ephemerate Tron",
      11,
      7,
      0
     ],
     [
+     "Jeskai Ephemerate",
+     11,
+     7,
+     4
+    ],
+    [
      "Grixis Control",
      8,
      10,
+     0
+    ],
+    [
+     "Gruul Ponza",
+     2,
+     2,
      0
     ],
     [
@@ -1372,16 +1372,16 @@
      0
     ],
     [
-     "Ruby Storm",
-     11,
-     5,
-     2
-    ],
-    [
      "Dimir Control",
      6,
      8,
      0
+    ],
+    [
+     "Ruby Storm",
+     11,
+     5,
+     2
     ],
     [
      "Gruul Ramp",
@@ -1414,10 +1414,10 @@
      0
     ],
     [
-     "Mono Black Sacrifice",
+     "Esper Ephemerate",
+     4,
      5,
-     6,
-     2
+     4
     ],
     [
      "Dimir Terror",
@@ -1432,16 +1432,16 @@
      0
     ],
     [
-     "Esper Ephemerate",
-     4,
-     5,
-     4
-    ],
-    [
      "Altar Tron",
      3,
      5,
      0
+    ],
+    [
+     "Mono Black Sacrifice",
+     5,
+     6,
+     2
     ],
     [
      "Mardu Midrange",
@@ -1451,14 +1451,14 @@
     ],
     [
      "Orzhov Midrange",
-     1,
-     4,
+     0,
+     3,
      0
     ],
     [
      "Golgari Midrange",
      2,
-     2,
+     1,
      2
     ],
     [
@@ -1480,15 +1480,15 @@
      0
     ],
     [
-     "Mardu Synthesizer",
-     4,
+     "Boros Synthesizer",
      2,
+     1,
      0
     ],
     [
-     "Mono Red Burn",
+     "Mardu Synthesizer",
      4,
-     5,
+     2,
      0
     ],
     [
@@ -1496,12 +1496,6 @@
      5,
      2,
      2
-    ],
-    [
-     "Boros Synthesizer",
-     2,
-     1,
-     0
     ],
     [
      "Mono White Heroic",
@@ -1516,9 +1510,9 @@
      0
     ],
     [
-     "Mono Red Kiln Fiend",
-     4,
-     2,
+     "Mono Red Burn",
+     3,
+     5,
      0
     ],
     [
@@ -1526,9 +1520,15 @@
      4,
      1,
      0
+    ],
+    [
+     "Mono Red Kiln Fiend",
+     4,
+     2,
+     0
     ]
    ],
-   "metaWr": 49.4,
+   "metaWr": 49.2,
    "core": [
     [
      "Island",
@@ -1589,7 +1589,7 @@
     ],
     [
      "Murmuring Mystic",
-     55,
+     56,
      1.8
     ],
     [
@@ -1599,7 +1599,7 @@
     ],
     [
      "Force Spike",
-     47,
+     46,
      2.7
     ],
     [
@@ -1613,20 +1613,20 @@
      1.5
     ]
    ],
-   "lists": 425,
+   "lists": 414,
    "conv": [
-    7.1,
-    6.4,
-    89
+    7,
+    6.2,
+    85
    ],
-   "prev": 6.6
+   "prev": 6.5
   },
   {
    "id": "pauper-elves",
    "name": "Elves",
    "share": 5.3,
    "tier": 1,
-   "count": 347,
+   "count": 342,
    "title": "Raketa · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_Raketa",
    "main": [
@@ -1652,7 +1652,7 @@
     "3 Prohibit"
    ],
    "history": [
-    5.4,
+    5.6,
     4.1,
     4.4,
     4.2,
@@ -1666,14 +1666,14 @@
     4.3
    ],
    "field": [
-    396,
-    384,
+    388,
+    380,
     90
    ],
    "mu": [
     [
      "Red Madness",
-     21,
+     20,
      70,
      4
     ],
@@ -1685,7 +1685,7 @@
     ],
     [
      "Tron",
-     32,
+     31,
      14,
      10
     ],
@@ -1698,18 +1698,18 @@
     [
      "Grixis Affinity",
      26,
-     15,
+     14,
      6
     ],
     [
      "Spy Combo",
      17,
-     16,
+     15,
      4
     ],
     [
      "Red Rally",
-     14,
+     13,
      24,
      2
     ],
@@ -1726,16 +1726,16 @@
      0
     ],
     [
-     "Jund Midrange",
-     13,
-     7,
-     8
-    ],
-    [
      "Esper Affinity",
      22,
      5,
      4
+    ],
+    [
+     "Jund Midrange",
+     13,
+     7,
+     8
     ],
     [
      "Mono Blue Faeries",
@@ -1745,7 +1745,7 @@
     ],
     [
      "Golgari Garden",
-     5,
+     4,
      9,
      2
     ],
@@ -1762,16 +1762,16 @@
      4
     ],
     [
-     "Gruul Ponza",
-     8,
-     4,
-     0
-    ],
-    [
      "Grixis Control",
      5,
      5,
      4
+    ],
+    [
+     "Gruul Ponza",
+     8,
+     4,
+     0
     ],
     [
      "Ruby Storm",
@@ -1798,6 +1798,12 @@
      2
     ],
     [
+     "Esper Midrange",
+     6,
+     5,
+     2
+    ],
+    [
      "Gates",
      7,
      8,
@@ -1810,12 +1816,6 @@
      0
     ],
     [
-     "Esper Midrange",
-     6,
-     5,
-     2
-    ],
-    [
      "Azorius Familiars",
      5,
      4,
@@ -1824,19 +1824,7 @@
     [
      "Dimir Terror",
      5,
-     3,
-     0
-    ],
-    [
-     "Mono Black Sacrifice",
      2,
-     5,
-     2
-    ],
-    [
-     "Izzet Terror",
-     1,
-     3,
      0
     ],
     [
@@ -1849,6 +1837,18 @@
      "Altar Tron",
      8,
      1,
+     2
+    ],
+    [
+     "Izzet Terror",
+     1,
+     3,
+     0
+    ],
+    [
+     "Mono Black Sacrifice",
+     2,
+     5,
      2
     ],
     [
@@ -1877,7 +1877,7 @@
     ],
     [
      "Dimir Affinity",
-     5,
+     4,
      0,
      0
     ],
@@ -1888,9 +1888,9 @@
      0
     ],
     [
-     "Mono Red Burn",
-     1,
+     "Boros Synthesizer",
      3,
+     2,
      0
     ],
     [
@@ -1906,12 +1906,6 @@
      2
     ],
     [
-     "Boros Synthesizer",
-     3,
-     2,
-     0
-    ],
-    [
      "Mono White Heroic",
      0,
      1,
@@ -1924,7 +1918,7 @@
      0
     ]
    ],
-   "metaWr": 49.4,
+   "metaWr": 49.2,
    "core": [
     [
      "Quirion Ranger",
@@ -1981,7 +1975,7 @@
     ],
     [
      "Sagu Wildling",
-     82,
+     81,
      2.3
     ],
     [
@@ -2005,20 +1999,20 @@
      2.2
     ]
    ],
-   "lists": 347,
+   "lists": 342,
    "conv": [
     4.8,
     4.5,
-    63
+    62
    ],
-   "prev": 5.4
+   "prev": 5.3
   },
   {
    "id": "pauper-tron",
    "name": "Tron",
-   "share": 5.3,
+   "share": 5.2,
    "tier": 1,
-   "count": 346,
+   "count": 334,
    "title": "xadrus · Weekly Pauper Bonn (5th Place)",
    "url": "https://melee.gg/Decklist/View/37d05ff1-04e2-461c-8d3d-b4ec00fff15f",
    "main": [
@@ -2050,7 +2044,7 @@
     "2 Scour from Existence"
    ],
    "history": [
-    3.8,
+    3.7,
     5.2,
     6.5,
     6.1,
@@ -2064,9 +2058,9 @@
     4.1
    ],
    "field": [
-    429,
-    384,
-    148
+    413,
+    375,
+    142
    ],
    "mu": [
     [
@@ -2077,27 +2071,15 @@
     ],
     [
      "Mono Blue Terror",
-     26,
-     28,
+     25,
+     24,
      6
     ],
     [
      "Elves",
      14,
-     32,
+     31,
      10
-    ],
-    [
-     "Grixis Affinity",
-     29,
-     9,
-     12
-    ],
-    [
-     "Spy Combo",
-     22,
-     28,
-     6
     ],
     [
      "Dimir Faeries",
@@ -2106,64 +2088,70 @@
      16
     ],
     [
-     "Red Rally",
-     12,
+     "Grixis Affinity",
      27,
+     9,
+     12
+    ],
+    [
+     "Spy Combo",
+     22,
+     28,
+     4
+    ],
+    [
+     "Red Rally",
+     10,
+     26,
      0
     ],
     [
      "White Aggro",
-     20,
+     19,
      13,
-     2
+     0
     ],
     [
      "Aura Bogles",
      8,
-     12,
+     11,
      0
+    ],
+    [
+     "Esper Affinity",
+     17,
+     12,
+     4
     ],
     [
      "Jund Midrange",
      14,
      11,
-     8
-    ],
-    [
-     "Esper Affinity",
-     18,
-     12,
-     4
+     6
     ],
     [
      "Mono Blue Faeries",
-     13,
+     12,
      7,
      2
     ],
     [
      "Golgari Garden",
-     11,
+     10,
      4,
      6
     ],
     [
-     "Jeskai Ephemerate",
-     9,
-     9,
-     8
-    ],
-    [
-     "Gruul Ponza",
-     3,
-     10,
-     2
-    ],
-    [
      "Ephemerate Tron",
-     12,
+     11,
      5,
      4
+    ],
+    [
+     "Jeskai Ephemerate",
+     9,
+     8,
+     8
     ],
     [
      "Grixis Control",
@@ -2172,10 +2160,22 @@
      10
     ],
     [
+     "Gruul Ponza",
+     3,
+     10,
+     2
+    ],
+    [
      "Rakdos Madness",
-     13,
+     11,
      10,
      0
+    ],
+    [
+     "Dimir Control",
+     2,
+     4,
+     4
     ],
     [
      "Ruby Storm",
@@ -2184,10 +2184,10 @@
      0
     ],
     [
-     "Dimir Control",
-     2,
-     4,
-     4
+     "Esper Midrange",
+     5,
+     7,
+     6
     ],
     [
      "Gruul Ramp",
@@ -2202,12 +2202,6 @@
      0
     ],
     [
-     "Esper Midrange",
-     5,
-     7,
-     6
-    ],
-    [
      "Gates",
      7,
      4,
@@ -2215,15 +2209,15 @@
     ],
     [
      "Azorius Familiars",
-     3,
+     2,
      3,
      2
     ],
     [
-     "Mono Black Sacrifice",
-     6,
-     6,
-     0
+     "Esper Ephemerate",
+     3,
+     4,
+     4
     ],
     [
      "Dimir Terror",
@@ -2238,10 +2232,10 @@
      0
     ],
     [
-     "Esper Ephemerate",
-     3,
-     4,
-     4
+     "Mono Black Sacrifice",
+     5,
+     6,
+     0
     ],
     [
      "Altar Tron",
@@ -2298,16 +2292,16 @@
      4
     ],
     [
-     "Boros Midrange",
-     2,
+     "Boros Synthesizer",
+     4,
      1,
      2
     ],
     [
-     "Mono Red Burn",
-     6,
+     "Boros Midrange",
      2,
-     0
+     1,
+     2
     ],
     [
      "Caw Gates",
@@ -2322,19 +2316,19 @@
      0
     ],
     [
-     "Boros Synthesizer",
-     4,
-     1,
-     2
-    ],
-    [
      "Mono White Heroic",
      2,
-     3,
+     2,
+     0
+    ],
+    [
+     "Mono Red Burn",
+     4,
+     2,
      0
     ]
    ],
-   "metaWr": 50.5,
+   "metaWr": 50.3,
    "core": [
     [
      "Urza's Mine",
@@ -2390,7 +2384,7 @@
     ],
     [
      "Ancient Stirrings",
-     76,
+     75,
      3.9
     ],
     [
@@ -2405,12 +2399,12 @@
     ],
     [
      "Maelstrom Colossus",
-     64,
+     63,
      3.9
     ],
     [
      "Pinnacle Kill-Ship",
-     62,
+     61,
      3.9
     ],
     [
@@ -2430,7 +2424,7 @@
     ],
     [
      "Nyxborn Hydra",
-     36,
+     37,
      3.1
     ],
     [
@@ -2440,29 +2434,29 @@
     ],
     [
      "Malevolent Rumble",
-     31,
+     32,
      3.9
     ],
     [
      "Breath Weapon",
-     29,
+     28,
      1.8
     ]
    ],
-   "lists": 346,
+   "lists": 334,
    "conv": [
-    5.5,
-    5.5,
-    76
+    5.4,
+    5.3,
+    73
    ],
-   "prev": 5.6
+   "prev": 5.3
   },
   {
    "id": "pauper-dimir-faeries",
    "name": "Dimir Faeries",
-   "share": 4.3,
+   "share": 4.4,
    "tier": 1,
-   "count": 282,
+   "count": 281,
    "title": "barff · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_barff",
    "main": [
@@ -2499,7 +2493,7 @@
     "2 Relic of Progenitus"
    ],
    "history": [
-    2.8,
+    2.6,
     2.4,
     1.8,
     2.3,
@@ -2513,7 +2507,7 @@
     6.3
    ],
    "field": [
-    229,
+    225,
     213,
     73
    ],
@@ -2526,21 +2520,21 @@
     ],
     [
      "Mono Blue Terror",
-     19,
+     18,
      4,
      1
-    ],
-    [
-     "Tron",
-     16,
-     11,
-     16
     ],
     [
      "Elves",
      11,
      10,
      0
+    ],
+    [
+     "Tron",
+     16,
+     11,
+     16
     ],
     [
      "Grixis Affinity",
@@ -2573,16 +2567,16 @@
      2
     ],
     [
-     "Jund Midrange",
-     6,
-     2,
-     2
-    ],
-    [
      "Esper Affinity",
      6,
      11,
      0
+    ],
+    [
+     "Jund Midrange",
+     5,
+     2,
+     2
     ],
     [
      "Mono Blue Faeries",
@@ -2597,16 +2591,22 @@
      0
     ],
     [
-     "Jeskai Ephemerate",
-     5,
-     4,
-     0
-    ],
-    [
      "Ephemerate Tron",
      6,
      1,
      2
+    ],
+    [
+     "Jeskai Ephemerate",
+     4,
+     4,
+     0
+    ],
+    [
+     "Grixis Control",
+     5,
+     9,
+     0
     ],
     [
      "Gruul Ponza",
@@ -2615,10 +2615,10 @@
      0
     ],
     [
-     "Grixis Control",
-     5,
-     9,
-     0
+     "Dimir Control",
+     1,
+     7,
+     2
     ],
     [
      "Rakdos Madness",
@@ -2633,16 +2633,16 @@
      0
     ],
     [
-     "Dimir Control",
-     1,
-     7,
-     2
-    ],
-    [
      "Gruul Ramp",
      3,
      1,
      2
+    ],
+    [
+     "Esper Midrange",
+     3,
+     1,
+     4
     ],
     [
      "Turbo Fog",
@@ -2657,34 +2657,10 @@
      2
     ],
     [
-     "Esper Midrange",
-     3,
-     1,
-     4
-    ],
-    [
      "Dimir Terror",
      3,
      4,
      2
-    ],
-    [
-     "Azorius Familiars",
-     1,
-     2,
-     2
-    ],
-    [
-     "Mono Black Sacrifice",
-     4,
-     2,
-     0
-    ],
-    [
-     "Izzet Terror",
-     2,
-     4,
-     0
     ],
     [
      "Esper Ephemerate",
@@ -2693,14 +2669,32 @@
      4
     ],
     [
+     "Azorius Familiars",
+     1,
+     2,
+     2
+    ],
+    [
      "Altar Tron",
      2,
      2,
      4
     ],
     [
-     "Golgari Midrange",
+     "Izzet Terror",
      2,
+     4,
+     0
+    ],
+    [
+     "Mono Black Sacrifice",
+     4,
+     2,
+     0
+    ],
+    [
+     "Golgari Midrange",
+     1,
      0,
      2
     ],
@@ -2717,19 +2711,19 @@
      2
     ],
     [
-     "Mono Red Burn",
+     "Cycle Storm",
      1,
      2,
      0
     ],
     [
-     "Cycle Storm",
+     "Mono Red Burn",
      1,
      2,
      0
     ]
    ],
-   "metaWr": 51.3,
+   "metaWr": 51,
    "core": [
     [
      "Island",
@@ -2794,7 +2788,7 @@
     ],
     [
      "Baleful Strix",
-     79,
+     80,
      3.9
     ],
     [
@@ -2848,20 +2842,20 @@
      1.6
     ]
    ],
-   "lists": 282,
+   "lists": 281,
    "conv": [
-    3.9,
-    3.7,
-    51
+    4,
+    3.6,
+    50
    ],
-   "prev": 3.7
+   "prev": 4.3
   },
   {
    "id": "pauper-grixis-affinity",
    "name": "Grixis Affinity",
    "share": 4.3,
    "tier": 1,
-   "count": 280,
+   "count": 273,
    "title": "barba94 · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_barba94",
    "main": [
@@ -2897,7 +2891,7 @@
     "1 Unexpected Fangs"
    ],
    "history": [
-    5.5,
+    6,
     5.4,
     5.4,
     5,
@@ -2911,8 +2905,8 @@
     4.6
    ],
    "field": [
-    343,
-    370,
+    336,
+    364,
     73
    ],
    "mu": [
@@ -2929,28 +2923,28 @@
      0
     ],
     [
-     "Tron",
-     9,
-     29,
-     12
-    ],
-    [
      "Elves",
-     15,
+     14,
      26,
      6
     ],
     [
-     "Spy Combo",
-     18,
-     23,
-     6
+     "Tron",
+     9,
+     27,
+     12
     ],
     [
      "Dimir Faeries",
      15,
      9,
      0
+    ],
+    [
+     "Spy Combo",
+     18,
+     23,
+     6
     ],
     [
      "Red Rally",
@@ -2960,7 +2954,7 @@
     ],
     [
      "White Aggro",
-     14,
+     12,
      15,
      1
     ],
@@ -2995,6 +2989,18 @@
      0
     ],
     [
+     "Ephemerate Tron",
+     2,
+     8,
+     4
+    ],
+    [
+     "Grixis Control",
+     3,
+     6,
+     0
+    ],
+    [
      "Jeskai Ephemerate",
      7,
      6,
@@ -3007,18 +3013,6 @@
      2
     ],
     [
-     "Ephemerate Tron",
-     2,
-     9,
-     4
-    ],
-    [
-     "Grixis Control",
-     3,
-     6,
-     0
-    ],
-    [
      "Rakdos Madness",
      7,
      10,
@@ -3026,7 +3020,7 @@
     ],
     [
      "Ruby Storm",
-     7,
+     6,
      3,
      2
     ],
@@ -3034,6 +3028,12 @@
      "Dimir Control",
      2,
      5,
+     0
+    ],
+    [
+     "Esper Midrange",
+     2,
+     7,
      0
     ],
     [
@@ -3049,33 +3049,27 @@
      2
     ],
     [
-     "Esper Midrange",
-     2,
-     7,
-     0
-    ],
-    [
      "Gates",
      4,
      5,
      6
     ],
     [
-     "Mono Black Sacrifice",
-     5,
-     1,
+     "Azorius Familiars",
+     2,
+     3,
      0
     ],
     [
      "Dimir Terror",
      3,
-     5,
+     4,
      0
     ],
     [
-     "Azorius Familiars",
-     2,
-     3,
+     "Esper Ephemerate",
+     4,
+     5,
      0
     ],
     [
@@ -3085,16 +3079,16 @@
      2
     ],
     [
-     "Esper Ephemerate",
-     4,
-     5,
-     0
-    ],
-    [
      "Altar Tron",
      5,
      3,
      4
+    ],
+    [
+     "Mono Black Sacrifice",
+     4,
+     1,
+     0
     ],
     [
      "Mardu Midrange",
@@ -3110,7 +3104,7 @@
     ],
     [
      "Tireless Tribe",
-     6,
+     5,
      3,
      0
     ],
@@ -3127,6 +3121,12 @@
      4
     ],
     [
+     "Boros Synthesizer",
+     2,
+     4,
+     0
+    ],
+    [
      "Burn",
      2,
      2,
@@ -3139,21 +3139,9 @@
      0
     ],
     [
-     "Mono Red Burn",
-     3,
-     4,
-     0
-    ],
-    [
      "Cycle Storm",
      4,
      0,
-     0
-    ],
-    [
-     "Boros Synthesizer",
-     2,
-     4,
      0
     ],
     [
@@ -3169,13 +3157,19 @@
      0
     ],
     [
+     "Mono Red Burn",
+     3,
+     2,
+     0
+    ],
+    [
      "Dimir Ephemerate",
      4,
      0,
      0
     ]
    ],
-   "metaWr": 47.5,
+   "metaWr": 47.3,
    "core": [
     [
      "Refurbished Familiar",
@@ -3255,7 +3249,7 @@
     ],
     [
      "Black Mage's Rod",
-     55,
+     56,
      2.5
     ],
     [
@@ -3265,7 +3259,7 @@
     ],
     [
      "Mountain",
-     39,
+     40,
      1
     ],
     [
@@ -3274,11 +3268,11 @@
      3
     ]
    ],
-   "lists": 280,
+   "lists": 273,
    "conv": [
     4.6,
     5.2,
-    72
+    71
    ],
    "prev": 4.3
   },
@@ -3287,7 +3281,7 @@
    "name": "Spy Combo",
    "share": 4.3,
    "tier": 1,
-   "count": 279,
+   "count": 272,
    "title": "Lord_Depa · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_Lord_Depa",
    "main": [
@@ -3322,7 +3316,7 @@
     "4 Writhing Chrysalis"
    ],
    "history": [
-    5.5,
+    5.6,
     3.5,
     4.5,
     4.6,
@@ -3336,9 +3330,9 @@
     4.7
    ],
    "field": [
-    392,
-    300,
-    96
+    387,
+    296,
+    92
    ],
    "mu": [
     [
@@ -3354,15 +3348,21 @@
      2
     ],
     [
+     "Elves",
+     15,
+     17,
+     4
+    ],
+    [
      "Tron",
      28,
      22,
-     6
+     4
     ],
     [
-     "Elves",
-     16,
-     17,
+     "Dimir Faeries",
+     13,
+     9,
      4
     ],
     [
@@ -3370,12 +3370,6 @@
      23,
      18,
      6
-    ],
-    [
-     "Dimir Faeries",
-     13,
-     9,
-     4
     ],
     [
      "Red Rally",
@@ -3391,15 +3385,9 @@
     ],
     [
      "Aura Bogles",
-     12,
+     11,
      5,
      0
-    ],
-    [
-     "Jund Midrange",
-     1,
-     6,
-     16
     ],
     [
      "Esper Affinity",
@@ -3408,9 +3396,15 @@
      2
     ],
     [
+     "Jund Midrange",
+     1,
+     6,
+     16
+    ],
+    [
      "Mono Blue Faeries",
      9,
-     4,
+     3,
      0
     ],
     [
@@ -3421,21 +3415,15 @@
     ],
     [
      "Jeskai Ephemerate",
-     11,
+     10,
      6,
      4
-    ],
-    [
-     "Gruul Ponza",
-     10,
-     4,
-     0
     ],
     [
      "Ephemerate Tron",
      5,
      7,
-     6
+     4
     ],
     [
      "Grixis Control",
@@ -3444,8 +3432,8 @@
      4
     ],
     [
-     "Ruby Storm",
-     9,
+     "Gruul Ponza",
+     10,
      4,
      0
     ],
@@ -3462,10 +3450,22 @@
      4
     ],
     [
+     "Ruby Storm",
+     9,
+     3,
+     0
+    ],
+    [
      "Gruul Ramp",
      9,
      4,
      0
+    ],
+    [
+     "Esper Midrange",
+     5,
+     1,
+     2
     ],
     [
      "Turbo Fog",
@@ -3480,10 +3480,10 @@
      2
     ],
     [
-     "Esper Midrange",
-     5,
-     1,
-     2
+     "Esper Ephemerate",
+     10,
+     8,
+     0
     ],
     [
      "Azorius Familiars",
@@ -3498,21 +3498,15 @@
      0
     ],
     [
-     "Mono Black Sacrifice",
-     5,
-     3,
-     0
-    ],
-    [
      "Izzet Terror",
      4,
      3,
      4
     ],
     [
-     "Esper Ephemerate",
-     10,
-     8,
+     "Mono Black Sacrifice",
+     5,
+     3,
      0
     ],
     [
@@ -3530,7 +3524,7 @@
     [
      "Golgari Midrange",
      2,
-     4,
+     3,
      2
     ],
     [
@@ -3546,9 +3540,15 @@
      0
     ],
     [
+     "Boros Synthesizer",
+     8,
+     0,
+     0
+    ],
+    [
      "Dimir Affinity",
      3,
-     2,
+     1,
      0
     ],
     [
@@ -3571,14 +3571,8 @@
     ],
     [
      "Mono Red Burn",
-     4,
+     3,
      1,
-     0
-    ],
-    [
-     "Boros Synthesizer",
-     8,
-     0,
      0
     ],
     [
@@ -3588,7 +3582,7 @@
      2
     ]
    ],
-   "metaWr": 51.9,
+   "metaWr": 51.8,
    "core": [
     [
      "Balustrade Spy",
@@ -3662,7 +3656,7 @@
    "flex": [
     [
      "Elves of Deep Shadow",
-     76,
+     75,
      2.2
     ],
     [
@@ -3672,7 +3666,7 @@
     ],
     [
      "Lotus Petal",
-     61,
+     62,
      1.7
     ],
     [
@@ -3681,20 +3675,20 @@
      1.2
     ]
    ],
-   "lists": 279,
+   "lists": 272,
    "conv": [
-    3.6,
+    3.7,
     4.2,
     58
    ],
-   "prev": 4.2
+   "prev": 4.3
   },
   {
    "id": "pauper-red-rally",
    "name": "Red Rally",
    "share": 4.2,
    "tier": 1,
-   "count": 274,
+   "count": 268,
    "title": "OleFred · $1K Pauper - SCG CON Hartford - Sunday - 9:30 am (1st Place)",
    "url": "https://melee.gg/Decklist/View/9c03e18b-9c93-446a-af3f-b4ee00af0693",
    "main": [
@@ -3720,7 +3714,7 @@
     "2 Mine Collapse"
    ],
    "history": [
-    7,
+    6.5,
     3.6,
     3.4,
     3.4,
@@ -3734,8 +3728,8 @@
     4.9
    ],
    "field": [
-    372,
-    348,
+    366,
+    345,
     32
    ],
    "mu": [
@@ -3754,13 +3748,13 @@
     [
      "Elves",
      24,
-     14,
+     13,
      2
     ],
     [
      "Tron",
-     27,
-     12,
+     26,
+     10,
      0
     ],
     [
@@ -3794,15 +3788,15 @@
      0
     ],
     [
-     "Jund Midrange",
-     14,
-     9,
-     0
-    ],
-    [
      "Esper Affinity",
      9,
      17,
+     0
+    ],
+    [
+     "Jund Midrange",
+     14,
+     9,
      0
     ],
     [
@@ -3813,20 +3807,14 @@
     ],
     [
      "Golgari Garden",
-     6,
+     5,
      5,
      2
     ],
     [
      "Jeskai Ephemerate",
-     13,
+     12,
      5,
-     0
-    ],
-    [
-     "Gruul Ponza",
-     6,
-     2,
      0
     ],
     [
@@ -3842,15 +3830,15 @@
      0
     ],
     [
-     "Rakdos Madness",
-     10,
-     4,
+     "Gruul Ponza",
+     6,
+     2,
      0
     ],
     [
-     "Ruby Storm",
-     3,
-     5,
+     "Rakdos Madness",
+     10,
+     4,
      0
     ],
     [
@@ -3860,10 +3848,22 @@
      0
     ],
     [
+     "Ruby Storm",
+     3,
+     5,
+     0
+    ],
+    [
      "Gruul Ramp",
      4,
      6,
      4
+    ],
+    [
+     "Esper Midrange",
+     3,
+     4,
+     2
     ],
     [
      "Turbo Fog",
@@ -3878,12 +3878,6 @@
      0
     ],
     [
-     "Esper Midrange",
-     3,
-     4,
-     2
-    ],
-    [
      "Azorius Familiars",
      4,
      3,
@@ -3892,6 +3886,12 @@
     [
      "Dimir Terror",
      3,
+     3,
+     0
+    ],
+    [
+     "Esper Ephemerate",
+     6,
      3,
      0
     ],
@@ -3908,12 +3908,6 @@
      0
     ],
     [
-     "Esper Ephemerate",
-     6,
-     3,
-     0
-    ],
-    [
      "Altar Tron",
      6,
      3,
@@ -3926,12 +3920,6 @@
      0
     ],
     [
-     "Golgari Midrange",
-     6,
-     0,
-     0
-    ],
-    [
      "Orzhov Midrange",
      3,
      4,
@@ -3941,6 +3929,12 @@
      "Tireless Tribe",
      2,
      9,
+     0
+    ],
+    [
+     "Golgari Midrange",
+     5,
+     0,
      0
     ],
     [
@@ -3962,6 +3956,12 @@
      2
     ],
     [
+     "Boros Synthesizer",
+     0,
+     5,
+     2
+    ],
+    [
      "Cycle Storm",
      3,
      2,
@@ -3974,25 +3974,19 @@
      0
     ],
     [
-     "Mono Red Burn",
-     2,
-     1,
-     0
-    ],
-    [
-     "Boros Synthesizer",
-     0,
-     5,
-     2
-    ],
-    [
      "Mono White Heroic",
      1,
      5,
      0
+    ],
+    [
+     "Mono Red Burn",
+     2,
+     1,
+     0
     ]
    ],
-   "metaWr": 51.9,
+   "metaWr": 52,
    "core": [
     [
      "Mountain",
@@ -4019,15 +4013,15 @@
      4
     ],
     [
+     "Clockwork Percussionist",
+     4
+    ],
+    [
      "Galvanic Blast",
      4
     ],
     [
      "Goblin Bushwhacker",
-     4
-    ],
-    [
-     "Clockwork Percussionist",
      4
     ],
     [
@@ -4037,38 +4031,38 @@
    ],
    "flex": [
     [
-     "Chain Lightning",
-     72,
-     2
-    ],
-    [
      "Reckless Impulse",
      72,
      3
     ],
     [
+     "Chain Lightning",
+     71,
+     2
+    ],
+    [
      "Experimental Synthesizer",
-     61,
+     60,
      3
     ],
     [
-     "End the Festivities",
+     "Inventor's Axe",
      46,
-     1.4
+     3.4
     ],
     [
-     "Inventor's Axe",
+     "End the Festivities",
      45,
-     3.4
+     1.4
     ],
     [
      "Wrenn's Resolve",
      44,
-     2.7
+     2.6
     ],
     [
      "Fireblast",
-     33,
+     32,
      1.1
     ],
     [
@@ -4077,20 +4071,20 @@
      2.6
     ]
    ],
-   "lists": 274,
+   "lists": 268,
    "conv": [
     4.3,
-    4.5,
-    62
+    4.4,
+    60
    ],
-   "prev": 4
+   "prev": 4.2
   },
   {
    "id": "pauper-white-aggro",
    "name": "White Aggro",
    "share": 4.1,
    "tier": 1,
-   "count": 266,
+   "count": 262,
    "title": "Natalino_91 · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2311153#deck_Natalino_91",
    "main": [
@@ -4116,7 +4110,7 @@
     "4 Thraben Charm"
    ],
    "history": [
-    3.7,
+    4,
     4.3,
     4.9,
     3.9,
@@ -4130,14 +4124,14 @@
     2.9
    ],
    "field": [
-    321,
-    306,
-    91
+    317,
+    300,
+    87
    ],
    "mu": [
     [
      "Red Madness",
-     22,
+     21,
      33,
      4
     ],
@@ -4148,28 +4142,28 @@
      4
     ],
     [
-     "Tron",
-     13,
-     20,
-     2
-    ],
-    [
      "Elves",
      19,
      14,
      6
     ],
     [
-     "Grixis Affinity",
-     15,
-     14,
-     1
+     "Tron",
+     13,
+     19,
+     0
     ],
     [
      "Dimir Faeries",
      14,
      10,
      8
+    ],
+    [
+     "Grixis Affinity",
+     15,
+     12,
+     1
     ],
     [
      "Spy Combo",
@@ -4190,21 +4184,21 @@
      0
     ],
     [
-     "Jund Midrange",
-     12,
-     8,
-     4
-    ],
-    [
      "Esper Affinity",
      10,
      17,
      6
     ],
     [
+     "Jund Midrange",
+     11,
+     8,
+     2
+    ],
+    [
      "Mono Blue Faeries",
      9,
-     5,
+     3,
      6
     ],
     [
@@ -4214,22 +4208,16 @@
      2
     ],
     [
-     "Jeskai Ephemerate",
-     6,
-     10,
-     2
-    ],
-    [
      "Ephemerate Tron",
      4,
      5,
      2
     ],
     [
-     "Gruul Ponza",
-     8,
-     2,
-     0
+     "Jeskai Ephemerate",
+     6,
+     10,
+     2
     ],
     [
      "Grixis Control",
@@ -4238,16 +4226,16 @@
      0
     ],
     [
-     "Rakdos Madness",
-     10,
-     4,
-     2
+     "Gruul Ponza",
+     8,
+     2,
+     0
     ],
     [
-     "Ruby Storm",
-     2,
-     7,
-     0
+     "Rakdos Madness",
+     8,
+     4,
+     2
     ],
     [
      "Dimir Control",
@@ -4256,10 +4244,22 @@
      0
     ],
     [
+     "Ruby Storm",
+     2,
+     7,
+     0
+    ],
+    [
      "Gruul Ramp",
      4,
      3,
      2
+    ],
+    [
+     "Esper Midrange",
+     6,
+     5,
+     4
     ],
     [
      "Turbo Fog",
@@ -4274,12 +4274,6 @@
      0
     ],
     [
-     "Esper Midrange",
-     6,
-     5,
-     4
-    ],
-    [
      "Azorius Familiars",
      2,
      4,
@@ -4292,10 +4286,10 @@
      0
     ],
     [
-     "Mono Black Sacrifice",
+     "Esper Ephemerate",
      2,
-     2,
-     0
+     4,
+     2
     ],
     [
      "Izzet Terror",
@@ -4304,15 +4298,15 @@
      2
     ],
     [
-     "Esper Ephemerate",
-     2,
-     4,
-     2
-    ],
-    [
      "Altar Tron",
      5,
      5,
+     0
+    ],
+    [
+     "Mono Black Sacrifice",
+     2,
+     2,
      0
     ],
     [
@@ -4336,7 +4330,7 @@
     [
      "Tireless Tribe",
      3,
-     2,
+     1,
      0
     ],
     [
@@ -4358,6 +4352,12 @@
      0
     ],
     [
+     "Boros Synthesizer",
+     1,
+     1,
+     4
+    ],
+    [
      "Boros Midrange",
      2,
      2,
@@ -4370,31 +4370,25 @@
      0
     ],
     [
-     "Boros Synthesizer",
-     1,
-     1,
-     4
-    ],
-    [
      "Caw Gates",
      3,
      2,
      2
     ],
     [
-     "Mono White Heroic",
-     3,
-     2,
-     0
-    ],
-    [
      "Infect",
      1,
      2,
      0
+    ],
+    [
+     "Mono White Heroic",
+     3,
+     2,
+     0
     ]
    ],
-   "metaWr": 49.8,
+   "metaWr": 49.9,
    "core": [
     [
      "Plains",
@@ -4416,12 +4410,12 @@
    "flex": [
     [
      "Ramosian Rally",
-     75,
+     76,
      2.6
     ],
     [
      "Battle Screech",
-     64,
+     63,
      3.9
     ],
     [
@@ -4461,7 +4455,7 @@
     ],
     [
      "Salt Road Packbeast",
-     47,
+     48,
      3.9
     ],
     [
@@ -4485,20 +4479,20 @@
      4
     ]
    ],
-   "lists": 266,
+   "lists": 262,
    "conv": [
     4.1,
-    4.8,
+    4.9,
     67
    ],
-   "prev": 4.3
+   "prev": 4.1
   },
   {
    "id": "pauper-aura-bogles",
    "name": "Aura Bogles",
    "share": 3.2,
    "tier": 2,
-   "count": 207,
+   "count": 206,
    "title": "Felipe Guzmán · $1K Pauper - SCG CON Hartford - Friday - 10:30 am (3st Place)",
    "url": "https://melee.gg/Decklist/View/fa02ab98-88f5-4d1b-a23d-b4ec002f2b42",
    "main": [
@@ -4545,8 +4539,8 @@
     3.1
    ],
    "field": [
+    206,
     209,
-    210,
     14
    ],
    "mu": [
@@ -4563,21 +4557,15 @@
      0
     ],
     [
-     "Tron",
-     12,
-     8,
-     0
-    ],
-    [
      "Elves",
      3,
      13,
      0
     ],
     [
-     "Spy Combo",
-     5,
-     12,
+     "Tron",
+     11,
+     8,
      0
     ],
     [
@@ -4585,6 +4573,12 @@
      8,
      9,
      2
+    ],
+    [
+     "Spy Combo",
+     5,
+     11,
+     0
     ],
     [
      "Grixis Affinity",
@@ -4605,16 +4599,16 @@
      0
     ],
     [
-     "Jund Midrange",
-     10,
-     4,
-     0
-    ],
-    [
      "Esper Affinity",
      12,
      7,
      2
+    ],
+    [
+     "Jund Midrange",
+     10,
+     4,
+     0
     ],
     [
      "Mono Blue Faeries",
@@ -4629,15 +4623,21 @@
      2
     ],
     [
+     "Ephemerate Tron",
+     5,
+     2,
+     0
+    ],
+    [
      "Jeskai Ephemerate",
      5,
      3,
      0
     ],
     [
-     "Ephemerate Tron",
-     5,
+     "Grixis Control",
      2,
+     4,
      0
     ],
     [
@@ -4647,10 +4647,10 @@
      0
     ],
     [
-     "Grixis Control",
-     2,
-     4,
-     0
+     "Dimir Control",
+     1,
+     3,
+     2
     ],
     [
      "Rakdos Madness",
@@ -4663,12 +4663,6 @@
      1,
      4,
      0
-    ],
-    [
-     "Dimir Control",
-     1,
-     3,
-     2
     ],
     [
      "Gruul Ramp",
@@ -4695,21 +4689,9 @@
      0
     ],
     [
-     "Mono Black Sacrifice",
-     4,
-     2,
-     0
-    ],
-    [
      "Dimir Terror",
      2,
      2,
-     0
-    ],
-    [
-     "Izzet Terror",
-     2,
-     1,
      0
     ],
     [
@@ -4722,6 +4704,18 @@
      "Altar Tron",
      2,
      3,
+     0
+    ],
+    [
+     "Mono Black Sacrifice",
+     4,
+     2,
+     0
+    ],
+    [
+     "Izzet Terror",
+     2,
+     1,
      0
     ],
     [
@@ -4744,7 +4738,7 @@
     ],
     [
      "Dimir Affinity",
-     2,
+     1,
      2,
      0
     ],
@@ -4761,7 +4755,7 @@
      0
     ]
    ],
-   "metaWr": 48.7,
+   "metaWr": 48.6,
    "core": [
     [
      "Forest",
@@ -4840,14 +4834,14 @@
     ],
     [
      "Sheltering Landscape",
-     27,
+     26,
      2.2
     ]
    ],
-   "lists": 207,
+   "lists": 206,
    "conv": [
     3.5,
-    3.5,
+    3.6,
     49
    ],
    "prev": 3.2
@@ -4857,7 +4851,7 @@
    "name": "Jund Midrange",
    "share": 3,
    "tier": 2,
-   "count": 196,
+   "count": 193,
    "title": "Joshua Schraven · Weekly Pauper Bonn (6th Place)",
    "url": "https://melee.gg/Decklist/View/0bf8f98a-140c-4c5c-9b3a-b4ec0103e40f",
    "main": [
@@ -4894,7 +4888,7 @@
     "1 Troublemaker Ouphe"
    ],
    "history": [
-    3.4,
+    3.9,
     5.5,
     5.3,
     4.4,
@@ -4909,8 +4903,8 @@
    ],
    "field": [
     202,
-    240,
-    100
+    237,
+    94
    ],
    "mu": [
     [
@@ -4926,21 +4920,21 @@
      2
     ],
     [
-     "Tron",
-     11,
-     14,
-     8
-    ],
-    [
      "Elves",
      7,
      13,
      8
     ],
     [
+     "Tron",
+     11,
+     14,
+     6
+    ],
+    [
      "Dimir Faeries",
      2,
-     6,
+     5,
      2
     ],
     [
@@ -4964,8 +4958,8 @@
     [
      "White Aggro",
      8,
-     12,
-     4
+     11,
+     2
     ],
     [
      "Aura Bogles",
@@ -4983,7 +4977,7 @@
      "Mono Blue Faeries",
      4,
      5,
-     6
+     4
     ],
     [
      "Golgari Garden",
@@ -5000,7 +4994,13 @@
     [
      "Ephemerate Tron",
      3,
-     3,
+     2,
+     4
+    ],
+    [
+     "Grixis Control",
+     2,
+     1,
      4
     ],
     [
@@ -5010,10 +5010,10 @@
      0
     ],
     [
-     "Grixis Control",
-     2,
+     "Dimir Control",
      1,
-     4
+     2,
+     2
     ],
     [
      "Rakdos Madness",
@@ -5028,15 +5028,15 @@
      2
     ],
     [
-     "Dimir Control",
-     1,
-     2,
-     2
-    ],
-    [
      "Gruul Ramp",
      9,
      6,
+     4
+    ],
+    [
+     "Esper Midrange",
+     3,
+     8,
      4
     ],
     [
@@ -5052,21 +5052,9 @@
      0
     ],
     [
-     "Esper Midrange",
-     3,
-     8,
-     4
-    ],
-    [
      "Dimir Terror",
      2,
      3,
-     0
-    ],
-    [
-     "Mono Black Sacrifice",
-     3,
-     0,
      0
     ],
     [
@@ -5076,16 +5064,22 @@
      2
     ],
     [
+     "Altar Tron",
+     3,
+     2,
+     2
+    ],
+    [
      "Izzet Terror",
      0,
      3,
      0
     ],
     [
-     "Altar Tron",
+     "Mono Black Sacrifice",
      3,
-     2,
-     2
+     0,
+     0
     ],
     [
      "Mardu Midrange",
@@ -5118,6 +5112,12 @@
      2
     ],
     [
+     "Boros Synthesizer",
+     1,
+     2,
+     2
+    ],
+    [
      "Mardu Synthesizer",
      2,
      1,
@@ -5130,19 +5130,13 @@
      0
     ],
     [
-     "Boros Synthesizer",
-     1,
-     2,
-     2
-    ],
-    [
      "Caw Gates",
      2,
      3,
      0
     ]
    ],
-   "metaWr": 46.1,
+   "metaWr": 46.3,
    "core": [
     [
      "Cleansing Wildfire",
@@ -5226,7 +5220,7 @@
     ],
     [
      "Nyxborn Hydra",
-     67,
+     66,
      1.3
     ],
     [
@@ -5236,13 +5230,13 @@
     ],
     [
      "Toxin Analysis",
-     60,
-     1.5
+     59,
+     1.4
     ],
     [
      "Gixian Infiltrator",
      45,
-     2.6
+     2.7
     ],
     [
      "Snuff Out",
@@ -5250,20 +5244,20 @@
      1.3
     ]
    ],
-   "lists": 196,
+   "lists": 193,
    "conv": [
     3.6,
     2.8,
     39
    ],
-   "prev": 3.4
+   "prev": 3
   },
   {
    "id": "pauper-esper-affinity",
    "name": "Esper Affinity",
-   "share": 2.9,
+   "share": 3,
    "tier": 2,
-   "count": 192,
+   "count": 191,
    "title": "fabdi · Meeple's Club - Pauper 193 (2nd Place)",
    "url": "https://mtg.cardsrealm.com/en-us/decks/mmjh-esper",
    "main": [
@@ -5294,7 +5288,7 @@
     "2 Envelop"
    ],
    "history": [
-    0.3,
+    0.2,
     0.3,
     0,
     0.1,
@@ -5308,8 +5302,8 @@
     3.4
    ],
    "field": [
-    296,
-    239,
+    295,
+    238,
     64
    ],
    "mu": [
@@ -5326,15 +5320,15 @@
      0
     ],
     [
-     "Tron",
-     12,
-     18,
-     4
-    ],
-    [
      "Elves",
      5,
      22,
+     4
+    ],
+    [
+     "Tron",
+     12,
+     17,
      4
     ],
     [
@@ -5404,15 +5398,15 @@
      4
     ],
     [
-     "Gruul Ponza",
-     7,
-     5,
-     0
-    ],
-    [
      "Grixis Control",
      9,
      2,
+     0
+    ],
+    [
+     "Gruul Ponza",
+     7,
+     5,
      0
     ],
     [
@@ -5422,15 +5416,15 @@
      0
     ],
     [
-     "Ruby Storm",
-     6,
-     2,
-     0
-    ],
-    [
      "Dimir Control",
      4,
      3,
+     0
+    ],
+    [
+     "Ruby Storm",
+     6,
+     2,
      0
     ],
     [
@@ -5438,6 +5432,12 @@
      3,
      3,
      4
+    ],
+    [
+     "Esper Midrange",
+     2,
+     3,
+     2
     ],
     [
      "Gates",
@@ -5452,12 +5452,6 @@
      0
     ],
     [
-     "Esper Midrange",
-     2,
-     3,
-     2
-    ],
-    [
      "Azorius Familiars",
      1,
      4,
@@ -5468,18 +5462,6 @@
      4,
      4,
      0
-    ],
-    [
-     "Mono Black Sacrifice",
-     5,
-     2,
-     0
-    ],
-    [
-     "Izzet Terror",
-     3,
-     0,
-     2
     ],
     [
      "Esper Ephemerate",
@@ -5494,21 +5476,33 @@
      0
     ],
     [
+     "Izzet Terror",
+     3,
+     0,
+     2
+    ],
+    [
+     "Mono Black Sacrifice",
+     5,
+     2,
+     0
+    ],
+    [
      "Mardu Midrange",
      2,
      1,
      2
     ],
     [
-     "Orzhov Midrange",
-     4,
-     0,
-     0
-    ],
-    [
      "Golgari Midrange",
      3,
      5,
+     0
+    ],
+    [
+     "Orzhov Midrange",
+     3,
+     0,
      0
     ],
     [
@@ -5542,6 +5536,12 @@
      4
     ],
     [
+     "Boros Synthesizer",
+     2,
+     3,
+     0
+    ],
+    [
      "Mardu Synthesizer",
      3,
      1,
@@ -5551,12 +5551,6 @@
      "Caw Gates",
      4,
      0,
-     0
-    ],
-    [
-     "Boros Synthesizer",
-     2,
-     3,
      0
     ]
    ],
@@ -5621,14 +5615,14 @@
      3.9
     ],
     [
-     "Cryogen Relic",
-     61,
-     3.9
-    ],
-    [
      "Reckoner's Bargain",
      61,
      3.2
+    ],
+    [
+     "Cryogen Relic",
+     61,
+     3.9
     ],
     [
      "Giant's Boulder",
@@ -5657,34 +5651,34 @@
     ],
     [
      "Thraben Inspector",
-     34,
+     35,
      4
     ],
     [
      "Novice Inspector",
-     33,
+     34,
      3.8
     ],
     [
      "Leonardo, Big Brother",
-     33,
+     34,
      3.2
     ]
    ],
-   "lists": 192,
+   "lists": 191,
    "conv": [
     3.1,
-    3.3,
+    3.4,
     46
    ],
-   "prev": 2.8
+   "prev": 2.9
   },
   {
    "id": "pauper-mono-blue-faeries",
    "name": "Mono Blue Faeries",
-   "share": 2.5,
+   "share": 2.4,
    "tier": 2,
-   "count": 163,
+   "count": 156,
    "title": "Zack Fink · $1K Pauper - SCG CON Hartford - Sunday - 9:30 am (3st Place)",
    "url": "https://melee.gg/Decklist/View/60fca152-f0c9-4247-ab2e-b4ee0062449f",
    "main": [
@@ -5710,7 +5704,7 @@
     "2 Relic of Progenitus"
    ],
    "history": [
-    5,
+    4.7,
     5.2,
     5.3,
     4.5,
@@ -5724,9 +5718,9 @@
     1.4
    ],
    "field": [
-    219,
-    186,
-    51
+    214,
+    184,
+    49
    ],
    "mu": [
     [
@@ -5742,21 +5736,15 @@
      4
     ],
     [
-     "Tron",
-     7,
-     13,
-     2
-    ],
-    [
      "Elves",
      7,
      16,
      0
     ],
     [
-     "Grixis Affinity",
+     "Tron",
+     7,
      12,
-     13,
      2
     ],
     [
@@ -5766,8 +5754,14 @@
      0
     ],
     [
+     "Grixis Affinity",
+     12,
+     13,
+     2
+    ],
+    [
      "Spy Combo",
-     4,
+     3,
      9,
      0
     ],
@@ -5779,7 +5773,7 @@
     ],
     [
      "White Aggro",
-     5,
+     3,
      9,
      6
     ],
@@ -5793,7 +5787,7 @@
      "Jund Midrange",
      5,
      4,
-     6
+     4
     ],
     [
      "Esper Affinity",
@@ -5808,22 +5802,10 @@
      0
     ],
     [
-     "Jeskai Ephemerate",
-     1,
-     2,
-     2
-    ],
-    [
      "Ephemerate Tron",
      4,
      1,
      5
-    ],
-    [
-     "Gruul Ponza",
-     4,
-     1,
-     0
     ],
     [
      "Grixis Control",
@@ -5832,21 +5814,33 @@
      0
     ],
     [
-     "Rakdos Madness",
-     12,
-     3,
+     "Jeskai Ephemerate",
+     1,
+     2,
+     2
+    ],
+    [
+     "Gruul Ponza",
+     4,
+     1,
      0
     ],
     [
-     "Ruby Storm",
-     7,
-     1,
+     "Rakdos Madness",
+     11,
+     3,
      0
     ],
     [
      "Dimir Control",
      2,
      5,
+     0
+    ],
+    [
+     "Ruby Storm",
+     7,
+     1,
      0
     ],
     [
@@ -5880,15 +5874,15 @@
      4
     ],
     [
-     "Mono Black Sacrifice",
-     3,
-     4,
-     2
-    ],
-    [
      "Esper Ephemerate",
      3,
      3,
+     2
+    ],
+    [
+     "Mono Black Sacrifice",
+     3,
+     4,
      2
     ],
     [
@@ -5916,21 +5910,15 @@
      0
     ],
     [
-     "Burn",
-     2,
-     1,
-     0
-    ],
-    [
      "WUBR Affinity",
      1,
      1,
      2
     ],
     [
-     "Mono Red Burn",
-     0,
-     3,
+     "Boros Synthesizer",
+     1,
+     2,
      0
     ],
     [
@@ -5946,19 +5934,13 @@
      2
     ],
     [
-     "Boros Synthesizer",
-     1,
-     2,
-     0
-    ],
-    [
      "Dimir Ephemerate",
      3,
      1,
      0
     ]
    ],
-   "metaWr": 48.1,
+   "metaWr": 47.8,
    "core": [
     [
      "Island",
@@ -6011,33 +5993,33 @@
     [
      "Cryoshatter",
      85,
-     3.4
+     3.3
     ],
     [
      "Dispel",
-     64,
+     63,
      1.2
     ],
     [
      "Snap",
-     43,
+     44,
      2.4
     ]
    ],
-   "lists": 163,
+   "lists": 156,
    "conv": [
     2.5,
     2.7,
-    38
+    37
    ],
-   "prev": 2.8
+   "prev": 2.5
   },
   {
    "id": "pauper-golgari-garden",
    "name": "Golgari Garden",
    "share": 2.1,
    "tier": 2,
-   "count": 140,
+   "count": 136,
    "title": "Micheleiuliano1994 · Weekly Pauper Bonn (3st Place)",
    "url": "https://melee.gg/Decklist/View/574f2fe5-032b-4904-ac7b-b4ec0106dd2e",
    "main": [
@@ -6072,7 +6054,7 @@
     "4 Weather the Storm"
    ],
    "history": [
-    2.3,
+    2.1,
     1.4,
     1.8,
     2.9,
@@ -6086,8 +6068,8 @@
     2
    ],
    "field": [
-    132,
-    130,
+    131,
+    125,
     45
    ],
    "mu": [
@@ -6104,16 +6086,22 @@
      4
     ],
     [
+     "Elves",
+     9,
+     4,
+     2
+    ],
+    [
      "Tron",
      4,
-     11,
+     10,
      6
     ],
     [
-     "Elves",
-     9,
-     5,
-     2
+     "Dimir Faeries",
+     1,
+     7,
+     0
     ],
     [
      "Grixis Affinity",
@@ -6128,15 +6116,9 @@
      0
     ],
     [
-     "Dimir Faeries",
-     1,
-     7,
-     0
-    ],
-    [
      "Red Rally",
      5,
-     6,
+     5,
      2
     ],
     [
@@ -6170,28 +6152,28 @@
      0
     ],
     [
-     "Jeskai Ephemerate",
-     0,
-     4,
-     2
-    ],
-    [
-     "Gruul Ponza",
-     2,
-     4,
-     0
-    ],
-    [
      "Ephemerate Tron",
      4,
      3,
      3
     ],
     [
+     "Jeskai Ephemerate",
+     0,
+     4,
+     2
+    ],
+    [
      "Grixis Control",
      1,
      2,
      2
+    ],
+    [
+     "Gruul Ponza",
+     1,
+     3,
+     0
     ],
     [
      "Dimir Control",
@@ -6203,6 +6185,12 @@
      "Gruul Ramp",
      3,
      5,
+     0
+    ],
+    [
+     "Esper Midrange",
+     2,
+     2,
      0
     ],
     [
@@ -6218,21 +6206,9 @@
      0
     ],
     [
-     "Esper Midrange",
-     2,
-     2,
-     0
-    ],
-    [
      "Dimir Terror",
      3,
-     1,
-     2
-    ],
-    [
-     "Mono Black Sacrifice",
      0,
-     1,
      2
     ],
     [
@@ -6248,13 +6224,19 @@
      2
     ],
     [
+     "Mono Black Sacrifice",
+     0,
+     1,
+     2
+    ],
+    [
      "Orzhov Midrange",
      2,
      2,
      0
     ]
    ],
-   "metaWr": 51.1,
+   "metaWr": 51.7,
    "core": [
     [
      "Swamp",
@@ -6332,7 +6314,7 @@
    "flex": [
     [
      "Accursed Marauder",
-     89,
+     88,
      1.1
     ],
     [
@@ -6342,388 +6324,39 @@
     ],
     [
      "Spinning Darkness",
-     76,
+     75,
      1
     ],
     [
      "Fungal Infection",
-     67,
+     66,
      1
     ],
     [
      "Unmake",
-     34,
+     33,
      1
     ],
     [
      "Sagu Wildling",
-     26,
+     27,
      1
     ]
    ],
-   "lists": 140,
+   "lists": 136,
    "conv": [
     2.3,
-    3.2,
-    44
+    3.1,
+    43
    ],
    "prev": 2.1
-  },
-  {
-   "id": "pauper-jeskai-ephemerate",
-   "name": "Jeskai Ephemerate",
-   "share": 1.9,
-   "tier": 2,
-   "count": 123,
-   "title": "Belekuris · Pauper League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2211153#deck_Belekuris",
-   "main": [
-    "2 Archaeomancer",
-    "4 Augur of Bolas",
-    "3 Bender's Waterskin",
-    "4 Counterspell",
-    "1 Dispel",
-    "4 Ephemerate",
-    "1 Ethereal Haze",
-    "2 Glacial Floodplain",
-    "1 Goliath Paladin",
-    "4 Lórien Revealed",
-    "3 Mulldrifter",
-    "1 Murmuring Mystic",
-    "4 Perilous Landscape",
-    "4 Preordain",
-    "1 Ride's End",
-    "4 Skred",
-    "7 Snow-Covered Island",
-    "2 Snow-Covered Mountain",
-    "2 Snow-Covered Plains",
-    "2 Suplex",
-    "2 Union of the Third Path",
-    "2 Volatile Fjord"
-   ],
-   "side": [
-    "1 Annul",
-    "3 Blue Elemental Blast",
-    "2 Breath Weapon",
-    "2 Envelop",
-    "4 Red Elemental Blast",
-    "1 Thraben Charm",
-    "2 Vandalblast"
-   ],
-   "history": [
-    3.6,
-    3.3,
-    3.8,
-    4.9,
-    2.2,
-    2.1,
-    1.9,
-    2.6,
-    2.2,
-    0.9,
-    1.2,
-    1
-   ],
-   "field": [
-    143,
-    146,
-    56
-   ],
-   "mu": [
-    [
-     "Red Madness",
-     15,
-     15,
-     0
-    ],
-    [
-     "Mono Blue Terror",
-     7,
-     11,
-     4
-    ],
-    [
-     "Tron",
-     9,
-     9,
-     8
-    ],
-    [
-     "Elves",
-     6,
-     14,
-     2
-    ],
-    [
-     "Dimir Faeries",
-     4,
-     5,
-     0
-    ],
-    [
-     "Spy Combo",
-     6,
-     11,
-     4
-    ],
-    [
-     "Grixis Affinity",
-     6,
-     7,
-     2
-    ],
-    [
-     "Red Rally",
-     5,
-     13,
-     0
-    ],
-    [
-     "White Aggro",
-     10,
-     6,
-     2
-    ],
-    [
-     "Aura Bogles",
-     3,
-     5,
-     0
-    ],
-    [
-     "Jund Midrange",
-     7,
-     4,
-     0
-    ],
-    [
-     "Esper Affinity",
-     4,
-     3,
-     2
-    ],
-    [
-     "Mono Blue Faeries",
-     2,
-     1,
-     2
-    ],
-    [
-     "Golgari Garden",
-     4,
-     0,
-     2
-    ],
-    [
-     "Rakdos Madness",
-     4,
-     5,
-     2
-    ],
-    [
-     "Dimir Control",
-     3,
-     0,
-     0
-    ],
-    [
-     "Gruul Ramp",
-     3,
-     4,
-     0
-    ],
-    [
-     "Turbo Fog",
-     3,
-     1,
-     2
-    ],
-    [
-     "Gates",
-     3,
-     3,
-     0
-    ],
-    [
-     "Esper Midrange",
-     2,
-     2,
-     2
-    ],
-    [
-     "Mono Black Sacrifice",
-     2,
-     1,
-     0
-    ],
-    [
-     "Dimir Terror",
-     2,
-     1,
-     2
-    ],
-    [
-     "Izzet Terror",
-     2,
-     0,
-     6
-    ],
-    [
-     "Mardu Midrange",
-     1,
-     1,
-     2
-    ],
-    [
-     "Tireless Tribe",
-     3,
-     1,
-     0
-    ],
-    [
-     "WUBR Affinity",
-     1,
-     2,
-     0
-    ],
-    [
-     "Boros Midrange",
-     1,
-     0,
-     2
-    ],
-    [
-     "Mono White Heroic",
-     1,
-     3,
-     2
-    ]
-   ],
-   "metaWr": 48.1,
-   "core": [
-    [
-     "Snow-Covered Island",
-     7
-    ],
-    [
-     "Counterspell",
-     4
-    ],
-    [
-     "Lórien Revealed",
-     4
-    ],
-    [
-     "Skred",
-     4
-    ],
-    [
-     "Augur of Bolas",
-     4
-    ],
-    [
-     "Mulldrifter",
-     3
-    ],
-    [
-     "Ephemerate",
-     3
-    ],
-    [
-     "Archaeomancer",
-     2
-    ],
-    [
-     "Volatile Fjord",
-     2
-    ],
-    [
-     "Glacial Floodplain",
-     2
-    ],
-    [
-     "Dispel",
-     2
-    ],
-    [
-     "Murmuring Mystic",
-     2
-    ],
-    [
-     "Snow-Covered Mountain",
-     2
-    ],
-    [
-     "Snow-Covered Plains",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Perilous Landscape",
-     82,
-     3.5
-    ],
-    [
-     "Preordain",
-     82,
-     3.7
-    ],
-    [
-     "Ride's End",
-     82,
-     1.8
-    ],
-    [
-     "Union of the Third Path",
-     81,
-     1.5
-    ],
-    [
-     "Bender's Waterskin",
-     59,
-     2.8
-    ],
-    [
-     "Suplex",
-     59,
-     1.6
-    ],
-    [
-     "Brainstorm",
-     34,
-     2.5
-    ],
-    [
-     "Silverbluff Bridge",
-     28,
-     4
-    ],
-    [
-     "Cleansing Wildfire",
-     28,
-     4
-    ],
-    [
-     "Rustvale Bridge",
-     27,
-     3.9
-    ]
-   ],
-   "lists": 123,
-   "conv": [
-    1.8,
-    1.6,
-    22
-   ],
-   "prev": 2.2
   },
   {
    "id": "pauper-ephemerate-tron",
    "name": "Ephemerate Tron",
    "share": 1.8,
    "tier": 2,
-   "count": 118,
+   "count": 115,
    "title": "zhippy · $1K Pauper - SCG CON Hartford - Sunday - 9:30 am (6th Place)",
    "url": "https://melee.gg/Decklist/View/e3352b05-32fd-4701-a978-b4ee00c742b9",
    "main": [
@@ -6760,7 +6393,7 @@
     "2 Vandalblast"
    ],
    "history": [
-    2.4,
+    2.3,
     2.5,
     2.5,
     2.2,
@@ -6774,9 +6407,9 @@
     2.9
    ],
    "field": [
+    142,
     144,
-    145,
-    61
+    59
    ],
    "mu": [
     [
@@ -6792,21 +6425,15 @@
      0
     ],
     [
-     "Tron",
-     5,
-     12,
-     4
-    ],
-    [
      "Elves",
      3,
      9,
      4
     ],
     [
-     "Grixis Affinity",
-     9,
-     2,
+     "Tron",
+     5,
+     11,
      4
     ],
     [
@@ -6816,10 +6443,16 @@
      2
     ],
     [
+     "Grixis Affinity",
+     8,
+     2,
+     4
+    ],
+    [
      "Spy Combo",
      7,
      5,
-     6
+     4
     ],
     [
      "Red Rally",
@@ -6840,15 +6473,15 @@
      0
     ],
     [
-     "Jund Midrange",
-     3,
-     3,
-     4
-    ],
-    [
      "Esper Affinity",
      8,
      6,
+     4
+    ],
+    [
+     "Jund Midrange",
+     2,
+     3,
      4
     ],
     [
@@ -6864,15 +6497,21 @@
      3
     ],
     [
+     "Grixis Control",
+     1,
+     2,
+     2
+    ],
+    [
      "Gruul Ponza",
      2,
      4,
      0
     ],
     [
-     "Grixis Control",
+     "Dimir Control",
+     4,
      1,
-     2,
      2
     ],
     [
@@ -6888,16 +6527,16 @@
      0
     ],
     [
-     "Dimir Control",
-     4,
-     1,
-     2
-    ],
-    [
      "Gruul Ramp",
      2,
      4,
      2
+    ],
+    [
+     "Esper Midrange",
+     3,
+     5,
+     0
     ],
     [
      "Turbo Fog",
@@ -6912,12 +6551,6 @@
      2
     ],
     [
-     "Esper Midrange",
-     3,
-     5,
-     0
-    ],
-    [
      "Dimir Terror",
      4,
      1,
@@ -6925,12 +6558,6 @@
     ],
     [
      "Azorius Familiars",
-     4,
-     2,
-     0
-    ],
-    [
-     "Mono Black Sacrifice",
      4,
      2,
      0
@@ -6945,6 +6572,12 @@
      "Altar Tron",
      4,
      4,
+     0
+    ],
+    [
+     "Mono Black Sacrifice",
+     4,
+     2,
      0
     ],
     [
@@ -7010,23 +6643,23 @@
    "flex": [
     [
      "Conduit Pylons",
-     86,
+     85,
      1.3
     ],
     [
      "Crop Rotation",
-     84,
+     83,
      1.9
+    ],
+    [
+     "Mulldrifter",
+     73,
+     3.3
     ],
     [
      "Bramble Wurm",
      72,
      3.9
-    ],
-    [
-     "Mulldrifter",
-     72,
-     3.3
     ],
     [
      "Candy Trail",
@@ -7045,33 +6678,33 @@
     ],
     [
      "Kaervek's Torch",
-     66,
+     65,
      1
     ],
     [
+     "Lembas",
+     63,
+     3.5
+    ],
+    [
      "Prophetic Prism",
-     64,
+     63,
      3.3
     ],
     [
-     "Lembas",
-     64,
-     3.6
-    ],
-    [
      "Forest",
-     58,
+     60,
      1
     ],
     [
      "Barrels of Blasting Jelly",
-     58,
+     59,
      2.6
     ],
     [
      "Bonder's Ornament",
-     53,
-     2.1
+     54,
+     2
     ],
     [
      "Ephemerate",
@@ -7079,329 +6712,364 @@
      1.1
     ]
    ],
-   "lists": 118,
+   "lists": 115,
    "conv": [
     1.6,
     2.2,
     30
    ],
-   "prev": 1.7
+   "prev": 1.8
   },
   {
-   "id": "pauper-gruul-ponza",
-   "name": "Gruul Ponza",
+   "id": "pauper-jeskai-ephemerate",
+   "name": "Jeskai Ephemerate",
    "share": 1.8,
    "tier": 2,
-   "count": 117,
-   "title": "HaHaHa_ · Pauper League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_HaHaHa_",
+   "count": 115,
+   "title": "Belekuris · Pauper League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2211153#deck_Belekuris",
    "main": [
-    "2 Annoyed Altisaur",
-    "4 Arbor Elf",
-    "4 Avenging Hunter",
-    "4 Boarding Party",
-    "1 Bonder's Ornament",
-    "4 Eldrazi Repurposer",
-    "1 Highland Forest",
-    "2 Jewel Thief",
-    "3 Malevolent Rumble",
-    "4 Mwonvuli Acid-Moss",
-    "14 Snow-Covered Forest",
+    "2 Archaeomancer",
+    "4 Augur of Bolas",
+    "3 Bender's Waterskin",
+    "4 Counterspell",
+    "1 Dispel",
+    "4 Ephemerate",
+    "1 Ethereal Haze",
+    "2 Glacial Floodplain",
+    "1 Goliath Paladin",
+    "4 Lórien Revealed",
+    "3 Mulldrifter",
+    "1 Murmuring Mystic",
+    "4 Perilous Landscape",
+    "4 Preordain",
+    "1 Ride's End",
+    "4 Skred",
+    "7 Snow-Covered Island",
     "2 Snow-Covered Mountain",
-    "4 Thermokarst",
-    "4 Utopia Sprawl",
-    "3 Wild Growth",
-    "4 Writhing Chrysalis"
+    "2 Snow-Covered Plains",
+    "2 Suplex",
+    "2 Union of the Third Path",
+    "2 Volatile Fjord"
    ],
    "side": [
-    "3 Breath Weapon",
-    "4 Deglamer",
-    "2 Relic of Progenitus",
-    "3 Suplex",
-    "3 Weather the Storm"
+    "1 Annul",
+    "3 Blue Elemental Blast",
+    "2 Breath Weapon",
+    "2 Envelop",
+    "4 Red Elemental Blast",
+    "1 Thraben Charm",
+    "2 Vandalblast"
    ],
    "history": [
-    2.3,
-    4.3,
-    4.2,
-    3.4,
-    2.4,
-    2.8,
-    1.8,
+    3.3,
+    3.3,
+    3.8,
+    4.9,
+    2.2,
     2.1,
-    1.7,
+    1.9,
+    2.6,
+    2.2,
     0.9,
     1.2,
-    1.4
+    1
    ],
    "field": [
-    98,
-    123,
-    10
+    140,
+    141,
+    56
    ],
    "mu": [
     [
      "Red Madness",
-     5,
-     16,
+     15,
+     15,
      0
     ],
     [
      "Mono Blue Terror",
-     2,
-     4,
-     0
-    ],
-    [
-     "Tron",
-     10,
-     3,
-     2
+     7,
+     11,
+     4
     ],
     [
      "Elves",
-     4,
-     8,
-     0
-    ],
-    [
-     "Grixis Affinity",
-     5,
-     2,
+     6,
+     14,
      2
     ],
     [
-     "Spy Combo",
-     4,
-     10,
-     0
+     "Tron",
+     8,
+     9,
+     8
     ],
     [
      "Dimir Faeries",
-     3,
-     2,
+     4,
+     4,
      0
     ],
     [
-     "Red Rally",
-     2,
+     "Spy Combo",
      6,
+     10,
+     4
+    ],
+    [
+     "Grixis Affinity",
+     6,
+     7,
+     2
+    ],
+    [
+     "Red Rally",
+     5,
+     12,
      0
     ],
     [
      "White Aggro",
-     2,
-     8,
-     0
+     10,
+     6,
+     2
     ],
     [
      "Aura Bogles",
      3,
-     6,
-     0
-    ],
-    [
-     "Jund Midrange",
-     4,
-     3,
+     5,
      0
     ],
     [
      "Esper Affinity",
-     5,
+     4,
+     3,
+     2
+    ],
+    [
+     "Jund Midrange",
      7,
+     4,
      0
     ],
     [
      "Mono Blue Faeries",
+     2,
      1,
-     4,
-     0
+     2
     ],
     [
      "Golgari Garden",
      4,
-     2,
-     0
-    ],
-    [
-     "Ephemerate Tron",
-     4,
-     2,
-     0
-    ],
-    [
-     "Grixis Control",
-     3,
-     2,
-     0
+     0,
+     2
     ],
     [
      "Rakdos Madness",
-     2,
      3,
-     0
+     4,
+     2
     ],
     [
      "Dimir Control",
-     2,
-     1,
+     3,
+     0,
      0
     ],
     [
      "Gruul Ramp",
-     2,
+     3,
      4,
      0
     ],
     [
      "Esper Midrange",
      2,
-     1,
-     0
-    ],
-    [
-     "Esper Ephemerate",
-     1,
-     1,
-     4
-    ],
-    [
-     "Orzhov Midrange",
      2,
-     1,
-     0
+     2
     ],
     [
-     "Tireless Tribe",
-     2,
+     "Turbo Fog",
+     3,
+     1,
+     2
+    ],
+    [
+     "Gates",
+     3,
      3,
      0
     ],
     [
-     "Mono White Heroic",
+     "Dimir Terror",
+     2,
+     1,
+     2
+    ],
+    [
+     "Izzet Terror",
+     2,
+     0,
+     6
+    ],
+    [
+     "Mardu Midrange",
+     1,
+     1,
+     2
+    ],
+    [
+     "Tireless Tribe",
+     3,
+     1,
+     0
+    ],
+    [
+     "WUBR Affinity",
      1,
      2,
      0
+    ],
+    [
+     "Boros Midrange",
+     1,
+     0,
+     2
+    ],
+    [
+     "Mono White Heroic",
+     1,
+     3,
+     2
     ]
    ],
-   "metaWr": 44.7,
+   "metaWr": 48.3,
    "core": [
     [
-     "Arbor Elf",
+     "Snow-Covered Island",
+     7
+    ],
+    [
+     "Counterspell",
      4
     ],
     [
-     "Utopia Sprawl",
+     "Lórien Revealed",
      4
     ],
     [
-     "Writhing Chrysalis",
+     "Augur of Bolas",
      4
     ],
     [
-     "Thermokarst",
-     4
-    ],
-    [
-     "Boarding Party",
-     4
-    ],
-    [
-     "Mwonvuli Acid-Moss",
-     4
-    ],
-    [
-     "Avenging Hunter",
+     "Mulldrifter",
      3
     ],
     [
-     "Annoyed Altisaur",
+     "Ephemerate",
      3
     ],
     [
-     "Eldrazi Repurposer",
-     3
+     "Archaeomancer",
+     2
     ],
     [
-     "Wild Growth",
-     3
+     "Murmuring Mystic",
+     2
+    ],
+    [
+     "Dispel",
+     2
+    ],
+    [
+     "Snow-Covered Mountain",
+     2
+    ],
+    [
+     "Snow-Covered Plains",
+     2
     ]
    ],
    "flex": [
     [
-     "Bonder's Ornament",
-     79,
+     "Glacial Floodplain",
+     90,
+     1.9
+    ],
+    [
+     "Volatile Fjord",
+     90,
+     2
+    ],
+    [
+     "Skred",
+     90,
+     3.8
+    ],
+    [
+     "Perilous Landscape",
+     83,
+     3.5
+    ],
+    [
+     "Preordain",
+     82,
+     3.6
+    ],
+    [
+     "Union of the Third Path",
+     81,
      1.5
     ],
     [
-     "Structural Distortion",
-     76,
-     1.9
+     "Ride's End",
+     81,
+     1.7
     ],
     [
-     "Forest",
-     66,
-     13.9
+     "Bender's Waterskin",
+     61,
+     2.8
     ],
     [
-     "Mountain",
-     62,
-     1.9
+     "Suplex",
+     58,
+     1.5
     ],
     [
-     "Generous Ent",
-     57,
-     1.9
+     "Brainstorm",
+     36,
+     2.4
     ],
     [
-     "Wooded Ridgeline",
-     52,
-     1.1
+     "Silverbluff Bridge",
+     28,
+     4
     ],
     [
-     "Malevolent Rumble",
-     45,
-     2.5
+     "Cleansing Wildfire",
+     28,
+     4
     ],
     [
-     "Highland Forest",
-     41,
-     1.2
-    ],
-    [
-     "Sagu Wildling",
-     40,
-     1.9
-    ],
-    [
-     "Snow-Covered Mountain",
-     38,
-     1.8
-    ],
-    [
-     "Snow-Covered Forest",
-     37,
-     13.3
-    ],
-    [
-     "Colossal Dreadmask",
-     29,
-     1
+     "Rustvale Bridge",
+     27,
+     3.9
     ]
    ],
-   "lists": 117,
+   "lists": 115,
    "conv": [
-    2.1,
-    2.1,
-    29
+    1.7,
+    1.6,
+    22
    ],
-   "prev": 2
+   "prev": 1.9
   },
   {
    "id": "pauper-grixis-control",
    "name": "Grixis Control",
-   "share": 1.7,
+   "share": 1.8,
    "tier": 2,
    "count": 113,
    "title": "Gil Haven · $1K Pauper - SCG CON Hartford - Sunday - 9:30 am (2st Place)",
@@ -7486,15 +7154,15 @@
      10
     ],
     [
-     "Grixis Affinity",
-     6,
-     3,
-     0
-    ],
-    [
      "Dimir Faeries",
      9,
      5,
+     0
+    ],
+    [
+     "Grixis Affinity",
+     6,
+     3,
      0
     ],
     [
@@ -7522,16 +7190,16 @@
      0
     ],
     [
-     "Jund Midrange",
-     1,
-     2,
-     4
-    ],
-    [
      "Esper Affinity",
      2,
      9,
      0
+    ],
+    [
+     "Jund Midrange",
+     1,
+     2,
+     4
     ],
     [
      "Mono Blue Faeries",
@@ -7564,15 +7232,15 @@
      0
     ],
     [
-     "Ruby Storm",
-     3,
-     1,
-     2
-    ],
-    [
      "Dimir Control",
      2,
      3,
+     2
+    ],
+    [
+     "Ruby Storm",
+     3,
+     1,
      2
     ],
     [
@@ -7594,12 +7262,6 @@
      0
     ],
     [
-     "Mono Black Sacrifice",
-     2,
-     1,
-     0
-    ],
-    [
      "Dimir Terror",
      2,
      1,
@@ -7610,6 +7272,12 @@
      1,
      0,
      2
+    ],
+    [
+     "Mono Black Sacrifice",
+     2,
+     1,
+     0
     ],
     [
      "Altar Tron",
@@ -7744,14 +7412,319 @@
     2,
     28
    ],
-   "prev": 1.3
+   "prev": 1.7
+  },
+  {
+   "id": "pauper-gruul-ponza",
+   "name": "Gruul Ponza",
+   "share": 1.7,
+   "tier": 2,
+   "count": 111,
+   "title": "HaHaHa_ · Pauper League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_HaHaHa_",
+   "main": [
+    "2 Annoyed Altisaur",
+    "4 Arbor Elf",
+    "4 Avenging Hunter",
+    "4 Boarding Party",
+    "1 Bonder's Ornament",
+    "4 Eldrazi Repurposer",
+    "1 Highland Forest",
+    "2 Jewel Thief",
+    "3 Malevolent Rumble",
+    "4 Mwonvuli Acid-Moss",
+    "14 Snow-Covered Forest",
+    "2 Snow-Covered Mountain",
+    "4 Thermokarst",
+    "4 Utopia Sprawl",
+    "3 Wild Growth",
+    "4 Writhing Chrysalis"
+   ],
+   "side": [
+    "3 Breath Weapon",
+    "4 Deglamer",
+    "2 Relic of Progenitus",
+    "3 Suplex",
+    "3 Weather the Storm"
+   ],
+   "history": [
+    2.3,
+    4.3,
+    4.2,
+    3.4,
+    2.4,
+    2.8,
+    1.8,
+    2.1,
+    1.7,
+    0.9,
+    1.2,
+    1.4
+   ],
+   "field": [
+    96,
+    120,
+    10
+   ],
+   "mu": [
+    [
+     "Red Madness",
+     5,
+     16,
+     0
+    ],
+    [
+     "Mono Blue Terror",
+     2,
+     2,
+     0
+    ],
+    [
+     "Elves",
+     4,
+     8,
+     0
+    ],
+    [
+     "Tron",
+     10,
+     3,
+     2
+    ],
+    [
+     "Dimir Faeries",
+     3,
+     2,
+     0
+    ],
+    [
+     "Grixis Affinity",
+     5,
+     2,
+     2
+    ],
+    [
+     "Spy Combo",
+     4,
+     10,
+     0
+    ],
+    [
+     "Red Rally",
+     2,
+     6,
+     0
+    ],
+    [
+     "White Aggro",
+     2,
+     8,
+     0
+    ],
+    [
+     "Aura Bogles",
+     3,
+     6,
+     0
+    ],
+    [
+     "Esper Affinity",
+     5,
+     7,
+     0
+    ],
+    [
+     "Jund Midrange",
+     4,
+     3,
+     0
+    ],
+    [
+     "Mono Blue Faeries",
+     1,
+     4,
+     0
+    ],
+    [
+     "Golgari Garden",
+     3,
+     1,
+     0
+    ],
+    [
+     "Ephemerate Tron",
+     4,
+     2,
+     0
+    ],
+    [
+     "Grixis Control",
+     3,
+     2,
+     0
+    ],
+    [
+     "Rakdos Madness",
+     2,
+     3,
+     0
+    ],
+    [
+     "Dimir Control",
+     2,
+     1,
+     0
+    ],
+    [
+     "Gruul Ramp",
+     2,
+     4,
+     0
+    ],
+    [
+     "Esper Midrange",
+     2,
+     1,
+     0
+    ],
+    [
+     "Esper Ephemerate",
+     1,
+     1,
+     4
+    ],
+    [
+     "Tireless Tribe",
+     2,
+     3,
+     0
+    ],
+    [
+     "Mono White Heroic",
+     1,
+     2,
+     0
+    ]
+   ],
+   "metaWr": 44.4,
+   "core": [
+    [
+     "Arbor Elf",
+     4
+    ],
+    [
+     "Utopia Sprawl",
+     4
+    ],
+    [
+     "Writhing Chrysalis",
+     4
+    ],
+    [
+     "Thermokarst",
+     4
+    ],
+    [
+     "Boarding Party",
+     4
+    ],
+    [
+     "Mwonvuli Acid-Moss",
+     4
+    ],
+    [
+     "Avenging Hunter",
+     3
+    ],
+    [
+     "Annoyed Altisaur",
+     3
+    ],
+    [
+     "Eldrazi Repurposer",
+     3
+    ],
+    [
+     "Wild Growth",
+     3
+    ]
+   ],
+   "flex": [
+    [
+     "Bonder's Ornament",
+     78,
+     1.5
+    ],
+    [
+     "Structural Distortion",
+     75,
+     1.9
+    ],
+    [
+     "Forest",
+     64,
+     13.8
+    ],
+    [
+     "Mountain",
+     60,
+     1.9
+    ],
+    [
+     "Generous Ent",
+     57,
+     1.9
+    ],
+    [
+     "Wooded Ridgeline",
+     50,
+     1.1
+    ],
+    [
+     "Highland Forest",
+     43,
+     1.2
+    ],
+    [
+     "Malevolent Rumble",
+     42,
+     2.5
+    ],
+    [
+     "Sagu Wildling",
+     41,
+     1.8
+    ],
+    [
+     "Snow-Covered Mountain",
+     40,
+     1.8
+    ],
+    [
+     "Snow-Covered Forest",
+     39,
+     13.3
+    ],
+    [
+     "Colossal Dreadmask",
+     27,
+     1
+    ]
+   ],
+   "lists": 111,
+   "conv": [
+    2,
+    2,
+    28
+   ],
+   "prev": 1.8
   },
   {
    "id": "pauper-rakdos-madness",
    "name": "Rakdos Madness",
    "share": 1.5,
    "tier": 2,
-   "count": 99,
+   "count": 95,
    "title": "TheLockedTomb · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_TheLockedTomb",
    "main": [
@@ -7783,7 +7756,7 @@
     "2 Relic of Progenitus"
    ],
    "history": [
-    2.6,
+    2.1,
     2.5,
     0.7,
     1,
@@ -7797,8 +7770,8 @@
     1.6
    ],
    "field": [
-    154,
-    166,
+    151,
+    156,
     14
    ],
    "mu": [
@@ -7815,16 +7788,22 @@
      0
     ],
     [
-     "Tron",
-     10,
-     13,
-     0
-    ],
-    [
      "Elves",
      9,
      8,
      2
+    ],
+    [
+     "Tron",
+     10,
+     11,
+     0
+    ],
+    [
+     "Dimir Faeries",
+     3,
+     5,
+     0
     ],
     [
      "Grixis Affinity",
@@ -7839,12 +7818,6 @@
      0
     ],
     [
-     "Dimir Faeries",
-     3,
-     5,
-     0
-    ],
-    [
      "Red Rally",
      4,
      10,
@@ -7853,7 +7826,7 @@
     [
      "White Aggro",
      4,
-     10,
+     8,
      2
     ],
     [
@@ -7863,34 +7836,34 @@
      0
     ],
     [
-     "Jund Midrange",
-     3,
-     2,
-     2
-    ],
-    [
      "Esper Affinity",
      5,
      6,
      0
     ],
     [
+     "Jund Midrange",
+     3,
+     2,
+     2
+    ],
+    [
      "Mono Blue Faeries",
      3,
-     12,
+     11,
+     0
+    ],
+    [
+     "Grixis Control",
+     1,
+     2,
      0
     ],
     [
      "Jeskai Ephemerate",
-     5,
      4,
-     2
-    ],
-    [
-     "Gruul Ponza",
      3,
-     2,
-     0
+     2
     ],
     [
      "Ephemerate Tron",
@@ -7899,8 +7872,14 @@
      0
     ],
     [
-     "Grixis Control",
-     1,
+     "Gruul Ponza",
+     3,
+     2,
+     0
+    ],
+    [
+     "Dimir Control",
+     4,
      2,
      0
     ],
@@ -7911,15 +7890,15 @@
      0
     ],
     [
-     "Dimir Control",
-     4,
-     2,
-     0
-    ],
-    [
      "Gruul Ramp",
      3,
      4,
+     0
+    ],
+    [
+     "Esper Midrange",
+     2,
+     3,
      0
     ],
     [
@@ -7931,30 +7910,12 @@
     [
      "Gates",
      2,
-     6,
-     0
-    ],
-    [
-     "Esper Midrange",
-     2,
-     3,
-     0
-    ],
-    [
-     "Mono Black Sacrifice",
-     1,
-     2,
+     5,
      0
     ],
     [
      "Dimir Terror",
      4,
-     1,
-     0
-    ],
-    [
-     "Izzet Terror",
-     6,
      1,
      0
     ],
@@ -7965,21 +7926,27 @@
      0
     ],
     [
+     "Izzet Terror",
+     6,
+     1,
+     0
+    ],
+    [
      "Altar Tron",
      2,
      1,
      0
     ],
     [
-     "Orzhov Midrange",
+     "Tireless Tribe",
      1,
-     3,
+     4,
      0
     ],
     [
-     "Tireless Tribe",
-     1,
-     5,
+     "Orzhov Midrange",
+     0,
+     3,
      0
     ],
     [
@@ -8001,11 +7968,15 @@
      0
     ]
    ],
-   "metaWr": 49.1,
+   "metaWr": 49.6,
    "core": [
     [
      "Mountain",
      7
+    ],
+    [
+     "Fiery Temper",
+     4
     ],
     [
      "Kitchen Imp",
@@ -8013,10 +7984,6 @@
     ],
     [
      "Sneaky Snacker",
-     4
-    ],
-    [
-     "Fiery Temper",
      4
     ],
     [
@@ -8036,11 +8003,11 @@
      4
     ],
     [
-     "Voldaren Epicure",
+     "Jagged Barrens",
      4
     ],
     [
-     "Jagged Barrens",
+     "Voldaren Epicure",
      4
     ],
     [
@@ -8071,7 +8038,7 @@
     ],
     [
      "Bojuka Bog",
-     40,
+     42,
      1.2
     ],
     [
@@ -8080,7 +8047,7 @@
      1.9
     ]
    ],
-   "lists": 99,
+   "lists": 95,
    "conv": [
     1.4,
     1.5,
@@ -8093,7 +8060,7 @@
    "name": "Ruby Storm",
    "share": 1.5,
    "tier": 2,
-   "count": 96,
+   "count": 95,
    "title": "zangief · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_zangief",
    "main": [
@@ -8128,7 +8095,7 @@
     "2 Weather the Storm"
    ],
    "history": [
-    1.4,
+    1.2,
     1.1,
     0.5,
     1.4,
@@ -8142,8 +8109,8 @@
     2.7
    ],
    "field": [
+    94,
     96,
-    98,
     18
    ],
    "mu": [
@@ -8172,20 +8139,20 @@
      0
     ],
     [
-     "Spy Combo",
-     4,
+     "Dimir Faeries",
+     1,
      9,
      0
     ],
     [
      "Grixis Affinity",
      3,
-     7,
+     6,
      2
     ],
     [
-     "Dimir Faeries",
-     1,
+     "Spy Combo",
+     3,
      9,
      0
     ],
@@ -8257,7 +8224,7 @@
     ],
     [
      "Mono Black Sacrifice",
-     3,
+     2,
      2,
      0
     ],
@@ -8280,7 +8247,7 @@
      2
     ]
    ],
-   "metaWr": 49.1,
+   "metaWr": 48.9,
    "core": [
     [
      "Glimpse the Impossible",
@@ -8326,23 +8293,23 @@
    "flex": [
     [
      "Reckless Impulse",
-     90,
+     89,
      2.8
     ],
     [
      "Desperate Ritual",
-     85,
+     86,
      3.7
-    ],
-    [
-     "Mountain",
-     84,
-     4.6
     ],
     [
      "Wrenn's Resolve",
      84,
      3.2
+    ],
+    [
+     "Mountain",
+     84,
+     4.6
     ],
     [
      "Big Score",
@@ -8351,12 +8318,12 @@
     ],
     [
      "Crossover Collaboration",
-     77,
+     78,
      3.1
     ],
     [
      "Electric Revelation",
-     46,
+     45,
      2.7
     ],
     [
@@ -8365,18 +8332,18 @@
      3.7
     ]
    ],
-   "lists": 96,
+   "lists": 95,
    "conv": [
     1.4,
     1.7,
     23
    ],
-   "prev": 1.3
+   "prev": 1.5
   },
   {
    "id": "pauper-dimir-control",
    "name": "Dimir Control",
-   "share": 1.4,
+   "share": 1.5,
    "tier": 2,
    "count": 94,
    "title": "Brvnx · Pauper Challenge 16 (5th Place)",
@@ -8450,16 +8417,16 @@
      0
     ],
     [
-     "Tron",
-     4,
-     2,
-     4
-    ],
-    [
      "Elves",
      9,
      1,
      0
+    ],
+    [
+     "Tron",
+     4,
+     2,
+     4
     ],
     [
      "Dimir Faeries",
@@ -8498,16 +8465,16 @@
      2
     ],
     [
-     "Jund Midrange",
-     2,
-     1,
-     2
-    ],
-    [
      "Esper Affinity",
      3,
      4,
      0
+    ],
+    [
+     "Jund Midrange",
+     2,
+     1,
+     2
     ],
     [
      "Mono Blue Faeries",
@@ -8522,21 +8489,15 @@
      0
     ],
     [
-     "Jeskai Ephemerate",
-     0,
-     3,
-     0
-    ],
-    [
      "Ephemerate Tron",
      1,
      4,
      2
     ],
     [
-     "Gruul Ponza",
-     1,
-     2,
+     "Jeskai Ephemerate",
+     0,
+     3,
      0
     ],
     [
@@ -8546,9 +8507,21 @@
      2
     ],
     [
+     "Gruul Ponza",
+     1,
+     2,
+     0
+    ],
+    [
      "Rakdos Madness",
      2,
      4,
+     0
+    ],
+    [
+     "Esper Midrange",
+     3,
+     1,
      0
     ],
     [
@@ -8564,18 +8537,6 @@
      4
     ],
     [
-     "Esper Midrange",
-     3,
-     1,
-     0
-    ],
-    [
-     "Mono Black Sacrifice",
-     4,
-     1,
-     0
-    ],
-    [
      "Izzet Terror",
      4,
      0,
@@ -8588,13 +8549,19 @@
      4
     ],
     [
+     "Mono Black Sacrifice",
+     4,
+     1,
+     0
+    ],
+    [
      "Mardu Midrange",
      2,
      1,
      2
     ]
    ],
-   "metaWr": 52.9,
+   "metaWr": 52.8,
    "core": [
     [
      "Island",
@@ -8720,10 +8687,10 @@
    "lists": 94,
    "conv": [
     1.3,
-    1.4,
+    1.5,
     20
    ],
-   "prev": 1.1
+   "prev": 1.4
   },
   {
    "id": "pauper-gruul-ramp",
@@ -8790,15 +8757,21 @@
      0
     ],
     [
+     "Elves",
+     7,
+     11,
+     2
+    ],
+    [
      "Tron",
      9,
      7,
      0
     ],
     [
-     "Elves",
-     7,
-     11,
+     "Dimir Faeries",
+     1,
+     3,
      2
     ],
     [
@@ -8812,12 +8785,6 @@
      4,
      9,
      0
-    ],
-    [
-     "Dimir Faeries",
-     1,
-     3,
-     2
     ],
     [
      "Red Rally",
@@ -8868,16 +8835,16 @@
      0
     ],
     [
-     "Gruul Ponza",
-     4,
-     2,
-     0
-    ],
-    [
      "Ephemerate Tron",
      4,
      2,
      2
+    ],
+    [
+     "Gruul Ponza",
+     4,
+     2,
+     0
     ],
     [
      "Rakdos Madness",
@@ -8898,16 +8865,16 @@
      2
     ],
     [
-     "Gates",
-     3,
-     2,
-     2
-    ],
-    [
      "Esper Midrange",
      2,
      2,
      0
+    ],
+    [
+     "Gates",
+     3,
+     2,
+     2
     ],
     [
      "Turbo Fog",
@@ -8922,15 +8889,15 @@
      2
     ],
     [
-     "Izzet Terror",
-     4,
-     3,
-     0
-    ],
-    [
      "Esper Ephemerate",
      2,
      1,
+     0
+    ],
+    [
+     "Izzet Terror",
+     4,
+     3,
      0
     ],
     [
@@ -8976,7 +8943,7 @@
      0
     ]
    ],
-   "metaWr": 45.5,
+   "metaWr": 45.4,
    "core": [
     [
      "Forest",
@@ -9064,15 +9031,15 @@
    "lists": 85,
    "conv": [
     1.5,
-    1.7,
+    1.8,
     24
    ],
-   "prev": 1.5
+   "prev": 1.3
   },
   {
    "id": "pauper-esper-midrange",
    "name": "Esper Midrange",
-   "share": 1.2,
+   "share": 1.3,
    "tier": 2,
    "count": 80,
    "title": "Ziren · $1K Pauper - SCG CON Hartford - Friday - 10:30 am (8th Place)",
@@ -9140,28 +9107,28 @@
      0
     ],
     [
-     "Tron",
-     7,
-     5,
-     6
-    ],
-    [
      "Elves",
      5,
      6,
      2
     ],
     [
-     "Grixis Affinity",
+     "Tron",
      7,
-     2,
-     0
+     5,
+     6
     ],
     [
      "Dimir Faeries",
      1,
      3,
      4
+    ],
+    [
+     "Grixis Affinity",
+     7,
+     2,
+     0
     ],
     [
      "Spy Combo",
@@ -9224,20 +9191,14 @@
      0
     ],
     [
-     "Gruul Ponza",
-     1,
-     2,
-     0
-    ],
-    [
      "Grixis Control",
      2,
      2,
      2
     ],
     [
-     "Rakdos Madness",
-     3,
+     "Gruul Ponza",
+     1,
      2,
      0
     ],
@@ -9248,21 +9209,27 @@
      0
     ],
     [
+     "Rakdos Madness",
+     3,
+     2,
+     0
+    ],
+    [
      "Gruul Ramp",
      2,
      2,
      0
     ],
     [
-     "Mono Black Sacrifice",
-     2,
-     1,
-     0
-    ],
-    [
      "Izzet Terror",
      3,
      0,
+     0
+    ],
+    [
+     "Mono Black Sacrifice",
+     2,
+     1,
      0
     ],
     [
@@ -9290,7 +9257,7 @@
      0
     ]
    ],
-   "metaWr": 52.8,
+   "metaWr": 52.7,
    "core": [
     [
      "Refurbished Familiar",
@@ -9389,14 +9356,14 @@
     1.2,
     17
    ],
-   "prev": 1.1
+   "prev": 1.2
   },
   {
    "id": "pauper-gates",
    "name": "Gates",
    "share": 1.2,
    "tier": 2,
-   "count": 78,
+   "count": 76,
    "title": "Scherben · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_Scherben",
    "main": [
@@ -9429,7 +9396,7 @@
     "1 Vandalblast"
    ],
    "history": [
-    2.6,
+    1.9,
     1.9,
     2.4,
     1.4,
@@ -9443,8 +9410,8 @@
     1.6
    ],
    "field": [
-    138,
-    118,
+    131,
+    117,
     44
    ],
    "mu": [
@@ -9473,16 +9440,16 @@
      6
     ],
     [
-     "Grixis Affinity",
-     5,
-     4,
-     6
-    ],
-    [
      "Dimir Faeries",
      6,
      3,
      2
+    ],
+    [
+     "Grixis Affinity",
+     5,
+     4,
+     6
     ],
     [
      "Spy Combo",
@@ -9533,16 +9500,16 @@
      0
     ],
     [
-     "Jeskai Ephemerate",
-     3,
-     3,
-     0
-    ],
-    [
      "Ephemerate Tron",
      1,
      1,
      2
+    ],
+    [
+     "Jeskai Ephemerate",
+     3,
+     3,
+     0
     ],
     [
      "Grixis Control",
@@ -9552,7 +9519,7 @@
     ],
     [
      "Rakdos Madness",
-     6,
+     5,
      2,
      0
     ],
@@ -9569,8 +9536,14 @@
      2
     ],
     [
+     "Esper Ephemerate",
+     3,
+     4,
+     0
+    ],
+    [
      "Dimir Terror",
-     2,
+     1,
      1,
      2
     ],
@@ -9587,32 +9560,20 @@
      2
     ],
     [
-     "Esper Ephemerate",
-     3,
-     4,
-     0
-    ],
-    [
      "Mardu Midrange",
      1,
      2,
      0
     ],
     [
-     "Golgari Midrange",
-     3,
-     1,
-     0
-    ],
-    [
      "Orzhov Midrange",
-     6,
+     5,
      0,
      0
     ],
     [
      "Tireless Tribe",
-     4,
+     3,
      3,
      0
     ],
@@ -9647,19 +9608,19 @@
      3
     ],
     [
+     "Outlaw Medic",
+     82,
+     3.6
+    ],
+    [
      "Sacred Cat",
-     81,
+     80,
      3.9
     ],
     [
      "Prismatic Strands",
-     81,
+     80,
      3.8
-    ],
-    [
-     "Outlaw Medic",
-     81,
-     3.6
     ],
     [
      "Thraben Charm",
@@ -9669,27 +9630,17 @@
     [
      "Journey to Nowhere",
      78,
-     2.6
+     2.5
     ],
     [
      "Manor Gate",
-     77,
-     2.4
+     76,
+     2.3
     ],
     [
      "Cliffgate",
-     76,
+     75,
      3.9
-    ],
-    [
-     "Malevolent Rumble",
-     73,
-     3.8
-    ],
-    [
-     "Mountain",
-     72,
-     2.9
     ],
     [
      "Sneaky Snacker",
@@ -9697,35 +9648,45 @@
      4
     ],
     [
+     "Malevolent Rumble",
+     72,
+     3.8
+    ],
+    [
      "Pursue the Past",
      72,
      3.9
     ],
     [
+     "Mountain",
+     72,
+     2.9
+    ],
+    [
      "Melded Moxite",
      71,
-     2.7
+     2.6
     ],
     [
      "Writhing Chrysalis",
-     67,
+     66,
      3.8
     ]
    ],
-   "lists": 78,
+   "lists": 76,
    "conv": [
-    1.4,
     1.3,
-    18
+    1.2,
+    17
    ],
-   "prev": 1.3
+   "prev": 1.2
   },
   {
    "id": "pauper-turbo-fog",
    "name": "Turbo Fog",
    "share": 1.2,
    "tier": 2,
-   "count": 76,
+   "count": 75,
    "title": "WizardHat · Pauper Challenge 32 (2nd Place)",
    "url": "https://www.mtgo.com/decklist/pauper-challenge-32-2026-10-2212856962#deck_WizardHat",
    "main": [
@@ -9765,7 +9726,7 @@
     "1 Steel Sabotage"
    ],
    "history": [
-    0.7,
+    0.9,
     0.8,
     0.7,
     1.2,
@@ -9797,15 +9758,15 @@
      2
     ],
     [
-     "Tron",
-     7,
-     6,
-     0
-    ],
-    [
      "Elves",
      8,
      2,
+     0
+    ],
+    [
+     "Tron",
+     7,
+     6,
      0
     ],
     [
@@ -9869,16 +9830,16 @@
      0
     ],
     [
-     "Jeskai Ephemerate",
-     1,
-     3,
-     2
-    ],
-    [
      "Ephemerate Tron",
      2,
      4,
      0
+    ],
+    [
+     "Jeskai Ephemerate",
+     1,
+     3,
+     2
     ],
     [
      "Grixis Control",
@@ -9893,16 +9854,16 @@
      0
     ],
     [
-     "Ruby Storm",
-     2,
-     2,
-     0
-    ],
-    [
      "Dimir Control",
      2,
      0,
      4
+    ],
+    [
+     "Ruby Storm",
+     2,
+     2,
+     0
     ],
     [
      "Gruul Ramp",
@@ -9929,15 +9890,15 @@
      0
     ],
     [
-     "Mono Black Sacrifice",
-     1,
-     0,
-     2
-    ],
-    [
      "Altar Tron",
      0,
      3,
+     2
+    ],
+    [
+     "Mono Black Sacrifice",
+     1,
+     0,
      2
     ],
     [
@@ -9953,7 +9914,7 @@
      2
     ]
    ],
-   "metaWr": 53.6,
+   "metaWr": 53.7,
    "core": [
     [
      "Moment's Peace",
@@ -9984,7 +9945,7 @@
     ],
     [
      "Island",
-     67,
+     68,
      5.3
     ],
     [
@@ -10009,7 +9970,7 @@
     ],
     [
      "Growth Spiral",
-     54,
+     55,
      3.8
     ],
     [
@@ -10019,12 +9980,12 @@
     ],
     [
      "Tangled Islet",
-     51,
+     52,
      1.2
     ],
     [
      "Embrace the Paradox",
-     47,
+     48,
      3
     ],
     [
@@ -10034,34 +9995,34 @@
     ],
     [
      "Respite",
-     41,
+     40,
      1.1
     ],
     [
-     "Heap Gate",
+     "Desert",
      33,
-     3.9
+     2.8
     ],
     [
-     "Manor Gate",
-     33,
-     2.5
+     "Heap Gate",
+     32,
+     3.9
     ]
    ],
-   "lists": 76,
+   "lists": 75,
    "conv": [
     1.4,
     2,
     28
    ],
-   "prev": 1.1
+   "prev": 1.2
   },
   {
    "id": "pauper-dimir-terror",
    "name": "Dimir Terror",
    "share": 1,
    "tier": 2,
-   "count": 68,
+   "count": 66,
    "title": "Jonathan Sukenik · $1K Pauper - SCG CON Hartford - Saturday - 9:30 am (4th Place)",
    "url": "https://melee.gg/Decklist/View/fd29e0fd-daaa-4ea7-a9aa-b4ed003db8a7",
    "main": [
@@ -10094,7 +10055,7 @@
     "1 Murmuring Mystic"
    ],
    "history": [
-    3.6,
+    4,
     2.7,
     3.1,
     2.3,
@@ -10108,8 +10069,8 @@
     0.3
    ],
    "field": [
-    65,
-    92,
+    62,
+    91,
     12
    ],
    "mu": [
@@ -10127,7 +10088,7 @@
     ],
     [
      "Elves",
-     3,
+     2,
      5,
      0
     ],
@@ -10138,16 +10099,16 @@
      0
     ],
     [
-     "Grixis Affinity",
-     5,
-     3,
-     0
-    ],
-    [
      "Dimir Faeries",
      4,
      3,
      2
+    ],
+    [
+     "Grixis Affinity",
+     4,
+     3,
+     0
     ],
     [
      "Spy Combo",
@@ -10187,14 +10148,8 @@
     ],
     [
      "Golgari Garden",
-     1,
+     0,
      3,
-     2
-    ],
-    [
-     "Jeskai Ephemerate",
-     1,
-     2,
      2
     ],
     [
@@ -10202,6 +10157,12 @@
      1,
      4,
      0
+    ],
+    [
+     "Jeskai Ephemerate",
+     1,
+     2,
+     2
     ],
     [
      "Grixis Control",
@@ -10224,7 +10185,7 @@
     [
      "Gates",
      1,
-     2,
+     1,
      2
     ],
     [
@@ -10246,7 +10207,7 @@
      2
     ]
    ],
-   "metaWr": 48.9,
+   "metaWr": 48.3,
    "core": [
     [
      "Island",
@@ -10272,18 +10233,18 @@
    "flex": [
     [
      "Ice Tunnel",
-     90,
+     89,
      2.1
     ],
     [
      "Thought Scour",
-     87,
+     86,
      4
     ],
     [
      "Mental Note",
      82,
-     3.7
+     3.6
     ],
     [
      "Cast Down",
@@ -10297,64 +10258,64 @@
     ],
     [
      "Sneaky Snacker",
-     81,
+     80,
      4
     ],
     [
      "Contaminated Aquifer",
-     75,
+     74,
      3.5
     ],
     [
      "Abandon Attachments",
-     75,
+     74,
      2.6
     ],
     [
      "Unexpected Fangs",
-     74,
+     73,
      1.5
     ],
     [
      "Spell Pierce",
-     72,
+     73,
      2
     ],
     [
      "Gurmag Angler",
-     63,
+     62,
      2.1
     ],
     [
      "Murmuring Mystic",
-     60,
+     61,
      1.3
     ],
     [
-     "Deep Analysis",
-     54,
+     "Suffocating Fumes",
+     55,
      1.1
     ],
     [
-     "Suffocating Fumes",
-     54,
+     "Deep Analysis",
+     53,
      1.1
     ]
    ],
-   "lists": 68,
+   "lists": 66,
    "conv": [
     1,
     0.6,
     8
    ],
-   "prev": 1.2
+   "prev": 1
   },
   {
    "id": "pauper-azorius-familiars",
    "name": "Azorius Familiars",
    "share": 1,
    "tier": 2,
-   "count": 67,
+   "count": 66,
    "title": "ChaoticMTG · Pauper Challenge 16 (1st Place)",
    "url": "https://www.mtgo.com/decklist/pauper-challenge-16-2026-10-2412856975#deck_ChaoticMTG",
    "main": [
@@ -10388,7 +10349,7 @@
     "2 Stonehorn Dignitary"
    ],
    "history": [
-    1.3,
+    1.1,
     0.6,
     1.5,
     1.1,
@@ -10402,8 +10363,8 @@
     0.7
    ],
    "field": [
-    70,
-    72,
+    69,
+    69,
     28
    ],
    "mu": [
@@ -10420,16 +10381,22 @@
      0
     ],
     [
-     "Tron",
-     3,
-     3,
-     2
-    ],
-    [
      "Elves",
      4,
      5,
      0
+    ],
+    [
+     "Tron",
+     3,
+     2,
+     2
+    ],
+    [
+     "Dimir Faeries",
+     2,
+     1,
+     2
     ],
     [
      "Grixis Affinity",
@@ -10442,12 +10409,6 @@
      2,
      5,
      0
-    ],
-    [
-     "Dimir Faeries",
-     2,
-     1,
-     2
     ],
     [
      "Red Rally",
@@ -10492,6 +10453,12 @@
      0
     ],
     [
+     "Esper Ephemerate",
+     0,
+     1,
+     2
+    ],
+    [
      "Mono Black Sacrifice",
      1,
      2,
@@ -10502,12 +10469,6 @@
      3,
      0,
      0
-    ],
-    [
-     "Esper Ephemerate",
-     0,
-     1,
-     2
     ],
     [
      "Golgari Midrange",
@@ -10534,7 +10495,7 @@
      2
     ]
    ],
-   "metaWr": 46.9,
+   "metaWr": 47.2,
    "core": [
     [
      "Preordain",
@@ -10580,7 +10541,7 @@
    "flex": [
     [
      "Lórien Revealed",
-     87,
+     88,
      3.8
     ],
     [
@@ -10590,7 +10551,7 @@
     ],
     [
      "Contaminated Landscape",
-     75,
+     76,
      2.7
     ],
     [
@@ -10600,37 +10561,37 @@
     ],
     [
      "Island",
-     72,
+     73,
      7.5
     ],
     [
      "Plains",
-     72,
+     73,
      2.3
     ],
     [
      "Prohibit",
-     60,
+     59,
      2.1
     ],
     [
      "Sea Gate Oracle",
-     52,
+     53,
      2.7
     ],
     [
      "Idyllic Beachfront",
-     49,
+     50,
      1
     ],
     [
      "Meeting of Minds",
-     49,
+     50,
      2.6
     ],
     [
      "Glacial Floodplain",
-     46,
+     47,
      1
     ],
     [
@@ -10640,320 +10601,27 @@
     ],
     [
      "Snow-Covered Island",
-     28,
+     27,
      8.7
     ],
     [
      "Snow-Covered Plains",
-     28,
+     27,
      1.9
     ]
    ],
-   "lists": 67,
+   "lists": 66,
    "conv": [
     1.1,
     0.8,
     11
-   ],
-   "prev": 1.1
-  },
-  {
-   "id": "pauper-mono-black-sacrifice",
-   "name": "Mono Black Sacrifice",
-   "share": 1,
-   "tier": 2,
-   "count": 63,
-   "title": "ccayanan · $1K Pauper - SCG CON Hartford - Sunday - 9:30 am (5th Place)",
-   "url": "https://melee.gg/Decklist/View/62a9bd67-fff8-40d6-a38c-b4ee00bd61b8",
-   "main": [
-    "17 Swamp",
-    "4 Carrion Feeder",
-    "4 Bloodthrone Vampire",
-    "4 Mortician Beetle",
-    "4 Shambling Ghast",
-    "4 Nested Shambler",
-    "4 Nezumi Linkbreaker",
-    "4 Supernatural Stamina",
-    "4 Infestation Sage",
-    "2 Accursed Marauder",
-    "4 Unearth",
-    "3 Tragic Slip",
-    "2 Rite of Consumption"
-   ],
-   "side": [
-    "2 Mesmeric Fiend",
-    "1 Tragic Slip",
-    "2 Accursed Marauder",
-    "3 Snuff Out",
-    "3 Mutagenic Growth",
-    "2 Sylvok Lifestaff",
-    "2 Rotten Reunion"
-   ],
-   "history": [
-    1.7,
-    1.6,
-    1.1,
-    1.2,
-    1,
-    1,
-    0.7,
-    1.2,
-    0.2,
-    1.2,
-    0.8,
-    1.1
-   ],
-   "field": [
-    70,
-    106,
-    10
-   ],
-   "mu": [
-    [
-     "Red Madness",
-     5,
-     17,
-     0
-    ],
-    [
-     "Mono Blue Terror",
-     6,
-     5,
-     2
-    ],
-    [
-     "Tron",
-     6,
-     6,
-     0
-    ],
-    [
-     "Elves",
-     5,
-     2,
-     2
-    ],
-    [
-     "Grixis Affinity",
-     1,
-     5,
-     0
-    ],
-    [
-     "Dimir Faeries",
-     2,
-     4,
-     0
-    ],
-    [
-     "Spy Combo",
-     3,
-     5,
-     0
-    ],
-    [
-     "Red Rally",
-     2,
-     6,
-     0
-    ],
-    [
-     "White Aggro",
-     2,
-     2,
-     0
-    ],
-    [
-     "Aura Bogles",
-     2,
-     4,
-     0
-    ],
-    [
-     "Jund Midrange",
-     0,
-     3,
-     0
-    ],
-    [
-     "Esper Affinity",
-     2,
-     5,
-     0
-    ],
-    [
-     "Mono Blue Faeries",
-     4,
-     3,
-     2
-    ],
-    [
-     "Golgari Garden",
-     1,
-     0,
-     2
-    ],
-    [
-     "Jeskai Ephemerate",
-     1,
-     2,
-     0
-    ],
-    [
-     "Ephemerate Tron",
-     2,
-     4,
-     0
-    ],
-    [
-     "Grixis Control",
-     1,
-     2,
-     0
-    ],
-    [
-     "Ruby Storm",
-     2,
-     3,
-     0
-    ],
-    [
-     "Rakdos Madness",
-     2,
-     1,
-     0
-    ],
-    [
-     "Dimir Control",
-     1,
-     4,
-     0
-    ],
-    [
-     "Esper Midrange",
-     1,
-     2,
-     0
-    ],
-    [
-     "Gates",
-     2,
-     5,
-     0
-    ],
-    [
-     "Turbo Fog",
-     0,
-     1,
-     2
-    ],
-    [
-     "Azorius Familiars",
-     2,
-     1,
-     0
-    ],
-    [
-     "Infect",
-     3,
-     0,
-     0
-    ]
-   ],
-   "metaWr": 43.4,
-   "core": [
-    [
-     "Swamp",
-     16
-    ],
-    [
-     "Carrion Feeder",
-     4
-    ],
-    [
-     "Nested Shambler",
-     4
-    ],
-    [
-     "Mortician Beetle",
-     4
-    ],
-    [
-     "Infestation Sage",
-     4
-    ],
-    [
-     "Bloodthrone Vampire",
-     4
-    ],
-    [
-     "Nezumi Linkbreaker",
-     4
-    ],
-    [
-     "Supernatural Stamina",
-     4
-    ]
-   ],
-   "flex": [
-    [
-     "Village Rites",
-     81,
-     3.6
-    ],
-    [
-     "Rite of Consumption",
-     79,
-     2.2
-    ],
-    [
-     "Shambling Ghast",
-     78,
-     3.1
-    ],
-    [
-     "Unearth",
-     75,
-     2.3
-    ],
-    [
-     "Sadistic Glee",
-     65,
-     2.3
-    ],
-    [
-     "Accursed Marauder",
-     44,
-     2.1
-    ],
-    [
-     "Corrupted Conviction",
-     37,
-     2.6
-    ],
-    [
-     "Wedding Invitation",
-     27,
-     1.3
-    ],
-    [
-     "Perigee Beckoner",
-     25,
-     3.7
-    ]
-   ],
-   "lists": 63,
-   "conv": [
-    0.7,
-    0.4,
-    5
    ],
    "prev": 1
   },
   {
    "id": "pauper-esper-ephemerate",
    "name": "Esper Ephemerate",
-   "share": 0.9,
+   "share": 1,
    "tier": 2,
    "count": 61,
    "title": "Fabio Delli Compagni · Tappa #3 Santa Magic League 2026/2027 (1st Place)",
@@ -11029,28 +10697,28 @@
      4
     ],
     [
-     "Tron",
-     4,
-     3,
-     4
-    ],
-    [
      "Elves",
      8,
      5,
      2
     ],
     [
-     "Spy Combo",
-     8,
-     10,
-     0
+     "Tron",
+     4,
+     3,
+     4
     ],
     [
      "Dimir Faeries",
      4,
      2,
      4
+    ],
+    [
+     "Spy Combo",
+     8,
+     10,
+     0
     ],
     [
      "Grixis Affinity",
@@ -11101,16 +10769,16 @@
      2
     ],
     [
-     "Gruul Ponza",
-     1,
-     1,
-     4
-    ],
-    [
      "Grixis Control",
      0,
      1,
      2
+    ],
+    [
+     "Gruul Ponza",
+     1,
+     1,
+     4
     ],
     [
      "Rakdos Madness",
@@ -11256,11 +10924,11 @@
    ],
    "lists": 61,
    "conv": [
-    0.9,
-    0.6,
+    1,
+    0.7,
     9
    ],
-   "prev": 1
+   "prev": 0.9
   },
   {
    "id": "pauper-izzet-terror",
@@ -11330,15 +10998,21 @@
      0
     ],
     [
+     "Elves",
+     3,
+     1,
+     0
+    ],
+    [
      "Tron",
      1,
      9,
      0
     ],
     [
-     "Elves",
-     3,
-     1,
+     "Dimir Faeries",
+     4,
+     2,
      0
     ],
     [
@@ -11352,12 +11026,6 @@
      4,
      6,
      2
-    ],
-    [
-     "Dimir Faeries",
-     4,
-     2,
-     0
     ],
     [
      "Red Rally",
@@ -11378,28 +11046,28 @@
      0
     ],
     [
-     "Jund Midrange",
-     3,
-     0,
-     0
-    ],
-    [
      "Esper Affinity",
      0,
      3,
      2
     ],
     [
-     "Jeskai Ephemerate",
+     "Jund Midrange",
+     3,
      0,
-     2,
-     6
+     0
     ],
     [
      "Ephemerate Tron",
      1,
      2,
      0
+    ],
+    [
+     "Jeskai Ephemerate",
+     0,
+     2,
+     6
     ],
     [
      "Rakdos Madness",
@@ -11414,15 +11082,15 @@
      0
     ],
     [
-     "Gruul Ramp",
-     3,
-     4,
-     0
-    ],
-    [
      "Esper Midrange",
      0,
      3,
+     0
+    ],
+    [
+     "Gruul Ramp",
+     3,
+     4,
      0
     ],
     [
@@ -11438,7 +11106,7 @@
      0
     ]
    ],
-   "metaWr": 46.6,
+   "metaWr": 46.7,
    "core": [
     [
      "Snow-Covered Island",
@@ -11542,12 +11210,293 @@
     0.5,
     7
    ],
-   "prev": 1.1
+   "prev": 0.9
+  },
+  {
+   "id": "pauper-mono-black-sacrifice",
+   "name": "Mono Black Sacrifice",
+   "share": 0.9,
+   "tier": 2,
+   "count": 60,
+   "title": "ccayanan · $1K Pauper - SCG CON Hartford - Sunday - 9:30 am (5th Place)",
+   "url": "https://melee.gg/Decklist/View/62a9bd67-fff8-40d6-a38c-b4ee00bd61b8",
+   "main": [
+    "17 Swamp",
+    "4 Carrion Feeder",
+    "4 Bloodthrone Vampire",
+    "4 Mortician Beetle",
+    "4 Shambling Ghast",
+    "4 Nested Shambler",
+    "4 Nezumi Linkbreaker",
+    "4 Supernatural Stamina",
+    "4 Infestation Sage",
+    "2 Accursed Marauder",
+    "4 Unearth",
+    "3 Tragic Slip",
+    "2 Rite of Consumption"
+   ],
+   "side": [
+    "2 Mesmeric Fiend",
+    "1 Tragic Slip",
+    "2 Accursed Marauder",
+    "3 Snuff Out",
+    "3 Mutagenic Growth",
+    "2 Sylvok Lifestaff",
+    "2 Rotten Reunion"
+   ],
+   "history": [
+    1.8,
+    1.6,
+    1.1,
+    1.2,
+    1,
+    1,
+    0.7,
+    1.2,
+    0.2,
+    1.2,
+    0.8,
+    1.1
+   ],
+   "field": [
+    70,
+    99,
+    10
+   ],
+   "mu": [
+    [
+     "Red Madness",
+     5,
+     16,
+     0
+    ],
+    [
+     "Mono Blue Terror",
+     6,
+     5,
+     2
+    ],
+    [
+     "Elves",
+     5,
+     2,
+     2
+    ],
+    [
+     "Tron",
+     6,
+     5,
+     0
+    ],
+    [
+     "Dimir Faeries",
+     2,
+     4,
+     0
+    ],
+    [
+     "Grixis Affinity",
+     1,
+     4,
+     0
+    ],
+    [
+     "Spy Combo",
+     3,
+     5,
+     0
+    ],
+    [
+     "Red Rally",
+     2,
+     6,
+     0
+    ],
+    [
+     "White Aggro",
+     2,
+     2,
+     0
+    ],
+    [
+     "Aura Bogles",
+     2,
+     4,
+     0
+    ],
+    [
+     "Esper Affinity",
+     2,
+     5,
+     0
+    ],
+    [
+     "Jund Midrange",
+     0,
+     3,
+     0
+    ],
+    [
+     "Mono Blue Faeries",
+     4,
+     3,
+     2
+    ],
+    [
+     "Golgari Garden",
+     1,
+     0,
+     2
+    ],
+    [
+     "Ephemerate Tron",
+     2,
+     4,
+     0
+    ],
+    [
+     "Grixis Control",
+     1,
+     2,
+     0
+    ],
+    [
+     "Ruby Storm",
+     2,
+     2,
+     0
+    ],
+    [
+     "Dimir Control",
+     1,
+     4,
+     0
+    ],
+    [
+     "Esper Midrange",
+     1,
+     2,
+     0
+    ],
+    [
+     "Gates",
+     2,
+     5,
+     0
+    ],
+    [
+     "Turbo Fog",
+     0,
+     1,
+     2
+    ],
+    [
+     "Azorius Familiars",
+     2,
+     1,
+     0
+    ],
+    [
+     "Infect",
+     3,
+     0,
+     0
+    ]
+   ],
+   "metaWr": 43.9,
+   "core": [
+    [
+     "Swamp",
+     16
+    ],
+    [
+     "Carrion Feeder",
+     4
+    ],
+    [
+     "Nested Shambler",
+     4
+    ],
+    [
+     "Mortician Beetle",
+     4
+    ],
+    [
+     "Infestation Sage",
+     4
+    ],
+    [
+     "Bloodthrone Vampire",
+     4
+    ],
+    [
+     "Nezumi Linkbreaker",
+     4
+    ],
+    [
+     "Supernatural Stamina",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Village Rites",
+     82,
+     3.6
+    ],
+    [
+     "Rite of Consumption",
+     78,
+     2.2
+    ],
+    [
+     "Shambling Ghast",
+     78,
+     3.1
+    ],
+    [
+     "Unearth",
+     73,
+     2.4
+    ],
+    [
+     "Sadistic Glee",
+     63,
+     2.3
+    ],
+    [
+     "Accursed Marauder",
+     43,
+     2.2
+    ],
+    [
+     "Corrupted Conviction",
+     37,
+     2.5
+    ],
+    [
+     "Perigee Beckoner",
+     27,
+     3.7
+    ],
+    [
+     "Wedding Invitation",
+     27,
+     1.3
+    ]
+   ],
+   "lists": 60,
+   "conv": [
+    0.7,
+    0.4,
+    5
+   ],
+   "prev": 1
   },
   {
    "id": "pauper-altar-tron",
    "name": "Altar Tron",
-   "share": 0.8,
+   "share": 0.9,
    "tier": 2,
    "count": 55,
    "title": "Giacomo Bertucci · Lega Pauper Vercelli (5th Place)",
@@ -11587,7 +11536,7 @@
     "1 Weather the Storm"
    ],
    "history": [
-    0.6,
+    0.7,
     0.8,
     0.5,
     0.5,
@@ -11631,15 +11580,15 @@
      2
     ],
     [
-     "Grixis Affinity",
-     3,
-     5,
-     4
-    ],
-    [
      "Dimir Faeries",
      2,
      2,
+     4
+    ],
+    [
+     "Grixis Affinity",
+     3,
+     5,
      4
     ],
     [
@@ -11715,15 +11664,15 @@
      4
     ],
     [
-     "Gruul Ramp",
-     0,
-     4,
-     0
-    ],
-    [
      "Esper Midrange",
      3,
      0,
+     0
+    ],
+    [
+     "Gruul Ramp",
+     0,
+     4,
      0
     ],
     [
@@ -11863,7 +11812,7 @@
    "name": "Mardu Midrange",
    "share": 0.7,
    "tier": 2,
-   "count": 46,
+   "count": 45,
    "title": "PieGonti · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2411153#deck_PieGonti",
    "main": [
@@ -11971,16 +11920,16 @@
      4
     ],
     [
-     "Jund Midrange",
-     3,
-     0,
-     0
-    ],
-    [
      "Esper Affinity",
      1,
      2,
      2
+    ],
+    [
+     "Jund Midrange",
+     3,
+     0,
+     0
     ],
     [
      "Mono Blue Faeries",
@@ -12081,7 +12030,7 @@
     ],
     [
      "Plains",
-     3
+     2
     ],
     [
      "Great Furnace",
@@ -12094,18 +12043,18 @@
    ],
    "flex": [
     [
+     "Dispatch",
+     89,
+     3.6
+    ],
+    [
      "Boros Garrison",
      87,
      1.2
     ],
     [
-     "Dispatch",
-     87,
-     3.6
-    ],
-    [
      "Bojuka Bog",
-     85,
+     84,
      1
     ],
     [
@@ -12115,54 +12064,54 @@
     ],
     [
      "Kabira Crossroads",
-     72,
+     71,
      1.4
     ],
     [
      "Prismatic Strands",
-     72,
+     71,
      1.2
     ],
     [
      "Shattered Landscape",
-     59,
+     58,
      2.2
     ],
     [
      "Thraben Inspector",
-     59,
+     58,
      3
     ],
     [
      "Soul-Guide Lantern",
-     57,
+     58,
      1.6
     ],
     [
      "Wind-Scarred Crag",
-     41,
+     42,
      2.3
     ],
     [
      "Lembas",
-     35,
+     36,
      2.7
     ],
     [
      "Rally the Peasants",
-     33,
+     31,
      1
     ],
     [
      "Journey to Nowhere",
-     28,
-     1.6
+     27,
+     1.5
     ]
    ],
-   "lists": 46,
+   "lists": 45,
    "conv": [
     0.6,
-    0.6,
+    0.7,
     9
    ],
    "prev": 0.7
@@ -12172,7 +12121,7 @@
    "name": "Tireless Tribe",
    "share": 0.6,
    "tier": 2,
-   "count": 42,
+   "count": 41,
    "title": "Deresing · LDXPSAC26 10/23 12:30 PM Pauper 1K (3st Place)",
    "url": "https://melee.gg/Decklist/View/d548d344-3d99-4696-8d70-b4ec01401770",
    "main": [
@@ -12204,7 +12153,7 @@
     "2 Vandalblast"
    ],
    "history": [
-    0.7,
+    0.9,
     0.3,
     0.7,
     0.5,
@@ -12218,8 +12167,8 @@
     0.4
    ],
    "field": [
-    82,
-    78,
+    80,
+    76,
     20
    ],
    "mu": [
@@ -12236,21 +12185,21 @@
      2
     ],
     [
-     "Tron",
-     2,
-     2,
-     0
-    ],
-    [
      "Elves",
      11,
      3,
      0
     ],
     [
+     "Tron",
+     2,
+     2,
+     0
+    ],
+    [
      "Grixis Affinity",
      3,
-     6,
+     5,
      0
     ],
     [
@@ -12267,7 +12216,7 @@
     ],
     [
      "White Aggro",
-     2,
+     1,
      3,
      0
     ],
@@ -12296,16 +12245,16 @@
      0
     ],
     [
-     "Jeskai Ephemerate",
-     1,
-     3,
-     0
-    ],
-    [
      "Ephemerate Tron",
      2,
      0,
      2
+    ],
+    [
+     "Jeskai Ephemerate",
+     1,
+     3,
+     0
     ],
     [
      "Gruul Ponza",
@@ -12314,15 +12263,15 @@
      0
     ],
     [
-     "Rakdos Madness",
-     5,
-     1,
-     0
-    ],
-    [
      "Ruby Storm",
      0,
      3,
+     0
+    ],
+    [
+     "Rakdos Madness",
+     4,
+     1,
      0
     ],
     [
@@ -12340,7 +12289,7 @@
     [
      "Gates",
      3,
-     4,
+     3,
      0
     ],
     [
@@ -12350,19 +12299,19 @@
      2
     ],
     [
-     "Mono Red Burn",
-     2,
-     1,
-     2
-    ],
-    [
      "Caw Gates",
      1,
      0,
      2
+    ],
+    [
+     "Mono Red Burn",
+     2,
+     1,
+     2
     ]
    ],
-   "metaWr": 50,
+   "metaWr": 50.5,
    "core": [
     [
      "Plains",
@@ -12389,11 +12338,11 @@
      4
     ],
     [
-     "Aurora Eidolon",
+     "Thrilling Discovery",
      4
     ],
     [
-     "Thrilling Discovery",
+     "Aurora Eidolon",
      4
     ],
     [
@@ -12412,79 +12361,79 @@
    "flex": [
     [
      "Loran's Escape",
-     86,
+     85,
      2.1
     ],
     [
      "Wind-Scarred Crag",
-     81,
+     80,
      3.8
     ],
     [
      "Fling",
-     81,
+     80,
      1.5
     ],
     [
      "Lightning Bolt",
-     64,
+     66,
      3.4
     ],
     [
      "Prismatic Strands",
-     62,
+     61,
      1.7
     ],
     [
      "Magmakin Artillerist",
-     60,
+     59,
      2.9
     ],
     [
      "Faithless Looting",
-     48,
-     2.8
-    ],
-    [
-     "Abandon Attachments",
-     43,
-     2.1
-    ],
-    [
-     "Bitter Reunion",
-     40,
-     2.4
+     46,
+     2.9
     ],
     [
      "Fields of Strife",
-     40,
+     41,
      1
     ],
     [
+     "Abandon Attachments",
+     41,
+     2.2
+    ],
+    [
+     "Bitter Reunion",
+     39,
+     2.4
+    ],
+    [
      "Spirit Mascot",
-     36,
+     37,
      3.5
     ],
     [
      "Lightning Axe",
-     26,
+     27,
      2.5
     ]
    ],
-   "lists": 42,
+   "lists": 41,
    "conv": [
     0.5,
     0.4,
     5
    ],
-   "prev": 0.7
+   "prev": 0.6
   },
   {
    "id": "pauper-golgari-midrange",
    "name": "Golgari Midrange",
    "share": 0.6,
    "tier": 2,
-   "count": 41,
+   "count": 39,
    "title": "True-Name-Nemesis · Pauper Challenge 16 (8th Place)",
    "url": "https://www.mtgo.com/decklist/pauper-challenge-16-2026-10-2412856975#deck_True-Name-Nemesis",
    "main": [
@@ -12524,7 +12473,7 @@
     "4 Weather the Storm"
    ],
    "history": [
-    0.9,
+    0.7,
     0.3,
     0.5,
     0.7,
@@ -12538,20 +12487,20 @@
     0.9
    ],
    "field": [
-    43,
-    64,
+    38,
+    61,
     42
    ],
    "mu": [
     [
      "Red Madness",
-     4,
+     3,
      5,
      2
     ],
     [
      "Mono Blue Terror",
-     2,
+     1,
      2,
      2
     ],
@@ -12570,7 +12519,7 @@
     [
      "Dimir Faeries",
      0,
-     2,
+     1,
      2
     ],
     [
@@ -12581,14 +12530,14 @@
     ],
     [
      "Spy Combo",
-     4,
+     3,
      2,
      2
     ],
     [
      "Red Rally",
      0,
-     6,
+     5,
      0
     ],
     [
@@ -12634,12 +12583,6 @@
      2
     ],
     [
-     "Gates",
-     1,
-     3,
-     0
-    ],
-    [
      "Esper Midrange",
      1,
      1,
@@ -12664,7 +12607,7 @@
      2
     ]
    ],
-   "metaWr": 47.2,
+   "metaWr": 46.1,
    "core": [
     [
      "Swamp",
@@ -12719,10 +12662,6 @@
      2
     ],
     [
-     "Ichor Wellspring",
-     2
-    ],
-    [
      "Bojuka Bog",
      2
     ],
@@ -12741,37 +12680,42 @@
    ],
    "flex": [
     [
+     "Ichor Wellspring",
+     90,
+     2
+    ],
+    [
      "Snuff Out",
-     85,
+     87,
      1
     ],
     [
      "Grapple with Death",
-     76,
+     77,
      1
     ],
     [
      "Bonder's Ornament",
-     63,
+     64,
      1
     ],
     [
      "Heaped Harvest",
-     39,
+     38,
      1.5
     ],
     [
      "Cut Down",
-     37,
+     38,
      2.3
     ],
     [
      "Tragic Slip",
-     34,
+     31,
      1
     ]
    ],
-   "lists": 41,
+   "lists": 39,
    "conv": [
     0.5,
     0.4,
@@ -12784,7 +12728,7 @@
    "name": "Orzhov Midrange",
    "share": 0.6,
    "tier": 2,
-   "count": 39,
+   "count": 36,
    "title": "giongiongiongion · Lega Pauper Albenga tappa 9 (5th Place)",
    "url": "https://melee.gg/Decklist/View/8b371676-8bd2-4220-9c86-b4e900fc9662",
    "main": [
@@ -12826,7 +12770,7 @@
     "2 Thraben Charm"
    ],
    "history": [
-    1,
+    1.2,
     0.5,
     0.7,
     0.8,
@@ -12840,8 +12784,8 @@
     0.7
    ],
    "field": [
-    48,
-    65,
+    47,
+    58,
     4
    ],
    "mu": [
@@ -12853,18 +12797,18 @@
     ],
     [
      "Mono Blue Terror",
-     4,
-     1,
-     0
-    ],
-    [
-     "Tron",
-     2,
-     2,
+     3,
+     0,
      0
     ],
     [
      "Elves",
+     2,
+     2,
+     0
+    ],
+    [
+     "Tron",
      2,
      2,
      0
@@ -12908,7 +12852,7 @@
     [
      "Esper Affinity",
      0,
-     4,
+     3,
      0
     ],
     [
@@ -12918,21 +12862,15 @@
      0
     ],
     [
-     "Gruul Ponza",
-     1,
-     2,
-     0
-    ],
-    [
      "Rakdos Madness",
      3,
-     1,
+     0,
      0
     ],
     [
      "Gates",
      0,
-     6,
+     5,
      0
     ],
     [
@@ -12942,7 +12880,7 @@
      2
     ]
    ],
-   "metaWr": 49.9,
+   "metaWr": 47.7,
    "core": [
     [
      "Kor Skyfisher",
@@ -12961,6 +12899,14 @@
      4
     ],
     [
+     "Ancient Den",
+     3
+    ],
+    [
+     "Vault of Whispers",
+     3
+    ],
+    [
      "Tithing Blade",
      3
     ],
@@ -12975,550 +12921,83 @@
    ],
    "flex": [
     [
-     "Vault of Whispers",
-     90,
-     3.1
-    ],
-    [
-     "Ancient Den",
-     90,
-     3.3
-    ],
-    [
      "Orzhov Basilica",
-     90,
+     89,
      2.5
     ],
     [
      "Bojuka Bog",
-     90,
+     89,
      1.6
     ],
     [
      "Grim Bauble",
-     90,
+     89,
      1.9
     ],
     [
      "Thraben Inspector",
-     85,
+     83,
      3.4
     ],
     [
      "Thraben Charm",
-     85,
+     83,
      1.8
     ],
     [
-     "Oroku Saki, Shredder Rising",
-     82,
-     2
-    ],
-    [
      "Eviscerator's Insight",
-     82,
+     83,
      2.5
     ],
     [
      "Goldmire Bridge",
-     79,
+     81,
      3.4
     ],
     [
+     "Oroku Saki, Shredder Rising",
+     81,
+     2
+    ],
+    [
      "Cast Down",
-     77,
+     75,
      3.4
     ],
     [
      "Omen of the Dead",
-     72,
+     69,
      1
     ],
     [
      "Suffocating Fumes",
      69,
-     1.1
+     1
     ],
     [
      "Scoured Barrens",
-     49,
-     2.5
+     50,
+     2.4
+    ],
+    [
+     "Kabira Crossroads",
+     47,
+     1.1
+    ],
+    [
+     "Mukotai Ambusher",
+     47,
+     1.9
     ]
    ],
-   "lists": 39,
+   "lists": 36,
    "conv": [
     0.6,
     0.6,
     8
    ],
    "prev": 0.6
-  },
-  {
-   "id": "pauper-dimir-affinity",
-   "name": "Dimir Affinity",
-   "share": 0.5,
-   "tier": 2,
-   "count": 34,
-   "title": "PLads_Echanez · Pauper League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-1511153#deck_PLads_Echanez",
-   "main": [
-    "4 Baleful Strix",
-    "2 Blood Fountain",
-    "4 Cast Down",
-    "4 Cryogen Relic",
-    "2 Drossforge Bridge",
-    "2 Gearseeker Serpent",
-    "1 Gurmag Angler",
-    "2 Island",
-    "2 Metallic Rebuke",
-    "4 Mistvault Bridge",
-    "1 Mukotai Ambusher",
-    "4 Myr Enforcer",
-    "2 Nihil Spellbomb",
-    "4 Reckoner's Bargain",
-    "4 Refurbished Familiar",
-    "4 Seat of the Synod",
-    "2 Silverbluff Bridge",
-    "1 Swamp",
-    "4 Thoughtcast",
-    "3 Utrom Monitor",
-    "4 Vault of Whispers"
-   ],
-   "side": [
-    "3 Annul",
-    "1 Arms of Hadar",
-    "4 Blue Elemental Blast",
-    "2 Envelop",
-    "3 Extract a Confession",
-    "2 Suffocating Fumes"
-   ],
-   "history": [
-    0.1,
-    0.2,
-    0.2,
-    0.3,
-    0.2,
-    0.6,
-    0.4,
-    0.1,
-    0.2,
-    1.1,
-    1.1,
-    0.1
-   ],
-   "field": [
-    31,
-    39,
-    16
-   ],
-   "mu": [
-    [
-     "Red Madness",
-     3,
-     2,
-     0
-    ],
-    [
-     "Elves",
-     0,
-     5,
-     0
-    ],
-    [
-     "Tron",
-     0,
-     1,
-     4
-    ],
-    [
-     "Spy Combo",
-     2,
-     3,
-     0
-    ],
-    [
-     "Grixis Affinity",
-     0,
-     1,
-     4
-    ],
-    [
-     "White Aggro",
-     2,
-     4,
-     0
-    ],
-    [
-     "Aura Bogles",
-     2,
-     2,
-     0
-    ],
-    [
-     "Esper Affinity",
-     2,
-     1,
-     0
-    ],
-    [
-     "Ruby Storm",
-     0,
-     2,
-     2
-    ],
-    [
-     "Azorius Familiars",
-     1,
-     0,
-     2
-    ],
-    [
-     "Caw Gates",
-     0,
-     1,
-     2
-    ]
-   ],
-   "metaWr": 46.6,
-   "core": [
-    [
-     "Mistvault Bridge",
-     4
-    ],
-    [
-     "Myr Enforcer",
-     4
-    ],
-    [
-     "Refurbished Familiar",
-     4
-    ],
-    [
-     "Seat of the Synod",
-     4
-    ],
-    [
-     "Vault of Whispers",
-     4
-    ],
-    [
-     "Utrom Monitor",
-     4
-    ],
-    [
-     "Thoughtcast",
-     4
-    ],
-    [
-     "Cryogen Relic",
-     4
-    ],
-    [
-     "Reckoner's Bargain",
-     4
-    ],
-    [
-     "Cast Down",
-     4
-    ],
-    [
-     "Blood Fountain",
-     3
-    ],
-    [
-     "Island",
-     2
-    ],
-    [
-     "Swamp",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Nihil Spellbomb",
-     85,
-     2.1
-    ],
-    [
-     "Baleful Strix",
-     71,
-     3.9
-    ],
-    [
-     "Gearseeker Serpent",
-     50,
-     2.8
-    ],
-    [
-     "Silverbluff Bridge",
-     50,
-     1.9
-    ],
-    [
-     "Metallic Rebuke",
-     44,
-     3.3
-    ],
-    [
-     "Drossforge Bridge",
-     44,
-     1.9
-    ],
-    [
-     "Moon-Circuit Hacker",
-     41,
-     2.3
-    ],
-    [
-     "Black Mage's Rod",
-     38,
-     3.5
-    ],
-    [
-     "Darksteel Citadel",
-     29,
-     3.1
-    ]
-   ],
-   "lists": 34,
-   "conv": [
-    0.6,
-    0.6,
-    8
-   ],
-   "prev": 0.5
-  },
-  {
-   "id": "pauper-burn",
-   "name": "Burn",
-   "share": 0.5,
-   "tier": 2,
-   "count": 33,
-   "title": "Dadde · Lega Pauper Albenga Tappa 6 (6th Place)",
-   "url": "https://melee.gg/Decklist/View/3802a85a-a348-4e62-a3a8-b4d4010a8cb8",
-   "main": [
-    "4 Ghitu Lavarunner",
-    "3 Wrenn's Resolve",
-    "4 Voldaren Epicure",
-    "4 Fireblast",
-    "4 Lightning Bolt",
-    "4 Chain Lightning",
-    "4 Lava Spike",
-    "3 Reckless Impulse",
-    "18 Mountain",
-    "4 Keldon Marauders",
-    "4 Rift Bolt",
-    "4 Skewer the Critics"
-   ],
-   "side": [
-    "3 End the Festivities",
-    "2 Cast into the Fire",
-    "4 Pyroblast",
-    "3 Smash to Smithereens",
-    "3 Tormod's Crypt"
-   ],
-   "history": [
-    0.4,
-    0.5,
-    0.4,
-    0.7,
-    0.3,
-    1,
-    0.6,
-    0.4,
-    0.9,
-    0.2,
-    0,
-    0.9
-   ],
-   "field": [
-    36,
-    67,
-    18
-   ],
-   "mu": [
-    [
-     "Red Madness",
-     2,
-     4,
-     0
-    ],
-    [
-     "Mono Blue Terror",
-     3,
-     7,
-     0
-    ],
-    [
-     "Tron",
-     2,
-     5,
-     0
-    ],
-    [
-     "Grixis Affinity",
-     2,
-     2,
-     0
-    ],
-    [
-     "Spy Combo",
-     0,
-     3,
-     0
-    ],
-    [
-     "Red Rally",
-     3,
-     6,
-     0
-    ],
-    [
-     "White Aggro",
-     2,
-     3,
-     4
-    ],
-    [
-     "Jund Midrange",
-     0,
-     3,
-     0
-    ],
-    [
-     "Esper Affinity",
-     0,
-     4,
-     4
-    ],
-    [
-     "Mono Blue Faeries",
-     1,
-     2,
-     0
-    ],
-    [
-     "Ephemerate Tron",
-     0,
-     3,
-     0
-    ],
-    [
-     "Rakdos Madness",
-     0,
-     3,
-     0
-    ],
-    [
-     "Ruby Storm",
-     0,
-     1,
-     2
-    ],
-    [
-     "Gruul Ramp",
-     3,
-     1,
-     0
-    ],
-    [
-     "Dimir Terror",
-     1,
-     1,
-     2
-    ]
-   ],
-   "metaWr": 42.5,
-   "core": [
-    [
-     "Mountain",
-     10
-    ],
-    [
-     "Lightning Bolt",
-     4
-    ]
-   ],
-   "flex": [
-    [
-     "Forest",
-     39,
-     3.4
-    ],
-    [
-     "Fireblast",
-     36,
-     2.9
-    ],
-    [
-     "Sneaky Snacker",
-     36,
-     4
-    ],
-    [
-     "Plains",
-     36,
-     4.2
-    ],
-    [
-     "Pursue the Past",
-     36,
-     3.8
-    ],
-    [
-     "Malevolent Rumble",
-     33,
-     4
-    ],
-    [
-     "Chain Lightning",
-     33,
-     4
-    ],
-    [
-     "Skewer the Critics",
-     33,
-     3.8
-    ],
-    [
-     "Writhing Chrysalis",
-     33,
-     4
-    ],
-    [
-     "Lava Spike",
-     30,
-     4
-    ],
-    [
-     "Thraben Charm",
-     30,
-     1.7
-    ],
-    [
-     "Lunarch Veteran",
-     30,
-     3.3
-    ],
-    [
-     "Voldaren Epicure",
-     27,
-     4
-    ],
-    [
-     "Slagwoods Bridge",
-     27,
-     4
-    ]
-   ],
-   "lists": 33,
-   "conv": [
-    0.6,
-    0.4,
-    5
-   ],
-   "prev": 0.5
   },
   {
    "id": "pauper-wubr-affinity",
@@ -13594,16 +13073,16 @@
      0
     ],
     [
-     "Tron",
-     2,
-     0,
-     2
-    ],
-    [
      "Elves",
      2,
      4,
      0
+    ],
+    [
+     "Tron",
+     2,
+     0,
+     2
     ],
     [
      "Dimir Faeries",
@@ -13751,10 +13230,471 @@
    "lists": 33,
    "conv": [
     0.5,
-    0.6,
+    0.7,
     9
    ],
-   "prev": 0.6
+   "prev": 0.5
+  },
+  {
+   "id": "pauper-dimir-affinity",
+   "name": "Dimir Affinity",
+   "share": 0.5,
+   "tier": 2,
+   "count": 33,
+   "title": "PLads_Echanez · Pauper League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-1511153#deck_PLads_Echanez",
+   "main": [
+    "4 Baleful Strix",
+    "2 Blood Fountain",
+    "4 Cast Down",
+    "4 Cryogen Relic",
+    "2 Drossforge Bridge",
+    "2 Gearseeker Serpent",
+    "1 Gurmag Angler",
+    "2 Island",
+    "2 Metallic Rebuke",
+    "4 Mistvault Bridge",
+    "1 Mukotai Ambusher",
+    "4 Myr Enforcer",
+    "2 Nihil Spellbomb",
+    "4 Reckoner's Bargain",
+    "4 Refurbished Familiar",
+    "4 Seat of the Synod",
+    "2 Silverbluff Bridge",
+    "1 Swamp",
+    "4 Thoughtcast",
+    "3 Utrom Monitor",
+    "4 Vault of Whispers"
+   ],
+   "side": [
+    "3 Annul",
+    "1 Arms of Hadar",
+    "4 Blue Elemental Blast",
+    "2 Envelop",
+    "3 Extract a Confession",
+    "2 Suffocating Fumes"
+   ],
+   "history": [
+    0.2,
+    0.2,
+    0.2,
+    0.3,
+    0.2,
+    0.6,
+    0.4,
+    0.1,
+    0.2,
+    1.1,
+    1.1,
+    0.1
+   ],
+   "field": [
+    29,
+    37,
+    16
+   ],
+   "mu": [
+    [
+     "Red Madness",
+     3,
+     2,
+     0
+    ],
+    [
+     "Elves",
+     0,
+     4,
+     0
+    ],
+    [
+     "Tron",
+     0,
+     1,
+     4
+    ],
+    [
+     "Grixis Affinity",
+     0,
+     1,
+     4
+    ],
+    [
+     "Spy Combo",
+     1,
+     3,
+     0
+    ],
+    [
+     "White Aggro",
+     2,
+     4,
+     0
+    ],
+    [
+     "Aura Bogles",
+     2,
+     1,
+     0
+    ],
+    [
+     "Esper Affinity",
+     2,
+     1,
+     0
+    ],
+    [
+     "Ruby Storm",
+     0,
+     2,
+     2
+    ],
+    [
+     "Azorius Familiars",
+     1,
+     0,
+     2
+    ],
+    [
+     "Caw Gates",
+     0,
+     1,
+     2
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Mistvault Bridge",
+     4
+    ],
+    [
+     "Myr Enforcer",
+     4
+    ],
+    [
+     "Refurbished Familiar",
+     4
+    ],
+    [
+     "Seat of the Synod",
+     4
+    ],
+    [
+     "Vault of Whispers",
+     4
+    ],
+    [
+     "Utrom Monitor",
+     4
+    ],
+    [
+     "Thoughtcast",
+     4
+    ],
+    [
+     "Cryogen Relic",
+     4
+    ],
+    [
+     "Reckoner's Bargain",
+     4
+    ],
+    [
+     "Cast Down",
+     4
+    ],
+    [
+     "Blood Fountain",
+     2
+    ],
+    [
+     "Island",
+     2
+    ],
+    [
+     "Swamp",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Nihil Spellbomb",
+     85,
+     2.1
+    ],
+    [
+     "Baleful Strix",
+     73,
+     3.9
+    ],
+    [
+     "Gearseeker Serpent",
+     52,
+     2.8
+    ],
+    [
+     "Silverbluff Bridge",
+     52,
+     1.9
+    ],
+    [
+     "Metallic Rebuke",
+     45,
+     3.3
+    ],
+    [
+     "Drossforge Bridge",
+     45,
+     1.9
+    ],
+    [
+     "Moon-Circuit Hacker",
+     42,
+     2.3
+    ],
+    [
+     "Black Mage's Rod",
+     36,
+     3.5
+    ],
+    [
+     "Darksteel Citadel",
+     27,
+     3.2
+    ]
+   ],
+   "lists": 33,
+   "conv": [
+    0.6,
+    0.6,
+    8
+   ],
+   "prev": 0.5
+  },
+  {
+   "id": "pauper-burn",
+   "name": "Burn",
+   "share": 0.5,
+   "tier": 2,
+   "count": 32,
+   "title": "Dadde · Lega Pauper Albenga Tappa 6 (6th Place)",
+   "url": "https://melee.gg/Decklist/View/3802a85a-a348-4e62-a3a8-b4d4010a8cb8",
+   "main": [
+    "4 Ghitu Lavarunner",
+    "3 Wrenn's Resolve",
+    "4 Voldaren Epicure",
+    "4 Fireblast",
+    "4 Lightning Bolt",
+    "4 Chain Lightning",
+    "4 Lava Spike",
+    "3 Reckless Impulse",
+    "18 Mountain",
+    "4 Keldon Marauders",
+    "4 Rift Bolt",
+    "4 Skewer the Critics"
+   ],
+   "side": [
+    "3 End the Festivities",
+    "2 Cast into the Fire",
+    "4 Pyroblast",
+    "3 Smash to Smithereens",
+    "3 Tormod's Crypt"
+   ],
+   "history": [
+    0.4,
+    0.5,
+    0.4,
+    0.7,
+    0.3,
+    1,
+    0.6,
+    0.4,
+    0.9,
+    0.2,
+    0,
+    0.9
+   ],
+   "field": [
+    35,
+    65,
+    18
+   ],
+   "mu": [
+    [
+     "Red Madness",
+     2,
+     4,
+     0
+    ],
+    [
+     "Mono Blue Terror",
+     3,
+     7,
+     0
+    ],
+    [
+     "Tron",
+     2,
+     5,
+     0
+    ],
+    [
+     "Grixis Affinity",
+     2,
+     2,
+     0
+    ],
+    [
+     "Spy Combo",
+     0,
+     3,
+     0
+    ],
+    [
+     "Red Rally",
+     3,
+     6,
+     0
+    ],
+    [
+     "White Aggro",
+     2,
+     3,
+     4
+    ],
+    [
+     "Jund Midrange",
+     0,
+     3,
+     0
+    ],
+    [
+     "Esper Affinity",
+     0,
+     4,
+     4
+    ],
+    [
+     "Ephemerate Tron",
+     0,
+     3,
+     0
+    ],
+    [
+     "Rakdos Madness",
+     0,
+     3,
+     0
+    ],
+    [
+     "Ruby Storm",
+     0,
+     1,
+     2
+    ],
+    [
+     "Gruul Ramp",
+     3,
+     1,
+     0
+    ],
+    [
+     "Dimir Terror",
+     1,
+     1,
+     2
+    ]
+   ],
+   "metaWr": 42.5,
+   "core": [
+    [
+     "Mountain",
+     10
+    ],
+    [
+     "Lightning Bolt",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Fireblast",
+     38,
+     2.9
+    ],
+    [
+     "Forest",
+     38,
+     3.3
+    ],
+    [
+     "Sneaky Snacker",
+     38,
+     4
+    ],
+    [
+     "Plains",
+     38,
+     4.2
+    ],
+    [
+     "Pursue the Past",
+     38,
+     3.8
+    ],
+    [
+     "Chain Lightning",
+     34,
+     4
+    ],
+    [
+     "Skewer the Critics",
+     34,
+     3.8
+    ],
+    [
+     "Writhing Chrysalis",
+     34,
+     4
+    ],
+    [
+     "Lava Spike",
+     31,
+     4
+    ],
+    [
+     "Thraben Charm",
+     31,
+     1.7
+    ],
+    [
+     "Lunarch Veteran",
+     31,
+     3.3
+    ],
+    [
+     "Malevolent Rumble",
+     31,
+     4
+    ],
+    [
+     "Slagwoods Bridge",
+     28,
+     4
+    ],
+    [
+     "Cleansing Wildfire",
+     28,
+     4
+    ]
+   ],
+   "lists": 32,
+   "conv": [
+    0.6,
+    0.4,
+    5
+   ],
+   "prev": 0.5
   },
   {
    "id": "pauper-mardu-synthesizer",
@@ -13802,7 +13742,7 @@
     "1 Tithing Blade"
    ],
    "history": [
-    0.3,
+    0.4,
     0.2,
     0.2,
     0.1,
@@ -14267,12 +14207,12 @@
     0.2,
     3
    ],
-   "prev": 0.3
+   "prev": 0.5
   },
   {
    "id": "pauper-boros-synthesizer",
    "name": "Boros Synthesizer",
-   "share": 0.4,
+   "share": 0.5,
    "tier": 2,
    "count": 29,
    "title": "Susannah Lee · BRISTOL PAUPER LEAGUE: AUTUMN '26 - STAGE 9 (5th Place)",
@@ -14339,16 +14279,16 @@
      0
     ],
     [
-     "Tron",
-     1,
-     4,
-     2
-    ],
-    [
      "Elves",
      2,
      3,
      0
+    ],
+    [
+     "Tron",
+     1,
+     4,
+     2
     ],
     [
      "Spy Combo",
@@ -14563,7 +14503,7 @@
     "2 Faerie Macabre"
    ],
    "history": [
-    1.3,
+    1.2,
     0.8,
     0,
     0.3,
@@ -14601,15 +14541,15 @@
      0
     ],
     [
-     "Grixis Affinity",
-     0,
-     4,
-     0
-    ],
-    [
      "Dimir Faeries",
      2,
      1,
+     0
+    ],
+    [
+     "Grixis Affinity",
+     0,
+     4,
      0
     ],
     [
@@ -14736,225 +14676,6 @@
    "prev": 0.4
   },
   {
-   "id": "pauper-mono-red-burn",
-   "name": "Mono Red Burn",
-   "share": 0.4,
-   "tier": 2,
-   "count": 24,
-   "title": "helldude · Pauper League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2311153#deck_helldude",
-   "main": [
-    "4 Clockwork Percussionist",
-    "4 Experimental Synthesizer",
-    "4 Frogmite",
-    "4 Galvanic Blast",
-    "4 Gingerbrute",
-    "4 Goblin Bushwhacker",
-    "4 Goblin Tomb Raider",
-    "4 Great Furnace",
-    "4 Inventor's Axe",
-    "4 Lightning Bolt",
-    "14 Mountain",
-    "2 Relic of Progenitus",
-    "4 Voldaren Epicure"
-   ],
-   "side": [
-    "3 Cast into the Fire",
-    "4 Cleansing Wildfire",
-    "2 End the Festivities",
-    "4 Pyroblast",
-    "2 Relic of Progenitus"
-   ],
-   "history": [
-    0.4,
-    1.3,
-    0.5,
-    0.5,
-    0.5,
-    0,
-    0.7,
-    0.4,
-    0.2,
-    0.2,
-    0.4,
-    0.1
-   ],
-   "field": [
-    46,
-    42,
-    4
-   ],
-   "mu": [
-    [
-     "Red Madness",
-     5,
-     2,
-     0
-    ],
-    [
-     "Mono Blue Terror",
-     5,
-     4,
-     0
-    ],
-    [
-     "Tron",
-     2,
-     6,
-     0
-    ],
-    [
-     "Elves",
-     3,
-     1,
-     0
-    ],
-    [
-     "Grixis Affinity",
-     4,
-     3,
-     0
-    ],
-    [
-     "Spy Combo",
-     1,
-     4,
-     0
-    ],
-    [
-     "Dimir Faeries",
-     2,
-     1,
-     0
-    ],
-    [
-     "Red Rally",
-     1,
-     2,
-     0
-    ],
-    [
-     "Mono Blue Faeries",
-     3,
-     0,
-     0
-    ],
-    [
-     "Esper Midrange",
-     3,
-     0,
-     0
-    ],
-    [
-     "Altar Tron",
-     0,
-     2,
-     2
-    ],
-    [
-     "Tireless Tribe",
-     1,
-     2,
-     2
-    ]
-   ],
-   "metaWr": 50.9,
-   "core": [
-    [
-     "Mountain",
-     14
-    ],
-    [
-     "Goblin Tomb Raider",
-     4
-    ],
-    [
-     "Great Furnace",
-     4
-    ],
-    [
-     "Lightning Bolt",
-     4
-    ],
-    [
-     "Galvanic Blast",
-     4
-    ],
-    [
-     "Voldaren Epicure",
-     4
-    ],
-    [
-     "Clockwork Percussionist",
-     4
-    ]
-   ],
-   "flex": [
-    [
-     "Inventor's Axe",
-     67,
-     3.9
-    ],
-    [
-     "Experimental Synthesizer",
-     63,
-     3.7
-    ],
-    [
-     "Gingerbrute",
-     63,
-     3.8
-    ],
-    [
-     "Goblin Bushwhacker",
-     58,
-     3.2
-    ],
-    [
-     "Fireblast",
-     46,
-     1.4
-    ],
-    [
-     "Chain Lightning",
-     29,
-     3.1
-    ],
-    [
-     "Demand Answers",
-     25,
-     4
-    ],
-    [
-     "Sneaky Snacker",
-     25,
-     4
-    ],
-    [
-     "Reckless Impulse",
-     25,
-     3.3
-    ],
-    [
-     "Wrenn's Resolve",
-     25,
-     3.3
-    ],
-    [
-     "Reckless Lackey",
-     25,
-     4
-    ]
-   ],
-   "lists": 24,
-   "conv": [
-    0.3,
-    0.1,
-    2
-   ],
-   "prev": 0.4
-  },
-  {
    "id": "pauper-caw-gates",
    "name": "Caw Gates",
    "share": 0.4,
@@ -14992,7 +14713,7 @@
     "4 Pyroblast"
    ],
    "history": [
-    0.6,
+    0.5,
     0.3,
     0.4,
     0.1,
@@ -15024,16 +14745,16 @@
      2
     ],
     [
-     "Tron",
-     1,
-     8,
-     0
-    ],
-    [
      "Elves",
      1,
      4,
      2
+    ],
+    [
+     "Tron",
+     1,
+     8,
+     0
     ],
     [
      "Dimir Faeries",
@@ -15066,15 +14787,15 @@
      0
     ],
     [
-     "Jund Midrange",
-     3,
-     2,
-     0
-    ],
-    [
      "Esper Affinity",
      0,
      4,
+     0
+    ],
+    [
+     "Jund Midrange",
+     3,
+     2,
      0
     ],
     [
@@ -15207,202 +14928,6 @@
     0.1,
     2
    ],
-   "prev": 0.3
-  },
-  {
-   "id": "pauper-mono-white-heroic",
-   "name": "Mono White Heroic",
-   "share": 0.3,
-   "tier": 2,
-   "count": 21,
-   "title": "levenementgeek · Pauper League Bucharest - Stage 13 (6th Place)",
-   "url": "https://melee.gg/Decklist/View/8158e72b-35b0-4207-a502-b4e30107b05a",
-   "main": [
-    "4 Akroan Skyguard",
-    "1 Apostle's Blessing",
-    "4 Armored Armadillo",
-    "1 Emerge Unscathed",
-    "4 Ethereal Armor",
-    "1 Holy Day",
-    "4 Hyena Umbra",
-    "2 Journey to Nowhere",
-    "4 Karametra's Blessing",
-    "4 Lagonna-Band Trailblazer",
-    "4 Loran's Escape",
-    "1 Moment of Silence",
-    "4 Mutagenic Growth",
-    "16 Plains",
-    "4 Sentinel's Eyes",
-    "2 Tethmos High Priest"
-   ],
-   "side": [
-    "3 Apostle's Blessing",
-    "1 Awe Strike",
-    "3 Faerie Macabre",
-    "1 Hallow",
-    "3 Mana Tithe",
-    "1 Mask of Law and Grace",
-    "2 Military Discipline",
-    "1 Shield of Duty and Reason"
-   ],
-   "history": [
-    0.9,
-    1.6,
-    0.2,
-    0.3,
-    0.7,
-    0.6,
-    0.6,
-    0.1,
-    0,
-    0.2,
-    0.3,
-    0
-   ],
-   "field": [
-    32,
-    35,
-    4
-   ],
-   "mu": [
-    [
-     "Red Madness",
-     1,
-     4,
-     0
-    ],
-    [
-     "Mono Blue Terror",
-     3,
-     1,
-     0
-    ],
-    [
-     "Tron",
-     3,
-     2,
-     0
-    ],
-    [
-     "Elves",
-     1,
-     0,
-     2
-    ],
-    [
-     "Red Rally",
-     5,
-     1,
-     0
-    ],
-    [
-     "White Aggro",
-     2,
-     3,
-     0
-    ],
-    [
-     "Jeskai Ephemerate",
-     3,
-     1,
-     2
-    ],
-    [
-     "Gruul Ponza",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Plains",
-     16
-    ],
-    [
-     "Ethereal Armor",
-     4
-    ],
-    [
-     "Lagonna-Band Trailblazer",
-     4
-    ],
-    [
-     "Hyena Umbra",
-     4
-    ],
-    [
-     "Sentinel's Eyes",
-     4
-    ],
-    [
-     "Akroan Skyguard",
-     4
-    ],
-    [
-     "Spirit Link",
-     4
-    ]
-   ],
-   "flex": [
-    [
-     "Emerge Unscathed",
-     76,
-     2.6
-    ],
-    [
-     "Benevolent Blessing",
-     71,
-     3.8
-    ],
-    [
-     "Skyward Spider",
-     57,
-     3.6
-    ],
-    [
-     "Homestead Courage",
-     57,
-     3.8
-    ],
-    [
-     "Cartouche of Solidarity",
-     43,
-     3.1
-    ],
-    [
-     "Loran's Escape",
-     43,
-     2.4
-    ],
-    [
-     "Guiding Voice",
-     33,
-     3
-    ],
-    [
-     "Remote Farm",
-     33,
-     4
-    ],
-    [
-     "Blacksmith's Skill",
-     29,
-     2.8
-    ],
-    [
-     "Armored Armadillo",
-     29,
-     3
-    ]
-   ],
-   "lists": 21,
-   "conv": [
-    0.3,
-    0.4,
-    6
-   ],
    "prev": 0.4
   },
   {
@@ -15440,7 +14965,7 @@
     "2 Underworld Rage-Hound"
    ],
    "history": [
-    0.1,
+    0.2,
     0.2,
     0.9,
     0.4,
@@ -15559,7 +15084,400 @@
     0.4,
     5
    ],
+   "prev": 0.3
+  },
+  {
+   "id": "pauper-mono-red-burn",
+   "name": "Mono Red Burn",
+   "share": 0.3,
+   "tier": 2,
+   "count": 21,
+   "title": "helldude · Pauper League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2311153#deck_helldude",
+   "main": [
+    "4 Clockwork Percussionist",
+    "4 Experimental Synthesizer",
+    "4 Frogmite",
+    "4 Galvanic Blast",
+    "4 Gingerbrute",
+    "4 Goblin Bushwhacker",
+    "4 Goblin Tomb Raider",
+    "4 Great Furnace",
+    "4 Inventor's Axe",
+    "4 Lightning Bolt",
+    "14 Mountain",
+    "2 Relic of Progenitus",
+    "4 Voldaren Epicure"
+   ],
+   "side": [
+    "3 Cast into the Fire",
+    "4 Cleansing Wildfire",
+    "2 End the Festivities",
+    "4 Pyroblast",
+    "2 Relic of Progenitus"
+   ],
+   "history": [
+    0.5,
+    1.3,
+    0.5,
+    0.5,
+    0.5,
+    0,
+    0.7,
+    0.4,
+    0.2,
+    0.2,
+    0.4,
+    0.1
+   ],
+   "field": [
+    41,
+    37,
+    4
+   ],
+   "mu": [
+    [
+     "Red Madness",
+     5,
+     2,
+     0
+    ],
+    [
+     "Mono Blue Terror",
+     5,
+     3,
+     0
+    ],
+    [
+     "Tron",
+     2,
+     4,
+     0
+    ],
+    [
+     "Dimir Faeries",
+     2,
+     1,
+     0
+    ],
+    [
+     "Grixis Affinity",
+     2,
+     3,
+     0
+    ],
+    [
+     "Spy Combo",
+     1,
+     3,
+     0
+    ],
+    [
+     "Red Rally",
+     1,
+     2,
+     0
+    ],
+    [
+     "Esper Midrange",
+     3,
+     0,
+     0
+    ],
+    [
+     "Altar Tron",
+     0,
+     2,
+     2
+    ],
+    [
+     "Tireless Tribe",
+     1,
+     2,
+     2
+    ]
+   ],
+   "metaWr": 53.3,
+   "core": [
+    [
+     "Mountain",
+     14
+    ],
+    [
+     "Goblin Tomb Raider",
+     4
+    ],
+    [
+     "Great Furnace",
+     4
+    ],
+    [
+     "Lightning Bolt",
+     4
+    ],
+    [
+     "Galvanic Blast",
+     4
+    ],
+    [
+     "Voldaren Epicure",
+     4
+    ],
+    [
+     "Clockwork Percussionist",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Inventor's Axe",
+     67,
+     3.9
+    ],
+    [
+     "Gingerbrute",
+     62,
+     3.8
+    ],
+    [
+     "Experimental Synthesizer",
+     62,
+     3.7
+    ],
+    [
+     "Goblin Bushwhacker",
+     52,
+     3.1
+    ],
+    [
+     "Fireblast",
+     48,
+     1.4
+    ],
+    [
+     "Chain Lightning",
+     33,
+     3.1
+    ],
+    [
+     "Reckless Impulse",
+     29,
+     3.3
+    ],
+    [
+     "Wrenn's Resolve",
+     29,
+     3.3
+    ],
+    [
+     "Reckless Lackey",
+     29,
+     4
+    ]
+   ],
+   "lists": 21,
+   "conv": [
+    0.3,
+    0.1,
+    2
+   ],
    "prev": 0.4
+  },
+  {
+   "id": "pauper-mono-white-heroic",
+   "name": "Mono White Heroic",
+   "share": 0.3,
+   "tier": 2,
+   "count": 20,
+   "title": "levenementgeek · Pauper League Bucharest - Stage 13 (6th Place)",
+   "url": "https://melee.gg/Decklist/View/8158e72b-35b0-4207-a502-b4e30107b05a",
+   "main": [
+    "4 Akroan Skyguard",
+    "1 Apostle's Blessing",
+    "4 Armored Armadillo",
+    "1 Emerge Unscathed",
+    "4 Ethereal Armor",
+    "1 Holy Day",
+    "4 Hyena Umbra",
+    "2 Journey to Nowhere",
+    "4 Karametra's Blessing",
+    "4 Lagonna-Band Trailblazer",
+    "4 Loran's Escape",
+    "1 Moment of Silence",
+    "4 Mutagenic Growth",
+    "16 Plains",
+    "4 Sentinel's Eyes",
+    "2 Tethmos High Priest"
+   ],
+   "side": [
+    "3 Apostle's Blessing",
+    "1 Awe Strike",
+    "3 Faerie Macabre",
+    "1 Hallow",
+    "3 Mana Tithe",
+    "1 Mask of Law and Grace",
+    "2 Military Discipline",
+    "1 Shield of Duty and Reason"
+   ],
+   "history": [
+    0.5,
+    1.6,
+    0.2,
+    0.3,
+    0.7,
+    0.6,
+    0.6,
+    0.1,
+    0,
+    0.2,
+    0.3,
+    0
+   ],
+   "field": [
+    30,
+    35,
+    4
+   ],
+   "mu": [
+    [
+     "Red Madness",
+     1,
+     4,
+     0
+    ],
+    [
+     "Mono Blue Terror",
+     3,
+     1,
+     0
+    ],
+    [
+     "Elves",
+     1,
+     0,
+     2
+    ],
+    [
+     "Tron",
+     2,
+     2,
+     0
+    ],
+    [
+     "Red Rally",
+     5,
+     1,
+     0
+    ],
+    [
+     "White Aggro",
+     2,
+     3,
+     0
+    ],
+    [
+     "Jeskai Ephemerate",
+     3,
+     1,
+     2
+    ],
+    [
+     "Gruul Ponza",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Plains",
+     16
+    ],
+    [
+     "Ethereal Armor",
+     4
+    ],
+    [
+     "Lagonna-Band Trailblazer",
+     4
+    ],
+    [
+     "Hyena Umbra",
+     4
+    ],
+    [
+     "Sentinel's Eyes",
+     4
+    ],
+    [
+     "Akroan Skyguard",
+     4
+    ],
+    [
+     "Spirit Link",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Emerge Unscathed",
+     75,
+     2.5
+    ],
+    [
+     "Benevolent Blessing",
+     75,
+     3.8
+    ],
+    [
+     "Homestead Courage",
+     55,
+     3.7
+    ],
+    [
+     "Skyward Spider",
+     55,
+     3.5
+    ],
+    [
+     "Loran's Escape",
+     45,
+     2.4
+    ],
+    [
+     "Cartouche of Solidarity",
+     40,
+     3
+    ],
+    [
+     "Remote Farm",
+     35,
+     4
+    ],
+    [
+     "Armored Armadillo",
+     30,
+     3
+    ],
+    [
+     "Guiding Voice",
+     30,
+     3
+    ],
+    [
+     "Blacksmith's Skill",
+     25,
+     3.2
+    ]
+   ],
+   "lists": 20,
+   "conv": [
+    0.3,
+    0.4,
+    6
+   ],
+   "prev": 0.3
   },
   {
    "id": "pauper-walls-combo",
@@ -15604,7 +15522,7 @@
     "1 Vandalblast"
    ],
    "history": [
-    0.4,
+    0.5,
     0.3,
     0.4,
     0.7,
@@ -15735,8 +15653,8 @@
   {
    "id": "pauper-infect",
    "name": "Infect",
-   "share": 0.2,
-   "tier": 3,
+   "share": 0.3,
+   "tier": 2,
    "count": 16,
    "title": "sammo1986 · Pauper League (5-0)",
    "url": "https://www.mtgo.com/decklist/pauper-league-2026-10-2311153#deck_sammo1986",
@@ -16079,7 +15997,7 @@
     0.1,
     1
    ],
-   "prev": null
+   "prev": 0.2
   },
   {
    "id": "pauper-dimir-ephemerate",
@@ -16261,7 +16179,7 @@
     0.2,
     3
    ],
-   "prev": null
+   "prev": 0.2
   }
  ]
 }
