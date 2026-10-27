@@ -32,6 +32,7 @@
 .profile dd { font: 900 1.625rem/1 var(--font-dot); font-variant-numeric: tabular-nums lining-nums; }
 .detail-links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s5); font-size: var(--fs-md); }
 .detail-links a { display: inline-flex; align-items: center; gap: 4px; }
+.detail-listhow { font-size: var(--fs-sm); color: var(--ink-2); max-width: 64ch; margin-top: calc(var(--s2) * -1); }
 /* quanto manca: percentuale, barre e carte mancanti insieme */
 .detail-meters { display: grid; gap: var(--s2); }
 .detail-score { display: flex; align-items: baseline; gap: var(--s2); }
@@ -50,7 +51,7 @@
   .detail-head { display: flex; flex-direction: column; gap: var(--s3); padding: calc(var(--s4) + 6px) var(--s4) var(--s4); margin-inline: calc(-1 * var(--s2)); }
   .detail-info { display: contents; }
   .detail-title { order: 1; } .detail-meta { order: 2; } .detail-meters { order: 3; margin: var(--s1) 0; }
-  .detail-head .profile { order: 4; } .detail-links { order: 5; } .detail-info > .note { order: 6; }
+  .detail-head .profile { order: 4; } .detail-links, .detail-listhow { order: 5; } .detail-info > .note { order: 6; }
   .detail-score b { font-size: 2.5rem; }
 }
 @media (max-width: 560px) {

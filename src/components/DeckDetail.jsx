@@ -94,7 +94,7 @@ const sourceText = title => { const m = /^(.*?) · (.*) \(([^()]+)\)$/.exec(titl
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
 
-export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, decks = [], owned = new Map(), hasColl = true, onOwnDeck, cedh = false }) {
+export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, decks = [], owned = new Map(), hasColl = true, onOwnDeck, cedh = false, listSource }) {
   const [tab, setTab] = useState('list')
   // su telefono andamento e matchup diventano una terza scheda invece di stare in fondo alla lista
   const narrow = useMedia('(max-width: 899px)')
@@ -153,6 +153,8 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''} <IconExternal size={14} /></a>}
           {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecks')} <IconExternal size={14} /></a>}
         </p>
+        {/* la lista mostrata cambia ogni notte: diciamo come viene scelta */}
+        {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}
         {bans.length > 0 && <p className="note note-error">⚠ {t('ban.deck', bans.join(', '))}</p>}
         </div>
         {/* con una collezione la cosa più importante è quanto manca: percentuale, barre e carte mancanti insieme */}
