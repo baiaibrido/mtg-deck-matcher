@@ -18,24 +18,56 @@ export function deckColors(deck, lookup) {
   }
   if (!deck.main.length || known < deck.main.length * 0.6) return null
   const big = deck.main.reduce((t, r) => t + r.qty, 0) > 80
-  return mainFirst(WUBRG.filter(k => count[k] >= (big ? 1 : 2)), count)
+  const colors = WUBRG.filter(k => count[k] >= (big ? 1 : 2))
+  // Commander: i colori sono quelli del comandante, niente splash
+  return big ? colors : mainFirst(colors, count, nameColors(deck.name), /\bmono\b/i.test(deck.name || ''))
 }
 
-// Mazzo quasi monocolore (es. Red Madness: rosso con 4 carte blu-nere): il colore principale va per primo
-// e gli altri sono "splash" (simboli più piccoli). Splash = al massimo un quarto delle carte del colore principale.
+// Colori scritti nel nome del mazzo: gilde (2 colori), frammenti e clan (3), nomi a 4 colori,
+// college di Strixhaven e famiglie di New Capenna, parole di colore e sigle tipo «UB» o «WURG».
+const NAMES = {
+  azorius: 'WU', dimir: 'UB', rakdos: 'BR', gruul: 'RG', selesnya: 'WG', orzhov: 'WB', izzet: 'UR', golgari: 'BG', boros: 'WR', simic: 'UG',
+  bant: 'WUG', esper: 'WUB', grixis: 'UBR', jund: 'BRG', naya: 'WRG', abzan: 'WBG', junk: 'WBG', jeskai: 'WUR', sultai: 'UBG', mardu: 'WBR', temur: 'URG',
+  glint: 'UBRG', dune: 'WBRG', ink: 'WURG', witch: 'WUBG', yore: 'WUBR',
+  silverquill: 'WB', prismari: 'UR', witherbloom: 'BG', lorehold: 'WR', quandrix: 'UG',
+  brokers: 'WUG', cabaretti: 'WRG', maestros: 'UBR', obscura: 'WUB', riveteers: 'BRG',
+  white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G',
+}
+const ALL = /\b(domain|five[- ]?colou?r|5[- ]?(c|colou?r))\b/i
+export function nameColors(name = '') {
+  if (ALL.test(name)) return WUBRG
+  const out = new Set()
+  for (const w of name.split(/[^A-Za-z0-9]+/)) {
+    const k = NAMES[w.toLowerCase()]
+    if (k) for (const c of k) out.add(c)
+    else if (/^[WUBRG]{2,5}$/.test(w)) for (const c of w) out.add(c)
+  }
+  return WUBRG.filter(c => out.has(c))
+}
+
+// Colori principali e colori di "splash" (simboli più piccoli, dopo i principali).
+// Principali: quelli nel nome del mazzo e quelli con più di un quarto delle carte del colore più giocato.
+// Es. Red Madness: rosso, poi blu e nero piccoli (4 carte); Selesnya Landfall: bianco e verde anche se il bianco è poco.
 export const SPLASH_MAX = 0.25
-export function mainFirst(colors, count) {
+export function mainFirst(colors, count, named = [], mono = false) {
   if (colors.length < 2) return colors
   const top = colors.reduce((a, b) => (count[b] > count[a] ? b : a))
-  const rest = colors.filter(k => k !== top)
-  if (rest.some(k => count[k] > count[top] * SPLASH_MAX)) return colors
-  const out = [top, ...rest]
-  out.splash = rest
+  // «Mono …»: conta solo il colore del nome
+  const isMain = mono && named.length ? k => named.includes(k) : k => named.includes(k) || count[k] > count[top] * SPLASH_MAX
+  let main = colors.filter(isMain)
+  const extra = named.filter(k => !colors.includes(k) && count[k] > 0) // nel nome e presente anche se con una sola carta
+  main = WUBRG.filter(k => main.includes(k) || extra.includes(k))
+  const splash = colors.filter(k => !main.includes(k))
+  if (!splash.length) return main
+  const out = [...main, ...splash]
+  out.main = main
+  out.splash = splash
   return out
 }
 
 // Cornice "alla Magic": incolore, monocolore, ibrida (2 colori) o oro (3+).
 export function frameOf(colors) {
+  if (colors?.main) colors = colors.main // gli splash non cambiano la cornice
   if (!colors || !colors.length) return { kind: 'c', c1: 'var(--mana-c)', c2: 'var(--mana-c)' }
   if (colors.length === 1) { const v = `var(--mana-${colors[0].toLowerCase()})`; return { kind: 'mono', c1: v, c2: v } }
   if (colors.length === 2) return { kind: 'hybrid', c1: `var(--mana-${colors[0].toLowerCase()})`, c2: `var(--mana-${colors[1].toLowerCase()})` }
