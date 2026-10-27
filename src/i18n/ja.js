@@ -36,7 +36,7 @@ export default {
   'tile.owned': '所持', 'tile.missing': '不足', 'tile.partial': n => `${n}枚所持`,
   'detail.copied': '不足リストをコピーしました', copyFail: 'コピーできませんでした。「ダウンロード」を使ってください', 'detail.back': 'デッキ一覧',
   'detail.variant': a => `「${a}」の派生`, 'detail.toComplete': p => `完成まで ${p}`,
-  'detail.original': '元のリスト', 'detail.mtgdecks': 'Googleでデッキを検索', view: '表示',
+  'detail.original': '元のリスト', 'detail.mtgdecks': '見つからない場合はGoogleで検索', 'detail.mtgdecksAll': 'MTGDecksの最近のリストをすべて見る', 'detail.mtgdecksSearch': 'MTGDecksでデッキを検索（Google）', view: '表示',
   'detail.listHow': n => `好成績（大会のトップ8またはリーグの5-0）を残した最新のリストです${n > 1 ? `（過去2か月のこのデッキの${n}件のリストから選択）` : ''}。毎晩更新されるため、日によって数枚変わることがあります。`,
   'detail.listHowTop8': n => `トップ8に入った最新のリストです${n > 1 ? `（過去2か月のこのデッキの${n}件のリストから選択）` : ''}。毎晩更新されるため、日によって数枚変わることがあります。`,
   'tab.list': 'デッキ', 'tab.need': '不足リスト', 'detail.onlyMissing': '足りないカードだけ表示',

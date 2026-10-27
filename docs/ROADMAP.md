@@ -118,6 +118,7 @@ Principi:
 | v0.34.3: i colori nel nome del mazzo contano come principali (gilde, frammenti e clan, nomi a 4 colori, college di Strixhaven, famiglie di New Capenna, parole di colore, sigle tipo UB o WURG, Domain/5 colori); «Mono …» tiene principale solo quel colore; la striscia colorata e la cornice usano solo i colori principali (Red Madness rossa); nei mazzi Commander niente splash | Richiesta utente |
 | v0.34.4: il filtro Colori della home guarda solo i colori principali (es. filtrando rosso compare Red Madness, che ha uno splash blu-nero) | Richiesta utente |
 | v0.35.0: nella pagina del mazzo una riga spiega come viene scelta la lista mostrata (la più recente con un buon risultato tra quelle degli ultimi due mesi, aggiornata ogni notte); testi del sito riscritti in italiano e in inglese per essere più naturali e chiari (spiegazioni, errori, suggerimenti, statistiche) | Richiesta utente |
+| v0.35.1: nella pagina del mazzo il link «Tutte le liste recenti su MTGDecks» porta alla pagina del mazzo su MTGDecks (indirizzo costruito dal nome); sotto resta «Non lo trovi? Cercalo su Google» per i mazzi che lì hanno un nome diverso. In cEDH solo la ricerca | Richiesta utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

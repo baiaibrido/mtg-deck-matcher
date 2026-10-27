@@ -40,7 +40,7 @@ export default {
   'detail.variant': a => `Variant of "${a}"`, 'detail.toComplete': p => `To complete it: ${p}`,
   'detail.original': 'Original list',
   'detail.listHow': n => `This is the most recent list that got a good result (top 8 in a tournament or 5-0 in a League)${n > 1 ? `, picked from the ${n} lists of this deck played in the last two months` : ''}. It's updated every night, so from one day to the next a few cards may change.`,
-  'detail.listHowTop8': n => `This is the most recent list that made top 8${n > 1 ? `, picked from the ${n} lists of this deck from the last two months` : ''}. It's updated every night, so from one day to the next a few cards may change.`, 'detail.mtgdecks': 'Search the deck on Google', view: 'View',
+  'detail.listHowTop8': n => `This is the most recent list that made top 8${n > 1 ? `, picked from the ${n} lists of this deck from the last two months` : ''}. It's updated every night, so from one day to the next a few cards may change.`, 'detail.mtgdecks': 'Can’t find it? Search on Google', 'detail.mtgdecksAll': 'All recent lists on MTGDecks', 'detail.mtgdecksSearch': 'Search the deck on MTGDecks (via Google)', view: 'View',
   'tab.list': 'Deck', 'tab.need': 'Want list', 'detail.onlyMissing': "Show only the cards you're missing",
   'detail.haveAll': 'You have every card in this deck.', 'detail.total': 'Estimated total',
   'detail.hint': src => `You can paste the copied list into Scryfall or Moxfield. Prices are a rough guide: they come from ${src} through Scryfall, refer to the latest printing of each card and are converted to your currency. Cheaper reprints can lower the cost.`,

@@ -44,7 +44,7 @@ export default {
   'detail.variant': a => `Variante di «${a}»`, 'detail.toComplete': p => `Per completarlo ${p}`,
   'detail.original': 'Lista originale',
   'detail.listHow': n => `Questa è la lista più recente che ha fatto un buon risultato (top 8 in un torneo o 5-0 in una League)${n > 1 ? `, scelta tra le ${n} di questo mazzo giocate negli ultimi due mesi` : ''}. Si aggiorna ogni notte, quindi da un giorno all'altro può cambiare di qualche carta.`,
-  'detail.listHowTop8': n => `Questa è la lista più recente arrivata in top 8${n > 1 ? `, scelta tra le ${n} di questo mazzo degli ultimi due mesi` : ''}. Si aggiorna ogni notte, quindi da un giorno all'altro può cambiare di qualche carta.`, 'detail.mtgdecks': 'Cerca il mazzo su Google', view: 'Vista',
+  'detail.listHowTop8': n => `Questa è la lista più recente arrivata in top 8${n > 1 ? `, scelta tra le ${n} di questo mazzo degli ultimi due mesi` : ''}. Si aggiorna ogni notte, quindi da un giorno all'altro può cambiare di qualche carta.`, 'detail.mtgdecks': 'Non lo trovi? Cercalo su Google', 'detail.mtgdecksAll': 'Tutte le liste recenti su MTGDecks', 'detail.mtgdecksSearch': 'Cerca il mazzo su MTGDecks (con Google)', view: 'Vista',
   'tab.list': 'Mazzo', 'tab.need': 'Mancolista', 'detail.onlyMissing': 'Mostra solo le carte che ti mancano',
   'detail.haveAll': 'Hai tutte le carte di questo mazzo.', 'detail.total': 'Totale stimato',
   'detail.hint': src => `Puoi incollare la lista copiata su Scryfall o Moxfield. I prezzi sono indicativi: arrivano da ${src} tramite Scryfall, si riferiscono alla stampa più recente di ogni carta e sono convertiti nella tua valuta. Con ristampe più economiche puoi spendere meno.`,

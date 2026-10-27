@@ -93,6 +93,10 @@ const sourceText = title => { const m = /^(.*?) · (.*) \(([^()]+)\)$/.exec(titl
 
 // Ricerca dell'archetipo su MTGdecks (apertura manuale: il sito non consente la lettura automatica)
 const mtgdecksUrl = (formatName, deckName) => `https://www.google.com/search?q=${encodeURIComponent(`site:mtgdecks.net ${formatName} ${deckName}`)}`
+// pagina di MTGDecks con tutte le liste recenti del mazzo (es. mtgdecks.net/Pauper/red-madness).
+// Il nome lì può essere diverso dal nostro: per questo resta anche la ricerca su Google.
+export const mtgdecksSlug = name => name.toLowerCase().replace(/&/g, ' and ').replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const mtgdecksPage = (formatName, deckName) => `https://mtgdecks.net/${encodeURIComponent(formatName)}/${mtgdecksSlug(deckName)}`
 
 export default function DeckDetail({ s, colors, formatName, onBack, onDelete, toast, onOpen, idOf, pinned, onPin, decks = [], owned = new Map(), hasColl = true, onOwnDeck, cedh = false, listSource }) {
   const [tab, setTab] = useState('list')
@@ -151,7 +155,8 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         </dl>}
         <p className="detail-links">
           {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''} <IconExternal size={14} /></a>}
-          {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecks')} <IconExternal size={14} /></a>}
+          {s.deck.source !== 'utente' && !cedh && <a href={mtgdecksPage(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecksAll')} <IconExternal size={14} /></a>}
+          {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t(cedh ? 'detail.mtgdecksSearch' : 'detail.mtgdecks')} <IconExternal size={14} /></a>}
         </p>
         {/* la lista mostrata cambia ogni notte: diciamo come viene scelta */}
         {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}

@@ -49,3 +49,4 @@ test('cornice: conta solo i colori principali', () => {
   const c = Object.assign(['R', 'U', 'B'], { main: ['R'], splash: ['U', 'B'] })
   assert.equal(frameOf(c).kind, 'mono')
 })
+

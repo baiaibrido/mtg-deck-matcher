@@ -38,7 +38,7 @@ export default {
   'tile.owned': 'la tienes', 'tile.missing': 'te falta', 'tile.partial': n => `tienes ${n}`,
   'detail.copied': 'Lista de faltantes copiada', copyFail: 'No se pudo copiar: usa "Descargar"', 'detail.back': 'Todos los mazos',
   'detail.variant': a => `Variante de «${a}»`, 'detail.toComplete': p => `Para completarlo: ${p}`,
-  'detail.original': 'Lista original', 'detail.mtgdecks': 'Buscar el mazo en Google', view: 'Vista',
+  'detail.original': 'Lista original', 'detail.mtgdecks': '¿No lo encuentras? Búscalo en Google', 'detail.mtgdecksAll': 'Todas las listas recientes en MTGDecks', 'detail.mtgdecksSearch': 'Buscar el mazo en MTGDecks (con Google)', view: 'Vista',
   'detail.listHow': n => `Es la lista más reciente con un buen resultado (top 8 en un torneo o 5-0 en una Liga)${n > 1 ? `, elegida entre las ${n} de este mazo jugadas en los últimos dos meses` : ''}. Se actualiza cada noche, así que de un día a otro pueden cambiar algunas cartas.`,
   'detail.listHowTop8': n => `Es la lista más reciente que llegó al top 8${n > 1 ? `, elegida entre las ${n} de este mazo de los últimos dos meses` : ''}. Se actualiza cada noche, así que de un día a otro pueden cambiar algunas cartas.`,
   'tab.list': 'Mazo', 'tab.need': 'Faltantes', 'detail.onlyMissing': 'Mostrar solo las cartas que te faltan',

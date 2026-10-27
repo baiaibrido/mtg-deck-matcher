@@ -39,7 +39,7 @@ export default {
   'tile.owned': 'você tem', 'tile.missing': 'falta', 'tile.partial': n => `você tem ${n}`,
   'detail.copied': 'Lista de faltantes copiada', copyFail: 'Não foi possível copiar: use "Baixar"', 'detail.back': 'Todos os decks',
   'detail.variant': a => `Variante de «${a}»`, 'detail.toComplete': p => `Para completar: ${p}`,
-  'detail.original': 'Lista original', 'detail.mtgdecks': 'Procurar o deck no Google', view: 'Visualização',
+  'detail.original': 'Lista original', 'detail.mtgdecks': 'Não o encontras? Procura no Google', 'detail.mtgdecksAll': 'Todas as listas recentes no MTGDecks', 'detail.mtgdecksSearch': 'Procurar o deck no MTGDecks (com Google)', view: 'Visualização',
   'detail.listHow': n => `É a lista mais recente com um bom resultado (top 8 num torneio ou 5-0 numa Liga)${n > 1 ? `, escolhida entre as ${n} deste deck jogadas nos últimos dois meses` : ''}. É atualizada todas as noites, por isso de um dia para o outro algumas cartas podem mudar.`,
   'detail.listHowTop8': n => `É a lista mais recente que chegou ao top 8${n > 1 ? `, escolhida entre as ${n} deste deck dos últimos dois meses` : ''}. É atualizada todas as noites, por isso de um dia para o outro algumas cartas podem mudar.`,
   'tab.list': 'Deck', 'tab.need': 'Faltantes', 'detail.onlyMissing': 'Mostrar só as cartas que faltam',
