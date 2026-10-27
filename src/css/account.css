@@ -32,7 +32,6 @@
 
 /* tasto profilo nella testata (su telefono il profilo sta nella pagina Collezione) */
 .acc-btn.on { color: var(--ink); border-color: var(--ink); }
-@media (max-width: 719px) { .acc-btn { display: none; } }
 
 /* piè di pagina: versione e link alla privacy */
 .footer-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 var(--s4); }

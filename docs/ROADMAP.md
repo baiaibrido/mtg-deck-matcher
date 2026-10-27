@@ -121,6 +121,7 @@ Principi:
 | v0.35.1: nella pagina del mazzo il link «Tutte le liste recenti su MTGDecks» porta alla pagina del mazzo su MTGDecks (indirizzo costruito dal nome); sotto resta «Non lo trovi? Cercalo su Google» per i mazzi che lì hanno un nome diverso. In cEDH solo la ricerca | Richiesta utente |
 | v0.35.2: simboli di mana centrati nel cerchio (anche su iPhone) e numeri del costo generico più piccoli; statistiche su telefono: nelle carte in ascesa e in calo le percentuali stanno a destra come nelle altre tabelle e restano in colonna | Richiesta utente |
 | v0.36.0: «Meteo del meta» completo in cima alle Statistiche: bollettino di tutti i mazzi di Tier 1 e 2 (tempo, quota, variazione in 4 settimane, andamento di 12 settimane), venti (sale e vince, sale ma perde, scende ma vince), nuovi arrivi e uscite tra i 15 più giocati, clima dei colori; in home il riquadro del meteo ha il link «Apri il meteo completo» | Richiesta utente |
+| v0.36.1: su telefono c'è di nuovo il tasto del profilo accanto al tema; per farci stare tutto, lingua e valuta perdono l'icona (e sotto i 360 px anche la freccetta) | Richiesta utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.
