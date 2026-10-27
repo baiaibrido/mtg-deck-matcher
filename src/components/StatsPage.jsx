@@ -5,16 +5,8 @@ import { loadPrices } from '../lib/metaDecks.js'
 import { health, valuePoints, bestBuys, converters, priceWatch } from '../lib/stats.js'
 import { getCached } from '../lib/scryfall.js'
 import { ColorPips } from './Mana.jsx'
-
-// Mini linea (presenza o numero di mazzi per settimana); solo decorativa, i valori sono nel testo
-function Spark({ values, w = 72, h = 20, className = '' }) {
-  const pts = (values || []).map((v, i) => [i, v]).filter(([, v]) => v != null)
-  if (pts.length < 2) return null
-  const n = values.length - 1, max = Math.max(...pts.map(p => p[1])), min = Math.min(...pts.map(p => p[1]))
-  const y = v => h - 2 - (max === min ? (h - 4) / 2 : (v - min) / (max - min) * (h - 4))
-  const d = pts.map(([i, v], k) => `${k ? 'L' : 'M'}${(i / n * (w - 2) + 1).toFixed(1)} ${y(v).toFixed(1)}`).join(' ')
-  return <svg className={`st-spark ${className}`} width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true"><path d={d} /></svg>
-}
+import Spark from './Spark.jsx'
+import WeatherReport from './WeatherReport.jsx'
 
 // Grafico prezzo (x) / % contro il meta (y): un punto per mazzo, etichette solo sulla "frontiera"
 function ValueChart({ points, onOpen }) {
@@ -75,6 +67,8 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
         <h1>{t('st.title', formatName)}</h1>
         <p>{t('st.intro')}</p>
       </header>
+
+      <WeatherReport decks={decks} colorsOf={colorsOf} onOpen={onOpen} />
 
       <div className="st-grid-2">
         {hl?.now && <section className="panel st-health">

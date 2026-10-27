@@ -12,7 +12,7 @@ const mask = name => name.replace(/\p{L}+/gu, w => w[0] + '?'.repeat(w.length - 
 
 // "Oggi nel meta": un solo riquadro con meteo, mazzo misterioso e i due giochi,
 // ognuno con la sua riga di spiegazione (anche su telefono, dove il meteo sta in una riga)
-export default function TodayCard({ weather, daily, signature, dailyColors, format, onOpenDaily, onOpen, streak = 0, guess, onGame }) {
+export default function TodayCard({ weather, daily, signature, dailyColors, format, onOpenDaily, onOpen, onWeather, streak = 0, guess, onGame }) {
   const [left, setLeft] = useState(untilMidnight())
   useEffect(() => { const id = setInterval(() => setLeft(untilMidnight()), 30000); return () => clearInterval(id) }, [])
   const [seen, setSeen] = useLocal('mdm.dailySeen', {})
@@ -36,6 +36,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
           {weather.down && <li><span aria-hidden="true">⛈️</span><span className="weather-word">{t('weather.down')}</span> {link(weather.down.d)} <span className="trend trend-down">−{num(Math.abs(weather.down.delta))}</span></li>}
           <li className="weather-top"><span aria-hidden="true">🌤️</span><span className="weather-word">{t('weather.top')}</span> {link(weather.top)} <span className="weather-share">{num(weather.top.share)}%</span></li>
         </ul>
+        {onWeather && <button className="weather-more" onClick={onWeather}>{t('wx.open')} <IconChevron size={14} /></button>}
       </div>}
 
       <ul className="today-list">

@@ -168,7 +168,7 @@ export default function App() {
   const openDaily = (id, fresh) => { bumpFun(f => { const st = bumpStreak(f.streak); return { streak: st, bestStreak: Math.max(f.bestStreak || 0, st.n), opens: (f.opens || 0) + (fresh ? 1 : 0) } }); go('deck', id) }
   // in cEDH «Oggi nel meta» non serve (pochi mazzi, liste tutte diverse)
   const todayCard = format === 'commander' ? null : <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
-    onOpenDaily={openDaily} onOpen={id => go('deck', id)} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame} />
+    onOpenDaily={openDaily} onOpen={id => go('deck', id)} onWeather={() => go('stats')} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame} />
   useFunTracking({ fun, bumpFun, format, collection, ranked, almost, sel, pins, cardsState, toast })
 
   // la pagina del mazzo è la più aperta: la si scarica in anticipo quando il browser è libero

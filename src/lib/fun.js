@@ -65,7 +65,7 @@ export const shareGrid = (guesses, answer, tries = GUESS_TRIES) =>
 
 // ── Meteo del meta: chi sale, chi scende, chi resta in vetta (quota settimanale: ultima vs 4 settimane prima)
 export const WEATHER_WEEKS = 4
-const deltaOf = d => {
+export const deltaOf = d => {
   const h = d.history || []
   const last = h.length - 1, then = last - WEATHER_WEEKS
   if (then >= 0 && h[last] != null && h[then] != null) return h[last] - h[then]

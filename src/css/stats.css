@@ -86,3 +86,46 @@
 .st-buys li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .st-buys .linklike { color: var(--ink); font-weight: 700; }
 .st-budget { min-width: 6.5em; color: var(--ink-2); font-size: var(--fs-sm); font-weight: 700; }
+
+/* ── Meteo completo del meta (in cima alle Statistiche) ── */
+.st-weather { margin-bottom: var(--s6); scroll-margin-top: 80px; }
+.wx-head { margin: 0 0 var(--s4); }
+.wx-head h2 { font: var(--fs-xl)/1.2 var(--font-title); margin-bottom: var(--s1); }
+.wx-head p { max-width: 70ch; color: var(--ink-2); }
+.wx-legend { display: flex; flex-wrap: wrap; gap: 4px var(--s4); margin-bottom: var(--s3); color: var(--ink-2); font-size: var(--fs-sm); }
+.wx-rows li { grid-template-columns: 28px minmax(0, 1fr) auto 7.6em; }
+.wx-rows .st-name { display: flex; align-items: center; gap: 8px; }
+.wx-rows .st-name .linklike { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.wx-sky { font-size: 1.15rem; line-height: 1; text-align: center; }
+/* le nuvole sono bianche: un filo d'ombra le fa vedere anche sulla carta chiara */
+.wx-sky, .wx-legend [aria-hidden] { filter: drop-shadow(0 0 1px rgba(0, 0, 0, .55)); }
+.wx-num { display: inline-flex; justify-content: flex-end; align-items: baseline; gap: 6px; }
+.wx-num .st-delta { min-width: 2.6em; text-align: right; }
+.st-delta:not(.up):not(.down) { color: var(--ink-2); }
+.wx-more { margin-top: var(--s3); }
+.wx-winds { display: grid; gap: var(--s4); }
+@media (min-width: 900px) { .wx-winds { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.wx-wind { padding-top: var(--s2); border-top: 2px solid var(--line-2); }
+.wx-upWin { border-top-color: var(--ok); } .wx-upLose { border-top-color: var(--part); } .wx-downWin { border-top-color: var(--ribbon); }
+.wx-wind h3, .wx-moves h3 { font: 1rem/1.3 var(--font-title); margin-bottom: 2px; }
+.wx-wind .hint { margin-bottom: var(--s2); }
+.wx-wind ul { margin: 0; padding: 0; list-style: none; }
+.wx-wind li { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); padding: 6px 0; border-top: 1px solid var(--line); }
+.wx-wind li:first-child { border-top: 0; }
+.wx-wind .st-name .linklike { color: var(--ink); }
+.wx-wind-num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.wx-wind-num small { color: var(--ink-2); font-size: var(--fs-xs); }
+.wx-empty { color: var(--ink-2); font-size: var(--fs-md); }
+.wx-moves { display: grid; gap: var(--s4); }
+.wx-move { grid-template-columns: minmax(0, 1fr) auto !important; }
+.wx-colors li { grid-template-columns: 28px minmax(0, 1fr) auto 7.6em; }
+.wx-colors .pips { justify-content: center; }
+.st-spark.c-w path { stroke: var(--mana-w); } .st-spark.c-u path { stroke: var(--mana-u); } .st-spark.c-b path { stroke: var(--mana-b); }
+.st-spark.c-r path { stroke: var(--mana-r); } .st-spark.c-g path { stroke: var(--mana-g); }
+@media (max-width: 420px) {
+  .wx-rows li { grid-template-columns: 24px minmax(0, 1fr) 7.2em; }
+  .wx-rows .st-spark, .wx-rows li > span:empty { display: none; }
+  /* su telefono il nome si legge intero: se serve va a capo, i simboli seguono */
+  .wx-rows .st-name { flex-wrap: wrap; row-gap: 2px; white-space: normal; }
+  .wx-rows .st-name .linklike { white-space: normal; overflow: visible; }
+}
