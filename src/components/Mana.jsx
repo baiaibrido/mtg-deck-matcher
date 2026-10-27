@@ -8,7 +8,7 @@ export function ManaCost({ cost, size, slot }) {
   if (!syms.length) return slot ? <span className="mana-cost mana-empty" aria-hidden="true" /> : null
   return (
     <span className="mana-cost" style={size ? { fontSize: size } : undefined} role="img" aria-label={t('manaCost', cost)}>
-      {syms.map((s, i) => <i key={i} className={`ms ms-${s} ms-cost`} />)}
+      {syms.map((s, i) => <i key={i} className={`ms ms-${s} ms-cost${/^(\d+|x|y|z)$/.test(s) ? ' ms-num' : ''}`} />)}
     </span>
   )
 }

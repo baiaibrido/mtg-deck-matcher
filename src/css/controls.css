@@ -194,6 +194,11 @@ input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; app
 /* simboli di mana */
 .pips { display: inline-flex; gap: 3px; font-size: .9rem; vertical-align: middle; }
 .pips .ms-cost, .mana-cost .ms-cost { box-shadow: 0 1px 0 rgba(0, 0, 0, .5); }
+/* simboli al centro del cerchio: la griglia centra il glifo (con line-height 1.35 del mana-font finiva in basso);
+   i numeri del costo generico sono più piccoli, così non toccano il bordo */
+.ms-cost { display: inline-grid; place-items: center; line-height: 1; }
+.ms-cost::before { display: block; line-height: 1; }
+.ms-cost.ms-num::before { font-size: .78em; }
 /* colori di splash di un mazzo quasi monocolore: dopo il principale e più piccoli */
 .pips { align-items: center; }
 .pips .ms-splash { font-size: .7em; }

@@ -33,6 +33,7 @@
 .st-num small.st-still { color: var(--ok); font-weight: 700; }
 .st-cards .st-num { display: inline-flex; justify-content: flex-end; align-items: baseline; gap: 6px; }
 .st-delta { font-size: var(--fs-sm); font-weight: 700; }
+.st-cards .st-delta { min-width: 2.6em; text-align: right; } /* «+3» e «+3,1» occupano lo stesso spazio: le percentuali restano in colonna */
 .st-delta.up { color: var(--ok); }
 .st-delta.down { color: var(--no-ink); }
 .st-bars { display: grid; gap: 3px; width: 120px; }
@@ -48,6 +49,8 @@
 @media (max-width: 560px) {
   .st-bars, .st-bar1 { width: 70px; }
   .st-cards .st-spark { display: none; }
+  /* senza il grafichino i numeri vanno a destra, come nelle altre tabelle */
+  .st-trendcards li { grid-template-columns: minmax(0, 1fr) auto; }
   .st-conv .st-rows li { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'name num' 'bars num'; row-gap: 6px; }
   .st-conv .st-name { grid-area: name; } .st-conv .st-bars { grid-area: bars; width: 100%; max-width: 200px; } .st-conv .st-num { grid-area: num; }
   .st-watch li { grid-template-columns: minmax(0, 1fr) auto; }

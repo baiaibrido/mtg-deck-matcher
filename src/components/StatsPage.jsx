@@ -117,12 +117,12 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
         <section className="panel">
           <h2>{t('st.up')}</h2>
           <p className="st-note">{t('st.trend.intro')}</p>
-          <ul className="st-rows st-cards">{st.cardsUp.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="up" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
+          <ul className="st-rows st-cards st-trendcards">{st.cardsUp.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="up" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
         </section>
         <section className="panel">
           <h2>{t('st.down')}</h2>
           <p className="st-note">{t('st.trend.intro')}</p>
-          <ul className="st-rows st-cards">{st.cardsDown.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="down" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
+          <ul className="st-rows st-cards st-trendcards">{st.cardsDown.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="down" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
         </section>
       </div>}
 
