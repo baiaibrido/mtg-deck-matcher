@@ -116,6 +116,7 @@ Principi:
 | v0.34.1: «Indovina il mazzo» sceglie tra i 50 mazzi più giocati (prima 20) e lo stesso mazzo non può tornare prima di 5 giorni; la nuova regola vale da domani (27 ottobre), così chi ha già giocato oggi ritrova il suo mazzo | Richiesta utente |
 | v0.34.2: simboli di mana dei mazzi quasi monocolore: prima il colore principale a grandezza normale, poi i colori di splash più piccoli (es. Red Madness: rosso, poi blu e nero piccoli) | Richiesta utente |
 | v0.34.3: i colori nel nome del mazzo contano come principali (gilde, frammenti e clan, nomi a 4 colori, college di Strixhaven, famiglie di New Capenna, parole di colore, sigle tipo UB o WURG, Domain/5 colori); «Mono …» tiene principale solo quel colore; la striscia colorata e la cornice usano solo i colori principali (Red Madness rossa); nei mazzi Commander niente splash | Richiesta utente |
+| v0.34.4: il filtro Colori della home guarda solo i colori principali (es. filtrando rosso compare Red Madness, che ha uno splash blu-nero) | Richiesta utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

@@ -57,7 +57,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   // filtri per tier, colori e budget
   let all = ordered
   if (view.tier) all = all.filter(s => s.deck.tier === view.tier)
-  if (view.colors.length) all = all.filter(s => { const c = deckColors(s.deck, getCached); return c && c.every(x => view.colors.includes(x)) })
+  if (view.colors.length) all = all.filter(s => { const c = deckColors(s.deck, getCached); return c && (c.main || c).every(x => view.colors.includes(x)) }) // solo i colori principali: gli splash non contano
   if (view.budget) all = all.filter(withinBudget)
   const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
   // il mazzo più vicino alla collezione: cerchiato a penna nella classifica
