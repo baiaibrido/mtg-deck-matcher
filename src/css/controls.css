@@ -194,6 +194,9 @@ input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; app
 /* simboli di mana */
 .pips { display: inline-flex; gap: 3px; font-size: .9rem; vertical-align: middle; }
 .pips .ms-cost, .mana-cost .ms-cost { box-shadow: 0 1px 0 rgba(0, 0, 0, .5); }
+/* colori di splash di un mazzo quasi monocolore: dopo il principale e più piccoli */
+.pips { align-items: center; }
+.pips .ms-splash { font-size: .7em; }
 .pips-loading i { width: 1em; height: 1em; border-radius: 50%; background: var(--line); animation: pulse 1.2s infinite alternate; }
 @keyframes pulse { to { opacity: .4; } }
 .mana-cost { display: inline-flex; gap: 2px; font-size: .78rem; }

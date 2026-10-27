@@ -4,6 +4,7 @@ export default {
   'nav.decks': 'デッキ', 'nav.keycards': '重要カード', 'nav.collection': 'コレクション',
   done: '完了', undo: '元に戻す', cancel: 'キャンセル', close: '閉じる', download: 'ダウンロード', copyList: 'リストをコピー', sort: '並べ替え', all: 'すべて',
   language: '言語', 'theme.toLight': 'ライトテーマに切り替え', 'theme.toDark': 'ダークテーマに切り替え',
+  'colorsSplash': (m, r) => `${m}（${r}を少し）`,
   'color.W': '白', 'color.U': '青', 'color.B': '黒', 'color.R': '赤', 'color.G': '緑', colorless: '無色',
   colorsLoading: '色を読み込み中', manaCost: c => `マナ・コスト ${c}`,
   noPrice: n => `価格不明のカード${n}枚`,

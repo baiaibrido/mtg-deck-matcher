@@ -7,6 +7,7 @@ export default {
   'nav.decks': 'Decks', 'nav.keycards': 'Cartas-chave', 'nav.collection': 'Coleção',
   done: 'Pronto', undo: 'Desfazer', cancel: 'Cancelar', close: 'Fechar', download: 'Baixar', copyList: 'Copiar lista', sort: 'Ordenar', all: 'Todos',
   language: 'Idioma', 'theme.toLight': 'Mudar para o tema claro', 'theme.toDark': 'Mudar para o tema escuro',
+  'colorsSplash': (m, r) => `${m}, com um toque de ${r}`,
   'color.W': 'Branco', 'color.U': 'Azul', 'color.B': 'Preto', 'color.R': 'Vermelho', 'color.G': 'Verde', colorless: 'Incolor',
   colorsLoading: 'Carregando cores', manaCost: c => `Custo de mana ${c}`,
   noPrice: n => `${n} ${cartas(n)} sem preço`,

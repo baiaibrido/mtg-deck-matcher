@@ -6,6 +6,7 @@ export default {
   'nav.decks': 'Mazos', 'nav.keycards': 'Cartas clave', 'nav.collection': 'Colección',
   done: 'Hecho', undo: 'Deshacer', cancel: 'Cancelar', close: 'Cerrar', download: 'Descargar', copyList: 'Copiar lista', sort: 'Ordenar', all: 'Todos',
   language: 'Idioma', 'theme.toLight': 'Cambiar a tema claro', 'theme.toDark': 'Cambiar a tema oscuro',
+  'colorsSplash': (m, r) => `${m}, con un toque de ${r}`,
   'color.W': 'Blanco', 'color.U': 'Azul', 'color.B': 'Negro', 'color.R': 'Rojo', 'color.G': 'Verde', colorless: 'Incoloro',
   colorsLoading: 'Cargando colores', manaCost: c => `Coste de maná ${c}`,
   noPrice: n => `${n} ${cartas(n)} sin precio`,

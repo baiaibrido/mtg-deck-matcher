@@ -6,6 +6,7 @@ export default {
   'nav.decks': 'Decks', 'nav.keycards': 'Key cards', 'nav.collection': 'Collection',
   done: 'Done', undo: 'Undo', cancel: 'Cancel', close: 'Close', download: 'Download', copyList: 'Copy list', sort: 'Sort', all: 'All',
   language: 'Language', 'theme.toLight': 'Switch to light theme', 'theme.toDark': 'Switch to dark theme',
+  'colorsSplash': (m, r) => `${m}, splashing ${r}`,
   'color.W': 'White', 'color.U': 'Blue', 'color.B': 'Black', 'color.R': 'Red', 'color.G': 'Green', colorless: 'Colorless',
   colorsLoading: 'Loading colors', manaCost: c => `Mana cost ${c}`,
   noPrice: n => `${n} ${cards(n)} without a price`,

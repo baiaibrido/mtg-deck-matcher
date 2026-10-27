@@ -18,7 +18,20 @@ export function deckColors(deck, lookup) {
   }
   if (!deck.main.length || known < deck.main.length * 0.6) return null
   const big = deck.main.reduce((t, r) => t + r.qty, 0) > 80
-  return WUBRG.filter(k => count[k] >= (big ? 1 : 2))
+  return mainFirst(WUBRG.filter(k => count[k] >= (big ? 1 : 2)), count)
+}
+
+// Mazzo quasi monocolore (es. Red Madness: rosso con 4 carte blu-nere): il colore principale va per primo
+// e gli altri sono "splash" (simboli più piccoli). Splash = al massimo un quarto delle carte del colore principale.
+export const SPLASH_MAX = 0.25
+export function mainFirst(colors, count) {
+  if (colors.length < 2) return colors
+  const top = colors.reduce((a, b) => (count[b] > count[a] ? b : a))
+  const rest = colors.filter(k => k !== top)
+  if (rest.some(k => count[k] > count[top] * SPLASH_MAX)) return colors
+  const out = [top, ...rest]
+  out.splash = rest
+  return out
 }
 
 // Cornice "alla Magic": incolore, monocolore, ibrida (2 colori) o oro (3+).

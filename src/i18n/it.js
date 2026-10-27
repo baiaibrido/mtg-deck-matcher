@@ -7,6 +7,7 @@ export default {
   'nav.decks': 'Mazzi', 'nav.keycards': 'Carte chiave', 'nav.collection': 'Collezione',
   done: 'Fatto', undo: 'Annulla', cancel: 'Annulla', close: 'Chiudi', download: 'Scarica', copyList: 'Copia lista', sort: 'Ordina', all: 'Tutti',
   language: 'Lingua', 'theme.toLight': 'Passa al tema chiaro', 'theme.toDark': 'Passa al tema scuro',
+  'colorsSplash': (m, r) => `${m}, con un tocco di ${r}`,
   'color.W': 'Bianco', 'color.U': 'Blu', 'color.B': 'Nero', 'color.R': 'Rosso', 'color.G': 'Verde', colorless: 'Incolore',
   colorsLoading: 'Colori in caricamento', manaCost: c => `Costo di mana ${c}`,
   noPrice: n => `${n} ${carte(n)} senza prezzo`,
