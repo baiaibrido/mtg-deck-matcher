@@ -29,9 +29,13 @@
   position: fixed; z-index: 5; margin: 0; padding: var(--s1); overflow: auto; overscroll-behavior: contain; list-style: none;
   border: 1px solid var(--ink); border-radius: var(--r); background: var(--sheet); box-shadow: 4px 4px 0 var(--line); text-align: left;
 }
-.guess-sugg li { display: flex; align-items: center; min-height: 40px; padding: 0 var(--s3); border-radius: 2px; color: var(--ink); cursor: pointer; }
-.guess-sugg li.active { background: var(--bar); box-shadow: inset 3px 0 0 var(--ink); }
-@media (pointer: coarse) { .guess-sugg li { min-height: 44px; } }
+.guess-sugg button { display: flex; align-items: center; width: 100%; min-height: 40px; padding: 0 var(--s3); border: 0; border-radius: 2px; background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+.guess-sugg button.active { background: var(--bar); box-shadow: inset 3px 0 0 var(--ink); }
+@media (pointer: coarse) { .guess-sugg button { min-height: 44px; } }
+/* su telefono: lista sotto il campo, nella pagina (niente posizione fissa, che su iPhone con la tastiera aperta sbaglia i tocchi) */
+.guess-sugg.guess-sugg-inline { position: static; width: 100%; max-height: 232px; margin-top: 6px; }
+.guess-input { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s2); }
+.guess-input .guess-sugg-inline { grid-column: 1 / -1; }
 .guess-tried { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .guess-tried li { padding: 2px 10px; border-radius: 2px; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); font-size: var(--fs-sm); }
 .guess-tried li.ok { color: var(--ok); box-shadow: inset 0 0 0 1.5px var(--ok); }

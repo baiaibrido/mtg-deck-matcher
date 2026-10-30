@@ -122,6 +122,7 @@ Principi:
 | v0.35.2: simboli di mana centrati nel cerchio (anche su iPhone) e numeri del costo generico più piccoli; statistiche su telefono: nelle carte in ascesa e in calo le percentuali stanno a destra come nelle altre tabelle e restano in colonna | Richiesta utente |
 | v0.36.0: «Meteo del meta» completo in cima alle Statistiche: bollettino di tutti i mazzi di Tier 1 e 2 (tempo, quota, variazione in 4 settimane, andamento di 12 settimane), venti (sale e vince, sale ma perde, scende ma vince), nuovi arrivi e uscite tra i 15 più giocati, clima dei colori; in home il riquadro del meteo ha il link «Apri il meteo completo» | Richiesta utente |
 | v0.36.1: su telefono c'è di nuovo il tasto del profilo accanto al tema; per farci stare tutto, lingua e valuta perdono l'icona (e sotto i 360 px anche la freccetta) | Richiesta utente |
+| v0.36.2: «Indovina il mazzo» su telefono: i suggerimenti si toccano di nuovo (pulsanti veri, sotto il campo e non più a posizione fissa, che su iPhone con la tastiera aperta perdeva i tocchi; la lista resta un attimo dopo che il campo perde il fuoco); nuovo pulsante «Prova» accanto al campo per inviare il nome scritto per intero o l'unico suggerimento rimasto | Segnalazione utente |
 
 ## Prossimo: aggiunta carte con la fotocamera
 Vedi la spiegazione nella conversazione del 15 ottobre: riconoscimento del nome dal titolo della carta (OCR nel browser) + confronto con l'elenco completo dei nomi (closestName), conferma prima di aggiungere.

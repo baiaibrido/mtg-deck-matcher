@@ -276,4 +276,5 @@ export default {
   'wx.rank': (a, b) => `era ${a}.º, ahora ${b}.º`, 'wx.rank.new': b => `nuevo, ahora ${b}.º`, 'wx.rank.gone': a => `era ${a}.º, ahora ya no está`,
   'wx.colors': 'El clima de los colores', 'wx.colors.intro': 'Qué parte del meta juega cada color, contando los colores principales de los mazos. Un mazo de dos colores cuenta para ambos, así que la suma supera el 100%.',
   'wx.bulletin.introPrev': 'Todos los mazos de Tier 1 y 2, del más jugado: cuota en el meta de hoy y cuántos puntos ha cambiado desde la actualización anterior.',
+  'guess.go': 'Probar',
 }

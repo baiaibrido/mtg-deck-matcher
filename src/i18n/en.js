@@ -276,4 +276,5 @@ export default {
   'wx.rank': (a, b) => `was ${a}, now ${b}`, 'wx.rank.new': b => `new, now ${b}`, 'wx.rank.gone': a => `was ${a}, now gone`,
   'wx.colors': 'Color climate', 'wx.colors.intro': 'How much of the meta plays each color, counting the decks’ main colors. A two-color deck counts for both, so the total is over 100%.',
   'wx.bulletin.introPrev': 'All Tier 1 and 2 decks, most played first: today’s meta share and how many points it moved since the previous update.',
+  'guess.go': 'Guess',
 }

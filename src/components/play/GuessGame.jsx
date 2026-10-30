@@ -19,16 +19,18 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
   const [typing, setTyping] = useState(false)
   const [active, setActive] = useState(0)
   const [pos, setPos] = useState(null) // posizione dei suggerimenti (fissa, sempre dentro lo schermo)
-  const input = useRef(null), listRef = useRef(null)
+  const input = useRef(null), listRef = useRef(null), blurT = useRef(null)
   const listId = useId()
   const g = store[key] || []
   const sugg = q.trim() ? names.filter(n => norm(n).includes(norm(q)) && !g.includes(n)).slice(0, MAX_SUGG) : []
   const open = typing && sugg.length > 0
+  // risposta pronta da inviare con «Prova»: nome scritto per intero o unico suggerimento rimasto
+  const pick = names.find(n => norm(n) === norm(q) && !g.includes(n)) || (sugg.length === 1 ? sugg[0] : null)
 
   // I suggerimenti stanno sopra la finestra (position: fixed), sotto il campo se c'è spazio, altrimenti sopra:
   // non finiscono mai dentro lo scorrimento della finestra né sotto la tastiera del telefono.
   useLayoutEffect(() => {
-    if (!open) { setPos(null); return }
+    if (!open || touch) { setPos(null); return } // su telefono i suggerimenti stanno sotto il campo, nel flusso della pagina
     const place = () => {
       const el = input.current; if (!el) return
       const r = el.getBoundingClientRect(), vv = window.visualViewport
@@ -46,6 +48,7 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
   }, [open, sugg.length, q])
   useEffect(() => { setActive(0) }, [q])
   useEffect(() => { if (open) listRef.current?.children[active]?.scrollIntoView({ block: 'nearest' }) }, [active, open])
+  useEffect(() => () => clearTimeout(blurT.current), [])
   // su telefono la tastiera copre metà schermo: il campo resta in vista
   useEffect(() => {
     if (!typing) return
@@ -92,12 +95,19 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
           <input ref={input} type="search" role="combobox" aria-expanded={open} aria-controls={listId} aria-autocomplete="list"
             aria-activedescendant={open ? `${listId}-${active}` : undefined}
             autoFocus={!touch} enterKeyHint="go" autoCorrect="off" autoCapitalize="off" spellCheck={false} value={q} autoComplete="off"
-            onFocus={() => setTyping(true)} onBlur={() => setTyping(false)} onChange={e => setQ(e.target.value)} onKeyDown={onKey}
+            onFocus={() => { clearTimeout(blurT.current); setTyping(true) }}
+            // la lista resta un attimo dopo che il campo perde il fuoco: su iPhone il tocco su un suggerimento arriva dopo
+            onBlur={() => { blurT.current = setTimeout(() => setTyping(false), 300) }} onChange={e => setQ(e.target.value)} onKeyDown={onKey}
             placeholder={t('guess.placeholder')} aria-label={t('guess.placeholder')} />
-          {open && <ul ref={listRef} id={listId} className="guess-sugg" role="listbox" aria-label={t('guess.placeholder')}
-            style={pos || { visibility: 'hidden' }}>
-            {sugg.map((n, i) => <li key={n} id={`${listId}-${i}`} role="option" aria-selected={i === active} className={i === active ? 'active' : ''}
-              onPointerDown={e => e.preventDefault()} onPointerEnter={() => setActive(i)} onClick={() => guess(n)}>{n}</li>)}
+          <button type="button" className="btn btn-primary guess-go" disabled={!pick}
+            onPointerDown={e => e.preventDefault()} onClick={() => pick && guess(pick)}>{t('guess.go')}</button>
+          {open && <ul ref={listRef} id={listId} className={`guess-sugg${touch ? ' guess-sugg-inline' : ''}`} role="listbox" aria-label={t('guess.placeholder')}
+            style={touch ? undefined : pos || { visibility: 'hidden' }}>
+            {/* pulsanti veri: su iPhone il tocco su un elemento qualsiasi a volte non arriva */}
+            {sugg.map((n, i) => <li key={n} role="presentation">
+              <button type="button" id={`${listId}-${i}`} role="option" aria-selected={i === active} className={i === active ? 'active' : ''} tabIndex={-1}
+                onPointerDown={e => e.preventDefault()} onPointerEnter={() => setActive(i)} onClick={() => guess(n)}>{n}</button>
+            </li>)}
           </ul>}
         </div>
       ) : (
