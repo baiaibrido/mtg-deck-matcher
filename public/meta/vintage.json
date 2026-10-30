@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-29",
- "prevDate": "2026-10-28",
+ "updated": "2026-10-30",
+ "prevDate": "2026-10-29",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 1359,
- "unknownPct": 2.5,
+ "decksAnalyzed": 1292,
+ "unknownPct": 2.6,
  "rogue": [],
  "historyWeeks": [
   "2026-08-02",
@@ -28,7 +28,7 @@
     16.6,
     8.7,
     [
-     6.6,
+     4.3,
      3.9,
      8.8,
      5.4,
@@ -47,7 +47,7 @@
     64.9,
     57.2,
     [
-     44.3,
+     44.9,
      53.5,
      69.2,
      59.7,
@@ -66,7 +66,7 @@
     65.1,
     57.4,
     [
-     44.3,
+     44.9,
      52.7,
      69.2,
      59.7,
@@ -85,7 +85,7 @@
     16.6,
     9,
     [
-     7.5,
+     4.3,
      7,
      8.8,
      6.7,
@@ -104,7 +104,7 @@
     71.8,
     64.6,
     [
-     55.7,
+     52.2,
      60.5,
      76.9,
      71.1,
@@ -123,7 +123,7 @@
     24.7,
     17.5,
     [
-     15.1,
+     13,
      14.7,
      15.4,
      10.1,
@@ -161,7 +161,7 @@
     36.5,
     30.6,
     [
-     34,
+     30.4,
      38,
      25.3,
      29.5,
@@ -199,7 +199,7 @@
     30,
     24.6,
     [
-     34.9,
+     31.9,
      38.8,
      29.7,
      28.2,
@@ -220,7 +220,7 @@
     40.5,
     46.9,
     [
-     31.1,
+     34.8,
      31,
      44,
      30.9,
@@ -239,7 +239,7 @@
     12.6,
     17.8,
     [
-     11.3,
+     10.1,
      7,
      17.6,
      24.8,
@@ -258,7 +258,7 @@
     7.5,
     12.6,
     [
-     1.9,
+     0,
      3.9,
      11,
      10.1,
@@ -296,7 +296,7 @@
     47.7,
     52.5,
     [
-     32.1,
+     34.8,
      39.5,
      49.5,
      48.3,
@@ -315,7 +315,7 @@
     37.3,
     42,
     [
-     41.5,
+     42,
      35.7,
      39.6,
      43.6,
@@ -334,7 +334,7 @@
     10.2,
     14.5,
     [
-     17.9,
+     21.7,
      12.4,
      5.5,
      8.7,
@@ -353,7 +353,7 @@
     7.5,
     11.8,
     [
-     21.7,
+     26.1,
      14.7,
      4.4,
      10.7,
@@ -372,7 +372,7 @@
     7.2,
     11.5,
     [
-     17.9,
+     21.7,
      13.2,
      4.4,
      8.7,
@@ -391,7 +391,7 @@
     7.8,
     12,
     [
-     23.6,
+     20.3,
      23.3,
      15.4,
      19.5,
@@ -514,9 +514,9 @@
   {
    "id": "vintage-initiative",
    "name": "Initiative",
-   "share": 10.7,
+   "share": 10.4,
    "tier": 1,
-   "count": 145,
+   "count": 135,
    "title": "espiatrianero · Vintage Challenge 32 (2nd Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-1812856609#deck_espiatrianero",
    "main": [
@@ -553,7 +553,7 @@
     "3 Swords to Plowshares"
    ],
    "history": [
-    17.9,
+    21.7,
     12.4,
     4.4,
     8.7,
@@ -567,8 +567,8 @@
     7.1
    ],
    "field": [
-    32,
-    43,
+    28,
+    42,
     2
    ],
    "mu": [
@@ -580,13 +580,7 @@
     ],
     [
      "UB Lurrus Control",
-     2,
-     5,
-     0
-    ],
-    [
-     "Raker Shops",
-     1,
+     0,
      5,
      0
     ],
@@ -594,6 +588,12 @@
      "Esper Lurrus Control",
      3,
      6,
+     0
+    ],
+    [
+     "Raker Shops",
+     1,
+     5,
      0
     ],
     [
@@ -605,7 +605,7 @@
     [
      "Oath",
      1,
-     6,
+     5,
      0
     ],
     [
@@ -621,19 +621,19 @@
      2
     ],
     [
-     "Other Shops",
-     3,
-     0,
-     0
-    ],
-    [
      "Other Aggro",
      0,
      4,
      0
+    ],
+    [
+     "Other Shops",
+     3,
+     0,
+     0
     ]
    ],
-   "metaWr": 43,
+   "metaWr": 42.1,
    "core": [
     [
      "Ancient Tomb",
@@ -729,20 +729,20 @@
     ]
    ],
    "flex": [],
-   "lists": 145,
+   "lists": 135,
    "conv": [
-    12,
-    12.9,
-    35
+    11.7,
+    12.1,
+    31
    ],
-   "prev": 10.4
+   "prev": 10.7
   },
   {
    "id": "vintage-jewel-shops",
    "name": "Jewel Shops",
-   "share": 9.8,
+   "share": 10,
    "tier": 1,
-   "count": 133,
+   "count": 129,
    "title": "atraxa77 · Vintage Challenge 32 (5th Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-2412856980#deck_atraxa77",
    "main": [
@@ -790,7 +790,7 @@
     "1 Petrified Hamlet"
    ],
    "history": [
-    4.7,
+    1.4,
     3.1,
     7.7,
     5.4,
@@ -822,14 +822,14 @@
      0
     ],
     [
-     "Raker Shops",
-     2,
+     "Esper Lurrus Control",
+     4,
      2,
      0
     ],
     [
-     "Esper Lurrus Control",
-     4,
+     "Raker Shops",
+     2,
      2,
      0
     ],
@@ -963,80 +963,80 @@
      1
     ],
     [
-     "Time Vault",
-     62,
-     1
-    ],
-    [
-     "Manifold Key",
-     61,
-     1
-    ],
-    [
      "Talon Gates of Madara",
      61,
      1.8
     ],
     [
-     "Paradoxical Outcome",
-     59,
-     3.1
+     "Time Vault",
+     60,
+     1
+    ],
+    [
+     "Manifold Key",
+     60,
+     1
     ],
     [
      "Transmute Artifact",
-     59,
+     60,
      3.8
     ],
     [
-     "Island",
+     "Paradoxical Outcome",
+     58,
+     3.1
+    ],
+    [
+     "Chaos Defiler",
+     57,
+     1
+    ],
+    [
+     "Paradox Engine",
      57,
      1.1
     ],
     [
-     "Paradox Engine",
-     56,
-     1.1
+     "Island",
+     57,
+     1.2
     ],
     [
      "Tezzeret, Cruel Captain",
-     56,
+     55,
      1.7
     ],
     [
-     "Chaos Defiler",
-     56,
-     1
-    ],
-    [
      "Relic of Sauron",
-     44,
+     45,
      3.2
     ],
     [
      "The Fantasticar",
-     42,
+     43,
      1
     ],
     [
      "Stock Up",
-     38,
+     40,
      1.5
     ]
    ],
-   "lists": 133,
+   "lists": 129,
    "conv": [
-    10.1,
-    12.9,
+    10.3,
+    13.7,
     35
    ],
-   "prev": 9.6
+   "prev": 9.8
   },
   {
    "id": "vintage-ub-lurrus-control",
    "name": "UB Lurrus Control",
-   "share": 9.1,
+   "share": 8.8,
    "tier": 1,
-   "count": 124,
+   "count": 114,
    "title": "piao · Vintage League (5-0)",
    "url": "https://www.mtgo.com/decklist/vintage-league-2026-10-2211185#deck_piao",
    "main": [
@@ -1097,7 +1097,7 @@
     "1 Tormod's Crypt"
    ],
    "history": [
-    7.5,
+    7.2,
     5.4,
     16.5,
     18.1,
@@ -1111,15 +1111,15 @@
     8.8
    ],
    "field": [
-    30,
-    29,
+    28,
+    27,
     6
    ],
    "mu": [
     [
      "Initiative",
      5,
-     2,
+     0,
      0
     ],
     [
@@ -1129,16 +1129,16 @@
      0
     ],
     [
-     "Raker Shops",
-     3,
-     1,
-     0
-    ],
-    [
      "Esper Lurrus Control",
      6,
      4,
      2
+    ],
+    [
+     "Raker Shops",
+     3,
+     1,
+     0
     ],
     [
      "Lurrus PO",
@@ -1148,12 +1148,12 @@
     ],
     [
      "Oath",
-     5,
+     4,
      4,
      2
     ]
    ],
-   "metaWr": 47.9,
+   "metaWr": 49.5,
    "core": [
     [
      "Force of Will",
@@ -1227,67 +1227,67 @@
    "flex": [
     [
      "Strip Mine",
-     87,
+     89,
      1
     ],
     [
      "Bilbo, Thief in the Night",
-     87,
-     3.1
+     88,
+     3
     ],
     [
      "Mox Pearl",
-     86,
+     85,
      1
     ],
     [
-     "Island",
-     82,
-     1.2
-    ],
-    [
      "Psychic Frog",
-     81,
+     83,
      4
     ],
     [
      "Wasteland",
-     81,
+     82,
      4
     ],
     [
+     "Island",
+     81,
+     1.2
+    ],
+    [
      "Spell Pierce",
-     78,
-     2.3
+     80,
+     2.4
     ],
     [
      "Brainstorm",
-     73,
+     75,
      1
     ],
     [
      "Thoughtseize",
-     69,
+     68,
      1.9
     ],
     [
      "Swamp",
-     67,
+     68,
      1
     ],
     [
      "Treasure Cruise",
-     65,
+     67,
      1
     ],
     [
      "Orcish Bowmasters",
      57,
-     2.7
+     2.8
     ],
     [
      "Soul-Guide Lantern",
-     52,
+     53,
      1.1
     ],
     [
@@ -1296,276 +1296,18 @@
      1.4
     ]
    ],
-   "lists": 124,
+   "lists": 114,
    "conv": [
-    9.6,
-    13.6,
-    37
+    9.3,
+    12.9,
+    33
    ],
-   "prev": 9.4
-  },
-  {
-   "id": "vintage-raker-shops",
-   "name": "Raker Shops",
-   "share": 7.9,
-   "tier": 1,
-   "count": 107,
-   "title": "Carlone90 · Vintage League (5-0)",
-   "url": "https://www.mtgo.com/decklist/vintage-league-2026-10-2311185#deck_Carlone90",
-   "main": [
-    "4 Ancient Tomb",
-    "1 Black Lotus",
-    "1 Chalice of the Void",
-    "1 City of Traitors",
-    "4 Glaring Fleshraker",
-    "4 Grim Monolith",
-    "1 Inventors' Fair",
-    "1 Karn, the Great Creator",
-    "1 Mana Crypt",
-    "1 Mana Vault",
-    "3 Manifold Key",
-    "4 Mishra's Workshop",
-    "1 Mox Emerald",
-    "1 Mox Jet",
-    "2 Mox Opal",
-    "1 Mox Pearl",
-    "1 Mox Ruby",
-    "1 Mox Sapphire",
-    "1 Mystic Forge",
-    "1 Pithing Needle",
-    "4 Scrawling Crawler",
-    "4 Sensei's Divining Top",
-    "1 Sol Ring",
-    "3 Talon Gates of Madara",
-    "4 Tezzeret, Cruel Captain",
-    "1 The Fantasticar",
-    "4 The One Ring",
-    "1 Time Vault",
-    "1 Tolarian Academy",
-    "1 Urza's Saga",
-    "1 Vexing Bauble"
-   ],
-   "side": [
-    "2 Argentum Masticore",
-    "3 Defense Grid",
-    "2 Dismember",
-    "2 Grafdigger's Cage",
-    "3 Mindbreak Trap",
-    "1 Mycosynth Lattice",
-    "2 Portable Hole"
-   ],
-   "history": [
-    18.9,
-    18.6,
-    8.8,
-    11.4,
-    11.6,
-    10.3,
-    8.7,
-    5.7,
-    11.2,
-    6.6,
-    3.9,
-    5.9
-   ],
-   "field": [
-    15,
-    12,
-    0
-   ],
-   "mu": [
-    [
-     "Initiative",
-     5,
-     1,
-     0
-    ],
-    [
-     "Jewel Shops",
-     2,
-     2,
-     0
-    ],
-    [
-     "UB Lurrus Control",
-     1,
-     3,
-     0
-    ],
-    [
-     "Esper Lurrus Control",
-     3,
-     1,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Ancient Tomb",
-     4
-    ],
-    [
-     "Mishra's Workshop",
-     4
-    ],
-    [
-     "The One Ring",
-     4
-    ],
-    [
-     "Tezzeret, Cruel Captain",
-     4
-    ],
-    [
-     "Grim Monolith",
-     4
-    ],
-    [
-     "Glaring Fleshraker",
-     4
-    ],
-    [
-     "Sensei's Divining Top",
-     4
-    ],
-    [
-     "Manifold Key",
-     3
-    ],
-    [
-     "Talon Gates of Madara",
-     3
-    ],
-    [
-     "Black Lotus",
-     1
-    ],
-    [
-     "Chalice of the Void",
-     1
-    ],
-    [
-     "Karn, the Great Creator",
-     1
-    ],
-    [
-     "Mana Crypt",
-     1
-    ],
-    [
-     "Mana Vault",
-     1
-    ],
-    [
-     "Mox Emerald",
-     1
-    ],
-    [
-     "Mox Jet",
-     1
-    ],
-    [
-     "Mox Pearl",
-     1
-    ],
-    [
-     "Mox Ruby",
-     1
-    ],
-    [
-     "Mox Sapphire",
-     1
-    ],
-    [
-     "Mystic Forge",
-     1
-    ],
-    [
-     "Sol Ring",
-     1
-    ],
-    [
-     "Time Vault",
-     1
-    ],
-    [
-     "Tolarian Academy",
-     1
-    ],
-    [
-     "Urza's Saga",
-     1
-    ],
-    [
-     "Vexing Bauble",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "City of Traitors",
-     90,
-     1.5
-    ],
-    [
-     "The Fantasticar",
-     90,
-     1
-    ],
-    [
-     "Pithing Needle",
-     81,
-     1
-    ],
-    [
-     "Inventors' Fair",
-     72,
-     1
-    ],
-    [
-     "Scrawling Crawler",
-     61,
-     3.9
-    ],
-    [
-     "Lodestone Golem",
-     46,
-     1
-    ],
-    [
-     "Mox Opal",
-     41,
-     1.8
-    ],
-    [
-     "Trinisphere",
-     37,
-     1
-    ],
-    [
-     "Soul-Guide Lantern",
-     28,
-     1
-    ],
-    [
-     "Voltaic Key",
-     27,
-     1.5
-    ]
-   ],
-   "lists": 107,
-   "conv": [
-    6.6,
-    5.1,
-    14
-   ],
-   "prev": 8
+   "prev": 9.1
   },
   {
    "id": "vintage-esper-lurrus-control",
    "name": "Esper Lurrus Control",
-   "share": 7.8,
+   "share": 8.2,
    "tier": 1,
    "count": 106,
    "title": "Trohck · Vintage League (5-0)",
@@ -1690,7 +1432,7 @@
      0
     ]
    ],
-   "metaWr": 49.4,
+   "metaWr": 49.3,
    "core": [
     [
      "Force of Will",
@@ -1851,18 +1593,270 @@
    ],
    "lists": 106,
    "conv": [
-    7.9,
-    8.5,
+    8.4,
+    9,
     23
    ],
-   "prev": 7.7
+   "prev": 7.8
+  },
+  {
+   "id": "vintage-raker-shops",
+   "name": "Raker Shops",
+   "share": 7.7,
+   "tier": 1,
+   "count": 99,
+   "title": "Carlone90 · Vintage League (5-0)",
+   "url": "https://www.mtgo.com/decklist/vintage-league-2026-10-2311185#deck_Carlone90",
+   "main": [
+    "4 Ancient Tomb",
+    "1 Black Lotus",
+    "1 Chalice of the Void",
+    "1 City of Traitors",
+    "4 Glaring Fleshraker",
+    "4 Grim Monolith",
+    "1 Inventors' Fair",
+    "1 Karn, the Great Creator",
+    "1 Mana Crypt",
+    "1 Mana Vault",
+    "3 Manifold Key",
+    "4 Mishra's Workshop",
+    "1 Mox Emerald",
+    "1 Mox Jet",
+    "2 Mox Opal",
+    "1 Mox Pearl",
+    "1 Mox Ruby",
+    "1 Mox Sapphire",
+    "1 Mystic Forge",
+    "1 Pithing Needle",
+    "4 Scrawling Crawler",
+    "4 Sensei's Divining Top",
+    "1 Sol Ring",
+    "3 Talon Gates of Madara",
+    "4 Tezzeret, Cruel Captain",
+    "1 The Fantasticar",
+    "4 The One Ring",
+    "1 Time Vault",
+    "1 Tolarian Academy",
+    "1 Urza's Saga",
+    "1 Vexing Bauble"
+   ],
+   "side": [
+    "2 Argentum Masticore",
+    "3 Defense Grid",
+    "2 Dismember",
+    "2 Grafdigger's Cage",
+    "3 Mindbreak Trap",
+    "1 Mycosynth Lattice",
+    "2 Portable Hole"
+   ],
+   "history": [
+    18.8,
+    18.6,
+    8.8,
+    11.4,
+    11.6,
+    10.3,
+    8.7,
+    5.7,
+    11.2,
+    6.6,
+    3.9,
+    5.9
+   ],
+   "field": [
+    15,
+    11,
+    0
+   ],
+   "mu": [
+    [
+     "Initiative",
+     5,
+     1,
+     0
+    ],
+    [
+     "Jewel Shops",
+     2,
+     2,
+     0
+    ],
+    [
+     "UB Lurrus Control",
+     1,
+     3,
+     0
+    ],
+    [
+     "Esper Lurrus Control",
+     3,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Ancient Tomb",
+     4
+    ],
+    [
+     "Mishra's Workshop",
+     4
+    ],
+    [
+     "The One Ring",
+     4
+    ],
+    [
+     "Tezzeret, Cruel Captain",
+     4
+    ],
+    [
+     "Grim Monolith",
+     4
+    ],
+    [
+     "Glaring Fleshraker",
+     4
+    ],
+    [
+     "Sensei's Divining Top",
+     4
+    ],
+    [
+     "Manifold Key",
+     3
+    ],
+    [
+     "Talon Gates of Madara",
+     3
+    ],
+    [
+     "Black Lotus",
+     1
+    ],
+    [
+     "Chalice of the Void",
+     1
+    ],
+    [
+     "Karn, the Great Creator",
+     1
+    ],
+    [
+     "Mana Crypt",
+     1
+    ],
+    [
+     "Mana Vault",
+     1
+    ],
+    [
+     "Mox Emerald",
+     1
+    ],
+    [
+     "Mox Jet",
+     1
+    ],
+    [
+     "Mox Pearl",
+     1
+    ],
+    [
+     "Mox Ruby",
+     1
+    ],
+    [
+     "Mox Sapphire",
+     1
+    ],
+    [
+     "Mystic Forge",
+     1
+    ],
+    [
+     "Sol Ring",
+     1
+    ],
+    [
+     "The Fantasticar",
+     1
+    ],
+    [
+     "Time Vault",
+     1
+    ],
+    [
+     "Tolarian Academy",
+     1
+    ],
+    [
+     "Urza's Saga",
+     1
+    ],
+    [
+     "Vexing Bauble",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "City of Traitors",
+     89,
+     1.4
+    ],
+    [
+     "Pithing Needle",
+     84,
+     1
+    ],
+    [
+     "Inventors' Fair",
+     74,
+     1
+    ],
+    [
+     "Scrawling Crawler",
+     64,
+     3.9
+    ],
+    [
+     "Mox Opal",
+     43,
+     1.7
+    ],
+    [
+     "Lodestone Golem",
+     42,
+     1
+    ],
+    [
+     "Trinisphere",
+     37,
+     1
+    ],
+    [
+     "Soul-Guide Lantern",
+     26,
+     1
+    ]
+   ],
+   "lists": 99,
+   "conv": [
+    6.2,
+    5.1,
+    13
+   ],
+   "prev": 7.9
   },
   {
    "id": "vintage-other-lurrus",
    "name": "Other Lurrus",
-   "share": 6.7,
+   "share": 6.8,
    "tier": 1,
-   "count": 91,
+   "count": 88,
    "title": "Qadosh · Vintage League (5-0)",
    "url": "https://www.mtgo.com/decklist/vintage-league-2026-10-2311185#deck_Qadosh",
    "main": [
@@ -1917,7 +1911,7 @@
     "1 Virtue's Ruin"
    ],
    "history": [
-    1.9,
+    1.4,
     1.6,
     4.4,
     4.7,
@@ -1974,13 +1968,14 @@
     [
      "Gitaxian Probe",
      1
-    ],
-    [
-     "Mental Misstep",
-     1
     ]
    ],
    "flex": [
+    [
+     "Mental Misstep",
+     90,
+     1
+    ],
     [
      "Lórien Revealed",
      89,
@@ -1989,17 +1984,7 @@
     [
      "Flow State",
      88,
-     3.2
-    ],
-    [
-     "Black Lotus",
-     87,
-     1
-    ],
-    [
-     "Mox Sapphire",
-     87,
-     1
+     3.1
     ],
     [
      "Polluted Delta",
@@ -2007,34 +1992,39 @@
      1.5
     ],
     [
-     "Ancestral Recall",
+     "Black Lotus",
      86,
+     1
+    ],
+    [
+     "Mox Sapphire",
+     86,
+     1
+    ],
+    [
+     "Ancestral Recall",
+     85,
      1
     ],
     [
      "Time Walk",
-     86,
+     85,
      1
     ],
     [
      "Misty Rainforest",
-     81,
+     82,
      1.4
     ],
     [
      "Flooded Strand",
-     79,
+     78,
      1.4
     ],
     [
      "Urza's Saga",
-     77,
+     76,
      1
-    ],
-    [
-     "Island",
-     75,
-     1.2
     ],
     [
      "Mox Jet",
@@ -2042,30 +2032,30 @@
      1
     ],
     [
-     "Scalding Tarn",
-     73,
+     "Island",
+     74,
      1.2
     ],
     [
-     "Mox Pearl",
-     70,
-     1
+     "Scalding Tarn",
+     73,
+     1.2
     ]
    ],
-   "lists": 91,
+   "lists": 88,
    "conv": [
     5.6,
-    4.8,
+    5.1,
     13
    ],
-   "prev": 6.6
+   "prev": 6.7
   },
   {
    "id": "vintage-lurrus-po",
    "name": "Lurrus PO",
-   "share": 6.5,
+   "share": 6.4,
    "tier": 2,
-   "count": 88,
+   "count": 83,
    "title": "420PrayIt · Vintage League (5-0)",
    "url": "https://www.mtgo.com/decklist/vintage-league-2026-10-2411185#deck_420PrayIt",
    "main": [
@@ -2120,7 +2110,7 @@
     "2 Swords to Plowshares"
    ],
    "history": [
-    1.9,
+    2.9,
     0.8,
     3.3,
     4.7,
@@ -2294,7 +2284,7 @@
    "flex": [
     [
      "Meticulous Archive",
-     88,
+     87,
      1
     ],
     [
@@ -2304,33 +2294,28 @@
     ],
     [
      "Soul-Guide Lantern",
-     84,
+     83,
      1
     ],
     [
      "Portable Hole",
-     74,
+     72,
      1.1
     ],
     [
      "Vexing Bauble",
-     74,
+     72,
      1
     ],
     [
      "Mana Vault",
-     73,
+     71,
      1
     ],
     [
      "Mox Opal",
-     73,
+     71,
      1
-    ],
-    [
-     "Force of Negation",
-     61,
-     2
     ],
     [
      "Hexing Squelcher",
@@ -2338,35 +2323,40 @@
      1.2
     ],
     [
+     "Force of Negation",
+     60,
+     2.1
+    ],
+    [
      "Bilbo, Thief in the Night",
-     59,
+     57,
      1.8
     ],
     [
      "Polluted Delta",
-     52,
+     51,
      1.1
     ],
     [
      "Mishra's Bauble",
-     50,
-     1.6
+     47,
+     1.7
     ],
     [
      "Flusterstorm",
-     42,
+     41,
      1.5
     ],
     [
      "Flow State",
-     28,
-     2.6
+     29,
+     2.7
     ]
    ],
-   "lists": 88,
+   "lists": 83,
    "conv": [
     6.2,
-    6.6,
+    7,
     18
    ],
    "prev": 6.5
@@ -2374,9 +2364,9 @@
   {
    "id": "vintage-oath",
    "name": "Oath",
-   "share": 6.3,
+   "share": 6.1,
    "tier": 2,
-   "count": 86,
+   "count": 79,
    "title": "PsiVen · Vintage Challenge 32 (8th Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-2412856980#deck_PsiVen",
    "main": [
@@ -2431,7 +2421,7 @@
     "1 Veil of Summer"
    ],
    "history": [
-    1.9,
+    2.9,
     8.5,
     9.9,
     8.7,
@@ -2445,14 +2435,14 @@
     3.5
    ],
    "field": [
-    42,
-    35,
+    40,
+    33,
     4
    ],
    "mu": [
     [
      "Initiative",
-     6,
+     5,
      1,
      0
     ],
@@ -2465,7 +2455,7 @@
     [
      "UB Lurrus Control",
      4,
-     5,
+     4,
      2
     ],
     [
@@ -2491,12 +2481,6 @@
      2,
      3,
      0
-    ],
-    [
-     "Lurrus DRS",
-     1,
-     1,
-     2
     ],
     [
      "Breach",
@@ -2532,104 +2516,96 @@
      2
     ],
     [
-     "Force of Negation",
-     2
-    ],
-    [
      "Polluted Delta",
-     1
-    ],
-    [
-     "Mental Misstep",
      1
     ]
    ],
    "flex": [
     [
-     "Ancestral Recall",
+     "Force of Negation",
      90,
+     1.9
+    ],
+    [
+     "Mental Misstep",
+     90,
+     1
+    ],
+    [
+     "Ancestral Recall",
+     89,
      1
     ],
     [
      "Black Lotus",
-     90,
+     89,
      1
     ],
     [
      "Boseiju, Who Endures",
-     90,
+     89,
      2.1
     ],
     [
      "Mox Emerald",
-     90,
+     89,
      1
     ],
     [
      "Mox Sapphire",
-     90,
+     89,
      1
     ],
     [
      "Time Walk",
-     90,
+     89,
      1
     ],
     [
      "Misty Rainforest",
-     88,
+     87,
      1.5
     ],
     [
      "Mox Ruby",
-     86,
+     85,
      1
     ],
     [
-     "Oko, Thief of Crowns",
-     81,
-     1.4
-    ],
-    [
      "Gitaxian Probe",
-     80,
+     81,
      1
     ],
     [
      "Show and Tell",
+     81,
+     3.2
+    ],
+    [
+     "Oko, Thief of Crowns",
      80,
-     3.3
+     1.4
     ],
     [
      "Gaea's Blessing",
-     76,
-     1
-    ],
-    [
-     "Scalding Tarn",
-     74,
-     1.2
-    ],
-    [
-     "Mox Jet",
-     74,
+     77,
      1
     ]
    ],
-   "lists": 86,
+   "lists": 79,
    "conv": [
-    6.1,
-    5.1,
-    14
+    5.8,
+    4.7,
+    12
    ],
-   "prev": 6.5
+   "prev": 6.3
   },
   {
    "id": "vintage-lurrus-breach",
    "name": "Lurrus Breach",
-   "share": 4.3,
+   "share": 4.4,
    "tier": 2,
-   "count": 59,
+   "count": 57,
    "title": "Sommertroll · Vintage Challenge 32 (1st Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-2412856980#deck_Sommertroll",
    "main": [
@@ -2691,7 +2667,7 @@
     "3 Swords to Plowshares"
    ],
    "history": [
-    8.5,
+    10.1,
     6.2,
     8.8,
     6,
@@ -2839,17 +2815,17 @@
     ],
     [
      "Flooded Strand",
-     85,
+     84,
      1.3
     ],
     [
      "Chain of Vapor",
-     71,
+     70,
      1
     ],
     [
      "Flusterstorm",
-     71,
+     70,
      1.7
     ],
     [
@@ -2864,7 +2840,7 @@
     ],
     [
      "Gifts Ungiven",
-     59,
+     60,
      2.9
     ],
     [
@@ -2873,33 +2849,33 @@
      2.9
     ],
     [
+     "Pyroblast",
+     49,
+     1.6
+    ],
+    [
+     "Flow State",
+     47,
+     1.6
+    ],
+    [
      "Lotus Petal",
      47,
      1
-    ],
-    [
-     "Dig Through Time",
-     47,
-     1
-    ],
-    [
-     "Pyroblast",
-     47,
-     1.6
     ]
    ],
-   "lists": 59,
+   "lists": 57,
    "conv": [
-    4.3,
-    3.7,
+    4.5,
+    3.9,
     10
    ],
-   "prev": 4.5
+   "prev": 4.3
   },
   {
    "id": "vintage-blue-control",
    "name": "Blue Control",
-   "share": 4,
+   "share": 4.2,
    "tier": 2,
    "count": 54,
    "title": "Vonador · Vintage League (5-0)",
@@ -2951,7 +2927,7 @@
     "1 Swords to Plowshares"
    ],
    "history": [
-    3.8,
+    4.3,
     1.6,
     1.1,
     0,
@@ -3101,18 +3077,18 @@
    ],
    "lists": 54,
    "conv": [
-    4.9,
-    5.5,
+    5.2,
+    5.9,
     15
    ],
-   "prev": 3.8
+   "prev": 4
   },
   {
    "id": "vintage-dredge",
    "name": "Dredge",
    "share": 3.8,
    "tier": 2,
-   "count": 52,
+   "count": 49,
    "title": "blackdecks99 · Vintage Challenge 32 (5th Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-1512856576#deck_blackdecks99",
    "main": [
@@ -3143,7 +3119,7 @@
     "3 Wasteland"
    ],
    "history": [
-    5.7,
+    4.3,
     8.5,
     8.8,
     9.4,
@@ -3158,7 +3134,7 @@
    ],
    "field": [
     5,
-    6,
+    5,
     0
    ],
    "mu": [
@@ -3240,34 +3216,34 @@
     ],
     [
      "Force of Negation",
-     83,
-     2.3
+     82,
+     2.4
     ],
     [
      "Force of Will",
-     83,
+     82,
      4
     ],
     [
      "Silversmote Ghoul",
-     67,
-     3.1
+     69,
+     3
     ]
    ],
-   "lists": 52,
+   "lists": 49,
    "conv": [
-    3.6,
-    2.6,
-    7
+    3.5,
+    2.3,
+    6
    ],
-   "prev": 4.1
+   "prev": 3.8
   },
   {
    "id": "vintage-po",
    "name": "PO",
    "share": 3.2,
    "tier": 2,
-   "count": 43,
+   "count": 41,
    "title": "illig719 · Vintage League (5-0)",
    "url": "https://www.mtgo.com/decklist/vintage-league-2026-10-2311185#deck_illig719",
    "main": [
@@ -3331,7 +3307,7 @@
     "1 The Tabernacle at Pendrell Vale"
    ],
    "history": [
-    3.8,
+    2.9,
     4.7,
     2.2,
     1.3,
@@ -3377,6 +3353,10 @@
     ],
     [
      "Sensei's Divining Top",
+     1
+    ],
+    [
+     "Island",
      1
     ],
     [
@@ -3450,43 +3430,38 @@
    ],
    "flex": [
     [
-     "Island",
-     88,
-     1.3
-    ],
-    [
      "Manifold Key",
      88,
      1
     ],
     [
      "Karn, the Great Creator",
-     84,
+     83,
      1
     ],
     [
      "Portable Hole",
-     81,
+     83,
      1.6
     ],
     [
      "Tundra",
-     79,
+     80,
      3.4
     ],
     [
-     "Mental Misstep",
-     74,
-     1
-    ],
-    [
      "Flooded Strand",
-     72,
+     73,
      2.1
     ],
     [
+     "Mental Misstep",
+     73,
+     1
+    ],
+    [
      "Ancient Tomb",
-     70,
+     71,
      4
     ],
     [
@@ -3496,12 +3471,12 @@
     ],
     [
      "Polluted Delta",
-     53,
+     54,
      1.1
     ],
     [
      "Scalding Tarn",
-     53,
+     54,
      1.3
     ],
     [
@@ -3511,29 +3486,34 @@
     ],
     [
      "The One Ring",
-     47,
+     49,
      1.2
     ],
     [
-     "Bolas's Citadel",
-     47,
+     "The Endstone",
+     46,
      1
+    ],
+    [
+     "Lórien Revealed",
+     44,
+     1.2
     ]
    ],
-   "lists": 43,
+   "lists": 41,
    "conv": [
-    2.3,
-    3.3,
+    2.4,
+    3.5,
     9
    ],
-   "prev": 3.1
+   "prev": 3.2
   },
   {
    "id": "vintage-sphere-shops",
    "name": "Sphere Shops",
-   "share": 2.4,
+   "share": 2.5,
    "tier": 2,
-   "count": 33,
+   "count": 32,
    "title": "GoblinElder · Vintage Challenge 32 (4th Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-2412856980#deck_GoblinElder",
    "main": [
@@ -3583,7 +3563,7 @@
     "2 Wurmcoil Engine"
    ],
    "history": [
-    0.9,
+    1.4,
     3.9,
     5.5,
     5.4,
@@ -3733,43 +3713,43 @@
     [
      "Scrawling Crawler",
      88,
-     3.7
+     3.6
     ],
     [
      "Mana Vault",
-     82,
+     81,
      1
     ],
     [
      "Petrified Hamlet",
-     73,
+     72,
      1
     ],
     [
      "Ghost Quarter",
-     67,
+     66,
      1
     ],
     [
      "Talon Gates of Madara",
-     30,
+     31,
      1
     ]
    ],
-   "lists": 33,
+   "lists": 32,
    "conv": [
-    2,
-    0.7,
+    2.1,
+    0.8,
     2
    ],
-   "prev": 2.6
+   "prev": 2.4
   },
   {
    "id": "vintage-tinker",
    "name": "Tinker",
-   "share": 2.4,
+   "share": 2.3,
    "tier": 2,
-   "count": 32,
+   "count": 30,
    "title": "Tienmtg · Vintage Challenge 32 (3rd Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-2412856980#deck_Tienmtg",
    "main": [
@@ -3825,7 +3805,7 @@
     "1 Sphinx of the Steel Wind"
    ],
    "history": [
-    3.8,
+    5.8,
     4.7,
     3.3,
     1.3,
@@ -3840,7 +3820,7 @@
    ],
    "field": [
     9,
-    23,
+    22,
     2
    ],
    "mu": [
@@ -3888,90 +3868,90 @@
    ],
    "flex": [
     [
+     "Gitaxian Probe",
+     87,
+     1
+    ],
+    [
      "Ancestral Recall",
-     88,
+     87,
      1
     ],
     [
      "Black Lotus",
-     88,
+     87,
      1
     ],
     [
      "Mana Crypt",
-     88,
+     87,
      1
     ],
     [
      "Mox Emerald",
-     88,
+     87,
      1
     ],
     [
      "Mox Jet",
-     88,
+     87,
      1
     ],
     [
      "Mox Ruby",
-     88,
+     87,
      1
     ],
     [
      "Mox Sapphire",
-     88,
+     87,
      1
     ],
     [
      "Time Walk",
-     88,
+     87,
      1
     ],
     [
      "Island",
-     84,
+     83,
      1.6
     ],
     [
+     "Stock Up",
+     83,
+     3.4
+    ],
+    [
      "Time Vault",
-     84,
+     83,
      1
     ],
     [
      "Tolarian Academy",
-     84,
+     83,
      1
     ],
     [
-     "Gitaxian Probe",
-     81,
-     1
-    ],
-    [
-     "Stock Up",
-     81,
-     3.5
-    ],
-    [
-     "Manifold Key",
-     81,
+     "Mental Misstep",
+     80,
      1
     ]
    ],
-   "lists": 32,
+   "lists": 30,
    "conv": [
     2.6,
-    2.6,
-    7
+    2.3,
+    6
    ],
-   "prev": 2.3
+   "prev": 2.4
   },
   {
    "id": "vintage-countervine",
    "name": "Countervine",
-   "share": 2.1,
+   "share": 2.2,
    "tier": 2,
-   "count": 29,
+   "count": 28,
    "title": "RAV92 · Vintage League (5-0)",
    "url": "https://www.mtgo.com/decklist/vintage-league-2026-10-2411185#deck_RAV92",
    "main": [
@@ -4002,7 +3982,7 @@
     "4 Ravenous Trap"
    ],
    "history": [
-    8.5,
+    5.8,
     0.8,
     1.1,
     2.7,
@@ -4100,241 +4080,47 @@
    "flex": [
     [
      "Subtlety",
-     83,
-     3.5
+     82,
+     3.4
     ],
     [
      "Gitaxian Probe",
-     69,
+     68,
      1
     ],
     [
      "Commandeer",
-     59,
+     57,
      3.8
     ],
     [
      "Force of Vigor",
-     45,
+     46,
      3
     ],
     [
      "Noxious Revival",
-     45,
+     46,
      3.5
     ],
     [
      "Fury",
-     31,
+     32,
      1.3
     ]
    ],
-   "lists": 29,
+   "lists": 28,
    "conv": [
-    2,
-    2.6,
+    2.1,
+    2.7,
     7
    ],
    "prev": 2.1
   },
   {
-   "id": "vintage-other-shops",
-   "name": "Other Shops",
-   "share": 1.9,
-   "tier": 2,
-   "count": 26,
-   "title": "kungfugeek · Vintage Challenge 32 (1st Place)",
-   "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-1712856595#deck_kungfugeek",
-   "main": [
-    "1 Ancestral Recall",
-    "4 Ancient Tomb",
-    "1 Black Lotus",
-    "1 Chaos Defiler",
-    "4 Coveted Jewel",
-    "3 Grim Monolith",
-    "4 Island",
-    "1 Karn, the Great Creator",
-    "1 Mana Crypt",
-    "1 Mana Vault",
-    "4 Mishra's Workshop",
-    "1 Mox Emerald",
-    "1 Mox Jet",
-    "1 Mox Pearl",
-    "1 Mox Ruby",
-    "1 Mox Sapphire",
-    "1 Otawara, Soaring City",
-    "1 Paradox Engine",
-    "2 Petrified Hamlet",
-    "4 Phyrexian Metamorph",
-    "3 Relic of Sauron",
-    "1 Sol Ring",
-    "4 The One Ring",
-    "1 Time Walk",
-    "1 Tinker",
-    "1 Tolarian Academy",
-    "4 Transmute Artifact",
-    "1 Trinisphere",
-    "1 Urza's Saga",
-    "1 Vexing Bauble",
-    "4 Void Mirror"
-   ],
-   "side": [
-    "2 Argentum Masticore",
-    "3 Defense Grid",
-    "2 Hullbreacher",
-    "2 Kappa Cannoneer",
-    "1 Lodestone Golem",
-    "1 Mindbreak Trap",
-    "1 Petrified Hamlet",
-    "1 Portal to Phyrexia",
-    "2 Wurmcoil Engine"
-   ],
-   "history": [
-    4.7,
-    1.6,
-    0,
-    1.3,
-    3.9,
-    0.6,
-    0.8,
-    1.4,
-    1.5,
-    2.8,
-    2,
-    1.8
-   ],
-   "field": [
-    4,
-    6,
-    0
-   ],
-   "mu": [
-    [
-     "Initiative",
-     0,
-     3,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Mishra's Workshop",
-     4
-    ],
-    [
-     "Ancient Tomb",
-     4
-    ],
-    [
-     "Mox Jet",
-     1
-    ],
-    [
-     "Mox Pearl",
-     1
-    ],
-    [
-     "Mox Ruby",
-     1
-    ],
-    [
-     "Mox Sapphire",
-     1
-    ],
-    [
-     "Sol Ring",
-     1
-    ],
-    [
-     "Urza's Saga",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Black Lotus",
-     88,
-     1
-    ],
-    [
-     "Vexing Bauble",
-     88,
-     1
-    ],
-    [
-     "Mana Vault",
-     85,
-     1
-    ],
-    [
-     "Tolarian Academy",
-     85,
-     1
-    ],
-    [
-     "Mana Crypt",
-     85,
-     1
-    ],
-    [
-     "Karn, the Great Creator",
-     81,
-     1
-    ],
-    [
-     "Mox Emerald",
-     81,
-     1
-    ],
-    [
-     "The One Ring",
-     81,
-     4
-    ],
-    [
-     "Grim Monolith",
-     73,
-     3.3
-    ],
-    [
-     "Trinisphere",
-     73,
-     1
-    ],
-    [
-     "Strip Mine",
-     50,
-     1
-    ],
-    [
-     "Wasteland",
-     50,
-     3.7
-    ],
-    [
-     "Lodestone Golem",
-     46,
-     1
-    ],
-    [
-     "Mystic Forge",
-     38,
-     1
-    ]
-   ],
-   "lists": 26,
-   "conv": [
-    1.9,
-    1.1,
-    3
-   ],
-   "prev": 1.9
-  },
-  {
    "id": "vintage-other-aggro",
    "name": "Other Aggro",
-   "share": 1.8,
+   "share": 1.9,
    "tier": 2,
    "count": 25,
    "title": "rbrb · Vintage Challenge 32 (4th Place)",
@@ -4378,7 +4164,7 @@
     "3 Thief of Existence"
    ],
    "history": [
-    1.9,
+    1.4,
     1.6,
     1.1,
     0,
@@ -4516,18 +4302,212 @@
    ],
    "lists": 25,
    "conv": [
-    2.1,
-    1.5,
+    2.3,
+    1.6,
     4
    ],
    "prev": 1.8
   },
   {
+   "id": "vintage-other-shops",
+   "name": "Other Shops",
+   "share": 1.9,
+   "tier": 2,
+   "count": 24,
+   "title": "kungfugeek · Vintage Challenge 32 (1st Place)",
+   "url": "https://www.mtgo.com/decklist/vintage-challenge-32-2026-10-1712856595#deck_kungfugeek",
+   "main": [
+    "1 Ancestral Recall",
+    "4 Ancient Tomb",
+    "1 Black Lotus",
+    "1 Chaos Defiler",
+    "4 Coveted Jewel",
+    "3 Grim Monolith",
+    "4 Island",
+    "1 Karn, the Great Creator",
+    "1 Mana Crypt",
+    "1 Mana Vault",
+    "4 Mishra's Workshop",
+    "1 Mox Emerald",
+    "1 Mox Jet",
+    "1 Mox Pearl",
+    "1 Mox Ruby",
+    "1 Mox Sapphire",
+    "1 Otawara, Soaring City",
+    "1 Paradox Engine",
+    "2 Petrified Hamlet",
+    "4 Phyrexian Metamorph",
+    "3 Relic of Sauron",
+    "1 Sol Ring",
+    "4 The One Ring",
+    "1 Time Walk",
+    "1 Tinker",
+    "1 Tolarian Academy",
+    "4 Transmute Artifact",
+    "1 Trinisphere",
+    "1 Urza's Saga",
+    "1 Vexing Bauble",
+    "4 Void Mirror"
+   ],
+   "side": [
+    "2 Argentum Masticore",
+    "3 Defense Grid",
+    "2 Hullbreacher",
+    "2 Kappa Cannoneer",
+    "1 Lodestone Golem",
+    "1 Mindbreak Trap",
+    "1 Petrified Hamlet",
+    "1 Portal to Phyrexia",
+    "2 Wurmcoil Engine"
+   ],
+   "history": [
+    4.3,
+    1.6,
+    0,
+    1.3,
+    3.9,
+    0.6,
+    0.8,
+    1.4,
+    1.5,
+    2.8,
+    2,
+    1.8
+   ],
+   "field": [
+    4,
+    6,
+    0
+   ],
+   "mu": [
+    [
+     "Initiative",
+     0,
+     3,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Mishra's Workshop",
+     4
+    ],
+    [
+     "Ancient Tomb",
+     4
+    ],
+    [
+     "Mox Jet",
+     1
+    ],
+    [
+     "Mox Pearl",
+     1
+    ],
+    [
+     "Mox Ruby",
+     1
+    ],
+    [
+     "Mox Sapphire",
+     1
+    ],
+    [
+     "Sol Ring",
+     1
+    ],
+    [
+     "Urza's Saga",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Black Lotus",
+     88,
+     1
+    ],
+    [
+     "Vexing Bauble",
+     88,
+     1
+    ],
+    [
+     "Mana Vault",
+     83,
+     1
+    ],
+    [
+     "Tolarian Academy",
+     83,
+     1
+    ],
+    [
+     "Mana Crypt",
+     83,
+     1
+    ],
+    [
+     "Karn, the Great Creator",
+     79,
+     1
+    ],
+    [
+     "Mox Emerald",
+     79,
+     1
+    ],
+    [
+     "The One Ring",
+     79,
+     4
+    ],
+    [
+     "Grim Monolith",
+     71,
+     3.2
+    ],
+    [
+     "Trinisphere",
+     71,
+     1
+    ],
+    [
+     "Lodestone Golem",
+     50,
+     1
+    ],
+    [
+     "Strip Mine",
+     50,
+     1
+    ],
+    [
+     "Wasteland",
+     50,
+     3.8
+    ],
+    [
+     "Mystic Forge",
+     38,
+     1
+    ]
+   ],
+   "lists": 24,
+   "conv": [
+    1.9,
+    1.2,
+    3
+   ],
+   "prev": 1.9
+  },
+  {
    "id": "vintage-lurrus-drs",
    "name": "Lurrus DRS",
-   "share": 1.6,
+   "share": 1.5,
    "tier": 2,
-   "count": 22,
+   "count": 19,
    "title": "Ruitsu · High Noon Vintage III Tournament - North Texas Eternal Magic (6th Place)",
    "url": "https://melee.gg/Decklist/View/a62db85b-8142-4bbb-9ff8-b4df01010a92",
    "main": [
@@ -4580,7 +4560,7 @@
     "1 The Tabernacle at Pendrell Vale"
    ],
    "history": [
-    2.8,
+    1.4,
     0.8,
     1.1,
     4.7,
@@ -4594,18 +4574,11 @@
     1.8
    ],
    "field": [
-    5,
     4,
+    3,
     4
    ],
-   "mu": [
-    [
-     "Oath",
-     1,
-     1,
-     2
-    ]
-   ],
+   "mu": [],
    "metaWr": null,
    "core": [
     [
@@ -4637,11 +4610,11 @@
      3
     ],
     [
-     "Misty Rainforest",
+     "Force of Negation",
      3
     ],
     [
-     "Force of Negation",
+     "Misty Rainforest",
      3
     ],
     [
@@ -4700,338 +4673,87 @@
    "flex": [
     [
      "Fatal Push",
-     82,
-     2
-    ],
-    [
-     "Bayou",
-     73,
-     1
-    ],
-    [
-     "Boseiju, Who Endures",
-     73,
-     1
-    ],
-    [
-     "Hedge Maze",
-     68,
-     1
-    ],
-    [
-     "Treasure Cruise",
-     68,
-     1
-    ],
-    [
-     "Avatar of Burgeoning Echoes",
-     45,
-     3.9
-    ],
-    [
-     "Daze",
-     45,
-     1.4
-    ],
-    [
-     "Marwyn, the Preserver",
-     45,
-     1
-    ],
-    [
-     "Verdant Catacombs",
-     45,
-     2.1
-    ],
-    [
-     "Carnivorous Cultivator",
-     36,
-     1
-    ],
-    [
-     "Bilbo, Thief in the Night",
-     36,
-     1.8
-    ],
-    [
-     "Undercity Sewers",
-     36,
-     1
-    ],
-    [
-     "Life from the Loam",
-     36,
-     1
-    ],
-    [
-     "Kishla Skimmer",
-     32,
-     3.6
-    ]
-   ],
-   "lists": 22,
-   "conv": [
-    1.1,
-    1.5,
-    4
-   ],
-   "prev": 1.8
-  },
-  {
-   "id": "vintage-doomsday",
-   "name": "Doomsday",
-   "share": 1.4,
-   "tier": 2,
-   "count": 19,
-   "title": "_SickDraw · Vintage Challenge 16 (4th Place)",
-   "url": "https://www.mtgo.com/decklist/vintage-challenge-16-2026-10-1812856602#deck__SickDraw",
-   "main": [
-    "1 Ancestral Recall",
-    "1 Black Lotus",
-    "1 Brainstorm",
-    "1 Chain of Vapor",
-    "4 Dark Ritual",
-    "1 Demonic Consultation",
-    "1 Demonic Tutor",
-    "1 Dig Through Time",
-    "4 Doomsday",
-    "2 Flooded Strand",
-    "3 Flusterstorm",
-    "2 Force of Negation",
-    "4 Force of Will",
-    "1 Gitaxian Probe",
-    "1 Gush",
-    "1 Island",
-    "1 Mental Misstep",
-    "1 Mindbreak Trap",
-    "2 Misty Rainforest",
-    "1 Mox Jet",
-    "1 Mox Sapphire",
-    "2 Polluted Delta",
-    "4 Ponder",
-    "2 Preordain",
-    "2 Scalding Tarn",
-    "4 Street Wraith",
-    "2 Thassa's Oracle",
-    "1 Thoughtseize",
-    "1 Time Walk",
-    "1 Treasure Cruise",
-    "1 Undercity Sewers",
-    "4 Underground Sea",
-    "1 Vampiric Tutor"
-   ],
-   "side": [
-    "3 Consign to Memory",
-    "1 Dismember",
-    "3 Null Rod",
-    "3 Psychic Frog",
-    "2 Soul-Guide Lantern",
-    "1 Thoughtseize",
-    "2 Unable to Scream"
-   ],
-   "history": [
-    0.9,
-    3.9,
-    4.4,
-    0.7,
-    1.9,
-    1.9,
-    2.4,
-    1.4,
-    1,
-    0.9,
-    0.5,
-    1.8
-   ],
-   "field": [
-    2,
-    3,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Dark Ritual",
-     4
-    ],
-    [
-     "Doomsday",
-     4
-    ],
-    [
-     "Force of Will",
-     4
-    ],
-    [
-     "Ponder",
-     4
-    ],
-    [
-     "Underground Sea",
-     4
-    ],
-    [
-     "Street Wraith",
-     4
-    ],
-    [
-     "Misty Rainforest",
-     2
-    ],
-    [
-     "Flusterstorm",
-     2
-    ],
-    [
-     "Flooded Strand",
-     2
-    ],
-    [
-     "Scalding Tarn",
-     2
-    ],
-    [
-     "Thassa's Oracle",
-     2
-    ],
-    [
-     "Ancestral Recall",
-     1
-    ],
-    [
-     "Black Lotus",
-     1
-    ],
-    [
-     "Brainstorm",
-     1
-    ],
-    [
-     "Demonic Consultation",
-     1
-    ],
-    [
-     "Demonic Tutor",
-     1
-    ],
-    [
-     "Dig Through Time",
-     1
-    ],
-    [
-     "Gitaxian Probe",
-     1
-    ],
-    [
-     "Gush",
-     1
-    ],
-    [
-     "Mental Misstep",
-     1
-    ],
-    [
-     "Mox Jet",
-     1
-    ],
-    [
-     "Mox Sapphire",
-     1
-    ],
-    [
-     "Time Walk",
-     1
-    ],
-    [
-     "Undercity Sewers",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Polluted Delta",
      89,
      2
     ],
     [
-     "Flow State",
+     "Bayou",
      79,
-     2.9
+     1
     ],
     [
-     "Necropotence",
+     "Treasure Cruise",
+     74,
+     1
+    ],
+    [
+     "Boseiju, Who Endures",
      68,
      1
     ],
     [
-     "Preordain",
+     "Hedge Maze",
      63,
-     2.1
-    ],
-    [
-     "Chain of Vapor",
-     58,
      1
     ],
     [
-     "Island",
-     58,
-     1
-    ],
-    [
-     "Vampiric Tutor",
-     58,
-     1
-    ],
-    [
-     "Thoughtseize",
-     47,
-     1
-    ],
-    [
-     "Spell Pierce",
-     47,
-     1.7
+     "Avatar of Burgeoning Echoes",
+     53,
+     3.9
     ],
     [
      "Daze",
-     47,
-     1.2
+     53,
+     1.4
     ],
     [
-     "Duress",
+     "Marwyn, the Preserver",
+     53,
+     1
+    ],
+    [
+     "Carnivorous Cultivator",
      42,
      1
     ],
     [
-     "Force of Negation",
-     37,
-     2
+     "Verdant Catacombs",
+     42,
+     1.9
     ],
     [
-     "The Fantasticar",
+     "Life from the Loam",
+     42,
+     1
+    ],
+    [
+     "Bilbo, Thief in the Night",
+     32,
+     1.7
+    ],
+    [
+     "Undercity Sewers",
      32,
      1
     ],
     [
-     "Snow-Covered Island",
-     32,
-     1
+     "Flow State",
+     26,
+     2.8
     ]
    ],
    "lists": 19,
    "conv": [
-    1.4,
-    1.1,
+    0.9,
+    1.2,
     3
    ],
-   "prev": 1.4
+   "prev": 1.6
   },
   {
    "id": "vintage-beseech-storm",
    "name": "Beseech Storm",
-   "share": 1.3,
+   "share": 1.4,
    "tier": 2,
    "count": 18,
    "title": "burrarun · Vintage League (5-0)",
@@ -5271,11 +4993,266 @@
    ],
    "lists": 18,
    "conv": [
-    1.5,
-    1.1,
+    1.6,
+    1.2,
     3
    ],
    "prev": 1.3
+  },
+  {
+   "id": "vintage-doomsday",
+   "name": "Doomsday",
+   "share": 1.2,
+   "tier": 2,
+   "count": 16,
+   "title": "_SickDraw · Vintage Challenge 16 (4th Place)",
+   "url": "https://www.mtgo.com/decklist/vintage-challenge-16-2026-10-1812856602#deck__SickDraw",
+   "main": [
+    "1 Ancestral Recall",
+    "1 Black Lotus",
+    "1 Brainstorm",
+    "1 Chain of Vapor",
+    "4 Dark Ritual",
+    "1 Demonic Consultation",
+    "1 Demonic Tutor",
+    "1 Dig Through Time",
+    "4 Doomsday",
+    "2 Flooded Strand",
+    "3 Flusterstorm",
+    "2 Force of Negation",
+    "4 Force of Will",
+    "1 Gitaxian Probe",
+    "1 Gush",
+    "1 Island",
+    "1 Mental Misstep",
+    "1 Mindbreak Trap",
+    "2 Misty Rainforest",
+    "1 Mox Jet",
+    "1 Mox Sapphire",
+    "2 Polluted Delta",
+    "4 Ponder",
+    "2 Preordain",
+    "2 Scalding Tarn",
+    "4 Street Wraith",
+    "2 Thassa's Oracle",
+    "1 Thoughtseize",
+    "1 Time Walk",
+    "1 Treasure Cruise",
+    "1 Undercity Sewers",
+    "4 Underground Sea",
+    "1 Vampiric Tutor"
+   ],
+   "side": [
+    "3 Consign to Memory",
+    "1 Dismember",
+    "3 Null Rod",
+    "3 Psychic Frog",
+    "2 Soul-Guide Lantern",
+    "1 Thoughtseize",
+    "2 Unable to Scream"
+   ],
+   "history": [
+    1.4,
+    3.9,
+    4.4,
+    0.7,
+    1.9,
+    1.9,
+    2.4,
+    1.4,
+    1,
+    0.9,
+    0.5,
+    1.8
+   ],
+   "field": [
+    1,
+    2,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Dark Ritual",
+     4
+    ],
+    [
+     "Doomsday",
+     4
+    ],
+    [
+     "Force of Will",
+     4
+    ],
+    [
+     "Ponder",
+     4
+    ],
+    [
+     "Underground Sea",
+     4
+    ],
+    [
+     "Street Wraith",
+     4
+    ],
+    [
+     "Flusterstorm",
+     2
+    ],
+    [
+     "Misty Rainforest",
+     2
+    ],
+    [
+     "Flooded Strand",
+     2
+    ],
+    [
+     "Scalding Tarn",
+     2
+    ],
+    [
+     "Polluted Delta",
+     2
+    ],
+    [
+     "Thassa's Oracle",
+     2
+    ],
+    [
+     "Ancestral Recall",
+     1
+    ],
+    [
+     "Black Lotus",
+     1
+    ],
+    [
+     "Brainstorm",
+     1
+    ],
+    [
+     "Demonic Consultation",
+     1
+    ],
+    [
+     "Demonic Tutor",
+     1
+    ],
+    [
+     "Dig Through Time",
+     1
+    ],
+    [
+     "Gitaxian Probe",
+     1
+    ],
+    [
+     "Gush",
+     1
+    ],
+    [
+     "Mental Misstep",
+     1
+    ],
+    [
+     "Mox Jet",
+     1
+    ],
+    [
+     "Mox Sapphire",
+     1
+    ],
+    [
+     "Time Walk",
+     1
+    ],
+    [
+     "Undercity Sewers",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Necropotence",
+     75,
+     1
+    ],
+    [
+     "Flow State",
+     75,
+     2.8
+    ],
+    [
+     "Chain of Vapor",
+     69,
+     1
+    ],
+    [
+     "Vampiric Tutor",
+     63,
+     1
+    ],
+    [
+     "Island",
+     56,
+     1
+    ],
+    [
+     "Preordain",
+     56,
+     1.7
+    ],
+    [
+     "Thoughtseize",
+     56,
+     1
+    ],
+    [
+     "Daze",
+     50,
+     1.3
+    ],
+    [
+     "Duress",
+     44,
+     1
+    ],
+    [
+     "The Fantasticar",
+     38,
+     1
+    ],
+    [
+     "Spell Pierce",
+     38,
+     1.7
+    ],
+    [
+     "Mystical Tutor",
+     38,
+     1
+    ],
+    [
+     "Force of Negation",
+     31,
+     2
+    ],
+    [
+     "Snow-Covered Island",
+     31,
+     1
+    ]
+   ],
+   "lists": 16,
+   "conv": [
+    1.2,
+    0.8,
+    2
+   ],
+   "prev": 1.4
   },
   {
    "id": "vintage-breach",
@@ -5498,18 +5475,18 @@
    ],
    "lists": 9,
    "conv": [
+    0.9,
     0.8,
-    0.7,
     2
    ],
-   "prev": 0.6
+   "prev": 0.7
   },
   {
    "id": "vintage-lurrus-doomsday",
    "name": "Lurrus Doomsday",
    "share": 0.5,
    "tier": 2,
-   "count": 7,
+   "count": 6,
    "title": "Tsubasa_Cat · Vintage Challenge 16 (7th Place)",
    "url": "https://www.mtgo.com/decklist/vintage-challenge-16-2026-09-1712854620#deck_Tsubasa_Cat",
    "main": [
@@ -5573,8 +5550,8 @@
     0.6
    ],
    "field": [
-    1,
-    3,
+    0,
+    2,
     0
    ],
    "mu": [],
@@ -5601,11 +5578,11 @@
      4
     ],
     [
-     "Polluted Delta",
+     "Flooded Strand",
      2
     ],
     [
-     "Flooded Strand",
+     "Polluted Delta",
      2
     ],
     [
@@ -5668,80 +5645,80 @@
    "flex": [
     [
      "Dig Through Time",
-     86,
+     83,
      1
     ],
     [
-     "Island",
-     86,
-     1.2
-    ],
-    [
      "Psychic Frog",
-     86,
+     83,
      4
     ],
     [
+     "Island",
+     83,
+     1.2
+    ],
+    [
      "Demonic Consultation",
-     71,
+     67,
      1
     ],
     [
      "Flow State",
-     71,
-     3
+     67,
+     3.3
     ],
     [
      "Flusterstorm",
-     71,
-     2.6
+     67,
+     2.8
     ],
     [
      "Force of Negation",
-     71,
-     1.6
-    ],
-    [
-     "Bilbo, Thief in the Night",
-     57,
-     2.5
-    ],
-    [
-     "Thoughtseize",
-     57,
-     1.3
-    ],
-    [
-     "Lotus Petal",
-     43,
-     1
-    ],
-    [
-     "Spell Pierce",
-     43,
-     2
+     67,
+     1.8
     ],
     [
      "Daze",
-     43,
+     50,
      1
     ],
     [
      "Treasure Cruise",
-     43,
+     50,
      1
     ],
     [
      "Vampiric Tutor",
-     43,
+     50,
      1
+    ],
+    [
+     "Bilbo, Thief in the Night",
+     50,
+     2.7
+    ],
+    [
+     "Mishra's Bauble",
+     50,
+     2.3
+    ],
+    [
+     "Thoughtseize",
+     50,
+     1
+    ],
+    [
+     "Preordain",
+     33,
+     1.5
     ]
    ],
-   "lists": 7,
+   "lists": 6,
    "conv": [
-    0.6,
-    1.1,
-    3
+    0.5,
+    0.8,
+    2
    ],
    "prev": 0.5
   },
