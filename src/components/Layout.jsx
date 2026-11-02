@@ -55,10 +55,10 @@ export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onThem
 export function TabBar({ current }) {
   return (
     <nav className="tabbar" aria-label={t('sections')}>
-      <a {...linkProps('decks')} aria-current={current('decks')}><IconDecks /><span>{t('nav.decks')}</span></a>
-      <a {...linkProps('collection')} aria-current={current('collection')}><IconBox /><span>{t('nav.collection')}</span></a>
-      <a {...linkProps('key-cards')} aria-current={current('key-cards')}><IconKey /><span>{t('nav.keycards')}</span></a>
-      <a {...linkProps('stats')} aria-current={current('stats')}><IconChart /><span>{t('nav.stats')}</span></a>
+      <a {...linkProps('decks')} aria-current={current('decks')}><IconDecks />{t('nav.decks')}</a>
+      <a {...linkProps('collection')} aria-current={current('collection')}><IconBox />{t('nav.collection')}</a>
+      <a {...linkProps('key-cards')} aria-current={current('key-cards')}><IconKey />{t('nav.keycards')}</a>
+      <a {...linkProps('stats')} aria-current={current('stats')}><IconChart />{t('nav.stats')}</a>
     </nav>
   )
 }

@@ -1,29 +1,25 @@
-# Netdeckable — piano di design v3 «Terminale dati» (v0.38.0)
+# Netdeckable — piano di design v2 «La classifica stampata, in ordine»
 
 ## Soggetto e lavoro principale
 Giocatori di Magic su carta (comunità del negozio) che vogliono sapere quali mazzi del meta possono finire con la loro collezione.
 Lavoro principale di ogni pagina: la lista (mazzi, carte, statistiche). Tutto il resto è contorno.
-Stile scelto con la skill taste (`draw.mjs --app --kind markets --style data-terminal`): uno schermo da consultare a lungo.
-Il volto: i numeri grandi a punti (Doto) e il logo. Via la carta stampata (fori, timbri, evidenziatore, penna, grana, scontrino).
 
-## Colore
-Scuro: fondo #171719 · foglio #131217 (più scuro del fondo) · rialzo #212023 · testo #ffffff · secondario #8a8c92 · linea #26262a · bordo comandi #64656b · accento #4a8ad6
-Chiaro: fondo #f2f2f3 · foglio #fbfbfc · rialzo #e9e9ec · testo #141416 · secondario #5d5f66 · linea #dddde1 · bordo comandi #8b8c93 · accento #2463b5
-Accento sotto il 3%: link, fuoco, la linea di selezione da 1px e la serie principale dei grafici. I numeri restano bianchi o grigi e portano il segno nel testo (+2,7 / −3,5);
-verde e rosso solo nella colonna «cosa si è mosso» e nelle targhette (fondo scuro tinto + testo del colore: ok, manca, bannata, ristretta).
-I colori di Magic sono dati: tacca da 2px a due metà nette sul bordo sinistro delle righe e in cima alla scheda del mazzo.
+## Colore (invariato, approvato)
+Scuro: carta #181b1d · foglio #1f2427 · riga verde #1e2826 · inchiostro #e5e8e0 · sbiadito #a1aaa2 · linea #3a4442 · nastro #a9b6ff
+Chiaro: carta #e8ebe3 · foglio #f1f3ed · riga verde #d7e3d0 · inchiostro #23272c · sbiadito #545c55 · linea #b4bdb0 · nastro #2c3a92
+Significati: verde/giallo evidenziatore = hai/ti manca; timbri rosso/arancio/verde = bannata/ristretta/completo.
 
 ## Tipografia
-Public Sans (400/500/600/700) per tutto il testo; Doto per i numeri grandi (rank, %, cifre principali) e il logo. Cifre tabellari ovunque.
-Scala: 12 · 13 · 14 (comandi, testo secondario) · 15 (testo) · 16/600 (titolo di un foglio) · 20 (titolo di sezione) · 26/700 (titolo di pagina) · 44 (numeri a punti). Niente maiuscoletto.
+Alegreya Sans (UI, 400/600/700/800), «Netdeck Display» = Alegreya Sans 800 per i titoli, Doto (numeri a punti: rank, %, statistiche grandi — l'unico elemento «forte»), Caveat solo per le note a penna.
+Scala: 12 · 13 · 14 · 15 (controlli) · 17 (testo) · 20 (titolo voce) · 24 (titolo sezione) · 32 (titolo pagina) · 44 (numeri grandi). Niente MAIUSCOLETTO nelle etichette (solo timbri e scontrino, che lo sono davvero).
 
 ## Spazi (base 4)
 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64. Sotto-navigazione → titolo 24; titolo → strumenti 16; strumenti → lista 16; sezioni 48 (32 su telefono).
 
 ## Controlli: un solo vocabolario
-- Altezza unica: 36px (mouse) / 44px (dita). Pulsanti e menu a pillola su fondo rialzato, bordo 1px linea; campi con raggio 6px e bordo ≥ 3:1.
-- Selezionato = testo pieno + linea d'accento da 1px larga quanto l'etichetta, sul bordo più vicino (linguette, segmenti, voci della testata, barra in basso). Ovunque.
-- Principale (uno per vista) = pillola bianca (nera nel tema chiaro). Le ombre morbide sono solo dei fogli, dei menu e delle finestre.
+- Altezza unica: 40px (mouse) / 44px (dita). Raggio 3px. Bordo 1px linea; hover inchiostro.
+- Selezionato = fondo inchiostro, testo carta. Ovunque. Nessuna ombra.
+- Principale (uno per vista) = inchiostro + ombra sfalsata color nastro. È l'unico elemento con ombra.
 - Segmentato (.seg): scelta singola tra 2–5 opzioni (ordina, tier, vista, tipo carta).
 - Linguette (.tabs): navigazione tra viste dello stesso oggetto (formati, Mazzo/Mancolista/Meta).
 - Menu (Picker), campi, interruttore, contatore: stessa altezza e bordo.
@@ -36,6 +32,12 @@ Prima schermata su portatile 1280×600: si vede almeno il primo elemento della l
 1. Contenuto prima: la cornice sopra la lista ≤ 45% dell'altezza della finestra.
 2. Un vocabolario di controlli, un solo «selezionato», un solo principale per vista.
 3. I numeri a punti sono la cosa memorabile; il resto è quieto.
-4. Fogli più scuri del fondo, righe su linee da 1px, niente zebra, niente gradienti, niente vetro.
+4. I dettagli di carta (fori, timbri, evidenziatore, scontrino) dicono qualcosa, non decorano.
 5. Niente salti di impaginazione quando si interagisce (titolo su una riga, controlli a misura fissa).
 6. Ogni finestra e menu sta dentro lo schermo, a qualsiasi altezza (prova a 1280×600 e 360×740).
+
+## Impaginazione (v0.39.0)
+- Intestazioni divise (`.head-split`): da 900px titolo nella colonna sinistra, spiegazione in quella destra, allineati alle due colonne dei fogli.
+- Pagine lunghe divise in capitoli: riga d'inchiostro da 2px, titolo, spiegazione (Statistiche: meteo, formato, carte).
+- Prossimità: ogni comando sta accanto a ciò che comanda (totale e azioni sopra la lista; filtri accanto alla ricerca e il loro pannello subito sotto; la spiegazione sotto il link che spiega).
+- Fogli affiancati: stessa altezza. Fogli con poco contenuto: a tutta larghezza, organizzati in orizzontale.

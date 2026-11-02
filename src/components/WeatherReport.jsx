@@ -26,8 +26,8 @@ export default function WeatherReport({ decks, colorsOf, onOpen }) {
   const place = (then, now) => then == null ? t('wx.rank.new', now) : now == null ? t('wx.rank.gone', then) : t('wx.rank', then, now)
 
   return (
-    <section className="st-weather" id="meteo" aria-labelledby="wx-title">
-      <header className="wx-head">
+    <section className="st-weather st-chapter" id="meteo" aria-labelledby="wx-title">
+      <header className="wx-head st-chapter-head head-split">
         <h2 id="wx-title">{t('wx.title')}</h2>
         <p>{hist ? t('wx.intro', dayMonth(weeks[weeks.length - 1 - WEATHER_WEEKS]), dayMonth(weeks[weeks.length - 1])) : t('wx.introPrev')}</p>
       </header>
@@ -35,8 +35,10 @@ export default function WeatherReport({ decks, colorsOf, onOpen }) {
       {/* 1 · bollettino */}
       <section className="panel wx-bulletin">
         <h2>{t('wx.bulletin')}</h2>
-        <p className="st-note">{t(hist ? 'wx.bulletin.intro' : 'wx.bulletin.introPrev')}</p>
-        <p className="wx-legend">{SKIES.map(k => <span key={k}><SkyIcon sky={k} size={18} /> {t(`wx.sky.${k}`)}</span>)}</p>
+        <div className="wx-intro">
+          <p className="st-note">{t(hist ? 'wx.bulletin.intro' : 'wx.bulletin.introPrev')}</p>
+          <p className="wx-legend">{SKIES.map(k => <span key={k}><SkyIcon sky={k} size={18} /> {t(`wx.sky.${k}`)}</span>)}</p>
+        </div>
         <ul className="st-rows wx-rows">
           {(all ? rows : rows.slice(0, SHOW)).map(x => (
             <li key={x.d.id}>

@@ -307,32 +307,15 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {load.total > 0 && load.done < load.total && !load.error && <p className="hint" role="status">{t('coll.loadingImg', load.done, load.total)}</p>}
       {load.error && <p className="note note-error">{t('coll.scryDown')}</p>}
       <div className="coll-tools" ref={toolsRef}>
+        <div className="coll-find">
         <label className="search">
           <IconSearch size={18} />
           <input type="search" value={q} onChange={e => { setQ(e.target.value); setLimit(STEP) }} placeholder={t('coll.search')} aria-label={t('coll.search')} />
         </label>
-
-        <div className="seg seg-scroll" role="group" aria-label={t('coll.typeAria')}>
-          {TYPE_FILTERS.map(([k]) => <button key={k} aria-pressed={type === k} onClick={() => setP({ type: k })}>{t(`type.${k}`)}</button>)}
-        </div>
-        <span className="coll-tools-right">
-        <button className={`btn btn-quiet more-btn${more ? ' open' : ''}`} aria-expanded={more} onClick={() => setMore(m => !m)}>
+        <button className={`btn more-btn${more ? ' open' : ''}`} aria-expanded={more} onClick={() => setMore(m => !m)}>
           <IconFilter size={18} />{t('coll.moreFilters')}{nFlt > 0 && <span className="count">{nFlt}</span>}
         </button>
-        <span className="field">
-          <span className="field-label" aria-hidden="true">{t('sort')}</span>
-          <Picker label={t('sort')} value={sort} onChange={v => setP({ sort: v })} options={COLL_SORTS.map(k => ({ value: k, label: t(`coll.sort.${k}`) }))} align="right" />
-        </span>
-        <div className="seg seg-icons" role="group" aria-label={t('view')}>
-          <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
-          <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
         </div>
-        {view === 'grid' && <label className="cols-ctl">
-          <span>{t('coll.cols')}</span>
-          <input type="range" min="2" max={colsMax} step="1" value={cols} onChange={e => setPrefs({ ...prefs, cols: +e.target.value })} style={{ '--fill': `${(cols - 2) / (colsMax - 2) * 100}%` }} />
-          <output aria-hidden="true">{cols}</output>
-        </label>}
-        </span>
         {more && (
           <div className="more-filters">
             <FilterPick label={t('coll.f.artist')} value={flt.artist} onChange={v => setF({ artist: v })} all={t('coll.f.all')}
@@ -353,6 +336,26 @@ export default function CollectionManager({ collection, setCollection, toast, be
             <p className="hint more-hint">{t('coll.f.hint')}</p>
           </div>
         )}
+        <div className="coll-show">
+        <div className="seg seg-scroll" role="group" aria-label={t('coll.typeAria')}>
+          {TYPE_FILTERS.map(([k]) => <button key={k} aria-pressed={type === k} onClick={() => setP({ type: k })}>{t(`type.${k}`)}</button>)}
+        </div>
+        <span className="coll-tools-right">
+        <span className="field">
+          <span className="field-label" aria-hidden="true">{t('sort')}</span>
+          <Picker label={t('sort')} value={sort} onChange={v => setP({ sort: v })} options={COLL_SORTS.map(k => ({ value: k, label: t(`coll.sort.${k}`) }))} align="right" />
+        </span>
+        <div className="seg seg-icons" role="group" aria-label={t('view')}>
+          <button aria-pressed={view === 'list'} onClick={() => setP({ view: 'list' })} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
+          <button aria-pressed={view === 'grid'} onClick={() => setP({ view: 'grid' })} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
+        </div>
+        {view === 'grid' && <label className="cols-ctl">
+          <span>{t('coll.cols')}</span>
+          <input type="range" min="2" max={colsMax} step="1" value={cols} onChange={e => setPrefs({ ...prefs, cols: +e.target.value })} style={{ '--fill': `${(cols - 2) / (colsMax - 2) * 100}%` }} />
+          <output aria-hidden="true">{cols}</output>
+        </label>}
+        </span>
+        </div>
       </div>
 
       {!filtered.length && <p className="empty">{q ? t('coll.noMatchQ', q) : t('coll.noMatch')}</p>}

@@ -183,7 +183,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
 
     {rogueShown.length > 0 && (
       <section className="rogue" aria-labelledby="rogue-title">
-        <header className="rogue-head">
+        <header className="rogue-head head-split">
           <h2 id="rogue-title" tabIndex={-1}><IconChili size={22} className="chili" /> {t('rogue.title')}</h2>
           <p>{t('rogue.intro', metaMain.length)}</p>
         </header>

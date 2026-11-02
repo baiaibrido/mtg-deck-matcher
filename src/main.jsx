@@ -1,16 +1,18 @@
 import { createRoot } from 'react-dom/client'
-import '@fontsource/public-sans/400.css'
-import '@fontsource/public-sans/500.css'
-import '@fontsource/public-sans/600.css'
-import '@fontsource/public-sans/700.css'
-import '@fontsource-variable/doto' // numeri grandi a punti: il volto del sito, insieme al logo
+import '@fontsource/alegreya-sans/400.css'
+import '@fontsource/alegreya-sans/500.css'
+import '@fontsource/alegreya-sans/700.css'
+import '@fontsource/alegreya-sans/800.css'
+import '@fontsource-variable/doto' // carattere a punti (stampante ad aghi) della nuova grafica
+import '@fontsource/caveat/latin-700.css' // solo per le note a penna
 import './mana-cost.css' // simboli di mana ridotti (scripts/build-mana-subset.py)
 import App from './App.jsx'
-// Grafica «terminale dati»: un solo sistema (token → base → controlli → impaginazione → pagine)
+// Grafica «la classifica stampata»: un solo sistema (token → base → controlli → impaginazione → carta → pagine)
 import './css/tokens.css'
 import './css/base.css'
 import './css/controls.css'
 import './css/layout.css'
+import './css/paper.css'
 import './css/home.css'
 import './css/deck.css'
 import './css/collection.css'

@@ -153,13 +153,15 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <div><dt>{t('desc.creaL')}</dt><dd>{desc.creatures}</dd></div>
           {desc.inter.map(([k, n]) => <div key={k}><dt>{t(`otag.${k}`)}</dt><dd>{n}</dd></div>)}
         </dl>}
-        <p className="detail-links">
-          {s.deck.url && <a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''} <IconExternal size={14} /></a>}
-          {s.deck.source !== 'utente' && !cedh && <a href={mtgdecksPage(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecksAll')} <IconExternal size={14} /></a>}
-          {s.deck.source !== 'utente' && <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t(cedh ? 'detail.mtgdecksSearch' : 'detail.mtgdecks')} <IconExternal size={14} /></a>}
-        </p>
-        {/* la lista mostrata cambia ogni notte: diciamo come viene scelta */}
-        {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}
+        <div className="detail-source">
+          {s.deck.url && <p className="detail-orig"><a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''}<IconExternal size={14} /></a></p>}
+          {/* la lista mostrata cambia ogni notte: diciamo come viene scelta, subito sotto il suo link */}
+          {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}
+          {s.deck.source !== 'utente' && <p className="detail-links">
+            {!cedh && <a href={mtgdecksPage(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecksAll')}<IconExternal size={14} /></a>}
+            <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t(cedh ? 'detail.mtgdecksSearch' : 'detail.mtgdecks')}<IconExternal size={14} /></a>
+          </p>}
+        </div>
         {bans.length > 0 && <p className="note note-error note-icon"><IconWarn size={18} />{t('ban.deck', bans.join(', '))}</p>}
         </div>
         {/* con una collezione la cosa più importante è quanto manca: percentuale, barre e carte mancanti insieme */}

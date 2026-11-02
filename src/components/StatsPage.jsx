@@ -63,20 +63,29 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
 
   return (
     <div className="stats">
-      <header className="page-head">
+      <header className="page-head head-split">
         <h1>{t('st.title', formatName)}</h1>
         <p>{t('st.intro')}</p>
       </header>
 
       <WeatherReport decks={decks} colorsOf={colorsOf} onOpen={onOpen} />
 
-      <div className="st-grid-2">
+      {/* capitolo 2: il formato nel suo insieme */}
+      <section className="st-chapter" aria-labelledby="ch-format">
+      <header className="st-chapter-head head-split">
+        <h2 id="ch-format">{t('st.ch.format')}</h2>
+        <p>{t('st.ch.format.intro')}</p>
+      </header>
         {hl?.now && <section className="panel st-health">
           <h2>{t('st.health')}</h2>
-          <p className="st-hero"><b>{hl.now}</b> <span>{t('st.health.decks', hl.now)}</span></p>
-          <p className={`st-kind st-kind-${hl.kind}`}>{t(`st.health.${hl.kind}`)}</p>
+          <div className="st-health-big">
+            <p className="st-hero"><b>{hl.now}</b> <span>{t('st.health.decks', hl.now)}</span></p>
+            <p className={`st-kind st-kind-${hl.kind}`}>{t(`st.health.${hl.kind}`)}</p>
+          </div>
+          <div className="st-health-more">
           <p className="st-note">{t('st.health.top')} {hl.top.map((d, i, a) => <span key={d.id}>{i > 0 && ' '}<span className="nb">{link(d)}{i < a.length - 1 && ','}</span></span>)}.</p>
           {hl.series.filter(v => v != null).length > 2 && <p className="st-note st-trendline"><Spark values={hl.series} w={120} h={26} /> {t('st.health.weeks')}</p>}
+          </div>
         </section>}
 
         {conv.length > 0 && <section className="panel st-conv">
@@ -93,9 +102,6 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
           </ul>
           <p className="st-legend"><span className="k-field" />{t('st.conv.field')} <span className="k-top" />{t('st.conv.top')}</p>
         </section>}
-      </div>
-
-      {!st && <p className="note">{t('st.limited')}</p>}
 
       {pts.length >= 5 && <section className="panel st-value">
         <h2>{t('st.value')}</h2>
@@ -106,8 +112,17 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
           <ul>{buys.map(b => <li key={b.budget}><span className="st-budget">{t('budget.max', money(b.budget))}</span> {link(b.p.s.deck)} <ColorPips colors={colorsOf(b.p.s.deck)} /> <span className="st-muted">{t('st.buys.row', num(b.p.wr), money(b.p.need, true))}</span></li>)}</ul>
         </div>}
       </section>}
+      </section>
 
-      {st && <div className="st-grid-2">
+      {!st && <p className="note">{t('st.limited')}</p>}
+
+      {/* capitolo 3: le singole carte */}
+      {st && <section className="st-chapter" aria-labelledby="ch-cards">
+      <header className="st-chapter-head head-split">
+        <h2 id="ch-cards">{t('st.ch.cards')}</h2>
+        <p>{t('st.ch.cards.intro')}</p>
+      </header>
+      <div className="st-grid-2">
         <section className="panel">
           <h2>{t('st.up')}</h2>
           <p className="st-note">{t('st.trend.intro')}</p>
@@ -118,9 +133,9 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
           <p className="st-note">{t('st.trend.intro')}</p>
           <ul className="st-rows st-cards st-trendcards">{st.cardsDown.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="down" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
         </section>
-      </div>}
+      </div>
 
-      {st && <div className="st-grid-2">
+      <div className="st-grid-2">
         <section className="panel">
           <h2>{t('st.watch')}</h2>
           <p className="st-note">{prices?.dates?.length >= 2 ? t('st.watch.intro', prices.dates.length) : t('st.watch.wait')}</p>
@@ -141,7 +156,8 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
             <li key={n}><span className="st-name">{n}</span><span className="st-bar1" aria-hidden="true"><span style={{ width: `${p / st.side[0][1] * 100}%` }} /></span><span className="st-num">{num(p)}% {Math.abs(d) >= 1 && delta(d)}</span></li>
           ))}</ul>
         </section>
-      </div>}
+      </div>
+      </section>}
     </div>
   )
 }

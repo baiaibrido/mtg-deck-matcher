@@ -288,4 +288,6 @@ export default {
   'wx.bulletin.introPrev': 'Tutti i mazzi di Tier 1 e 2, dal più giocato, con la quota nel meta di oggi e di quanti punti è cambiata dall’aggiornamento precedente.',
   'guess.go': 'Prova',
   'big.share': 'del meta', 'big.meta': 'contro il meta', 'big.cost': 'il mazzo intero',
+  'st.ch.format': 'Il formato', 'st.ch.format.intro': 'Il formato nel suo insieme: quanto è vario, chi arriva in top 8 più spesso del previsto e quanto vince ogni mazzo per quello che costa.',
+  'st.ch.cards': 'Le carte', 'st.ch.cards.intro': 'Le singole carte: quali entrano nelle liste e quali ne escono, quali costano ancora poco e cosa si gioca in sideboard.',
 }

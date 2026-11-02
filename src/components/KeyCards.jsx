@@ -37,7 +37,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
 
   return (
     <div className="keycards">
-      <header className="page-head">
+      <header className="page-head head-split">
         <h1>{t('kc.title', formatName)}</h1>
         <p>{t('kc.intro')}</p>
       </header>
@@ -50,16 +50,18 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
           <button aria-pressed={scope === 't1'} onClick={() => setScope('t1')}>Tier 1</button>
           <button aria-pressed={scope === 't12'} onClick={() => setScope('t12')}>{t('kc.t12')}</button>
         </div>
-        {rows.length > 0 && <>
-          <button className={`btn${hasCollection ? ' btn-primary' : ''}`} onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
-          <button className="btn" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
-          {total > 0 && <span className="kc-total">{t('detail.total')} <b>≈ {money(total)}</b></span>}
-        </>}
+      </div>
+
+      {/* totale, azioni e vista della lista: tutto quello che riguarda la lista, subito sopra la lista */}
+      {rows.length > 0 && <div className="kc-buy">
+        {total > 0 && <span className="kc-total">{t('detail.total')} <b>≈ {money(total)}</b></span>}
+        <button className={`btn kc-copy${hasCollection ? ' btn-primary' : ''}`} onClick={copy}><IconCopy size={18} />{t('copyList')}</button>
+        <button className="btn kc-dl" onClick={() => downloadTxt(`${t('kc.file')}-${formatName.toLowerCase()}.txt`, text)}><IconDownload size={18} />{t('download')}</button>
         <div className="seg seg-icons" role="group" aria-label={t('view')}>
           <button aria-pressed={look !== 'cards'} onClick={() => setLook('list')} title={t('coll.list')}><IconList size={18} /><span className="sr-only">{t('coll.list')}</span></button>
           <button aria-pressed={look === 'cards'} onClick={() => setLook('cards')} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
         </div>
-      </div>
+      </div>}
 
       {rows.length ? <>
         {look === 'cards' ? (

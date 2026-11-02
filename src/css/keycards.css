@@ -1,52 +1,60 @@
 /* ═══════════ Carte chiave: la classifica delle carte, stesso foglio dei mazzi ═══════════ */
 
 .keycards .callout { margin-bottom: var(--s4); }
-.kc-tools .seg-icons { margin-left: auto; }
 .kc-tools { margin-bottom: var(--s4); }
-.kc-total { margin-left: auto; color: var(--ink-2); font-size: var(--fs-md); white-space: nowrap; }
+/* il totale e le azioni sulla lista, insieme, subito sopra la lista */
+.kc-buy { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); margin: 0 0 var(--s3); }
+.kc-buy .seg-icons { margin-left: auto; }
+.kc-total { margin-right: var(--s2); color: var(--ink-2); font-size: var(--fs-md); white-space: nowrap; }
 .kc-total b { color: var(--ink); }
-.kc-total + .seg-icons { margin-left: 0; }
 @media (max-width: 719px) {
   /* telefono: la scelta dei tier su tutta la riga, sotto le azioni e la vista */
-  .kc-tools > .seg:first-child { display: flex; width: 100%; justify-content: space-between; gap: var(--s2); }
-  .kc-tools > .btn { flex: 1 1 auto; }
-  .kc-total { margin-left: 0; margin-right: auto; } /* totale a sinistra, vista a destra, sulla stessa riga */
+  .kc-tools > .seg:first-child { display: flex; width: 100%; }
+  .kc-tools > .seg:first-child > button { flex: 1 1 0; min-width: 0; padding: 0 var(--s2); }
+  /* telefono: totale e vista sulla prima riga, i due pulsanti sotto */
+  .kc-buy { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'total view' 'copy dl'; }
+  .kc-buy .kc-total { grid-area: total; }
+  .kc-buy .seg-icons { grid-area: view; justify-self: end; }
+  .kc-buy .kc-copy { grid-area: copy; } .kc-buy .kc-dl { grid-area: dl; }
 }
 .keycards > .hint { margin-top: var(--s4); }
 
-/* elenco: righe su linee sottili dentro un foglio, due colonne su schermi larghi */
-.key-list { display: grid; margin: 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--sheet); box-shadow: var(--shadow); overflow: hidden; }
+/* elenco: righe del modulo continuo, due colonne su schermi larghi */
+.key-list { display: grid; }
 .key-list li {
   display: grid; grid-template-columns: 2.25rem minmax(0, 1fr) auto; align-items: center; gap: var(--s3);
-  padding: var(--s3) var(--s4) var(--s3) var(--s3); border-top: 1px solid var(--line);
+  padding: var(--s3) var(--s4) var(--s3) var(--s3); border-top: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
   animation: deal .28s var(--ease) backwards; animation-delay: calc(min(var(--i, 0), 10) * 30ms);
 }
 @keyframes deal { from { opacity: 0; transform: translateY(14px); } }
 .key-list li:first-child { border-top: 0; }
+.key-list li:nth-child(even) { background: var(--bar); }
 @media (min-width: 820px) {
   .key-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .key-list li:nth-child(2) { border-top: 0; }
-  .key-list li:nth-child(odd) { border-right: 1px solid var(--line); }
+  .key-list li:nth-child(odd) { border-right: 1px dashed var(--line); }
+  .key-list li:nth-child(n) { background: none; }
+  .key-list li:nth-child(4n+1), .key-list li:nth-child(4n+2) { background: var(--bar); }
 }
-.key-rank { color: var(--ink-2); font: 800 1.6rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
+.key-rank { font: 900 1.75rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
 .key-main { display: grid; gap: 2px; min-width: 0; }
 .key-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
-.key-name a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.key-name a { color: var(--ink); font-weight: 700; text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { .key-name a:hover { text-decoration: underline; } }
 .key-decks { color: var(--ink-2); font-size: var(--fs-sm); }
-.key-decks .linklike { color: var(--ink-2); text-decoration-color: var(--line-2); }
+.key-decks .linklike { color: var(--ink-2); }
 @media (hover: hover) and (pointer: fine) { .key-decks .linklike:hover { color: var(--ink); } }
-.key-own { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-2); font-size: var(--fs-sm); }
-.key-own.tile-ok { color: var(--ink); }
+.key-own { display: inline-flex; align-items: center; gap: 4px; color: var(--no-ink); font-size: var(--fs-sm); font-weight: 700; }
+.key-own.tile-part { color: var(--part); }
+.key-own.tile-ok { color: var(--ok); }
 .key-buy { display: grid; justify-items: end; gap: 4px; text-align: right; font-variant-numeric: tabular-nums; }
 .key-buy span { color: var(--ink-2); font-size: var(--fs-sm); }
-.key-buy b { padding: 0 8px; border-radius: 999px; background: var(--pill-warn-bg); color: var(--pill-warn-ink); font-size: var(--fs-sm); font-weight: 600; line-height: 1.65; }
 
 /* immagini */
 .key-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s4) var(--s3); margin: 0; padding: 0; list-style: none; }
 @media (max-width: 560px) { .key-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .key-tiles li { display: grid; align-content: start; gap: 6px; }
-.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.8em; padding: 2px 6px; border-radius: 999px; background: var(--overlay-bg); color: var(--overlay-ink); font: 800 .9rem/1.2 var(--font-dot); text-align: center; }
+.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.8em; padding: 2px 6px; border-radius: 2px; background: var(--overlay-bg); color: var(--overlay-ink); font: 900 .9rem/1.2 var(--font-dot); text-align: center; }
 .key-tile-info { display: flex; flex-wrap: wrap; gap: 0 var(--s2); color: var(--ink-2); font-size: var(--fs-sm); line-height: 1.35; }
 .key-tile-info b { color: var(--no-ink); }
 
