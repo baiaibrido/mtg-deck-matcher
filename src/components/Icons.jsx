@@ -42,3 +42,17 @@ export const IconGoogle = ({ size = 18 }) => (
     <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
   </svg>
 )
+
+// ── Icone al posto delle emoji (stesso tratto delle altre): meteo, rogue, avvisi, giochi
+const CLOUD = 'M7.5 18h9a3.5 3.5 0 0 0 .4-6.98A5 5 0 0 0 7.2 11.1 3.5 3.5 0 0 0 7.5 18z'
+export const IconSunny = p => <I {...p} d={<><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" /></>} />
+export const IconPartly = p => <I {...p} d={<><path d="M8 4.5v1.2M3.5 9H4.7M4.8 5.8l.9.9M12.2 5.8l-.9.9" /><path d="M5.6 11.6A3.2 3.2 0 0 1 11 8.4" /><path d="M9 20h8a3.2 3.2 0 0 0 .4-6.38A4.6 4.6 0 0 0 8.7 13.3 3.2 3.2 0 0 0 9 20z" /></>} />
+export const IconCloudy = p => <I {...p} d={<path d={CLOUD} />} />
+export const IconRain = p => <I {...p} d={<><path d="M7.5 15h9a3.5 3.5 0 0 0 .4-6.98A5 5 0 0 0 7.2 8.1 3.5 3.5 0 0 0 7.5 15z" /><path d="M9 18l-1 2.5M13 18l-1 2.5M17 18l-1 2.5" /></>} />
+export const IconStorm = p => <I {...p} d={<><path d="M7.5 15h9a3.5 3.5 0 0 0 .4-6.98A5 5 0 0 0 7.2 8.1 3.5 3.5 0 0 0 7.5 15z" /><path d="M12.5 15.5 10.5 19h3l-2 3" /></>} />
+export const IconChili = p => <I {...p} d={<><path d="M15.5 7.5c2.6.4 4 2.6 3.4 5.4-1 4.6-6.7 8.3-12.6 7.6-.9-.1-1-.9-.3-1.3 4-2.2 5.6-5.8 6-9.5.3-1.6 1.6-2.5 3.5-2.2z" /><path d="M15.5 7.5c.2-1.8 1.2-3 2.8-3.5" /></>} />
+export const IconWarn = p => <I {...p} d={<><path d="M10.3 4.2 2.6 17.6A2 2 0 0 0 4.3 20.6h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z" /><path d="M12 9.5v4.2M12 17h.01" /></>} />
+export const IconFlag = p => <I {...p} d={<><path d="M5 21V4" /><path d="M5 4.5h11.5l-2.2 4 2.2 4H5" /></>} />
+export const IconTarget = p => <I {...p} d={<><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.5" /><circle cx="12" cy="12" r=".8" fill="currentColor" /></>} />
+export const IconFlame = p => <I {...p} d={<path d="M12 3c.9 3.6 5.8 5.3 5.8 10.6a5.8 5.8 0 0 1-11.6 0c0-2.8 1.5-4.4 2.9-5.8.3 1.9 1.1 2.9 2.2 3.1C10.6 8.3 11 5.4 12 3z" />} />
+export const IconQuestion = p => <I {...p} d={<><circle cx="12" cy="12" r="9" /><path d="M9.6 9.4a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1.1 1-1.1 1.8" /><path d="M12 16.8h.01" /></>} />

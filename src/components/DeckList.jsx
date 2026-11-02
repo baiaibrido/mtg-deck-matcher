@@ -1,6 +1,6 @@
 import { ColorPips } from './Mana.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
-import { IconChevron, IconClip } from './Icons.jsx'
+import { IconChevron, IconClip, IconWarn } from './Icons.jsx'
 import { frameOf } from '../lib/deckInfo.js'
 import { t, num } from '../i18n/index.js'
 import { money } from '../lib/currency.js'
@@ -75,11 +75,13 @@ export function PinnedList({ ranked, colorsOf, onOpen, onPin, owned, cedh }) {
   )
 }
 
-function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, owned, best, cedh }) {
+function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, owned, best, cedh, metric }) {
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
   const price = costText(cost, missing)
+  // senza collezione il numero grande a destra è quello dell'ordinamento scelto (quota, vittorie o costo)
+  const big = !owned && metric ? bigFigure(metric, s.deck, cost) : null
   return (
-    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}${owned ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
+    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}${owned || big ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
       <PinButton deck={s.deck} pinned={pinned} onPin={onPin} />
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
@@ -92,12 +94,12 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
           <span className={`deck-sub${s.deck.rogue ? ' deck-sub-rogue' : ''}`}>
             {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
               <span className="ds-tier"><TierBadge tier={s.deck.tier} /></span>
-              <span className="ds-share">{s.deck.share > 0 && shareText(s.deck.share)}</span>
+              <span className="ds-share">{s.deck.share > 0 && metric !== 'share' && shareText(s.deck.share)}</span>
               <span className="ds-trend"><Sparkline values={s.deck.history} /><Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} /></span>
-              <span className="ds-wr">{s.deck.metaWr != null && <span className="wr" title={t('info.wr')}>{t('wrShort', num(s.deck.metaWr))}</span>}</span>
+              <span className="ds-wr">{s.deck.metaWr != null && metric !== 'meta' && <span className="wr" title={t('info.wr')}>{t('wrShort', num(s.deck.metaWr))}</span>}</span>
               {s.deck.archetype && <span className="arch">{t('variantOf', s.deck.archetype)}</span>}
             </>}
-            {deckBans(s.deck, getCached).length > 0 && <span className="ban-chip">⚠ {t('ban.short')}</span>}
+            {deckBans(s.deck, getCached).length > 0 && <span className="ban-chip"><IconWarn size={13} />{t('ban.short')}</span>}
           </span>
           {owned ? <>
             <span className="deck-meters">
@@ -107,7 +109,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
             <span className="deck-need">
               {missing ? <><span>{t(cedh ? 'need.list' : 'need', missing)[0]}<b>{missing}</b>{t(cedh ? 'need.list' : 'need', missing)[1]}</span>{price && <span className="price">{price}</span>}</> : <span className="done">{t('haveAll')}</span>}
             </span>
-          </> : price && <span className="deck-need"><span className="price">{t('deckCost', price)}</span></span>}
+          </> : price && metric !== 'cost' && <span className="deck-need"><span className="price">{t('deckCost', price)}</span></span>}
         </span>
         {owned ? <span className="deck-score">
           <b>{pct(s.score)}<small>%</small></b>
@@ -115,6 +117,9 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
           {!cedh && <span className="deck-score-sub">{t('completeSub')}</span>}
           {s.score >= 1 && <span className="stamp stamp-ok deck-stamp" aria-hidden="true">{t('stamp.complete')}</span>}
           {best && s.score < 1 && <span className="hand-note" aria-hidden="true">{t('note.closest')}</span>}
+        </span> : big ? <span className={`deck-score deck-score-${metric}`}>
+          <b>{big.value}{big.unit && <small>{big.unit}</small>}</b>
+          <span>{big.label}</span>
         </span> : null}
         <IconChevron className="deck-go" />
       </button>
@@ -122,12 +127,20 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
   )
 }
 
-export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true, pins = [], onPin, owned = true, start = 0, bestId, cedh }) {
+// Numero grande senza collezione: il valore dell'ordinamento scelto
+function bigFigure(metric, deck, cost) {
+  if (metric === 'share') return deck.share > 0 ? { value: num(deck.share), unit: '%', label: t('big.share') } : null
+  if (metric === 'meta') return { value: deck.metaWr != null ? num(deck.metaWr) : '—', unit: deck.metaWr != null ? '%' : '', label: t('big.meta') }
+  if (metric === 'cost') return cost?.known > 0 ? { value: money(cost.amount), unit: '', label: t('big.cost') } : null
+  return null
+}
+
+export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true, pins = [], onPin, owned = true, start = 0, bestId, cedh, metric }) {
   return (
     <ol className="decks" key={animKey}>
       {ranked.map((s, i) => (
         <DeckRow key={s.deck.id} s={s} rank={s.rank ?? start + i + 1} index={Math.min(i, 8)} top={highlightFirst && i === 0}
-          colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} pinned={pins.includes(s.deck.id)} onPin={onPin} owned={owned} best={bestId === s.deck.id} cedh={cedh} />
+          colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} pinned={pins.includes(s.deck.id)} onPin={onPin} owned={owned} best={bestId === s.deck.id} cedh={cedh} metric={metric} />
       ))}
     </ol>
   )

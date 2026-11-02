@@ -277,4 +277,5 @@ export default {
   'wx.colors': 'Color climate', 'wx.colors.intro': 'How much of the meta plays each color, counting the decks’ main colors. A two-color deck counts for both, so the total is over 100%.',
   'wx.bulletin.introPrev': 'All Tier 1 and 2 decks, most played first: today’s meta share and how many points it moved since the previous update.',
   'guess.go': 'Guess',
+  'big.share': 'of the meta', 'big.meta': 'vs the meta', 'big.cost': 'full deck',
 }

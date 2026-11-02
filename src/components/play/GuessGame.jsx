@@ -82,8 +82,9 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
 
   return (
     <div className={`game game-guess${typing && !done ? ' typing' : ''}`}>
-      <p className="game-kicker">{t('guess.title')} <span className="game-format">{formatName}</span></p>
-      <h2 className="guess-status">{done ? (won ? t('guess.won', g.length) : t('guess.lost')) : t('guess.try', g.length + 1, tries)}</h2>
+      {/* niente etichetta sopra il titolo: il titolo dice il gioco e il formato, sotto a che tentativo sei */}
+      <h2 className="guess-status">{done ? (won ? t('guess.won', g.length) : t('guess.lost')) : t('guess.title')} <span className="game-format">{formatName}</span></h2>
+      {!done && <p className="game-step guess-step">{t('guess.try', g.length + 1, tries)}</p>}
       <p className="game-text">{t('guess.intro')}</p>
       <ol className="guess-cards" aria-label={t('guess.cards')}>
         {order.slice(0, tries).map((n, i) => (

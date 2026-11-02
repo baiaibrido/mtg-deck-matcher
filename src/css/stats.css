@@ -96,9 +96,7 @@
 .wx-rows li { grid-template-columns: 28px minmax(0, 1fr) auto 7.6em; }
 .wx-rows .st-name { display: flex; align-items: center; gap: 8px; }
 .wx-rows .st-name .linklike { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-.wx-sky { font-size: 1.15rem; line-height: 1; text-align: center; }
-/* le nuvole sono bianche: un filo d'ombra le fa vedere anche sulla carta chiara */
-.wx-sky, .wx-legend [aria-hidden] { filter: drop-shadow(0 0 1px rgba(0, 0, 0, .55)); }
+.wx-sky { display: grid; place-items: center; }
 .wx-num { display: inline-flex; justify-content: flex-end; align-items: baseline; gap: 6px; }
 .wx-num .st-delta { min-width: 2.6em; text-align: right; }
 .st-delta:not(.up):not(.down) { color: var(--ink-2); }

@@ -284,12 +284,12 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {(() => {
         const p = personality(collection, getCached); if (!p) return null
         const who = p.kind === 'mono' ? t('pers.mono', t(`color.${p.color}`)) : p.guild
-        return <p className="pers"><span aria-hidden="true">📣</span>{t('pers.line', who, p.pct)}
+        return <p className="pers">{p.kind === 'mono' && <i className={`ms ms-${p.color.toLowerCase()} ms-cost`} aria-hidden="true" />}{t('pers.line', who, p.pct)}
           {best && best.score > 0 && <> {t('pers.best')} <button className="linklike" onClick={() => onOpen(best.deck.id)}>{best.deck.name}</button> ({Math.round(best.score * 100)}%).</>}</p>
       })()}
       {nudge && (
         <div className="confirm backup-nudge" role="status">
-          <span className="confirm-q">💾 {t('backup.nudge')}</span>
+          <span className="confirm-q">{t('backup.nudge')}</span>
           <button className="btn" onClick={exportBackup}><IconDownload size={18} />{t('backup.now')}</button>
           <button className="btn btn-quiet" onClick={() => setBackup(b => ({ ...b, changes: 0 }))}>{t('backup.later')}</button>
         </div>

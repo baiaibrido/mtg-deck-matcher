@@ -277,4 +277,5 @@ export default {
   'wx.colors': 'El clima de los colores', 'wx.colors.intro': 'Qué parte del meta juega cada color, contando los colores principales de los mazos. Un mazo de dos colores cuenta para ambos, así que la suma supera el 100%.',
   'wx.bulletin.introPrev': 'Todos los mazos de Tier 1 y 2, del más jugado: cuota en el meta de hoy y cuántos puntos ha cambiado desde la actualización anterior.',
   'guess.go': 'Probar',
+  'big.share': 'del meta', 'big.meta': 'contra el meta', 'big.cost': 'el mazo entero',
 }

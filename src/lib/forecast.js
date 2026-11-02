@@ -18,7 +18,6 @@ export function sky(delta, then) {
   if (delta <= -0.5) return 'rain'
   return 'cloud'
 }
-export const SKY_ICON = { sun: '☀️', partly: '🌤️', cloud: '☁️', rain: '🌧️', storm: '⛈️' }
 
 // 1 · Bollettino: i mazzi di Tier 1 e 2 (o i più giocati se mancano i tier), dal più giocato
 export function bulletin(decks) {

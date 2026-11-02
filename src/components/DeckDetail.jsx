@@ -6,7 +6,7 @@ import { loadTags } from '../lib/tagsLoader.js'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton, resultText } from './DeckList.jsx'
 import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
-import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox } from './Icons.jsx'
+import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox, IconWarn } from './Icons.jsx'
 import { useSession } from '../state/useSession.js'
 import { useMedia } from '../state/useMedia.js'
 import { getCached } from '../lib/scryfall.js'
@@ -160,7 +160,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         </p>
         {/* la lista mostrata cambia ogni notte: diciamo come viene scelta */}
         {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}
-        {bans.length > 0 && <p className="note note-error">⚠ {t('ban.deck', bans.join(', '))}</p>}
+        {bans.length > 0 && <p className="note note-error note-icon"><IconWarn size={18} />{t('ban.deck', bans.join(', '))}</p>}
         </div>
         {/* con una collezione la cosa più importante è quanto manca: percentuale, barre e carte mancanti insieme */}
         {hasColl && <div className="detail-meters">
@@ -236,9 +236,14 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         {s.deck.history && s.deck.historyWeeks && <HistoryChart weeks={s.deck.historyWeeks} values={s.deck.history} />}
         <ConvLine deck={s.deck} />
         {s.deck.field && <Matchups deck={s.deck} onOpen={onOpen} idOf={idOf} />}
-        <DeckInsights deck={s.deck} decks={decks} owned={owned} onOpen={onOpen} idOf={idOf} />
+        {narrow && <DeckInsights deck={s.deck} decks={decks} owned={owned} onOpen={onOpen} idOf={idOf} />}
       </aside>}
       </div>
+
+      {/* su schermi larghi cuore della lista e side contro di te vanno sotto, a tutta larghezza: niente colonna lunga a destra e vuoto a sinistra */}
+      {hasMeta && !narrow && <div className="detail-more">
+        <DeckInsights deck={s.deck} decks={decks} owned={owned} onOpen={onOpen} idOf={idOf} />
+      </div>}
 
       {onDelete && <div className="del"><ConfirmButton className="btn btn-danger" label={t('detail.delete')} question={t('detail.confirmDelete')} yes={t('detail.deleteYes')} onConfirm={onDelete} /></div>}
     </article>

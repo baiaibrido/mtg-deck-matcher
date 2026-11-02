@@ -1,10 +1,10 @@
 import { t, num } from '../i18n/index.js'
 import { coreWithOwned, sideAgainst } from '../lib/stats.js'
-import { IconCheck } from './Icons.jsx'
+import { IconCheck, IconFlag } from './Icons.jsx'
 import { hoverProps } from './DeckDetail.jsx'
 
 // Nel dettaglio mazzo (colonna destra): conversione in top 8, cuore della lista / posti liberi, side contro di te
-export const ConvLine = ({ deck }) => deck.conv ? <p className="ins-conv">🏁 {t('ins.conv', num(deck.conv[1]), num(deck.conv[0]), num(Math.round(deck.conv[1] / deck.conv[0] * 10) / 10))}</p> : null
+export const ConvLine = ({ deck }) => deck.conv ? <p className="ins-conv"><IconFlag size={16} />{t('ins.conv', num(deck.conv[1]), num(deck.conv[0]), num(Math.round(deck.conv[1] / deck.conv[0] * 10) / 10))}</p> : null
 
 export default function DeckInsights({ deck, decks, owned, onOpen, idOf }) {
   const cw = coreWithOwned(deck, owned)

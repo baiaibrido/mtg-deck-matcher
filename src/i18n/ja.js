@@ -275,4 +275,5 @@ export default {
   'wx.colors': '色の気候', 'wx.colors.intro': '各色を使っているメタの割合（デッキのメインカラーで計算）。2色のデッキは両方に数えるため、合計は100%を超えます。',
   'wx.bulletin.introPrev': 'Tier 1と2のすべてのデッキ（使用率順）：現在の使用率と、前回の更新からの変化。',
   'guess.go': '回答',
+  'big.share': 'メタ使用率', 'big.meta': '対メタ勝率', 'big.cost': 'デッキ全体',
 }

@@ -278,4 +278,5 @@ export default {
   'wx.colors': 'O clima das cores', 'wx.colors.intro': 'Que parte do meta joga cada cor, contando as cores principais dos decks. Um deck de duas cores conta para ambas, por isso a soma passa dos 100%.',
   'wx.bulletin.introPrev': 'Todos os decks de Tier 1 e 2, do mais jogado: quota no meta de hoje e quantos pontos mudou desde a atualização anterior.',
   'guess.go': 'Tentar',
+  'big.share': 'do meta', 'big.meta': 'contra o meta', 'big.cost': 'o deck inteiro',
 }

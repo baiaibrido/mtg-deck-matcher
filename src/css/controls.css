@@ -238,3 +238,19 @@ input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; app
 :is(.seg > button, .theme-btn, .picker-btn, .pin-btn, .stepper button, .btn-del, .info-btn, .modal-x, .to-top, .own-btn, .almost-x, .switch, .weather-more):active:not(:disabled) { transform: scale(.97); }
 :is(.seg > button, .theme-btn, .picker-btn, .pin-btn, .stepper button, .btn-del, .info-btn, .modal-x, .to-top, .own-btn, .almost-x, .weather-more) { transition-property: color, background-color, border-color, box-shadow, opacity, transform; transition-duration: .15s, .15s, .15s, .15s, .15s, .12s; transition-timing-function: ease, ease, ease, ease, ease, var(--ease); }
 .tabbar a:active, .guess-sugg button:active, .picker-list li:active { background: var(--bar); }
+
+/* ── Icone disegnate al posto delle emoji: il tempo prende il colore dello stato ── */
+.sky { flex: none; }
+.sky-sun, .sky-partly { color: var(--part); }
+.sky-cloud { color: var(--ink-2); }
+.sky-rain { color: var(--ribbon); }
+.sky-storm { color: var(--no-ink); }
+.chili { flex: none; color: var(--mana-r); }
+.almost-icon { flex: none; color: var(--ribbon); }
+.ban-chip svg { flex: none; }
+.note-icon { display: flex; align-items: flex-start; gap: var(--s2); }
+.note-icon svg { flex: none; margin-top: 2px; }
+.warn-title { display: inline-flex; align-items: center; gap: 6px; }
+.today-streak { display: inline-flex; align-items: center; gap: 2px; }
+.today-streak svg { color: var(--mana-r); }
+.wx-legend > span { display: inline-flex; align-items: center; gap: 4px; }

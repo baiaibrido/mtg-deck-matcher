@@ -135,7 +135,8 @@
 .hist-tip { position: absolute; top: 0; transform: translateX(-50%); padding: 4px 10px; border-radius: 2px; background: var(--ink); color: var(--paper); font: 700 var(--fs-sm)/1.3 var(--font-ui); white-space: nowrap; pointer-events: none; }
 
 /* conversione in top 8 */
-.ins-conv { margin-top: var(--s3); padding: var(--s2) var(--s3); border-radius: var(--r); background: var(--paper); color: var(--ink); font-size: var(--fs-md); }
+.ins-conv { display: flex; align-items: baseline; gap: var(--s2); margin-top: var(--s3); color: var(--ink); font-size: var(--fs-md); }
+.ins-conv svg { flex: none; translate: 0 2px; color: var(--ink-2); }
 
 /* matchup: barra divergente attorno al 50% */
 .mu-head { display: grid; gap: var(--s1); margin-bottom: var(--s3); }
@@ -175,3 +176,8 @@
 .ins-own.no { color: var(--no-ink); }
 
 @media (prefers-reduced-motion: reduce) { .detail { animation: none !important; } }
+
+/* sotto la lista, a tutta larghezza (da 900px): cuore della lista e side contro di te affiancati */
+.detail-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); align-items: stretch; margin-top: var(--s5); } /* i due fogli finiscono alla stessa altezza */
+.detail-more > .ins { padding: 0 var(--s5) var(--s5); border: 1px solid var(--line); border-top: 2px solid var(--ink); border-radius: 0 0 var(--r-lg) var(--r-lg); background: var(--sheet) var(--grain); }
+.detail-more > .ins > h2 { margin: 0 calc(-1 * var(--s5)) var(--s3); padding: 10px var(--s5) 9px; border-bottom: 1px solid var(--line); background: var(--bar); font: 1.125rem/1.25 var(--font-title); }

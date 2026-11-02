@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { t, num } from '../i18n/index.js'
 import { ColorPips } from './Mana.jsx'
 import { Info } from './Badges.jsx'
-import { IconChevron } from './Icons.jsx'
+import { IconChevron, IconSearch, IconQuestion, IconFlame } from './Icons.jsx'
+import SkyIcon from './SkyIcon.jsx'
 import { getCached } from '../lib/scryfall.js'
 import { dayKey, untilMidnight, hash } from '../lib/daily.js'
 import { useLocal } from '../state/useLocal.js'
@@ -32,9 +33,9 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
       {weather && <div className="today-weather">
         <span className="today-label">{t('today.weather')} <Info text={t('info.weather')} label={t('info.label')} /></span>
         <ul>
-          {weather.up && <li><span aria-hidden="true">☀️</span><span className="weather-word">{t('weather.up')}</span> {link(weather.up.d)} <span className="trend trend-up">+{num(weather.up.delta)}</span></li>}
-          {weather.down && <li><span aria-hidden="true">⛈️</span><span className="weather-word">{t('weather.down')}</span> {link(weather.down.d)} <span className="trend trend-down">−{num(Math.abs(weather.down.delta))}</span></li>}
-          <li className="weather-top"><span aria-hidden="true">🌤️</span><span className="weather-word">{t('weather.top')}</span> {link(weather.top)} <span className="weather-share">{num(weather.top.share)}%</span></li>
+          {weather.up && <li><SkyIcon sky="sun" size={18} /><span className="weather-word">{t('weather.up')}</span> {link(weather.up.d)} <span className="trend trend-up">+{num(weather.up.delta)}</span></li>}
+          {weather.down && <li><SkyIcon sky="storm" size={18} /><span className="weather-word">{t('weather.down')}</span> {link(weather.down.d)} <span className="trend trend-down">−{num(Math.abs(weather.down.delta))}</span></li>}
+          <li className="weather-top"><SkyIcon sky="partly" size={18} /><span className="weather-word">{t('weather.top')}</span> {link(weather.top)} <span className="weather-share">{num(weather.top.share)}%</span></li>
         </ul>
         {onWeather && <button className="weather-more" onClick={onWeather}>{t('wx.open')} <IconChevron size={14} /></button>}
       </div>}
@@ -53,7 +54,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
               {signature && <small className="today-sub mystery-sig">{t('daily.sig', signature)}</small>}
               <small className="today-sub">
                 {daily.rogue ? <span>{t('rogue.results', daily.results)}</span> : daily.share > 0 && <span>{t('daily.share', num(daily.share))}</span>}
-                {streak >= 2 && <span className="today-streak" title={t('streak.title')}>🔥 {streak}</span>}
+                {streak >= 2 && <span className="today-streak" title={t('streak.title')}><IconFlame size={14} /> {streak}</span>}
                 <span className="today-timer">{t('daily.changes', left.h, left.m)}</span>
               </small>
             </span>
@@ -62,7 +63,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
         </li>}
         <li className="today-cell-guess">
           <button className="today-item" onClick={() => onGame('guess')}>
-            <span className="today-icon" aria-hidden="true">🔎</span>
+            <span className="today-icon" aria-hidden="true"><IconSearch size={22} /></span>
             <span className="today-text">
               <b>{t('guess.btn')}{' '}{guess ? <span className="pill-badge">{guess}</span> : <span className="pill-new">{t('guess.new')}</span>}</b>
               <small className="today-sub">{t('guess.sub')}</small>
@@ -72,7 +73,7 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
         </li>
         <li className="today-cell-quiz">
           <button className="today-item" onClick={() => onGame('quiz')}>
-            <span className="today-icon" aria-hidden="true">🪞</span>
+            <span className="today-icon" aria-hidden="true"><IconQuestion size={22} /></span>
             <span className="today-text">
               <b>{t('quiz.btn')}</b>
               <small className="today-sub">{t('quiz.sub')}</small>

@@ -9,7 +9,7 @@ import DeckList, { PinnedList } from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
-import { IconClip, IconFilter, IconChevron } from '../components/Icons.jsx'
+import { IconClip, IconFilter, IconChevron, IconTarget, IconChili } from '../components/Icons.jsx'
 import { useMedia } from '../state/useMedia.js'
 
 const STALE_DAYS = 3
@@ -82,7 +82,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     const dy = f.top - el.getBoundingClientRect().top
     el.animate([{ transform: `translateY(${dy}px)`, zIndex: 5 }, { transform: 'none', zIndex: 5 }], { duration: Math.min(900, 380 + Math.abs(dy) / 3), easing: 'cubic-bezier(.2,.7,.2,1)' })
   }, [pins])
-  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: pinWithMotion, owned, bestId: best?.deck.id, cedh }
+  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: pinWithMotion, owned, bestId: best?.deck.id, cedh, metric: owned ? null : view.sort }
 
   const listMeta = (() => { // «50 mazzi, aggiornati il [18 OTT]»: la data è un timbro datario
     const n = metaMain.filter(d => d.source !== 'utente').length
@@ -105,7 +105,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
         </>}
         {almost && (
           <p className="almost">
-            <span aria-hidden="true">🎯</span>
+            <IconTarget size={18} className="almost-icon" />
             <span>{t('almost.line', almost.n)} <button className="linklike" onClick={() => go('deck', almost.s.deck.id)}>{almost.s.deck.name}</button>{costOf(almost.s).amount > 0 ? ` (≈ ${money(costOf(almost.s).amount, true)})` : ''}</span>
             <button className="almost-x" onClick={() => onHideAlmost(almost.s.deck.id)} aria-label={t('almost.hide')} title={t('almost.hide')}>×</button>
           </p>
@@ -158,7 +158,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     {meta && decks.length > 0 && <div className="list-meta" id="deck-list" tabIndex={-1}>
       <p>{listMeta}</p>
       {rogueShown.length > 0 && <button className="btn btn-quiet rogue-jump" onClick={() => scrollToId('rogue-title')}>
-        <span aria-hidden="true">🌶</span><span className="lbl-long">{t('rogue.jump', rogueShown.length)}</span><span className="lbl-short" aria-hidden="true">{t('rogue.jumpS', rogueShown.length)}</span>
+        <IconChili size={18} className="chili" /><span className="lbl-long">{t('rogue.jump', rogueShown.length)}</span><span className="lbl-short" aria-hidden="true">{t('rogue.jumpS', rogueShown.length)}</span>
         <IconChevron size={16} className="rogue-jump-go" />
       </button>}
     </div>}
@@ -184,7 +184,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     {rogueShown.length > 0 && (
       <section className="rogue" aria-labelledby="rogue-title">
         <header className="rogue-head">
-          <h2 id="rogue-title" tabIndex={-1}><span aria-hidden="true">🌶</span> {t('rogue.title')}</h2>
+          <h2 id="rogue-title" tabIndex={-1}><IconChili size={22} className="chili" /> {t('rogue.title')}</h2>
           <p>{t('rogue.intro', metaMain.length)}</p>
         </header>
         <DeckList ranked={rogueShown} animKey={format + 'rogue'} {...listProps} />

@@ -19,6 +19,7 @@ import TodayCard from './components/TodayCard.jsx'
 import Modal from './components/Modal.jsx'
 import { TopBar, TabBar, FormatTabs, ToTop, SiteFooter, ToastZone } from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
+import { IconWarn } from './components/Icons.jsx'
 import { useAccount } from './state/useAccount.js'
 import { AccountPanel } from './components/Account.jsx'
 
@@ -140,7 +141,7 @@ export default function App() {
   useEffect(() => { if (seenBans === null && covered && collection.length) setSeenBans(bans.next) }, [covered, seenBans, collection.length])
   const banNotice = bans.fresh.length > 0 && (
     <div className="callout callout-ban" role="status">
-      <div><b>⚠ {t('ban.newTitle')}</b>
+      <div><b className="warn-title"><IconWarn size={18} /> {t('ban.newTitle')}</b>
         <ul>{bans.fresh.map(b => <li key={b.name}>{t('ban.newItem', b.name, formatList(b.formats))}</li>)}</ul>
       </div>
       <button className="btn" onClick={() => setSeenBans(bans.next)}>{t('ban.dismiss')}</button>

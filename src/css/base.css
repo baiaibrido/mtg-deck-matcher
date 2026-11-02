@@ -7,7 +7,7 @@ body {
   color: var(--ink); background: var(--paper) var(--grain);
   font: 400 var(--fs-body)/1.5 var(--font-ui);
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  font-variant-numeric: lining-nums;
+  font-variant-numeric: lining-nums tabular-nums; /* le cifre hanno tutte la stessa larghezza: i numeri restano in colonna */
 }
 h1, h2, h3, h4, p, figure, dl, dd { margin: 0; }
 h1, h2, h3, h4 { font-weight: 400; }
@@ -74,3 +74,10 @@ button, a, [role="button"], summary, label, select { touch-action: manipulation;
 button, [role="button"], [role="tab"], [role="option"], summary, .tabbar a, .nav-top a, .chip { -webkit-user-select: none; user-select: none; }
 .tabbar a, .nav-top a, .brand { -webkit-touch-callout: none; }
 @media (pointer: coarse) { input, textarea, select { font-size: max(16px, 1em); } }
+
+/* ── Superfici del browser nei colori del sito ── */
+html { scrollbar-color: var(--line-2) var(--paper); accent-color: var(--ribbon); }
+input, textarea { caret-color: var(--ribbon); }
+/* titoli bilanciati, paragrafi senza parole sole sull'ultima riga */
+h1, h2, h3 { text-wrap: balance; }
+p, li, figcaption, dd { text-wrap: pretty; }

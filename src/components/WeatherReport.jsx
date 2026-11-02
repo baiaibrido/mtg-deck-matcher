@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react'
 import { t, num, dayMonth } from '../i18n/index.js'
-import { bulletin, winds, arrivals, colorClimate, SKY_ICON } from '../lib/forecast.js'
+import { bulletin, winds, arrivals, colorClimate } from '../lib/forecast.js'
 import { WEATHER_WEEKS } from '../lib/fun.js'
 import { colorName } from '../lib/deckInfo.js'
 import { ColorPips } from './Mana.jsx'
 import Spark from './Spark.jsx'
+import SkyIcon from './SkyIcon.jsx'
 
 const SHOW = 12 // righe del bollettino prima di «Mostra tutti»
 const SKIES = ['sun', 'partly', 'cloud', 'rain', 'storm']
@@ -35,11 +36,11 @@ export default function WeatherReport({ decks, colorsOf, onOpen }) {
       <section className="panel wx-bulletin">
         <h2>{t('wx.bulletin')}</h2>
         <p className="st-note">{t(hist ? 'wx.bulletin.intro' : 'wx.bulletin.introPrev')}</p>
-        <p className="wx-legend">{SKIES.map(k => <span key={k}><span aria-hidden="true">{SKY_ICON[k]}</span> {t(`wx.sky.${k}`)}</span>)}</p>
+        <p className="wx-legend">{SKIES.map(k => <span key={k}><SkyIcon sky={k} size={18} /> {t(`wx.sky.${k}`)}</span>)}</p>
         <ul className="st-rows wx-rows">
           {(all ? rows : rows.slice(0, SHOW)).map(x => (
             <li key={x.d.id}>
-              <span className="wx-sky" role="img" aria-label={t(`wx.sky.${x.sky}`)}>{SKY_ICON[x.sky]}</span>
+              <span className="wx-sky" role="img" aria-label={t(`wx.sky.${x.sky}`)}><SkyIcon sky={x.sky} /></span>
               <span className="st-name">{link(x.d)} <ColorPips colors={colorsOf(x.d)} /></span>
               {x.series ? <Spark values={x.series} className={x.delta > 0 ? 'up' : x.delta < 0 ? 'down' : ''} /> : <span />}
               <span className="st-num wx-num">{num(x.now)}% {delta(x.delta)}</span>

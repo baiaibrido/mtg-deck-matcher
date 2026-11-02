@@ -31,11 +31,10 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
     const sig = signatureOf(res.d, decks, isLand)
     return (
       <div className="game quiz-res">
-        <p className="game-kicker">{t('quiz.you')}</p>
         <div className="quiz-reveal">
           {sig && <CardFace name={sig} className="quiz-card" />}
           <div>
-            <h2 className="quiz-deck">{res.d.name}</h2>
+            <h2 className="quiz-deck">{t('quiz.you')} {res.d.name}</h2>
             <ColorPips colors={colorsOf(res.d)} size="1.1rem" />
             <p className="game-text">{t('quiz.why', t(`quiz.speed.${res.p.cmc < 2.2 ? 'fast' : res.p.cmc < 2.9 ? 'mid' : 'slow'}`).toLowerCase(), num(Math.round(res.p.crea * 100)), money(res.p.price))}</p>
           </div>
@@ -50,8 +49,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
   const [k, opts, icons] = QS[step]
   return (
     <div className="game">
-      <p className="game-kicker">{t('quiz.title')}</p>
-      <div className="quiz-progress"><span className="quiz-bar" aria-hidden="true"><span style={{ width: `${(step + 1) / QS.length * 100}%` }} /></span><span className="game-step">{step + 1} / {QS.length}</span></div>
+      <div className="quiz-progress"><span className="quiz-name">{t('quiz.title')}</span><span className="quiz-bar" aria-hidden="true"><span style={{ width: `${(step + 1) / QS.length * 100}%` }} /></span><span className="game-step">{step + 1} / {QS.length}</span></div>
       <div className="quiz-q" key={k}>
         <h2 className="quiz-ask">{t(`quiz.${k}`)}</h2>
         <div className={`quiz-opts${k === 'color' ? ' quiz-colors' : ''}`}>

@@ -14,7 +14,7 @@
 /* il meteo come le altre celle: le icone (sole, temporale, sereno) nella colonna delle icone, i testi allineati ai titoli */
 .today-label { margin-left: 38px; display: flex; align-items: center; gap: 6px; margin-bottom: 2px; color: var(--ink); font: 700 var(--fs-ctl)/1.3 var(--font-ui); }
 .today-weather ul { display: grid; gap: 1px; margin: 0; padding: 0; list-style: none; color: var(--ink-2); font-size: var(--fs-md); line-height: 1.35; }
-.today-weather li { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.today-weather li { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .today-weather li > [aria-hidden]:first-child { flex: none; width: 28px; margin-right: 4px; text-align: center; }
 .today-weather .linklike { overflow: hidden; color: var(--ink); text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .weather-word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } /* l'emoji lo dice a chi vede; il testo resta per chi ascolta */
@@ -63,7 +63,7 @@
 .mystery-sig { display: block; overflow: hidden; font-style: italic; text-overflow: ellipsis; white-space: nowrap; }
 .today-timer { color: var(--part); font-variant-numeric: tabular-nums; }
 .today-streak { color: var(--ink); }
-.today-dot { display: inline-block; margin-right: 6px; vertical-align: 2px; width: 7px; height: 7px; border-radius: 50%; background: var(--no); animation: today-ping 1.6s ease-out infinite; }
+.today-dot { display: inline-block; margin-right: 6px; vertical-align: 2px; width: 7px; height: 7px; border-radius: 50%; background: var(--no); animation: today-ping 1.6s ease-out 3; } /* tre impulsi e poi fermo: segnala il mazzo nuovo senza agitarsi per sempre */
 @keyframes today-ping { 0% { box-shadow: 0 0 0 0 var(--no); } 70%, 100% { box-shadow: 0 0 0 6px transparent; } }
 
 /* telefono: titolo, meteo in una riga, poi le tre voci una sotto l'altra */
@@ -215,7 +215,7 @@
 .deck > .pin-btn { position: absolute; z-index: 2; top: 50%; right: var(--s2); translate: 0 -50%; }
 
 @media (max-width: 719px) {
-  .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr) 4.75rem; gap: 10px; padding: var(--s3) var(--s2); }
+  .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr) 4.75rem; gap: 10px; padding: var(--s3) var(--s4) var(--s3) var(--s2); } /* il numero a destra non tocca il bordo */
   .deck-plain .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr); }
   .deck-plain :is(.deck-title, .deck-sub) { padding-right: 44px; } /* senza percentuale nome e dati non passano sotto la graffetta */
   .deck-score { align-self: end; }
@@ -254,7 +254,7 @@
 @keyframes pinned-glow { 0%, 35% { background: color-mix(in oklab, var(--ribbon) 22%, var(--sheet)); } 100% { background: inherit; } }
 .rogue { margin-top: var(--s7); }
 .rogue-head { max-width: 62ch; margin-bottom: var(--s4); }
-.rogue-head h2 { font: var(--fs-xl)/1.2 var(--font-title); letter-spacing: -.005em; }
+.rogue-head h2 { display: flex; align-items: center; gap: 8px; font: var(--fs-xl)/1.2 var(--font-title); letter-spacing: -.005em; }
 .rogue-head p { margin-top: var(--s2); color: var(--ink-2); }
 .today-inline { margin: var(--s4) 0; }
 
@@ -281,3 +281,7 @@
 /* righe toccabili (mazzi, preferiti, «Oggi nel meta»): sfondo mentre il dito è sopra */
 :is(.deck, .pin-row):active { background: color-mix(in oklab, var(--ribbon) 12%, var(--sheet)); }
 .today-item:active { background: color-mix(in oklab, var(--ribbon) 10%, transparent); }
+
+/* senza collezione: il numero dell'ordinamento scelto (il costo è più lungo, quindi più piccolo) */
+.deck-score-cost b { font-size: 1.85rem; white-space: nowrap; }
+@media (max-width: 719px) { .deck-score-cost b { font-size: 1.15rem; } .deck-score-share b, .deck-score-meta b { font-size: 1.65rem; } }
