@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { t } from '../i18n/index.js'
 import { getCached } from '../lib/scryfall.js'
-import { unlockedNow, ACHIEVEMENTS } from '../lib/fun.js'
+import { unlockedNow } from '../lib/fun.js'
 
 // Traguardi: registra formati visitati, mazzi completati e aperti, e avvisa (una volta) dei nuovi traguardi.
 // Tutto resta su questo dispositivo (mdm.fun).
@@ -29,6 +29,6 @@ export function useFunTracking({ fun, bumpFun, format, collection, ranked, almos
     if (!fresh.length) return
     const today = new Date().toISOString().slice(0, 10)
     bumpFun(f => ({ unlocked: { ...(f.unlocked || {}), ...Object.fromEntries(fresh.map(id => [id, today])) } }))
-    if (had) toast(t('ach.toast', t(`ach.${fresh[0]}`), ACHIEVEMENTS.find(a => a.id === fresh[0]).icon))
+    if (had) toast(t('ach.toast', t(`ach.${fresh[0]}`)))
   }, [unlockedIds])
 }

@@ -4,7 +4,7 @@ import { norm } from '../../lib/normalize.js'
 import { dayKey } from '../../lib/daily.js'
 import { guessDeck, revealOrder, shareGrid, GUESS_TRIES } from '../../lib/fun.js'
 import CardFace from './CardFace.jsx'
-import { IconShare } from '../Icons.jsx'
+import { IconShare, IconCheck, IconCross } from '../Icons.jsx'
 
 const touch = typeof matchMedia !== 'undefined' && matchMedia('(pointer: coarse)').matches
 const MAX_SUGG = 8
@@ -113,7 +113,7 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
         </div>
       ) : (
         <div className="guess-done">
-          <p className={won ? 'guess-win' : 'guess-lose'}>{won ? '🎉 ' : ''}{t('guess.answer')} <b>{deck.name}</b></p>
+          <p className={won ? 'guess-win' : 'guess-lose'}>{t('guess.answer')} <b>{deck.name}</b></p>
           <div className="game-actions">
             <button className="btn btn-primary" onClick={() => onGo(deck.id)}>{t('guess.open')}</button>
             <button className="btn" onClick={share}><IconShare size={18} />{t('guess.share')}</button>
@@ -122,7 +122,7 @@ export default function GuessGame({ decks, format, formatName, isLand, onWin, on
         </div>
       )}
       {g.length > 0 && <ul className="guess-tried" aria-label={t('guess.tried')}>
-        {g.map(n => <li key={n} className={n === deck.name ? 'ok' : 'no'}>{n === deck.name ? '✓' : '✗'} {n}</li>)}
+        {g.map(n => <li key={n} className={n === deck.name ? 'ok' : 'no'}>{n === deck.name ? <IconCheck size={14} /> : <IconCross size={14} />} {n}</li>)}
       </ul>}
     </div>
   )

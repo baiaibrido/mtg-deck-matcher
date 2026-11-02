@@ -135,7 +135,7 @@ export default {
   'quiz.you': 'Seu deck é', 'quiz.why': (sp, c, p) => `Ritmo ${sp}, ${c}% de criaturas, custo total cerca de ${p}.`, 'quiz.open': 'Abrir o deck', 'quiz.again': 'Refazer o quiz',
   'quiz.none': 'Os dados das cartas ainda estão carregando: tente de novo em instantes.',
   'ach.title': 'Conquistas', 'ach.count': (a, b) => `${a} de ${b}`, 'ach.hint': 'Desbloqueadas usando o site. Salvas só neste dispositivo.', 'ach.on': 'desbloqueada', 'ach.off': 'a desbloquear',
-  'ach.toast': (n, i) => `${i} Conquista: ${n}`,
+  'ach.toast': n => `Conquista desbloqueada: ${n}`,
   'ach.first': 'Primeiros passos', 'ach.first.d': 'Adicione a primeira carta à coleção', 'ach.c100': 'Cem cartas', 'ach.c100.d': '100 cartas na coleção', 'ach.c1000': 'Biblioteca', 'ach.c1000.d': '1000 cartas na coleção',
   'ach.color': 'Fiel à sua cor', 'ach.color.d': '100 cartas de uma só cor', 'ach.complete': 'Pronto para jogar', 'ach.fan': 'Tenho meus favoritos', 'ach.fan.d': 'Fixe 3 decks nos favoritos', 'ach.explorer': 'Explorador', 'ach.explorer.d': 'Abra 7 decks misteriosos do dia',
   'ach.streak': 'Pegando fogo', 'ach.streak.d': 'Abra o deck misterioso 5 dias seguidos', 'ach.detective': 'Detetive', 'ach.detective.d': 'Adivinhe um deck',

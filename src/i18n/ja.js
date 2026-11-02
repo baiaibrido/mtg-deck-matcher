@@ -132,7 +132,7 @@ export default {
   'quiz.you': 'あなたのデッキは', 'quiz.why': (sp, c, p) => `ペース：${sp}、クリーチャー${c}%、総額約${p}。`, 'quiz.open': 'デッキを開く', 'quiz.again': 'もう一度',
   'quiz.none': 'カードのデータを読み込み中です。少し待ってからお試しください。',
   'ach.title': '実績', 'ach.count': (a, b) => `${b}個中${a}個`, 'ach.hint': 'サイトを使うと解除されます。この端末にだけ保存されます。', 'ach.on': '解除済み', 'ach.off': '未解除',
-  'ach.toast': (n, i) => `${i} 実績解除：${n}`,
+  'ach.toast': n => `実績解除：${n}`,
   'ach.first': 'はじめの一歩', 'ach.first.d': 'コレクションに最初のカードを追加', 'ach.c100': '100枚', 'ach.c100.d': 'コレクション100枚', 'ach.c1000': '図書館', 'ach.c1000.d': 'コレクション1000枚',
   'ach.color': '一色に忠実', 'ach.color.d': '単色のカード100枚', 'ach.complete': '準備完了', 'ach.fan': 'お気に入りあり', 'ach.fan.d': 'デッキを3つお気に入りに', 'ach.explorer': '探検家', 'ach.explorer.d': '今日のミステリーデッキを7回開く',
   'ach.streak': '絶好調', 'ach.streak.d': 'ミステリーデッキを5日連続で開く', 'ach.detective': '名探偵', 'ach.detective.d': 'デッキを当てる',

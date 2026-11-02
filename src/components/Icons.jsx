@@ -56,3 +56,5 @@ export const IconFlag = p => <I {...p} d={<><path d="M5 21V4" /><path d="M5 4.5h
 export const IconTarget = p => <I {...p} d={<><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.5" /><circle cx="12" cy="12" r=".8" fill="currentColor" /></>} />
 export const IconFlame = p => <I {...p} d={<path d="M12 3c.9 3.6 5.8 5.3 5.8 10.6a5.8 5.8 0 0 1-11.6 0c0-2.8 1.5-4.4 2.9-5.8.3 1.9 1.1 2.9 2.2 3.1C10.6 8.3 11 5.4 12 3z" />} />
 export const IconQuestion = p => <I {...p} d={<><circle cx="12" cy="12" r="9" /><path d="M9.6 9.4a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1.1 1-1.1 1.8" /><path d="M12 16.8h.01" /></>} />
+export const IconBase = I // per le icone dei giochi (GameIcons.jsx), stesso tratto
+export const IconCross = p => <I {...p} d={<path d="M6 6l12 12M18 6 6 18" />} />

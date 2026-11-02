@@ -134,7 +134,7 @@ export default {
   'quiz.you': 'Tu mazo es', 'quiz.why': (sp, c, p) => `Ritmo ${sp}, ${c}% de criaturas, coste completo unos ${p}.`, 'quiz.open': 'Abrir el mazo', 'quiz.again': 'Repetir el quiz',
   'quiz.none': 'Aún faltan los datos de las cartas: inténtalo en un momento.',
   'ach.title': 'Logros', 'ach.count': (a, b) => `${a} de ${b}`, 'ach.hint': 'Se desbloquean usando el sitio. Se guardan solo en este dispositivo.', 'ach.on': 'desbloqueado', 'ach.off': 'por desbloquear',
-  'ach.toast': (n, i) => `${i} Logro: ${n}`,
+  'ach.toast': n => `Logro desbloqueado: ${n}`,
   'ach.first': 'Primeros pasos', 'ach.first.d': 'Añade la primera carta a la colección', 'ach.c100': 'Cien cartas', 'ach.c100.d': '100 cartas en la colección', 'ach.c1000': 'Biblioteca', 'ach.c1000.d': '1000 cartas en la colección',
   'ach.color': 'Fiel a tu color', 'ach.color.d': '100 cartas de un solo color', 'ach.complete': 'Listo para jugar', 'ach.fan': 'Tengo mis favoritos', 'ach.fan.d': 'Fija 3 mazos en favoritos', 'ach.explorer': 'Explorador', 'ach.explorer.d': 'Abre 7 mazos misteriosos del día',
   'ach.streak': 'En racha', 'ach.streak.d': 'Abre el mazo misterioso 5 días seguidos', 'ach.detective': 'Detective', 'ach.detective.d': 'Adivina un mazo',

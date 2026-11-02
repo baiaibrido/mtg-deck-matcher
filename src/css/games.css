@@ -38,7 +38,7 @@
 .guess-input { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s2); }
 .guess-input .guess-sugg-inline { grid-column: 1 / -1; }
 .guess-tried { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.guess-tried li { padding: 2px 10px; border-radius: 2px; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); font-size: var(--fs-sm); }
+.guess-tried li { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; border-radius: 2px; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); font-size: var(--fs-sm); }
 .guess-tried li.ok { color: var(--ok); box-shadow: inset 0 0 0 1.5px var(--ok); }
 .guess-tried li.no { text-decoration: line-through; text-decoration-color: color-mix(in oklab, var(--no) 60%, transparent); }
 .guess-done { display: grid; justify-items: center; gap: var(--s2); }
@@ -72,6 +72,9 @@
 .quiz-opt:focus-visible { border-color: var(--ink); background: var(--bar); }
 @media (hover: hover) and (pointer: fine) { .quiz-opt:hover { border-color: var(--ink); background: var(--bar); } }
 .quiz-opt > span:first-child, .quiz-opt > i { flex: none; width: 1.4em; font-size: 1.25rem; text-align: center; }
+.quiz-ic { display: grid; place-items: center; color: var(--ink-2); }
+.quiz-opt:focus-visible .quiz-ic { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .quiz-opt:hover .quiz-ic { color: var(--ink); } }
 @keyframes opt-in { from { opacity: 0; transform: translateY(8px); } }
 .quiz-res { animation: q-in .35s var(--ease); }
 .quiz-reveal { display: grid; grid-template-columns: 130px minmax(0, 1fr); align-items: center; gap: var(--s5); margin: var(--s2) 0 var(--s1); text-align: left; }

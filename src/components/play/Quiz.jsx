@@ -4,15 +4,16 @@ import { quizMatch } from '../../lib/fun.js'
 import { signatureOf } from '../../lib/daily.js'
 import { money } from '../../lib/currency.js'
 import { ColorPips } from '../Mana.jsx'
+import { QuizIcon } from '../GameIcons.jsx'
 import CardFace from './CardFace.jsx'
 
 // Che mazzo sei?: 5 domande una alla volta, poi il mazzo del meta più vicino alle risposte
 const QS = [
-  ['speed', ['fast', 'mid', 'slow'], { fast: '⚡', mid: '⚖️', slow: '🐢' }],
-  ['style', ['crea', 'spells', 'mix'], { crea: '🐺', spells: '✨', mix: '🎲' }],
+  ['speed', ['fast', 'mid', 'slow']],
+  ['style', ['crea', 'spells', 'mix']],
   ['color', ['W', 'U', 'B', 'R', 'G', 'any'], {}],
-  ['budget', [50, 150, 0], { 50: '🪙', 150: '💰', 0: '💎' }],
-  ['pop', ['meta', 'off', 'any'], { meta: '🏟️', off: '🌶️', any: '🤷' }],
+  ['budget', [50, 150, 0]],
+  ['pop', ['meta', 'off', 'any']],
 ]
 export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone }) {
   const [step, setStep] = useState(0)
@@ -46,7 +47,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
       </div>
     )
   }
-  const [k, opts, icons] = QS[step]
+  const [k, opts] = QS[step]
   return (
     <div className="game">
       <div className="quiz-progress"><span className="quiz-name">{t('quiz.title')}</span><span className="quiz-bar" aria-hidden="true"><span style={{ width: `${(step + 1) / QS.length * 100}%` }} /></span><span className="game-step">{step + 1} / {QS.length}</span></div>
@@ -55,7 +56,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
         <div className={`quiz-opts${k === 'color' ? ' quiz-colors' : ''}`}>
           {opts.map((v, i) => (
             <button key={v} className="quiz-opt" style={{ '--i': i }} onClick={() => answer(k, v)}>
-              {k === 'color' && v !== 'any' ? <i className={`ms ms-${v.toLowerCase()} ms-cost`} aria-hidden="true" /> : <span aria-hidden="true">{icons[v] || '🌈'}</span>}
+              {k === 'color' && v !== 'any' ? <i className={`ms ms-${v.toLowerCase()} ms-cost`} aria-hidden="true" /> : <span className="quiz-ic" aria-hidden="true"><QuizIcon q={k} v={v} /></span>}
               {label(k, v)}
             </button>
           ))}
