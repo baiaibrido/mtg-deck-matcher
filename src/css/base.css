@@ -1,7 +1,7 @@
 /* ═══════════ Base: carta, testo, utilità ═══════════ */
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(var(--head-h, 64px) + var(--s3)); }
+html { -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(var(--head-h, 64px) + var(--s3)); }
 body {
   margin: 0; min-height: 100vh; min-height: 100dvh;
   color: var(--ink); background: var(--paper) var(--grain);
@@ -14,7 +14,7 @@ h1, h2, h3, h4 { font-weight: 400; }
 button, input, textarea, select { font: inherit; color: inherit; }
 img, svg { vertical-align: middle; }
 a { color: var(--ribbon); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:hover { text-decoration-thickness: 2px; }
+@media (hover: hover) and (pointer: fine) { a:hover { text-decoration-thickness: 2px; } }
 b, strong { font-weight: 700; }
 ::placeholder { color: var(--placeholder); opacity: 1; } /* 5,5:1 */
 ::selection { background: var(--marker); color: var(--hl-ink); } /* il testo selezionato è evidenziato */
@@ -34,7 +34,7 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
   padding: 0; border: 0; background: none; color: var(--ribbon); font: inherit; cursor: pointer;
   text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
 }
-.linklike:hover { text-decoration-thickness: 2px; }
+@media (hover: hover) and (pointer: fine) { .linklike:hover { text-decoration-thickness: 2px; } }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
 
 /* testi di servizio */
@@ -66,3 +66,11 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* ── Telefono: tocchi da app, non da sito ──
+   niente ritardo sul tocco (doppio tocco per lo zoom), niente selezione del testo tenendo premuto su un comando,
+   campi a 16 px così iPhone non ingrandisce la pagina quando li tocchi */
+button, a, [role="button"], summary, label, select { touch-action: manipulation; }
+button, [role="button"], [role="tab"], [role="option"], summary, .tabbar a, .nav-top a, .chip { -webkit-user-select: none; user-select: none; }
+.tabbar a, .nav-top a, .brand { -webkit-touch-callout: none; }
+@media (pointer: coarse) { input, textarea, select { font-size: max(16px, 1em); } }

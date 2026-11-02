@@ -20,7 +20,7 @@
 .key-list li {
   display: grid; grid-template-columns: 2.25rem minmax(0, 1fr) auto; align-items: center; gap: var(--s3);
   padding: var(--s3) var(--s4) var(--s3) var(--s3); border-top: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
-  animation: deal .45s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 40ms);
+  animation: deal .28s var(--ease) backwards; animation-delay: calc(min(var(--i, 0), 10) * 30ms);
 }
 @keyframes deal { from { opacity: 0; transform: translateY(14px); } }
 .key-list li:first-child { border-top: 0; }
@@ -36,10 +36,10 @@
 .key-main { display: grid; gap: 2px; min-width: 0; }
 .key-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .key-name a { color: var(--ink); font-weight: 700; text-decoration: none; }
-.key-name a:hover { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) { .key-name a:hover { text-decoration: underline; } }
 .key-decks { color: var(--ink-2); font-size: var(--fs-sm); }
 .key-decks .linklike { color: var(--ink-2); }
-.key-decks .linklike:hover { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .key-decks .linklike:hover { color: var(--ink); } }
 .key-own { display: inline-flex; align-items: center; gap: 4px; color: var(--no-ink); font-size: var(--fs-sm); font-weight: 700; }
 .key-own.tile-part { color: var(--part); }
 .key-own.tile-ok { color: var(--ok); }

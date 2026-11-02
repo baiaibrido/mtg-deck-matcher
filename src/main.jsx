@@ -31,6 +31,9 @@ leaveOld().then(async leaving => {
   createRoot(document.getElementById('root')).render(<App />)
 })
 
+// iPhone applica :active (la risposta alla pressione dei pulsanti) solo se la pagina ascolta i tocchi
+addEventListener('touchstart', () => {}, { passive: true })
+
 // Tastiera su telefono: iOS non ridimensiona la pagina quando compare, quindi teniamo traccia
 // della parte visibile (--vvh/--vvtop) e le finestre si spostano lì sopra (html.kb-open)
 const vv = window.visualViewport

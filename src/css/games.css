@@ -68,7 +68,8 @@
   background: var(--paper); color: var(--ink); font: 700 var(--fs-ctl)/1.25 var(--font-ui); text-align: left; cursor: pointer;
   animation: opt-in .35s var(--ease) backwards; animation-delay: calc(var(--i) * 45ms + 80ms); transition: border-color .15s, background-color .15s;
 }
-.quiz-opt:hover, .quiz-opt:focus-visible { border-color: var(--ink); background: var(--bar); }
+.quiz-opt:focus-visible { border-color: var(--ink); background: var(--bar); }
+@media (hover: hover) and (pointer: fine) { .quiz-opt:hover { border-color: var(--ink); background: var(--bar); } }
 .quiz-opt > span:first-child, .quiz-opt > i { flex: none; width: 1.4em; font-size: 1.25rem; text-align: center; }
 @keyframes opt-in { from { opacity: 0; transform: translateY(8px); } }
 .quiz-res { animation: q-in .35s var(--ease); }

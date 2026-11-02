@@ -14,7 +14,8 @@
   position: relative; display: flex; align-items: center; gap: var(--s3); padding: var(--s4); border: 1.5px dashed var(--line-2); border-radius: var(--r);
   color: var(--ink); cursor: pointer; transition: border-color .2s, background-color .2s;
 }
-.drop:hover, .drop.drag { border-color: var(--ribbon); background: color-mix(in oklab, var(--ribbon) 6%, transparent); }
+.drop.drag { border-color: var(--ribbon); background: color-mix(in oklab, var(--ribbon) 6%, transparent); }
+@media (hover: hover) and (pointer: fine) { .drop:hover { border-color: var(--ribbon); background: color-mix(in oklab, var(--ribbon) 6%, transparent); } }
 .drop > svg { flex: none; color: var(--ribbon); }
 .drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
 .drop .muted { display: block; font-size: var(--fs-md); }
@@ -24,10 +25,10 @@
 .bc-G { --bc: var(--mana-g); } .bc-M { --bc: var(--mana-gold); } .bc-C { --bc: var(--mana-c); } .bc-L { --bc: var(--land); } .bc-\? { --bc: var(--line); }
 .spine { display: grid; gap: var(--s2); }
 .spine-bar { display: flex; height: 10px; overflow: hidden; background: var(--sheet); }
-.spine-bar span { min-width: 4px; background: var(--bc); transform-origin: left; animation: fill .8s var(--ease) backwards; }
+.spine-bar span { min-width: 4px; background: var(--bc); transform-origin: left; animation: fill .5s var(--ease) backwards; }
 .spine ul { display: flex; flex-wrap: wrap; gap: 0 var(--s4); margin: 0; padding: 0; list-style: none; }
 .spine a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; color: var(--ink-2); font-size: var(--fs-md); text-decoration: none; }
-.spine a:hover { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .spine a:hover { color: var(--ink); } }
 .spine a b { color: var(--ink); font-variant-numeric: tabular-nums; }
 .dot { display: inline-block; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--bc); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35); }
 @media (pointer: coarse) { .spine a { min-height: 44px; } }
@@ -47,7 +48,8 @@
 }
 .coll-tools .search { flex: 1 1 240px; }
 .coll-tools-right { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); margin-left: auto; }
-.more-btn.open, .more-btn.open:hover:not(:disabled) { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.more-btn.open { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+@media (hover: hover) and (pointer: fine) { .more-btn.open:hover:not(:disabled) { background: var(--ink); border-color: var(--ink); color: var(--paper); } }
 .more-btn .count { background: var(--ink); color: var(--paper); box-shadow: none; }
 .more-btn.open .count { background: var(--paper); color: var(--ink); }
 /* il pannello dei filtri sta dentro la barra: resta visibile mentre si scorre */
@@ -87,7 +89,7 @@
   position: relative; display: block; aspect-ratio: 488 / 680; overflow: hidden; border-radius: 4.5% / 3.3%;
   background: var(--bar); color: var(--ink); text-decoration: none; box-shadow: 0 2px 8px rgba(0, 0, 0, .35); transition: transform .2s var(--ease);
 }
-.ctile-img:hover { transform: translateY(-2px); }
+@media (hover: hover) and (pointer: fine) { .ctile-img:hover { transform: translateY(-2px); } }
 .ctile-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .ctile-ph { display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: var(--s2); border: 1px solid var(--line); border-radius: inherit; font-size: .8rem; line-height: 1.25; }
 .ctile-qty {
@@ -122,7 +124,7 @@
 .thumb-box { position: relative; display: block; width: 40px; overflow: hidden; border-radius: 3px; }
 .crow-main { display: grid; min-width: 0; }
 .crow-name { overflow: hidden; color: var(--ink); text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
-.crow-name:hover { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) { .crow-name:hover { text-decoration: underline; } }
 .crow-type { overflow: hidden; color: var(--ink-2); font-size: var(--fs-sm); text-overflow: ellipsis; white-space: nowrap; }
 .crow-print { margin-left: var(--s3); }
 .crow-price { color: var(--ink-2); font-size: var(--fs-md); text-align: right; font-variant-numeric: tabular-nums; }
@@ -150,7 +152,7 @@
   background-size: 260% 260%, 320% 320%; background-position: 0% 50%, 0% 50%;
   mix-blend-mode: soft-light; opacity: .62; animation: holo 7s ease-in-out infinite alternate;
 }
-.ctile.foil .ctile-img:hover::after { animation-duration: 2.4s; }
+@media (hover: hover) and (pointer: fine) { .ctile.foil .ctile-img:hover::after { animation-duration: 2.4s; } }
 @keyframes holo { to { background-position: 100% 50%, 100% 50%; } }
 .sparkles { position: absolute; inset: 0; z-index: 1; overflow: hidden; border-radius: inherit; pointer-events: none; }
 .sparkles::before { /* lampo che attraversa la carta ogni tanto */

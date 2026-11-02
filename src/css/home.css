@@ -30,14 +30,14 @@
   padding: var(--s2) var(--s1); border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
 }
 .today-item:focus-visible { outline-offset: -2px; }
-.today-item:hover .today-text b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .today-item:hover .today-text b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; } }
 .today-icon { width: 28px; height: 28px; display: grid; place-items: center; font-size: 1.15rem; }
 .today-text { display: grid; gap: 2px; min-width: 0; }
 .today-text b { display: block; font: 700 var(--fs-ctl)/1.3 var(--font-ui); }
 .today-text b .pill-badge, .today-text b .pill-new { margin-left: 6px; vertical-align: 1px; }
 .today-sub { display: flex; flex-wrap: wrap; gap: 0 10px; color: var(--ink-2); font-size: var(--fs-sm); line-height: 1.35; }
 .today-go { color: var(--ink-2); transition: transform .2s var(--ease); }
-.today-item:hover .today-go { transform: translateX(2px); color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .today-item:hover .today-go { transform: translateX(2px); color: var(--ink); } }
 /* mazzo misterioso: carta coperta in miniatura, si sbircia passandoci sopra */
 .today-mystery { align-items: start; }
 .mystery-mini {
@@ -47,14 +47,19 @@
 }
 .mystery-mini img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(2px) saturate(.6); transform: scale(1.1); transition: filter .3s var(--ease); }
 .mystery-mini span { position: absolute; inset: 0; display: grid; place-items: center; color: #f3eee2; font: 1rem var(--font-title); text-shadow: 0 1px 6px rgba(0, 0, 0, .8); transition: opacity .3s; }
-.today-mystery:is(:hover, :focus-visible) .mystery-mini { transform: rotate(0) scale(1.15); }
-.today-mystery:is(:hover, :focus-visible) .mystery-mini img { filter: none; transform: none; }
-.today-mystery:is(:hover, :focus-visible) .mystery-mini span { opacity: 0; }
+.today-mystery:focus-visible .mystery-mini { transform: rotate(0) scale(1.15); }
+@media (hover: hover) and (pointer: fine) { .today-mystery:hover .mystery-mini { transform: rotate(0) scale(1.15); } }
+.today-mystery:focus-visible .mystery-mini img { filter: none; transform: none; }
+@media (hover: hover) and (pointer: fine) { .today-mystery:hover .mystery-mini img { filter: none; transform: none; } }
+.today-mystery:focus-visible .mystery-mini span { opacity: 0; }
+@media (hover: hover) and (pointer: fine) { .today-mystery:hover .mystery-mini span { opacity: 0; } }
 .mystery-line { color: var(--ink); font: italic 500 var(--fs-md)/1.3 var(--font-ui); }
 .mystery-name { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
 .mystery-real { display: none; }
-.today-mystery:is(:hover, :focus-visible) .mystery-masked { display: none; }
-.today-mystery:is(:hover, :focus-visible) .mystery-real { display: inline; }
+.today-mystery:focus-visible .mystery-masked { display: none; }
+@media (hover: hover) and (pointer: fine) { .today-mystery:hover .mystery-masked { display: none; } }
+.today-mystery:focus-visible .mystery-real { display: inline; }
+@media (hover: hover) and (pointer: fine) { .today-mystery:hover .mystery-real { display: inline; } }
 .mystery-sig { display: block; overflow: hidden; font-style: italic; text-overflow: ellipsis; white-space: nowrap; }
 .today-timer { color: var(--part); font-variant-numeric: tabular-nums; }
 .today-streak { color: var(--ink); }
@@ -131,7 +136,7 @@
   border: 1px dashed var(--line-2); border-radius: var(--r); color: var(--ink-2); font-size: var(--fs-md); }
 .almost .linklike { color: var(--ink); font-weight: 700; }
 .almost-x { width: 32px; height: 32px; flex: none; padding: 0; border: 0; border-radius: var(--r); background: transparent; color: var(--ink-2); font-size: 1.25rem; line-height: 1; cursor: pointer; }
-.almost-x:hover { background: var(--bar); color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .almost-x:hover { background: var(--bar); color: var(--ink); } }
 @media (pointer: coarse) { .almost-x { width: 44px; height: 44px; } }
 
 /* ── Ordina e filtri: un blocco solo, due righe ── */
@@ -167,7 +172,7 @@
 .deck { position: relative; --c1: var(--mana-c); --c2: var(--mana-c); border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent); transition: background-color .12s; }
 .deck:last-child { border-bottom: 0; }
 .deck:nth-child(odd) { background: var(--bar); }
-.deck:hover { background: color-mix(in oklab, var(--ribbon) 9%, var(--sheet)); }
+@media (hover: hover) and (pointer: fine) { .deck:hover { background: color-mix(in oklab, var(--ribbon) 9%, var(--sheet)); } }
 .deck-btn {
   position: relative; width: 100%; display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) 7.5rem 40px; align-items: center; gap: var(--s4);
   padding: var(--s3) var(--s2) var(--s3) var(--s3); border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
@@ -179,7 +184,7 @@
 .deck-main { display: grid; gap: 5px; min-width: 0; }
 .deck-title { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .deck-name { font: 800 1.25rem/1.2 var(--font-ui); letter-spacing: -.005em; }
-.deck-btn:hover .deck-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) { .deck-btn:hover .deck-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; } }
 .deck-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px; color: var(--ink-2); font-size: var(--fs-md); }
 .ds-trend { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 @media (max-width: 1099px) { .deck-sub > :empty { display: none; } }
@@ -204,14 +209,15 @@
   width: var(--ctl-sm); height: var(--ctl-sm); display: grid; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: var(--r);
   background: transparent; color: var(--ink-2); cursor: pointer; transition: color .15s, background-color .15s, border-color .15s;
 }
-.pin-btn:hover { color: var(--ink); border-color: var(--ink); }
-.pin-btn[aria-pressed="true"], .pin-btn[aria-pressed="true"]:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+@media (hover: hover) and (pointer: fine) { .pin-btn:hover { color: var(--ink); border-color: var(--ink); } }
+.pin-btn[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+@media (hover: hover) and (pointer: fine) { .pin-btn[aria-pressed="true"]:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); } }
 .deck > .pin-btn { position: absolute; z-index: 2; top: 50%; right: var(--s2); translate: 0 -50%; }
 
 @media (max-width: 719px) {
   .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr) 4.75rem; gap: 10px; padding: var(--s3) var(--s2); }
   .deck-plain .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr); }
-  .deck-plain .deck-title { padding-right: 44px; } /* senza percentuale il nome non passa sotto la graffetta */
+  .deck-plain :is(.deck-title, .deck-sub) { padding-right: 44px; } /* senza percentuale nome e dati non passano sotto la graffetta */
   .deck-score { align-self: end; }
   .ds-trend .spark { display: none; }
   .deck-btn::before { top: 8px; bottom: 8px; }
@@ -227,7 +233,7 @@
 .pins { display: grid; margin: 0; padding: 0; list-style: none; border: 1px solid var(--line); border-top: 2px solid var(--ink); border-radius: 0 0 var(--r-lg) var(--r-lg); background: var(--sheet) var(--grain); }
 .pin-row { position: relative; --c1: var(--mana-c); --c2: var(--mana-c); display: flex; align-items: center; gap: var(--s2); padding-right: var(--s2); border-top: 1px solid var(--line); transition: background-color .12s; }
 .pin-row:first-child { border-top: 0; }
-.pin-row:hover { background: color-mix(in oklab, var(--ribbon) 9%, var(--sheet)); }
+@media (hover: hover) and (pointer: fine) { .pin-row:hover { background: color-mix(in oklab, var(--ribbon) 9%, var(--sheet)); } }
 .pin-row-btn {
   position: relative; flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--s3); min-height: 52px; padding: var(--s2) var(--s2) var(--s2) var(--s4);
   border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
@@ -236,7 +242,7 @@
 .pin-row-btn::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 4px; background: linear-gradient(var(--c1), var(--c2)); }
 .pin-row-rank { min-width: 2ch; font: 900 1.375rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
 .pin-row-name { overflow: hidden; font: 800 var(--fs-body)/1.2 var(--font-ui); text-overflow: ellipsis; white-space: nowrap; }
-.pin-row-btn:hover .pin-row-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) { .pin-row-btn:hover .pin-row-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; } }
 .pin-row-num { margin-left: auto; padding-left: var(--s3); color: var(--ink-2); font-size: var(--fs-sm); white-space: nowrap; }
 .pin-row-num b { color: var(--ink); font: 900 1.25rem/1 var(--font-dot); font-variant-numeric: tabular-nums; }
 .pin-row-num small { font: 700 .6em var(--font-ui); color: var(--ink-2); }
@@ -270,4 +276,8 @@
 
 /* rimando al meteo completo nelle Statistiche: scritto per esteso, così si capisce che si apre una sezione più ampia */
 .weather-more { display: inline-flex; align-items: center; gap: 2px; margin-top: 6px; padding: 0; border: 0; background: none; color: var(--ribbon); font: 700 var(--fs-sm)/1.3 var(--font-ui); cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.weather-more:hover { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .weather-more:hover { color: var(--ink); } }
+
+/* righe toccabili (mazzi, preferiti, «Oggi nel meta»): sfondo mentre il dito è sopra */
+:is(.deck, .pin-row):active { background: color-mix(in oklab, var(--ribbon) 12%, var(--sheet)); }
+.today-item:active { background: color-mix(in oklab, var(--ribbon) 10%, transparent); }

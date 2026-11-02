@@ -1,32 +1,34 @@
 /* ═══════════ Impaginazione: testata, linguette, titoli, fogli, finestre ═══════════
    Sequenza fissa di ogni pagina: testata · linguette · titolo · strumenti · contenuto. Contenitore 1040. */
 
-.app { max-width: 1040px; margin: 0 auto; padding: 0 var(--gutter) calc(var(--s6) + var(--tabbar-h)); }
+.app { max-width: 1040px; margin: 0 auto; padding: 0 var(--gutter) calc(var(--s6) + var(--tabbar-h));
+  padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px)); } /* telefono in orizzontale: il testo non finisce sotto la tacca */
 
 /* ── Testata: logo a punti, voci di menu, lingua, valuta, tema ── */
 .topbar {
   position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: var(--s5); padding: var(--s2) 0;
   background: var(--bar-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 0 0 100vmax var(--bar-bg); clip-path: inset(0 -100vmax); /* fondo a tutta larghezza */
-  transition: padding .2s var(--ease);
+  /* app installata su iPhone: la testata scende sotto la barra di stato (il bordo prende lo stesso fondo) */
+  border-top: env(safe-area-inset-top, 0px) solid transparent;
 }
 .topbar.compact { padding: var(--s1) 0; box-shadow: 0 0 0 100vmax var(--bar-bg), 0 1px 0 100vmax var(--line); clip-path: inset(0 -100vmax -1px); }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 900 1.5rem/1 var(--font-dot); letter-spacing: .02em; white-space: nowrap; transition: font-size .2s var(--ease); }
-.brand:hover { text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 900 1.5rem/1 var(--font-dot); letter-spacing: .02em; white-space: nowrap; }
+@media (hover: hover) and (pointer: fine) { .brand:hover { text-decoration: none; } }
 .brand-mark { display: inline-flex; gap: 2px; font-size: .62rem; }
 .nav-top { display: flex; gap: 2px; }
 .nav-top a {
   display: inline-flex; align-items: center; gap: var(--s2); min-height: var(--ctl); padding: 0 var(--s3);
   color: var(--ink-2); text-decoration: none; white-space: nowrap; transition: color .15s;
 }
-.nav-top a:hover { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .nav-top a:hover { color: var(--ink); } }
 .nav-top a[aria-current] { color: var(--ink); font-weight: 700; box-shadow: inset 0 -2px 0 var(--ink); }
 .prefs { display: flex; align-items: center; gap: var(--s2); margin-left: auto; }
 .theme-btn {
   width: var(--ctl); height: var(--ctl); display: grid; place-items: center; flex: none; padding: 0;
   border: 1px solid var(--line-2); border-radius: var(--r); background: transparent; color: var(--ink-2); cursor: pointer; transition: color .15s, border-color .15s;
 }
-.theme-btn:hover { color: var(--ink); border-color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .theme-btn:hover { color: var(--ink); border-color: var(--ink); } }
 @media (min-width: 720px) and (max-width: 999px) { .topbar { gap: var(--s3); } .nav-top a { padding: 0 10px; } }
 @media (min-width: 720px) and (max-height: 700px) { .topbar { padding: var(--s1) 0; } }
 @media (min-width: 720px) and (max-width: 899px) { .brand-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
@@ -112,7 +114,7 @@
   opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s var(--ease), border-color .15s;
 }
 .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
-.to-top:hover { border-color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .to-top:hover { border-color: var(--ink); } }
 
 /* ── Avvisi in basso: un'etichetta stampata (nello strato superiore: visibili anche sopra le finestre) ── */
 .toast-zone[popover] { margin: 0; border: 0; padding: 0 var(--s4); background: none; overflow: visible; width: auto; height: auto; inset: auto 0 calc(var(--tabbar-h) + env(safe-area-inset-bottom) + var(--s4)); color: inherit; }
@@ -146,7 +148,7 @@ html.modal-open { overflow: hidden; }
   position: absolute; top: var(--s2); right: var(--s2); z-index: 2; width: 40px; height: 40px; display: grid; place-items: center; padding: 0;
   border: 0; border-radius: var(--r); background: transparent; color: var(--ink-2); font-size: 1.6rem; line-height: 1; cursor: pointer;
 }
-.modal-x:hover { background: var(--bar); color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .modal-x:hover { background: var(--bar); color: var(--ink); } }
 @media (max-width: 560px) { .modal-body { padding: var(--s6) var(--s4) var(--s4); } }
 /* iOS non rimpicciolisce la pagina quando esce la tastiera: la finestra si sposta nella parte visibile */
 html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-top: 0; max-height: calc(var(--vvh, 100dvh) - 16px); }

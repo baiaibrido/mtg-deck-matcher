@@ -74,7 +74,7 @@
 .receipt .need-list { margin: 0; padding: 0; list-style: none; }
 .receipt .need-list li { display: grid; grid-template-columns: 2.4em minmax(0, 1fr) auto 5.2em; align-items: center; gap: 10px; padding: 4px 0; }
 .receipt .need-name { color: #24262a; text-decoration: none; overflow-wrap: anywhere; }
-.receipt .need-name:hover { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) { .receipt .need-name:hover { text-decoration: underline; } }
 .receipt .need-price { color: #24262a; text-align: right; font-variant-numeric: tabular-nums; }
 .receipt .need-qty { font: 700 .95rem/1.35 var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
 .receipt-total { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; margin: 12px 0 0; padding-top: 10px; border-top: 3px double #24262a; text-transform: uppercase; letter-spacing: .08em; }
