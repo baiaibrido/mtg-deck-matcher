@@ -76,7 +76,7 @@ export default function App() {
   const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#e8ebe3' : '#181b1d')
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f2f2f3' : '#171719')
   }, [theme])
 
   const [msg, toast] = useToast()

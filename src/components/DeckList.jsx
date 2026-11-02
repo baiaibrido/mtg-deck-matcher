@@ -81,7 +81,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
   // senza collezione il numero grande a destra è quello dell'ordinamento scelto (quota, vittorie o costo)
   const big = !owned && metric ? bigFigure(metric, s.deck, cost) : null
   return (
-    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}${owned || big ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
+    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${owned || big ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
       <PinButton deck={s.deck} pinned={pinned} onPin={onPin} />
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
@@ -115,8 +115,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
           <b>{pct(s.score)}<small>%</small></b>
           <span>{t(cedh ? 'complete.list' : 'complete')}</span>
           {!cedh && <span className="deck-score-sub">{t('completeSub')}</span>}
-          {s.score >= 1 && <span className="stamp stamp-ok deck-stamp" aria-hidden="true">{t('stamp.complete')}</span>}
-          {best && s.score < 1 && <span className="hand-note" aria-hidden="true">{t('note.closest')}</span>}
+          {s.score >= 1 && <span className="deck-done">{t('stamp.complete')}</span>}
         </span> : big ? <span className={`deck-score deck-score-${metric}`}>
           <b>{big.value}{big.unit && <small>{big.unit}</small>}</b>
           <span>{big.label}</span>
