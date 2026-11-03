@@ -3,19 +3,23 @@
    Ogni segno ha un significato: nessuno è solo decorazione. */
 
 /* ── Modulo continuo: righe verdi alternate e fori di trascinamento ai lati (classifica dei mazzi) ── */
-.decks {
+.decks, .standings {
   --hole: radial-gradient(circle at 50% 50%, var(--desk) 4px, color-mix(in oklab, var(--ink) 22%, var(--desk)) 4.5px, transparent 5.2px); /* taste-skill-ignore: foro del modulo continuo */
   position: relative; display: grid; margin: 0; padding: 0 28px; list-style: none; overflow-x: clip;
   background: var(--hole) left 0 top 7px / 28px 24px repeat-y, var(--hole) right 0 top 7px / 28px 24px repeat-y, var(--sheet); /* taste-skill-ignore: fori del modulo continuo */
   box-shadow: var(--lift);
 }
-.decks::before, .decks::after { content: ''; position: absolute; top: 0; bottom: 0; border-left: 1px dashed var(--rule); pointer-events: none; } /* linea dello strappo */
-.decks::before { left: 28px; }
-.decks::after { right: 28px; }
+.decks::before, .decks::after, .standings::before, .standings::after { content: ''; position: absolute; top: 0; bottom: 0; border-left: 1px dashed var(--rule); pointer-events: none; } /* linea dello strappo */
+.decks::before, .standings::before { left: 28px; }
+.decks::after, .standings::after { right: 28px; }
+/* dentro il tabulato con l'intestazione l'elenco non ha un suo foglio */
+.standings > .decks { padding: 0; background: none; box-shadow: none; overflow: visible; }
+.standings > .decks::before, .standings > .decks::after { display: none; }
 @media (max-width: 719px) {
-  .decks { margin: 0 calc(-1 * var(--gutter)); padding: 0 0 0 18px; background: var(--hole) left -5px top 7px / 28px 24px repeat-y, var(--sheet); } /* taste-skill-ignore: fori */
-  .decks::before { left: 18px; }
-  .decks::after { display: none; }
+  .decks, .standings { margin: 0 calc(-1 * var(--gutter)); padding: 0 0 0 18px; background: var(--hole) left -5px top 7px / 28px 24px repeat-y, var(--sheet); } /* taste-skill-ignore: fori */
+  .decks::before, .standings::before { left: 18px; }
+  .decks::after, .standings::after { display: none; }
+  .standings > .decks { margin: 0; padding: 0; background: none; }
 }
 
 /* ── Timbri a inchiostro ── */
@@ -54,7 +58,7 @@
 @keyframes hl-swipe { 0% { background-size: 0% 85%; color: var(--hl-ink); } 18%, 82% { background-size: 100% 85%; color: var(--hl-ink); } 100% { background-size: 100% 0%; color: inherit; } }
 
 /* ── Scontrino del negozio: carta termica con i bordi strappati a zig-zag (mancolista, carte chiave) ── */
-.receipt, .key-list {
+.receipt {
   --zz: conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / 12px 51% repeat-x, /* taste-skill-ignore: strappo dello scontrino */
         conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 12px 51% repeat-x; /* taste-skill-ignore: strappo dello scontrino */
   color: var(--receipt-ink); background: var(--receipt);
@@ -62,7 +66,7 @@
 }
 .receipt { max-width: 500px; margin: var(--s4) 0 0; padding: 26px 22px 30px; font-size: .9375rem; line-height: 1.35; }
 .receipt > * { position: relative; }
-.receipt, .key-list { -webkit-mask: var(--zz); mask: var(--zz); }
+.receipt { -webkit-mask: var(--zz); mask: var(--zz); }
 .receipt-head { display: grid; justify-items: center; gap: 2px; margin: 0 0 12px; padding-bottom: 12px; border-bottom: 1px dashed var(--receipt-rule); text-align: center; }
 .receipt-head b { font: 900 1.1rem/1.1 var(--f-text); font-stretch: 75%; letter-spacing: .14em; text-transform: uppercase; }
 .receipt-head span { color: var(--receipt-ink-2); font-size: .8125rem; }
@@ -117,7 +121,7 @@
 @media (max-width: 1099px) { .hand-note, .deck-best .deck-score b::before { display: none; } }
 /* «Completo» timbrato al posto del 100% e delle sue righe */
 .deck-score:has(.deck-stamp) > :not(.deck-stamp) { visibility: hidden; }
-.deck-stamp { position: absolute; left: 50%; top: 50%; translate: -50% -50%; transform: rotate(-10deg); padding: 6px 12px; background: color-mix(in oklab, var(--sheet) 82%, transparent); font: 900 1.05rem/1 var(--f-text); font-stretch: 75%; letter-spacing: .18em; pointer-events: none; }
+.deck-stamp { max-width: none; position: absolute; left: 50%; top: 50%; translate: -50% -50%; transform: rotate(-10deg); padding: 6px 12px; background: color-mix(in oklab, var(--sheet) 82%, transparent); font: 900 1.05rem/1 var(--f-text); font-stretch: 75%; letter-spacing: .18em; pointer-events: none; }
 @media (max-width: 719px) { .deck-stamp { left: auto; right: -2px; translate: 0 -50%; padding: 4px 8px; font-size: .82rem; letter-spacing: .12em; } }
 
 /* ── «Oggi nel meta» esce dalla stampante, riga per riga (solo alla prima apertura) ── */

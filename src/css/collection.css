@@ -2,10 +2,42 @@
    Titolo con «Aggiungi carte» · riepilogo e azioni · dorso a colori · barra degli strumenti fissa ·
    sezioni per colore con anelli e divisori (paper.css) · carte nelle tasche della pagina · elenco come modulo d'inventario. */
 
-.coll { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+.coll { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); margin-top: var(--s3); }
 .coll .page-head { margin-bottom: 0; }
+.coll-pages { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); align-content: start; min-width: 0; }
+
+/* ── La copertina: tela blu, il portaetichette col titolo, le azioni, l'indice dei divisori ── */
+.coll-cover {
+  display: grid; gap: var(--s4); align-content: start; padding: var(--s5) var(--s4); border-radius: var(--r-lg);
+  background: var(--vinyl); color: var(--cover-ink); box-shadow: inset 6px 0 0 rgba(0, 0, 0, .25), var(--lift);
+}
+.coll-cover .coll-head { display: grid; gap: var(--s3); margin: 0; }
+/* il portaetichette metallico con il cartoncino */
+.coll-label { padding: var(--s3) var(--s4) var(--s4); border-radius: 2px; background: var(--sheet); color: var(--ink); box-shadow: 0 0 0 3px #a9b1ba, 0 0 0 4px rgba(0, 0, 0, .35), inset 0 1px 3px rgba(0, 0, 0, .15); }
+.coll-label h1 { font-size: var(--fs-2xl); line-height: 1.05; }
+.coll-label p { margin-top: var(--s2); color: var(--ink-2); font-size: var(--fs-md); }
+.coll-label p b { color: var(--ink); }
+.coll-cover .btn-primary { --btn-bg: var(--label); border-color: var(--label); color: var(--label-ink); }
+@media (hover: hover) and (pointer: fine) { .coll-cover .btn-primary:hover:not(:disabled) { --btn-bg: color-mix(in oklab, var(--label) 85%, #000); } }
+.coll-cover .coll-add { justify-self: start; }
+.coll-cover .btn-quiet { color: var(--cover-ink); }
+@media (hover: hover) and (pointer: fine) { .coll-cover .btn-quiet:hover:not(:disabled) { --btn-bg: rgba(255, 255, 255, .1); } }
+.coll-cover .btn-danger { color: #ffb4a8; }
+.coll-cover .confirm { color: var(--ink); }
+.coll-cover .sync-line { border-color: rgba(255, 255, 255, .35); color: var(--cover-ink); }
+.coll-cover .sync-line > svg { color: var(--cover-ink); }
+.coll-cover .sync-line.on { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .25); }
+.coll-cover .sync-line.on > p { color: var(--cover-ink); }
+.coll-cover .sync-state { color: inherit; opacity: .8; }
+@media (max-width: 559px) { .coll-cover { margin-inline: calc(-1 * var(--s2)); padding: var(--s4) var(--s3); } }
+/* da 1200px la copertina resta a sinistra mentre si sfogliano le pagine */
+@media (min-width: 1200px) {
+  .coll { grid-template-columns: 290px minmax(0, 1fr); column-gap: var(--s6); align-items: start; }
+  .coll-cover { position: sticky; top: var(--s4); max-height: calc(100dvh - var(--s6)); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+  .coll-pages .coll-tools { margin: 0; padding: var(--s2) 0; }
+}
 .coll-drag { outline: 2px dashed var(--pen); outline-offset: 8px; border-radius: var(--r-lg); }
-.coll-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1); margin: var(--s3) 0 0 calc(-1 * var(--s3)); }
+.coll-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--s1); margin: 0 0 0 calc(-1 * var(--s3)); }
 .coll-actions .confirm { margin-left: var(--s3); }
 
 /* aggiungere carte: la busta dove infilare il file */
@@ -24,13 +56,23 @@
 /* dorso del raccoglitore: quante carte per colore, cliccabile */
 .bc-W { --bc: var(--mana-w); } .bc-U { --bc: var(--mana-u); } .bc-B { --bc: var(--mana-b); } .bc-R { --bc: var(--mana-r); }
 .bc-G { --bc: var(--mana-g); } .bc-M { --bc: var(--mana-gold); } .bc-C { --bc: var(--mana-c); } .bc-L { --bc: var(--land); } .bc-\? { --bc: var(--rule-2); }
-.spine { display: grid; gap: var(--s2); }
-.spine-bar { display: flex; height: 12px; overflow: hidden; border: 1px solid var(--ink); background: var(--sheet); }
-.spine-bar span { min-width: 4px; background: var(--bc); box-shadow: inset -1px 0 0 var(--ink); transform-origin: left; animation: fill .5s var(--ease) backwards; }
-.spine ul { display: flex; flex-wrap: wrap; gap: 0 var(--s4); margin: 0; padding: 0; list-style: none; }
-.spine a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; color: var(--ink-2); font-size: var(--fs-md); text-decoration: none; }
-@media (hover: hover) and (pointer: fine) { .spine a:hover { color: var(--ink); } }
-.spine a b { color: var(--ink); font-variant-numeric: tabular-nums; }
+/* indice: le linguette colorate dei divisori, una per sezione, con quante carte ci sono */
+.spine { display: grid; gap: var(--s3); }
+.spine-bar { display: flex; height: 10px; overflow: hidden; border-radius: 1px; background: rgba(0, 0, 0, .25); }
+.spine-bar span { min-width: 4px; background: var(--bc); box-shadow: inset -1px 0 0 rgba(0, 0, 0, .35); transform-origin: left; animation: fill .5s var(--ease) backwards; }
+.spine ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.spine a {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s3); min-height: 36px; padding: 0 var(--s3);
+  border-radius: var(--r-lg) var(--r-lg) var(--r) var(--r); background: var(--bc); color: #1c2127; font: 700 var(--fs-md) var(--f-text); font-stretch: 88%; text-decoration: none; transition: transform .2s var(--ease);
+}
+.spine a b { font-variant-numeric: tabular-nums; }
+@media (hover: hover) and (pointer: fine) { .spine a:hover { transform: translateY(-2px); } }
+.spine a, .spine a b { color: #1c2127; }
+@media (pointer: coarse) { .spine a { min-height: 44px; } }
+@media (min-width: 1200px) {
+  .spine ul { flex-direction: column; }
+  @media (hover: hover) and (pointer: fine) { .spine a:hover { transform: translateX(6px); } }
+}
 .dot { display: inline-block; flex: none; width: 10px; height: 10px; border-radius: 2px; background: var(--bc); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .4); }
 @media (pointer: coarse) { .spine a { min-height: 44px; } }
 /* «La tua collezione urla…»: nota a penna */

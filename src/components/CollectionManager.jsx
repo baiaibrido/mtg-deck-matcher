@@ -73,8 +73,8 @@ function Spine({ sections, total }) {
           const n = list.reduce((s, c) => s + c.qty, 0)
           return (
             <li key={k}>
-              <a href={`#sez-${k}`} onClick={e => { e.preventDefault(); document.getElementById(`sez-${k}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }}>
-                <span className={`dot bc-${k}`} aria-hidden="true" />{binderName(k)} <b>{n}</b>
+              <a href={`#sez-${k}`} className={`bc-${k}`} onClick={e => { e.preventDefault(); document.getElementById(`sez-${k}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }}>
+                {binderName(k)} <b>{n}</b>
                 <span className="sr-only">{t('coll.spineSr', Math.round(n / total * 100))}</span>
               </a>
             </li>
@@ -259,17 +259,19 @@ export default function CollectionManager({ collection, setCollection, toast, be
 
   return (
     <div className={`coll${drag ? ' coll-drag' : ''}`} {...dropProps}>
+      {/* la copertina del raccoglitore: etichetta col titolo e i numeri, azioni, indice dei divisori (su computer resta in vista a sinistra) */}
+      <aside className="coll-cover">
       <header className="page-head coll-head">
-        <div className="page-head-row">
+        <div className="coll-label">
           <h1>{t('coll.title')}</h1>
-          {/* un solo pulsante principale per vista: con il pannello aperto (o una scelta in sospeso) il principale è lì */}
-          <button className={`btn${importOpen || pending ? '' : ' btn-primary'}`} onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
+          <p>
+            {t('coll.summary', total.toLocaleString(getLang()), collection.length.toLocaleString(getLang()))}
+            {priced && <>{t('coll.value')}<b>≈ {money(value)}</b></>}.
+            {' '}{t('coll.savedHere')}
+          </p>
         </div>
-        <p>
-          {t('coll.summary', total.toLocaleString(getLang()), collection.length.toLocaleString(getLang()))}
-          {priced && <>{t('coll.value')}<b>≈ {money(value)}</b></>}.
-          {' '}{t('coll.savedHere')}
-        </p>
+        {/* un solo pulsante principale per vista: con il pannello aperto (o una scelta in sospeso) il principale è lì */}
+        <button className={`btn coll-add${importOpen || pending ? '' : ' btn-primary'}`} onClick={() => setImportOpen(o => !o)} aria-expanded={importOpen}><IconPlus size={18} />{t('coll.addCards')}</button>
         <div className="coll-actions">
           <label className="btn btn-quiet" title={t('coll.importFileHint')}><IconUpload size={18} />{t('coll.importFile')}{fileInput}</label>
           <button className="btn btn-quiet" onClick={normalize} disabled={busy} title={t('coll.fixHint')}><IconWand size={18} />{t('coll.fixNames')}</button>
@@ -278,9 +280,11 @@ export default function CollectionManager({ collection, setCollection, toast, be
             onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
         </div>
       </header>
-
-      {acc && <SyncLine acc={acc} local={collection} onOpen={onAccount} />}
       <Spine sections={allSections} total={total} />
+      {acc && <SyncLine acc={acc} local={collection} onOpen={onAccount} />}
+      </aside>
+
+      <div className="coll-pages">
       {(() => {
         const p = personality(collection, getCached); if (!p) return null
         const who = p.kind === 'mono' ? t('pers.mono', t(`color.${p.color}`)) : p.guild
@@ -409,6 +413,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
       )}
       {/* i traguardi sono un extra: vengono dopo le carte */}
       <div className="coll-ach"><Achievements unlocked={unlocked} /></div>
+      </div>
     </div>
   )
 }

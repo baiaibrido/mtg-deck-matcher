@@ -279,6 +279,8 @@ export default {
   'wx.bulletin.introPrev': 'Todos os decks de Tier 1 e 2, do mais jogado: quota no meta de hoje e quantos pontos mudou desde a atualização anterior.',
   'guess.go': 'Tentar',
   'big.share': 'do meta', 'big.meta': 'contra o meta', 'big.cost': 'o deck inteiro',
+  'col.rank': 'Pos.', 'col.deck': 'Deck', 'col.share': 'Fatia', 'col.trend': 'Tendência', 'col.wr': 'Vs. meta', 'col.need': 'Para completar', 'col.cost': 'Custo', 'col.done': 'Completo',
+  'st.edition': d => `Edição de ${d}`,
   'st.ch.format': 'O formato', 'st.ch.format.intro': 'O formato como um todo: quão variado é, quais decks chegam ao top 8 mais do que o esperado e quanto cada deck vence pelo que custa.',
   'st.ch.cards': 'As cartas', 'st.ch.cards.intro': 'As cartas uma a uma: quais entram nas listas e quais saem, quais ainda são baratas e o que se joga no sideboard.',
 }

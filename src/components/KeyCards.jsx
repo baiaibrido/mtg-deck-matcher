@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { keyCards } from '../lib/keyCards.js'
 import { getCached } from '../lib/scryfall.js'
-import { t } from '../i18n/index.js'
+import { t, dayMonth } from '../i18n/index.js'
 import { money, priceOf } from '../lib/currency.js'
 import { toText, downloadTxt } from '../lib/export.js'
 import { ManaCost } from './Mana.jsx'
@@ -37,7 +37,9 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
 
   return (
     <div className="keycards">
-      <header className="page-head head-split">
+      {/* a sinistra la cassa (titolo, scelta dei tier, azioni), a destra lo scontrino; su telefono uno sotto l'altro */}
+      <aside className="kc-side">
+      <header className="page-head">
         <h1>{t('kc.title', formatName)}</h1>
         <p>{t('kc.intro')}</p>
       </header>
@@ -62,7 +64,10 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
           <button aria-pressed={look === 'cards'} onClick={() => setLook('cards')} title={t('view.cards')}><IconGrid size={18} /><span className="sr-only">{t('view.cards')}</span></button>
         </div>
       </div>}
+      <p className="hint">{t('kc.hint')}</p>
+      </aside>
 
+      <div className="kc-main">
       {rows.length ? <>
         {look === 'cards' ? (
           <ol className="key-tiles">
@@ -78,6 +83,8 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
             ))}
           </ol>
         ) : (
+        <div className="receipt key-receipt">
+        <p className="receipt-head"><b>{t('nav.keycards')}</b><span>{formatName}</span><span>{dayMonth(new Date().toISOString().slice(0, 10))}</span></p>
         <ol className="key-list">
           {rows.map((e, i) => (
             <li key={e.name} style={{ '--i': Math.min(i, 10) }}>
@@ -100,10 +107,11 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
             </li>
           ))}
         </ol>
+        {total > 0 && <p className="receipt-total"><span>{t('detail.total')}</span><b>≈ {money(total)}</b></p>}
+        </div>
         )}
       </> : <p className="empty">{hasCollection ? t('kc.none') : t('kc.noData')}</p>}
-
-      <p className="hint">{t('kc.hint')}</p>
+      </div>
     </div>
   )
 }

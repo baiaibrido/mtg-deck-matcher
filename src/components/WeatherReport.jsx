@@ -32,7 +32,8 @@ export default function WeatherReport({ decks, colorsOf, onOpen }) {
         <p>{hist ? t('wx.intro', dayMonth(weeks[weeks.length - 1 - WEATHER_WEEKS]), dayMonth(weeks[weeks.length - 1])) : t('wx.introPrev')}</p>
       </header>
 
-      {/* 1 · bollettino */}
+      {/* il bollettino è l'articolo principale; venti, arrivi e colori la colonna accanto */}
+      <div className="news-cols news-lead">
       <section className="panel wx-bulletin">
         <h2>{t('wx.bulletin')}</h2>
         <div className="wx-intro">
@@ -52,7 +53,7 @@ export default function WeatherReport({ decks, colorsOf, onOpen }) {
         {rows.length > SHOW && <button className="linklike wx-more" onClick={() => setAll(!all)}>{all ? t('wx.less') : t('mu.showAll', rows.length)}</button>}
       </section>
 
-      {/* 2 · venti */}
+      <div className="news-side">
       <section className="panel wx-winds-panel">
         <h2>{t('wx.winds')}</h2>
         {wind ? <>
@@ -71,8 +72,7 @@ export default function WeatherReport({ decks, colorsOf, onOpen }) {
         </> : <p className="st-note">{t('wx.winds.na')}</p>}
       </section>
 
-      <div className="st-grid-2">
-        {/* 3 · arrivi e uscite */}
+        {/* arrivi e uscite */}
         {hist && <section className="panel">
           <h2>{t('wx.moves')}</h2>
           <p className="st-note">{t('wx.moves.intro')}</p>
@@ -103,6 +103,7 @@ export default function WeatherReport({ decks, colorsOf, onOpen }) {
             ))}
           </ul>
         </section>}
+      </div>
       </div>
     </section>
   )

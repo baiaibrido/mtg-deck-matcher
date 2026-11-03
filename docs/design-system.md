@@ -1,4 +1,4 @@
-# Netdeckable — piano di design v4 «L'ufficio del torneo» (v0.40.0)
+# Netdeckable — piano di design v4 «L'ufficio del torneo» (v0.40.0, composizione rifatta in v0.41.0)
 
 ## Idea
 Ogni sezione è un oggetto di carta dell'ufficio di un torneo di Magic, appoggiato su una scrivania grigio-verde:
@@ -29,3 +29,11 @@ Interruttore = casella con la spunta a penna. Barre (.meter) a puntini come una 
 Contenitore 1008px di contenuto, margini 16. Telefono prima: tutto controllato a 360/390, poi 820 e 1920 (lo schermo di Baia).
 Ogni regola :hover dentro `@media (hover: hover) and (pointer: fine)`. Niente emoji come icone, niente etichette sopra i titoli, niente «·» o «→» nei testi.
 Le sfumature rimaste sono tutte oggetti fisici (fori, strappo, evidenziatore, margine, foil, tasca) e hanno il commento taste-skill-ignore.
+
+## Composizione (v0.41.0)
+- Guscio: telefono = etichetta Dymo rossa e preferenze in alto, linguette colorate dei divisori in basso (quella aperta più alta). 720–999px = testata con le sezioni come linguette. Da 1000px = copertina blu del raccoglitore a sinistra (208px, sticky) con le linguette che sporgono; quella aperta sporge di più. Colori: --tab-decks verde, --tab-meta giallo, --tab-coll rosa, --tab-keys azzurro.
+- Mazzi: podio (i primi tre dell'ordine scelto, schede grandi) e poi il tabulato con l'intestazione stampata delle colonne (Pos., Mazzo, Quota, Andamento, Contro il meta, Per finirlo/Costo, Completo); la colonna dell'ordine scelto è sottolineata a penna. Da 1600px blocco note, «ci sei quasi» e preferiti in una colonna a destra.
+- Mazzo: foglio della decklist (campi in caselle, riquadro del risultato, Main e Sideboard affiancati con la fascia nera), scontrino della mancolista pinzato accanto (da 1100px di pagina, sticky), fogli del meta sotto. Niente linguette: su telefono una fila di salti (Mazzo, Mancolista, Meta).
+- Collezione: copertina di vinile nero a sinistra (portaetichette col titolo, azioni, indice dei divisori colorati, profilo), pagine a destra.
+- Meta: un solo foglio di giornale: testata con filetto doppio e data dell'edizione, articoli in colonne divise da filetti (niente fogli separati).
+- Carte chiave: la cassa a sinistra (titolo, tier, totale, azioni), lo scontrino lungo a destra con testa e totale.

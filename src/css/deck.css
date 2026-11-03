@@ -1,39 +1,56 @@
-/* ═══════════ Pagina del mazzo: il modulo di iscrizione della lista ═══════════
-   Intestazione come un modulo con le caselle etichettate (i colori del mazzo sul bordo in alto) ·
-   linguette Mazzo / Mancolista / Meta · lista a righe del modulo · i dati del meta su fogli spillati a parte. */
+/* ═══════════ Pagina del mazzo: il foglio della decklist di un torneo ═══════════
+   In alto i campi compilati (nome, formato, tier, quota) e il riquadro del risultato; sotto main e side
+   affiancati, come nel modulo vero. Accanto, pinzato, lo scontrino della mancolista; sotto, i fogli del meta.
+   Le misure seguono la larghezza della pagina (container query), non quella dello schermo. */
 
-.detail { --c1: var(--mana-c); --c2: var(--mana-c); animation: enter .22s var(--ease) backwards; }
+.detail { --c1: var(--mana-c); --c2: var(--mana-c); container: detail / inline-size; animation: enter .22s var(--ease) backwards; }
 @keyframes enter { from { opacity: 0; transform: translateY(8px); } }
 .back { display: inline-flex; align-items: center; gap: 4px; min-height: var(--ctl); margin-top: var(--s2); padding: 0 var(--s2) 0 0; border: 0; background: none; color: var(--ink-2); font: 650 var(--fs-md) var(--f-text); cursor: pointer; }
 @media (hover: hover) and (pointer: fine) { .back:hover { color: var(--ink); } }
 
-/* ── Intestazione: modulo ── */
-.detail-head { position: relative; margin: var(--s2) 0 var(--s5); padding: calc(var(--s5) + 6px) var(--s5) var(--s5); border-radius: var(--r); background: var(--sheet); box-shadow: var(--lift); overflow: hidden; }
-.detail-head::before, .detail-head::after { content: ''; position: absolute; top: 0; height: 6px; } /* i colori del mazzo: due metà nette */
-.detail-head::before { left: 0; right: 50%; background: var(--c1); }
-.detail-head::after { left: 50%; right: 0; background: var(--c2); }
-.detail-info { display: grid; gap: var(--s3); min-width: 0; }
-.detail-title { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); }
-.detail-title h1 { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1; letter-spacing: -.015em; }
-.detail-actions { display: inline-flex; align-items: center; gap: var(--s2); }
+/* salti ai tre pezzi della pagina (quando stanno uno sotto l'altro) */
+.dl-jump { display: flex; gap: var(--s1); margin: var(--s1) 0 var(--s3); overflow-x: auto; scrollbar-width: none; }
+.dl-jump button { display: inline-flex; align-items: center; gap: 6px; min-height: var(--ctl-sm); padding: 0 var(--s3); border: 1px solid var(--rule-2); border-radius: 999px; background: var(--sheet); color: var(--ink); font: 700 var(--fs-sm) var(--f-text); white-space: nowrap; cursor: pointer; }
+@media (hover: hover) and (pointer: fine) { .dl-jump button:hover { border-color: var(--ink); } }
+@container detail (min-width: 1100px) { .dl-jump { display: none; } }
+
+.detail-desk { display: grid; gap: var(--s5); margin-top: var(--s3); }
+@container detail (min-width: 1100px) { .detail-desk.has-need { grid-template-columns: minmax(0, 1fr) 360px; align-items: start; } }
+
+/* ── Il foglio ── */
+.decklist { position: relative; container: sheet / inline-size; padding: calc(var(--s5) + 6px) var(--s5) var(--s5); border-radius: var(--r-lg); background: var(--sheet); box-shadow: var(--lift); }
+.decklist::before, .decklist::after { content: ''; position: absolute; top: 0; height: 6px; } /* i colori del mazzo sul bordo del foglio, due metà nette */
+.decklist::before { left: 0; right: 50%; border-radius: var(--r-lg) 0 0 0; background: var(--c1); }
+.decklist::after { left: 50%; right: 0; border-radius: 0 var(--r-lg) 0 0; background: var(--c2); }
+@media (max-width: 559px) { .decklist { margin-inline: calc(-1 * var(--s2)); padding: calc(var(--s4) + 6px) var(--s4) var(--s4); } }
+
+/* intestazione: i campi del modulo a sinistra, azioni e riquadro del risultato a destra */
+.dl-head { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: 'fields' 'actions' 'result'; gap: var(--s3); }
+@container sheet (min-width: 700px) {
+  .dl-head { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'fields actions'; column-gap: var(--s5); }
+  .dl-head.has-result { grid-template-columns: minmax(0, 1fr) minmax(260px, 300px); grid-template-areas: 'fields actions' 'fields result'; grid-template-rows: auto 1fr; }
+}
+.dl-fields { grid-area: fields; align-self: start; display: flex; flex-wrap: wrap; align-content: start; border-top: 1px solid var(--rule-2); border-left: 1px solid var(--rule-2); }
+.dl-field { flex: 1 1 auto; display: flex; flex-direction: column; gap: 4px; min-width: 6.5rem; padding: 6px var(--s3) var(--s2); border-right: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2); }
+.dl-field.dl-name { flex-basis: 100%; padding-bottom: var(--s3); }
+.dl-field.dl-wide { flex-basis: 50%; }
+.dl-label { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-2); font: 650 var(--fs-xs)/1.2 var(--f-text); font-stretch: var(--w-label); }
+.dl-label .info-btn { width: 20px; height: 20px; }
+.dl-value { font: 800 var(--fs-lg)/1.2 var(--f-text); font-stretch: 88%; font-variant-numeric: tabular-nums; }
+.dl-value.dl-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; font: 600 var(--fs-md)/1.3 var(--f-text); }
+.dl-name-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); }
+.dl-name h1 { font-size: clamp(2rem, 6cqi, 3rem); line-height: .95; letter-spacing: -.015em; }
+.dl-variant { color: var(--ink-2); font-size: var(--fs-md); }
+.detail-actions { grid-area: actions; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); align-self: start; }
+@container sheet (min-width: 700px) { .detail-actions { justify-content: flex-end; } }
 .pin-btn-detail { width: var(--ctl); height: var(--ctl); }
 .own-btn {
   display: inline-flex; align-items: center; gap: var(--s2); min-height: var(--ctl); padding: 0 var(--s4) 0 var(--s3); border: 1px solid var(--rule-2); border-radius: var(--r);
   background: var(--sheet); color: var(--ink); font: 650 var(--fs-md)/1.2 var(--f-text); font-stretch: 92%; white-space: nowrap; cursor: pointer; transition: border-color .15s;
 }
 @media (hover: hover) and (pointer: fine) { .own-btn:hover { border-color: var(--ink); } }
-.detail-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1) var(--s4); color: var(--ink-2); font-size: var(--fs-md); font-stretch: var(--w-label); }
-/* profilo del mazzo: caselle del modulo, etichetta in alto e numero a puntini */
-.profile { display: flex; flex-wrap: wrap; border-top: 1px solid var(--rule-2); border-left: 1px solid var(--rule-2); }
-.profile > div { flex: 1 1 104px; display: flex; flex-direction: column; gap: 4px; padding: 6px var(--s3) var(--s2); border-right: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2); }
-.profile dt { color: var(--ink-2); font: 650 var(--fs-xs)/1.2 var(--f-text); font-stretch: var(--w-label); }
-.profile dd { font: 800 1.625rem/1 var(--f-num); font-variant-numeric: tabular-nums lining-nums; }
-.detail-source { display: grid; gap: var(--s1); font-size: var(--fs-md); }
-.detail-source a svg { margin-left: 4px; vertical-align: -2px; }
-.detail-listhow { max-width: 62ch; color: var(--ink-2); font-size: var(--fs-sm); }
-.detail-links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s5); margin-top: var(--s1); }
-/* quanto manca: la casella del risultato, percentuale grande, barre stampate e carte mancanti */
-.detail-meters { display: grid; gap: var(--s2); padding: var(--s3) var(--s4); border: 1.5px solid var(--ink); border-radius: 2px; }
+/* il riquadro del risultato, bordato come la casella «riservato agli organizzatori» del modulo */
+.detail-meters { grid-area: result; align-self: start; display: grid; gap: var(--s2); padding: var(--s3) var(--s4); border: 2px solid var(--ink); border-radius: 2px; }
 .detail-score { display: flex; align-items: baseline; gap: var(--s2); }
 .detail-score b { font: 800 var(--fs-num)/1 var(--f-num); font-variant-numeric: tabular-nums; }
 .detail-score small { margin-left: 3px; font: 700 1.2rem var(--f-text); }
@@ -41,46 +58,64 @@
 .detail-meters .meter { font-size: var(--fs-md); }
 .detail-need { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s3); color: var(--ink-2); font-size: var(--fs-md); }
 .detail-meters .done { color: var(--ok); font-weight: 800; }
-@media (min-width: 720px) {
-  .detail-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); align-items: start; gap: var(--s4) var(--s6); }
+
+/* profilo del mazzo: una fila di caselle con il numero a puntini */
+.profile { display: flex; flex-wrap: wrap; margin: var(--s4) 0 0; border-top: 1px solid var(--rule-2); border-left: 1px solid var(--rule-2); }
+.profile > div { flex: 1 1 104px; display: flex; flex-direction: column; gap: 4px; padding: 6px var(--s3) var(--s2); border-right: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2); background: var(--sheet-3); }
+.profile dt { color: var(--ink-2); font: 650 var(--fs-xs)/1.2 var(--f-text); font-stretch: var(--w-label); }
+.profile dd { font: 800 1.625rem/1 var(--f-num); font-variant-numeric: tabular-nums lining-nums; }
+@media (max-width: 559px) { .profile > div { flex-basis: 30%; } }
+.decklist > .note { margin-top: var(--s3); }
+
+/* la lista: main e side affiancati quando il foglio è largo */
+.decklist .list-tools { margin-top: var(--s5); scroll-margin-top: calc(var(--head-h, 0px) + var(--s3)); }
+.list-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s4); }
+.dl-cols { display: grid; gap: 0 var(--s6); }
+@container sheet (min-width: 640px) {
+  .dl-cols:not(.dl-visual) { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  .dl-cols:not(.dl-visual) > .list-section + .list-section { position: relative; }
+  .dl-cols:not(.dl-visual) > .list-section + .list-section::before { content: ''; position: absolute; top: 0; bottom: 0; left: calc(-1 * var(--s6) / 2); border-left: 1px dashed var(--rule-2); }
 }
-@media (max-width: 719px) {
-  .detail-head { display: flex; flex-direction: column; gap: var(--s3); padding: calc(var(--s4) + 6px) var(--s4) var(--s4); margin-inline: calc(-1 * var(--s2)); }
-  .detail-info { display: contents; }
-  .detail-title { order: 1; } .detail-meta { order: 2; } .detail-meters { order: 3; margin: var(--s1) 0; }
-  .detail-head .profile { order: 4; } .detail-source { order: 5; } .detail-info > .note { order: 6; }
-  .detail-score b { font-size: 2.5rem; }
-}
+.list-section { margin-top: var(--s4); }
+/* «Main» e «Sideboard»: la fascia nera dell'intestazione del modulo */
+.list-section h2 { padding: 4px var(--s2); border-radius: 1px; background: var(--ink); color: var(--sheet); font-size: var(--fs-lg); }
+.group { margin-top: var(--s3); }
+.group h3 { margin-bottom: 2px; color: var(--ink-2); font: 800 var(--fs-sm)/1.3 var(--f-text); font-stretch: var(--w-label); }
+.group h3 span { margin-left: 4px; font-weight: 400; }
+
+/* righe del modulo: la quantità nella sua casella con l'evidenziatore (giallo = manca, verde = c'è) */
+.tlines { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.tline { display: grid; grid-template-columns: 3em minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 36px; padding: 2px 0; border-bottom: 1px solid var(--rule); }
+.tline-qty { align-self: stretch; display: grid; place-items: center end; padding-right: 8px; border-right: 1px solid var(--rule-2); color: var(--st-ink, var(--ink)); font-weight: 800; text-align: right; font-variant-numeric: tabular-nums; }
+.tline.tile-ok .tline-qty, .tline.tile-part .tline-qty, .tline.tile-no .tline-qty { justify-self: stretch; align-self: center; border-right: 0; box-shadow: 1px 0 0 var(--rule-2); text-align: center; }
+.tline.tile-plain { --st-ink: var(--ink-2); }
+.tline-name { overflow: hidden; color: var(--ink); text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
+@media (hover: hover) and (pointer: fine) { .tline-name:hover { text-decoration: underline; } }
+
+/* piede del foglio: da dove viene la lista */
+.detail-source { display: grid; gap: var(--s1); margin-top: var(--s5); padding-top: var(--s3); border-top: 1px dashed var(--rule-2); font-size: var(--fs-md); }
+.detail-source a svg { margin-left: 4px; vertical-align: -2px; }
+.detail-listhow { max-width: 62ch; color: var(--ink-2); font-size: var(--fs-sm); }
+.detail-links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s5); margin-top: var(--s1); }
 @media (max-width: 560px) {
-  .profile > div { flex-basis: 30%; } /* tre caselle per riga: quelle dell'ultima riga si allargano, niente buchi nel modulo */
   .detail-source a { display: inline-block; padding-block: 8px; }
   .detail-links { flex-direction: column; gap: 0; margin-top: 0; }
   .detail .list-tools { flex-wrap: nowrap; }
   .list-tools > .switch { flex: 1 1 auto; min-width: 0; }
 }
 
-/* ── Lista e colonna laterale ── */
-.detail-split { display: grid; gap: var(--s6); }
-@media (min-width: 900px) { .detail-split.has-meta { grid-template-columns: minmax(0, 1fr) minmax(0, 380px); align-items: start; } }
-.detail-main { min-width: 0; }
-.tabs-deck { margin-bottom: var(--s3); }
-.list-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s4); }
-.list-section { margin-top: var(--s5); }
-.list-tools + .list-section { margin-top: var(--s3); }
-.list-section h2 { padding-bottom: var(--s1); border-bottom: 2px solid var(--ink); font-size: var(--fs-xl); }
-.group { margin-top: var(--s3); }
-.group h3 { margin-bottom: var(--s1); color: var(--ink-2); font: 800 var(--fs-sm)/1.3 var(--f-text); font-stretch: var(--w-label); }
-.group h3 span { margin-left: 4px; font-weight: 400; }
-
-/* lista testuale: righe del modulo, la quantità nella sua casella con l'evidenziatore (giallo = manca, verde = c'è) */
-.tlines { margin: 0; padding: 0; list-style: none; border-radius: 2px; background: var(--sheet); box-shadow: var(--lift); }
-.tline { display: grid; grid-template-columns: 3em minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 38px; padding: 3px var(--s3) 3px 0; border-top: 1px solid var(--rule); }
-.tline:first-child { border-top: 0; }
-.tline-qty { align-self: stretch; display: grid; place-items: center end; padding-right: 8px; border-right: 1px solid var(--rule-2); color: var(--st-ink, var(--ink)); font-weight: 800; text-align: right; font-variant-numeric: tabular-nums; }
-.tline.tile-ok .tline-qty, .tline.tile-part .tline-qty, .tline.tile-no .tline-qty { justify-self: stretch; align-self: center; border-right: 0; box-shadow: 1px 0 0 var(--rule-2); text-align: center; }
-.tline.tile-plain { --st-ink: var(--ink-2); }
-.tline-name { overflow: hidden; color: var(--ink); text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
-@media (hover: hover) and (pointer: fine) { .tline-name:hover { text-decoration: underline; } }
+/* ── La mancolista: le azioni sopra, lo scontrino pinzato ── */
+.dl-need { display: grid; gap: var(--s3); align-content: start; max-width: 560px; scroll-margin-top: calc(var(--head-h, 0px) + var(--s3)); }
+@container detail (min-width: 1100px) { .dl-need { max-width: none; position: sticky; top: var(--s4); max-height: calc(100dvh - var(--s6)); overflow: auto; overscroll-behavior: contain; padding: 0 4px 8px; scrollbar-width: thin; } }
+.dl-need .receipt { position: relative; max-width: none; margin: 0; }
+.need-tools { gap: var(--s2); }
+.dl-need .hint { margin: 0; }
+@media (max-width: 560px) { .need-tools .btn { flex: 1 1 auto; } }
+.need-closed > summary { display: inline-flex; align-items: center; gap: var(--s2); min-height: var(--ctl); padding: 0 var(--s4); border: 1px solid var(--rule-2); border-radius: var(--r); background: var(--sheet); font: 700 var(--fs-md) var(--f-text); cursor: pointer; list-style: none; }
+.need-closed > summary::-webkit-details-marker { display: none; }
+.need-closed[open] > summary { margin-bottom: var(--s3); border-color: var(--ink); }
+.need-closed[open] { display: grid; gap: var(--s3); }
+.del { margin-top: var(--s6); }
 
 /* immagini delle carte */
 .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; }
@@ -106,22 +141,22 @@
 @media (max-width: 560px) { .need-tools .btn { flex: 1 1 auto; } }
 .del { margin-top: var(--s6); }
 
-/* ── Dati del meta: fogli spillati a parte (andamento, conversione, matchup, cuore della lista) ── */
-.detail-side, .detail-more > .ins { position: relative; padding: var(--s5); border-radius: var(--r); background: var(--sheet); box-shadow: var(--lift); }
-.detail-side::before, .detail-more > .ins::before { content: ''; position: absolute; left: 14px; top: 8px; width: 22px; height: 3px; border-radius: 1px; background: color-mix(in oklab, var(--ink) 45%, var(--sheet)); transform: rotate(-24deg); } /* la graffetta della spillatrice */
-.detail-side > .hist > figcaption, .detail-side > .mu > h2, .detail-side > .ins > h2, .detail-more > .ins > h2 {
+/* ── Dati del meta: fogli appoggiati sotto, ognuno lungo quanto il suo contenuto ── */
+.detail-meta { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: var(--s4); align-items: start; margin-top: var(--s6); scroll-margin-top: calc(var(--head-h, 0px) + var(--s3)); }
+.meta-sheet, .detail-meta > .ins { position: relative; padding: var(--s5); border-radius: var(--r); background: var(--sheet); box-shadow: var(--lift); }
+.meta-sheet::before, .detail-meta > .ins::before { content: ''; position: absolute; left: 14px; top: 8px; width: 22px; height: 3px; border-radius: 1px; background: color-mix(in oklab, var(--ink) 45%, var(--sheet)); transform: rotate(-24deg); } /* la graffetta della spillatrice */
+.meta-sheet > .hist > figcaption, .meta-sheet > .mu > h2, .detail-meta > .ins > h2 {
   margin: 0 0 var(--s3); padding-bottom: var(--s2); border-bottom: 2px solid var(--ink); font: 800 var(--fs-lg)/1.2 var(--f-text); font-stretch: var(--w-head);
 }
-.detail-side > .mu, .detail-side > .ins { margin-top: var(--s6); }
-.detail-side > :first-child { margin-top: 0; }
-@media (max-width: 559px) { .detail-side, .detail-more > .ins { padding: var(--s4); } }
+.meta-sheet > :last-child, .detail-meta > .ins > :last-child { margin-bottom: 0; }
+@media (max-width: 559px) { .meta-sheet, .detail-meta > .ins { padding: var(--s4); } }
 
 /* andamento della quota */
 .hist-plot { position: relative; }
 .hist-plot svg { display: block; width: 100%; height: auto; touch-action: pan-y; cursor: crosshair; }
 .hist-grid { stroke: var(--rule); stroke-width: 1; }
 .hist-axis { fill: var(--ink-2); font: 12px var(--f-text); }
-.detail-side .hist-axis { font-size: 23px; }
+.meta-sheet .hist-axis { font-size: 23px; }
 .hist-line { fill: none; stroke: var(--pen); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
 .hist-area { fill: color-mix(in oklab, var(--pen) 10%, transparent); }
 .hist-dot { fill: var(--pen); stroke: var(--sheet); stroke-width: 2; }
@@ -170,5 +205,3 @@
 
 @media (prefers-reduced-motion: reduce) { .detail { animation: none !important; } }
 
-/* da 900px: cuore della lista e side contro di te affiancati sotto la lista, ognuno lungo quanto il suo contenuto */
-.detail-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); align-items: start; margin-top: var(--s6); }

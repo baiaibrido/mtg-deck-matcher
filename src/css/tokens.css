@@ -37,7 +37,11 @@
   /* ── Oggetti che restano chiari anche di sera ── */
   --receipt: #fdfdfa; --receipt-ink: #23262a; --receipt-ink-2: #5d6168; --receipt-rule: #9da19a;
   --postit: #fbe78a; --postit-ink: #2a2614;
-  --label: #23324f; --label-ink: #f4f6fb; /* nastro della etichettatrice */
+  --label: #b52f28; --label-ink: #ffffff; /* nastro rosso della etichettatrice */
+  --cover: #2c3a52; --cover-ink: #eef1f6; /* copertina telata del raccoglitore delle sezioni */
+  --vinyl: #2b2e34; /* copertina di vinile nero del raccoglitore delle carte */
+  /* linguette di plastica dei divisori, una per sezione */
+  --tab-decks: #a9d98f; --tab-meta: #f2d76b; --tab-coll: #f3a9bd; --tab-keys: #9cc6ee; --tab-ink: #1c2127;
 
   /* ── Colori di Magic (dati, non decorazione) ── */
   --mana-w: #c8b46e; --mana-u: #3f86c9; --mana-b: #8a7c98; --mana-r: #d65532;
@@ -85,6 +89,8 @@
   --stamp-ban: #ff8b7e; --stamp-rs: #ffb867; --stamp-ok: #7fe0a0; --stamp-date: #a9b8ff;
   --ok: #7fe0a0; --part: #ecb95a; --no: #ff8b7e; --danger: #ff8b7e;
   --receipt: #f2f0e8; --postit: #ead775;
+  --cover: #2a3446; --label: #a82b25; --vinyl: #2f333a;
+  --tab-decks: #8fc178; --tab-meta: #d9bf58; --tab-coll: #d993a6; --tab-keys: #86afd6;
   --mana-w: #efe4bd; --mana-u: #4b97d6; --mana-b: #9a8ca8; --mana-r: #e2603e; --mana-g: #41a364; --mana-gold: #d4ad5a; --mana-c: #a3abb0; --land: #8a7a5c;
   --lift: 0 1px 0 rgba(0, 0, 0, .35), 0 12px 22px -12px rgba(0, 0, 0, .7);
   --lift-hi: 0 2px 0 rgba(0, 0, 0, .3), 0 24px 44px -16px rgba(0, 0, 0, .8);

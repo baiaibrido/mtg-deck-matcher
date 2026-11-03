@@ -278,6 +278,8 @@ export default {
   'wx.bulletin.introPrev': 'All Tier 1 and 2 decks, most played first, with today’s meta share and how many points it moved since the previous update.',
   'guess.go': 'Guess',
   'big.share': 'of the meta', 'big.meta': 'vs the meta', 'big.cost': 'full deck',
+  'col.rank': 'Pos.', 'col.deck': 'Deck', 'col.share': 'Share', 'col.trend': 'Trend', 'col.wr': 'Vs. meta', 'col.need': 'To finish', 'col.cost': 'Cost', 'col.done': 'Complete',
+  'st.edition': d => `Edition of ${d}`,
   'st.ch.format': 'The format', 'st.ch.format.intro': 'The format as a whole: how varied it is, which decks reach the top 8 more often than expected and how much each deck wins for what it costs.',
   'st.ch.cards': 'The cards', 'st.ch.cards.intro': 'Single cards: which ones are entering or leaving the lists, which are still cheap and what people play in the sideboard.',
 }

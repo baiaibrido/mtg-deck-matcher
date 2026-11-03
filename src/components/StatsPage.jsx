@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { t, num } from '../i18n/index.js'
+import { t, num, dayMonth } from '../i18n/index.js'
 import { money } from '../lib/currency.js'
 import { loadPrices } from '../lib/metaDecks.js'
 import { health, valuePoints, bestBuys, converters, priceWatch } from '../lib/stats.js'
@@ -63,9 +63,11 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
 
   return (
     <div className="stats">
-      <header className="page-head head-split">
+      {/* la testata del giornale: titolo, data dell'edizione, sommario */}
+      <header className="page-head news-mast">
         <h1>{t('st.title', formatName)}</h1>
-        <p>{t('st.intro')}</p>
+        {decks[0]?.updated && <p className="news-date">{t('st.edition', dayMonth(decks[0].updated))}</p>}
+        <p className="news-standfirst">{t('st.intro')}</p>
       </header>
 
       <WeatherReport decks={decks} colorsOf={colorsOf} onOpen={onOpen} />
@@ -76,6 +78,7 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
         <h2 id="ch-format">{t('st.ch.format')}</h2>
         <p>{t('st.ch.format.intro')}</p>
       </header>
+        <div className="news-cols news-format">
         {hl?.now && <section className="panel st-health">
           <h2>{t('st.health')}</h2>
           <div className="st-health-big">
@@ -112,6 +115,7 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
           <ul>{buys.map(b => <li key={b.budget}><span className="st-budget">{t('budget.max', money(b.budget))}</span> {link(b.p.s.deck)} <ColorPips colors={colorsOf(b.p.s.deck)} /> <span className="st-muted">{t('st.buys.row', num(b.p.wr), money(b.p.need, true))}</span></li>)}</ul>
         </div>}
       </section>}
+      </div>
       </section>
 
       {!st && <p className="note">{t('st.limited')}</p>}
@@ -122,7 +126,7 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
         <h2 id="ch-cards">{t('st.ch.cards')}</h2>
         <p>{t('st.ch.cards.intro')}</p>
       </header>
-      <div className="st-grid-2">
+      <div className="news-cols news-cards">
         <section className="panel">
           <h2>{t('st.up')}</h2>
           <p className="st-note">{t('st.trend.intro')}</p>
@@ -133,9 +137,6 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
           <p className="st-note">{t('st.trend.intro')}</p>
           <ul className="st-rows st-cards st-trendcards">{st.cardsDown.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="down" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
         </section>
-      </div>
-
-      <div className="st-grid-2">
         <section className="panel">
           <h2>{t('st.watch')}</h2>
           <p className="st-note">{prices?.dates?.length >= 2 ? t('st.watch.intro', prices.dates.length) : t('st.watch.wait')}</p>

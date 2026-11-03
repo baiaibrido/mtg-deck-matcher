@@ -276,6 +276,8 @@ export default {
   'wx.bulletin.introPrev': 'Tier 1と2のすべてのデッキ（使用率順）：現在の使用率と、前回の更新からの変化。',
   'guess.go': '回答',
   'big.share': 'メタ使用率', 'big.meta': '対メタ勝率', 'big.cost': 'デッキ全体',
+  'col.rank': '順位', 'col.deck': 'デッキ', 'col.share': 'シェア', 'col.trend': '推移', 'col.wr': '対メタ', 'col.need': '完成まで', 'col.cost': 'コスト', 'col.done': '完成度',
+  'st.edition': d => `${d}号`,
   'st.ch.format': 'フォーマット', 'st.ch.format.intro': 'フォーマット全体の様子：どれだけ多様か、予想以上にトップ8に入るデッキ、価格に対してどれだけ勝てるか。',
   'st.ch.cards': 'カード', 'st.ch.cards.intro': '個々のカード：リストに増えているもの・減っているもの、まだ安いもの、サイドボードでよく使われるもの。',
 }
