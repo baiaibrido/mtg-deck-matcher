@@ -13,7 +13,7 @@ const mask = name => name.replace(/\p{L}+/gu, w => w[0] + '?'.repeat(w.length - 
 
 // "Oggi nel meta": un solo riquadro con meteo, mazzo misterioso e i due giochi,
 // ognuno con la sua riga di spiegazione (anche su telefono, dove il meteo sta in una riga)
-export default function TodayCard({ weather, daily, signature, dailyColors, format, onOpenDaily, onOpen, onWeather, streak = 0, guess, onGame }) {
+export default function TodayCard({ weather, daily, signature, dailyColors, format, onOpenDaily, onOpen, onWeather, streak = 0, guess, onGame, compact }) {
   const [left, setLeft] = useState(untilMidnight())
   useEffect(() => { const id = setInterval(() => setLeft(untilMidnight()), 30000); return () => clearInterval(id) }, [])
   const [seen, setSeen] = useLocal('mdm.dailySeen', {})
@@ -25,6 +25,28 @@ export default function TodayCard({ weather, daily, signature, dailyColors, form
   const lines = t('daily.lines'), line = lines[hash(key) % lines.length]
   const openDaily = () => { setSeen({ ...seen, [format]: key }); onOpenDaily(daily.id, fresh) }
   const link = d => <button className="linklike" onClick={() => onOpen(d.id)}>{d.name}</button>
+
+  // bozza: quattro tessere in fila che si scorrono, una cosa per tessera
+  if (compact) return (
+    <section className="today-strip" aria-labelledby="today-title">
+      <h2 id="today-title">{t('today.title')}</h2>
+      <ul>
+        {weather?.up && <li><button className="ts-tile" onClick={onWeather}>
+          <SkyIcon sky="sun" size={22} /><b>{t('today.weather')}</b><span>{weather.up.d.name} <span className="trend-up">+{num(weather.up.delta)}</span></span>
+        </button></li>}
+        {daily && <li><button className={`ts-tile${fresh ? ' fresh' : ''}`} onClick={openDaily} aria-label={t('daily.aria', daily.name)}>
+          <span className="today-icon mystery-mini" aria-hidden="true">{sig?.img && <img src={sig.img} alt="" loading="lazy" onError={e => { e.currentTarget.style.display = 'none' }} />}<span>?</span></span>
+          <b>{t('daily.label')}</b><span className="mystery-masked">{mask(daily.name)}</span>
+        </button></li>}
+        <li><button className="ts-tile" onClick={() => onGame('guess')}>
+          <IconSearch size={22} /><b>{t('guess.btn')}</b><span>{guess || t('guess.new')}</span>
+        </button></li>
+        <li><button className="ts-tile" onClick={() => onGame('quiz')}>
+          <IconQuestion size={22} /><b>{t('quiz.btn')}</b><span>{t('quiz.sub')}</span>
+        </button></li>
+      </ul>
+    </section>
+  )
 
   return (
     <section className={`today${printing ? ' printing' : ''}`} aria-labelledby="today-title">

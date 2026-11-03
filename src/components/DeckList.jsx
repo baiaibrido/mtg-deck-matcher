@@ -128,7 +128,7 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
 }
 
 // Numero grande senza collezione: il valore dell'ordinamento scelto
-function bigFigure(metric, deck, cost) {
+export function bigFigure(metric, deck, cost) {
   if (metric === 'share') return deck.share > 0 ? { value: num(deck.share), unit: '%', label: t('big.share') } : null
   if (metric === 'meta') return { value: deck.metaWr != null ? num(deck.metaWr) : '—', unit: deck.metaWr != null ? '%' : '', label: t('big.meta') }
   if (metric === 'cost') return cost?.known > 0 ? { value: money(cost.amount), unit: '', label: t('big.cost') } : null

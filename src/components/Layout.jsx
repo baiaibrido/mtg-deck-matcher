@@ -5,15 +5,25 @@ import { linkProps } from '../state/useRoute.js'
 import { useMedia } from '../state/useMedia.js'
 import Picker from './Picker.jsx'
 import { ManaSymbol } from './Mana.jsx'
-import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconGlobe, IconCoins, IconChart, IconUser } from './Icons.jsx'
+import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconGlobe, IconCoins, IconChart, IconUser, IconSliders } from './Icons.jsx'
 
 const smooth = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
 
 // Testata sempre visibile: si compatta scorrendo (soglie diverse in su e in giù per non sfarfallare)
-export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onTheme, account, onAccount }) {
+export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onTheme, account, onAccount, formats, format, onFormat }) {
   const headRef = useRef(null)
   const [compact, setCompact] = useState(false)
   const narrow = useMedia('(max-width: 999px)') // schermi stretti: nei selettori solo i codici (IT, EUR…)
+  const phone = useMedia('(max-width: 719px)') // telefono: formato in testata, lingua/valuta/tema/profilo dietro un pulsante
+  const [prefsOpen, setPrefsOpen] = useState(false)
+  const prefsRef = useRef(null)
+  useEffect(() => {
+    if (!prefsOpen) return
+    const out = e => { if (!prefsRef.current?.contains(e.target) && !e.target.closest?.('.picker-list')) setPrefsOpen(false) }
+    const esc = e => { if (e.key === 'Escape') setPrefsOpen(false) }
+    document.addEventListener('pointerdown', out); document.addEventListener('keydown', esc)
+    return () => { document.removeEventListener('pointerdown', out); document.removeEventListener('keydown', esc) }
+  }, [prefsOpen])
   useEffect(() => {
     const on = () => setCompact(c => c ? scrollY > 8 : scrollY > 40)
     on(); addEventListener('scroll', on, { passive: true })
@@ -36,10 +46,13 @@ export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onThem
         <a {...linkProps('key-cards')} aria-current={current('key-cards')}>{t('nav.keycards')}</a>
         <a {...linkProps('stats')} aria-current={current('stats')}>{t('nav.stats')}</a>
       </nav>
-      <div className="prefs">
-        <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow}
+      {phone && formats && <Picker className="fmt-picker" label={t('format')} value={format} onChange={onFormat} options={formats.map(f => ({ value: f.id, label: f.name }))} align="right" />}
+      {phone ? <div className="prefs-wrap" ref={prefsRef}>
+        <button className="theme-btn" aria-expanded={prefsOpen} aria-controls="prefs-panel" onClick={() => setPrefsOpen(o => !o)} aria-label={t('settings')} title={t('settings')}><IconSliders size={20} /></button>
+        {prefsOpen && <div className="prefs prefs-panel" id="prefs-panel">
+        <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow && !phone}
           value={lang} onChange={onLang} options={LANGS.map(([k, name]) => ({ value: k, label: name, short: k.toUpperCase(), lang: k }))} />
-        <Picker className="pref-picker" label={t('currency')} icon={<IconCoins size={17} />} align="right" short={narrow}
+        <Picker className="pref-picker" label={t('currency')} icon={<IconCoins size={17} />} align="right" short={narrow && !phone}
           value={cur} onChange={onCur} options={CURRENCIES.map(c => { const sym = currencySymbol(c, locale()); return { value: c, label: !sym || sym === c ? c : `${c} ${sym}`, short: c } })} />
         <button className="theme-btn" onClick={() => onTheme(theme === 'light' ? 'dark' : 'light')}
           aria-label={theme === 'light' ? t('theme.toDark') : t('theme.toLight')} title={theme === 'light' ? t('theme.toDark') : t('theme.toLight')}>
@@ -47,7 +60,19 @@ export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onThem
         </button>
         {/* profilo: su telefono si raggiunge dalla pagina Collezione */}
         <button className={`theme-btn acc-btn${account === 'in' ? ' on' : ''}`} onClick={onAccount} aria-label={t('acc.title')} title={t('acc.title')}><IconUser size={18} /></button>
-      </div>
+        </div>}
+      </div> : <div className="prefs">
+        <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow && !phone}
+          value={lang} onChange={onLang} options={LANGS.map(([k, name]) => ({ value: k, label: name, short: k.toUpperCase(), lang: k }))} />
+        <Picker className="pref-picker" label={t('currency')} icon={<IconCoins size={17} />} align="right" short={narrow && !phone}
+          value={cur} onChange={onCur} options={CURRENCIES.map(c => { const sym = currencySymbol(c, locale()); return { value: c, label: !sym || sym === c ? c : `${c} ${sym}`, short: c } })} />
+        <button className="theme-btn" onClick={() => onTheme(theme === 'light' ? 'dark' : 'light')}
+          aria-label={theme === 'light' ? t('theme.toDark') : t('theme.toLight')} title={theme === 'light' ? t('theme.toDark') : t('theme.toLight')}>
+          {theme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
+        </button>
+        {/* profilo: su telefono si raggiunge dalla pagina Collezione */}
+        <button className={`theme-btn acc-btn${account === 'in' ? ' on' : ''}`} onClick={onAccount} aria-label={t('acc.title')} title={t('acc.title')}><IconUser size={18} /></button>
+      </div>}
     </header>
   )
 }
