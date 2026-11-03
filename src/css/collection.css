@@ -42,13 +42,14 @@
 
 /* ── Barra degli strumenti: resta in vista scorrendo (computer) ── */
 .coll-tools {
-  position: sticky; top: var(--head-h, 0px); z-index: 6; display: grid; gap: var(--s2);
+  position: sticky; top: var(--head-h, 0px); z-index: 6; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s2);
   margin: 0 calc(-1 * var(--gutter)); padding: var(--s2) var(--gutter); border-bottom: 1px solid var(--line);
   background: var(--bar-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
 /* prima riga: cerca e filtra (il pannello dei filtri si apre subito sotto); seconda: tipo di carta a sinistra, ordine e vista a destra */
 .coll-find { display: flex; align-items: center; gap: var(--s2); }
-.coll-find .search { flex: 1 1 auto; }
+.coll-find .search { flex: 1 1 auto; min-width: 0; }
+.coll-show > * { min-width: 0; max-width: 100%; }
 .coll-show { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s3); }
 .coll-tools-right { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); margin-left: auto; }
 .more-btn.open { background: var(--ink); border-color: var(--ink); color: var(--paper); }

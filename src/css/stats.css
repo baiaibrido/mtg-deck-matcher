@@ -1,9 +1,9 @@
 /* ═══════════ Statistiche: fogli con i numeri grandi a punti ═══════════ */
 
 .stats .panel { margin-bottom: var(--s4); }
-/* fogli affiancati: finiscono alla stessa altezza, come due pagine dello stesso tabulato */
+/* fogli affiancati: ognuno lungo quanto il suo contenuto (niente fogli con mezza pagina vuota) */
 .st-grid-2 { display: grid; gap: 0 var(--s4); }
-@media (min-width: 900px) { .st-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; } }
+@media (min-width: 900px) { .st-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
 
 /* ── Capitoli: meteo, formato, carte. Ognuno apre con una riga d'inchiostro, il titolo e la sua spiegazione ── */
 .st-chapter { margin-top: var(--s7); scroll-margin-top: 80px; }
@@ -19,7 +19,7 @@
   .st-health > h2:first-child { grid-column: 1 / -1; }
   .st-health-more { padding-left: var(--s5); border-left: 1px dashed var(--line); }
 }
-.st-health-more .st-note:last-child { margin-bottom: 0; }
+.st-health-more .st-note:last-child, .st-health-big > :last-child { margin-bottom: 0; }
 /* chi converte di più: a tutta larghezza, le righe in due colonne */
 @media (min-width: 900px) {
   .st-conv .st-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--s6); }

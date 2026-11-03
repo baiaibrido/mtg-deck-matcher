@@ -46,7 +46,7 @@
 .detail-need { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s3); color: var(--ink-2); font-size: var(--fs-md); }
 .detail-meters .done { color: var(--ok); font-weight: 700; }
 @media (min-width: 720px) {
-  .detail-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); align-items: center; gap: var(--s4) var(--s6); }
+  .detail-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); align-items: start; gap: var(--s4) var(--s6); }
 }
 @media (max-width: 719px) {
   /* telefono: nome, quota, quanto manca, profilo, link */
@@ -184,6 +184,6 @@
 @media (prefers-reduced-motion: reduce) { .detail { animation: none !important; } }
 
 /* sotto la lista, a tutta larghezza (da 900px): cuore della lista e side contro di te affiancati */
-.detail-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); align-items: stretch; margin-top: var(--s5); } /* i due fogli finiscono alla stessa altezza */
+.detail-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); align-items: start; margin-top: var(--s5); } /* ogni foglio lungo quanto il suo contenuto */
 .detail-more > .ins { padding: 0 var(--s5) var(--s5); border: 1px solid var(--line); border-top: 2px solid var(--ink); border-radius: 0 0 var(--r-lg) var(--r-lg); background: var(--sheet) var(--grain); }
 .detail-more > .ins > h2 { margin: 0 calc(-1 * var(--s5)) var(--s3); padding: 10px var(--s5) 9px; border-bottom: 1px solid var(--line); background: var(--bar); font: 1.125rem/1.25 var(--font-title); }

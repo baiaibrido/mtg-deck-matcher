@@ -164,3 +164,7 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
   .head-split > :is(h1, h2) { grid-column: 1; }
   .head-split > p { grid-column: 2; margin-top: 0; max-width: 60ch; }
 }
+
+/* fondo dei fogli sempre uguale: l'ultimo elemento non aggiunge margini o righe vuote al margine del foglio */
+.panel > :last-child, .detail-side > :last-child > :last-child, .detail-more > .ins > :last-child { margin-bottom: 0; }
+:is(.panel, .detail-side, .detail-more > .ins) :is(.st-rows, .wx-wind ul, .ins-list) > li:last-child { padding-bottom: 0; }

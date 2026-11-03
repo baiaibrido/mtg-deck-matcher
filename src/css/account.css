@@ -46,3 +46,15 @@
 .privacy li + li { margin-top: var(--s1); }
 .pv-lead { color: var(--ink-2) !important; font-size: var(--fs-lg); line-height: 1.5 !important; }
 .privacy .hint { margin-top: var(--s5); }
+
+/* da 900px l'informativa si legge come un documento a due colonne: titoli a sinistra, testo a destra
+   (stesse colonne delle intestazioni divise delle altre pagine; il testo resta largo al massimo ~68 caratteri) */
+@media (min-width: 900px) {
+  .privacy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); column-gap: var(--s6); max-width: none; }
+  .privacy > * { grid-column: 2; max-width: 68ch; }
+  .privacy > :is(h1, h2) { grid-column: 1; }
+  .privacy > h1 { grid-row: span 1; align-self: start; margin-bottom: 0; }
+  .privacy > h2 { margin: var(--s5) 0 0; align-self: start; padding-top: 2px; }
+  .privacy > h2 + * { margin-top: var(--s5); }
+  .privacy > .hint { margin-top: var(--s6); }
+}
