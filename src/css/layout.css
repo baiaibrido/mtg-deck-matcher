@@ -168,19 +168,3 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 /* fondo dei fogli sempre uguale: l'ultimo elemento non aggiunge margini o righe vuote al margine del foglio */
 .panel > :last-child, .detail-side > :last-child > :last-child, .detail-more > .ins > :last-child { margin-bottom: 0; }
 :is(.panel, .detail-side, .detail-more > .ins) :is(.st-rows, .wx-wind ul, .ins-list) > li:last-child { padding-bottom: 0; }
-
-/* ── Bozza home (v0.42): su telefono la testata ha solo nome, formato e impostazioni ── */
-.prefs-wrap { position: relative; margin-left: auto; }
-.fmt-picker { margin-left: auto; }
-.fmt-picker + .prefs-wrap { margin-left: 0; }
-.fmt-picker .picker-btn { font-weight: 800; }
-.prefs-panel {
-  position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2);
-  width: min(300px, calc(100vw - 24px)); margin: 0; padding: var(--s3); border: 1px solid var(--line); border-radius: var(--r-lg);
-  background: var(--pop-bg); box-shadow: var(--shadow-pop);
-}
-.prefs-panel .pref-picker { grid-column: 1 / -1; }
-.prefs-panel .pref-picker .picker-btn { width: 100%; }
-.prefs-panel .pref-picker .picker-btn > svg:first-child { display: inline; }
-.prefs-panel .theme-btn { width: 100%; }
-@media (max-width: 719px) { .formats { display: none; } }

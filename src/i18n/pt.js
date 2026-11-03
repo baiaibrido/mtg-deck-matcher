@@ -3,7 +3,7 @@ const p = (n, one, many) => n === 1 ? one : many
 const cartas = n => p(n, 'carta', 'cartas')
 
 export default {
-  skip: 'Ir para o conteúdo', home: 'Netdeckable, início', 'deck.open': 'Abrir o deck', 'detail.seeNeed': 'Ver o que falta', settings: 'Configurações', sections: 'Seções', format: 'Formato',
+  skip: 'Ir para o conteúdo', home: 'Netdeckable, início', sections: 'Seções', format: 'Formato',
   'nav.decks': 'Decks', 'nav.keycards': 'Cartas-chave', 'nav.collection': 'Coleção',
   done: 'Pronto', undo: 'Desfazer', cancel: 'Cancelar', close: 'Fechar', download: 'Baixar', copyList: 'Copiar lista', sort: 'Ordenar', all: 'Todos',
   language: 'Idioma', 'theme.toLight': 'Mudar para o tema claro', 'theme.toDark': 'Mudar para o tema escuro',

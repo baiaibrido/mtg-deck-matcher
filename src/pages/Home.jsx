@@ -1,25 +1,32 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { t, dayMonth } from '../i18n/index.js'
 import { money, localBudget } from '../lib/currency.js'
 import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
 import { getCached } from '../lib/scryfall.js'
 import { go, linkProps } from '../state/useRoute.js'
 import { useSession } from '../state/useSession.js'
-import { HeroDeck, DeckLines, PinChips, useArtOf } from '../components/DeckCards.jsx'
+import DeckList, { PinnedList } from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
 import { ManaSymbol } from '../components/Mana.jsx'
-import { IconFilter, IconTarget, IconChili } from '../components/Icons.jsx'
+import { IconClip, IconFilter, IconChevron, IconTarget, IconChili } from '../components/Icons.jsx'
+import { useMedia } from '../state/useMedia.js'
 
 const STALE_DAYS = 3
 const daysAgo = d => d ? Math.floor((Date.now() - new Date(d + 'T12:00:00')) / 864e5) : 0
 const SORTS = ['score', 'share', 'meta', 'cost']
 const BUDGETS = [0, 10, 25, 50, 100, 200] // tetto di spesa in euro, mostrato e confrontato nella valuta locale (0 = nessuno)
+const scrollToId = id => {
+  const el = document.getElementById(id)
+  el?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
+  el?.focus({ preventScroll: true })
+}
 
 // Home: i mazzi del formato più vicini alla collezione (titolo, «Oggi nel meta», filtri, classifica, rogue)
 export default function Home({ format, formatName, meta, metaMain, decks, ranked, rogue, collection, almost, onHideAlmost,
   colorsOf, costOf, pins, togglePin, cardsState, banNotice, todayCard, userDecks, setUserDecks, toast }) {
+  const phone = useMedia('(max-width: 719px)') // su telefono «Oggi nel meta» va dopo i primi mazzi
   const owned = collection.length > 0
   const [viewRaw, setView] = useSession('mdm.view', {})
   // ordine predefinito: chi ha carte vede i mazzi più vicini alla collezione, chi non ne ha i mazzi del momento
@@ -54,9 +61,29 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   if (view.colors.length) all = all.filter(s => { const c = deckColors(s.deck, getCached); return c && (c.main || c).every(x => view.colors.includes(x)) }) // solo i colori principali: gli splash non contano
   if (view.budget) all = all.filter(withinBudget)
   const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
+  // il mazzo più vicino alla collezione: cerchiato a penna nella classifica
+  const best = owned ? ordered.filter(s => s.score < 1).reduce((a, b) => (b.score > (a?.score ?? 0) ? b : a), null) : null
   const cedh = format === 'commander' // cEDH: le percentuali si riferiscono alla lista di un torneo
-  const artOf = useArtOf(meta)
-  const lineProps = { colorsOf, artOf, costOf, owned, cedh, metric: owned ? null : view.sort, onOpen: id => go('deck', id) }
+  // fissando un mazzo, la riga vola nella sezione dei preferiti in cima (la pagina la segue)
+  const flip = useRef(null)
+  const pinWithMotion = id => {
+    const el = !pins.includes(id) && document.querySelector(`.decks [data-deck="${CSS.escape(id)}"]`)
+    if (el) flip.current = { id, top: el.getBoundingClientRect().top }
+    togglePin(id)
+  }
+  useLayoutEffect(() => {
+    const f = flip.current; flip.current = null
+    const el = f && document.querySelector(`.pinned [data-deck="${CSS.escape(f.id)}"]`)
+    if (!el) return
+    const head = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--head-h')) || 0
+    const title = el.closest('.pinned')
+    if (title.getBoundingClientRect().top < head) scrollTo({ top: title.getBoundingClientRect().top + scrollY - head - 12, behavior: 'instant' })
+    el.classList.add('just-pinned'); setTimeout(() => el.classList.remove('just-pinned'), 1600)
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const dy = f.top - el.getBoundingClientRect().top
+    el.animate([{ transform: `translateY(${dy}px)`, zIndex: 5 }, { transform: 'none', zIndex: 5 }], { duration: Math.min(900, 380 + Math.abs(dy) / 3), easing: 'cubic-bezier(.2,.7,.2,1)' })
+  }, [pins])
+  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: pinWithMotion, owned, bestId: best?.deck.id, cedh, metric: owned ? null : view.sort }
 
   const listMeta = (() => { // «50 mazzi, aggiornati il [18 OTT]»: la data è un timbro datario
     const n = metaMain.filter(d => d.source !== 'utente').length
@@ -65,16 +92,16 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     return <>{a}<span className="date-stamp">{dayMonth(updated)}</span>{b}</>
   })()
 
-  const head = all[0]
   return <>
     <div className={`home${owned ? '' : ' home-new'}`}>
+      {meta && !phone && todayCard}
       <header className="page-head home-head">
         <h1 className="home-title"><span className="t-long">{formatName}: {t(`dt.${tKey}`)}</span><span className="t-short">{formatName}: {t(tShort)}</span>{cedh && <> <Info text={t('info.cedh')} label={t('info.label')} /></>}</h1>
-        {meta && decks.length > 0 && <p className="home-sub">{listMeta}</p>}
         {!owned && <>
           <p className="hero-text">{t('hero.text')}</p>
           <p className="hero-actions">
             <a className="btn btn-primary" {...linkProps('collection')}>{t('hero.cta')}</a>
+            <button className="linklike hero-browse" onClick={() => scrollToId('deck-list')}>{t('hero.browse')}</button>
           </p>
         </>}
         {almost && (
@@ -86,15 +113,20 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
         )}
       </header>
 
-      {/* una sola riga: l'ordine come etichette che si scorrono e il pulsante dei filtri */}
-      {decks.length > 1 && <div className="home-tools">
-        <div className="sort-chips" role="group" aria-label={t('sort')}>
-          {sorts.map(k => <button key={k} aria-pressed={view.sort === k} onClick={() => setV({ sort: k })}>{sortLabel(k)}</button>)}
+      {/* ordine e filtri in un unico blocco: l'ordine cambia anche il titolo */}
+      {decks.length > 1 && <div className="toolbar home-tools">
+        <div className="toolbar-row">
+          <span className="field-label" id="sort-label">{t('sort')}</span>
+          <div className="seg seg-fill" role="group" aria-labelledby="sort-label">
+            {sorts.map(k => <button key={k} aria-pressed={view.sort === k} onClick={() => setV({ sort: k })}>
+              <span className="lbl-long">{sortLabel(k)}</span><span className="lbl-short" aria-hidden="true">{t(`sort.s.${k === 'cost' && !owned ? 'cheap' : k}`)}</span>
+            </button>)}
+          </div>
         </div>
-        <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} aria-controls="home-filters" onClick={() => setFiltersOpen(o => !o)} aria-label={t('filters')} title={t('filters')}>
-          <IconFilter size={18} /><span className="lbl-long">{t('filters')}</span>{activeFilters > 0 && <span className="count">{activeFilters}</span>}
+        <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} aria-controls="home-filters" onClick={() => setFiltersOpen(o => !o)}>
+          <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
         </button>
-        {filtersOpen && <div className="toolbar-row filters open" id="home-filters">
+        <div className={`toolbar-row filters${filtersOpen ? ' open' : ''}`} id="home-filters">
           <span className="field">
             <span className="field-label" aria-hidden="true">{t('budget')}</span>
             <Picker label={t('budget')} value={view.budget} onChange={v => setV({ budget: v })} options={BUDGETS.map(b => ({ value: b, label: b ? t('budget.max', money(localBudget(b))) : t('budget.any') }))} />
@@ -117,29 +149,46 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             </span>
             {view.colors.length > 0 && <button className="linklike" onClick={() => setV({ colors: [] })}>{t('clearColors')}</button>}
           </span>
-        </div>}
+        </div>
       </div>}
     </div>
 
     {banNotice}
     {stale && <p className="note note-error">{t('decks.stale', daysAgo(updated))}</p>}
     {cardsState === 'error' && <p className="note note-error">{t('decks.scryDown')}</p>}
-    {pinned.length > 0 && decks.length > 0 && <PinChips list={pinned} owned={owned} onOpen={id => go('deck', id)} />}
+    {meta && decks.length > 0 && <div className="list-meta" id="deck-list" tabIndex={-1}>
+      <p>{listMeta}</p>
+      {rogueShown.length > 0 && <button className="btn btn-quiet rogue-jump" onClick={() => scrollToId('rogue-title')}>
+        <IconChili size={18} className="chili" /><span className="lbl-long">{t('rogue.jump', rogueShown.length)}</span><span className="lbl-short" aria-hidden="true">{t('rogue.jumpS', rogueShown.length)}</span>
+        <IconChevron size={16} className="rogue-jump-go" />
+      </button>}
+    </div>}
 
-    {meta === null ? <div className="dlines skeleton" aria-busy="true" />
+    {meta === null ? <ol className="decks skeleton" aria-busy="true">{Array.from({ length: 6 }, (_, i) => <li key={i} className="deck" />)}</ol>
       : !decks.length ? <p className="empty">{t('decks.none', formatName)}</p>
-        : !all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{todayCard}</>
-          : <div id="deck-list" tabIndex={-1} className="home-list">
-            <HeroDeck s={head} colors={colorsOf(head.deck)} art={artOf(head.deck)} cost={costOf(head)} owned={owned} metric={owned ? null : view.sort} cedh={cedh} onOpen={() => go('deck', head.deck.id)} />
-            {all.length > 1 && <DeckLines list={all.slice(1)} {...lineProps} after={4}>{meta && todayCard}</DeckLines>}
-            {all.length <= 5 && meta && todayCard}
-          </div>}
+        : <>
+          {pinned.length > 0 && (
+            <section className="pinned" aria-labelledby="pinned-title">
+              <h2 id="pinned-title" className="pinned-title"><IconClip size={18} filled /> {t('pins.title')}</h2>
+              <PinnedList ranked={pinned} colorsOf={colorsOf} onOpen={id => go('deck', id)} onPin={pinWithMotion} owned={owned} cedh={cedh} />
+            </section>
+          )}
+          {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && phone && todayCard && <div className="today-inline">{todayCard}</div>}</>
+            : !phone || !meta ? <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
+              : <>
+                <DeckList ranked={all.slice(0, 3)} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
+                {todayCard && <div className="today-inline">{todayCard}</div>}
+                {all.length > 3 && <DeckList ranked={all.slice(3)} start={3} animKey={format + view.sort + view.tier + view.colors + view.budget + 'b'} {...listProps} />}
+              </>}
+        </>}
 
     {rogueShown.length > 0 && (
       <section className="rogue" aria-labelledby="rogue-title">
-        <h2 id="rogue-title" tabIndex={-1}><IconChili size={22} className="chili" /> {t('rogue.title')}</h2>
-        <p className="rogue-intro">{t('rogue.intro', metaMain.length)}</p>
-        <DeckLines list={rogueShown} {...lineProps} />
+        <header className="rogue-head head-split">
+          <h2 id="rogue-title" tabIndex={-1}><IconChili size={22} className="chili" /> {t('rogue.title')}</h2>
+          <p>{t('rogue.intro', metaMain.length)}</p>
+        </header>
+        <DeckList ranked={rogueShown} animKey={format + 'rogue'} {...listProps} />
       </section>
     )}
 

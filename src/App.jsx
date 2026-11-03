@@ -168,7 +168,7 @@ export default function App() {
   })()
   const openDaily = (id, fresh) => { bumpFun(f => { const st = bumpStreak(f.streak); return { streak: st, bestStreak: Math.max(f.bestStreak || 0, st.n), opens: (f.opens || 0) + (fresh ? 1 : 0) } }); go('deck', id) }
   // in cEDH «Oggi nel meta» non serve (pochi mazzi, liste tutte diverse)
-  const todayCard = format === 'commander' ? null : <TodayCard compact weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
+  const todayCard = format === 'commander' ? null : <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
     onOpenDaily={openDaily} onOpen={id => go('deck', id)} onWeather={() => go('stats')} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame} />
   useFunTracking({ fun, bumpFun, format, collection, ranked, almost, sel, pins, cardsState, toast })
 
@@ -180,8 +180,7 @@ export default function App() {
   return (
     <div className="app">
       <a className="skip" href="#contenuto" onClick={e => { e.preventDefault(); document.getElementById('contenuto')?.focus() }}>{t('skip')}</a>
-      <TopBar current={current} count={collection.reduce((s, c) => s + c.qty, 0)} lang={lang} onLang={changeLang} cur={cur} onCur={changeCur} theme={theme} onTheme={setTheme} account={acc.state} onAccount={() => setAccountOpen(true)}
-        {...(['decks', 'key-cards', 'stats'].includes(page) ? { formats, format, onFormat: changeFormat } : {})} />
+      <TopBar current={current} count={collection.reduce((s, c) => s + c.qty, 0)} lang={lang} onLang={changeLang} cur={cur} onCur={changeCur} theme={theme} onTheme={setTheme} account={acc.state} onAccount={() => setAccountOpen(true)} />
 
       <main className="content" id="contenuto" tabIndex={-1}>
         <ErrorBoundary key={page}>

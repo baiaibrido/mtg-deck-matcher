@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-03",
- "prevDate": "2026-11-02",
+ "updated": "2026-11-02",
+ "prevDate": "2026-11-01",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 16756,
+ "decksAnalyzed": 16839,
  "unknownPct": 2.3,
  "rogue": [
   {
@@ -604,7 +604,7 @@
     24.4,
     [
      null,
-     17.1,
+     16.3,
      15.7,
      19.7,
      17.1,
@@ -661,7 +661,7 @@
     3.3,
     [
      null,
-     2.9,
+     2.7,
      3.3,
      2.8,
      1.6,
@@ -680,7 +680,7 @@
     5,
     [
      null,
-     5.4,
+     5.6,
      6.3,
      6.2,
      4.2,
@@ -699,7 +699,7 @@
     20.8,
     [
      null,
-     20.2,
+     20.1,
      19.5,
      22.2,
      20.4,
@@ -718,7 +718,7 @@
     2,
     [
      null,
-     0.7,
+     1,
      0.9,
      0.6,
      0.9,
@@ -737,7 +737,7 @@
     20.5,
     [
      null,
-     16.3,
+     15.8,
      17.4,
      18.8,
      19.4,
@@ -758,7 +758,7 @@
     19.9,
     [
      null,
-     10.4,
+     10.8,
      8.5,
      11.7,
      12.1,
@@ -777,7 +777,7 @@
     13.5,
     [
      null,
-     9.8,
+     10.2,
      10.6,
      13.3,
      13.4,
@@ -796,7 +796,7 @@
     16.5,
     [
      null,
-     12.5,
+     12.8,
      14.9,
      10.7,
      10.9,
@@ -815,7 +815,7 @@
     18.4,
     [
      null,
-     13.6,
+     14,
      13.2,
      16.5,
      15.2,
@@ -829,31 +829,12 @@
     ]
    ],
    [
-    "Dismember",
-    14.2,
-    19.5,
-    [
-     null,
-     8.1,
-     7.1,
-     9.4,
-     9.3,
-     14.4,
-     17.9,
-     26,
-     17.8,
-     19.1,
-     13.8,
-     14.4
-    ]
-   ],
-   [
     "Scalding Tarn",
     22,
     27.3,
     [
      null,
-     21.9,
+     21.3,
      24.2,
      24.9,
      25.8,
@@ -867,12 +848,31 @@
     ]
    ],
    [
+    "Dismember",
+    14.2,
+    19.5,
+    [
+     null,
+     7.6,
+     7.1,
+     9.4,
+     9.3,
+     14.4,
+     17.9,
+     26,
+     17.8,
+     19.1,
+     13.8,
+     14.4
+    ]
+   ],
+   [
     "Sowing Mycospawn",
     14.4,
     19.5,
     [
      null,
-     10.2,
+     10.6,
      10.9,
      14.3,
      14,
@@ -891,7 +891,7 @@
     17.1,
     [
      null,
-     10.3,
+     10.1,
      9.1,
      12,
      10.2,
@@ -910,7 +910,7 @@
     20.6,
     [
      null,
-     15.6,
+     16,
      15.3,
      16.5,
      16.3,
@@ -929,7 +929,7 @@
     21,
     [
      null,
-     10.7,
+     10.9,
      9.1,
      13.7,
      12.4,
@@ -1051,9 +1051,9 @@
   {
    "id": "modern-broodscale",
    "name": "Broodscale",
-   "share": 12.9,
+   "share": 13,
    "tier": 1,
-   "count": 2169,
+   "count": 2183,
    "title": "Griffin Berschauer · LDXPSAC26 10/25 9:00 AM Modern $5K 2-Slot RCQ (1st Place)",
    "url": "https://melee.gg/Decklist/View/3d60daf9-1309-4f31-b98b-b4ee01057073",
    "main": [
@@ -1096,7 +1096,7 @@
    ],
    "history": [
     null,
-    6,
+    6.3,
     7.2,
     8.4,
     8.1,
@@ -1110,7 +1110,7 @@
    ],
    "field": [
     4221,
-    3374,
+    3375,
     568
    ],
    "mu": [
@@ -1189,7 +1189,7 @@
     [
      "Ramp Eldrazi",
      106,
-     73,
+     74,
      10
     ],
     [
@@ -1331,6 +1331,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     11,
+     12,
+     2
+    ],
+    [
      "WURG Scam",
      12,
      14,
@@ -1346,12 +1352,6 @@
      "Dimir Affinity",
      11,
      8,
-     2
-    ],
-    [
-     "WBRG Energy",
-     11,
-     12,
      2
     ],
     [
@@ -1504,7 +1504,7 @@
     ],
     [
      "Yavimaya, Cradle of Growth",
-     53,
+     52,
      1
     ],
     [
@@ -1523,20 +1523,20 @@
      1.5
     ]
    ],
-   "lists": 2169,
+   "lists": 2183,
    "conv": [
     13.7,
     18.4,
-    253
+    254
    ],
-   "prev": 13
+   "prev": 12.9
   },
   {
    "id": "modern-prowess",
    "name": "Prowess",
    "share": 10,
    "tier": 1,
-   "count": 1681,
+   "count": 1692,
    "title": "steven son · LDXPSAC26 10/25 9:00 AM Modern $5K 2-Slot RCQ (7th Place)",
    "url": "https://melee.gg/Decklist/View/97fd9440-e337-4b74-9f04-b4ee0069b7f0",
    "main": [
@@ -1569,7 +1569,7 @@
    ],
    "history": [
     null,
-    8.3,
+    8,
     8.1,
     10.9,
     9.7,
@@ -1786,6 +1786,12 @@
      1
     ],
     [
+     "WBRG Energy",
+     9,
+     4,
+     0
+    ],
+    [
      "Azorius Blink",
      7,
      10,
@@ -1813,12 +1819,6 @@
      "Grixis Frog",
      19,
      11,
-     0
-    ],
-    [
-     "WBRG Energy",
-     9,
-     4,
      0
     ],
     [
@@ -1882,7 +1882,7 @@
      0
     ]
    ],
-   "metaWr": 47.1,
+   "metaWr": 47.2,
    "core": [
     [
      "Mishra's Bauble",
@@ -1987,20 +1987,20 @@
      2.4
     ]
    ],
-   "lists": 1681,
+   "lists": 1692,
    "conv": [
     9.8,
-    7.8,
+    7.7,
     107
    ],
-   "prev": 10
+   "prev": 10.1
   },
   {
    "id": "modern-affinity",
    "name": "Affinity",
    "share": 6,
    "tier": 1,
-   "count": 1003,
+   "count": 1006,
    "title": "Daniel Di Giacomo · LDXPSAC26 10/24 9:00 AM Modern 10K – 8 Slot RCQ (5th Place)",
    "url": "https://melee.gg/Decklist/View/9cfa2c74-b7de-4b9c-b674-b4eb005b0428",
    "main": [
@@ -2039,7 +2039,7 @@
    ],
    "history": [
     null,
-    6.1,
+    5.9,
     5.2,
     5.9,
     6.2,
@@ -2052,7 +2052,7 @@
     6.2
    ],
    "field": [
-    1934,
+    1937,
     1864,
     139
    ],
@@ -2095,7 +2095,7 @@
     ],
     [
      "Tron",
-     65,
+     66,
      74,
      4
     ],
@@ -2131,7 +2131,7 @@
     ],
     [
      "Ramp Eldrazi",
-     47,
+     48,
      69,
      2
     ],
@@ -2143,7 +2143,7 @@
     ],
     [
      "Boros Ponza",
-     39,
+     40,
      48,
      8
     ],
@@ -2256,6 +2256,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     5,
+     9,
+     0
+    ],
+    [
      "Izzet Cutter",
      8,
      5,
@@ -2271,12 +2277,6 @@
      "Azorius Blink",
      5,
      5,
-     0
-    ],
-    [
-     "WBRG Energy",
-     5,
-     9,
      0
     ],
     [
@@ -2447,11 +2447,11 @@
      1.8
     ]
    ],
-   "lists": 1003,
+   "lists": 1006,
    "conv": [
     6.1,
-    5.8,
-    80
+    5.9,
+    81
    ],
    "prev": 6
   },
@@ -2460,7 +2460,7 @@
    "name": "Goryo Reanimator",
    "share": 5.4,
    "tier": 1,
-   "count": 904,
+   "count": 911,
    "title": "Edwin Caraballo · ReCQ - Modern - SCG CON Hartford - Saturday - 3:00 pm (1st Place)",
    "url": "https://melee.gg/Decklist/View/656c28be-071c-498b-8eae-b4ed0105b475",
    "main": [
@@ -2502,7 +2502,7 @@
    ],
    "history": [
     null,
-    8.6,
+    8.2,
     9.6,
     7.5,
     9.2,
@@ -2719,6 +2719,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     7,
+     3,
+     0
+    ],
+    [
      "Izzet Cutter",
      6,
      6,
@@ -2740,12 +2746,6 @@
      "Grixis Frog",
      7,
      9,
-     0
-    ],
-    [
-     "WBRG Energy",
-     7,
-     3,
      0
     ],
     [
@@ -2907,7 +2907,7 @@
    "flex": [
     [
      "March of Otherworldly Light",
-     73,
+     74,
      1.1
     ],
     [
@@ -2927,14 +2927,14 @@
     ],
     [
      "Consign to Memory",
-     39,
+     38,
      1.2
     ]
    ],
-   "lists": 904,
+   "lists": 911,
    "conv": [
     4.9,
-    4.7,
+    4.6,
     64
    ],
    "prev": 5.4
@@ -2944,7 +2944,7 @@
    "name": "Esper Blink",
    "share": 5.3,
    "tier": 1,
-   "count": 893,
+   "count": 897,
    "title": "BienTech · Modern Challenge 32 (4th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-10-2412856979#deck_BienTech",
    "main": [
@@ -2986,7 +2986,7 @@
    ],
    "history": [
     null,
-    5.3,
+    5.6,
     8,
     6.2,
     6.9,
@@ -3215,6 +3215,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     6,
+     10,
+     2
+    ],
+    [
      "Azorius Blink",
      7,
      3,
@@ -3225,12 +3231,6 @@
      6,
      3,
      0
-    ],
-    [
-     "WBRG Energy",
-     6,
-     10,
-     2
     ],
     [
      "Grixis Wizards",
@@ -3411,20 +3411,20 @@
      1
     ]
    ],
-   "lists": 893,
+   "lists": 897,
    "conv": [
     5.1,
-    5.2,
+    5.1,
     71
    ],
-   "prev": 5.3
+   "prev": 5.4
   },
   {
    "id": "modern-azorius-control",
    "name": "Azorius Control",
    "share": 5,
    "tier": 1,
-   "count": 839,
+   "count": 840,
    "title": "RespectTheCat · Modern Challenge 16 (1st Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-16-2026-10-2412856974#deck_RespectTheCat",
    "main": [
@@ -3698,6 +3698,12 @@
      2
     ],
     [
+     "WBRG Energy",
+     6,
+     4,
+     0
+    ],
+    [
      "Azorius Blink",
      6,
      2,
@@ -3713,12 +3719,6 @@
      "WURG Scam",
      9,
      5,
-     0
-    ],
-    [
-     "WBRG Energy",
-     6,
-     4,
      0
     ],
     [
@@ -3882,7 +3882,7 @@
     ],
     [
      "Otawara, Soaring City",
-     66,
+     65,
      1
     ],
     [
@@ -3891,7 +3891,7 @@
      3
     ]
    ],
-   "lists": 839,
+   "lists": 840,
    "conv": [
     5.2,
     5.3,
@@ -3904,7 +3904,7 @@
    "name": "Boros Energy",
    "share": 4.5,
    "tier": 1,
-   "count": 756,
+   "count": 757,
    "title": "Bradley Skubic · $uper $unday RCQ - Modern - SCG CON Hartford - Sunday - 10:00 am (6th Place)",
    "url": "https://melee.gg/Decklist/View/227ff793-52f6-4bf7-8109-b4ee00c49ed0",
    "main": [
@@ -3945,7 +3945,7 @@
    ],
    "history": [
     null,
-    6.4,
+    6.2,
     3.1,
     4.2,
     3.2,
@@ -4168,6 +4168,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     7,
+     6,
+     0
+    ],
+    [
      "Azorius Blink",
      3,
      1,
@@ -4195,12 +4201,6 @@
      "WURG Scam",
      8,
      5,
-     0
-    ],
-    [
-     "WBRG Energy",
-     7,
-     6,
      0
     ],
     [
@@ -4355,7 +4355,7 @@
      1.2
     ]
    ],
-   "lists": 756,
+   "lists": 757,
    "conv": [
     4.3,
     4.6,
@@ -4368,7 +4368,7 @@
    "name": "Tron",
    "share": 4.3,
    "tier": 1,
-   "count": 716,
+   "count": 720,
    "title": "leandru · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2411161#deck_leandru",
    "main": [
@@ -4409,7 +4409,7 @@
    ],
    "history": [
     null,
-    4.5,
+    3.9,
     3.1,
     5.3,
     4.2,
@@ -4422,8 +4422,8 @@
     3.3
    ],
    "field": [
-    1145,
-    1281,
+    1147,
+    1282,
     100
    ],
    "mu": [
@@ -4442,7 +4442,7 @@
     [
      "Affinity",
      74,
-     65,
+     66,
      4
     ],
     [
@@ -4495,13 +4495,13 @@
     ],
     [
      "Dimir Frog",
-     32,
+     33,
      25,
      1
     ],
     [
      "Ramp Eldrazi",
-     30,
+     31,
      35,
      0
     ],
@@ -4632,6 +4632,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     2,
+     5,
+     0
+    ],
+    [
      "5 Color Creativity",
      2,
      2,
@@ -4659,12 +4665,6 @@
      "Grixis Wizards",
      2,
      2,
-     0
-    ],
-    [
-     "WBRG Energy",
-     2,
-     5,
      0
     ],
     [
@@ -4793,7 +4793,7 @@
     ],
     [
      "Ulamog, the Ceaseless Hunger",
-     52,
+     51,
      1.3
     ],
     [
@@ -4813,12 +4813,12 @@
     ],
     [
      "Talisman of Resilience",
-     41,
+     42,
      3.8
     ],
     [
      "Mind Stone",
-     39,
+     38,
      3.8
     ],
     [
@@ -4837,11 +4837,11 @@
      1.1
     ]
    ],
-   "lists": 716,
+   "lists": 720,
    "conv": [
     3.8,
-    4,
-    55
+    4.1,
+    56
    ],
    "prev": 4.3
   },
@@ -4850,7 +4850,7 @@
    "name": "Domain Zoo",
    "share": 4,
    "tier": 2,
-   "count": 664,
+   "count": 667,
    "title": "Miles Wilson · $uper $unday RCQ - Modern - SCG CON Hartford - Sunday - 10:00 am (2st Place)",
    "url": "https://melee.gg/Decklist/View/c2d52c21-72d5-4f35-b83f-b4ee0028e169",
    "main": [
@@ -4887,7 +4887,7 @@
    ],
    "history": [
     null,
-    1.9,
+    2,
     1.8,
     2.4,
     2.4,
@@ -5098,6 +5098,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     1,
+     3,
+     0
+    ],
+    [
      "Mill",
      2,
      3,
@@ -5126,12 +5132,6 @@
      6,
      5,
      2
-    ],
-    [
-     "WBRG Energy",
-     1,
-     3,
-     0
     ],
     [
      "Grixis Wizards",
@@ -5242,7 +5242,7 @@
    "flex": [
     [
      "Blood Crypt",
-     89,
+     90,
      1.2
     ],
     [
@@ -5272,7 +5272,7 @@
     ],
     [
      "Arid Mesa",
-     80,
+     79,
      4
     ],
     [
@@ -5292,7 +5292,7 @@
     ],
     [
      "Lush Portico",
-     55,
+     54,
      1
     ],
     [
@@ -5311,20 +5311,20 @@
      3.9
     ]
    ],
-   "lists": 664,
+   "lists": 667,
    "conv": [
-    4.1,
-    3.6,
+    4,
+    3.5,
     49
    ],
-   "prev": 4
+   "prev": 3.9
   },
   {
    "id": "modern-ruby-storm",
    "name": "Ruby Storm",
    "share": 2.9,
    "tier": 2,
-   "count": 485,
+   "count": 486,
    "title": "Ezra95 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2411161#deck_Ezra95",
    "main": [
@@ -5362,7 +5362,7 @@
    ],
    "history": [
     null,
-    2.6,
+    2.7,
     2.5,
     3.3,
     3,
@@ -5742,7 +5742,7 @@
     ],
     [
      "Sunbaked Canyon",
-     51,
+     50,
      1
     ],
     [
@@ -5761,7 +5761,7 @@
      1
     ]
    ],
-   "lists": 485,
+   "lists": 486,
    "conv": [
     3.2,
     2.8,
@@ -5814,7 +5814,7 @@
    ],
    "history": [
     null,
-    0.8,
+    0.9,
     0.6,
     0.9,
     0.1,
@@ -6019,6 +6019,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     4,
+     2,
+     0
+    ],
+    [
      "5 Color Creativity",
      5,
      2,
@@ -6033,12 +6039,6 @@
     [
      "WURG Scam",
      3,
-     2,
-     0
-    ],
-    [
-     "WBRG Energy",
-     4,
      2,
      0
     ],
@@ -6191,11 +6191,11 @@
    ],
    "lists": 480,
    "conv": [
-    3.4,
+    3.3,
     4.5,
     62
    ],
-   "prev": 2.9
+   "prev": 2.8
   },
   {
    "id": "modern-amulet-titan",
@@ -6246,7 +6246,7 @@
    ],
    "history": [
     null,
-    1.4,
+    1.3,
     1.8,
     1.9,
     1.6,
@@ -6469,6 +6469,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     5,
+     1,
+     0
+    ],
+    [
      "Azorius Blink",
      2,
      1,
@@ -6496,12 +6502,6 @@
      "WURG Scam",
      2,
      5,
-     0
-    ],
-    [
-     "WBRG Energy",
-     5,
-     1,
      0
     ],
     [
@@ -6678,14 +6678,14 @@
     3.4,
     47
    ],
-   "prev": 2.6
+   "prev": 2.5
   },
   {
    "id": "modern-dimir-frog",
    "name": "Dimir Frog",
    "share": 2.5,
    "tier": 2,
-   "count": 412,
+   "count": 413,
    "title": "eneges · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2411161#deck_eneges",
    "main": [
@@ -6729,7 +6729,7 @@
    ],
    "history": [
     null,
-    4.3,
+    4.4,
     3.4,
     3.1,
     3,
@@ -6742,8 +6742,8 @@
     1.5
    ],
    "field": [
-    789,
-    831,
+    790,
+    832,
     95
    ],
    "mu": [
@@ -6792,7 +6792,7 @@
     [
      "Tron",
      25,
-     32,
+     33,
      1
     ],
     [
@@ -6821,7 +6821,7 @@
     ],
     [
      "Ramp Eldrazi",
-     20,
+     21,
      27,
      2
     ],
@@ -6940,6 +6940,12 @@
      2
     ],
     [
+     "WBRG Energy",
+     4,
+     5,
+     2
+    ],
+    [
      "5 Color Creativity",
      2,
      2,
@@ -6956,12 +6962,6 @@
      4,
      2,
      0
-    ],
-    [
-     "WBRG Energy",
-     4,
-     5,
-     2
     ],
     [
      "Grixis Wizards",
@@ -7117,7 +7117,7 @@
     ],
     [
      "Drown in the Loch",
-     79,
+     78,
      1.1
     ],
     [
@@ -7132,7 +7132,7 @@
     ],
     [
      "Bloodstained Mire",
-     61,
+     62,
      1.5
     ],
     [
@@ -7161,11 +7161,11 @@
      2.1
     ]
    ],
-   "lists": 412,
+   "lists": 413,
    "conv": [
     2.3,
     2.5,
-    34
+    35
    ],
    "prev": 2.5
   },
@@ -7174,7 +7174,7 @@
    "name": "Ramp Eldrazi",
    "share": 2.4,
    "tier": 2,
-   "count": 394,
+   "count": 402,
    "title": "Gabriell86 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1811161#deck_Gabriell86",
    "main": [
@@ -7217,7 +7217,7 @@
    ],
    "history": [
     null,
-    4.5,
+    4.9,
     4,
     4.6,
     4.5,
@@ -7230,14 +7230,14 @@
     0.9
    ],
    "field": [
-    762,
-    841,
+    763,
+    844,
     74
    ],
    "mu": [
     [
      "Broodscale",
-     73,
+     74,
      106,
      10
     ],
@@ -7250,7 +7250,7 @@
     [
      "Affinity",
      69,
-     47,
+     48,
      2
     ],
     [
@@ -7280,7 +7280,7 @@
     [
      "Tron",
      35,
-     30,
+     31,
      0
     ],
     [
@@ -7310,7 +7310,7 @@
     [
      "Dimir Frog",
      27,
-     20,
+     21,
      2
     ],
     [
@@ -7434,6 +7434,12 @@
      1
     ],
     [
+     "WBRG Energy",
+     3,
+     2,
+     0
+    ],
+    [
      "Azorius Blink",
      6,
      6,
@@ -7449,12 +7455,6 @@
      "Grixis Frog",
      3,
      5,
-     0
-    ],
-    [
-     "WBRG Energy",
-     3,
-     2,
      0
     ],
     [
@@ -7531,7 +7531,7 @@
     ],
     [
      "Cavern of Souls",
-     82,
+     83,
      1
     ],
     [
@@ -7595,11 +7595,11 @@
      1
     ]
    ],
-   "lists": 394,
+   "lists": 402,
    "conv": [
     2.2,
-    1.6,
-    22
+    1.8,
+    25
    ],
    "prev": 2.4
   },
@@ -7608,7 +7608,7 @@
    "name": "Living End",
    "share": 2.1,
    "tier": 2,
-   "count": 344,
+   "count": 347,
    "title": "Aldrich Saplan · LDXPSAC26 10/25 9:00 AM Modern $5K 2-Slot RCQ (5th Place)",
    "url": "https://melee.gg/Decklist/View/c5362956-4bad-4af9-ba7f-b4ee00fa49fe",
    "main": [
@@ -7654,7 +7654,7 @@
    ],
    "history": [
     null,
-    2.2,
+    2.5,
     2.9,
     3.6,
     2.7,
@@ -7865,6 +7865,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     2,
+     1,
+     2
+    ],
+    [
      "Izzet Cutter",
      2,
      3,
@@ -7875,12 +7881,6 @@
      4,
      1,
      0
-    ],
-    [
-     "WBRG Energy",
-     2,
-     1,
-     2
     ],
     [
      "Grixis Frog",
@@ -7913,7 +7913,7 @@
      0
     ]
    ],
-   "metaWr": 50.6,
+   "metaWr": 50.5,
    "core": [
     [
      "Subtlety",
@@ -8016,7 +8016,7 @@
     ],
     [
      "Waker of Waves",
-     59,
+     60,
      1.8
     ],
     [
@@ -8031,16 +8031,16 @@
     ],
     [
      "Curator of Mysteries",
-     42,
+     41,
      3.1
     ],
     [
      "Valakut Awakening",
-     38,
+     37,
      1
     ]
    ],
-   "lists": 344,
+   "lists": 347,
    "conv": [
     2,
     2.8,
@@ -8053,7 +8053,7 @@
    "name": "Boros Ponza",
    "share": 1.9,
    "tier": 2,
-   "count": 320,
+   "count": 326,
    "title": "Christian Silva · LDXPSAC26 10/24 3:30 PM Modern ReCQ (8th Place)",
    "url": "https://melee.gg/Decklist/View/3b4a097f-bca0-46f4-8cb3-b4ed01699400",
    "main": [
@@ -8090,7 +8090,7 @@
    ],
    "history": [
     null,
-    2.1,
+    1.9,
     1.3,
     2.5,
     4.1,
@@ -8104,7 +8104,7 @@
    ],
    "field": [
     614,
-    609,
+    610,
     125
    ],
    "mu": [
@@ -8123,7 +8123,7 @@
     [
      "Affinity",
      48,
-     39,
+     40,
      8
     ],
     [
@@ -8301,6 +8301,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     4,
+     2,
+     2
+    ],
+    [
      "5 Color Creativity",
      1,
      2,
@@ -8317,12 +8323,6 @@
      0,
      3,
      0
-    ],
-    [
-     "WBRG Energy",
-     4,
-     2,
-     2
     ],
     [
      "WURG Scam",
@@ -8361,7 +8361,7 @@
      0
     ]
    ],
-   "metaWr": 50.3,
+   "metaWr": 50.2,
    "core": [
     [
      "Price of Freedom",
@@ -8431,14 +8431,14 @@
      1
     ],
     [
-     "Relic of Progenitus",
-     67,
-     2.7
-    ],
-    [
      "The Legend of Roku",
      67,
      1.2
+    ],
+    [
+     "Relic of Progenitus",
+     67,
+     2.7
     ],
     [
      "High Noon",
@@ -8446,13 +8446,13 @@
      2.4
     ]
    ],
-   "lists": 320,
+   "lists": 326,
    "conv": [
     1.9,
-    2.1,
-    29
+    2.2,
+    30
    ],
-   "prev": 1.9
+   "prev": 2
   },
   {
    "id": "modern-neobrand",
@@ -8504,7 +8504,7 @@
    ],
    "history": [
     null,
-    2.6,
+    2.4,
     2.2,
     1.7,
     2.2,
@@ -8908,7 +8908,7 @@
    ],
    "lists": 291,
    "conv": [
-    2,
+    1.9,
     2,
     27
    ],
@@ -8919,7 +8919,7 @@
    "name": "Abzan Midrange",
    "share": 1.3,
    "tier": 2,
-   "count": 220,
+   "count": 221,
    "title": "RALC · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2211161#deck_RALC",
    "main": [
@@ -8967,7 +8967,7 @@
    ],
    "history": [
     null,
-    1.6,
+    1.7,
     0.8,
     0.8,
     1.6,
@@ -9172,6 +9172,12 @@
      0
     ],
     [
+     "WBRG Energy",
+     2,
+     1,
+     0
+    ],
+    [
      "Mill",
      3,
      1,
@@ -9192,12 +9198,6 @@
     [
      "WURG Scam",
      3,
-     1,
-     0
-    ],
-    [
-     "WBRG Energy",
-     2,
      1,
      0
     ],
@@ -9318,7 +9318,7 @@
     ],
     [
      "Duskwatch Recruiter",
-     72,
+     71,
      1
     ],
     [
@@ -9333,7 +9333,7 @@
     ],
     [
      "Thoughtseize",
-     34,
+     33,
      1.5
     ],
     [
@@ -9342,7 +9342,7 @@
      1
     ]
    ],
-   "lists": 220,
+   "lists": 221,
    "conv": [
     1.4,
     1.7,
@@ -9355,7 +9355,7 @@
    "name": "Jeskai Energy",
    "share": 1.1,
    "tier": 2,
-   "count": 176,
+   "count": 178,
    "title": "jgr205 · Torneo Zamora 24 Octubre (1st Place)",
    "url": "https://melee.gg/Decklist/View/1b447f34-008b-4f37-903c-b4ec014fb6d0",
    "main": [
@@ -9680,7 +9680,7 @@
     ],
     [
      "Galvanic Discharge",
-     86,
+     85,
      2.4
     ],
     [
@@ -9700,12 +9700,12 @@
     ],
     [
      "Arena of Glory",
-     73,
+     74,
      1
     ],
     [
      "Starfield Shepherd",
-     56,
+     57,
      1.7
     ],
     [
@@ -9715,7 +9715,7 @@
     ],
     [
      "Marsh Flats",
-     40,
+     39,
      1.6
     ],
     [
@@ -9725,17 +9725,17 @@
     ],
     [
      "Consign to Memory",
-     27,
+     26,
      1.4
     ]
    ],
-   "lists": 176,
+   "lists": 178,
    "conv": [
     1,
     0.9,
     13
    ],
-   "prev": 1.1
+   "prev": 1
   },
   {
    "id": "modern-jeskai-blink",
@@ -9985,6 +9985,12 @@
      2
     ],
     [
+     "WBRG Energy",
+     1,
+     1,
+     2
+    ],
+    [
      "Grixis Frog",
      3,
      1,
@@ -9995,15 +10001,9 @@
      1,
      2,
      0
-    ],
-    [
-     "WBRG Energy",
-     1,
-     1,
-     2
     ]
    ],
-   "metaWr": 49.2,
+   "metaWr": 49.3,
    "core": [
     [
      "Quantum Riddler",
@@ -10133,7 +10133,7 @@
    ],
    "lists": 167,
    "conv": [
-    1,
+    0.9,
     0.6,
     8
    ],
@@ -10144,7 +10144,7 @@
    "name": "Devoted Combo",
    "share": 0.9,
    "tier": 2,
-   "count": 155,
+   "count": 156,
    "title": "Greenbeing · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-1411161#deck_Greenbeing",
    "main": [
@@ -10193,7 +10193,7 @@
    ],
    "history": [
     null,
-    3.5,
+    3.7,
     4.5,
     2.1,
     1.9,
@@ -10492,18 +10492,18 @@
     ],
     [
      "Misty Rainforest",
-     79,
+     78,
      2.1
-    ],
-    [
-     "Wooded Foothills",
-     74,
-     2
     ],
     [
      "Formidable Speaker",
      74,
      1
+    ],
+    [
+     "Wooded Foothills",
+     73,
+     2
     ],
     [
      "Craterhoof Behemoth",
@@ -10521,7 +10521,7 @@
      1
     ]
    ],
-   "lists": 155,
+   "lists": 156,
    "conv": [
     0.9,
     0.8,
@@ -11428,7 +11428,7 @@
      0
     ]
    ],
-   "metaWr": 46.1,
+   "metaWr": 46,
    "core": [
     [
      "Fatal Push",
@@ -11831,7 +11831,7 @@
    "name": "Necrodominance",
    "share": 0.6,
    "tier": 2,
-   "count": 107,
+   "count": 109,
    "title": "kavu2br · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2411161#deck_kavu2br",
    "main": [
@@ -12100,7 +12100,7 @@
    "flex": [
     [
      "Dauthi Voidwalker",
-     84,
+     83,
      2.8
     ],
     [
@@ -12145,7 +12145,7 @@
     ],
     [
      "Blooming Marsh",
-     63,
+     62,
      1.9
     ],
     [
@@ -12155,16 +12155,16 @@
     ],
     [
      "Polluted Delta",
-     48,
+     49,
      2.2
     ],
     [
      "Sheoldred's Edict",
-     39,
+     40,
      1.1
     ]
    ],
-   "lists": 107,
+   "lists": 109,
    "conv": [
     0.5,
     0.4,
@@ -12177,7 +12177,7 @@
    "name": "Cosmo Fling",
    "share": 0.6,
    "tier": 2,
-   "count": 101,
+   "count": 102,
    "title": "hellisreal · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2011161#deck_hellisreal",
    "main": [
@@ -12400,47 +12400,47 @@
     ],
     [
      "Gemstone Caverns",
-     81,
+     80,
      4
     ],
     [
      "Blackcleave Cliffs",
-     80,
+     79,
      4
     ],
     [
      "Devourer of Destiny",
-     80,
+     79,
      3.9
     ],
     [
      "Gemstone Mine",
-     80,
+     79,
      4
     ],
     [
      "Spoils of the Vault",
-     80,
+     79,
      3.9
     ],
     [
      "Thud",
-     80,
+     79,
      4
     ],
     [
      "Copperline Gorge",
-     77,
+     76,
      2.8
     ],
     [
      "Summoner's Pact",
-     77,
+     76,
      2.2
     ],
     [
      "Inquisition of Kozilek",
-     65,
+     66,
      3.4
     ],
     [
@@ -12455,18 +12455,18 @@
     ],
     [
      "Specter's Shriek",
-     44,
+     43,
      3
     ],
     [
      "Blightstep Pathway",
-     40,
+     39,
      1.2
     ]
    ],
-   "lists": 101,
+   "lists": 102,
    "conv": [
-    0.7,
+    0.6,
     0.2,
     3
    ],
@@ -12514,7 +12514,7 @@
    ],
    "history": [
     null,
-    1.4,
+    1.2,
     2.2,
     1.4,
     1.3,
@@ -13185,7 +13185,7 @@
    ],
    "history": [
     null,
-    0.9,
+    1.3,
     0.7,
     0.3,
     0.2,
@@ -13510,7 +13510,7 @@
    ],
    "history": [
     null,
-    0.6,
+    0.5,
     0.8,
     0.5,
     0.6,
@@ -14164,7 +14164,7 @@
    ],
    "history": [
     null,
-    0.8,
+    0.7,
     0.8,
     0.6,
     0.6,
@@ -15387,6 +15387,326 @@
    "prev": 0.4
   },
   {
+   "id": "modern-wbrg-energy",
+   "name": "WBRG Energy",
+   "share": 0.4,
+   "tier": 2,
+   "count": 59,
+   "title": "Near_Mint · Modern League (5-0)",
+   "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2411161#deck_Near_Mint",
+   "main": [
+    "2 Ajani, Nacatl Pariah",
+    "4 Birthing Ritual",
+    "1 Boseiju, Who Endures",
+    "2 Carrion Feeder",
+    "4 Cauldron Familiar",
+    "4 Chord of Calling",
+    "3 City of Brass",
+    "2 Delighted Halfling",
+    "1 Dryad Arbor",
+    "1 Explosive Prodigy",
+    "1 Forest",
+    "4 Gilded Goose",
+    "2 Goblin Bombardment",
+    "1 Godless Shrine",
+    "1 Haywire Mite",
+    "1 Lush Portico",
+    "1 Misty Rainforest",
+    "2 Orcish Bowmasters",
+    "2 Overgrown Tomb",
+    "4 Samwise Gamgee",
+    "1 Stomping Ground",
+    "1 Sylvan Safekeeper",
+    "1 Temple Garden",
+    "1 Underground Mortuary",
+    "4 Verdant Catacombs",
+    "1 Viscera Seer",
+    "4 Windswept Heath",
+    "1 Yawgmoth, Thran Physician",
+    "3 Young Wolf"
+   ],
+   "side": [
+    "1 Collector Ouphe",
+    "1 Drannith Magistrate",
+    "2 Endurance",
+    "1 Fatal Push",
+    "2 Force of Vigor",
+    "1 Gaddock Teeg",
+    "1 High Noon",
+    "1 Lavinia, Azorius Renegade",
+    "1 Masked Vandal",
+    "1 Prismatic Ending",
+    "1 Sanctum Prelate",
+    "1 Thoughtseize",
+    "1 Vexing Bauble"
+   ],
+   "history": [
+    null,
+    0.1,
+    0.1,
+    0.1,
+    0.6,
+    0.1,
+    0,
+    0.3,
+    0,
+    0.4,
+    0.8,
+    0.6
+   ],
+   "field": [
+    95,
+    95,
+    12
+   ],
+   "mu": [
+    [
+     "Broodscale",
+     12,
+     11,
+     2
+    ],
+    [
+     "Prowess",
+     4,
+     9,
+     0
+    ],
+    [
+     "Affinity",
+     9,
+     5,
+     0
+    ],
+    [
+     "Goryo Reanimator",
+     3,
+     7,
+     0
+    ],
+    [
+     "Esper Blink",
+     10,
+     6,
+     2
+    ],
+    [
+     "Azorius Control",
+     4,
+     6,
+     0
+    ],
+    [
+     "Boros Energy",
+     6,
+     7,
+     0
+    ],
+    [
+     "Tron",
+     5,
+     2,
+     0
+    ],
+    [
+     "Domain Zoo",
+     3,
+     1,
+     0
+    ],
+    [
+     "Rakdos Midrange",
+     2,
+     4,
+     0
+    ],
+    [
+     "Amulet Titan",
+     1,
+     5,
+     0
+    ],
+    [
+     "Dimir Frog",
+     5,
+     4,
+     2
+    ],
+    [
+     "Ramp Eldrazi",
+     2,
+     3,
+     0
+    ],
+    [
+     "Living End",
+     1,
+     2,
+     2
+    ],
+    [
+     "Boros Ponza",
+     2,
+     4,
+     2
+    ],
+    [
+     "Abzan Midrange",
+     1,
+     2,
+     0
+    ],
+    [
+     "Jeskai Blink",
+     1,
+     1,
+     2
+    ],
+    [
+     "Grixis Frog",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": 48.2,
+   "core": [
+    [
+     "Birthing Ritual",
+     4
+    ],
+    [
+     "Cauldron Familiar",
+     4
+    ],
+    [
+     "Chord of Calling",
+     4
+    ],
+    [
+     "Gilded Goose",
+     4
+    ],
+    [
+     "Samwise Gamgee",
+     4
+    ],
+    [
+     "Verdant Catacombs",
+     4
+    ],
+    [
+     "Windswept Heath",
+     4
+    ],
+    [
+     "Ajani, Nacatl Pariah",
+     3
+    ],
+    [
+     "Young Wolf",
+     3
+    ],
+    [
+     "City of Brass",
+     3
+    ],
+    [
+     "Carrion Feeder",
+     3
+    ],
+    [
+     "Goblin Bombardment",
+     2
+    ],
+    [
+     "Boseiju, Who Endures",
+     2
+    ],
+    [
+     "Overgrown Tomb",
+     2
+    ],
+    [
+     "Forest",
+     1
+    ],
+    [
+     "Dryad Arbor",
+     1
+    ],
+    [
+     "Godless Shrine",
+     1
+    ],
+    [
+     "Haywire Mite",
+     1
+    ],
+    [
+     "Lush Portico",
+     1
+    ],
+    [
+     "Stomping Ground",
+     1
+    ],
+    [
+     "Temple Garden",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Sylvan Safekeeper",
+     83,
+     1
+    ],
+    [
+     "Delighted Halfling",
+     81,
+     1.9
+    ],
+    [
+     "Explosive Prodigy",
+     76,
+     1
+    ],
+    [
+     "Yawgmoth, Thran Physician",
+     73,
+     1
+    ],
+    [
+     "Wooded Foothills",
+     66,
+     1
+    ],
+    [
+     "Misty Rainforest",
+     61,
+     1.1
+    ],
+    [
+     "Viscera Seer",
+     51,
+     1.2
+    ],
+    [
+     "Orcish Bowmasters",
+     32,
+     2.4
+    ]
+   ],
+   "lists": 59,
+   "conv": [
+    0.4,
+    0.1,
+    2
+   ],
+   "prev": 0.3
+  },
+  {
    "id": "modern-azorius-blink",
    "name": "Azorius Blink",
    "share": 0.4,
@@ -15670,326 +15990,6 @@
    "prev": 0.4
   },
   {
-   "id": "modern-wbrg-energy",
-   "name": "WBRG Energy",
-   "share": 0.3,
-   "tier": 2,
-   "count": 58,
-   "title": "Near_Mint · Modern League (5-0)",
-   "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2411161#deck_Near_Mint",
-   "main": [
-    "2 Ajani, Nacatl Pariah",
-    "4 Birthing Ritual",
-    "1 Boseiju, Who Endures",
-    "2 Carrion Feeder",
-    "4 Cauldron Familiar",
-    "4 Chord of Calling",
-    "3 City of Brass",
-    "2 Delighted Halfling",
-    "1 Dryad Arbor",
-    "1 Explosive Prodigy",
-    "1 Forest",
-    "4 Gilded Goose",
-    "2 Goblin Bombardment",
-    "1 Godless Shrine",
-    "1 Haywire Mite",
-    "1 Lush Portico",
-    "1 Misty Rainforest",
-    "2 Orcish Bowmasters",
-    "2 Overgrown Tomb",
-    "4 Samwise Gamgee",
-    "1 Stomping Ground",
-    "1 Sylvan Safekeeper",
-    "1 Temple Garden",
-    "1 Underground Mortuary",
-    "4 Verdant Catacombs",
-    "1 Viscera Seer",
-    "4 Windswept Heath",
-    "1 Yawgmoth, Thran Physician",
-    "3 Young Wolf"
-   ],
-   "side": [
-    "1 Collector Ouphe",
-    "1 Drannith Magistrate",
-    "2 Endurance",
-    "1 Fatal Push",
-    "2 Force of Vigor",
-    "1 Gaddock Teeg",
-    "1 High Noon",
-    "1 Lavinia, Azorius Renegade",
-    "1 Masked Vandal",
-    "1 Prismatic Ending",
-    "1 Sanctum Prelate",
-    "1 Thoughtseize",
-    "1 Vexing Bauble"
-   ],
-   "history": [
-    null,
-    0.1,
-    0.1,
-    0.1,
-    0.6,
-    0.1,
-    0,
-    0.3,
-    0,
-    0.4,
-    0.8,
-    0.6
-   ],
-   "field": [
-    95,
-    95,
-    12
-   ],
-   "mu": [
-    [
-     "Broodscale",
-     12,
-     11,
-     2
-    ],
-    [
-     "Prowess",
-     4,
-     9,
-     0
-    ],
-    [
-     "Affinity",
-     9,
-     5,
-     0
-    ],
-    [
-     "Goryo Reanimator",
-     3,
-     7,
-     0
-    ],
-    [
-     "Esper Blink",
-     10,
-     6,
-     2
-    ],
-    [
-     "Azorius Control",
-     4,
-     6,
-     0
-    ],
-    [
-     "Boros Energy",
-     6,
-     7,
-     0
-    ],
-    [
-     "Tron",
-     5,
-     2,
-     0
-    ],
-    [
-     "Domain Zoo",
-     3,
-     1,
-     0
-    ],
-    [
-     "Rakdos Midrange",
-     2,
-     4,
-     0
-    ],
-    [
-     "Amulet Titan",
-     1,
-     5,
-     0
-    ],
-    [
-     "Dimir Frog",
-     5,
-     4,
-     2
-    ],
-    [
-     "Ramp Eldrazi",
-     2,
-     3,
-     0
-    ],
-    [
-     "Living End",
-     1,
-     2,
-     2
-    ],
-    [
-     "Boros Ponza",
-     2,
-     4,
-     2
-    ],
-    [
-     "Abzan Midrange",
-     1,
-     2,
-     0
-    ],
-    [
-     "Jeskai Blink",
-     1,
-     1,
-     2
-    ],
-    [
-     "Grixis Frog",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": 48.2,
-   "core": [
-    [
-     "Birthing Ritual",
-     4
-    ],
-    [
-     "Cauldron Familiar",
-     4
-    ],
-    [
-     "Chord of Calling",
-     4
-    ],
-    [
-     "Gilded Goose",
-     4
-    ],
-    [
-     "Samwise Gamgee",
-     4
-    ],
-    [
-     "Verdant Catacombs",
-     4
-    ],
-    [
-     "Windswept Heath",
-     4
-    ],
-    [
-     "Ajani, Nacatl Pariah",
-     3
-    ],
-    [
-     "Young Wolf",
-     3
-    ],
-    [
-     "City of Brass",
-     3
-    ],
-    [
-     "Carrion Feeder",
-     3
-    ],
-    [
-     "Goblin Bombardment",
-     2
-    ],
-    [
-     "Boseiju, Who Endures",
-     2
-    ],
-    [
-     "Overgrown Tomb",
-     2
-    ],
-    [
-     "Forest",
-     1
-    ],
-    [
-     "Dryad Arbor",
-     1
-    ],
-    [
-     "Godless Shrine",
-     1
-    ],
-    [
-     "Haywire Mite",
-     1
-    ],
-    [
-     "Lush Portico",
-     1
-    ],
-    [
-     "Stomping Ground",
-     1
-    ],
-    [
-     "Temple Garden",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Sylvan Safekeeper",
-     83,
-     1
-    ],
-    [
-     "Delighted Halfling",
-     81,
-     1.9
-    ],
-    [
-     "Explosive Prodigy",
-     76,
-     1
-    ],
-    [
-     "Yawgmoth, Thran Physician",
-     74,
-     1
-    ],
-    [
-     "Wooded Foothills",
-     66,
-     1
-    ],
-    [
-     "Misty Rainforest",
-     62,
-     1.1
-    ],
-    [
-     "Viscera Seer",
-     50,
-     1.2
-    ],
-    [
-     "Orcish Bowmasters",
-     33,
-     2.4
-    ]
-   ],
-   "lists": 58,
-   "conv": [
-    0.4,
-    0.1,
-    2
-   ],
-   "prev": 0.4
-  },
-  {
    "id": "modern-wurg-scam",
    "name": "WURG Scam",
    "share": 0.3,
@@ -16038,7 +16038,7 @@
    ],
    "history": [
     null,
-    0,
+    0.1,
     0.1,
     0,
     0.2,
@@ -16444,7 +16444,7 @@
      0
     ]
    ],
-   "metaWr": 41.3,
+   "metaWr": 41.2,
    "core": [
     [
      "Polluted Delta",
@@ -16576,7 +16576,7 @@
    "name": "Dimir Affinity",
    "share": 0.3,
    "tier": 2,
-   "count": 45,
+   "count": 46,
    "title": "sioutis_kk · Modern Challenge 16 (6th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-16-2026-10-2412856974#deck_sioutis_kk",
    "main": [
@@ -16729,12 +16729,8 @@
      2
     ]
    ],
-   "metaWr": 50.3,
+   "metaWr": 50.2,
    "core": [
-    [
-     "Kappa Cannoneer",
-     4
-    ],
     [
      "Mishra's Bauble",
      4
@@ -16749,6 +16745,10 @@
     ],
     [
      "Urza's Saga",
+     4
+    ],
+    [
+     "Kappa Cannoneer",
      4
     ],
     [
@@ -16787,12 +16787,12 @@
    "flex": [
     [
      "Engineered Explosives",
-     82,
+     80,
      3.3
     ],
     [
      "Island",
-     71,
+     72,
      2
     ],
     [
@@ -16802,61 +16802,61 @@
     ],
     [
      "Mox Amber",
-     62,
+     63,
      1.9
     ],
     [
-     "Otawara, Soaring City",
-     60,
-     1.3
-    ],
-    [
      "Ornithopter",
-     60,
+     61,
      3.6
     ],
     [
      "Cranial Plating",
-     60,
+     61,
      3
     ],
     [
+     "Otawara, Soaring City",
+     59,
+     1.3
+    ],
+    [
      "Polluted Delta",
-     56,
+     54,
      3.2
     ],
     [
      "Scalding Tarn",
-     56,
+     54,
      1.8
     ],
     [
      "Memnite",
-     49,
+     50,
      3
     ],
     [
      "Emry, Lurker of the Loch",
-     44,
-     3.6
+     46,
+     3.5
     ],
     [
      "Metallic Rebuke",
-     44,
+     43,
      3.3
     ],
     [
      "Misty Rainforest",
-     42,
+     41,
      3.1
     ],
     [
      "Welding Jar",
-     38,
+     37,
      1.7
     ]
    ],
-   "lists": 45,
+   "lists": 46,
    "conv": [
     0.3,
     0.4,
@@ -16910,7 +16910,7 @@
    ],
    "history": [
     null,
-    0.4,
+    0.3,
     0.1,
     0.1,
     0.3,
@@ -17464,7 +17464,7 @@
    ],
    "history": [
     null,
-    0.7,
+    0.6,
     0.3,
     0.5,
     0.3,
@@ -17749,7 +17749,7 @@
    "name": "Song Of Creation",
    "share": 0.2,
    "tier": 3,
-   "count": 36,
+   "count": 37,
    "title": "Thiago Meneghin · 5ª Etapa CLM Modern (6th Place)",
    "url": "https://melee.gg/Decklist/View/564e30df-b00b-461c-8a55-b4e3016f3815",
    "main": [
@@ -17793,7 +17793,7 @@
    ],
    "history": [
     null,
-    0.1,
+    0.2,
     0.3,
     0.1,
     0.6,
@@ -17967,7 +17967,7 @@
     [
      "Scalding Tarn",
      89,
-     2.8
+     2.7
     ],
     [
      "Misty Rainforest",
@@ -17981,51 +17981,51 @@
     ],
     [
      "Otawara, Soaring City",
-     83,
+     84,
      1
     ],
     [
      "Boomerang Basics",
-     69,
+     70,
      2.3
     ],
     [
      "Stomping Ground",
-     64,
+     62,
      1
     ],
     [
      "Haywire Mite",
-     58,
+     59,
      1
     ],
     [
      "Repeal",
-     56,
+     54,
      3.3
     ],
     [
      "Pyrite Spellbomb",
-     44,
+     46,
      1
     ],
     [
      "Boseiju, Who Endures",
-     42,
+     43,
      1
     ],
     [
      "Thundering Falls",
-     39,
+     38,
      1
     ],
     [
      "Forest",
-     36,
+     35,
      1
     ]
    ],
-   "lists": 36,
+   "lists": 37,
    "conv": [
     0.3,
     0.2,
@@ -18082,7 +18082,7 @@
    ],
    "history": [
     null,
-    0.7,
+    0.6,
     0.3,
     0.3,
     0.2,
@@ -18185,7 +18185,7 @@
      2
     ]
    ],
-   "metaWr": 43.1,
+   "metaWr": 43,
    "core": [
     [
      "Ajani, Nacatl Pariah",
@@ -18857,7 +18857,7 @@
    ],
    "history": [
     null,
-    0.2,
+    0.3,
     0,
     0.3,
     0.1,
@@ -18972,7 +18972,7 @@
      2
     ]
    ],
-   "metaWr": 48,
+   "metaWr": 47.9,
    "core": [
     [
      "Eldrazi Linebreaker",

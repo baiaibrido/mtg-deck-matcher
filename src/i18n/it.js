@@ -3,7 +3,7 @@ const carte = n => p(n, 'carta', 'carte')
 
 export default {
   // generali
-  skip: 'Vai al contenuto', home: 'Netdeckable, home', 'deck.open': 'Apri il mazzo', 'detail.seeNeed': 'Vedi cosa ti manca', settings: 'Impostazioni', sections: 'Sezioni', format: 'Formato',
+  skip: 'Vai al contenuto', home: 'Netdeckable, home', sections: 'Sezioni', format: 'Formato',
   'nav.decks': 'Mazzi', 'nav.keycards': 'Carte chiave', 'nav.collection': 'Collezione',
   done: 'Fatto', undo: 'Annulla', cancel: 'Annulla', close: 'Chiudi', download: 'Scarica', copyList: 'Copia lista', sort: 'Ordina', all: 'Tutti',
   language: 'Lingua', 'theme.toLight': 'Passa al tema chiaro', 'theme.toDark': 'Passa al tema scuro',
