@@ -60,11 +60,17 @@
 
 @media (prefers-reduced-motion: reduce) { .key-list li { animation: none !important; } }
 
-/* «In 15 mazzi»: l'elenco dei mazzi si apre toccando */
-.key-decks > summary { display: inline-flex; align-items: center; gap: 6px; min-height: 28px; color: var(--ink-2); cursor: pointer; list-style: none; }
-.key-decks > summary::-webkit-details-marker { display: none; }
-.key-decks > summary::after { content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .2s var(--ease); }
-.key-decks[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
-@media (hover: hover) and (pointer: fine) { .key-decks > summary:hover { color: var(--ink); } }
-.key-decks-list { display: block; padding: 2px 0 4px; line-height: 1.6; }
-@media (pointer: coarse) { .key-decks > summary { min-height: 36px; } }
+/* «In 15 mazzi»: l'elenco dei mazzi si apre in un riquadro sopra la pagina, la riga non cambia */
+.key-decks-btn { display: inline-flex; align-items: center; gap: 4px; min-height: 28px; padding: 0; border: 0; background: none; color: var(--ink-2); font: inherit; cursor: pointer; }
+.key-decks-btn > svg { transition: transform .2s var(--ease); }
+.key-decks-btn[aria-expanded="true"] { color: var(--ink); }
+.key-decks-btn[aria-expanded="true"] > svg { transform: rotate(180deg); }
+@media (hover: hover) and (pointer: fine) { .key-decks-btn:hover { color: var(--ink); } }
+@media (pointer: coarse) { .key-decks-btn { min-height: 36px; } }
+.key-decks-pop {
+  position: fixed; z-index: 60; display: grid; margin: 0; padding: var(--s2) 0; overflow-y: auto; overscroll-behavior: contain; list-style: none;
+  border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--pop-bg); box-shadow: var(--shadow-pop); animation: pop .18s var(--ease);
+}
+.key-decks-pop li .linklike { display: block; width: 100%; padding: 8px var(--s4); color: var(--ink); font-size: var(--fs-md); text-align: left; text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .key-decks-pop li .linklike:hover { background: var(--bar); text-decoration: underline; } }
+@media (prefers-reduced-motion: reduce) { .key-decks-pop { animation: none; } }

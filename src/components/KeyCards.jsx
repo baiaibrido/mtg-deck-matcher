@@ -1,15 +1,45 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { keyCards } from '../lib/keyCards.js'
 import { getCached } from '../lib/scryfall.js'
 import { t } from '../i18n/index.js'
 import { money, priceOf } from '../lib/currency.js'
 import { toText, downloadTxt } from '../lib/export.js'
 import { ManaCost } from './Mana.jsx'
-import { IconCopy, IconDownload, IconGrid, IconList, IconCheck } from './Icons.jsx'
+import { IconCopy, IconDownload, IconGrid, IconList, IconCheck, IconCaret } from './Icons.jsx'
 import { toOwnedMap } from '../lib/matcher.js'
 import { norm } from '../lib/normalize.js'
 import { useSession } from '../state/useSession.js'
 import { go, linkProps } from '../state/useRoute.js'
+
+// «In 14 mazzi»: l'elenco si apre in un riquadro sopra la pagina (in <body>, posizione fissa),
+// così la riga della carta non cambia altezza e niente esce dal foglio
+function DecksPop({ decks }) {
+  const [pos, setPos] = useState(null)
+  const btn = useRef(null), pop = useRef(null)
+  const open = () => {
+    const r = btn.current.getBoundingClientRect(), W = document.documentElement.clientWidth, H = window.visualViewport?.height || innerHeight
+    const w = Math.min(320, W - 16), left = Math.max(8, Math.min(r.left, W - w - 8))
+    const bar = document.querySelector('.tabbar')?.getBoundingClientRect().height || 0
+    const below = H - bar - r.bottom - 12
+    setPos(below > 220 || below > r.top ? { left, width: w, top: r.bottom + 6, maxHeight: Math.max(160, below) } : { left, width: w, bottom: innerHeight - r.top + 6, maxHeight: r.top - 12 })
+  }
+  useEffect(() => {
+    if (!pos) return
+    const out = e => { if (!pop.current?.contains(e.target) && !btn.current?.contains(e.target)) setPos(null) }
+    const esc = e => { if (e.key === 'Escape') { setPos(null); btn.current?.focus() } }
+    const close = e => { if (!pop.current?.contains(e.target)) setPos(null) }
+    document.addEventListener('pointerdown', out); document.addEventListener('keydown', esc)
+    addEventListener('scroll', close, true); addEventListener('resize', close)
+    return () => { document.removeEventListener('pointerdown', out); document.removeEventListener('keydown', esc); removeEventListener('scroll', close, true); removeEventListener('resize', close) }
+  }, [pos])
+  return <>
+    <button ref={btn} className="key-decks-btn" aria-expanded={!!pos} onClick={() => pos ? setPos(null) : open()}>{t('kc.inDecks', decks.length)}<IconCaret size={14} /></button>
+    {pos && createPortal(<ul className="key-decks-pop" ref={pop} style={pos}>
+      {decks.map(d => <li key={d.id}><button className="linklike" onClick={() => { setPos(null); go('deck', d.id) }}>{d.name}</button></li>)}
+    </ul>, document.body)}
+  </>
+}
 
 // Carte che ti mancano e che servono a più mazzi del formato: i primi acquisti che rendono di più.
 export default function KeyCards({ ranked, formatName, collection, playset, toast }) {
@@ -88,10 +118,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
                   <ManaCost cost={e.card?.cost} />
                 </span>
                 {/* in quanti mazzi: l'elenco si apre toccando */}
-                <details className="key-decks">
-                  <summary>{t('kc.inDecks', e.decks.length)}</summary>
-                  <span className="key-decks-list">{e.decks.map((d, j) => <span key={d.id} className="nb"><button className="linklike" onClick={() => go('deck', d.id)}>{d.name}</button>{j < e.decks.length - 1 && ', '}</span>)}</span>
-                </details>
+                <span className="key-decks"><DecksPop decks={e.decks} /></span>
                 {hasCollection && e.have > 0 && <span className={`key-own tile-${st(e)}`}>{st(e) === 'ok' && <IconCheck size={14} />}{ownText(e)}</span>}
               </span>
               <span className="key-buy">{e.need > 0 && <><b>{e.need}×</b><span>{price(e)}</span></>}</span>
