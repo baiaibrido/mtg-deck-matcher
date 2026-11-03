@@ -1,13 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { t, dayMonth } from '../i18n/index.js'
 import { money, localBudget } from '../lib/currency.js'
 import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
 import { getCached } from '../lib/scryfall.js'
 import { go, linkProps } from '../state/useRoute.js'
 import { useSession } from '../state/useSession.js'
-import { HeroDeck, DeckLines, PinChips } from '../components/DeckCards.jsx'
-import { norm } from '../lib/normalize.js'
-import { pickSignature } from '../lib/daily.js'
+import { HeroDeck, DeckLines, PinChips, useArtOf } from '../components/DeckCards.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
@@ -57,10 +55,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   if (view.budget) all = all.filter(withinBudget)
   const rogueShown = view.budget ? rogue.filter(withinBudget) : rogue
   const cedh = format === 'commander' // cEDH: le percentuali si riferiscono alla lista di un torneo
-  // l'illustrazione di ogni mazzo: la sua carta più tipica (quella che negli altri mazzi c'è meno), ritagliata
-  const freq = useMemo(() => { const f = new Map(); for (const d of meta || []) for (const k of new Set((d.main || []).map(c => norm(c.name)))) f.set(k, (f.get(k) || 0) + 1); return f }, [meta])
-  const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
-  const artOf = d => { const n = pickSignature(d.main || [], x => freq.get(norm(x)) || 0, isLand, d.name) || d.signature; return getCached(n)?.img?.replace('/normal/', '/art_crop/') || null }
+  const artOf = useArtOf(meta)
   const lineProps = { colorsOf, artOf, costOf, owned, cedh, metric: owned ? null : view.sort, onOpen: id => go('deck', id) }
 
   const listMeta = (() => { // «50 mazzi, aggiornati il [18 OTT]»: la data è un timbro datario

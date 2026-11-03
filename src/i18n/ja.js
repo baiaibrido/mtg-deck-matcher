@@ -1,6 +1,6 @@
 // 日本語: カード名は英語のまま(公式の英語名で検索・照合するため)
 export default {
-  skip: 'コンテンツへ移動', home: 'Netdeckable、ホーム', 'deck.open': 'デッキを開く', settings: '設定', sections: 'セクション', format: 'フォーマット',
+  skip: 'コンテンツへ移動', home: 'Netdeckable、ホーム', 'deck.open': 'デッキを開く', 'detail.seeNeed': '足りないカードを見る', settings: '設定', sections: 'セクション', format: 'フォーマット',
   'nav.decks': 'デッキ', 'nav.keycards': '重要カード', 'nav.collection': 'コレクション',
   done: '完了', undo: '元に戻す', cancel: 'キャンセル', close: '閉じる', download: 'ダウンロード', copyList: 'リストをコピー', sort: '並べ替え', all: 'すべて',
   language: '言語', 'theme.toLight': 'ライトテーマに切り替え', 'theme.toDark': 'ダークテーマに切り替え',

@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useMemo } from 'react'
 import { ColorPips } from './Mana.jsx'
 import { TierBadge } from './Badges.jsx'
 import { Meter, frameStyle, costText, shareText, bigFigure } from './DeckList.jsx'
@@ -6,13 +6,22 @@ import { IconChevron, IconClip, IconWarn } from './Icons.jsx'
 import { t, num } from '../i18n/index.js'
 import { deckBans } from '../lib/bans.js'
 import { getCached } from '../lib/scryfall.js'
+import { norm } from '../lib/normalize.js'
+import { pickSignature } from '../lib/daily.js'
+
+// l'illustrazione di un mazzo: la sua carta più tipica (quella che negli altri mazzi del formato c'è meno), ritagliata
+const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
+export function useArtOf(decks) {
+  const freq = useMemo(() => { const f = new Map(); for (const d of decks || []) for (const k of new Set((d.main || []).map(c => norm(c.name)))) f.set(k, (f.get(k) || 0) + 1); return f }, [decks])
+  return d => { const n = pickSignature(d.main || [], x => freq.get(norm(x)) || 0, isLand, d.name) || d.signature; return getCached(n)?.img?.replace('/normal/', '/art_crop/') || null }
+}
 
 // Bozza della home: ogni mazzo si riconosce dall'illustrazione della sua carta tipica (come su MTGGoldfish),
 // una riga dice la cosa che conta, a destra un solo numero grande.
 const pct = r => Math.round(r * 100)
 const missingOf = s => s.missing.reduce((n, r) => n + r.missing, 0)
 
-function Art({ src, className }) {
+export function Art({ src, className }) {
   return <span className={className} aria-hidden="true">{src && <img src={src} alt="" loading="lazy" onError={e => { e.currentTarget.remove() }} />}</span>
 }
 

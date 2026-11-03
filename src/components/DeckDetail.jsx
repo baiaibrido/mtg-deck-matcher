@@ -6,6 +6,7 @@ import { loadTags } from '../lib/tagsLoader.js'
 import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton, resultText } from './DeckList.jsx'
 import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
+import { Art, useArtOf } from './DeckCards.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox, IconWarn } from './Icons.jsx'
 import { useSession } from '../state/useSession.js'
 import { useMedia } from '../state/useMedia.js'
@@ -104,6 +105,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
   const narrow = useMedia('(max-width: 899px)')
   useEffect(() => { if (!narrow && tab === 'meta') setTab('list') }, [narrow])
   const [onlyMissing, setOnlyMissing] = useState(false)
+  const artOf = useArtOf(decks)
   const [look, setLook] = useSession('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
   const list = toText(s.missing)
   const missingCount = s.missing.reduce((t, r) => t + r.missing, 0)
@@ -129,55 +131,38 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       <HoverCard />
       <button className="back" onClick={onBack}><IconBack size={18} />{t('detail.back')}</button>
 
-      <header className="detail-head">
-        <div className="detail-info">
-        <div className="detail-title">
-          <h1>{s.deck.name}</h1>
-          <ColorPips colors={colors} size="1.15rem" />
-          <span className="detail-actions">
+      {/* in testa: l'illustrazione della carta tipica col nome, poi i dati in una riga, quanto è completo e cosa fare */}
+      <header className="hero-deck dhead">
+        <div className="hero-art dhead-art">
+          <Art src={artOf(s.deck)} className="hero-img" />
+          <span className="hero-title"><span className="dl-name"><h1>{s.deck.name}</h1><ColorPips colors={colors} size="1.15rem" /></span></span>
+        </div>
+        <div className="hero-body dhead-body">
+          <p className="detail-meta">
+            {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
+              {s.deck.tier && <span className="tier-wrap"><TierBadge tier={s.deck.tier} /><Info text={t('info.tier')} label={t('info.label')} /></span>}
+              {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
+              <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} />
+              {s.deck.metaWr != null && <span>{t('wrShort', num(s.deck.metaWr))}</span>}
+            </>}
+            {s.deck.archetype && <span>{t('detail.variant', s.deck.archetype)}</span>}
+            {price && !hasColl && <span className="price">{t('deckCost', price)}</span>}
+          </p>
+          {hasColl && <div className="dhead-score">
+            <p className="hero-num"><b>{Math.round(s.score * 100)}<small>%</small></b><span>{t(cedh ? 'complete.list' : 'complete')}</span>
+              {s.score >= 1 && <span className="stamp stamp-ok hero-stamp" aria-hidden="true">{t('stamp.complete')}</span>}</p>
+            <div className="hero-meters"><Meter label="Main" {...s.main} />{s.side.total > 0 && <Meter label="Side" {...s.side} />}</div>
+            {missingCount > 0
+              ? <p className="dl-sub"><span>{t(cedh ? 'need.list' : 'need', missingCount)[0]}<mark>{missingCount}</mark>{t(cedh ? 'need.list' : 'need', missingCount)[1]}</span>{price && <span>{price}</span>}</p>
+              : <p className="dl-sub"><span className="done">{t('haveAll')}</span></p>}
+          </div>}
+          <div className="dhead-actions">
+            {hasColl && missingCount > 0 && <button className="btn btn-primary" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>{t('detail.seeNeed')}</button>}
             <PinButton deck={s.deck} pinned={pinned} onPin={onPin} className="pin-btn pin-btn-detail" />
-            {missingCount > 0 && onOwnDeck && <button className="own-btn" onClick={onOwnDeck} title={t('own.title')}><IconBox size={18} />{t('own.deck')}</button>}
-          </span>
+            {missingCount > 0 && onOwnDeck && <button className="btn btn-quiet own-btn" onClick={onOwnDeck} title={t('own.title')}><IconBox size={18} />{t('own.deck')}</button>}
+          </div>
+          {bans.length > 0 && <p className="note note-error note-icon"><IconWarn size={18} />{t('ban.deck', bans.join(', '))}</p>}
         </div>
-        <p className="detail-meta">
-          {s.deck.rogue ? <RogueInfo deck={s.deck} /> : <>
-            {s.deck.tier && <span className="tier-wrap"><TierBadge tier={s.deck.tier} /><Info text={t('info.tier')} label={t('info.label')} /></span>}
-            {s.deck.share > 0 && <span>{shareText(s.deck.share)}</span>}
-            <Trend share={s.deck.share} prev={s.deck.prev} prevDate={s.deck.prevDate} history={s.deck.history} />
-          </>}
-          {s.deck.archetype && <span>{t('detail.variant', s.deck.archetype)}</span>}
-          {price && !hasColl && <span className="price">{t('deckCost', price)}</span>}
-        </p>
-        {desc && <dl className="profile" aria-label={t('desc.label')}>
-          <div><dt>{t('desc.curveL')}</dt><dd>{num(desc.curve)}</dd></div>
-          <div><dt>{t('desc.creaL')}</dt><dd>{desc.creatures}</dd></div>
-          {desc.inter.map(([k, n]) => <div key={k}><dt>{t(`otag.${k}`)}</dt><dd>{n}</dd></div>)}
-        </dl>}
-        <div className="detail-source">
-          {s.deck.url && <p className="detail-orig"><a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''}<IconExternal size={14} /></a></p>}
-          {/* la lista mostrata cambia ogni notte: diciamo come viene scelta, subito sotto il suo link */}
-          {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}
-          {s.deck.source !== 'utente' && <p className="detail-links">
-            {!cedh && <a href={mtgdecksPage(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecksAll')}<IconExternal size={14} /></a>}
-            <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t(cedh ? 'detail.mtgdecksSearch' : 'detail.mtgdecks')}<IconExternal size={14} /></a>
-          </p>}
-        </div>
-        {bans.length > 0 && <p className="note note-error note-icon"><IconWarn size={18} />{t('ban.deck', bans.join(', '))}</p>}
-        </div>
-        {/* con una collezione la cosa più importante è quanto manca: percentuale, barre e carte mancanti insieme */}
-        {hasColl && <div className="detail-meters">
-          <p className="detail-score"><b>{Math.round(s.score * 100)}<small>%</small></b><span>{t(cedh ? 'complete.list' : 'complete')}</span></p>
-          <Meter label="Main" {...s.main} />
-          {s.side.total > 0 && <Meter label="Side" {...s.side} />}
-          {missingCount > 0
-            ? <p className="detail-need">
-                <button className="linklike" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
-                  {t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}
-                </button>
-                {price && <span>{t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</span>}
-              </p>
-            : <span className="done">{t('haveAll')}</span>}
-        </div>}
       </header>
 
       <div className={`detail-split${hasMeta ? ' has-meta' : ''}`}>
@@ -202,6 +187,22 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
         <Section title="Main" rows={s.main.rows} onlyMissing={hasColl && onlyMissing} visual={look === 'visual'} hasColl={hasColl} />
         <Section title="Sideboard" rows={s.side.rows} onlyMissing={hasColl && onlyMissing} visual={look === 'visual'} hasColl={hasColl} />
         {onlyMissing && !missingCount && <p className="empty">{t('detail.haveAll')}</p>}
+        {/* sotto la lista: com'è fatto il mazzo e da dove viene la lista */}
+        <footer className="dinfo">
+          {desc && <dl className="profile" aria-label={t('desc.label')}>
+            <div><dt>{t('desc.curveL')}</dt><dd>{num(desc.curve)}</dd></div>
+            <div><dt>{t('desc.creaL')}</dt><dd>{desc.creatures}</dd></div>
+            {desc.inter.map(([k, n]) => <div key={k}><dt>{t(`otag.${k}`)}</dt><dd>{n}</dd></div>)}
+          </dl>}
+          <div className="detail-source">
+            {s.deck.url && <p className="detail-orig"><a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''}<IconExternal size={14} /></a></p>}
+            {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}
+            {s.deck.source !== 'utente' && <p className="detail-links">
+              {!cedh && <a href={mtgdecksPage(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecksAll')}<IconExternal size={14} /></a>}
+              <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t(cedh ? 'detail.mtgdecksSearch' : 'detail.mtgdecks')}<IconExternal size={14} /></a>
+            </p>}
+          </div>
+        </footer>
       </>}
 
       {tab === 'need' && (missingCount ? <>

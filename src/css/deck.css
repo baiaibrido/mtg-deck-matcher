@@ -7,62 +7,38 @@
 .back { display: inline-flex; align-items: center; gap: 4px; min-height: var(--ctl); margin-top: var(--s2); padding: 0 var(--s2) 0 0; border: 0; background: none; color: var(--ink-2); font-size: var(--fs-ctl); cursor: pointer; }
 @media (hover: hover) and (pointer: fine) { .back:hover { color: var(--ink); } }
 
-/* ── Intestazione ── */
-.detail-head {
-  position: relative; margin: var(--s2) 0 var(--s5); padding: calc(var(--s5) + 6px) var(--s5) var(--s5);
-  border: 1px solid var(--line); border-top: 0; border-radius: 0 0 var(--r-lg) var(--r-lg); background: var(--sheet) var(--grain);
-}
-.detail-head::before { content: ''; position: absolute; inset: 0 0 auto; height: 6px; background: linear-gradient(90deg, var(--c1), var(--c2)); }
-.detail-info { display: grid; gap: var(--s3); min-width: 0; }
-.detail-title { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); }
-.detail-title h1 { font: clamp(1.75rem, 4vw, 2.25rem)/1.1 var(--font-title); letter-spacing: -.01em; }
-.detail-actions { display: inline-flex; align-items: center; gap: var(--s2); }
-.pin-btn-detail { width: var(--ctl); height: var(--ctl); border-color: var(--line-2); }
-.own-btn {
-  display: inline-flex; align-items: center; gap: var(--s2); min-height: var(--ctl); padding: 0 var(--s4) 0 var(--s3); border: 1px solid var(--line-2); border-radius: var(--r);
-  background: transparent; color: var(--ink); font: 700 var(--fs-ctl)/1.2 var(--font-ui); white-space: nowrap; cursor: pointer; transition: border-color .15s;
-}
-@media (hover: hover) and (pointer: fine) { .own-btn:hover { border-color: var(--ink); } }
+/* ── Intestazione: illustrazione della carta tipica col nome, dati in una riga, quanto è completo, cosa fare ── */
+.dhead { margin: var(--s2) 0 var(--s5); }
+.dhead-art { cursor: default; }
+.dhead-art h1 { margin: 0; font: inherit; }
+.dhead .hero-title .dl-name { font-size: clamp(1.875rem, 8vw, 2.75rem); }
+.dhead-body { gap: var(--s3); }
 .detail-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1) var(--s4); color: var(--ink-2); font-size: var(--fs-md); }
-/* profilo del mazzo: numeri a punti sopra, etichetta sotto */
+.dhead-score { display: grid; gap: var(--s2); }
+.dhead-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+.dhead-actions .btn-primary { flex: 1 1 auto; justify-content: center; }
+@media (min-width: 720px) { .dhead-actions .btn-primary { flex: 0 1 auto; } }
+.pin-btn-detail { width: var(--ctl); height: var(--ctl); border-color: var(--line-2); }
+.own-btn { display: inline-flex; align-items: center; gap: var(--s2); }
+@media (max-width: 559px) { .dhead { margin-inline: calc(-1 * var(--s2)); } }
+
+/* ── Sotto la lista: profilo del mazzo e da dove viene la lista ── */
+.dinfo { display: grid; gap: var(--s4); margin-top: var(--s6); padding-top: var(--s4); border-top: 1px dashed var(--line-2); }
 .profile { display: flex; flex-wrap: wrap; gap: var(--s2) 0; }
 .profile > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px; padding: 0 var(--s4); border-left: 1px solid var(--line); }
 .profile > div:first-child { padding-left: 0; border-left: 0; }
 .profile dt { color: var(--ink-2); font: 500 var(--fs-sm)/1.25 var(--font-ui); white-space: nowrap; }
 .profile dd { font: 900 1.625rem/1 var(--font-dot); font-variant-numeric: tabular-nums lining-nums; }
 .detail-source { display: grid; gap: var(--s1); font-size: var(--fs-md); }
-/* la spiegazione sta sotto il link della lista originale; poi gli altri due link, sulla stessa riga */
 .detail-source a svg { margin-left: 4px; vertical-align: -2px; }
 .detail-listhow { max-width: 64ch; color: var(--ink-2); font-size: var(--fs-sm); }
 .detail-links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s5); margin-top: var(--s1); }
-/* quanto manca: percentuale, barre e carte mancanti insieme */
-.detail-meters { display: grid; gap: var(--s2); }
-.detail-score { display: flex; align-items: baseline; gap: var(--s2); }
-.detail-score b { font: 900 var(--fs-num)/1 var(--font-dot); font-variant-numeric: tabular-nums; }
-.detail-score small { margin-left: 3px; font: 700 1.2rem var(--font-ui); }
-.detail-score span { color: var(--ink-2); font-weight: 700; }
-.detail-meters .meter { font-size: var(--fs-md); }
-.detail-meters .meter-track { height: 8px; }
-.detail-need { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s3); color: var(--ink-2); font-size: var(--fs-md); }
-.detail-meters .done { color: var(--ok); font-weight: 700; }
-@media (min-width: 720px) {
-  .detail-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); align-items: start; gap: var(--s4) var(--s6); }
-}
-@media (max-width: 719px) {
-  /* telefono: nome, quota, quanto manca, profilo, link */
-  .detail-head { display: flex; flex-direction: column; gap: var(--s3); padding: calc(var(--s4) + 6px) var(--s4) var(--s4); margin-inline: calc(-1 * var(--s2)); }
-  .detail-info { display: contents; }
-  .detail-title { order: 1; } .detail-meta { order: 2; } .detail-meters { order: 3; margin: var(--s1) 0; }
-  .detail-head .profile { order: 4; } .detail-source { order: 5; } .detail-info > .note { order: 6; }
-  .detail-score b { font-size: 2.5rem; }
-}
 @media (max-width: 560px) {
   .profile { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3) var(--s2); }
   .profile > div, .profile > div:first-child { padding: 0; border: 0; }
   .profile dt { white-space: normal; }
-  .detail-source a { display: inline-block; padding-block: 8px; } /* tocchi comodi, e l'icona resta attaccata al testo */
+  .detail-source a { display: inline-block; padding-block: 8px; }
   .detail-links { flex-direction: column; gap: 0; margin-top: 0; }
-  /* «solo le mancanti» e la vista sulla stessa riga: l'etichetta va a capo se serve */
   .detail .list-tools { flex-wrap: nowrap; }
   .list-tools > .switch { flex: 1 1 auto; min-width: 0; }
 }
