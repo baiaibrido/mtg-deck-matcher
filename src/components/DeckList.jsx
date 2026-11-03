@@ -9,11 +9,12 @@ import { Sparkline } from './Charts.jsx'
 import { deckBans } from '../lib/bans.js'
 import { getCached } from '../lib/scryfall.js'
 import { norm } from '../lib/normalize.js'
-import { pickSignature } from '../lib/daily.js'
+import { artCardOf } from '../lib/deckArt.js'
 
-// L'illustrazione di un mazzo (come su MTGGoldfish): la sua carta più tipica, cioè quella che negli altri mazzi
-// del formato c'è meno, ritagliata da Scryfall (art_crop). Senza immagine resta il riquadro nei colori del mazzo.
+// L'illustrazione di un mazzo (come su MTGGoldfish): la carta che gli dà il nome, altrimenti la più tipica del cuore
+// della lista (vedi lib/deckArt.js), ritagliata da Scryfall (art_crop). Senza immagine resta il riquadro nei colori del mazzo.
 const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
+const isCreature = n => /\bCreature\b/.test(getCached(n)?.type || '')
 export function useArtOf(decks) {
   const freq = useMemo(() => {
     const f = new Map()
@@ -21,7 +22,7 @@ export function useArtOf(decks) {
     return f
   }, [decks])
   return d => {
-    const n = pickSignature(d.main || [], x => freq.get(norm(x)) || 0, isLand, d.name) || d.signature
+    const n = artCardOf(d, x => freq.get(norm(x)) || 0, { isLand, isCreature }) || d.signature
     return getCached(n)?.img?.replace('/normal/', '/art_crop/') || null
   }
 }
