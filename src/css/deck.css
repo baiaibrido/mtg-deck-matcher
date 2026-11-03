@@ -29,7 +29,7 @@
 .profile > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px; padding: 0 var(--s4); border-left: 1px solid var(--line); }
 .profile > div:first-child { padding-left: 0; border-left: 0; }
 .profile dt { color: var(--ink-2); font: 500 var(--fs-sm)/1.25 var(--font-ui); white-space: nowrap; }
-.profile dd { font: 900 1.625rem/1 var(--font-dot); font-variant-numeric: tabular-nums lining-nums; }
+.profile dd { font: 1.5rem/1 var(--font-num); font-variant-numeric: tabular-nums lining-nums; }
 .detail-source { display: grid; gap: var(--s1); font-size: var(--fs-md); }
 /* la spiegazione sta sotto il link della lista originale; poi gli altri due link, sulla stessa riga */
 .detail-source a svg { margin-left: 4px; vertical-align: -2px; }
@@ -147,7 +147,7 @@
 /* matchup: barra divergente attorno al 50% */
 .mu-head { display: grid; gap: var(--s1); margin-bottom: var(--s3); }
 .mu-big { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
-.mu-big b { font: 900 2.5rem/1 var(--font-dot); font-variant-numeric: tabular-nums; }
+.mu-big b { font: 2.25rem/1 var(--font-num); font-variant-numeric: tabular-nums; }
 .mu-big small { flex-basis: 100%; color: var(--ink-2); font-size: var(--fs-sm); }
 .mu-field { color: var(--ink-2); font-size: var(--fs-md); }
 .mu-list { margin: 0 0 var(--s2); padding: 0; list-style: none; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r); background: var(--paper); }
@@ -187,3 +187,15 @@
 .detail-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); align-items: start; margin-top: var(--s5); } /* ogni foglio lungo quanto il suo contenuto */
 .detail-more > .ins { padding: 0 var(--s5) var(--s5); border: 1px solid var(--line); border-top: 2px solid var(--ink); border-radius: 0 0 var(--r-lg) var(--r-lg); background: var(--sheet) var(--grain); }
 .detail-more > .ins > h2 { margin: 0 calc(-1 * var(--s5)) var(--s3); padding: 10px var(--s5) 9px; border-bottom: 1px solid var(--line); background: var(--bar); font: 1.125rem/1.25 var(--font-title); }
+
+/* ── Cosa fare: vedere quello che manca (principale), «Ho già questo mazzo» accanto ── */
+.detail-cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s2); }
+.detail-cta .btn-primary .count { background: var(--paper); color: var(--ink); box-shadow: none; }
+.detail-need b { color: var(--ink); }
+@media (max-width: 719px) { .detail-cta .btn-primary { flex: 1 1 auto; justify-content: center; } }
+/* l'illustrazione della carta tipica accanto al nome */
+.detail-art { flex: none; width: 88px; }
+@media (max-width: 559px) { .detail-art { width: 64px; } }
+.detail-orig .info { margin-left: 4px; vertical-align: -3px; }
+.detail-source .detail-orig a { display: inline; padding: 0; }
+.detail-orig { line-height: 1.6; }

@@ -6,7 +6,9 @@ import { health, valuePoints, bestBuys, converters, priceWatch } from '../lib/st
 import { getCached } from '../lib/scryfall.js'
 import { ColorPips } from './Mana.jsx'
 import Spark from './Spark.jsx'
-import WeatherReport from './WeatherReport.jsx'
+import { useWeather, Bulletin, Winds, Moves, Colors, Delta } from './WeatherReport.jsx'
+import { More, PanelTitle } from './More.jsx'
+import { useMedia } from '../state/useMedia.js'
 
 // Grafico prezzo (x) / % contro il meta (y): un punto per mazzo, etichette solo sulla "frontiera"
 function ValueChart({ points, onOpen }) {
@@ -58,106 +60,104 @@ export default function StatsPage({ meta, ranked, format, formatName, colorsOf, 
   const conv = converters(decks)
   const watch = priceWatch(st?.cardsUp, prices)
   const link = d => <button className="linklike" onClick={() => onOpen(d.id)}>{d.name}</button>
-  const delta = v => <span className={`st-delta ${v >= 0 ? 'up' : 'down'}`}>{v >= 0 ? '+' : '−'}{num(Math.abs(v))}</span>
+  const delta = v => <Delta v={v} />
+  const w = useWeather(decks, colorsOf)
+  const phone = useMedia('(max-width: 719px)') // sul telefono il grafico prezzo/vittorie diventa un elenco
   if (!meta) return <div className="decks skeleton" aria-busy="true" />
+
+  // in sintesi: il mazzo che sale di più, quello che scende di più, la salute del formato, la carta in maggiore ascesa
+  const moving = w.rows.filter(x => x.delta != null).sort((a, b) => b.delta - a.delta)
+  const up = moving[0]?.delta > 0 ? moving[0] : null, down = moving.at(-1)?.delta < 0 ? moving.at(-1) : null
+  const card = st?.cardsUp?.[0]
+  const value = [...pts].filter(p => p.frontier).sort((a, b) => a.price - b.price)
 
   return (
     <div className="stats">
-      <header className="page-head head-split">
+      <header className="page-head">
         <h1>{t('st.title', formatName)}</h1>
         <p>{t('st.intro')}</p>
       </header>
 
-      <WeatherReport decks={decks} colorsOf={colorsOf} onOpen={onOpen} />
+      <section className="st-summary" aria-label={t('st.sum')}>
+        {up && <div className="st-tile"><span className="st-tile-k">{t('st.sum.up')}</span>{link(up.d)}<Delta v={up.delta} /></div>}
+        {down && <div className="st-tile"><span className="st-tile-k">{t('st.sum.down')}</span>{link(down.d)}<Delta v={down.delta} /></div>}
+        {hl?.now && <div className="st-tile st-tile-health"><span className="st-tile-k">{t('st.health')}</span><p className="st-hero"><b>{hl.now}</b> <span>{t('st.health.decks', hl.now)}</span></p><span className={`st-kind st-kind-${hl.kind}`}>{t(`st.health.${hl.kind}`)}</span></div>}
+        {card && <div className="st-tile"><span className="st-tile-k">{t('st.sum.card')}</span><b className="st-tile-name">{card[0]}</b><span>{num(card[1])}% {delta(card[1] - card[2])}</span></div>}
+      </section>
 
-      {/* capitolo 2: il formato nel suo insieme */}
-      <section className="st-chapter" aria-labelledby="ch-format">
-      <header className="st-chapter-head head-split">
-        <h2 id="ch-format">{t('st.ch.format')}</h2>
-        <p>{t('st.ch.format.intro')}</p>
-      </header>
-        {hl?.now && <section className="panel st-health">
-          <h2>{t('st.health')}</h2>
-          <div className="st-health-big">
-            <p className="st-hero"><b>{hl.now}</b> <span>{t('st.health.decks', hl.now)}</span></p>
-            <p className={`st-kind st-kind-${hl.kind}`}>{t(`st.health.${hl.kind}`)}</p>
-          </div>
-          <div className="st-health-more">
-          <p className="st-note">{t('st.health.top')} {hl.top.map((d, i, a) => <span key={d.id}>{i > 0 && ' '}<span className="nb">{link(d)}{i < a.length - 1 && ','}</span></span>)}.</p>
-          {hl.series.filter(v => v != null).length > 2 && <p className="st-note st-trendline"><Spark values={hl.series} w={120} h={26} /> {t('st.health.weeks')}</p>}
-          </div>
-        </section>}
-
-        {conv.length > 0 && <section className="panel st-conv">
-          <h2>{t('st.conv')}</h2>
-          <p className="st-note">{t('st.conv.intro')}</p>
-          <ul className="st-rows">
-            {conv.map(c => (
-              <li key={c.d.id}>
-                <span className="st-name">{link(c.d)}</span>
-                <span className="st-bars" aria-hidden="true"><span className="b-field" style={{ width: `${c.field / Math.max(...conv.map(x => x.top8)) * 100}%` }} /><span className="b-top" style={{ width: `${c.top8 / Math.max(...conv.map(x => x.top8)) * 100}%` }} /></span>
-                <span className="st-num">×{num(Math.round(c.ratio * 10) / 10)}<small>{t('st.conv.row', num(c.field), num(c.top8))}</small></span>
-              </li>
-            ))}
-          </ul>
-          <p className="st-legend"><span className="k-field" />{t('st.conv.field')} <span className="k-top" />{t('st.conv.top')}</p>
-        </section>}
+      {/* le sezioni in ordine di utilità per chi gioca; ognuna mostra le prime righe e «Mostra tutti» */}
+      <Bulletin w={w} colorsOf={colorsOf} onOpen={onOpen} />
+      <Winds w={w} onOpen={onOpen} />
 
       {pts.length >= 5 && <section className="panel st-value">
-        <h2>{t('st.value')}</h2>
-        <p className="st-note">{t('st.value.intro')}</p>
-        <ValueChart points={pts} onOpen={onOpen} />
+        <PanelTitle info={t('st.value.intro')}>{t('st.value')}</PanelTitle>
+        {phone ? <More items={value}>{list => <ol className="st-rows st-value-list">{list.map(p => (
+          <li key={p.s.deck.id}><span className="st-name">{link(p.s.deck)} <ColorPips colors={colorsOf(p.s.deck)} /></span><span className="st-muted">{t('wx.wr', num(p.wr))}</span><span className="st-num">{money(p.price)}</span></li>
+        ))}</ol>}</More> : <ValueChart points={pts} onOpen={onOpen} />}
         {buys.length > 0 && <div className="st-buys">
           <h3>{t('st.buys')}</h3>
           <ul>{buys.map(b => <li key={b.budget}><span className="st-budget">{t('budget.max', money(b.budget))}</span> {link(b.p.s.deck)} <ColorPips colors={colorsOf(b.p.s.deck)} /> <span className="st-muted">{t('st.buys.row', num(b.p.wr), money(b.p.need, true))}</span></li>)}</ul>
         </div>}
       </section>}
-      </section>
 
       {!st && <p className="note">{t('st.limited')}</p>}
-
-      {/* capitolo 3: le singole carte */}
-      {st && <section className="st-chapter" aria-labelledby="ch-cards">
-      <header className="st-chapter-head head-split">
-        <h2 id="ch-cards">{t('st.ch.cards')}</h2>
-        <p>{t('st.ch.cards.intro')}</p>
-      </header>
-      <div className="st-grid-2">
+      {st && <div className="st-grid-2">
         <section className="panel">
-          <h2>{t('st.up')}</h2>
-          <p className="st-note">{t('st.trend.intro')}</p>
-          <ul className="st-rows st-cards st-trendcards">{st.cardsUp.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="up" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
+          <PanelTitle info={t('st.trend.intro')}>{t('st.up')}</PanelTitle>
+          <More items={st.cardsUp}>{list => <ul className="st-rows st-cards st-trendcards">{list.map(([n, now, before, wk]) => <li key={n}><span className="st-name">{n}</span><Spark values={wk} className="up" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>}</More>
         </section>
         <section className="panel">
-          <h2>{t('st.down')}</h2>
-          <p className="st-note">{t('st.trend.intro')}</p>
-          <ul className="st-rows st-cards st-trendcards">{st.cardsDown.map(([n, now, before, w]) => <li key={n}><span className="st-name">{n}</span><Spark values={w} className="down" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>
-        </section>
-      </div>
-
-      <div className="st-grid-2">
-        <section className="panel">
-          <h2>{t('st.watch')}</h2>
-          <p className="st-note">{prices?.dates?.length >= 2 ? t('st.watch.intro', prices.dates.length) : t('st.watch.wait')}</p>
-          <ul className="st-rows st-cards st-watch">{watch.map(w => (
-            <li key={w.name} className={w.still ? 'still' : ''}>
-              <span className="st-name">{w.name}</span>
-              <span className="st-muted">{t('st.watch.pres', num(w.before), num(w.now))}</span>
-              <span className="st-num">{w.price != null ? money(w.price, true) : getCached(w.name)?.eur != null ? money(getCached(w.name).eur, true) : '—'}
-                {w.change != null && <small className={w.still ? 'st-still' : ''}>{w.still ? t('st.watch.still') : `${w.change >= 0 ? '+' : '−'}${num(Math.round(Math.abs(w.change)))}%`}</small>}</span>
+          <PanelTitle info={prices?.dates?.length >= 2 ? t('st.watch.intro', prices.dates.length) : t('st.watch.wait')}>{t('st.watch')}</PanelTitle>
+          <More items={watch}>{list => <ul className="st-rows st-cards st-watch">{list.map(x => (
+            <li key={x.name} className={x.still ? 'still' : ''}>
+              <span className="st-name">{x.name}</span>
+              <span className="st-muted">{t('st.watch.pres', num(x.before), num(x.now))}</span>
+              <span className="st-num">{x.price != null ? money(x.price, true) : getCached(x.name)?.eur != null ? money(getCached(x.name).eur, true) : '—'}
+                {x.change != null && <small className={x.still ? 'st-still' : ''}>{x.still ? t('st.watch.still') : `${x.change >= 0 ? '+' : '−'}${num(Math.round(Math.abs(x.change)))}%`}</small>}</span>
             </li>
-          ))}</ul>
+          ))}</ul>}</More>
           <p className="hint">{t('st.watch.hint')}</p>
         </section>
-        <section className="panel">
-          <h2>{t('st.side')}</h2>
-          <p className="st-note">{t('st.side.intro')}</p>
-          <ul className="st-rows st-cards">{st.side.slice(0, 15).map(([n, p, d]) => (
-            <li key={n}><span className="st-name">{n}</span><span className="st-bar1" aria-hidden="true"><span style={{ width: `${p / st.side[0][1] * 100}%` }} /></span><span className="st-num">{num(p)}% {Math.abs(d) >= 1 && delta(d)}</span></li>
-          ))}</ul>
-        </section>
-      </div>
+      </div>}
+
+      {conv.length > 0 && <section className="panel st-conv">
+        <PanelTitle info={t('st.conv.intro')}>{t('st.conv')}</PanelTitle>
+        <More items={conv}>{list => <ul className="st-rows">
+          {list.map(c => (
+            <li key={c.d.id}>
+              <span className="st-name">{link(c.d)}</span>
+              <span className="st-bars" aria-hidden="true"><span className="b-field" style={{ width: `${c.field / Math.max(...conv.map(x => x.top8)) * 100}%` }} /><span className="b-top" style={{ width: `${c.top8 / Math.max(...conv.map(x => x.top8)) * 100}%` }} /></span>
+              <span className="st-num">{t('st.times', num(Math.round(c.ratio * 10) / 10))}<small>{t('st.conv.row', num(c.field), num(c.top8))}</small></span>
+            </li>
+          ))}
+        </ul>}</More>
+        <p className="st-legend"><span className="k-field" />{t('st.conv.field')} <span className="k-top" />{t('st.conv.top')}</p>
       </section>}
+
+      <div className="st-grid-2">
+        <Colors w={w} />
+        <Moves w={w} onOpen={onOpen} />
+      </div>
+
+      {hl?.now && <section className="panel st-health">
+        <PanelTitle>{t('st.health')}</PanelTitle>
+        <p className={`st-kind st-kind-${hl.kind}`}>{t(`st.health.${hl.kind}`)}</p>
+        <p className="st-note">{t('st.health.top')} {hl.top.map((d, i, a) => <span key={d.id}>{i > 0 && ' '}<span className="nb">{link(d)}{i < a.length - 1 && ','}</span></span>)}.</p>
+        {hl.series.filter(v => v != null).length > 2 && <p className="st-note st-trendline"><Spark values={hl.series} w={120} h={26} /> {t('st.health.weeks')}</p>}
+      </section>}
+
+      {st && <div className="st-grid-2">
+        <section className="panel">
+          <PanelTitle info={t('st.side.intro')}>{t('st.side')}</PanelTitle>
+          <More items={st.side.slice(0, 15)}>{list => <ul className="st-rows st-cards">{list.map(([n, p, d]) => (
+            <li key={n}><span className="st-name">{n}</span><span className="st-bar1" aria-hidden="true"><span style={{ width: `${p / st.side[0][1] * 100}%` }} /></span><span className="st-num">{num(p)}% {Math.abs(d) >= 1 && delta(d)}</span></li>
+          ))}</ul>}</More>
+        </section>
+        <section className="panel">
+          <PanelTitle info={t('st.trend.intro')}>{t('st.down')}</PanelTitle>
+          <More items={st.cardsDown}>{list => <ul className="st-rows st-cards st-trendcards">{list.map(([n, now, before, wk]) => <li key={n}><span className="st-name">{n}</span><Spark values={wk} className="down" /><span className="st-num">{num(now)}% {delta(now - before)}</span></li>)}</ul>}</More>
+        </section>
+      </div>}
     </div>
   )
 }

@@ -87,14 +87,12 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
                   <a href={scry(e)} target="_blank" rel="noreferrer">{e.name}</a>
                   <ManaCost cost={e.card?.cost} />
                 </span>
-                <span className="key-decks">
-                  {t('kc.inDecks', e.decks.length)}{' '}
-                  {e.decks.slice(0, 4).map((d, j, a) => (
-                    <span key={d.id}>{j > 0 && ' '}<span className="nb"><button className="linklike" onClick={() => go('deck', d.id)}>{d.name}</button>{j < a.length - 1 && ','}</span></span>
-                  ))}
-                  {e.decks.length > 4 && t('kc.more', e.decks.length - 4)}
-                </span>
-                {hasCollection && <span className={`key-own tile-${st(e)}`}>{st(e) === 'ok' && <IconCheck size={14} />}{ownText(e)}</span>}
+                {/* in quanti mazzi: l'elenco si apre toccando */}
+                <details className="key-decks">
+                  <summary>{t('kc.inDecks', e.decks.length)}</summary>
+                  <span className="key-decks-list">{e.decks.map((d, j) => <span key={d.id} className="nb"><button className="linklike" onClick={() => go('deck', d.id)}>{d.name}</button>{j < e.decks.length - 1 && ', '}</span>)}</span>
+                </details>
+                {hasCollection && e.have > 0 && <span className={`key-own tile-${st(e)}`}>{st(e) === 'ok' && <IconCheck size={14} />}{ownText(e)}</span>}
               </span>
               <span className="key-buy">{e.need > 0 && <><b>{e.need}×</b><span>{price(e)}</span></>}</span>
             </li>

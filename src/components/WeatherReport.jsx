@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { t, num, dayMonth } from '../i18n/index.js'
 import { bulletin, winds, arrivals, colorClimate } from '../lib/forecast.js'
 import { WEATHER_WEEKS } from '../lib/fun.js'
@@ -6,104 +6,106 @@ import { colorName } from '../lib/deckInfo.js'
 import { ColorPips } from './Mana.jsx'
 import Spark from './Spark.jsx'
 import SkyIcon from './SkyIcon.jsx'
+import { Info } from './Badges.jsx'
+import { More, PanelTitle } from './More.jsx'
 
-const SHOW = 12 // righe del bollettino prima di «Mostra tutti»
 const SKIES = ['sun', 'partly', 'cloud', 'rain', 'storm']
 
-// Meteo completo del meta, in cima alle Statistiche (dal riquadro «Meteo del meta» della home)
-export default function WeatherReport({ decks, colorsOf, onOpen }) {
-  const [all, setAll] = useState(false)
+// Meteo del meta: i dati, calcolati una volta per la pagina Statistiche
+export function useWeather(decks, colorsOf) {
   const rows = useMemo(() => bulletin(decks), [decks])
   const wind = useMemo(() => winds(decks), [decks])
   const moves = useMemo(() => arrivals(decks), [decks])
   const colors = colorClimate(decks, colorsOf) // dipende dai colori delle carte, che arrivano dopo
-  if (!rows.length) return null
-
   const weeks = decks.find(d => d.historyWeeks)?.historyWeeks
   const hist = weeks?.length > WEATHER_WEEKS
-  const link = d => <button className="linklike" onClick={() => onOpen(d.id)}>{d.name}</button>
-  const delta = v => v == null ? null : <span className={`st-delta ${v > 0 ? 'up' : v < 0 ? 'down' : ''}`}>{v > 0 ? '+' : v < 0 ? '−' : '±'}{num(Math.abs(v))}</span>
-  const place = (then, now) => then == null ? t('wx.rank.new', now) : now == null ? t('wx.rank.gone', then) : t('wx.rank', then, now)
+  return { rows, wind, moves, colors, weeks, hist }
+}
 
+const linkTo = onOpen => d => <button className="linklike" onClick={() => onOpen(d.id)}>{d.name}</button>
+export const Delta = ({ v }) => v == null ? null : <span className={`st-delta ${v > 0 ? 'up' : v < 0 ? 'down' : ''}`}>{v > 0 ? '+' : v < 0 ? '−' : '±'}{t('st.pts', num(Math.abs(v)))}</span>
+
+// 1 · il bollettino: quota di oggi e come è cambiata, mazzo per mazzo
+export function Bulletin({ w, colorsOf, onOpen }) {
+  if (!w.rows.length) return null
+  const link = linkTo(onOpen)
+  const info = `${w.hist ? t('wx.intro', dayMonth(w.weeks[w.weeks.length - 1 - WEATHER_WEEKS]), dayMonth(w.weeks[w.weeks.length - 1])) : t('wx.introPrev')} ${t(w.hist ? 'wx.bulletin.intro' : 'wx.bulletin.introPrev')}`
   return (
-    <section className="st-weather st-chapter" id="meteo" aria-labelledby="wx-title">
-      <header className="wx-head st-chapter-head head-split">
-        <h2 id="wx-title">{t('wx.title')}</h2>
-        <p>{hist ? t('wx.intro', dayMonth(weeks[weeks.length - 1 - WEATHER_WEEKS]), dayMonth(weeks[weeks.length - 1])) : t('wx.introPrev')}</p>
-      </header>
+    <section className="panel wx-bulletin" id="meteo">
+      <PanelTitle info={info}>{t('wx.bulletin')}</PanelTitle>
+      <p className="wx-legend">{SKIES.map(k => <span key={k}><SkyIcon sky={k} size={18} /> {t(`wx.sky.${k}`)}</span>)}</p>
+      <More items={w.rows}>{rows => <ul className="st-rows wx-rows">
+        {rows.map(x => (
+          <li key={x.d.id}>
+            <span className="wx-sky" role="img" aria-label={t(`wx.sky.${x.sky}`)}><SkyIcon sky={x.sky} /></span>
+            <span className="st-name">{link(x.d)} <ColorPips colors={colorsOf(x.d)} /></span>
+            {x.series ? <Spark values={x.series} className={x.delta > 0 ? 'up' : x.delta < 0 ? 'down' : ''} /> : <span />}
+            <span className="st-num wx-num">{num(x.now)}% <Delta v={x.delta} /></span>
+          </li>
+        ))}
+      </ul>}</More>
+    </section>
+  )
+}
 
-      {/* 1 · bollettino */}
-      <section className="panel wx-bulletin">
-        <h2>{t('wx.bulletin')}</h2>
-        <div className="wx-intro">
-          <p className="st-note">{t(hist ? 'wx.bulletin.intro' : 'wx.bulletin.introPrev')}</p>
-          <p className="wx-legend">{SKIES.map(k => <span key={k}><SkyIcon sky={k} size={18} /> {t(`wx.sky.${k}`)}</span>)}</p>
-        </div>
-        <ul className="st-rows wx-rows">
-          {(all ? rows : rows.slice(0, SHOW)).map(x => (
-            <li key={x.d.id}>
-              <span className="wx-sky" role="img" aria-label={t(`wx.sky.${x.sky}`)}><SkyIcon sky={x.sky} /></span>
-              <span className="st-name">{link(x.d)} <ColorPips colors={colorsOf(x.d)} /></span>
-              {x.series ? <Spark values={x.series} className={x.delta > 0 ? 'up' : x.delta < 0 ? 'down' : ''} /> : <span />}
-              <span className="st-num wx-num">{num(x.now)}% {delta(x.delta)}</span>
-            </li>
-          ))}
-        </ul>
-        {rows.length > SHOW && <button className="linklike wx-more" onClick={() => setAll(!all)}>{all ? t('wx.less') : t('mu.showAll', rows.length)}</button>}
-      </section>
-
-      {/* 2 · venti */}
-      <section className="panel wx-winds-panel">
-        <h2>{t('wx.winds')}</h2>
-        {wind ? <>
-          <p className="st-note">{t('wx.winds.intro')}</p>
-          <div className="wx-winds">
-            {['upWin', 'upLose', 'downWin'].map(k => (
-              <div key={k} className={`wx-wind wx-${k}`}>
-                <h3>{t(`wx.${k}`)}</h3>
-                <p className="hint">{t(`wx.${k}.d`)}</p>
-                {wind[k].length ? <ul>{wind[k].map(x => (
-                  <li key={x.d.id}><span className="st-name">{link(x.d)}</span><span className="wx-wind-num">{delta(x.delta)} <small>{t('wx.wr', num(x.wr))}</small></span></li>
-                ))}</ul> : <p className="wx-empty">{t('wx.none')}</p>}
-              </div>
-            ))}
+// 2 · i venti: chi sale e vince, chi sale ma perde, chi scende ma vince
+export function Winds({ w, onOpen }) {
+  const link = linkTo(onOpen)
+  return (
+    <section className="panel wx-winds-panel">
+      <PanelTitle info={w.wind ? t('wx.winds.intro') : null}>{t('wx.winds')}</PanelTitle>
+      {w.wind ? <div className="wx-winds">
+        {['upWin', 'upLose', 'downWin'].map(k => (
+          <div key={k} className={`wx-wind wx-${k}`}>
+            <h3>{t(`wx.${k}`)} <Info text={t(`wx.${k}.d`)} label={t('info.label')} /></h3>
+            {w.wind[k].length ? <More items={w.wind[k]}>{list => <ul>{list.map(x => (
+              <li key={x.d.id}><span className="st-name">{link(x.d)}</span><span className="wx-wind-num"><Delta v={x.delta} /> <small>{t('wx.wr', num(x.wr))}</small></span></li>
+            ))}</ul>}</More> : <p className="wx-empty">{t('wx.none')}</p>}
           </div>
-        </> : <p className="st-note">{t('wx.winds.na')}</p>}
-      </section>
+        ))}
+      </div> : <p className="st-note">{t('wx.winds.na')}</p>}
+    </section>
+  )
+}
 
-      <div className="st-grid-2">
-        {/* 3 · arrivi e uscite */}
-        {hist && <section className="panel">
-          <h2>{t('wx.moves')}</h2>
-          <p className="st-note">{t('wx.moves.intro')}</p>
-          {moves ? <div className="wx-moves">
-            {[['inn', 'wx.in'], ['out', 'wx.out']].map(([k, label]) => (
-              <div key={k}>
-                <h3>{t(label)}</h3>
-                {moves[k].length ? <ul className="st-rows">{moves[k].map(x => (
-                  <li key={x.d.id} className="wx-move"><span className="st-name">{link(x.d)}</span><span className="st-muted">{place(x.then, x.now)}</span></li>
-                ))}</ul> : <p className="wx-empty">{t('wx.none')}</p>}
-              </div>
-            ))}
-          </div> : <p className="wx-empty">{t('wx.moves.none')}</p>}
-        </section>}
+// arrivi e uscite tra i 15 più giocati
+export function Moves({ w, onOpen }) {
+  if (!w.hist) return null
+  const link = linkTo(onOpen)
+  const place = (then, now) => then == null ? t('wx.rank.new', now) : now == null ? t('wx.rank.gone', then) : t('wx.rank', then, now)
+  return (
+    <section className="panel">
+      <PanelTitle info={t('wx.moves.intro')}>{t('wx.moves')}</PanelTitle>
+      {w.moves ? <div className="wx-moves">
+        {[['inn', 'wx.in'], ['out', 'wx.out']].map(([k, label]) => (
+          <div key={k}>
+            <h3>{t(label)}</h3>
+            {w.moves[k].length ? <ul className="st-rows">{w.moves[k].map(x => (
+              <li key={x.d.id} className="wx-move"><span className="st-name">{link(x.d)}</span><span className="st-muted">{place(x.then, x.now)}</span></li>
+            ))}</ul> : <p className="wx-empty">{t('wx.none')}</p>}
+          </div>
+        ))}
+      </div> : <p className="wx-empty">{t('wx.moves.none')}</p>}
+    </section>
+  )
+}
 
-        {/* 4 · colori */}
-        {colors && <section className="panel">
-          <h2>{t('wx.colors')}</h2>
-          <p className="st-note">{t('wx.colors.intro')}</p>
-          <ul className="st-rows wx-rows wx-colors">
-            {colors.map(x => (
-              <li key={x.c}>
-                <ColorPips colors={[x.c]} />
-                <span className="st-name">{colorName(x.c)}</span>
-                {x.series ? <Spark values={x.series} className={`c-${x.c.toLowerCase()}`} /> : <span />}
-                <span className="st-num wx-num">{num(x.now)}% {delta(x.delta)}</span>
-              </li>
-            ))}
-          </ul>
-        </section>}
-      </div>
+// il clima dei colori
+export function Colors({ w }) {
+  if (!w.colors) return null
+  return (
+    <section className="panel">
+      <PanelTitle info={t('wx.colors.intro')}>{t('wx.colors')}</PanelTitle>
+      <ul className="st-rows wx-rows wx-colors">
+        {w.colors.map(x => (
+          <li key={x.c}>
+            <ColorPips colors={[x.c]} />
+            <span className="st-name">{colorName(x.c)}</span>
+            {x.series ? <Spark values={x.series} className={`c-${x.c.toLowerCase()}`} /> : <span />}
+            <span className="st-num wx-num">{num(x.now)}% <Delta v={x.delta} /></span>
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }

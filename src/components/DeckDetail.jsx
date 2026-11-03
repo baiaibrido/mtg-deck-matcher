@@ -3,7 +3,7 @@ import DeckInsights, { ConvLine } from './DeckInsights.jsx'
 import { useEffect, useMemo, useState } from 'react'
 import { describeDeck } from '../lib/deckDesc.js'
 import { loadTags } from '../lib/tagsLoader.js'
-import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton, resultText } from './DeckList.jsx'
+import { Meter, frameStyle, shareText, costText, RogueInfo, PinButton, resultText, DeckArt, useArtOf } from './DeckList.jsx'
 import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox, IconWarn } from './Icons.jsx'
@@ -104,6 +104,8 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
   const narrow = useMedia('(max-width: 899px)')
   useEffect(() => { if (!narrow && tab === 'meta') setTab('list') }, [narrow])
   const [onlyMissing, setOnlyMissing] = useState(false)
+  const artOf = useArtOf(decks)
+  const openNeed = () => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }
   const [look, setLook] = useSession('mdm.deckView', 'text') // lista testuale (predefinita) o immagini delle carte
   const list = toText(s.missing)
   const missingCount = s.missing.reduce((t, r) => t + r.missing, 0)
@@ -132,11 +134,12 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
       <header className="detail-head">
         <div className="detail-info">
         <div className="detail-title">
+          <DeckArt src={artOf(s.deck)} className="deck-art detail-art" />
           <h1>{s.deck.name}</h1>
           <ColorPips colors={colors} size="1.15rem" />
           <span className="detail-actions">
             <PinButton deck={s.deck} pinned={pinned} onPin={onPin} className="pin-btn pin-btn-detail" />
-            {missingCount > 0 && onOwnDeck && <button className="own-btn" onClick={onOwnDeck} title={t('own.title')}><IconBox size={18} />{t('own.deck')}</button>}
+            {!hasColl && missingCount > 0 && onOwnDeck && <button className="own-btn" onClick={onOwnDeck} title={t('own.title')}><IconBox size={18} />{t('own.deck')}</button>}
           </span>
         </div>
         <p className="detail-meta">
@@ -154,9 +157,9 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           {desc.inter.map(([k, n]) => <div key={k}><dt>{t(`otag.${k}`)}</dt><dd>{n}</dd></div>)}
         </dl>}
         <div className="detail-source">
-          {s.deck.url && <p className="detail-orig"><a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''}<IconExternal size={14} /></a></p>}
-          {/* la lista mostrata cambia ogni notte: diciamo come viene scelta, subito sotto il suo link */}
-          {s.deck.url && s.deck.source !== 'utente' && !s.deck.rogue && <p className="detail-listhow">{t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)}</p>}
+          {/* la provenienza della lista resta in vista; come viene scelta (cambia ogni notte) sta dietro il «?» */}
+          {s.deck.url && <p className="detail-orig"><a href={s.deck.url} target="_blank" rel="noreferrer">{t('detail.original')}{s.deck.title && s.deck.title !== s.deck.name ? `: ${sourceText(s.deck.title)}` : ''}<IconExternal size={14} /></a>
+            {s.deck.source !== 'utente' && !s.deck.rogue && <> <Info text={t(listSource === 'MTGTop8' ? 'detail.listHowTop8' : 'detail.listHow', s.deck.count || 0)} label={t('info.label')} /></>}</p>}
           {s.deck.source !== 'utente' && <p className="detail-links">
             {!cedh && <a href={mtgdecksPage(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t('detail.mtgdecksAll')}<IconExternal size={14} /></a>}
             <a href={mtgdecksUrl(formatName, s.deck.name)} target="_blank" rel="noreferrer">{t(cedh ? 'detail.mtgdecksSearch' : 'detail.mtgdecks')}<IconExternal size={14} /></a>
@@ -170,13 +173,13 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
           <Meter label="Main" {...s.main} />
           {s.side.total > 0 && <Meter label="Side" {...s.side} />}
           {missingCount > 0
-            ? <p className="detail-need">
-                <button className="linklike" onClick={() => { setTab('need'); document.querySelector('.detail-main')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }) }}>
-                  {t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}
-                </button>
-                {price && <span>{t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</span>}
-              </p>
+            ? <p className="detail-need"><span>{t(cedh ? 'need.list' : 'need', missingCount)[0]}<b>{missingCount}</b>{t(cedh ? 'need.list' : 'need', missingCount)[1]}</span>{price && <span>{t(cedh ? 'detail.toList' : 'detail.toComplete', price)}</span>}</p>
             : <span className="done">{t('haveAll')}</span>}
+          {/* la cosa da fare: vedere (e comprare) quello che manca; «Ho già questo mazzo» accanto, più leggero */}
+          {missingCount > 0 && <div className="detail-cta">
+            <button className="btn btn-primary" onClick={openNeed}>{t('detail.seeNeed')} <span className="count">{missingCount}</span></button>
+            {onOwnDeck && <button className="btn own-btn" onClick={onOwnDeck} title={t('own.title')}><IconBox size={18} />{t('own.deck')}</button>}
+          </div>}
         </div>}
       </header>
 

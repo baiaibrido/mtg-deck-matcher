@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { ColorPips } from './Mana.jsx'
 import { TierBadge, Trend } from './Badges.jsx'
 import { IconChevron, IconClip, IconWarn } from './Icons.jsx'
@@ -7,6 +8,26 @@ import { money } from '../lib/currency.js'
 import { Sparkline } from './Charts.jsx'
 import { deckBans } from '../lib/bans.js'
 import { getCached } from '../lib/scryfall.js'
+import { norm } from '../lib/normalize.js'
+import { pickSignature } from '../lib/daily.js'
+
+// L'illustrazione di un mazzo (come su MTGGoldfish): la sua carta più tipica, cioè quella che negli altri mazzi
+// del formato c'è meno, ritagliata da Scryfall (art_crop). Senza immagine resta il riquadro nei colori del mazzo.
+const isLand = n => /\bLand\b/.test(getCached(n)?.type || '')
+export function useArtOf(decks) {
+  const freq = useMemo(() => {
+    const f = new Map()
+    for (const d of decks || []) for (const k of new Set((d.main || []).map(c => norm(c.name)))) f.set(k, (f.get(k) || 0) + 1)
+    return f
+  }, [decks])
+  return d => {
+    const n = pickSignature(d.main || [], x => freq.get(norm(x)) || 0, isLand, d.name) || d.signature
+    return getCached(n)?.img?.replace('/normal/', '/art_crop/') || null
+  }
+}
+export const DeckArt = ({ src, className = 'deck-art' }) => (
+  <span className={className} aria-hidden="true">{src && <img src={src} alt="" loading="lazy" onError={e => e.currentTarget.remove()} />}</span>
+)
 
 const pct = r => Math.round(r * 100)
 export const shareText = s => t('share', num(s))
@@ -75,16 +96,38 @@ export function PinnedList({ ranked, colorsOf, onOpen, onPin, owned, cedh }) {
   )
 }
 
-function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, owned, best, cedh, metric }) {
+function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, owned, best, cedh, metric, art, compact }) {
   const missing = s.missing.reduce((t, r) => t + r.missing, 0)
   const price = costText(cost, missing)
   // senza collezione il numero grande a destra è quello dell'ordinamento scelto (quota, vittorie o costo)
   const big = !owned && metric ? bigFigure(metric, s.deck, cost) : null
-  return (
-    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}${owned || big ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
-      <PinButton deck={s.deck} pinned={pinned} onPin={onPin} />
+  const score = owned ? <span className="deck-score">
+    <b>{pct(s.score)}<small>%</small></b>
+    <span className="deck-score-bar" aria-hidden="true"><span style={{ '--v': s.score }} /></span>
+    {!compact && <span>{t(cedh ? 'complete.list' : 'complete')}</span>}
+    {!compact && !cedh && <span className="deck-score-sub">{t('completeSub')}</span>}
+    {s.score >= 1 && <span className="stamp stamp-ok deck-stamp" aria-hidden="true">{t('stamp.complete')}</span>}
+    {!compact && best && s.score < 1 && <span className="hand-note" aria-hidden="true">{t('note.closest')}</span>}
+  </span> : big ? <span className={`deck-score deck-score-${metric}`}>
+    <b>{big.value}{big.unit && <small>{big.unit}</small>}</b>
+    {!compact && <span>{big.label}</span>}
+  </span> : null
+  // righe compatte (dopo le prime 25): posizione, illustrazione, nome e il numero
+  if (compact) return (
+    <li data-deck={s.deck.id} className={`deck deck-compact${pinned ? ' deck-pinned' : ''}`} style={frameStyle(colors)}>
       <button className="deck-btn" onClick={onOpen}>
         <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
+        <DeckArt src={art} />
+        <span className="deck-main"><span className="deck-title"><span className="deck-name">{s.deck.name}</span><ColorPips colors={colors} /></span></span>
+        {score}
+      </button>
+    </li>
+  )
+  return (
+    <li data-deck={s.deck.id} className={`deck${top ? ' deck-top' : ''}${pinned ? ' deck-pinned' : ''}${best ? ' deck-best' : ''}${owned || big ? '' : ' deck-plain'}`} style={{ ...frameStyle(colors), '--i': index }}>
+      <button className="deck-btn" onClick={onOpen}>
+        <span className="deck-rank" aria-label={t('rank', rank)}>{rank}</span>
+        <DeckArt src={art} />
         <span className="deck-main">
           <span className="deck-title">
             <span className="deck-name">{s.deck.name}</span>
@@ -101,26 +144,11 @@ function DeckRow({ s, rank, colors, cost, onOpen, index, top, pinned, onPin, own
             </>}
             {deckBans(s.deck, getCached).length > 0 && <span className="ban-chip"><IconWarn size={13} />{t('ban.short')}</span>}
           </span>
-          {owned ? <>
-            <span className="deck-meters">
-              <Meter label="Main" {...s.main} />
-              {s.side.total > 0 && <Meter label="Side" {...s.side} />}
-            </span>
-            <span className="deck-need">
-              {missing ? <><span>{t(cedh ? 'need.list' : 'need', missing)[0]}<b>{missing}</b>{t(cedh ? 'need.list' : 'need', missing)[1]}</span>{price && <span className="price">{price}</span>}</> : <span className="done">{t('haveAll')}</span>}
-            </span>
-          </> : price && metric !== 'cost' && <span className="deck-need"><span className="price">{t('deckCost', price)}</span></span>}
+          {owned ? <span className="deck-need">
+            {missing ? <><span>{t(cedh ? 'need.list' : 'need', missing)[0]}<b>{missing}</b>{t(cedh ? 'need.list' : 'need', missing)[1]}</span>{price && <span className="price">{price}</span>}</> : <span className="done">{t('haveAll')}</span>}
+          </span> : price && metric !== 'cost' && <span className="deck-need"><span className="price">{t('deckCost', price)}</span></span>}
         </span>
-        {owned ? <span className="deck-score">
-          <b>{pct(s.score)}<small>%</small></b>
-          <span>{t(cedh ? 'complete.list' : 'complete')}</span>
-          {!cedh && <span className="deck-score-sub">{t('completeSub')}</span>}
-          {s.score >= 1 && <span className="stamp stamp-ok deck-stamp" aria-hidden="true">{t('stamp.complete')}</span>}
-          {best && s.score < 1 && <span className="hand-note" aria-hidden="true">{t('note.closest')}</span>}
-        </span> : big ? <span className={`deck-score deck-score-${metric}`}>
-          <b>{big.value}{big.unit && <small>{big.unit}</small>}</b>
-          <span>{big.label}</span>
-        </span> : null}
+        {score}
         <IconChevron className="deck-go" />
       </button>
     </li>
@@ -135,12 +163,12 @@ function bigFigure(metric, deck, cost) {
   return null
 }
 
-export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true, pins = [], onPin, owned = true, start = 0, bestId, cedh, metric }) {
+export default function DeckList({ ranked, colorsOf, costOf, onOpen, animKey, highlightFirst = true, pins = [], owned = true, start = 0, bestId, cedh, metric, artOf = () => null, compactFrom = Infinity }) {
   return (
     <ol className="decks" key={animKey}>
       {ranked.map((s, i) => (
-        <DeckRow key={s.deck.id} s={s} rank={s.rank ?? start + i + 1} index={Math.min(i, 8)} top={highlightFirst && i === 0}
-          colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} pinned={pins.includes(s.deck.id)} onPin={onPin} owned={owned} best={bestId === s.deck.id} cedh={cedh} metric={metric} />
+        <DeckRow key={s.deck.id} s={s} rank={s.rank ?? start + i + 1} index={Math.min(i, 8)} top={highlightFirst && i === 0} art={artOf(s.deck)} compact={start + i >= compactFrom}
+          colors={colorsOf(s.deck)} cost={costOf(s)} onOpen={() => onOpen(s.deck.id)} pinned={pins.includes(s.deck.id)} owned={owned} best={bestId === s.deck.id} cedh={cedh} metric={metric} />
       ))}
     </ol>
   )

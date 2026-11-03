@@ -2,7 +2,7 @@ const p = (n, one, many) => n === 1 ? one : many
 const cards = n => p(n, 'card', 'cards')
 
 export default {
-  skip: 'Skip to content', home: 'Netdeckable, home', sections: 'Sections', format: 'Format',
+  skip: 'Skip to content', home: 'Netdeckable, home', 'today.peek': 'weather, mystery deck and games', 'decks.openHint': "Open a deck to see main, side and the cards you're missing.", 'decks.expand': 'Show all details', 'decks.collapse': 'Compact rows after #25', 'detail.seeNeed': 'See what you need', 'st.sum': 'At a glance', 'st.sum.up': 'Rising most', 'st.sum.down': 'Falling most', 'st.sum.card': 'Card on the rise', 'st.pts': n => `${n} pts`, 'st.times': n => `${n} times`, 'coll.menu': 'More', 'coll.editCard': n => `Edit ${n}`, 'coll.openScry': 'Open on Scryfall', settings: 'Language, currency and theme', sections: 'Sections', format: 'Format',
   'nav.decks': 'Decks', 'nav.keycards': 'Key cards', 'nav.collection': 'Collection',
   done: 'Done', undo: 'Undo', cancel: 'Cancel', close: 'Close', download: 'Download', copyList: 'Copy list', sort: 'Sort', all: 'All',
   language: 'Language', 'theme.toLight': 'Switch to light theme', 'theme.toDark': 'Switch to dark theme',
@@ -46,10 +46,10 @@ export default {
   'detail.hint': src => `You can paste the copied list into Scryfall or Moxfield. Prices are a rough guide. They come from ${src} through Scryfall, apply to the latest printing of each card and are already in your currency, so a cheaper reprint can bring the cost down.`,
   'detail.confirmDelete': 'Delete this deck you added?', 'detail.delete': 'Delete deck', 'detail.file': 'want-list',
 
-  'kc.copied': 'List copied', 'kc.title': f => `${f} key cards`,
-  'kc.intro': "These are the cards you're missing that show up in several meta decks. Buying them brings you closer to many decks at once for less money. Basic lands aren't counted.",
+  'kc.copied': 'List copied', 'kc.title': f => `${f}: the cards that unlock the most decks`,
+  'kc.intro': "You're missing them and they're in many meta decks: buying them gets you closer to more decks for less.",
   'kc.loadB': 'Add your cards', 'kc.load': " to see only the cards you're really missing.",
-  'kc.scope': 'Decks considered', 'kc.t12': 'Tier 1 and 2', 'kc.inDecks': n => `In ${n} decks:`, 'kc.more': n => ` and ${n} more`, 'kc.none': 'None of the cards you’re missing is used by two or more decks. Great job!', 'kc.noData': 'No data yet.',
+  'kc.scope': 'Decks considered', 'kc.t12': 'Tier 1 and 2', 'kc.inDecks': n => `In ${n} decks`, 'kc.more': n => ` and ${n} more`, 'kc.none': 'None of the cards you’re missing is used by two or more decks. Great job!', 'kc.noData': 'No data yet.',
   'kc.hint': 'Copies to buy are the ones you need to reach 4 (1 in Commander).',
   'view.cards': 'Images', 'kc.own': (h, p, n) => `You own ${h} of ${p}: ${n} to go`, 'kc.ownFull': h => `You own ${h}: all set`, 'kc.need': n => `${n} missing`, 'kc.inN': n => `In ${n} decks`, 'kc.file': 'key-cards',
 
@@ -66,7 +66,7 @@ export default {
   'coll.minus': n => `Remove one copy of ${n}`, 'coll.copiesOf': n => `Copies of ${n}`, 'coll.plus': n => `Add one copy of ${n}`,
   'coll.delete': n => `Remove ${n} from the collection`, 'coll.deleteTitle': 'Remove',
   'coll.spine': 'Collection sections', 'coll.spineSr': pc => ` cards, ${pc}%`,
-  'binder.M': 'Multicolor', 'binder.C': 'Colorless', 'binder.L': 'Lands', 'binder.?': 'No data',
+  'binder.M': 'Multicolor', 'binder.C': 'Colorless', 'binder.L': 'Lands', 'binder.?': 'Unrecognized cards',
   'type.all': 'All', 'type.creature': 'Creatures', 'type.spell': 'Instants and sorceries', 'type.perm': 'Other permanents', 'type.land': 'Lands',
   'coll.noneRecognized': 'No cards recognized. Write one card per line (for example “4 Lightning Bolt”) or paste a CSV file with Name and Qty columns.',
   'coll.replaced': n => `Collection replaced: ${n} ${cards(n)}`, 'coll.added': n => `${n} ${cards(n)} added`,
@@ -83,7 +83,7 @@ export default {
   'coll.title': 'Your collection',
   'coll.emptyIntro': 'Add the cards you own and we’ll show you which decks you can complete and what you’re missing. Your collection stays on this device unless you save it to your profile.',
   'coll.summary': (tot, dist) => `${tot} cards, ${dist} unique`, 'coll.value': ', estimated value ', 'coll.savedHere': 'Saved only on this device.',
-  'coll.fixNames': 'Fix names', 'coll.backup': 'Export', 'coll.backupDone': 'Backup downloaded', 'coll.file': 'collection',
+  'coll.fixNames': 'Fix unrecognized names', 'coll.backup': 'Export', 'coll.backupDone': 'Backup downloaded', 'coll.file': 'collection',
   'coll.clear': 'Clear', 'coll.confirmClear': 'Clear the whole collection?', 'coll.cleared': 'Collection cleared',
   'coll.loadingImg': (d, tot) => `Loading images and prices from Scryfall… ${d}/${tot}`,
   'coll.scryDown': 'Scryfall isn’t responding, so images and prices are missing for now. The collection still works.',

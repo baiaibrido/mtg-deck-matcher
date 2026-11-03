@@ -150,9 +150,17 @@
 .filters-toggle .count { background: var(--ink); color: var(--paper); box-shadow: none; }
 .filters-toggle.open .count { background: var(--paper); color: var(--ink); }
 @media (max-width: 719px) {
-  .home-tools { justify-items: stretch; }
+  /* ordine e filtri sulla stessa riga: le scelte dell'ordine scorrono, con le parole intere */
+  .home-tools { grid-template-columns: minmax(0, 1fr) auto; justify-items: stretch; align-items: center; column-gap: var(--s2); }
+  .home-tools > .toolbar-row:first-child { min-width: 0; }
   .home-tools > .toolbar-row:first-child .field-label { display: none; } /* il gruppo resta etichettato per chi ascolta */
-  .filters-toggle { display: inline-flex; justify-self: start; }
+  .home-tools .seg-fill { display: flex; width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .home-tools .seg-fill > button { flex: none; padding: 0 var(--s3); white-space: nowrap; }
+  .home-tools .seg-fill .lbl-long { display: inline; }
+  .home-tools .seg-fill .lbl-short { display: none; }
+  .filters-toggle { display: inline-flex; width: var(--ctl); padding: 0; justify-content: center; }
+  .filters-toggle .ft-label { display: none; }
+  .home-tools .filters { grid-column: 1 / -1; }
   .filters:not(.open) { display: none; }
   .filters { gap: var(--s3); padding: var(--s3); border: 1px solid var(--line); border-radius: var(--r); background: var(--sheet); }
   .filters .field { width: 100%; }
@@ -175,13 +183,13 @@
 .deck:nth-child(odd) { background: var(--bar); }
 @media (hover: hover) and (pointer: fine) { .deck:hover { background: color-mix(in oklab, var(--ribbon) 9%, var(--sheet)); } }
 .deck-btn {
-  position: relative; width: 100%; display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) 7.5rem 40px; align-items: center; gap: var(--s4);
-  padding: var(--s3) var(--s2) var(--s3) var(--s3); border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
+  position: relative; width: 100%; display: grid; grid-template-columns: 3rem 76px minmax(0, 1fr) 7rem; align-items: center; gap: var(--s4);
+  padding: var(--s3) var(--s4) var(--s3) var(--s3); border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer;
 }
 .deck-btn:focus-visible { outline-offset: -3px; }
 /* i colori del mazzo come la cornice della carta: una barra sul bordo sinistro */
 .deck-btn::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 4px; background: linear-gradient(var(--c1), var(--c2)); }
-.deck-rank { font: 900 2.5rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
+.deck-rank { font: 2rem/1 var(--font-num); text-align: right; font-variant-numeric: tabular-nums; }
 .deck-main { display: grid; gap: 6px; min-width: 0; }
 .deck-title { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .deck-name { font: 800 1.25rem/1.2 var(--font-ui); letter-spacing: -.005em; }
@@ -197,12 +205,29 @@
 .deck-need b { color: var(--ink); }
 .deck-need .done { color: var(--ok); font-weight: 700; }
 .deck-score { position: relative; display: grid; justify-items: end; line-height: 1; text-align: right; }
-.deck-score b { font: 900 2.75rem/1 var(--font-dot); font-variant-numeric: tabular-nums; }
+.deck-score b { font: 2.25rem/1 var(--font-num); font-variant-numeric: tabular-nums; }
 .deck-score small { margin-left: 2px; color: var(--ink-2); font: 700 .45em var(--font-ui); }
 .deck-score b + span { margin-top: 6px; color: var(--ink-2); font-size: var(--fs-sm); }
 .deck-score .deck-score-sub { margin-top: 2px; color: var(--ink-2); font-size: var(--fs-xs); }
+/* sotto la percentuale una barretta: quanto del mazzo hai, a colpo d'occhio */
+.deck-score-bar { display: block; width: 4.5rem; height: 5px; margin-top: 6px; overflow: hidden; border-radius: 3px; background: var(--track); }
+.deck-score-bar > span { display: block; width: calc(var(--v) * 100%); height: 100%; background: var(--ink); }
+.deck-score b + .deck-score-bar + span { margin-top: 6px; color: var(--ink-2); font-size: var(--fs-sm); }
+/* l'illustrazione della carta tipica del mazzo; senza immagine, i colori del mazzo */
+.deck-art { position: relative; display: block; width: 76px; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--c1), var(--c2)); box-shadow: 0 0 0 1px color-mix(in oklab, var(--ink) 15%, transparent); } /* taste-skill-ignore: colori del mazzo al posto dell'illustrazione */
+.deck-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* righe compatte dopo le prime 25 */
+.deck-compact .deck-btn { padding-block: 6px; }
+.deck-compact .deck-rank { font-size: 1.25rem; }
+.deck-compact .deck-art { width: 48px; }
+.deck-compact .deck-name { font-size: 1rem; }
+.deck-compact .deck-score b { font-size: 1.375rem; }
+.deck-compact .deck-score-bar { width: 3rem; margin-top: 4px; }
+.open-hint { margin: 0 0 var(--s2); }
+.compact-toggle { display: flex; margin: var(--s2) auto 0; }
 .deck-go { display: none; } /* tutta la riga apre il mazzo */
-.deck-plain .deck-btn { grid-template-columns: 3.5rem minmax(0, 1fr) 40px; }
+.deck-plain .deck-btn { grid-template-columns: 3rem 76px minmax(0, 1fr); }
 @media (min-width: 720px) { .deck-meters { grid-template-columns: 1fr 1fr; column-gap: 28px; } }
 
 /* graffetta dei preferiti: al centro della colonna di destra; fissato = tasto pieno in inchiostro */
@@ -216,17 +241,20 @@
 .deck > .pin-btn { position: absolute; z-index: 2; top: 50%; right: var(--s2); translate: 0 -50%; }
 
 @media (max-width: 719px) {
-  .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr) 4.75rem; gap: 10px; padding: var(--s3) var(--s4) var(--s3) var(--s2); } /* il numero a destra non tocca il bordo */
-  .deck-plain .deck-btn { grid-template-columns: 2.25rem minmax(0, 1fr); }
-  .deck-plain :is(.deck-title, .deck-sub) { padding-right: 44px; } /* senza percentuale nome e dati non passano sotto la graffetta */
+  .deck-btn { grid-template-columns: 1.75rem 56px minmax(0, 1fr) auto; gap: 10px; padding: var(--s3) var(--s3) var(--s3) var(--s2); }
+  .deck-plain .deck-btn { grid-template-columns: 1.75rem 56px minmax(0, 1fr) auto; }
+  .deck-art { align-self: start; width: 56px; }
+  .deck-compact .deck-art { align-self: center; width: 40px; }
+  .deck-compact .deck-btn { grid-template-columns: 1.75rem 40px minmax(0, 1fr) auto; }
   .deck-score { align-self: end; }
+  /* su telefono le parole che si ripetono uguali su ogni riga non servono */
+  .deck-score .deck-score-sub, .deck-sub .trend-flat { display: none; }
   .ds-trend .spark { display: none; }
   .deck-btn::before { top: 8px; bottom: 8px; }
-  .deck-rank { align-self: start; font-size: 1.75rem; }
+  .deck-rank { align-self: start; font-size: 1.375rem; padding-top: 2px; }
   .deck-name { font-size: 1.125rem; }
   .deck-sub, .deck-need { gap: 2px 10px; font-size: var(--fs-sm); }
-  .deck-score b { font-size: 2rem; }
-  .deck > .pin-btn { top: var(--s2); right: var(--s1); translate: none; }
+  .deck-score b { font-size: 1.75rem; }
 }
 
 /* preferiti in cima, rogue in fondo */
@@ -241,11 +269,11 @@
 }
 .pin-row-btn:focus-visible { outline-offset: -3px; }
 .pin-row-btn::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 4px; background: linear-gradient(var(--c1), var(--c2)); }
-.pin-row-rank { min-width: 2ch; font: 900 1.375rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
+.pin-row-rank { min-width: 2ch; font: 1.25rem/1 var(--font-num); text-align: right; font-variant-numeric: tabular-nums; }
 .pin-row-name { overflow: hidden; font: 800 var(--fs-body)/1.2 var(--font-ui); text-overflow: ellipsis; white-space: nowrap; }
 @media (hover: hover) and (pointer: fine) { .pin-row-btn:hover .pin-row-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; } }
 .pin-row-num { margin-left: auto; padding-left: var(--s3); color: var(--ink-2); font-size: var(--fs-sm); white-space: nowrap; }
-.pin-row-num b { color: var(--ink); font: 900 1.25rem/1 var(--font-dot); font-variant-numeric: tabular-nums; }
+.pin-row-num b { color: var(--ink); font: 1.125rem/1 var(--font-num); font-variant-numeric: tabular-nums; }
 .pin-row-num small { font: 700 .6em var(--font-ui); color: var(--ink-2); }
 .pin-row .pin-btn { flex: none; }
 .pin-row.just-pinned { animation: pinned-glow 1.6s ease-out; }
@@ -287,3 +315,37 @@
 /* senza collezione: il numero dell'ordinamento scelto (il costo è più lungo, quindi più piccolo) */
 .deck-score-cost b { font-size: 1.85rem; white-space: nowrap; }
 @media (max-width: 719px) { .deck-score-cost b { font-size: 1.15rem; } .deck-score-share b, .deck-score-meta b { font-size: 1.65rem; } }
+
+/* «Oggi nel meta» in cima, in una sezione che si apre */
+.today-fold { margin-top: var(--s2); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--sheet); }
+.today-fold > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s3); min-height: 48px; padding: var(--s2) var(--s4); cursor: pointer; list-style: none; }
+.today-fold > summary::-webkit-details-marker { display: none; }
+.today-fold > summary::after { content: ''; align-self: center; width: 8px; height: 8px; margin-left: auto; border-right: 2px solid var(--ink-2); border-bottom: 2px solid var(--ink-2); transform: rotate(45deg); transition: transform .2s var(--ease); }
+.today-fold[open] > summary::after { transform: rotate(-135deg); }
+.today-fold-title { font: 700 1.375rem/1.2 var(--font-hand); color: var(--pen); }
+.today-fold-peek { color: var(--ink-2); font-size: var(--fs-sm); }
+.today-fold .today { margin: 0; border: 0; border-top: 1px dashed var(--line-2); border-radius: 0 0 var(--r-lg) var(--r-lg); }
+.today-fold .today-title { display: none; } /* il titolo è già nella riga che apre la sezione */
+@media (min-width: 900px) { .today-fold .today { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 1fr); } }
+
+/* prima visita: un blocco iniziale che dice cosa ottieni caricando la collezione */
+.home-new .home-head { padding: var(--s5); border: 1px solid var(--line); border-top: 3px solid var(--ink); border-radius: var(--r-lg); background: var(--sheet); }
+.home-new .hero-text { color: var(--ink); font-size: var(--fs-body); }
+.home-new .hero-actions .btn-primary { min-height: 48px; padding: 0 var(--s5); font-size: var(--fs-body); }
+@media (max-width: 719px) {
+  .home-new .home-head { padding: var(--s3) var(--s4) var(--s4); }
+  .home-new .hero-text { margin-top: var(--s1); font-size: var(--fs-ctl); line-height: 1.4; }
+  .home-new .hero-actions { margin-top: var(--s3); gap: var(--s2) var(--s4); }
+}
+/* telefono: tutto quello che sta prima del primo mazzo, più compatto */
+@media (max-width: 719px) {
+  .today-fold > summary { min-height: 44px; padding: 6px var(--s3); }
+  .home-head { margin: var(--s3) 0 var(--s2); }
+  .home-main > .list-meta, .content > .list-meta { flex-wrap: nowrap; min-height: 36px; margin: var(--s2) 0 var(--s1); font-size: var(--fs-sm); }
+  .list-meta > p { min-width: 0; }
+  .rogue-jump { flex: none; min-height: 36px; }
+  .pinned { margin-bottom: var(--s2); }
+  .pinned-title { margin-bottom: 4px; font-size: var(--fs-md); }
+  .pin-row-btn { min-height: 44px; }
+  .open-hint { font-size: var(--fs-xs); }
+}

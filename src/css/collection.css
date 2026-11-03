@@ -214,3 +214,35 @@
   .sparkles i { opacity: .9; transform: none; }
   .more-filters { animation: none !important; }
 }
+
+/* ── «Altro»: le azioni che si usano di rado ── */
+.coll-menu { position: relative; flex: none; }
+.coll-menu > .btn { gap: 4px; }
+.coll-menu-list {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; display: grid; justify-items: stretch; min-width: 260px; padding: var(--s2);
+  border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--pop-bg); box-shadow: var(--shadow-pop); animation: pop .18s var(--ease);
+}
+.coll-menu-list .btn { justify-content: flex-start; width: 100%; }
+.coll-menu-list .confirm { margin: var(--s1) 0 0; }
+/* dopo l'accesso: una piccola icona al posto della riga del profilo */
+.sync-mini { display: inline-flex; align-items: center; gap: 4px; margin-left: 2px; color: var(--ink-2); vertical-align: -2px; }
+@media (max-width: 719px) {
+  .coll-find .more-btn .mb-label { display: none; }
+  .coll-find .more-btn { width: var(--ctl); padding: 0; justify-content: center; }
+  .coll-menu-list { min-width: min(280px, calc(100vw - 32px)); }
+}
+
+/* ── Telefono: la carta si tocca e si apre la sua scheda ── */
+button.ctile-img { width: 100%; padding: 0; border: 0; font: inherit; text-align: left; cursor: pointer; }
+.card-sheet .modal-body { padding-top: var(--s5); }
+.cs { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); gap: var(--s4); align-items: start; }
+.cs-img { position: relative; aspect-ratio: 488 / 680; overflow: hidden; border-radius: 4.5% / 3.3%; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
+.cs-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cs-info { display: grid; gap: var(--s2); min-width: 0; }
+.cs-info h2 { padding-right: var(--s5); font: var(--fs-xl)/1.15 var(--font-title); overflow-wrap: anywhere; }
+.cs-price { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.cs-ctl { display: flex; gap: var(--s2); margin-top: var(--s2); }
+.cs-ctl .stepper { flex: 1; height: 44px; }
+.cs-ctl .stepper input { width: 100%; }
+.cs-ctl .btn-del { width: 44px; height: 44px; }
+.cs-link svg { margin-left: 4px; vertical-align: -2px; }

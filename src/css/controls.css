@@ -214,7 +214,7 @@ input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; app
 
 /* colonne della griglia (cursore) */
 .cols-ctl { display: inline-flex; align-items: center; gap: 10px; min-height: var(--ctl); color: var(--ink-2); font-size: var(--fs-ctl); cursor: pointer; }
-.cols-ctl output { min-width: 1ch; color: var(--ink); font: 900 1.05rem var(--font-dot); font-variant-numeric: tabular-nums; }
+.cols-ctl output { min-width: 1ch; color: var(--ink); font: 800 1.05rem var(--font-num); font-variant-numeric: tabular-nums; }
 .cols-ctl input { -webkit-appearance: none; appearance: none; width: 110px; height: 28px; margin: 0; padding: 0; background: none; border: 0; cursor: pointer; }
 .cols-ctl input::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: linear-gradient(var(--ink), var(--ink)) 0 0 / var(--fill, 0%) 100% no-repeat, var(--line); }
 .cols-ctl input::-moz-range-track { height: 3px; border-radius: 2px; background: linear-gradient(var(--ink), var(--ink)) 0 0 / var(--fill, 0%) 100% no-repeat, var(--line); }

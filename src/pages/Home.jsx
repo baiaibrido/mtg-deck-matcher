@@ -5,7 +5,7 @@ import { deckColors, WUBRG, colorName } from '../lib/deckInfo.js'
 import { getCached } from '../lib/scryfall.js'
 import { go, linkProps } from '../state/useRoute.js'
 import { useSession } from '../state/useSession.js'
-import DeckList, { PinnedList } from '../components/DeckList.jsx'
+import DeckList, { PinnedList, useArtOf } from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
@@ -41,6 +41,10 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
   const toggleColor = c => setV({ colors: view.colors.includes(c) ? view.colors.filter(x => x !== c) : [...view.colors, c] })
   const activeFilters = (view.budget > 0) + (view.tier > 0) + (view.colors.length > 0)
   const [filtersOpen, setFiltersOpen] = useState(false) // su telefono i filtri stanno chiusi dietro un pulsante
+  const [todayOpen, setTodayOpen] = useState(!phone) // «Oggi nel meta» in cima: chiuso su telefono, aperto su computer
+  const [allDetail, setAllDetail] = useState(false) // dopo i primi 25 mazzi le righe sono compatte
+  const COMPACT_FROM = 25
+  const artOf = useArtOf(meta)
   const updated = meta?.[0]?.updated
   const stale = updated && daysAgo(updated) > STALE_DAYS
 
@@ -83,7 +87,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
     const dy = f.top - el.getBoundingClientRect().top
     el.animate([{ transform: `translateY(${dy}px)`, zIndex: 5 }, { transform: 'none', zIndex: 5 }], { duration: Math.min(900, 380 + Math.abs(dy) / 3), easing: 'cubic-bezier(.2,.7,.2,1)' })
   }, [pins])
-  const listProps = { colorsOf, costOf, highlightFirst: false, onOpen: id => go('deck', id), pins, onPin: pinWithMotion, owned, bestId: best?.deck.id, cedh, metric: owned ? null : view.sort }
+  const listProps = { colorsOf, costOf, artOf, highlightFirst: false, onOpen: id => go('deck', id), pins, owned, bestId: best?.deck.id, cedh, metric: owned ? null : view.sort }
 
   const listMeta = (() => { // «50 mazzi, aggiornati il [18 OTT]»: la data è un timbro datario
     const n = metaMain.filter(d => d.source !== 'utente').length
@@ -94,7 +98,11 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
 
   return <>
     <div className={`home${owned ? '' : ' home-new'}`}>
-      {meta && !phone && todayCard}
+      {/* «Oggi nel meta» in cima, in una sezione che si apre */}
+      {meta && todayCard && <details className="today-fold" open={todayOpen} onToggle={e => setTodayOpen(e.currentTarget.open)}>
+        <summary><span className="today-fold-title">{t('today.title')}</span><span className="today-fold-peek">{t('today.peek')}</span></summary>
+        {todayCard}
+      </details>}
       <header className="page-head home-head">
         <h1 className="home-title"><span className="t-long">{formatName}: {t(`dt.${tKey}`)}</span><span className="t-short">{formatName}: {t(tShort)}</span>{cedh && <> <Info text={t('info.cedh')} label={t('info.label')} /></>}</h1>
         {!owned && <>
@@ -123,8 +131,8 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             </button>)}
           </div>
         </div>
-        <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} aria-controls="home-filters" onClick={() => setFiltersOpen(o => !o)}>
-          <IconFilter size={18} />{t('filters')}{activeFilters > 0 && <span className="count">{activeFilters}</span>}
+        <button className={`btn filters-toggle${filtersOpen ? ' open' : ''}`} aria-expanded={filtersOpen} aria-controls="home-filters" onClick={() => setFiltersOpen(o => !o)} aria-label={t('filters')}>
+          <IconFilter size={18} /><span className="ft-label">{t('filters')}</span>{activeFilters > 0 && <span className="count">{activeFilters}</span>}
         </button>
         <div className={`toolbar-row filters${filtersOpen ? ' open' : ''}`} id="home-filters">
           <span className="field">
@@ -173,13 +181,11 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
               <PinnedList ranked={pinned} colorsOf={colorsOf} onOpen={id => go('deck', id)} onPin={pinWithMotion} owned={owned} cedh={cedh} />
             </section>
           )}
-          {!all.length ? <><p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p>{meta && phone && todayCard && <div className="today-inline">{todayCard}</div>}</>
-            : !phone || !meta ? <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
-              : <>
-                <DeckList ranked={all.slice(0, 3)} animKey={format + view.sort + view.tier + view.colors + view.budget} {...listProps} />
-                {todayCard && <div className="today-inline">{todayCard}</div>}
-                {all.length > 3 && <DeckList ranked={all.slice(3)} start={3} animKey={format + view.sort + view.tier + view.colors + view.budget + 'b'} {...listProps} />}
-              </>}
+          {!all.length ? <p className="empty">{t('decks.noneFilter')} {view.colors.length > 0 && t('decks.tryColor')}</p> : <>
+            {owned && <p className="hint open-hint">{t('decks.openHint')}</p>}
+            <DeckList ranked={all} animKey={format + view.sort + view.tier + view.colors + view.budget} compactFrom={allDetail ? Infinity : COMPACT_FROM} {...listProps} />
+            {all.length > COMPACT_FROM && <button className="btn btn-quiet compact-toggle" aria-pressed={allDetail} onClick={() => setAllDetail(v => !v)}>{t(allDetail ? 'decks.collapse' : 'decks.expand')}</button>}
+          </>}
         </>}
 
     {rogueShown.length > 0 && (

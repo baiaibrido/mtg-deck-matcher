@@ -1,6 +1,6 @@
 // 日本語: カード名は英語のまま(公式の英語名で検索・照合するため)
 export default {
-  skip: 'コンテンツへ移動', home: 'Netdeckable、ホーム', sections: 'セクション', format: 'フォーマット',
+  skip: 'コンテンツへ移動', home: 'Netdeckable、ホーム', 'today.peek': '天気・ミステリーデッキ・ゲーム', 'decks.openHint': 'デッキを開くとメイン、サイド、足りないカードが見られます。', 'decks.expand': 'すべての詳細を表示', 'decks.collapse': '26位以降をコンパクトに', 'detail.seeNeed': '足りないカードを見る', 'st.sum': 'まとめ', 'st.sum.up': '最も伸びている', 'st.sum.down': '最も落ちている', 'st.sum.card': '注目の上昇カード', 'st.pts': n => `${n}ポイント`, 'st.times': n => `${n}倍`, 'coll.menu': 'その他', 'coll.editCard': n => `${n}を編集`, 'coll.openScry': 'Scryfallで開く', settings: '言語・通貨・テーマ', sections: 'セクション', format: 'フォーマット',
   'nav.decks': 'デッキ', 'nav.keycards': '重要カード', 'nav.collection': 'コレクション',
   done: '完了', undo: '元に戻す', cancel: 'キャンセル', close: '閉じる', download: 'ダウンロード', copyList: 'リストをコピー', sort: '並べ替え', all: 'すべて',
   language: '言語', 'theme.toLight': 'ライトテーマに切り替え', 'theme.toDark': 'ダークテーマに切り替え',
@@ -44,10 +44,10 @@ export default {
   'detail.hint': src => `コピーしたリストはScryfallやMoxfieldに貼り付けられます。価格は${src}の参考価格(Scryfall経由、最新の版)を現地通貨に換算したものです。安い再録版ならさらに安くなることがあります。`,
   'detail.confirmDelete': '追加したこのデッキを削除しますか?', 'detail.delete': 'デッキを削除', 'detail.file': 'missing-list',
 
-  'kc.copied': 'リストをコピーしました', 'kc.title': f => `${f}の重要カード`,
-  'kc.intro': '足りないカードのうち、メタの複数のデッキで使われているもの。これらを買えば、少ない出費でより多くのデッキに近づけます。基本土地は除いています。',
+  'kc.copied': 'リストをコピーしました', 'kc.title': f => `${f}：多くのデッキに近づけるカード`,
+  'kc.intro': '足りないカードのうち、多くのメタデッキで使われているもの。少ない出費でより多くのデッキに近づけます。',
   'kc.loadB': 'カードを追加', 'kc.load': 'と、本当に足りないカードだけが表示されます。',
-  'kc.scope': '対象のデッキ', 'kc.t12': 'Tier 1と2', 'kc.inDecks': n => `${n}個のデッキで使用:`, 'kc.more': n => ` ほか${n}個`, 'kc.none': '2つ以上のデッキで共通する不足カードはありません。お見事です。', 'kc.noData': 'データがありません。',
+  'kc.scope': '対象のデッキ', 'kc.t12': 'Tier 1と2', 'kc.inDecks': n => `${n}個のデッキで使用`, 'kc.more': n => ` ほか${n}個`, 'kc.none': '2つ以上のデッキで共通する不足カードはありません。お見事です。', 'kc.noData': 'データがありません。',
   'kc.hint': '買う枚数 = プレイセット（4枚、統率者戦は1枚）に足りない枚数。',
   'view.cards': '画像', 'kc.own': (h, p, n) => `所持 ${h}/${p}、プレイセットまであと${n}枚`, 'kc.ownFull': h => `所持 ${h}：プレイセット完成`, 'kc.need': n => `あと${n}枚`, 'kc.inN': n => `${n}個のデッキで使用`, 'kc.file': 'key-cards',
 
@@ -64,7 +64,7 @@ export default {
   'coll.minus': n => `${n}を1枚減らす`, 'coll.copiesOf': n => `${n}の枚数`, 'coll.plus': n => `${n}を1枚増やす`,
   'coll.delete': n => `${n}をコレクションから削除`, 'coll.deleteTitle': '削除',
   'coll.spine': 'コレクションのセクション', 'coll.spineSr': pc => `枚、${pc}%`,
-  'binder.M': '多色', 'binder.C': '無色', 'binder.L': '土地', 'binder.?': 'データなし',
+  'binder.M': '多色', 'binder.C': '無色', 'binder.L': '土地', 'binder.?': '認識されないカード',
   'type.all': 'すべて', 'type.creature': 'クリーチャー', 'type.spell': 'インスタント・ソーサリー', 'type.perm': 'その他のパーマネント', 'type.land': '土地',
   'coll.noneRecognized': 'カードを認識できませんでした。「4 Lightning Bolt」のように1行に1枚ずつ書くか、NameとQtyの列があるCSVを貼り付けてください。',
   'coll.replaced': n => `コレクションを置き換えました:${n}枚`, 'coll.added': n => `${n}枚追加しました`,
@@ -81,7 +81,7 @@ export default {
   'coll.title': 'あなたのコレクション',
   'coll.emptyIntro': '持っているカードを追加すると、完成できるデッキがわかります。コレクションはこの端末にだけ保存されます。',
   'coll.summary': (tot, dist) => `${tot}枚(${dist}種類)`, 'coll.value': '、推定価格 ', 'coll.savedHere': 'この端末にだけ保存されます。',
-  'coll.fixNames': '名前を修正', 'coll.backup': 'エクスポート', 'coll.backupDone': 'バックアップをダウンロードしました', 'coll.file': 'collection',
+  'coll.fixNames': '認識されない名前を修正', 'coll.backup': 'エクスポート', 'coll.backupDone': 'バックアップをダウンロードしました', 'coll.file': 'collection',
   'coll.clear': '空にする', 'coll.confirmClear': 'コレクションをすべて削除しますか?', 'coll.cleared': 'コレクションを空にしました',
   'coll.loadingImg': (d, tot) => `Scryfallから画像と価格を読み込み中… ${d}/${tot}`,
   'coll.scryDown': 'Scryfallが応答しません。画像と価格は表示できませんが、コレクションはそのまま使えます。',

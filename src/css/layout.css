@@ -168,3 +168,19 @@ html.kb-open .modal { top: calc(var(--vvtop, 0px) + 8px); bottom: auto; margin-t
 /* fondo dei fogli sempre uguale: l'ultimo elemento non aggiunge margini o righe vuote al margine del foglio */
 .panel > :last-child, .detail-side > :last-child > :last-child, .detail-more > .ins > :last-child { margin-bottom: 0; }
 :is(.panel, .detail-side, .detail-more > .ins) :is(.st-rows, .wx-wind ul, .ins-list) > li:last-child { padding-bottom: 0; }
+
+/* ── Telefono: lingua, valuta e tema dietro un pulsante che mostra le scelte attuali ── */
+.prefs-wrap { position: relative; }
+.prefs-btn { gap: 6px; padding: 0 var(--s3); font-weight: 700; }
+.prefs-btn > svg:first-child { color: var(--ink-2); }
+.prefs-btn[aria-expanded="true"] { border-color: var(--ink); }
+.prefs-panel {
+  position: fixed; z-index: 60; display: grid; gap: var(--s2);
+  width: min(280px, calc(100vw - 24px)); padding: var(--s3); border: 1px solid var(--line); border-radius: var(--r-lg);
+  background: var(--pop-bg); box-shadow: var(--shadow-pop); animation: pop .18s var(--ease);
+}
+.prefs-panel .pref-picker, .prefs-panel .pref-picker .picker-btn { width: 100%; }
+.prefs-panel .pref-picker .picker-btn > svg:first-child, .prefs-panel .pref-picker .picker-btn > svg:last-child { display: inline-block; }
+.prefs-panel .pref-picker .picker-btn { padding: 0 var(--s3); }
+.theme-row { justify-content: flex-start; gap: var(--s2); }
+@media (prefers-reduced-motion: reduce) { .prefs-panel { animation: none; } }

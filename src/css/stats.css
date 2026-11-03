@@ -154,3 +154,22 @@
   .wx-rows .st-name { flex-wrap: wrap; row-gap: 2px; white-space: normal; }
   .wx-rows .st-name .linklike { white-space: normal; overflow: visible; }
 }
+
+/* ── In sintesi: le quattro cose da sapere oggi, prima di tutto il resto ── */
+.st-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s2); margin-bottom: var(--s5); }
+@media (min-width: 900px) { .st-summary { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s3); } }
+.st-tile { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; padding: var(--s3) var(--s4); border: 1px solid var(--line); border-top: 2px solid var(--ink); border-radius: 0 0 var(--r-lg) var(--r-lg); background: var(--sheet); }
+.st-tile-k { color: var(--ink-2); font-size: var(--fs-sm); font-weight: 700; }
+.st-tile .linklike, .st-tile-name { overflow: hidden; max-width: 100%; color: var(--ink); font: 800 var(--fs-lg)/1.2 var(--font-ui); text-overflow: ellipsis; white-space: nowrap; }
+.st-tile .st-delta { font-size: var(--fs-md); }
+.st-tile .st-hero { margin: 0; }
+.st-tile .st-hero b { font-size: 2.75rem; }
+.st-tile .st-hero span { font-size: var(--fs-md); }
+.st-tile .st-kind { margin: 0; font-size: var(--fs-md); }
+/* «Mostra tutti» sotto le prime righe di ogni elenco */
+.st-more { margin-top: var(--s2); }
+.panel > h2 .info { margin-left: 4px; vertical-align: 2px; }
+.wx-wind h3 .info { margin-left: 2px; vertical-align: -2px; }
+/* quanto rende ogni euro, su telefono: elenco dei mazzi convenienti dal meno caro */
+.st-value-list li { grid-template-columns: minmax(0, 1fr) auto auto; }
+.stats > .panel, .stats > .st-grid-2 { margin-bottom: var(--s4); }

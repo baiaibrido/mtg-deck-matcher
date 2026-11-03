@@ -36,7 +36,7 @@
   .key-list li:nth-child(n) { background: none; }
   .key-list li:nth-child(4n+1), .key-list li:nth-child(4n+2) { background: var(--bar); }
 }
-.key-rank { font: 900 1.75rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
+.key-rank { font: 1.5rem/1 var(--font-num); text-align: right; font-variant-numeric: tabular-nums; }
 .key-main { display: grid; gap: 2px; min-width: 0; }
 .key-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .key-name a { color: var(--ink); font-weight: 700; text-decoration: none; }
@@ -54,8 +54,17 @@
 .key-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s4) var(--s3); margin: 0; padding: 0; list-style: none; }
 @media (max-width: 560px) { .key-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .key-tiles li { display: grid; align-content: start; gap: 6px; }
-.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.8em; padding: 2px 6px; border-radius: 2px; background: var(--overlay-bg); color: var(--overlay-ink); font: 900 .9rem/1.2 var(--font-dot); text-align: center; }
+.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.8em; padding: 2px 6px; border-radius: 2px; background: var(--overlay-bg); color: var(--overlay-ink); font: 900 .9rem/1.2 var(--font-num); text-align: center; }
 .key-tile-info { display: flex; flex-wrap: wrap; gap: 0 var(--s2); color: var(--ink-2); font-size: var(--fs-sm); line-height: 1.35; }
 .key-tile-info b { color: var(--no-ink); }
 
 @media (prefers-reduced-motion: reduce) { .key-list li { animation: none !important; } }
+
+/* «In 15 mazzi»: l'elenco dei mazzi si apre toccando */
+.key-decks > summary { display: inline-flex; align-items: center; gap: 6px; min-height: 28px; color: var(--ink-2); cursor: pointer; list-style: none; }
+.key-decks > summary::-webkit-details-marker { display: none; }
+.key-decks > summary::after { content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .2s var(--ease); }
+.key-decks[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+@media (hover: hover) and (pointer: fine) { .key-decks > summary:hover { color: var(--ink); } }
+.key-decks-list { display: block; padding: 2px 0 4px; line-height: 1.6; }
+@media (pointer: coarse) { .key-decks > summary { min-height: 36px; } }

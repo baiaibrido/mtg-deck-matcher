@@ -55,14 +55,15 @@
   /* ── Caratteri ── */
   --font-ui: 'Alegreya Sans', system-ui, sans-serif;
   --font-title: 'Netdeck Display', 'Alegreya Sans', system-ui, sans-serif;
-  --font-dot: 'Doto Variable', 'Courier New', monospace; /* numeri a punti: rank, percentuali, numeri grandi */
+  --font-dot: 'Doto Variable', 'Courier New', monospace; /* numeri a punti: SOLO il numero grande di ogni pagina (sotto i 40px non si leggono) */
+  --font-num: var(--font-title); /* tutti gli altri numeri: pieni e in colonna */
   --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive; /* solo note a penna */
   --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; /* solo lo scontrino */
 
   /* scala dei testi */
-  --fs-xs: .75rem;      /* 12  didascalie */
-  --fs-sm: .8125rem;    /* 13  dati secondari */
-  --fs-md: .875rem;     /* 14  testo secondario */
+  --fs-xs: .8125rem;    /* 13  didascalie */
+  --fs-sm: .875rem;     /* 14  dati secondari */
+  --fs-md: .9375rem;    /* 15  testo secondario */
   --fs-ctl: .9375rem;   /* 15  controlli */
   --fs-body: 1.0625rem; /* 17  testo */
   --fs-lg: 1.25rem;     /* 20  titolo di una voce */

@@ -3,7 +3,7 @@ const carte = n => p(n, 'carta', 'carte')
 
 export default {
   // generali
-  skip: 'Vai al contenuto', home: 'Netdeckable, home', sections: 'Sezioni', format: 'Formato',
+  skip: 'Vai al contenuto', home: 'Netdeckable, home', 'today.peek': 'meteo, mazzo misterioso e giochi', 'decks.openHint': 'Apri un mazzo per vedere main, side e le carte che ti mancano.', 'decks.expand': 'Mostra tutti i dettagli', 'decks.collapse': 'Righe compatte dopo il 25°', 'detail.seeNeed': 'Vedi cosa ti manca', 'st.sum': 'In sintesi', 'st.sum.up': 'Sale di più', 'st.sum.down': 'Scende di più', 'st.sum.card': 'Carta in ascesa', 'st.pts': n => `${n} punti`, 'st.times': n => `${n} volte`, 'coll.menu': 'Altro', 'coll.editCard': n => `Modifica ${n}`, 'coll.openScry': 'Apri su Scryfall', settings: 'Lingua, valuta e tema', sections: 'Sezioni', format: 'Formato',
   'nav.decks': 'Mazzi', 'nav.keycards': 'Carte chiave', 'nav.collection': 'Collezione',
   done: 'Fatto', undo: 'Annulla', cancel: 'Annulla', close: 'Chiudi', download: 'Scarica', copyList: 'Copia lista', sort: 'Ordina', all: 'Tutti',
   language: 'Lingua', 'theme.toLight': 'Passa al tema chiaro', 'theme.toDark': 'Passa al tema scuro',
@@ -51,10 +51,10 @@ export default {
   'detail.confirmDelete': 'Eliminare questo mazzo aggiunto da te?', 'detail.delete': 'Elimina mazzo', 'detail.file': 'mancolista',
 
   // carte chiave
-  'kc.copied': 'Lista copiata', 'kc.title': f => `Carte chiave ${f}`,
-  'kc.intro': 'Sono le carte che ti mancano e che compaiono in più mazzi del meta. Comprandole ti avvicini a tanti mazzi insieme spendendo meno. Le terre base non sono contate.',
+  'kc.copied': 'Lista copiata', 'kc.title': f => `${f}: le carte che ti aprono più mazzi`,
+  'kc.intro': 'Ti mancano e compaiono in tanti mazzi del meta: comprandole ti avvicini a più mazzi spendendo meno.',
   'kc.loadB': 'Aggiungi le tue carte', 'kc.load': ' per vedere solo le carte che ti mancano davvero.',
-  'kc.scope': 'Mazzi considerati', 'kc.t12': 'Tier 1 e 2', 'kc.inDecks': n => `In ${n} mazzi:`, 'kc.more': n => ` e altri ${n}`, 'kc.none': 'Nessuna delle carte che ti mancano è usata da due o più mazzi. Ottimo lavoro!', 'kc.noData': 'Per ora non ci sono dati.',
+  'kc.scope': 'Mazzi considerati', 'kc.t12': 'Tier 1 e 2', 'kc.inDecks': n => `In ${n} mazzi`, 'kc.more': n => ` e altri ${n}`, 'kc.none': 'Nessuna delle carte che ti mancano è usata da due o più mazzi. Ottimo lavoro!', 'kc.noData': 'Per ora non ci sono dati.',
   'kc.hint': 'Le copie da comprare sono quelle che ti mancano per arrivare a 4 (a 1 in Commander).',
   'view.cards': 'Immagini', 'kc.own': (h, p, n) => `Ne hai ${h} su ${p}: te ne ${n === 1 ? 'manca 1' : `mancano ${n}`}`, 'kc.ownFull': h => `Ne hai ${h}: sei a posto`, 'kc.need': n => `ne mancano ${n}`, 'kc.inN': n => `In ${n} mazzi`, 'kc.file': 'carte-chiave',
 
@@ -74,7 +74,7 @@ export default {
   'coll.minus': n => `Togli una copia di ${n}`, 'coll.copiesOf': n => `Copie di ${n}`, 'coll.plus': n => `Aggiungi una copia di ${n}`,
   'coll.delete': n => `Elimina ${n} dalla collezione`, 'coll.deleteTitle': 'Elimina',
   'coll.spine': 'Sezioni della collezione', 'coll.spineSr': pc => ` carte, ${pc}%`,
-  'binder.M': 'Multicolore', 'binder.C': 'Incolore', 'binder.L': 'Terre', 'binder.?': 'Senza dati',
+  'binder.M': 'Multicolore', 'binder.C': 'Incolore', 'binder.L': 'Terre', 'binder.?': 'Carte non riconosciute',
   'type.all': 'Tutte', 'type.creature': 'Creature', 'type.spell': 'Istantanei e stregonerie', 'type.perm': 'Altri permanenti', 'type.land': 'Terre',
   'coll.noneRecognized': 'Nessuna carta riconosciuta. Scrivi una carta per riga (per esempio «4 Lightning Bolt») oppure incolla un file CSV con le colonne Name e Qty.',
   'coll.replaced': n => `Collezione sostituita: ${n} ${carte(n)}`, 'coll.added': n => `${n} ${p(n, 'carta aggiunta', 'carte aggiunte')}`,
@@ -91,7 +91,7 @@ export default {
   'coll.title': 'La tua collezione',
   'coll.emptyIntro': 'Aggiungi le carte che possiedi e ti mostriamo quali mazzi puoi completare e cosa ti manca. La collezione resta su questo dispositivo, a meno che tu non la salvi nel profilo.',
   'coll.summary': (tot, dist) => `${tot} carte, ${dist} diverse`, 'coll.value': ', valore stimato ', 'coll.savedHere': 'Salvata solo su questo dispositivo.',
-  'coll.fixNames': 'Correggi i nomi', 'coll.backup': 'Esporta', 'coll.backupDone': 'Backup scaricato', 'coll.file': 'collezione',
+  'coll.fixNames': 'Sistema i nomi non riconosciuti', 'coll.backup': 'Esporta', 'coll.backupDone': 'Backup scaricato', 'coll.file': 'collezione',
   'coll.clear': 'Svuota', 'coll.confirmClear': 'Svuotare tutta la collezione?', 'coll.cleared': 'Collezione svuotata',
   'coll.loadingImg': (d, tot) => `Carico immagini e prezzi da Scryfall… ${d}/${tot}`,
   'coll.scryDown': 'Scryfall non risponde, quindi per ora mancano immagini e prezzi. La collezione funziona comunque.',

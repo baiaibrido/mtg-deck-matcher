@@ -14,10 +14,11 @@ import { formatList, FORMAT_LABEL } from '../lib/bans.js'
 import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { loadTags } from '../lib/tagsLoader.js' // tag di Scryfall: caricati solo quando si aprono i filtri
 import { useSession } from '../state/useSession.js'
-import { useWinWidth } from '../state/useMedia.js'
+import { useWinWidth, useMedia } from '../state/useMedia.js'
+import Modal from './Modal.jsx'
 import { ManaCost, ManaSymbol } from './Mana.jsx'
 import { SyncLine } from './Account.jsx'
-import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter } from './Icons.jsx'
+import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter, IconCaret, IconCloud, IconExternal } from './Icons.jsx'
 
 const STEP = 120 // carte mostrate per volta: le immagini si caricano man mano
 
@@ -131,6 +132,15 @@ export default function CollectionManager({ collection, setCollection, toast, be
     ro.observe(el); return () => { ro.disconnect(); root.style.removeProperty('--tools-h') }
   }, [collection.length > 0])
   const [more, setMore] = useState(false) // altri filtri (artista, set, rarità, tag)
+  const [menu, setMenu] = useState(false) // «Altro»: importa, sistema i nomi, esporta, svuota
+  const menuRef = useRef(null)
+  useEffect(() => {
+    if (!menu) return
+    const out = e => { if (!menuRef.current?.contains(e.target)) setMenu(false) }
+    document.addEventListener('pointerdown', out); return () => document.removeEventListener('pointerdown', out)
+  }, [menu])
+  const phone = useMedia('(max-width: 719px)') // telefono: toccando una carta si apre la sua scheda (quantità, cestino, Scryfall)
+  const [sheetKey, setSheetKey] = useState(null)
   const [flt, setFlt] = useState({}) // { artist, set, rarity, otag, atag }
   const [tags, setTags] = useState(null)
   useEffect(() => { if ((more || flt.otag || flt.atag) && !tags) loadTags().then(setTags) }, [more, flt.otag, flt.atag])
@@ -268,18 +278,13 @@ export default function CollectionManager({ collection, setCollection, toast, be
         <p>
           {t('coll.summary', total.toLocaleString(getLang()), collection.length.toLocaleString(getLang()))}
           {priced && <>{t('coll.value')}<b>≈ {money(value)}</b></>}.
-          {' '}{t('coll.savedHere')}
+          {' '}{acc?.state !== 'in' && t('coll.savedHere')}
+          {/* dopo l'accesso il salvataggio nel profilo è una piccola icona che apre il profilo */}
+          {acc?.state === 'in' && <button className="linklike sync-mini" onClick={onAccount} title={t('acc.line.in', acc.user?.email || '')}><IconCloud size={16} />{acc.sync !== 'idle' ? t(`acc.sync.${acc.sync}`) : t('acc.sync.saved')}</button>}
         </p>
-        <div className="coll-actions">
-          <label className="btn btn-quiet" title={t('coll.importFileHint')}><IconUpload size={18} />{t('coll.importFile')}{fileInput}</label>
-          <button className="btn btn-quiet" onClick={normalize} disabled={busy} title={t('coll.fixHint')}><IconWand size={18} />{t('coll.fixNames')}</button>
-          <button className="btn btn-quiet" onClick={exportBackup}><IconDownload size={18} />{t('coll.backup')}</button>
-          <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
-            onConfirm={() => { const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
-        </div>
       </header>
 
-      {acc && <SyncLine acc={acc} local={collection} onOpen={onAccount} />}
+      {acc && acc.state !== 'in' && <SyncLine acc={acc} local={collection} onOpen={onAccount} />}
       <Spine sections={allSections} total={total} />
       {(() => {
         const p = personality(collection, getCached); if (!p) return null
@@ -313,8 +318,19 @@ export default function CollectionManager({ collection, setCollection, toast, be
           <input type="search" value={q} onChange={e => { setQ(e.target.value); setLimit(STEP) }} placeholder={t('coll.search')} aria-label={t('coll.search')} />
         </label>
         <button className={`btn more-btn${more ? ' open' : ''}`} aria-expanded={more} onClick={() => setMore(m => !m)}>
-          <IconFilter size={18} />{t('coll.moreFilters')}{nFlt > 0 && <span className="count">{nFlt}</span>}
+          <IconFilter size={18} /><span className="mb-label">{t('coll.moreFilters')}</span>{nFlt > 0 && <span className="count">{nFlt}</span>}
         </button>
+        {/* le azioni che si usano di rado stanno in un menu */}
+        <div className="coll-menu" ref={menuRef}>
+          <button className="btn" aria-expanded={menu} aria-haspopup="true" onClick={() => setMenu(m => !m)}>{t('coll.menu')}<IconCaret size={14} /></button>
+          {menu && <div className="coll-menu-list" role="group" aria-label={t('coll.menu')}>
+            <label className="btn btn-quiet" title={t('coll.importFileHint')}><IconUpload size={18} />{t('coll.importFile')}{fileInput}</label>
+            <button className="btn btn-quiet" onClick={() => { setMenu(false); normalize() }} disabled={busy} title={t('coll.fixHint')}><IconWand size={18} />{t('coll.fixNames')}</button>
+            <button className="btn btn-quiet" onClick={() => { setMenu(false); exportBackup() }}><IconDownload size={18} />{t('coll.backup')}</button>
+            <ConfirmButton className="btn btn-quiet btn-danger" label={t('coll.clear')} question={t('coll.confirmClear')} yes={t('coll.clearYes')}
+              onConfirm={() => { setMenu(false); const prev = collection; setCollection([]); toast(t('coll.cleared'), { label: t('undo'), fn: () => setCollection(prev) }) }} />
+          </div>}
+        </div>
         </div>
         {more && (
           <div className="more-filters">
@@ -368,19 +384,23 @@ export default function CollectionManager({ collection, setCollection, toast, be
               {part.map(r => (
                 <li key={r.key} className={`ctile${fresh.has(r.key) ? ' just-added' : ''}${r.foil ? ' foil' : ''}`}>
                   <div className="ctile-art">
-                    <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
+                    {phone ? <button className="ctile-img" onClick={() => setSheetKey(r.key)} aria-label={t('coll.editCard', r.name)}>
                       <Thumb card={r.card} name={r.name} big cols={cols} />
                       {r.foil && <Sparkles />}
                       <span className="ctile-qty" aria-hidden="true">×{r.qty}{r.foil && <span className="foil-tag">Foil</span>}</span>
-                    </a>
+                    </button> : <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
+                      <Thumb card={r.card} name={r.name} big cols={cols} />
+                      {r.foil && <Sparkles />}
+                      <span className="ctile-qty" aria-hidden="true">×{r.qty}{r.foil && <span className="foil-tag">Foil</span>}</span>
+                    </a>}
                   </div>
                   <span className="ctile-name">{r.name}{r.foil && <span className="sr-only"> (foil)</span>}</span>
                   {printText(r.card) && <span className="ctile-print" title={printText(r.card)}><PrintLine card={r.card} /></span>}
                   {flt.ban && <BanStamps card={r.card} />}
-                  <div className="ctile-ctl">
+                  {!phone && <div className="ctile-ctl">
                     <DeleteBtn r={r} onDelete={remove} className="btn-del ctile-del" />
                     <Stepper c={r} setQty={setQty} />
-                  </div>
+                  </div>}
                 </li>
               ))}
             </ul>
@@ -407,6 +427,22 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {filtered.length > shownCount && (
         <button className="btn more" onClick={() => setLimit(l => l + STEP)}>{t('coll.more', filtered.length - shownCount)}</button>
       )}
+      {/* telefono: la scheda della carta toccata, con quantità, cestino e link a Scryfall */}
+      {(() => {
+        const r = sheetKey && visible.flatMap(([, , part]) => part).find(x => x.key === sheetKey)
+        return <Modal open={!!r} onClose={() => setSheetKey(null)} label={r ? r.name : ''} className="card-sheet">
+          {close => r && <div className="cs">
+            <div className="cs-img"><Thumb card={r.card} name={r.name} big cols={2} />{r.foil && <Sparkles />}</div>
+            <div className="cs-info">
+              <h2>{r.name}{r.foil && <> <span className="foil-tag">Foil</span></>}</h2>
+              {printText(r.card) && <p className="ctile-print"><PrintLine card={r.card} /></p>}
+              {priceOf(r.card) != null && <p className="cs-price">{money(priceOf(r.card) * r.qty, true)}</p>}
+              <div className="cs-ctl"><Stepper c={r} setQty={setQty} /><DeleteBtn r={r} onDelete={x => { close(); remove(x) }} /></div>
+              <a className="cs-link" href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer">{t('coll.openScry')}<IconExternal size={14} /></a>
+            </div>
+          </div>}
+        </Modal>
+      })()}
       {/* i traguardi sono un extra: vengono dopo le carte */}
       <div className="coll-ach"><Achievements unlocked={unlocked} /></div>
     </div>

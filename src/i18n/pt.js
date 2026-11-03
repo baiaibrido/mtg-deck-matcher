@@ -3,7 +3,7 @@ const p = (n, one, many) => n === 1 ? one : many
 const cartas = n => p(n, 'carta', 'cartas')
 
 export default {
-  skip: 'Ir para o conteúdo', home: 'Netdeckable, início', sections: 'Seções', format: 'Formato',
+  skip: 'Ir para o conteúdo', home: 'Netdeckable, início', 'today.peek': 'clima, deck misterioso e jogos', 'decks.openHint': 'Abra um deck para ver main, side e as cartas que faltam.', 'decks.expand': 'Mostrar todos os detalhes', 'decks.collapse': 'Linhas compactas após o 25º', 'detail.seeNeed': 'Ver o que falta', 'st.sum': 'Em resumo', 'st.sum.up': 'O que mais sobe', 'st.sum.down': 'O que mais cai', 'st.sum.card': 'Carta em alta', 'st.pts': n => `${n} pontos`, 'st.times': n => `${n} vezes`, 'coll.menu': 'Mais', 'coll.editCard': n => `Editar ${n}`, 'coll.openScry': 'Abrir no Scryfall', settings: 'Idioma, moeda e tema', sections: 'Seções', format: 'Formato',
   'nav.decks': 'Decks', 'nav.keycards': 'Cartas-chave', 'nav.collection': 'Coleção',
   done: 'Pronto', undo: 'Desfazer', cancel: 'Cancelar', close: 'Fechar', download: 'Baixar', copyList: 'Copiar lista', sort: 'Ordenar', all: 'Todos',
   language: 'Idioma', 'theme.toLight': 'Mudar para o tema claro', 'theme.toDark': 'Mudar para o tema escuro',
@@ -47,10 +47,10 @@ export default {
   'detail.hint': src => `A lista copiada pode ser colada no Scryfall ou no Moxfield. Preços indicativos do ${src} (via Scryfall) da impressão mais recente, convertidos para a sua moeda: reimpressões baratas podem custar menos.`,
   'detail.confirmDelete': 'Excluir este deck que você adicionou?', 'detail.delete': 'Excluir deck', 'detail.file': 'faltantes',
 
-  'kc.copied': 'Lista copiada', 'kc.title': f => `Cartas-chave de ${f}`,
-  'kc.intro': 'As cartas que faltam para você e que aparecem em vários decks do meta. Comprando estas você se aproxima de mais decks gastando menos. Terrenos básicos estão excluídos.',
+  'kc.copied': 'Lista copiada', 'kc.title': f => `${f}: as cartas que abrem mais decks`,
+  'kc.intro': 'Faltam para você e aparecem em muitos decks do meta: comprando-as você se aproxima de mais decks gastando menos.',
   'kc.loadB': 'Adicione suas cartas', 'kc.load': ' para ver só as cartas que realmente faltam.',
-  'kc.scope': 'Decks considerados', 'kc.t12': 'Tier 1 e 2', 'kc.inDecks': n => `Em ${n} decks:`, 'kc.more': n => ` e mais ${n}`, 'kc.none': 'Nenhuma carta que falta é compartilhada por pelo menos dois decks: ótimo trabalho.', 'kc.noData': 'Nenhum dado disponível.',
+  'kc.scope': 'Decks considerados', 'kc.t12': 'Tier 1 e 2', 'kc.inDecks': n => `Em ${n} decks`, 'kc.more': n => ` e mais ${n}`, 'kc.none': 'Nenhuma carta que falta é compartilhada por pelo menos dois decks: ótimo trabalho.', 'kc.noData': 'Nenhum dado disponível.',
   'kc.hint': 'Cópias a comprar = as que faltam para um playset (4 cópias, 1 no Commander).',
   'view.cards': 'Imagens', 'kc.own': (h, p, n) => `Você tem ${h}/${p}, faltam ${n} para o playset completo`, 'kc.ownFull': h => `Você tem ${h}: playset completo`, 'kc.need': n => `faltam ${n}`, 'kc.inN': n => `Em ${n} decks`, 'kc.file': 'cartas-chave',
 
@@ -67,7 +67,7 @@ export default {
   'coll.minus': n => `Remover uma cópia de ${n}`, 'coll.copiesOf': n => `Cópias de ${n}`, 'coll.plus': n => `Adicionar uma cópia de ${n}`,
   'coll.delete': n => `Remover ${n} da coleção`, 'coll.deleteTitle': 'Remover',
   'coll.spine': 'Seções da coleção', 'coll.spineSr': pc => ` cartas, ${pc}%`,
-  'binder.M': 'Multicolorido', 'binder.C': 'Incolor', 'binder.L': 'Terrenos', 'binder.?': 'Sem dados',
+  'binder.M': 'Multicolorido', 'binder.C': 'Incolor', 'binder.L': 'Terrenos', 'binder.?': 'Cartas não reconhecidas',
   'type.all': 'Todas', 'type.creature': 'Criaturas', 'type.spell': 'Instantâneas e feitiços', 'type.perm': 'Outras permanentes', 'type.land': 'Terrenos',
   'coll.noneRecognized': 'Nenhuma carta reconhecida. Escreva uma carta por linha, por exemplo "4 Lightning Bolt", ou cole um CSV com as colunas Name e Qty.',
   'coll.replaced': n => `Coleção substituída: ${n} ${cartas(n)}`, 'coll.added': n => `${n} ${p(n, 'carta adicionada', 'cartas adicionadas')}`,
@@ -84,7 +84,7 @@ export default {
   'coll.title': 'Sua coleção',
   'coll.emptyIntro': 'Adicione as cartas que você tem para descobrir quais decks pode completar. A coleção fica salva só neste aparelho.',
   'coll.summary': (tot, dist) => `${tot} cartas, ${dist} diferentes`, 'coll.value': ', valor estimado ', 'coll.savedHere': 'Salva só neste aparelho.',
-  'coll.fixNames': 'Corrigir nomes', 'coll.backup': 'Exportar', 'coll.backupDone': 'Backup baixado', 'coll.file': 'colecao',
+  'coll.fixNames': 'Corrigir nomes não reconhecidos', 'coll.backup': 'Exportar', 'coll.backupDone': 'Backup baixado', 'coll.file': 'colecao',
   'coll.clear': 'Esvaziar', 'coll.confirmClear': 'Esvaziar a coleção inteira?', 'coll.cleared': 'Coleção esvaziada',
   'coll.loadingImg': (d, tot) => `Carregando imagens e preços do Scryfall… ${d}/${tot}`,
   'coll.scryDown': 'O Scryfall não está respondendo: imagens e preços não estão disponíveis, mas a coleção funciona mesmo assim.',
