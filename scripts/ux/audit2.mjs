@@ -19,7 +19,7 @@ for (const [vp, [w, h]] of Object.entries(VP)) for (const withColl of [true, fal
   p.on('pageerror', e => issues.push(`${vp} JS: ${e.message}`))
   const tagOf = u => `${vp}${withColl ? '' : ' (nuovo)'} ${u}`
   const go = async u => { await p.goto('http://localhost:4174' + u); await p.waitForTimeout(1500); await p.addStyleTag({ content: '.note-error{display:none!important}' }) }
-  const pages = withColl ? ['/pauper', '/pauper/deck/pauper-burn', '/pauper/key-cards', '/collection', '/pauper/stats'] : ['/pauper', '/collection']
+  const pages = withColl ? ['/pauper', '/pauper/deck/pauper-burn', '/pauper/key-cards', '/collection', '/pauper/meta'] : ['/pauper', '/collection']
   for (const u of pages) {
     await go(u); const tag = tagOf(u)
     // 1. sbordi orizzontali

@@ -45,7 +45,7 @@ const shotsFor = async (vp, th) => {
   await go('/collection'); await S('coll')
   await p.locator('.binder-sec').first().scrollIntoViewIfNeeded().catch(() => {}); await p.evaluate(() => scrollBy(0, -60)); await S('coll-grid')
   await p.locator('.more-btn').click().catch(() => {}); await S('coll-filters')
-  await go('/pauper/stats'); await S('stats')
+  await go('/pauper/meta'); await S('stats')
   // giochi
   await go('/pauper')
   const items = p.locator('.today-item')

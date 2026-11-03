@@ -61,7 +61,7 @@ export function revealOrder(deck, decks, isLand = () => false) {
   return [...rest.slice(0, GUESS_TRIES - 1).map(c => c.name), ...(sig ? [sig] : rest.slice(GUESS_TRIES - 1, GUESS_TRIES).map(c => c.name))]
 }
 export const shareGrid = (guesses, answer, tries = GUESS_TRIES) =>
-  Array.from({ length: tries }, (_, i) => i < guesses.length ? (guesses[i] === answer ? '🟩' : '🟥') : '⬛').join('')
+  Array.from({ length: tries }, (_, i) => i < guesses.length ? (guesses[i] === answer ? '🟩' : '🟥') : '⬛').join('') // taste-skill-ignore: griglia da condividere nei messaggi
 
 // ── Meteo del meta: chi sale, chi scende, chi resta in vetta (quota settimanale: ultima vs 4 settimane prima)
 export const WEATHER_WEEKS = 4

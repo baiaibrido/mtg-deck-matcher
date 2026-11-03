@@ -4,7 +4,6 @@ import { CURRENCIES, currencySymbol } from '../lib/currency.js'
 import { linkProps } from '../state/useRoute.js'
 import { useMedia } from '../state/useMedia.js'
 import Picker from './Picker.jsx'
-import { ManaSymbol } from './Mana.jsx'
 import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconGlobe, IconCoins, IconChart, IconUser } from './Icons.jsx'
 
 const smooth = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
@@ -26,15 +25,15 @@ export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onThem
   }, [])
   return (
     <header className={`topbar${compact ? ' compact' : ''}`} ref={headRef}>
+      {/* il logo è un'etichetta della etichettatrice a rilievo (Dymo), come sui raccoglitori di un negozio */}
       <a className="brand" {...linkProps('decks')} aria-label={t('home')}>
-        <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <ManaSymbol key={c} s={c} />)}</span>
-        <span className="brand-name">Netdeckable</span>
+        <span className="brand-name" aria-hidden="true">Netdeckable</span>
       </a>
       <nav className="nav-top" aria-label={t('sections')}>
         <a {...linkProps('decks')} aria-current={current('decks')}>{t('nav.decks')}</a>
+        <a {...linkProps('meta')} aria-current={current('meta')}>{t('nav.stats')}</a>
         <a {...linkProps('collection')} aria-current={current('collection')}>{t('nav.collection')} <span className="count">{count.toLocaleString(lang)}</span></a>
         <a {...linkProps('key-cards')} aria-current={current('key-cards')}>{t('nav.keycards')}</a>
-        <a {...linkProps('stats')} aria-current={current('stats')}>{t('nav.stats')}</a>
       </nav>
       <div className="prefs">
         <Picker className="pref-picker" label={t('language')} icon={<IconGlobe size={17} />} align="right" short={narrow}
@@ -57,9 +56,9 @@ export function TabBar({ current }) {
   return (
     <nav className="tabbar" aria-label={t('sections')}>
       <a {...linkProps('decks')} aria-current={current('decks')}><IconDecks />{t('nav.decks')}</a>
+      <a {...linkProps('meta')} aria-current={current('meta')}><IconChart />{t('nav.stats')}</a>
       <a {...linkProps('collection')} aria-current={current('collection')}><IconBox />{t('nav.collection')}</a>
       <a {...linkProps('key-cards')} aria-current={current('key-cards')}><IconKey />{t('nav.keycards')}</a>
-      <a {...linkProps('stats')} aria-current={current('stats')}><IconChart />{t('nav.stats')}</a>
     </nav>
   )
 }

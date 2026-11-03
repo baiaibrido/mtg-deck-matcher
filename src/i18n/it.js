@@ -160,7 +160,7 @@ export default {
   'ach.curious': 'Curioso', 'ach.curious.d': 'Apri 25 mazzi diversi', 'ach.rogue': 'Fuori dal coro', 'ach.rogue.d': 'Apri un mazzo rogue', 'ach.sleuth': 'Investigatore', 'ach.sleuth.d': 'Indovina 5 mazzi',
   'ach.night': 'Nottambulo', 'ach.night.d': 'Cerca mazzi tra mezzanotte e le 5',
 
-  'nav.stats': 'Statistiche', 'st.title': f => `Statistiche ${f}`, 'st.intro': 'Numeri calcolati ogni notte su tutte le liste dei tornei degli ultimi due mesi. Di ogni mazzo contano tutte le liste, anche quelle che non vedi nella sua pagina.',
+  'nav.stats': 'Meta', 'st.title': f => `Meta ${f}`, 'st.intro': 'Numeri calcolati ogni notte su tutte le liste dei tornei degli ultimi due mesi. Di ogni mazzo contano tutte le liste, anche quelle che non vedi nella sua pagina.',
   'st.health': 'Salute del formato', 'st.health.decks': n => `${n === 1 ? 'mazzo fa' : 'mazzi fanno'} metà del meta`,
   'st.health.tight': 'Formato concentrato: pochi mazzi dominano.', 'st.health.balanced': 'Formato equilibrato: c\'è spazio per diverse strategie.', 'st.health.open': 'Formato vario: tanti mazzi diversi si dividono il meta.',
   'st.health.top': 'Sono:', 'st.health.weeks': 'com’è cambiato nelle ultime 12 settimane (più in alto vuol dire più vario)',

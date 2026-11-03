@@ -1,8 +1,5 @@
 import { createRoot } from 'react-dom/client'
-import '@fontsource/alegreya-sans/400.css'
-import '@fontsource/alegreya-sans/500.css'
-import '@fontsource/alegreya-sans/700.css'
-import '@fontsource/alegreya-sans/800.css'
+import '@fontsource-variable/archivo/standard.css' // testo e titoli: un solo file per tutti i pesi e le larghezze (stretto per i titoli)
 import '@fontsource-variable/doto' // carattere a punti (stampante ad aghi) della nuova grafica
 import '@fontsource/caveat/latin-700.css' // solo per le note a penna
 import App from './App.jsx'

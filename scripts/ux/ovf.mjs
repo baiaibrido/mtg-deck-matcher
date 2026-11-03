@@ -1,7 +1,7 @@
 // Rifinitura (v0.39.1): nessun elemento deve uscire dallo schermo (360–1920 px). Serve il sito in anteprima su localhost:4174.
 import { chromium } from 'playwright'
 const b = await chromium.launch()
-for (const w of [360, 390, 820, 1280, 1920]) for (const path of ['/pauper', '/pauper/deck/pauper-burn', '/pauper/collection', '/pauper/key-cards', '/pauper/stats', '/privacy']) {
+for (const w of [360, 390, 820, 1280, 1920]) for (const path of ['/pauper', '/pauper/deck/pauper-burn', '/pauper/collection', '/pauper/key-cards', '/pauper/meta', '/privacy']) {
   const m = w < 700
   const ctx = await b.newContext({ viewport: { width: w, height: 900 }, isMobile: m, hasTouch: m, serviceWorkers: 'block' })
   await ctx.addInitScript(() => { localStorage.setItem('mdm.lang', 'it'); localStorage.setItem('mdm.collection', JSON.stringify([{ name: 'Lightning Bolt', qty: 4 }, { name: 'Counterspell', qty: 2 }])) })

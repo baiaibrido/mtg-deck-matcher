@@ -151,7 +151,7 @@ export default {
   'ach.curious': 'Curioso', 'ach.curious.d': 'Abra 25 decks diferentes', 'ach.rogue': 'Fora da curva', 'ach.rogue.d': 'Abra um deck rogue', 'ach.sleuth': 'Investigador', 'ach.sleuth.d': 'Adivinhe 5 decks',
   'ach.night': 'Coruja', 'ach.night.d': 'Procure decks entre meia-noite e 5 da manhã',
 
-  'nav.stats': 'Estatísticas', 'st.title': f => `Estatísticas de ${f}`, 'st.intro': 'Números calculados toda noite com todas as listas de torneios dos últimos meses, não só com a lista de exemplo de cada deck.',
+  'nav.stats': 'Meta', 'st.title': f => `Meta do ${f}`, 'st.intro': 'Números calculados toda noite com todas as listas de torneios dos últimos meses, não só com a lista de exemplo de cada deck.',
   'st.health': 'Saúde do formato', 'st.health.decks': n => `${n === 1 ? 'deck forma' : 'decks formam'} metade do meta`,
   'st.health.tight': 'Formato concentrado: poucos decks dominam.', 'st.health.balanced': 'Formato equilibrado: há espaço para várias estratégias.', 'st.health.open': 'Formato variado: muitos decks diferentes dividem o meta.',
   'st.health.top': 'São:', 'st.health.weeks': 'evolução nas últimas 12 semanas (mais alto = mais variado)',

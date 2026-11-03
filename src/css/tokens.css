@@ -1,115 +1,99 @@
 /* ═══════════ Token ═══════════
-   «La classifica stampata»: il foglio delle classifiche di un torneo su carta a modulo continuo.
-   Carta, inchiostro, righe verdi, nastro blu della stampante ad aghi, evidenziatore.
-   Un solo posto per colori, caratteri, spazi e misure: il resto del CSS usa solo questi nomi.
-   Scuro di default (carta grafite), chiaro con [data-theme="light"]. */
-
-@font-face { /* Alegreya Sans 800 con un nome suo: i titoli restano pieni anche con font-weight normale */
-  font-family: 'Netdeck Display'; font-style: normal; font-weight: 400; font-display: swap;
-  src: url('../../node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-800-normal.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Netdeck Display'; font-style: normal; font-weight: 400; font-display: swap;
-  src: url('../../node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-ext-800-normal.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+   «L'ufficio del torneo» (v0.40.0): una scrivania e sopra gli oggetti di carta di chi organizza un torneo
+   e vende carte. Ogni sezione è un oggetto diverso dello stesso ufficio, stampato con gli stessi inchiostri:
+   - classifica dei mazzi: tabulato a modulo continuo (righe verdi, fori di trascinamento)
+   - «Oggi nel meta»: blocco note a righe
+   - pagina del mazzo: modulo di iscrizione della lista (caselle con l'etichetta)
+   - mancolista e carte chiave: scontrino del negozio
+   - collezione: raccoglitore con i divisori colorati e le tasche per le carte
+   - Meta: bollettino stampato, a fogli
+   Inchiostri con un significato fisso: nero = stampa; blu penna = quello che hai scelto, link e note;
+   evidenziatore giallo = ti manca, verde = ce l'hai; timbri rossi = bannata/ristretta.
+   Il tema segue il dispositivo: chiaro di giorno, scuro (carta carbone) di sera.
+   Lo scontrino e il post-it restano chiari anche nel tema scuro: sono oggetti, non temi. */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* ── Carta e inchiostro ── */
-  --paper: #181b1d;      /* la carta (grafite) */
-  --sheet: #1f2427;      /* fogli, tagliandi, superfici */
-  --bar: #1e2826;        /* la riga verde del modulo continuo */
-  --ink: #e5e8e0;        /* inchiostro */
-  --ink-2: #a1aaa2;      /* inchiostro sbiadito: testo secondario */
-  --line: #3a4442;       /* linee di stampa, bordi quieti */
-  --line-2: #7a8681;     /* bordi dei campi: contrasto ≥ 3:1 (WCAG 1.4.11) */
-  --ribbon: #a9b6ff;     /* nastro blu della stampante: link, fuoco, accento */
-  --ribbon-ink: #14171a; /* testo sopra il nastro */
-  --marker: #e5d243;     /* evidenziatore */
+  /* ── Scrivania e fogli ── */
+  --desk: #dfe2dc;       /* piano della scrivania (laminato grigio-verde) */
+  --sheet: #fbfbf8;      /* foglio stampato */
+  --sheet-2: #eaf1e6;    /* riga verde del modulo continuo, fasce dei moduli */
+  --sheet-3: #f1f2ed;    /* caselle e campi dentro i moduli */
+  --ink: #1c2127;        /* stampa */
+  --ink-2: #555d66;      /* stampa leggera: testo secondario (6:1 sul foglio) */
+  --rule: #cdd2c9;       /* righe dei moduli, bordi dei fogli */
+  --rule-2: #7a8279;     /* bordi dei comandi (≥ 3:1) */
+  --pen: #2443b3;        /* biro blu: selezione, link, note a mano */
+  --pen-ink: #ffffff;
 
-  /* ── Stati ── */
-  --ok: #6fcf8e; --part: #e4b24c; --no: #f0806f; --no-ink: #ff9a8c; --danger: #f3a093;
+  /* ── Segni sulla carta ── */
+  --hl-miss: #ffe14d;    /* evidenziatore: ti manca */
+  --hl-ok: #a8ea8e;      /* evidenziatore: ce l'hai */
+  --hl-ink: #1c2127;
+  --stamp-ban: #bf3226; --stamp-rs: #a65a08; --stamp-ok: #1d7a3e; --stamp-date: #2443b3;
+  --ok: #1d7a3e; --part: #8f5c06; --no: #bf3226; --danger: #bf3226;
 
-  /* ── Colori di Magic ── */
-  --mana-w: #efe4bd; --mana-u: #4b97d6; --mana-b: #9a8ca8; --mana-r: #e2603e;
-  --mana-g: #41a364; --mana-gold: #d4ad5a; --mana-c: #a3abb0; --land: #8a7a5c;
+  /* ── Oggetti che restano chiari anche di sera ── */
+  --receipt: #fdfdfa; --receipt-ink: #23262a; --receipt-ink-2: #5d6168; --receipt-rule: #9da19a;
+  --postit: #fbe78a; --postit-ink: #2a2614;
+  --label: #23324f; --label-ink: #f4f6fb; /* nastro della etichettatrice */
 
-  /* ── Superfici sovrapposte ── */
-  --bar-bg: rgba(24, 27, 29, .94); --pop-bg: rgba(31, 36, 39, .98);
-  --overlay-bg: rgba(18, 20, 22, .9); --overlay-ink: #e5e8e0;
-  --track: rgba(255, 255, 255, .1); --shimmer: rgba(255, 255, 255, .04);
-  --placeholder: #87908a; --toast-link: #2c3a92;
-  --shadow-pop: 0 14px 36px rgba(0, 0, 0, .45);
+  /* ── Colori di Magic (dati, non decorazione) ── */
+  --mana-w: #c8b46e; --mana-u: #3f86c9; --mana-b: #8a7c98; --mana-r: #d65532;
+  --mana-g: #2f9157; --mana-gold: #b8913c; --mana-c: #8f979c; --land: #9b8a66;
 
-  /* ── Ufficio di carta: evidenziatori, timbri, penna ── */
-  --hl-miss: #f4dd3f; --hl-ok: #9be6a6; --hl-ink: #1d2126;
-  --stamp-ban: #ff8b7e; --stamp-rs: #ffb867; --stamp-ok: #7fe0a0; --stamp-date: var(--ribbon);
-  --pen: var(--ribbon);
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --ink-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.2 2.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  --hole: radial-gradient(circle at 50% 50%, var(--paper) 4.5px, color-mix(in oklab, var(--ink) 30%, var(--paper)) 5px, transparent 5.6px);
+  /* ── Profondità: carta appoggiata sulla scrivania ── */
+  --lift: 0 1px 0 rgba(28, 33, 39, .06), 0 10px 18px -12px rgba(28, 33, 39, .35);
+  --lift-hi: 0 2px 0 rgba(28, 33, 39, .05), 0 22px 40px -18px rgba(28, 33, 39, .45);
+  --scrim: rgba(28, 33, 39, .38);
+  --track: rgba(28, 33, 39, .1);
 
   /* ── Caratteri ── */
-  --font-ui: 'Alegreya Sans', system-ui, sans-serif;
-  --font-title: 'Netdeck Display', 'Alegreya Sans', system-ui, sans-serif;
-  --font-dot: 'Doto Variable', 'Courier New', monospace; /* numeri a punti: rank, percentuali, numeri grandi */
-  --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive; /* solo note a penna */
-  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; /* solo lo scontrino */
+  --f-text: 'Archivo Variable', 'Archivo', system-ui, sans-serif; /* moduli e stampati: una sola famiglia */
+  --f-num: 'Doto Variable', 'Courier New', monospace;            /* numeri a puntini, stampante ad aghi */
+  --f-pen: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;     /* solo note a penna */
+  --w-head: 72%;   /* larghezza dei titoli (Archivo stretto, come le intestazioni dei moduli) */
+  --w-label: 86%;  /* etichette e dati in colonna */
 
-  /* scala dei testi */
-  --fs-xs: .75rem;      /* 12  didascalie */
-  --fs-sm: .8125rem;    /* 13  dati secondari */
-  --fs-md: .875rem;     /* 14  testo secondario */
-  --fs-ctl: .9375rem;   /* 15  controlli */
-  --fs-body: 1.0625rem; /* 17  testo */
-  --fs-lg: 1.25rem;     /* 20  titolo di una voce */
-  --fs-xl: 1.5rem;      /* 24  titolo di sezione */
-  --fs-2xl: 2rem;       /* 32  titolo di pagina */
-  --fs-num: 2.75rem;    /* 44  numeri grandi a punti */
+  /* scala (telefono prima): 12 13 14 16 18 22 28 34 */
+  --fs-xs: .75rem; --fs-sm: .8125rem; --fs-md: .875rem; --fs-body: 1rem;
+  --fs-lg: 1.125rem; --fs-xl: 1.375rem; --fs-2xl: 1.75rem; --fs-3xl: 2.125rem; --fs-num: 2.75rem;
 
   /* ── Spazi (base 4) ── */
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
   --gutter: 16px;
 
-  /* ── Controlli: una sola altezza ── */
-  --ctl: 40px;       /* pulsanti, menu, campi, segmenti, linguette */
-  --ctl-sm: 34px;    /* controlli dentro le righe (contatore, cestino) */
-  --r: 3px;          /* raggio dei controlli */
-  --r-lg: 4px;       /* raggio dei fogli */
-
-  /* ── Movimento ── */
+  /* ── Comandi ── */
+  --ctl: 40px; --ctl-sm: 34px;
+  --r: 3px;        /* angoli di carta: appena smussati */
+  --r-lg: 4px;
   --ease: cubic-bezier(.2, .8, .2, 1);
 
   /* misure calcolate da JS */
   --tabbar-h: 0px;
 }
-
-/* dita: bersagli da 44px */
 @media (pointer: coarse) { :root { --ctl: 44px; --ctl-sm: 44px; } }
+@media (min-width: 900px) { :root { --fs-2xl: 2rem; --fs-3xl: 2.5rem; } }
 
-:root[data-theme="light"] {
-  color-scheme: light;
-  --paper: #e8ebe3; --sheet: #f1f3ed; --bar: #d7e3d0; --ink: #23272c; --ink-2: #545c55;
-  --line: #b4bdb0; --line-2: #7d877c; --ribbon: #2c3a92; --ribbon-ink: #f6f7f2; --marker: #f1df4b;
-  --ok: #1d6636; --part: #85590a; --no: #b02d24; --no-ink: #b02d24; --danger: #b02d24;
-  --mana-w: #c8b46e; --mana-c: #8f979c; --mana-gold: #b8913c; --land: #9b8a66;
-  --bar-bg: rgba(232, 235, 227, .94); --pop-bg: rgba(241, 243, 237, .98);
-  --overlay-bg: rgba(241, 243, 237, .94); --overlay-ink: #23272c;
-  --track: rgba(35, 39, 44, .12); --shimmer: rgba(0, 0, 0, .04);
-  --placeholder: #6b7369; --toast-link: #c3ccff;
-  --shadow-pop: 0 14px 36px rgba(35, 39, 44, .18);
-  --stamp-ban: #b02d24; --stamp-rs: #8f4a06; --stamp-ok: #0f6b33;
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --desk: #15181a; --sheet: #20252a; --sheet-2: #1c2a26; --sheet-3: #262c31;
+  --ink: #e6e9e3; --ink-2: #a2aaa4; --rule: #363f44; --rule-2: #7b8781;
+  --pen: #a9b8ff; --pen-ink: #121520;
+  --hl-miss: #f0d548; --hl-ok: #93dea0; --hl-ink: #191c20;
+  --stamp-ban: #ff8b7e; --stamp-rs: #ffb867; --stamp-ok: #7fe0a0; --stamp-date: #a9b8ff;
+  --ok: #7fe0a0; --part: #ecb95a; --no: #ff8b7e; --danger: #ff8b7e;
+  --receipt: #f2f0e8; --postit: #ead775;
+  --mana-w: #efe4bd; --mana-u: #4b97d6; --mana-b: #9a8ca8; --mana-r: #e2603e; --mana-g: #41a364; --mana-gold: #d4ad5a; --mana-c: #a3abb0; --land: #8a7a5c;
+  --lift: 0 1px 0 rgba(0, 0, 0, .35), 0 12px 22px -12px rgba(0, 0, 0, .7);
+  --lift-hi: 0 2px 0 rgba(0, 0, 0, .3), 0 24px 44px -16px rgba(0, 0, 0, .8);
+  --scrim: rgba(8, 10, 12, .62);
+  --track: rgba(255, 255, 255, .12);
 }
 
-/* Giapponese: i font del sito non hanno i kana/kanji → font giapponesi di sistema subito dopo */
-:root:lang(ja) {
-  --font-title: 'Netdeck Display', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans JP', system-ui, sans-serif;
-  --font-ui: 'Alegreya Sans', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans JP', system-ui, sans-serif;
-}
+/* Giapponese: Archivo non ha kana/kanji → font giapponesi di sistema subito dopo */
+:root:lang(ja) { --f-text: 'Archivo Variable', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Meiryo', 'Noto Sans JP', system-ui, sans-serif; }
 
-/* «più contrasto» nel sistema: i numeri a punti tornano un carattere pieno */
-@media (prefers-contrast: more) { :root { --font-dot: var(--font-title); } }
+/* «più contrasto» nel sistema: i numeri a puntini tornano un carattere pieno */
+@media (prefers-contrast: more) { :root { --f-num: var(--f-text); } }

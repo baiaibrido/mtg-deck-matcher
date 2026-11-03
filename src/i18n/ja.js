@@ -148,7 +148,7 @@ export default {
   'ach.curious': '好奇心', 'ach.curious.d': '25種類のデッキを開く', 'ach.rogue': '少数派', 'ach.rogue.d': 'ローグデッキを開く', 'ach.sleuth': '捜査官', 'ach.sleuth.d': 'デッキを5回当てる',
   'ach.night': '夜ふかし', 'ach.night.d': '深夜0時から5時の間にデッキを探す',
 
-  'nav.stats': '統計', 'st.title': f => `${f}の統計`, 'st.intro': '各デッキのサンプルリストだけでなく、直近数か月の大会リストすべてから毎晩計算した数値です。',
+  'nav.stats': 'メタ', 'st.title': f => `${f}のメタ`, 'st.intro': '各デッキのサンプルリストだけでなく、直近数か月の大会リストすべてから毎晩計算した数値です。',
   'st.health': 'フォーマットの健全度', 'st.health.decks': n => `デッキでメタの半分`,
   'st.health.tight': '集中したフォーマット：少数のデッキが支配。', 'st.health.balanced': 'バランスの取れたフォーマット：複数の戦略に余地あり。', 'st.health.open': '多様なフォーマット：多くのデッキがメタを分け合う。',
   'st.health.top': '内訳：', 'st.health.weeks': '直近12週の推移（高いほど多様）',
