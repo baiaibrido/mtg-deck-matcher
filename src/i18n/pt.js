@@ -22,7 +22,7 @@ export default {
 
   'decks.stale': d => `Os dados do meta podem estar desatualizados: a última atualização foi há ${d} dias.`,
   loadCollection: 'Adicionar cartas',
-  allTiers: 'Todos os tiers', colors: 'Cores do deck', clearColors: 'Limpar',
+  allTiers: 'Todos os tiers', clearColors: 'Limpar',
   'decks.none': f => `Nenhum deck disponível para ${f}. Você pode adicionar um manualmente.`,
   'decks.noneFilter': 'Nenhum deck com esses filtros.', 'decks.tryColor': 'Tente adicionar uma cor.',
   'decks.loadingScry': 'Carregando cores e preços das cartas no Scryfall…',

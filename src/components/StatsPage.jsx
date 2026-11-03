@@ -50,7 +50,7 @@ function ValueChart({ points, onOpen }) {
 
 export default function StatsPage({ meta, ranked, format, formatName, colorsOf, costOf, hasCollection, onOpen }) {
   const [prices, setPrices] = useState(undefined)
-  useEffect(() => { setPrices(undefined); loadPrices(format).then(setPrices) }, [format])
+  useEffect(() => { let alive = true; setPrices(undefined); loadPrices(format).then(p => alive && setPrices(p)); return () => { alive = false } }, [format])
   const decks = meta || [], st = meta?.stats
   const hl = useMemo(() => health(decks), [meta])
   const pts = useMemo(() => valuePoints(ranked, getCached, hasCollection ? costOf : null), [ranked, meta, hasCollection])

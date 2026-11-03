@@ -21,7 +21,7 @@ export default {
 
   'decks.stale': d => `The decks may be out of date. The last update was ${d} days ago.`,
   loadCollection: 'Add cards',
-  allTiers: 'All tiers', colors: 'Deck colors', clearColors: 'Clear',
+  allTiers: 'All tiers', clearColors: 'Clear',
   'decks.none': f => `There are no ${f} decks yet. You can add one yourself by pasting the list.`,
   'decks.noneFilter': 'No decks match the filters you picked.', 'decks.tryColor': 'Try adding another color.',
   'decks.loadingScry': 'Loading card colors and prices from Scryfall…',

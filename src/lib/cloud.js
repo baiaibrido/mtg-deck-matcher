@@ -4,7 +4,7 @@
 import { initializeApp } from 'firebase/app'
 import {
   getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signInWithRedirect,
-  sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, signOut, deleteUser,
+  sendSignInLinkToEmail, signInWithEmailLink, signOut, deleteUser,
 } from 'firebase/auth'
 import { initializeFirestore, doc, onSnapshot, setDoc, deleteDoc, serverTimestamp } from 'firebase/firestore'
 
@@ -37,7 +37,6 @@ export async function sendLink(email, lang) {
   auth.languageCode = lang
   await sendSignInLinkToEmail(auth, email, { url: `${location.origin}/collection`, handleCodeInApp: true })
 }
-export const isLink = href => isSignInWithEmailLink(auth, href)
 export const finishLink = (email, href) => signInWithEmailLink(auth, email, href)
 
 // cb(dati | null, scrittura ancora in viaggio da questo dispositivo)

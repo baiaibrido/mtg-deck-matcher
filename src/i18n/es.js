@@ -21,7 +21,7 @@ export default {
 
   'decks.stale': d => `Los datos del meta podrían no estar actualizados: la última actualización fue hace ${d} días.`,
   loadCollection: 'Añadir cartas',
-  allTiers: 'Todos los tiers', colors: 'Colores del mazo', clearColors: 'Borrar',
+  allTiers: 'Todos los tiers', clearColors: 'Borrar',
   'decks.none': f => `No hay mazos disponibles para ${f}. Puedes añadir uno a mano.`,
   'decks.noneFilter': 'Ningún mazo con estos filtros.', 'decks.tryColor': 'Prueba a añadir un color.',
   'decks.loadingScry': 'Cargando colores y precios de las cartas desde Scryfall…',

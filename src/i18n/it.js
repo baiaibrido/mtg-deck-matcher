@@ -23,7 +23,7 @@ export default {
 
   'decks.stale': d => `I mazzi potrebbero non essere aggiornati. L'ultimo aggiornamento è di ${d} giorni fa.`,
   loadCollection: 'Aggiungi carte',
-  allTiers: 'Tutti i tier', colors: 'Colori del mazzo', clearColors: 'Azzera',
+  allTiers: 'Tutti i tier', clearColors: 'Azzera',
   'decks.none': f => `Per ${f} non ci sono ancora mazzi. Puoi aggiungerne uno tu incollando la lista.`,
   'decks.noneFilter': 'Nessun mazzo corrisponde ai filtri scelti.', 'decks.tryColor': 'Prova ad aggiungere un altro colore.',
   'decks.loadingScry': 'Sto caricando colori e prezzi delle carte da Scryfall…',

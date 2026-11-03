@@ -100,7 +100,7 @@ export default function App() {
     fetch(`${import.meta.env.BASE_URL}meta/rates.json`).then(r => r.ok ? r.json() : null).then(j => { if (j?.rates) { setRates(j.rates); setTick(n => n + 1) } }).catch(() => {})
   }, [])
   const [meta, setMeta] = useState(null)
-  useEffect(() => { setMeta(null); loadMetaDecks(format).then(setMeta) }, [format])
+  useEffect(() => { let alive = true; setMeta(null); loadMetaDecks(format).then(m => alive && setMeta(m)); return () => { alive = false } }, [format]) // risposta di un formato lasciato: ignorata
   const metaMain = useMemo(() => (meta || []).filter(d => !d.rogue), [meta])
   const decks = useMemo(() => [...metaMain, ...userDecks.filter(d => d.format === format)], [metaMain, userDecks, format])
   const ranked = useMemo(() => rankDecks(decks, collection, Infinity), [decks, collection])
@@ -198,7 +198,7 @@ export default function App() {
               onOpen={id => go('deck', id)} idOf={name => ranked.find(x => x.deck.name === name)?.deck.id}
               pinned={pins.includes(sel.deck.id)} onPin={togglePin} decks={meta || []} owned={ownedMap} hasColl={collection.length > 0}
               onOwnDeck={() => ownDeck(sel)}
-              onBack={() => history.length > 1 ? history.back() : go('decks')}
+              onBack={() => history.state?.app ? history.back() : go('decks')}
               onDelete={sel.deck.source === 'utente' ? () => { setUserDecks(userDecks.filter(d => d.id !== sel.deck.id)); go('decks') } : null} />
           )}
 

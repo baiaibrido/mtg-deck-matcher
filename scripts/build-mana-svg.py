@@ -1,15 +1,15 @@
 # Simboli di mana come disegni vettoriali (v0.39.2): genera src/lib/manaGlyphs.js dal font mana ridotto.
 # Ogni simbolo è centrato sul suo ingombro reale, così nel cerchio sta al centro a qualsiasi dimensione
 # (con il font, a dimensioni piccole lo schermo arrotondava la posizione e i simboli uscivano storti).
-# Uso: pip install fonttools brotli && python3 scripts/build-mana-svg.py
+# Uso (dopo npm install, anche per aggiornare mana-font): pip install fonttools brotli && python3 scripts/build-mana-svg.py
 import re, json
 from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.boundsPen import BoundsPen
 
-font = TTFont('src/fonts/mana-cost.woff2'); cmap = font.getBestCmap(); gs = font.getGlyphSet()
-css = open('src/mana-cost.css').read()
+font = TTFont('node_modules/mana-font/fonts/mana.woff2'); cmap = font.getBestCmap(); gs = font.getGlyphSet()
+css = open('node_modules/mana-font/css/mana.css').read()
 code = {s: int(c, 16) for s, c in re.findall(r'\.ms-([a-z0-9]+)::before\s*\{\s*content:\s*"\\(e[0-9a-f]{3})"', css)}
 NEED = ['w', 'u', 'b', 'r', 'g', 'c', 's', 'x', 'y', 'z', 'p'] + [str(n) for n in range(21)]
 EM = 1024

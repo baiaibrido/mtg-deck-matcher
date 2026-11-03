@@ -19,7 +19,7 @@ export default {
 
   'decks.stale': d => `メタのデータが古い可能性があります（最終更新は${d}日前）。`,
   loadCollection: 'カードを追加',
-  allTiers: 'すべてのTier', colors: 'デッキの色', clearColors: 'クリア',
+  allTiers: 'すべてのTier', clearColors: 'クリア',
   'decks.none': f => `${f}のデッキはありません。手動で追加できます。`,
   'decks.noneFilter': 'この条件に合うデッキはありません。', 'decks.tryColor': '色を追加してみてください。',
   'decks.loadingScry': 'Scryfallからカードの色と価格を読み込み中…',

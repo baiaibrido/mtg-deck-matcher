@@ -36,7 +36,8 @@ const read = () => parsePath(location.pathname, location.hash)
 export function go(page, id, { replace = false, format } = {}) {
   const url = pathOf(page, { id, format: NO_FORMAT.includes(page) ? null : (format ?? navFormat) })
   if (url === location.pathname && !location.hash) return
-  history[replace ? 'replaceState' : 'pushState'](history.state?.modal ? null : history.state, '', url)
+  // { app: true }: questa voce della cronologia l'ha aggiunta il sito, quindi «indietro» resta nel sito
+  history[replace ? 'replaceState' : 'pushState'](replace ? (history.state?.modal ? null : history.state) : { app: true }, '', url)
   dispatchEvent(new Event('routechange'))
 }
 

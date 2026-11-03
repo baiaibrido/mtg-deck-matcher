@@ -6,3 +6,5 @@ Servono Playwright e l'anteprima della build in ascolto su http://localhost:4174
 - `node scripts/ux/quick.mjs <cartella> <percorso> <schermi> [temi] [nuovo]` — una pagina sola (QLANG=en per un'altra lingua).
 - `node scripts/ux/extras.mjs <cartella> [schermi] [temi]` — stati rari: menu aperti, «?», conferme, risultato del quiz, partita finita.
 - `node scripts/ux/audit2.mjs` — controlla le regole: altezza dei controlli, niente sbordi, titolo su una riga, primo mazzo visibile, menu e suggerimenti dentro lo schermo.
+- `node scripts/ux/measure.mjs <percorso> <larghezza> [fresh]` — distanze fuori scala, margini interni asimmetrici, celle con vuoto in fondo, bordi quasi allineati.
+- `node scripts/ux/ovf.mjs` — niente deve uscire dallo schermo, da 360 a 1920 px.
