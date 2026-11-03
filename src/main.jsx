@@ -5,7 +5,6 @@ import '@fontsource/alegreya-sans/700.css'
 import '@fontsource/alegreya-sans/800.css'
 import '@fontsource-variable/doto' // carattere a punti (stampante ad aghi) della nuova grafica
 import '@fontsource/caveat/latin-700.css' // solo per le note a penna
-import './mana-cost.css' // simboli di mana ridotti (scripts/build-mana-subset.py)
 import App from './App.jsx'
 // Grafica «la classifica stampata»: un solo sistema (token → base → controlli → impaginazione → carta → pagine)
 import './css/tokens.css'

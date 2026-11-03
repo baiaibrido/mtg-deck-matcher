@@ -3,7 +3,7 @@ import { t, num } from '../../i18n/index.js'
 import { quizMatch } from '../../lib/fun.js'
 import { signatureOf } from '../../lib/daily.js'
 import { money } from '../../lib/currency.js'
-import { ColorPips } from '../Mana.jsx'
+import { ColorPips, ManaSymbol } from '../Mana.jsx'
 import { QuizIcon } from '../GameIcons.jsx'
 import CardFace from './CardFace.jsx'
 
@@ -56,7 +56,7 @@ export default function Quiz({ decks, getCard, colorsOf, isLand, onGo, onDone })
         <div className={`quiz-opts${k === 'color' ? ' quiz-colors' : ''}`}>
           {opts.map((v, i) => (
             <button key={v} className="quiz-opt" style={{ '--i': i }} onClick={() => answer(k, v)}>
-              {k === 'color' && v !== 'any' ? <i className={`ms ms-${v.toLowerCase()} ms-cost`} aria-hidden="true" /> : <span className="quiz-ic" aria-hidden="true"><QuizIcon q={k} v={v} /></span>}
+              {k === 'color' && v !== 'any' ? <ManaSymbol s={v.toLowerCase()} /> : <span className="quiz-ic" aria-hidden="true"><QuizIcon q={k} v={v} /></span>}
               {label(k, v)}
             </button>
           ))}

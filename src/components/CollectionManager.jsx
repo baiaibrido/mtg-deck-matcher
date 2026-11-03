@@ -15,7 +15,7 @@ import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { loadTags } from '../lib/tagsLoader.js' // tag di Scryfall: caricati solo quando si aprono i filtri
 import { useSession } from '../state/useSession.js'
 import { useWinWidth } from '../state/useMedia.js'
-import { ManaCost } from './Mana.jsx'
+import { ManaCost, ManaSymbol } from './Mana.jsx'
 import { SyncLine } from './Account.jsx'
 import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter } from './Icons.jsx'
 
@@ -284,7 +284,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {(() => {
         const p = personality(collection, getCached); if (!p) return null
         const who = p.kind === 'mono' ? t('pers.mono', t(`color.${p.color}`)) : p.guild
-        return <p className="pers">{p.kind === 'mono' && <i className={`ms ms-${p.color.toLowerCase()} ms-cost`} aria-hidden="true" />}{t('pers.line', who, p.pct)}
+        return <p className="pers">{p.kind === 'mono' && <ManaSymbol s={p.color.toLowerCase()} />}{t('pers.line', who, p.pct)}
           {best && best.score > 0 && <> {t('pers.best')} <button className="linklike" onClick={() => onOpen(best.deck.id)}>{best.deck.name}</button> ({Math.round(best.score * 100)}%).</>}</p>
       })()}
       {nudge && (

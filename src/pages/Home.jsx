@@ -9,6 +9,7 @@ import DeckList, { PinnedList } from '../components/DeckList.jsx'
 import MetaImporter from '../components/MetaImporter.jsx'
 import Picker from '../components/Picker.jsx'
 import { Info } from '../components/Badges.jsx'
+import { ManaSymbol } from '../components/Mana.jsx'
 import { IconClip, IconFilter, IconChevron, IconTarget, IconChili } from '../components/Icons.jsx'
 import { useMedia } from '../state/useMedia.js'
 
@@ -142,7 +143,7 @@ export default function Home({ format, formatName, meta, metaMain, decks, ranked
             <span className="seg seg-icons seg-colors" role="group" aria-label={t('colors.hint')} title={t('colors.hint')}>
               {WUBRG.map(c => (
                 <button key={c} aria-pressed={view.colors.includes(c)} onClick={() => toggleColor(c)} title={colorName(c)} aria-label={colorName(c)}>
-                  <i className={`ms ms-${c.toLowerCase()} ms-cost`} />
+                  <ManaSymbol s={c.toLowerCase()} />
                 </button>
               ))}
             </span>

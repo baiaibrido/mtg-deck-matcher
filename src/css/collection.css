@@ -34,7 +34,7 @@
 @media (pointer: coarse) { .spine a { min-height: 44px; } }
 /* «La tua collezione urla…» */
 .pers { color: var(--ink-2); font-size: var(--fs-md); }
-.pers > .ms { margin-right: 8px; font-size: .9em; }
+.pers > .msym { margin-right: 8px; font-size: .9em; }
 .pers .linklike { color: var(--ink); }
 /* promemoria backup: non è un errore, niente rosso */
 .backup-nudge { border-color: color-mix(in oklab, var(--ribbon) 45%, var(--line)); background: color-mix(in oklab, var(--ribbon) 7%, var(--sheet)); }

@@ -71,7 +71,8 @@
 }
 .quiz-opt:focus-visible { border-color: var(--ink); background: var(--bar); }
 @media (hover: hover) and (pointer: fine) { .quiz-opt:hover { border-color: var(--ink); background: var(--bar); } }
-.quiz-opt > span:first-child, .quiz-opt > i { flex: none; width: 1.4em; font-size: 1.25rem; text-align: center; }
+.quiz-opt > span:first-child { flex: none; width: 1.4em; font-size: 1.25rem; text-align: center; }
+.quiz-opt > .msym { font-size: 1.25rem; margin: 0 .08em; } /* largo 1,235em: al centro della stessa colonna da 1,4em delle icone */
 .quiz-ic { display: grid; place-items: center; color: var(--ink-2); }
 .quiz-opt:focus-visible .quiz-ic { color: var(--ink); }
 @media (hover: hover) and (pointer: fine) { .quiz-opt:hover .quiz-ic { color: var(--ink); } }

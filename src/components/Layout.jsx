@@ -4,6 +4,7 @@ import { CURRENCIES, currencySymbol } from '../lib/currency.js'
 import { linkProps } from '../state/useRoute.js'
 import { useMedia } from '../state/useMedia.js'
 import Picker from './Picker.jsx'
+import { ManaSymbol } from './Mana.jsx'
 import { IconDecks, IconBox, IconKey, IconSun, IconMoon, IconGlobe, IconCoins, IconChart, IconUser } from './Icons.jsx'
 
 const smooth = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
@@ -26,7 +27,7 @@ export function TopBar({ current, count, lang, onLang, cur, onCur, theme, onThem
   return (
     <header className={`topbar${compact ? ' compact' : ''}`} ref={headRef}>
       <a className="brand" {...linkProps('decks')} aria-label={t('home')}>
-        <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <i key={c} className={`ms ms-${c} ms-cost`} />)}</span>
+        <span className="brand-mark" aria-hidden="true">{['w', 'u', 'b', 'r', 'g'].map(c => <ManaSymbol key={c} s={c} />)}</span>
         <span className="brand-name">Netdeckable</span>
       </a>
       <nav className="nav-top" aria-label={t('sections')}>
