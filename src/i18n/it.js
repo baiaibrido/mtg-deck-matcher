@@ -160,7 +160,7 @@ export default {
   'ach.curious': 'Curioso', 'ach.curious.d': 'Apri 25 mazzi diversi', 'ach.rogue': 'Fuori dal coro', 'ach.rogue.d': 'Apri un mazzo rogue', 'ach.sleuth': 'Investigatore', 'ach.sleuth.d': 'Indovina 5 mazzi',
   'ach.night': 'Nottambulo', 'ach.night.d': 'Cerca mazzi tra mezzanotte e le 5',
 
-  'nav.stats': 'Meta', 'st.title': f => `Meta ${f}`, 'st.intro': 'Numeri calcolati ogni notte su tutte le liste dei tornei degli ultimi due mesi. Di ogni mazzo contano tutte le liste, anche quelle che non vedi nella sua pagina.',
+  'nav.stats': 'Statistiche', 'st.title': f => `Statistiche ${f}`, 'st.intro': 'Numeri calcolati ogni notte su tutte le liste dei tornei degli ultimi due mesi. Di ogni mazzo contano tutte le liste, anche quelle che non vedi nella sua pagina.',
   'st.health': 'Salute del formato', 'st.health.decks': n => `${n === 1 ? 'mazzo fa' : 'mazzi fanno'} metà del meta`,
   'st.health.tight': 'Formato concentrato: pochi mazzi dominano.', 'st.health.balanced': 'Formato equilibrato: c\'è spazio per diverse strategie.', 'st.health.open': 'Formato vario: tanti mazzi diversi si dividono il meta.',
   'st.health.top': 'Sono:', 'st.health.weeks': 'com’è cambiato nelle ultime 12 settimane (più in alto vuol dire più vario)',
@@ -288,8 +288,6 @@ export default {
   'wx.bulletin.introPrev': 'Tutti i mazzi di Tier 1 e 2, dal più giocato, con la quota nel meta di oggi e di quanti punti è cambiata dall’aggiornamento precedente.',
   'guess.go': 'Prova',
   'big.share': 'del meta', 'big.meta': 'contro il meta', 'big.cost': 'il mazzo intero',
-  'col.rank': 'Pos.', 'col.deck': 'Mazzo', 'col.share': 'Quota', 'col.trend': 'Andamento', 'col.wr': 'Contro il meta', 'col.need': 'Per finirlo', 'col.cost': 'Costo', 'col.done': 'Completo',
-  'st.edition': d => `Edizione del ${d}`,
   'st.ch.format': 'Il formato', 'st.ch.format.intro': 'Il formato nel suo insieme: quanto è vario, chi arriva in top 8 più spesso del previsto e quanto vince ogni mazzo per quello che costa.',
   'st.ch.cards': 'Le carte', 'st.ch.cards.intro': 'Le singole carte: quali entrano nelle liste e quali ne escono, quali costano ancora poco e cosa si gioca in sideboard.',
 }

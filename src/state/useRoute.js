@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
 // Indirizzi veri (leggibili da Google e condivisibili): /pauper, /pauper/deck/<id>, /pauper/key-cards,
-// /pauper/meta, /collection. Il formato nell'indirizzo è facoltativo (/deck/<id> usa quello scelto).
+// /pauper/stats, /collection. Il formato nell'indirizzo è facoltativo (/deck/<id> usa quello scelto).
 // I vecchi indirizzi con l'hash (#/deck/…, anche quelli italiani #/mazzo/…) vengono convertiti.
-const PAGES = ['decks', 'deck', 'key-cards', 'collection', 'meta', 'privacy']
+const PAGES = ['decks', 'deck', 'key-cards', 'collection', 'stats', 'privacy']
 const NO_FORMAT = ['collection', 'privacy'] // pagine senza formato nell'indirizzo
-const LEGACY = { mazzi: 'decks', mazzo: 'deck', carte: 'key-cards', collezione: 'collection', stats: 'meta' } // stats: la pagina Meta si chiamava Statistiche
+const LEGACY = { mazzi: 'decks', mazzo: 'deck', carte: 'key-cards', collezione: 'collection' }
 
 export const parseHash = hash => {
   const [, raw = 'decks', id] = hash.replace(/^#/, '').split('/')
@@ -17,7 +17,7 @@ export function parsePath(pathname = '/', hash = '') {
   const parts = pathname.split('/').filter(Boolean).map(p => { try { return decodeURIComponent(p) } catch { return p } })
   const format = parts[0] && !PAGES.includes(parts[0]) && !LEGACY[parts[0]] ? parts.shift() : null
   const [raw = 'decks', id = null] = parts
-  return { page: LEGACY[raw] || raw, id, format, fromHash: false, ...(LEGACY[raw] ? { legacy: true } : {}) }
+  return { page: LEGACY[raw] || raw, id, format, fromHash: false }
 }
 
 export function pathOf(page, { id = null, format = null } = {}) {
@@ -45,7 +45,6 @@ export function useRoute() {
   const [route, setRoute] = useState(() => {
     const r = read()
     if (r.fromHash) history.replaceState(null, '', pathOf(r.page, { id: r.id })) // #/deck/x → /deck/x
-    else if (r.legacy) history.replaceState(history.state, '', pathOf(r.page, r)) // /pauper/stats → /pauper/meta
     return r
   })
   useEffect(() => {

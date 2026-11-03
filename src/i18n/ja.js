@@ -148,7 +148,7 @@ export default {
   'ach.curious': '好奇心', 'ach.curious.d': '25種類のデッキを開く', 'ach.rogue': '少数派', 'ach.rogue.d': 'ローグデッキを開く', 'ach.sleuth': '捜査官', 'ach.sleuth.d': 'デッキを5回当てる',
   'ach.night': '夜ふかし', 'ach.night.d': '深夜0時から5時の間にデッキを探す',
 
-  'nav.stats': 'メタ', 'st.title': f => `${f}のメタ`, 'st.intro': '各デッキのサンプルリストだけでなく、直近数か月の大会リストすべてから毎晩計算した数値です。',
+  'nav.stats': '統計', 'st.title': f => `${f}の統計`, 'st.intro': '各デッキのサンプルリストだけでなく、直近数か月の大会リストすべてから毎晩計算した数値です。',
   'st.health': 'フォーマットの健全度', 'st.health.decks': n => `デッキでメタの半分`,
   'st.health.tight': '集中したフォーマット：少数のデッキが支配。', 'st.health.balanced': 'バランスの取れたフォーマット：複数の戦略に余地あり。', 'st.health.open': '多様なフォーマット：多くのデッキがメタを分け合う。',
   'st.health.top': '内訳：', 'st.health.weeks': '直近12週の推移（高いほど多様）',
@@ -276,8 +276,6 @@ export default {
   'wx.bulletin.introPrev': 'Tier 1と2のすべてのデッキ（使用率順）：現在の使用率と、前回の更新からの変化。',
   'guess.go': '回答',
   'big.share': 'メタ使用率', 'big.meta': '対メタ勝率', 'big.cost': 'デッキ全体',
-  'col.rank': '順位', 'col.deck': 'デッキ', 'col.share': 'シェア', 'col.trend': '推移', 'col.wr': '対メタ', 'col.need': '完成まで', 'col.cost': 'コスト', 'col.done': '完成度',
-  'st.edition': d => `${d}号`,
   'st.ch.format': 'フォーマット', 'st.ch.format.intro': 'フォーマット全体の様子：どれだけ多様か、予想以上にトップ8に入るデッキ、価格に対してどれだけ勝てるか。',
   'st.ch.cards': 'カード', 'st.ch.cards.intro': '個々のカード：リストに増えているもの・減っているもの、まだ安いもの、サイドボードでよく使われるもの。',
 }

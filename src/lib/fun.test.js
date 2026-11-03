@@ -20,7 +20,7 @@ test('indovina: stesso mazzo tutto il giorno, carte dalla più comune alla più 
   assert.equal(guessDeck(decks, 'pauper', '2026-10-15').name, guessDeck(decks, 'pauper', '2026-10-15').name)
   const order = revealOrder(decks[0], decks)
   assert.equal(order[0], 'Common'); assert.ok(!order.includes('Mountain')); assert.equal(order.length, 3)
-  assert.equal(shareGrid(['A', 'B', 'X'], 'X'), '🟥🟥🟩⬛⬛⬛') // taste-skill-ignore: test della griglia
+  assert.equal(shareGrid(['A', 'B', 'X'], 'X'), '🟥🟥🟩⬛⬛⬛')
 })
 test('indovina: tra i 50 più giocati e mai lo stesso mazzo per 5 giorni', () => {
   const many = Array.from({ length: 60 }, (_, i) => mk(`D${i}`, 60 - i, []))

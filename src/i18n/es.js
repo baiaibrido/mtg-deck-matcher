@@ -150,7 +150,7 @@ export default {
   'ach.curious': 'Curioso', 'ach.curious.d': 'Abre 25 mazos distintos', 'ach.rogue': 'A contracorriente', 'ach.rogue.d': 'Abre un mazo rogue', 'ach.sleuth': 'Investigador', 'ach.sleuth.d': 'Adivina 5 mazos',
   'ach.night': 'Noctámbulo', 'ach.night.d': 'Busca mazos entre medianoche y las 5',
 
-  'nav.stats': 'Meta', 'st.title': f => `Meta de ${f}`, 'st.intro': 'Números calculados cada noche con todas las listas de torneos de los últimos meses, no solo con la lista de ejemplo de cada mazo.',
+  'nav.stats': 'Estadísticas', 'st.title': f => `Estadísticas de ${f}`, 'st.intro': 'Números calculados cada noche con todas las listas de torneos de los últimos meses, no solo con la lista de ejemplo de cada mazo.',
   'st.health': 'Salud del formato', 'st.health.decks': n => `${n === 1 ? 'mazo forma' : 'mazos forman'} la mitad del meta`,
   'st.health.tight': 'Formato concentrado: pocos mazos dominan.', 'st.health.balanced': 'Formato equilibrado: hay sitio para varias estrategias.', 'st.health.open': 'Formato variado: muchos mazos distintos se reparten el meta.',
   'st.health.top': 'Son:', 'st.health.weeks': 'evolución en las últimas 12 semanas (más alto = más variado)',
@@ -278,8 +278,6 @@ export default {
   'wx.bulletin.introPrev': 'Todos los mazos de Tier 1 y 2, del más jugado: cuota en el meta de hoy y cuántos puntos ha cambiado desde la actualización anterior.',
   'guess.go': 'Probar',
   'big.share': 'del meta', 'big.meta': 'contra el meta', 'big.cost': 'el mazo entero',
-  'col.rank': 'Pos.', 'col.deck': 'Mazo', 'col.share': 'Cuota', 'col.trend': 'Tendencia', 'col.wr': 'Vs. meta', 'col.need': 'Para acabarlo', 'col.cost': 'Coste', 'col.done': 'Completo',
-  'st.edition': d => `Edición del ${d}`,
   'st.ch.format': 'El formato', 'st.ch.format.intro': 'El formato en conjunto: lo variado que es, qué mazos llegan al top 8 más de lo esperado y cuánto gana cada mazo para lo que cuesta.',
   'st.ch.cards': 'Las cartas', 'st.ch.cards.intro': 'Las cartas una a una: cuáles entran en las listas y cuáles salen, cuáles siguen siendo baratas y qué se juega en el banquillo.',
 }

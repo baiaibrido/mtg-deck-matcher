@@ -150,7 +150,7 @@ export default {
   'ach.curious': 'Curious', 'ach.curious.d': 'Open 25 different decks', 'ach.rogue': 'Off the beaten path', 'ach.rogue.d': 'Open a rogue deck', 'ach.sleuth': 'Sleuth', 'ach.sleuth.d': 'Guess 5 decks',
   'ach.night': 'Night owl', 'ach.night.d': 'Browse decks between midnight and 5 am',
 
-  'nav.stats': 'Meta', 'st.title': f => `${f} meta`, 'st.intro': 'Numbers worked out every night from all the tournament lists of the last two months. Every list of a deck counts, including the ones you don’t see on its page.',
+  'nav.stats': 'Stats', 'st.title': f => `${f} stats`, 'st.intro': 'Numbers worked out every night from all the tournament lists of the last two months. Every list of a deck counts, including the ones you don’t see on its page.',
   'st.health': 'Format health', 'st.health.decks': n => `${n === 1 ? 'deck makes' : 'decks make'} up half the meta`,
   'st.health.tight': 'Concentrated format: a few decks dominate.', 'st.health.balanced': 'Balanced format: room for several strategies.', 'st.health.open': 'Diverse format: many different decks share the meta.',
   'st.health.top': 'They are:', 'st.health.weeks': 'how it changed over the last 12 weeks (higher means more diverse)',
@@ -278,8 +278,6 @@ export default {
   'wx.bulletin.introPrev': 'All Tier 1 and 2 decks, most played first, with today’s meta share and how many points it moved since the previous update.',
   'guess.go': 'Guess',
   'big.share': 'of the meta', 'big.meta': 'vs the meta', 'big.cost': 'full deck',
-  'col.rank': 'Pos.', 'col.deck': 'Deck', 'col.share': 'Share', 'col.trend': 'Trend', 'col.wr': 'Vs. meta', 'col.need': 'To finish', 'col.cost': 'Cost', 'col.done': 'Complete',
-  'st.edition': d => `Edition of ${d}`,
   'st.ch.format': 'The format', 'st.ch.format.intro': 'The format as a whole: how varied it is, which decks reach the top 8 more often than expected and how much each deck wins for what it costs.',
   'st.ch.cards': 'The cards', 'st.ch.cards.intro': 'Single cards: which ones are entering or leaving the lists, which are still cheap and what people play in the sideboard.',
 }

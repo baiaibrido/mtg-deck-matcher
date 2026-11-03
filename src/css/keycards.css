@@ -1,10 +1,6 @@
-/* ═══════════ Carte chiave: lo scontrino delle carte più giocate ═══════════ */
+/* ═══════════ Carte chiave: la classifica delle carte, stesso foglio dei mazzi ═══════════ */
 
-.keycards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 var(--s6); }
 .keycards .callout { margin-bottom: var(--s4); }
-.kc-side { min-width: 0; }
-.kc-main { min-width: 0; }
-.kc-side > .hint { margin-top: var(--s3); }
 .kc-tools { margin-bottom: var(--s4); }
 /* il totale e le azioni sulla lista, insieme, subito sopra la lista */
 .kc-buy { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); margin: 0 0 var(--s3); }
@@ -21,50 +17,45 @@
   .kc-buy .seg-icons { grid-area: view; justify-self: end; }
   .kc-buy .kc-copy { grid-area: copy; } .kc-buy .kc-dl { grid-area: dl; }
 }
+.keycards > .hint { margin-top: var(--s4); }
 
-
-/* elenco: lo scontrino delle carte da comprare, una riga per carta (zig-zag e carta termica in paper.css) */
-.key-receipt { max-width: 760px; margin: 0; }
-.key-list { display: grid; margin: 0; padding: 0; list-style: none; }
+/* elenco: righe del modulo continuo, due colonne su schermi larghi */
+.key-list { display: grid; }
 .key-list li {
-  display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: center; gap: var(--s3);
-  padding: var(--s3) 0; border-top: 1px dashed var(--receipt-rule);
+  display: grid; grid-template-columns: 2.25rem minmax(0, 1fr) auto; align-items: center; gap: var(--s3);
+  padding: var(--s3) var(--s4) var(--s3) var(--s3); border-top: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
   animation: deal .28s var(--ease) backwards; animation-delay: calc(min(var(--i, 0), 10) * 30ms);
 }
 @keyframes deal { from { opacity: 0; transform: translateY(14px); } }
 .key-list li:first-child { border-top: 0; }
-.key-rank { font: 800 1.75rem/1 var(--f-num); text-align: right; font-variant-numeric: tabular-nums; }
+.key-list li:nth-child(even) { background: var(--bar); }
+@media (min-width: 820px) {
+  .key-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .key-list li:nth-child(2) { border-top: 0; }
+  .key-list li:nth-child(odd) { border-right: 1px dashed var(--line); }
+  .key-list li:nth-child(n) { background: none; }
+  .key-list li:nth-child(4n+1), .key-list li:nth-child(4n+2) { background: var(--bar); }
+}
+.key-rank { font: 900 1.75rem/1 var(--font-dot); text-align: right; font-variant-numeric: tabular-nums; }
 .key-main { display: grid; gap: 2px; min-width: 0; }
 .key-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
-.key-name a { color: var(--receipt-ink); font-weight: 750; text-decoration: none; }
+.key-name a { color: var(--ink); font-weight: 700; text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { .key-name a:hover { text-decoration: underline; } }
-.key-decks { color: var(--receipt-ink-2); font-size: var(--fs-sm); }
-.key-decks .linklike { color: var(--receipt-ink-2); }
-@media (hover: hover) and (pointer: fine) { .key-decks .linklike:hover { color: var(--receipt-ink); } }
-.key-own { display: inline-flex; align-items: center; gap: 4px; color: #a32a1f; font-size: var(--fs-sm); font-weight: 700; }
-.key-own.tile-part { color: #8a5a00; }
-.key-own.tile-ok { color: #1f6b3a; }
+.key-decks { color: var(--ink-2); font-size: var(--fs-sm); }
+.key-decks .linklike { color: var(--ink-2); }
+@media (hover: hover) and (pointer: fine) { .key-decks .linklike:hover { color: var(--ink); } }
+.key-own { display: inline-flex; align-items: center; gap: 4px; color: var(--no-ink); font-size: var(--fs-sm); font-weight: 700; }
+.key-own.tile-part { color: var(--part); }
+.key-own.tile-ok { color: var(--ok); }
 .key-buy { display: grid; justify-items: end; gap: 4px; text-align: right; font-variant-numeric: tabular-nums; }
-.key-buy span { color: var(--receipt-ink-2); font-size: var(--fs-sm); }
-@media (max-width: 560px) { .key-receipt { margin-inline: calc(-1 * var(--s2)); } .key-list li { grid-template-columns: 2rem minmax(0, 1fr) auto; gap: var(--s2); } .key-rank { font-size: 1.4rem; } }
+.key-buy span { color: var(--ink-2); font-size: var(--fs-sm); }
 
 /* immagini */
 .key-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s4) var(--s3); margin: 0; padding: 0; list-style: none; }
 @media (max-width: 560px) { .key-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .key-tiles li { display: grid; align-content: start; gap: 6px; }
-.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.8em; padding: 2px 6px; border-radius: 2px; background: var(--sheet); color: var(--ink); font: 800 .9rem/1.2 var(--f-num); box-shadow: 0 1px 3px rgba(0, 0, 0, .35); text-align: center; }
+.key-tile-rank { position: absolute; left: 5px; top: 5px; min-width: 1.8em; padding: 2px 6px; border-radius: 2px; background: var(--overlay-bg); color: var(--overlay-ink); font: 900 .9rem/1.2 var(--font-dot); text-align: center; }
 .key-tile-info { display: flex; flex-wrap: wrap; gap: 0 var(--s2); color: var(--ink-2); font-size: var(--fs-sm); line-height: 1.35; }
-.key-tile-info b { padding: 0 .3em; background: var(--hl-miss); color: var(--hl-ink); }
+.key-tile-info b { color: var(--no-ink); }
 
 @media (prefers-reduced-motion: reduce) { .key-list li { animation: none !important; } }
-
-/* da 1200px: la cassa a sinistra resta in vista, lo scontrino lungo scorre accanto */
-@media (min-width: 1200px) {
-  .keycards { grid-template-columns: 320px minmax(0, 760px); align-items: start; }
-  .kc-side { position: sticky; top: var(--s4); }
-  .kc-side .page-head { margin-top: var(--s5); }
-  .kc-main { padding-top: var(--s5); }
-  .kc-buy { display: grid; grid-template-columns: 1fr 1fr; }
-  .kc-buy .kc-total { grid-column: 1 / -1; font-size: var(--fs-body); }
-  .kc-buy .seg-icons { grid-column: 1 / -1; margin-left: 0; justify-self: start; }
-}

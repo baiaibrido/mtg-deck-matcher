@@ -13,8 +13,7 @@ test('indirizzi veri con il formato facoltativo', () => {
   assert.deepEqual(parsePath('/pauper'), { page: 'decks', id: null, format: 'pauper', fromHash: false })
   assert.deepEqual(parsePath('/pauper/deck/pauper-red-madness'), { page: 'deck', id: 'pauper-red-madness', format: 'pauper', fromHash: false })
   assert.deepEqual(parsePath('/deck/mtgtop8-123'), { page: 'deck', id: 'mtgtop8-123', format: null, fromHash: false })
-  assert.equal(parsePath('/modern/meta').page, 'meta')
-  assert.deepEqual(parsePath('/modern/stats'), { page: 'meta', id: null, format: 'modern', fromHash: false, legacy: true }) // vecchio nome di Meta
+  assert.equal(parsePath('/modern/stats').page, 'stats')
   assert.equal(parsePath('/collection').format, null)
 })
 test('costruzione degli indirizzi', () => {

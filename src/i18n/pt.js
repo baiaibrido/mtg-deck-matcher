@@ -151,7 +151,7 @@ export default {
   'ach.curious': 'Curioso', 'ach.curious.d': 'Abra 25 decks diferentes', 'ach.rogue': 'Fora da curva', 'ach.rogue.d': 'Abra um deck rogue', 'ach.sleuth': 'Investigador', 'ach.sleuth.d': 'Adivinhe 5 decks',
   'ach.night': 'Coruja', 'ach.night.d': 'Procure decks entre meia-noite e 5 da manhã',
 
-  'nav.stats': 'Meta', 'st.title': f => `Meta do ${f}`, 'st.intro': 'Números calculados toda noite com todas as listas de torneios dos últimos meses, não só com a lista de exemplo de cada deck.',
+  'nav.stats': 'Estatísticas', 'st.title': f => `Estatísticas de ${f}`, 'st.intro': 'Números calculados toda noite com todas as listas de torneios dos últimos meses, não só com a lista de exemplo de cada deck.',
   'st.health': 'Saúde do formato', 'st.health.decks': n => `${n === 1 ? 'deck forma' : 'decks formam'} metade do meta`,
   'st.health.tight': 'Formato concentrado: poucos decks dominam.', 'st.health.balanced': 'Formato equilibrado: há espaço para várias estratégias.', 'st.health.open': 'Formato variado: muitos decks diferentes dividem o meta.',
   'st.health.top': 'São:', 'st.health.weeks': 'evolução nas últimas 12 semanas (mais alto = mais variado)',
@@ -279,8 +279,6 @@ export default {
   'wx.bulletin.introPrev': 'Todos os decks de Tier 1 e 2, do mais jogado: quota no meta de hoje e quantos pontos mudou desde a atualização anterior.',
   'guess.go': 'Tentar',
   'big.share': 'do meta', 'big.meta': 'contra o meta', 'big.cost': 'o deck inteiro',
-  'col.rank': 'Pos.', 'col.deck': 'Deck', 'col.share': 'Fatia', 'col.trend': 'Tendência', 'col.wr': 'Vs. meta', 'col.need': 'Para completar', 'col.cost': 'Custo', 'col.done': 'Completo',
-  'st.edition': d => `Edição de ${d}`,
   'st.ch.format': 'O formato', 'st.ch.format.intro': 'O formato como um todo: quão variado é, quais decks chegam ao top 8 mais do que o esperado e quanto cada deck vence pelo que custa.',
   'st.ch.cards': 'As cartas', 'st.ch.cards.intro': 'As cartas uma a uma: quais entram nas listas e quais saem, quais ainda são baratas e o que se joga no sideboard.',
 }

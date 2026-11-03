@@ -4,7 +4,6 @@ import { useRoute, go, setNavFormat } from './state/useRoute.js'
 import { useToast } from './state/useToast.js'
 import { usePageMeta } from './state/usePageMeta.js'
 import { useFunTracking } from './state/useFunTracking.js'
-import { useMedia } from './state/useMedia.js'
 import { loadFormats, loadMetaDecks } from './lib/metaDecks.js'
 import { rankDecks, toOwnedMap } from './lib/matcher.js'
 import { isBasic, withoutBasics, mergeCollection } from './lib/normalize.js'
@@ -74,13 +73,10 @@ export default function App() {
   const changeLang = async l => { await loadLang(l); setLang(l); setLangState(l) }
   const [cur, setCur] = useState(currency())
   const changeCur = c => { setCurrency(c, true); setCur(c) }
-  // tema: segue il dispositivo finché non lo si sceglie con il pulsante (chiave nuova: prima «scuro» si salvava da solo per tutti)
-  const [themeChoice, setTheme] = useLocal('mdm.themeChoice', null)
-  const sysDark = useMedia('(prefers-color-scheme: dark)')
-  const theme = themeChoice || (sysDark ? 'dark' : 'light')
+  const [theme, setTheme] = useLocal('mdm.theme', 'dark') // tema scuro di default
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute('content', theme === 'light' ? '#dfe2dc' : '#15181a'))
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#e8ebe3' : '#181b1d')
   }, [theme])
 
   const [msg, toast] = useToast()
@@ -111,7 +107,7 @@ export default function App() {
   // Rogue della settimana: stessi calcoli, ordinati per vicinanza alla collezione
   const rogue = useMemo(() => rankDecks((meta || []).filter(d => d.rogue), collection, Infinity).map((s, i) => ({ ...s, rank: i + 1 })), [meta, collection])
   const sel = route.page === 'deck' ? ranked.find(s => s.deck.id === route.id) || rogue.find(s => s.deck.id === route.id) : null
-  const page = ['collection', 'key-cards', 'meta', 'privacy'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
+  const page = ['collection', 'key-cards', 'stats', 'privacy'].includes(route.page) ? route.page : sel ? 'deck' : 'decks'
   const changeFormat = id => { setFormat(id); go(page === 'deck' ? 'decks' : page, null, { replace: true, format: id }) }
   usePageMeta({ page, deck: sel?.deck, formatName, lang })
 
@@ -168,12 +164,12 @@ export default function App() {
   const almost = collection.length ? almostThere(ranked, 5, almostOff) : null
   const guessBadge = (() => {
     const g = guessStore[`${format}|${dayKey()}`] || [], ans = meta ? guessDeck(meta, format)?.name : null
-    return g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null // taste-skill-ignore: spunta scritta come testo, non è un'icona
+    return g.includes(ans) ? `✓ ${g.length}/${GUESS_TRIES}` : g.length >= GUESS_TRIES ? `✗ ${GUESS_TRIES}/${GUESS_TRIES}` : g.length ? `${g.length}/${GUESS_TRIES}` : null
   })()
   const openDaily = (id, fresh) => { bumpFun(f => { const st = bumpStreak(f.streak); return { streak: st, bestStreak: Math.max(f.bestStreak || 0, st.n), opens: (f.opens || 0) + (fresh ? 1 : 0) } }); go('deck', id) }
   // in cEDH «Oggi nel meta» non serve (pochi mazzi, liste tutte diverse)
   const todayCard = format === 'commander' ? null : <TodayCard weather={meteo} daily={daily} signature={dailySig} dailyColors={daily ? colorsOf(daily) : []} format={format}
-    onOpenDaily={openDaily} onOpen={id => go('deck', id)} onWeather={() => go('meta')} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame} />
+    onOpenDaily={openDaily} onOpen={id => go('deck', id)} onWeather={() => go('stats')} streak={liveStreak(fun.streak)} guess={guessBadge} onGame={setGame} />
   useFunTracking({ fun, bumpFun, format, collection, ranked, almost, sel, pins, cardsState, toast })
 
   // la pagina del mazzo è la più aperta: la si scarica in anticipo quando il browser è libero
@@ -211,7 +207,7 @@ export default function App() {
             <KeyCards ranked={ranked} formatName={formatName} collection={collection} playset={format === 'commander' ? 1 : 4} toast={toast} />
           </>}
 
-          {page === 'meta' && <>
+          {page === 'stats' && <>
             {formatTabs}
             <StatsPage meta={meta} ranked={ranked} format={format} formatName={formatName} colorsOf={colorsOf} costOf={costOf} hasCollection={collection.length > 0} onOpen={id => go('deck', id)} />
           </>}

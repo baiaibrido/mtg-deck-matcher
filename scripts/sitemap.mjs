@@ -1,4 +1,4 @@
-// Sitemap per Google: home dei formati, meta, carte chiave e la pagina di ogni mazzo.
+// Sitemap per Google: home dei formati, carte chiave, statistiche e la pagina di ogni mazzo.
 // Si rigenera ogni notte dopo l'aggiornamento dei mazzi (sync-meta.mjs) → public/sitemap.xml
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 
@@ -8,7 +8,7 @@ const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 export function sitemapXml(formats, decksOf, today = new Date().toISOString().slice(0, 10)) {
   const urls = ['/collection']
   for (const { id } of formats) {
-    urls.push(`/${id}`, `/${id}/meta`, `/${id}/key-cards`)
+    urls.push(`/${id}`, `/${id}/key-cards`, `/${id}/stats`)
     for (const d of decksOf(id)) urls.push(`/${id}/deck/${encodeURIComponent(d.id)}`)
   }
   const body = urls.map(u => `  <url><loc>${esc(SITE + u)}</loc><lastmod>${today}</lastmod></url>`).join('\n')

@@ -1,39 +1,43 @@
-# Netdeckable — piano di design v4 «L'ufficio del torneo» (v0.40.0, composizione rifatta in v0.41.0)
+# Netdeckable — piano di design v2 «La classifica stampata, in ordine»
 
-## Idea
-Ogni sezione è un oggetto di carta dell'ufficio di un torneo di Magic, appoggiato su una scrivania grigio-verde:
-- Mazzi: il tabulato del torneo (modulo continuo a righe verdi, fori di trascinamento, linee di strappo).
-- Mazzo: il modulo d'iscrizione della lista (caselle con l'etichetta in alto, riquadro del risultato, righe del modulo).
-- Collezione: il raccoglitore (anelli sul dorso, divisori colorati per sezione, carte nelle tasche di plastica).
-- Mancolista e Carte chiave: lo scontrino (carta termica, bordi a zig-zag, totale in fondo).
-- Meta: il bollettino stampato (capitoli aperti da un filetto doppio, grafici a penna blu).
-- «Oggi nel meta»: il blocco note (margine rosso, fori in alto, titolo a penna).
-Segni con un significato: evidenziatore giallo = ti manca, verde = ce l'hai; cerchio a penna = scelta attiva e mazzo migliore; timbri = bannata / ristretta / completo; post-it = avvisi e suggerimenti; graffetta = preferiti; nastro Dymo = logo.
+## Soggetto e lavoro principale
+Giocatori di Magic su carta (comunità del negozio) che vogliono sapere quali mazzi del meta possono finire con la loro collezione.
+Lavoro principale di ogni pagina: la lista (mazzi, carte, statistiche). Tutto il resto è contorno.
 
-## Colore (tokens.css)
-Chiaro: scrivania #dfe2dc · foglio #fbfbf8 · riga verde #eaf1e6 · foglio grigio #f1f2ed · inchiostro #1c2127 · sbiadito #555d66 · righe #cdd2c9 / #7a8279 · penna #2443b3 · evidenziatori #ffe14d / #a8ea8e · post-it #fbe78a · nastro Dymo #23324f.
-Scuro (`[data-theme="dark"]`): scrivania #15181a · foglio #20252a e così via; scontrino e post-it restano chiari (sono carta vera).
-Il tema segue il dispositivo (prefers-color-scheme) finché non si sceglie a mano (localStorage `mdm.themeChoice`).
+## Colore (invariato, approvato)
+Scuro: carta #181b1d · foglio #1f2427 · riga verde #1e2826 · inchiostro #e5e8e0 · sbiadito #a1aaa2 · linea #3a4442 · nastro #a9b6ff
+Chiaro: carta #e8ebe3 · foglio #f1f3ed · riga verde #d7e3d0 · inchiostro #23272c · sbiadito #545c55 · linea #b4bdb0 · nastro #2c3a92
+Significati: verde/giallo evidenziatore = hai/ti manca; timbri rosso/arancio/verde = bannata/ristretta/completo.
 
 ## Tipografia
-Archivo variabile (pesi e larghezze): testo normale, titoli 800 stretti (`--w-head` 72%), etichette strette (`--w-label` 86%).
-Doto: numeri a puntini (posizione, percentuali, totali). Caveat: solo le note a penna. Niente corsivo (Archivo corsivo non è caricato, font-synthesis: none).
-Scala in tokens.css (--fs-xs … --fs-num); titoli di pagina --fs-3xl. Cifre tabellari ovunque.
+Alegreya Sans (UI, 400/600/700/800), «Netdeck Display» = Alegreya Sans 800 per i titoli, Doto (numeri a punti: rank, %, statistiche grandi — l'unico elemento «forte»), Caveat solo per le note a penna.
+Scala: 12 · 13 · 14 · 15 (controlli) · 17 (testo) · 20 (titolo voce) · 24 (titolo sezione) · 32 (titolo pagina) · 44 (numeri grandi). Niente MAIUSCOLETTO nelle etichette (solo timbri e scontrino, che lo sono davvero).
 
-## Controlli
-Altezza 40px (44px con le dita), raggio 3px, riquadro a modulo. Un solo pulsante principale (inchiostro pieno) per vista.
-Segmentato (.seg): l'opzione scelta è cerchiata a penna. Linguette (.tabs): cartelline, quella aperta col bordo d'inchiostro in alto.
-Interruttore = casella con la spunta a penna. Barre (.meter) a puntini come una stampante ad aghi.
+## Spazi (base 4)
+4 · 8 · 12 · 16 · 24 · 32 · 48 · 64. Sotto-navigazione → titolo 24; titolo → strumenti 16; strumenti → lista 16; sezioni 48 (32 su telefono).
+
+## Controlli: un solo vocabolario
+- Altezza unica: 40px (mouse) / 44px (dita). Raggio 3px. Bordo 1px linea; hover inchiostro.
+- Selezionato = fondo inchiostro, testo carta. Ovunque. Nessuna ombra.
+- Principale (uno per vista) = inchiostro + ombra sfalsata color nastro. È l'unico elemento con ombra.
+- Segmentato (.seg): scelta singola tra 2–5 opzioni (ordina, tier, vista, tipo carta).
+- Linguette (.tabs): navigazione tra viste dello stesso oggetto (formati, Mazzo/Mancolista/Meta).
+- Menu (Picker), campi, interruttore, contatore: stessa altezza e bordo.
 
 ## Impaginazione
-Contenitore 1008px di contenuto, margini 16. Telefono prima: tutto controllato a 360/390, poi 820 e 1920 (lo schermo di Baia).
-Ogni regola :hover dentro `@media (hover: hover) and (pointer: fine)`. Niente emoji come icone, niente etichette sopra i titoli, niente «·» o «→» nei testi.
-Le sfumature rimaste sono tutte oggetti fisici (fori, strappo, evidenziatore, margine, foil, tasca) e hanno il commento taste-skill-ignore.
+Contenitore 1040 (contenuto 1008), margini 16. Sequenza fissa: testata · linguette · titolo pagina · strumenti · contenuto.
+Prima schermata su portatile 1280×600: si vede almeno il primo elemento della lista.
 
-## Composizione (v0.41.0)
-- Guscio: telefono = etichetta Dymo rossa e preferenze in alto, linguette colorate dei divisori in basso (quella aperta più alta). 720–999px = testata con le sezioni come linguette. Da 1000px = copertina blu del raccoglitore a sinistra (208px, sticky) con le linguette che sporgono; quella aperta sporge di più. Colori: --tab-decks verde, --tab-meta giallo, --tab-coll rosa, --tab-keys azzurro.
-- Mazzi: podio (i primi tre dell'ordine scelto, schede grandi) e poi il tabulato con l'intestazione stampata delle colonne (Pos., Mazzo, Quota, Andamento, Contro il meta, Per finirlo/Costo, Completo); la colonna dell'ordine scelto è sottolineata a penna. Da 1600px blocco note, «ci sei quasi» e preferiti in una colonna a destra.
-- Mazzo: foglio della decklist (campi in caselle, riquadro del risultato, Main e Sideboard affiancati con la fascia nera), scontrino della mancolista pinzato accanto (da 1100px di pagina, sticky), fogli del meta sotto. Niente linguette: su telefono una fila di salti (Mazzo, Mancolista, Meta).
-- Collezione: copertina di vinile nero a sinistra (portaetichette col titolo, azioni, indice dei divisori colorati, profilo), pagine a destra.
-- Meta: un solo foglio di giornale: testata con filetto doppio e data dell'edizione, articoli in colonne divise da filetti (niente fogli separati).
-- Carte chiave: la cassa a sinistra (titolo, tier, totale, azioni), lo scontrino lungo a destra con testa e totale.
+## Principi
+1. Contenuto prima: la cornice sopra la lista ≤ 45% dell'altezza della finestra.
+2. Un vocabolario di controlli, un solo «selezionato», un solo principale per vista.
+3. I numeri a punti sono la cosa memorabile; il resto è quieto.
+4. I dettagli di carta (fori, timbri, evidenziatore, scontrino) dicono qualcosa, non decorano.
+5. Niente salti di impaginazione quando si interagisce (titolo su una riga, controlli a misura fissa).
+6. Ogni finestra e menu sta dentro lo schermo, a qualsiasi altezza (prova a 1280×600 e 360×740).
+
+## Impaginazione (v0.39.0)
+- Intestazioni divise (`.head-split`): da 900px titolo nella colonna sinistra, spiegazione in quella destra, allineati alle due colonne dei fogli.
+- Pagine lunghe divise in capitoli: riga d'inchiostro da 2px, titolo, spiegazione (Statistiche: meteo, formato, carte).
+- Prossimità: ogni comando sta accanto a ciò che comanda (totale e azioni sopra la lista; filtri accanto alla ricerca e il loro pannello subito sotto; la spiegazione sotto il link che spiega).
+- Fogli affiancati: stessa altezza. Fogli con poco contenuto: a tutta larghezza, organizzati in orizzontale.
