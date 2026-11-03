@@ -18,6 +18,8 @@ import ErrorBoundary from './components/ErrorBoundary.jsx'
 import TodayCard from './components/TodayCard.jsx'
 import Modal from './components/Modal.jsx'
 import { TopBar, TabBar, FormatTabs, ToTop, SiteFooter, ToastZone } from './components/Layout.jsx'
+import CardPage from './components/CardPage.jsx'
+import { onOpenCard } from './state/cardPage.js'
 import Home from './pages/Home.jsx'
 import { IconWarn } from './components/Icons.jsx'
 import { useAccount } from './state/useAccount.js'
@@ -43,6 +45,8 @@ export default function App() {
   // ── Formato: quello nell'indirizzo (/modern/…) vince su quello salvato, che vale per / e /deck/…
   const [savedFormat, setFormat] = useLocal('mdm.format', 'pauper')
   const [formats, setFormats] = useState([])
+  const [cardReq, setCardReq] = useState(null) // scheda della carta aperta da mazzo e carte chiave
+  useEffect(() => onOpenCard(setCardReq), [])
   const urlFormat = route.format && (!formats.length || formats.some(f => f.id === route.format)) ? route.format : null
   const format = urlFormat || savedFormat
   setNavFormat(format)
@@ -213,7 +217,7 @@ export default function App() {
           </>}
           {page === 'collection' && banNotice}
           {page === 'privacy' && <Privacy />}
-          {page === 'collection' && <CollectionManager acc={acc} onAccount={() => setAccountOpen(true)} collection={collection} setCollection={setCollection} backup={backup} setBackup={setBackup} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
+          {page === 'collection' && <CollectionManager formats={formats} acc={acc} onAccount={() => setAccountOpen(true)} collection={collection} setCollection={setCollection} backup={backup} setBackup={setBackup} toast={toast} best={ranked.find(s => s.deck.source !== 'utente')} onOpen={id => go('deck', id)} unlocked={fun.unlocked || {}} />}
         </Suspense>
         </ErrorBoundary>
       </main>
@@ -232,6 +236,7 @@ export default function App() {
       <Modal open={accountOpen} onClose={() => setAccountOpen(false)} label={t('acc.title')}>
         {close => <AccountPanel acc={acc} local={collection} onClose={close} />}
       </Modal>
+      <CardPage req={cardReq} onClose={() => setCardReq(null)} formats={formats} />
       <ToastZone msg={msg} toast={toast} />
     </div>
   )

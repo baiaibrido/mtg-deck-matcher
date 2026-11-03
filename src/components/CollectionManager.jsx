@@ -15,10 +15,10 @@ import { collectionCsv, downloadTxt } from '../lib/export.js'
 import { loadTags } from '../lib/tagsLoader.js' // tag di Scryfall: caricati solo quando si aprono i filtri
 import { useSession } from '../state/useSession.js'
 import { useWinWidth, useMedia } from '../state/useMedia.js'
-import Modal from './Modal.jsx'
+import CardPage from './CardPage.jsx'
 import { ManaCost, ManaSymbol } from './Mana.jsx'
 import { SyncLine } from './Account.jsx'
-import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter, IconCaret, IconCloud, IconExternal } from './Icons.jsx'
+import { IconUpload, IconSearch, IconPlus, IconMinus, IconTrash, IconWand, IconDownload, IconGrid, IconList, IconFilter, IconCaret, IconCloud } from './Icons.jsx'
 
 const STEP = 120 // carte mostrate per volta: le immagini si caricano man mano
 
@@ -97,7 +97,7 @@ function FilterPick({ label, value, onChange, options, all, loading }) {
   )
 }
 
-export default function CollectionManager({ collection, setCollection, toast, best, onOpen, unlocked = {}, backup = { changes: 0 }, setBackup = () => {}, acc, onAccount }) {
+export default function CollectionManager({ formats = [], collection, setCollection, toast, best, onOpen, unlocked = {}, backup = { changes: 0 }, setBackup = () => {}, acc, onAccount }) {
   const [text, setText] = useState('')
   const [q, setQ] = useState('')
   const [msg, setMsg] = useState(null) // { kind: 'info'|'error', text }
@@ -384,15 +384,11 @@ export default function CollectionManager({ collection, setCollection, toast, be
               {part.map(r => (
                 <li key={r.key} className={`ctile${fresh.has(r.key) ? ' just-added' : ''}${r.foil ? ' foil' : ''}`}>
                   <div className="ctile-art">
-                    {phone ? <button className="ctile-img" onClick={() => setSheetKey(r.key)} aria-label={t('coll.editCard', r.name)}>
+                    <button className="ctile-img" onClick={() => setSheetKey(r.key)} aria-label={r.name} title={r.name}>
                       <Thumb card={r.card} name={r.name} big cols={cols} />
                       {r.foil && <Sparkles />}
                       <span className="ctile-qty" aria-hidden="true">×{r.qty}{r.foil && <span className="foil-tag">Foil</span>}</span>
-                    </button> : <a href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer" className="ctile-img" title={r.name}>
-                      <Thumb card={r.card} name={r.name} big cols={cols} />
-                      {r.foil && <Sparkles />}
-                      <span className="ctile-qty" aria-hidden="true">×{r.qty}{r.foil && <span className="foil-tag">Foil</span>}</span>
-                    </a>}
+                    </button>
                   </div>
                   <span className="ctile-name">{r.name}{r.foil && <span className="sr-only"> (foil)</span>}</span>
                   {printText(r.card) && <span className="ctile-print" title={printText(r.card)}><PrintLine card={r.card} /></span>}
@@ -410,7 +406,7 @@ export default function CollectionManager({ collection, setCollection, toast, be
                 <li key={r.key} className={fresh.has(r.key) ? 'just-added' : undefined}>
                   <span className={`thumb-box${r.foil ? ' foil' : ''}`}><Thumb card={r.card} name={r.name} />{r.foil && <Sparkles n={2} />}</span>
                   <span className="crow-main">
-                    <a href={r.card?.uri || '#'} target="_blank" rel="noreferrer" className="crow-name">{r.name}</a>
+                    <button className="crow-name" onClick={() => setSheetKey(r.key)}>{r.name}</button>
                     <span className="crow-type">{r.foil && <span className="foil-tag">Foil</span>}{r.card?.type || '—'}{printText(r.card) && <span className="crow-print"><PrintLine card={r.card} /></span>}</span>
                     {flt.ban && <BanStamps card={r.card} />}
                   </span>
@@ -427,21 +423,15 @@ export default function CollectionManager({ collection, setCollection, toast, be
       {filtered.length > shownCount && (
         <button className="btn more" onClick={() => setLimit(l => l + STEP)}>{t('coll.more', filtered.length - shownCount)}</button>
       )}
-      {/* telefono: la scheda della carta toccata, con quantità, cestino e link a Scryfall */}
+      {/* la scheda della carta toccata (testo, versioni, formati e meta) con quantità e cestino della collezione */}
       {(() => {
-        const r = sheetKey && visible.flatMap(([, , part]) => part).find(x => x.key === sheetKey)
-        return <Modal open={!!r} onClose={() => setSheetKey(null)} label={r ? r.name : ''} className="card-sheet">
-          {close => r && <div className="cs">
-            <div className="cs-img"><Thumb card={r.card} name={r.name} big cols={2} />{r.foil && <Sparkles />}</div>
-            <div className="cs-info">
-              <h2>{r.name}{r.foil && <> <span className="foil-tag">Foil</span></>}</h2>
-              {printText(r.card) && <p className="ctile-print"><PrintLine card={r.card} /></p>}
-              {priceOf(r.card) != null && <p className="cs-price">{money(priceOf(r.card) * r.qty, true)}</p>}
-              <div className="cs-ctl"><Stepper c={r} setQty={setQty} /><DeleteBtn r={r} onDelete={x => { close(); remove(x) }} /></div>
-              <a className="cs-link" href={r.card?.uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${r.name}"`)}`} target="_blank" rel="noreferrer">{t('coll.openScry')}<IconExternal size={14} /></a>
-            </div>
+        const r = sheetKey && rows.find(x => x.key === sheetKey)
+        return <CardPage req={r ? { name: r.name, sid: r.sid, set: r.set, num: r.num } : null} onClose={() => setSheetKey(null)} formats={formats}>
+          {r && <div className="cs-ctl">
+            <span className="cs-own">{t('coll.own', r.qty)}{r.foil && <> <span className="foil-tag">Foil</span></>}</span>
+            <Stepper c={r} setQty={setQty} /><DeleteBtn r={r} onDelete={x => { setSheetKey(null); remove(x) }} />
           </div>}
-        </Modal>
+        </CardPage>
       })()}
       {/* i traguardi sono un extra: vengono dopo le carte */}
       <div className="coll-ach"><Achievements unlocked={unlocked} /></div>

@@ -232,17 +232,11 @@
   .coll-menu-list { min-width: min(280px, calc(100vw - 32px)); }
 }
 
-/* ── Telefono: la carta si tocca e si apre la sua scheda ── */
+/* ── La carta si tocca e si apre la sua scheda ── */
 button.ctile-img { width: 100%; padding: 0; border: 0; font: inherit; text-align: left; cursor: pointer; }
-.card-sheet .modal-body { padding-top: var(--s5); }
-.cs { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); gap: var(--s4); align-items: start; }
-.cs-img { position: relative; aspect-ratio: 488 / 680; overflow: hidden; border-radius: 4.5% / 3.3%; box-shadow: 0 4px 14px rgba(0, 0, 0, .35); }
-.cs-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cs-info { display: grid; gap: var(--s2); min-width: 0; }
-.cs-info h2 { padding-right: var(--s5); font: var(--fs-xl)/1.15 var(--font-title); overflow-wrap: anywhere; }
-.cs-price { color: var(--ink-2); font-variant-numeric: tabular-nums; }
-.cs-ctl { display: flex; gap: var(--s2); margin-top: var(--s2); }
-.cs-ctl .stepper { flex: 1; height: 44px; }
+.cs-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+.cs-own { flex: 1 0 100%; color: var(--ink-2); font-size: var(--fs-sm); }
+.cs-ctl .stepper { flex: 1; max-width: 200px; height: 44px; }
+button.crow-name { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+button.crow-name:hover { text-decoration: underline; }
 .cs-ctl .stepper input { width: 100%; }
-.cs-ctl .btn-del { width: 44px; height: 44px; }
-.cs-link svg { margin-left: 4px; vertical-align: -2px; }

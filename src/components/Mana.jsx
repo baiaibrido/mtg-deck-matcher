@@ -15,6 +15,8 @@ function describe(s) {
   if (/^[wubrgc]$/.test(s)) return { bg: BG[s], glyphs: [[s, 0, 0, SIZE.sym]] }
   if (s === 's') return { bg: BG.c, glyphs: [['s', 0, 0, SIZE.sym]] }
   if (s === 'p') return { bg: BG.c, glyphs: [['p', 0, 0, SIZE.phy]] }
+  if (s === 't' || s === 'q') return { bg: BG.c, glyphs: [[s === 't' ? 'tap' : 'untap', 0, 0, SIZE.sym]] } // {T} {Q} nel testo delle carte
+  if (s === 'e') return { bg: BG.c, glyphs: [['e', 0, 0, SIZE.sym]] }
   let m = s.match(/^([wubrg])p$/) // phyrexiano di un colore
   if (m) return { bg: BG[m[1]], glyphs: [['p', 0, 0, SIZE.phy]] }
   m = s.match(/^([wubrgc2])([wubrg])(p?)$/) // ibrido: due colori, 2/colore, incolore/colore, ibrido phyrexiano

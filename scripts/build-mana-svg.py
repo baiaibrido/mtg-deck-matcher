@@ -11,7 +11,7 @@ from fontTools.pens.boundsPen import BoundsPen
 font = TTFont('node_modules/mana-font/fonts/mana.woff2'); cmap = font.getBestCmap(); gs = font.getGlyphSet()
 css = open('node_modules/mana-font/css/mana.css').read()
 code = {s: int(c, 16) for s, c in re.findall(r'\.ms-([a-z0-9]+)::before\s*\{\s*content:\s*"\\(e[0-9a-f]{3})"', css)}
-NEED = ['w', 'u', 'b', 'r', 'g', 'c', 's', 'x', 'y', 'z', 'p'] + [str(n) for n in range(21)]
+NEED = ['w', 'u', 'b', 'r', 'g', 'c', 's', 'x', 'y', 'z', 'p', 'tap', 'untap', 'e'] + [str(n) for n in range(21)]  # tap, untap ed energia: nel testo delle carte (scheda della carta)
 EM = 1024
 out = {}
 for s in NEED:

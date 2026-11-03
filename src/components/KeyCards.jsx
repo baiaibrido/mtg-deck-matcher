@@ -11,6 +11,7 @@ import { toOwnedMap } from '../lib/matcher.js'
 import { norm } from '../lib/normalize.js'
 import { useSession } from '../state/useSession.js'
 import { go, linkProps } from '../state/useRoute.js'
+import { cardLink } from '../state/cardPage.js'
 
 // «In 14 mazzi»: l'elenco si apre in un riquadro sopra la pagina (in <body>, posizione fissa),
 // così la riga della carta non cambia altezza e niente esce dal foglio
@@ -98,7 +99,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
           <ol className="key-tiles">
             {rows.map((e, i) => (
               <li key={e.name}>
-                <a className={`tile tile-${st(e)}`} href={scry(e)} target="_blank" rel="noreferrer" title={`${e.name} — ${ownText(e)}`}>
+                <a className={`tile tile-${st(e)}`} href={scry(e)} target="_blank" rel="noreferrer" {...cardLink({ name: e.name })} title={`${e.name} — ${ownText(e)}`}>
                   {e.card?.img ? <img src={e.card.img} alt={e.name} loading="lazy" /> : <span className="tile-ph"><span>{e.name}</span><ManaCost cost={e.card?.cost} /></span>}
                   <span className="key-tile-rank">{i + 1}</span>
                   <span className="tile-qty">{st(e) === 'ok' ? <><IconCheck size={13} />{e.have}</> : st(e) === 'plain' ? `${playset}×` : `${e.have}/${playset}`}</span>
@@ -114,7 +115,7 @@ export default function KeyCards({ ranked, formatName, collection, playset, toas
               <span className="key-rank">{i + 1}</span>
               <span className="key-main">
                 <span className="key-name">
-                  <a href={scry(e)} target="_blank" rel="noreferrer">{e.name}</a>
+                  <a href={scry(e)} target="_blank" rel="noreferrer" {...cardLink({ name: e.name })}>{e.name}</a>
                   <ManaCost cost={e.card?.cost} />
                 </span>
                 {/* in quanti mazzi: l'elenco si apre toccando */}

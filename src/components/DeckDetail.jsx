@@ -8,6 +8,7 @@ import { TierBadge, Trend, Info } from './Badges.jsx'
 import { ColorPips, ManaCost } from './Mana.jsx'
 import { IconBack, IconCopy, IconCart, IconDownload, IconExternal, IconCheck, IconGrid, IconList, IconBox, IconWarn } from './Icons.jsx'
 import { useSession } from '../state/useSession.js'
+import { cardLink } from '../state/cardPage.js'
 import { useMedia } from '../state/useMedia.js'
 import { getCached } from '../lib/scryfall.js'
 import { GROUPS, groupOf, missingCost } from '../lib/deckInfo.js'
@@ -28,7 +29,7 @@ function CardTile({ r, hasColl }) {
   const st = stOf(r, hasColl)
   const label = st === 'plain' ? `×${r.qty}` : st === 'ok' ? t('tile.owned') : st === 'no' ? t('tile.missing') : t('tile.partial', r.have)
   return (
-    <a className={`tile tile-${st}`} href={scryUrl(r.name)} target="_blank" rel="noreferrer" title={`${r.name} — ${label}`}>
+    <a className={`tile tile-${st}`} href={scryUrl(r.name)} target="_blank" rel="noreferrer" {...cardLink({ name: r.name })} title={`${r.name} — ${label}`}>
       {c?.img ? <img src={c.img} alt={r.name} loading="lazy" /> : <span className="tile-ph"><span>{r.name}</span><ManaCost cost={c?.cost} slot /></span>}
       <span className="tile-qty">{st === 'ok' && <IconCheck size={13} />}{st === 'plain' ? `×${r.qty}` : `${r.have}/${r.qty}`}</span>
     </a>
@@ -63,7 +64,7 @@ function CardLine({ r, hasColl }) {
   return (
     <li className={`tline tile-${st}`}>
       <span className="tline-qty">{st === 'plain' ? r.qty : `${r.have}/${r.qty}`}</span>
-      <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="tline-name" {...hoverProps(r.name)}>{r.name}</a>
+      <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" {...cardLink({ name: r.name })} className="tline-name" {...hoverProps(r.name)}>{r.name}</a>
       <ManaCost cost={c?.cost} slot />
     </li>
   )
@@ -225,7 +226,7 @@ export default function DeckDetail({ s, colors, formatName, onBack, onDelete, to
             return (
               <li key={r.name + r.qty}>
                 <span className="need-qty">{r.missing}</span>
-                <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" className="need-name" {...hoverProps(r.name)}>{r.name}</a>
+                <a href={scryUrl(r.name)} target="_blank" rel="noreferrer" {...cardLink({ name: r.name })} className="need-name" {...hoverProps(r.name)}>{r.name}</a>
                 <ManaCost cost={c?.cost} slot />
                 <span className="need-price">{priceOf(c) != null ? money(priceOf(c) * r.missing, true) : '—'}</span>
               </li>

@@ -66,7 +66,7 @@ export default function Picker({ value, options, onChange, label, icon, short, a
               <span>{o.label}</span>{o.value === value && <IconCheck size={16} />}
             </li>
           ))}
-        </ul>, document.body
+        </ul>, btn.current?.closest('dialog') || document.body // dentro una finestra: sopra di lei, non dietro
       )}
     </span>
   )
