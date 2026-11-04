@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-02",
- "prevDate": "2026-11-01",
+ "updated": "2026-11-04",
+ "prevDate": "2026-11-02",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 4594,
- "unknownPct": 11.5,
+ "decksAnalyzed": 4383,
+ "unknownPct": 11.6,
  "rogue": [
   {
    "id": "standard-rogue-jund-the-misty-mountains-cold",
@@ -14,7 +14,7 @@
    "results": 10,
    "best": "5-0",
    "signature": "Lively Dirge",
-   "share": 0.9,
+   "share": 1,
    "title": "EnderCreeper0071 · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-2411129#deck_EnderCreeper0071",
    "main": [
@@ -606,7 +606,7 @@
     16.3,
     [
      null,
-     19.9,
+     19.5,
      20.3,
      14.2,
      21.8,
@@ -625,7 +625,7 @@
     10.6,
     [
      null,
-     17.4,
+     17.5,
      11,
      7.7,
      11.5,
@@ -701,7 +701,7 @@
     5.9,
     [
      null,
-     10.7,
+     8.5,
      8.6,
      6.1,
      13.9,
@@ -720,7 +720,7 @@
     3.6,
     [
      null,
-     4.9,
+     3.7,
      3.4,
      3.1,
      8.9,
@@ -739,7 +739,7 @@
     3.6,
     [
      null,
-     2.8,
+     2,
      0,
      2.7,
      1.6,
@@ -779,7 +779,7 @@
     27,
     [
      null,
-     19.6,
+     18.7,
      18.2,
      11.5,
      22.4,
@@ -798,7 +798,7 @@
     15.1,
     [
      null,
-     19,
+     19.1,
      12.4,
      12.3,
      20.4,
@@ -817,7 +817,7 @@
     14,
     [
      null,
-     10.7,
+     8.5,
      12.4,
      8.4,
      15.7,
@@ -855,7 +855,7 @@
     12.4,
     [
      null,
-     7.3,
+     6.5,
      11,
      6.9,
      15.5,
@@ -893,7 +893,7 @@
     11.7,
     [
      null,
-     22,
+     21.1,
      20.3,
      16.1,
      19.8,
@@ -912,7 +912,7 @@
     8.9,
     [
      null,
-     5.8,
+     6.5,
      3.8,
      2.3,
      2.8,
@@ -931,7 +931,7 @@
     10.7,
     [
      null,
-     8.3,
+     8.1,
      11.3,
      6.9,
      15.1,
@@ -950,7 +950,7 @@
     10,
     [
      null,
-     6.7,
+     6.1,
      10.3,
      6.9,
      15.3,
@@ -1072,9 +1072,9 @@
   {
    "id": "standard-mono-green-landfall",
    "name": "Mono Green Landfall",
-   "share": 11,
+   "share": 10.8,
    "tier": 1,
-   "count": 507,
+   "count": 473,
    "title": "Sop · $uper $unday RCQ - Standard - SCG CON Hartford - Sunday - 9:30 am (3st Place)",
    "url": "https://melee.gg/Decklist/View/768d4793-340c-49fd-a376-b4ee00d51bca",
    "main": [
@@ -1111,7 +1111,7 @@
    ],
    "history": [
     null,
-    15.6,
+    17.1,
     24.4,
     24.5,
     14.3,
@@ -1124,20 +1124,20 @@
     13
    ],
    "field": [
-    753,
-    659,
+    736,
+    646,
     54
    ],
    "mu": [
     [
      "Izzet Spellementals",
-     68,
-     76,
+     67,
+     72,
      4
     ],
     [
      "Dimir Midrange",
-     58,
+     57,
      61,
      4
     ],
@@ -1149,20 +1149,20 @@
     ],
     [
      "Jeskai Control",
-     55,
-     44,
+     54,
+     41,
      0
     ],
     [
      "Azorius Control",
-     41,
+     40,
      36,
      6
     ],
     [
      "Reanimator",
      66,
-     37,
+     35,
      2
     ],
     [
@@ -1179,7 +1179,7 @@
     ],
     [
      "Dimir Excruciator",
-     37,
+     34,
      9,
      2
     ],
@@ -1209,14 +1209,8 @@
     ],
     [
      "Golgari Midrange",
-     18,
-     8,
-     0
-    ],
-    [
-     "Mardu Discard",
-     17,
-     6,
+     16,
+     7,
      0
     ],
     [
@@ -1226,27 +1220,27 @@
      2
     ],
     [
+     "Mardu Discard",
+     15,
+     6,
+     0
+    ],
+    [
      "Dimir Control",
-     8,
+     7,
      10,
      6
     ],
     [
-     "Selesnya Landfall",
-     7,
-     4,
-     0
-    ],
-    [
      "Mono Red Aggro",
-     11,
+     10,
      1,
      0
     ],
     [
-     "Azorius Flash",
-     14,
-     3,
+     "Selesnya Landfall",
+     6,
+     4,
      0
     ],
     [
@@ -1256,9 +1250,9 @@
      0
     ],
     [
-     "Mono Black Aggro",
-     7,
-     5,
+     "Azorius Flash",
+     14,
+     3,
      0
     ],
     [
@@ -1277,6 +1271,12 @@
      "Temur Omniscience",
      5,
      10,
+     0
+    ],
+    [
+     "Mono Black Aggro",
+     7,
+     4,
      0
     ],
     [
@@ -1299,7 +1299,7 @@
     ],
     [
      "Mono Black Midrange",
-     7,
+     6,
      2,
      0
     ],
@@ -1346,12 +1346,6 @@
      2
     ],
     [
-     "Jeskai Artifact Aggro",
-     3,
-     1,
-     0
-    ],
-    [
      "Golgari Control",
      0,
      3,
@@ -1386,9 +1380,15 @@
      5,
      3,
      0
+    ],
+    [
+     "Mono Blue Control",
+     2,
+     1,
+     0
     ]
    ],
-   "metaWr": 52.5,
+   "metaWr": 52.4,
    "core": [
     [
      "Forest",
@@ -1430,74 +1430,74 @@
    "flex": [
     [
      "Sapling Nursery",
-     86,
-     2.9
+     85,
+     2.8
     ],
     [
      "Esper Origins",
-     84,
+     83,
      3.3
     ],
     [
      "Mossborn Hydra",
-     71,
-     3.2
+     73,
+     3.3
     ],
     [
      "Demolition Field",
-     69,
+     68,
      1
     ],
     [
      "Elven Passage",
-     57,
+     59,
      2.6
     ],
     [
      "Meltstrider's Resolve",
-     53,
+     51,
      1.6
     ],
     [
      "Lumbering Worldwagon",
-     49,
-     1.2
+     48,
+     1.1
     ],
     [
      "Keen-Eyed Curator",
-     48,
+     46,
      1.5
     ],
     [
      "Surrak, Elusive Hunter",
-     42,
+     41,
      1.2
     ],
     [
      "Shared Roots",
-     37,
+     35,
      2.3
     ],
     [
      "Carnivorous Cultivator // Enroot",
-     28,
+     30,
      3.6
     ]
    ],
-   "lists": 507,
+   "lists": 473,
    "conv": [
-    10.7,
-    11.8,
-    92
+    10.5,
+    11.7,
+    85
    ],
    "prev": 11
   },
   {
    "id": "standard-izzet-spellementals",
    "name": "Izzet Spellementals",
-   "share": 9.4,
+   "share": 9.2,
    "tier": 1,
-   "count": 433,
+   "count": 402,
    "title": "Samuel Nunley · ReCQ - Standard - SCG CON Hartford - Saturday - 2:00 pm (2st Place)",
    "url": "https://melee.gg/Decklist/View/b97131bb-3b8c-4bde-9d09-b4ed0127ee10",
    "main": [
@@ -1530,7 +1530,7 @@
    ],
    "history": [
     null,
-    7,
+    6.5,
     10.7,
     6.5,
     14.9,
@@ -1543,15 +1543,15 @@
     6.5
    ],
    "field": [
-    450,
-    508,
+    431,
+    498,
     38
    ],
    "mu": [
     [
      "Mono Green Landfall",
-     76,
-     68,
+     72,
+     67,
      4
     ],
     [
@@ -1568,7 +1568,7 @@
     ],
     [
      "Jeskai Control",
-     28,
+     27,
      47,
      2
     ],
@@ -1580,8 +1580,8 @@
     ],
     [
      "Reanimator",
-     22,
-     39,
+     21,
+     38,
      3
     ],
     [
@@ -1592,26 +1592,26 @@
     ],
     [
      "Izzet Aggro",
-     13,
-     17,
+     12,
+     16,
      0
     ],
     [
      "Dimir Excruciator",
-     9,
+     6,
      9,
      4
     ],
     [
      "Azorius Momo",
-     11,
+     10,
      7,
      2
     ],
     [
      "Azorius Artifacts",
      2,
-     9,
+     8,
      0
     ],
     [
@@ -1627,14 +1627,8 @@
      0
     ],
     [
-     "Mardu Discard",
-     10,
-     7,
-     0
-    ],
-    [
      "Golgari Midrange",
-     11,
+     10,
      8,
      2
     ],
@@ -1642,6 +1636,12 @@
      "Boros Aggro",
      9,
      7,
+     0
+    ],
+    [
+     "Mardu Discard",
+     9,
+     6,
      0
     ],
     [
@@ -1653,19 +1653,13 @@
     [
      "Selesnya Landfall",
      1,
-     8,
+     7,
      0
     ],
     [
      "Mono Red Aggro",
-     6,
-     2,
-     0
-    ],
-    [
-     "Azorius Flash",
-     6,
      4,
+     2,
      0
     ],
     [
@@ -1675,21 +1669,27 @@
      0
     ],
     [
+     "Azorius Flash",
+     6,
+     4,
+     0
+    ],
+    [
      "Jeskai Lessons",
      2,
      7,
      0
     ],
     [
-     "Mono Black Aggro",
-     4,
-     4,
-     0
-    ],
-    [
      "Bant Airbending Combo",
      4,
      3,
+     0
+    ],
+    [
+     "Mono Black Aggro",
+     4,
+     4,
      0
     ],
     [
@@ -1700,7 +1700,7 @@
     ],
     [
      "Izzet Control",
-     2,
+     1,
      6,
      0
     ],
@@ -1735,7 +1735,7 @@
      0
     ]
    ],
-   "metaWr": 46.4,
+   "metaWr": 45.9,
    "core": [
     [
      "Island",
@@ -1758,11 +1758,11 @@
      4
     ],
     [
-     "Sunderflock",
+     "Riverpyre Verge",
      4
     ],
     [
-     "Riverpyre Verge",
+     "Sunderflock",
      4
     ],
     [
@@ -1793,7 +1793,7 @@
    "flex": [
     [
      "Spell Snare",
-     87,
+     89,
      1.9
     ],
     [
@@ -1802,45 +1802,45 @@
      1.8
     ],
     [
-     "Spell Pierce",
-     74,
-     1.6
-    ],
-    [
      "Stormcarved Coast",
-     73,
+     72,
      1.5
     ],
     [
+     "Spell Pierce",
+     72,
+     1.6
+    ],
+    [
      "Winternight Stories",
-     51,
-     2.3
+     50,
+     2.2
     ],
     [
      "Multiversal Passage",
-     48,
+     47,
      1.4
     ],
     [
      "Flow State",
-     41,
-     3.1
+     39,
+     3.2
     ]
    ],
-   "lists": 433,
+   "lists": 402,
    "conv": [
-    10.6,
-    9.4,
-    73
+    10.3,
+    9.3,
+    68
    ],
-   "prev": 9.5
+   "prev": 9.4
   },
   {
    "id": "standard-dimir-midrange",
    "name": "Dimir Midrange",
-   "share": 8.4,
+   "share": 8.6,
    "tier": 1,
-   "count": 388,
+   "count": 376,
    "title": "John Mendes · ReCQ - Standard - SCG CON Hartford - Sunday - 12:00 pm (3st Place)",
    "url": "https://melee.gg/Decklist/View/1774d6f3-6c7d-43d9-adbb-b4ee00e1130c",
    "main": [
@@ -1881,7 +1881,7 @@
    ],
    "history": [
     null,
-    11,
+    11.4,
     11,
     10,
     6.5,
@@ -1894,15 +1894,15 @@
     8.2
    ],
    "field": [
-    505,
-    402,
+    504,
+    399,
     30
    ],
    "mu": [
     [
      "Mono Green Landfall",
      61,
-     58,
+     57,
      4
     ],
     [
@@ -1944,7 +1944,7 @@
     [
      "Izzet Aggro",
      15,
-     13,
+     12,
      0
     ],
     [
@@ -1978,15 +1978,15 @@
      0
     ],
     [
-     "Boros Aggro",
-     8,
-     9,
-     0
-    ],
-    [
      "Golgari Midrange",
      10,
      5,
+     0
+    ],
+    [
+     "Boros Aggro",
+     8,
+     9,
      0
     ],
     [
@@ -1997,14 +1997,8 @@
     ],
     [
      "Dimir Control",
-     10,
+     9,
      4,
-     0
-    ],
-    [
-     "Selesnya Landfall",
-     7,
-     3,
      0
     ],
     [
@@ -2012,6 +2006,12 @@
      6,
      1,
      2
+    ],
+    [
+     "Selesnya Landfall",
+     7,
+     3,
+     0
     ],
     [
      "Selesnya Aggro",
@@ -2074,7 +2074,7 @@
      2
     ]
    ],
-   "metaWr": 54.4,
+   "metaWr": 54.6,
    "core": [
     [
      "Island",
@@ -2117,10 +2117,6 @@
      3
     ],
     [
-     "Hidden Lair",
-     2
-    ],
-    [
      "Bitter Triumph",
      2
     ],
@@ -2147,6 +2143,11 @@
    ],
    "flex": [
     [
+     "Hidden Lair",
+     90,
+     2.1
+    ],
+    [
      "Tishana's Tidebinder",
      86,
      1.8
@@ -2163,44 +2164,44 @@
     ],
     [
      "Strategic Betrayal",
-     65,
+     67,
      1.2
     ],
     [
      "Shipwreck Marsh",
-     53,
+     55,
      2
     ],
     [
      "Yuriko, Hope from the Shadows",
-     41,
+     43,
      1.1
     ],
     [
      "Theorix Charm",
-     39,
+     40,
      1
     ],
     [
      "Spell Pierce",
-     30,
+     29,
      1.1
     ]
    ],
-   "lists": 388,
+   "lists": 376,
    "conv": [
-    8.8,
-    9.9,
-    77
+    9,
+    10.3,
+    75
    ],
    "prev": 8.4
   },
   {
    "id": "standard-lifegain",
    "name": "Lifegain",
-   "share": 7,
+   "share": 7.2,
    "tier": 1,
-   "count": 321,
+   "count": 316,
    "title": "Ryan Normandin · ReCQ - Standard - SCG CON Hartford - Sunday - 12:00 pm (4th Place)",
    "url": "https://melee.gg/Decklist/View/8a007783-6a4c-4db9-b7a2-b4ee00fd7405",
    "main": [
@@ -2235,7 +2236,7 @@
    ],
    "history": [
     null,
-    9.5,
+    8.9,
     5.2,
     4.6,
     2.8,
@@ -2248,8 +2249,8 @@
     8.9
    ],
    "field": [
-    425,
-    440,
+    424,
+    437,
     32
    ],
    "mu": [
@@ -2304,13 +2305,7 @@
     [
      "Dimir Excruciator",
      12,
-     13,
-     0
-    ],
-    [
-     "Azorius Artifacts",
-     14,
-     14,
+     11,
      0
     ],
     [
@@ -2318,6 +2313,12 @@
      10,
      8,
      2
+    ],
+    [
+     "Azorius Artifacts",
+     13,
+     14,
+     0
     ],
     [
      "Jeskai Artifacts",
@@ -2332,27 +2333,27 @@
      0
     ],
     [
-     "Boros Aggro",
-     7,
-     9,
-     2
-    ],
-    [
      "Golgari Midrange",
      12,
      2,
      0
     ],
     [
-     "Mardu Discard",
-     2,
-     3,
-     0
+     "Boros Aggro",
+     7,
+     9,
+     2
     ],
     [
      "Dimir Control",
      5,
      4,
+     0
+    ],
+    [
+     "Mardu Discard",
+     2,
+     3,
      0
     ],
     [
@@ -2380,15 +2381,15 @@
      0
     ],
     [
-     "Mono Black Aggro",
-     4,
-     1,
-     0
-    ],
-    [
      "Temur Omniscience",
      4,
      0,
+     0
+    ],
+    [
+     "Mono Black Aggro",
+     4,
+     1,
      0
     ],
     [
@@ -2434,13 +2435,19 @@
      0
     ],
     [
+     "Mono Blue Control",
+     1,
+     2,
+     0
+    ],
+    [
      "Dimir Looting",
      2,
      4,
      0
     ]
    ],
-   "metaWr": 48.5,
+   "metaWr": 48.6,
    "core": [
     [
      "Godless Shrine",
@@ -2499,7 +2506,7 @@
     ],
     [
      "Liliana the Faultless",
-     82,
+     83,
      2.1
     ],
     [
@@ -2509,7 +2516,7 @@
     ],
     [
      "Enlightened Confidant",
-     76,
+     77,
      3.6
     ],
     [
@@ -2535,11 +2542,11 @@
     [
      "Emptiness",
      37,
-     1.5
+     1.4
     ],
     [
      "Essence Channeler",
-     36,
+     35,
      2.2
     ],
     [
@@ -2550,23 +2557,23 @@
     [
      "Aunt May",
      31,
-     1.4
+     1.3
+    ],
+    [
+     "Great Arashin City",
+     26,
+     1.3
     ],
     [
      "Zoraline, Cosmos Caller",
      25,
      1.1
-    ],
-    [
-     "Great Arashin City",
-     25,
-     1.3
     ]
    ],
-   "lists": 321,
+   "lists": 316,
    "conv": [
-    5.6,
-    5,
+    5.9,
+    5.3,
     39
    ],
    "prev": 7
@@ -2574,9 +2581,9 @@
   {
    "id": "standard-jeskai-control",
    "name": "Jeskai Control",
-   "share": 5.8,
+   "share": 5.7,
    "tier": 1,
-   "count": 268,
+   "count": 252,
    "title": "Benjamin Nikolich · ReCQ - Standard - SCG CON Hartford - Saturday - 4:00 pm (4th Place)",
    "url": "https://melee.gg/Decklist/View/17766d0d-1a36-4741-abe8-b4ed0140f38f",
    "main": [
@@ -2624,7 +2631,7 @@
    ],
    "history": [
     null,
-    6.1,
+    5.7,
     2.7,
     6.1,
     7.7,
@@ -2637,21 +2644,21 @@
     5.3
    ],
    "field": [
-    369,
-    368,
+    362,
+    362,
     34
    ],
    "mu": [
     [
      "Mono Green Landfall",
-     44,
-     55,
+     41,
+     54,
      0
     ],
     [
      "Izzet Spellementals",
      47,
-     28,
+     27,
      2
     ],
     [
@@ -2693,7 +2700,7 @@
     [
      "Dimir Excruciator",
      5,
-     9,
+     8,
      4
     ],
     [
@@ -2711,7 +2718,7 @@
     [
      "Jeskai Artifacts",
      6,
-     8,
+     7,
      0
     ],
     [
@@ -2722,7 +2729,7 @@
     ],
     [
      "Golgari Midrange",
-     6,
+     5,
      1,
      2
     ],
@@ -2753,13 +2760,7 @@
     [
      "Mono Red Aggro",
      6,
-     3,
-     0
-    ],
-    [
-     "Azorius Flash",
-     10,
-     5,
+     2,
      0
     ],
     [
@@ -2769,8 +2770,20 @@
      2
     ],
     [
+     "Azorius Flash",
+     10,
+     5,
+     0
+    ],
+    [
      "Jeskai Lessons",
      3,
+     1,
+     0
+    ],
+    [
+     "Bant Airbending Combo",
+     4,
      1,
      0
     ],
@@ -2778,12 +2791,6 @@
      "Mono Black Aggro",
      2,
      4,
-     0
-    ],
-    [
-     "Bant Airbending Combo",
-     4,
-     1,
      0
     ],
     [
@@ -2795,7 +2802,7 @@
     [
      "Izzet Control",
      0,
-     5,
+     4,
      0
     ],
     [
@@ -2817,7 +2824,7 @@
      4
     ]
    ],
-   "metaWr": 49.6,
+   "metaWr": 49.7,
    "core": [
     [
      "Jeskai Revelation",
@@ -2839,18 +2846,18 @@
    "flex": [
     [
      "Great Hall of the Biblioplex",
-     88,
+     87,
      3.9
     ],
     [
      "Plains",
-     86,
+     87,
      1
     ],
     [
      "Tablet of Discovery",
-     86,
-     3.6
+     85,
+     3.7
     ],
     [
      "Inevitable Defeat",
@@ -2858,24 +2865,29 @@
      3.6
     ],
     [
-     "Flashback",
-     81,
-     1.7
-    ],
-    [
      "Island",
      80,
      1.1
     ],
     [
+     "Flashback",
+     80,
+     1.7
+    ],
+    [
      "Consult the Star Charts",
-     75,
+     76,
      2.8
     ],
     [
      "Shattered Sanctum",
-     74,
+     73,
      1.5
+    ],
+    [
+     "Hallowed Fountain",
+     68,
+     2.2
     ],
     [
      "Mistrise Village",
@@ -2883,18 +2895,13 @@
      1
     ],
     [
-     "Hallowed Fountain",
-     66,
-     2.2
-    ],
-    [
      "Together as One",
-     66,
+     65,
      1.4
     ],
     [
      "Sundown Pass",
-     65,
+     64,
      1.1
     ],
     [
@@ -2904,24 +2911,24 @@
     ],
     [
      "Riverpyre Verge",
-     58,
+     57,
      2.4
     ]
    ],
-   "lists": 268,
+   "lists": 252,
    "conv": [
-    5.9,
-    6.4,
-    50
+    5.8,
+    6,
+    44
    ],
-   "prev": 5.9
+   "prev": 5.8
   },
   {
    "id": "standard-azorius-control",
    "name": "Azorius Control",
-   "share": 5.2,
+   "share": 5.5,
    "tier": 1,
-   "count": 241,
+   "count": 239,
    "title": "Maxime Auger · $uper $unday RCQ - Standard - SCG CON Hartford - Sunday - 9:30 am (8th Place)",
    "url": "https://melee.gg/Decklist/View/4e96e45c-cc95-4c41-8d24-b4ee00347f4a",
    "main": [
@@ -2973,15 +2980,15 @@
     6.4
    ],
    "field": [
-    331,
-    337,
+    329,
+    336,
     42
    ],
    "mu": [
     [
      "Mono Green Landfall",
      36,
-     41,
+     40,
      6
     ],
     [
@@ -3028,7 +3035,7 @@
     ],
     [
      "Dimir Excruciator",
-     4,
+     3,
      7,
      0
     ],
@@ -3046,7 +3053,7 @@
     ],
     [
      "Jeskai Artifacts",
-     8,
+     7,
      9,
      2
     ],
@@ -3069,16 +3076,16 @@
      1
     ],
     [
-     "Boros Aggro",
-     1,
-     2,
-     0
-    ],
-    [
      "Dimir Control",
      6,
      6,
      2
+    ],
+    [
+     "Boros Aggro",
+     1,
+     2,
+     0
     ],
     [
      "Selesnya Landfall",
@@ -3111,15 +3118,15 @@
      0
     ],
     [
-     "Mono Black Aggro",
-     3,
-     1,
-     0
-    ],
-    [
      "Temur Omniscience",
      4,
      2,
+     0
+    ],
+    [
+     "Mono Black Aggro",
+     3,
+     1,
      0
     ],
     [
@@ -3159,13 +3166,19 @@
      0
     ],
     [
+     "Rakdos Control",
+     3,
+     0,
+     0
+    ],
+    [
      "Dimir Looting",
      3,
      3,
      0
     ]
    ],
-   "metaWr": 49.1,
+   "metaWr": 49,
    "core": [
     [
      "Hallowed Fountain",
@@ -3241,7 +3254,7 @@
     ],
     [
      "Countersculpt",
-     68,
+     69,
      3.9
     ],
     [
@@ -3251,7 +3264,7 @@
     ],
     [
      "Meticulous Archive",
-     63,
+     62,
      2.6
     ],
     [
@@ -3280,20 +3293,20 @@
      1.4
     ]
    ],
-   "lists": 241,
+   "lists": 239,
    "conv": [
+    5.1,
     4.9,
-    4.8,
-    37
+    36
    ],
    "prev": 5.2
   },
   {
    "id": "standard-reanimator",
    "name": "Reanimator",
-   "share": 5,
+   "share": 5.2,
    "tier": 1,
-   "count": 230,
+   "count": 228,
    "title": "DomOsaurus · ReCQ - Standard - SCG CON Hartford - Sunday - 12:00 pm (1st Place)",
    "url": "https://melee.gg/Decklist/View/de549674-80b0-438e-830a-b4ee0101d7d6",
    "main": [
@@ -3335,7 +3348,7 @@
    ],
    "history": [
     null,
-    2.1,
+    1.2,
     0,
     0.8,
     1,
@@ -3348,21 +3361,21 @@
     8.5
    ],
    "field": [
-    426,
-    387,
+    421,
+    385,
     29
    ],
    "mu": [
     [
      "Mono Green Landfall",
-     37,
+     35,
      66,
      2
     ],
     [
      "Izzet Spellementals",
-     39,
-     22,
+     38,
+     21,
      3
     ],
     [
@@ -3403,8 +3416,8 @@
     ],
     [
      "Dimir Excruciator",
-     11,
-     15,
+     10,
+     14,
      4
     ],
     [
@@ -3432,6 +3445,12 @@
      0
     ],
     [
+     "Golgari Midrange",
+     8,
+     4,
+     2
+    ],
+    [
      "Mardu Discard",
      4,
      1,
@@ -3442,12 +3461,6 @@
      7,
      8,
      0
-    ],
-    [
-     "Golgari Midrange",
-     8,
-     4,
-     2
     ],
     [
      "Dimir Control",
@@ -3474,14 +3487,14 @@
      0
     ],
     [
-     "Mono Black Aggro",
-     5,
+     "Jeskai Lessons",
+     3,
      1,
      0
     ],
     [
-     "Jeskai Lessons",
-     3,
+     "Mono Black Aggro",
+     5,
      1,
      0
     ],
@@ -3510,13 +3523,19 @@
      0
     ],
     [
+     "Mono Blue Control",
+     1,
+     3,
+     0
+    ],
+    [
      "Dimir Looting",
      0,
      3,
      0
     ]
    ],
-   "metaWr": 52,
+   "metaWr": 51.9,
    "core": [
     [
      "Superior Spider-Man",
@@ -3524,10 +3543,6 @@
     ],
     [
      "Watery Grave",
-     4
-    ],
-    [
-     "Deceit",
      4
     ],
     [
@@ -3545,8 +3560,13 @@
    ],
    "flex": [
     [
+     "Deceit",
+     90,
+     3.7
+    ],
+    [
      "Seasoned Cryomancer",
-     87,
+     88,
      3.5
     ],
     [
@@ -3561,7 +3581,7 @@
     ],
     [
      "Requiting Hex",
-     78,
+     79,
      3
     ],
     [
@@ -3571,27 +3591,27 @@
     ],
     [
      "Restless Reef",
-     70,
+     71,
      3.4
     ],
     [
      "Uldaros Theorix",
-     70,
+     71,
      2.5
     ],
     [
      "Shipwreck Marsh",
-     70,
+     71,
      3.9
     ],
     [
      "Winternight Stories",
-     70,
+     71,
      2
     ],
     [
      "Theorix Charm",
-     66,
+     67,
      2.6
     ],
     [
@@ -3601,34 +3621,29 @@
     ],
     [
      "Duress",
-     64,
+     65,
      2.5
     ],
     [
      "Island",
      62,
      1.1
-    ],
-    [
-     "The Theorist, Jace Beleren",
-     61,
-     2.2
     ]
    ],
-   "lists": 230,
+   "lists": 228,
    "conv": [
-    4.5,
-    5.1,
-    40
+    4.7,
+    5.2,
+    38
    ],
    "prev": 5
   },
   {
    "id": "standard-boros-dragons",
    "name": "Boros Dragons",
-   "share": 4.3,
+   "share": 4.5,
    "tier": 2,
-   "count": 198,
+   "count": 197,
    "title": "Bryan Haak · ReCQ - Standard - SCG CON Hartford - Sunday - 12:00 pm (2st Place)",
    "url": "https://melee.gg/Decklist/View/e5c38b5b-d868-4627-be32-b4ee01013dee",
    "main": [
@@ -3659,7 +3674,7 @@
    ],
    "history": [
     null,
-    2.1,
+    2.4,
     1,
     0.8,
     1.8,
@@ -3673,7 +3688,7 @@
    ],
    "field": [
     214,
-    247,
+    246,
     13
    ],
    "mu": [
@@ -3756,6 +3771,12 @@
      0
     ],
     [
+     "Golgari Midrange",
+     5,
+     1,
+     0
+    ],
+    [
      "Boros Aggro",
      5,
      4,
@@ -3764,12 +3785,6 @@
     [
      "Mardu Discard",
      2,
-     1,
-     0
-    ],
-    [
-     "Golgari Midrange",
-     5,
      1,
      0
     ],
@@ -3822,7 +3837,7 @@
      2
     ]
    ],
-   "metaWr": 45.8,
+   "metaWr": 45.9,
    "core": [
     [
      "Momo, Friendly Flier",
@@ -3896,7 +3911,7 @@
    "flex": [
     [
      "Erode",
-     73,
+     74,
      2
     ],
     [
@@ -3905,10 +3920,10 @@
      1.9
     ]
    ],
-   "lists": 198,
+   "lists": 197,
    "conv": [
-    4.2,
-    4.1,
+    4.4,
+    4.4,
     32
    ],
    "prev": 4.3
@@ -3916,9 +3931,9 @@
   {
    "id": "standard-izzet-aggro",
    "name": "Izzet Aggro",
-   "share": 3,
+   "share": 3.1,
    "tier": 2,
-   "count": 139,
+   "count": 136,
    "title": "Quinn Tonole · $uper $unday RCQ - Standard - SCG CON Hartford - Sunday - 9:30 am (5th Place)",
    "url": "https://melee.gg/Decklist/View/60e4ec10-b620-4d91-ae60-b4ee00c44568",
    "main": [
@@ -3952,7 +3967,7 @@
    ],
    "history": [
     null,
-    3.7,
+    3.3,
     2.4,
     5.7,
     1,
@@ -3965,8 +3980,8 @@
     2.3
    ],
    "field": [
-    149,
-    157,
+    147,
+    156,
     19
    ],
    "mu": [
@@ -3978,13 +3993,13 @@
     ],
     [
      "Izzet Spellementals",
-     17,
-     13,
+     16,
+     12,
      0
     ],
     [
      "Dimir Midrange",
-     13,
+     12,
      15,
      0
     ],
@@ -4073,15 +4088,15 @@
      0
     ],
     [
-     "Azorius Flash",
-     1,
-     3,
-     0
-    ],
-    [
      "Selesnya Aggro",
      2,
      1,
+     0
+    ],
+    [
+     "Azorius Flash",
+     1,
+     3,
      0
     ],
     [
@@ -4115,7 +4130,7 @@
      0
     ]
    ],
-   "metaWr": 52.4,
+   "metaWr": 52.1,
    "core": [
     [
      "Steam Vents",
@@ -4138,8 +4153,13 @@
     ],
     [
      "Slickshot Show-Off",
-     87,
+     88,
      4
+    ],
+    [
+     "Burst Lightning",
+     75,
+     3.9
     ],
     [
      "Multiversal Passage",
@@ -4152,14 +4172,9 @@
      3.9
     ],
     [
-     "Burst Lightning",
-     74,
-     3.9
-    ],
-    [
      "Wild Ride",
      73,
-     2.5
+     2.4
     ],
     [
      "Secret Identity",
@@ -4168,23 +4183,23 @@
     ],
     [
      "Sleight of Hand",
-     68,
+     70,
      4
     ],
     [
      "Opt",
-     67,
+     68,
      3.8
     ],
     [
      "Vibrant Outburst",
-     64,
+     65,
      2.2
     ],
     [
      "Starting Town",
      61,
-     2.4
+     2.3
     ],
     [
      "Island",
@@ -4193,29 +4208,29 @@
     ],
     [
      "Flow State",
-     48,
+     49,
      3.9
     ],
     [
      "Pompous Battlemage",
-     45,
+     46,
      4
     ]
    ],
-   "lists": 139,
+   "lists": 136,
    "conv": [
-    3.3,
-    3.1,
-    24
+    3.4,
+    3,
+    22
    ],
    "prev": 3
   },
   {
    "id": "standard-dimir-excruciator",
    "name": "Dimir Excruciator",
-   "share": 2.7,
+   "share": 2.4,
    "tier": 2,
-   "count": 125,
+   "count": 104,
    "title": "Larry Coleman · ReCQ - Standard - SCG CON Hartford - Sunday - 12:00 pm (5th Place)",
    "url": "https://melee.gg/Decklist/View/1f5e62a2-cd5d-45ed-9d3c-b4ee0101d056",
    "main": [
@@ -4254,7 +4269,7 @@
    ],
    "history": [
     null,
-    6.1,
+    5.7,
     5.5,
     3.4,
     8.5,
@@ -4267,21 +4282,21 @@
     1.6
    ],
    "field": [
-    130,
-    160,
+    123,
+    147,
     27
    ],
    "mu": [
     [
      "Mono Green Landfall",
      9,
-     37,
+     34,
      2
     ],
     [
      "Izzet Spellementals",
      9,
-     9,
+     6,
      4
     ],
     [
@@ -4292,26 +4307,26 @@
     ],
     [
      "Lifegain",
-     13,
+     11,
      12,
      0
     ],
     [
      "Jeskai Control",
-     9,
+     8,
      5,
      4
     ],
     [
      "Azorius Control",
      7,
-     4,
+     3,
      0
     ],
     [
      "Reanimator",
-     15,
-     11,
+     14,
+     10,
      4
     ],
     [
@@ -4335,13 +4350,19 @@
     [
      "Jeskai Artifacts",
      2,
-     2,
+     1,
      0
     ],
     [
      "Rakdos Lizards",
      1,
      2,
+     0
+    ],
+    [
+     "Golgari Midrange",
+     3,
+     1,
      0
     ],
     [
@@ -4357,12 +4378,6 @@
      0
     ],
     [
-     "Golgari Midrange",
-     3,
-     1,
-     0
-    ],
-    [
      "Dimir Control",
      3,
      1,
@@ -4370,19 +4385,13 @@
     ],
     [
      "Selesnya Landfall",
-     3,
+     2,
      3,
      0
     ],
     [
      "Selesnya Aggro",
      2,
-     3,
-     0
-    ],
-    [
-     "Mono Black Aggro",
-     0,
      3,
      0
     ],
@@ -4411,7 +4420,7 @@
      2
     ]
    ],
-   "metaWr": 48.8,
+   "metaWr": 49.6,
    "core": [
     [
      "Swamp",
@@ -4464,33 +4473,33 @@
    ],
    "flex": [
     [
+     "Cavern of Souls",
+     80,
+     2
+    ],
+    [
      "Superior Spider-Man",
      80,
      4
     ],
     [
-     "Cavern of Souls",
-     79,
-     1.9
-    ],
-    [
      "Stock Up",
-     77,
+     74,
      2.7
     ],
     [
      "Day of Black Sun",
-     71,
+     68,
      2
     ],
     [
      "Emeritus of Ideation // Ancestral Recall",
-     59,
+     58,
      2
     ],
     [
      "Strategic Betrayal",
-     52,
+     51,
      1
     ],
     [
@@ -4499,36 +4508,41 @@
      1.8
     ],
     [
-     "M.O.D.O.K.",
-     35,
-     1
+     "Shipwreck Marsh",
+     40,
+     3.3
     ],
     [
      "Emeritus of Ideation",
-     35,
+     36,
      2
     ],
     [
      "Hidden Lair",
-     34,
+     33,
      1.9
     ],
     [
-     "Shipwreck Marsh",
-     34,
-     3.3
+     "M.O.D.O.K.",
+     33,
+     1
     ],
     [
      "Uldaros Theorix",
-     27,
+     33,
      1.5
+    ],
+    [
+     "Seasoned Cryomancer",
+     29,
+     3
     ]
    ],
-   "lists": 125,
+   "lists": 104,
    "conv": [
-    3.1,
-    2.7,
-    21
+    2.6,
+    2.5,
+    18
    ],
    "prev": 2.7
   },
@@ -4537,7 +4551,7 @@
    "name": "Azorius Artifacts",
    "share": 1.9,
    "tier": 2,
-   "count": 85,
+   "count": 83,
    "title": "MEDo03 · ReCQ - Standard - SCG CON Hartford - Friday - 12:00 pm (2st Place)",
    "url": "https://melee.gg/Decklist/View/f2e98217-19b0-4dd0-8414-b4ec00fed2f4",
    "main": [
@@ -4589,8 +4603,8 @@
     1.8
    ],
    "field": [
-    125,
-    86,
+    121,
+    84,
     4
    ],
    "mu": [
@@ -4602,7 +4616,7 @@
     ],
     [
      "Izzet Spellementals",
-     9,
+     8,
      2,
      0
     ],
@@ -4615,7 +4629,7 @@
     [
      "Lifegain",
      14,
-     14,
+     13,
      0
     ],
     [
@@ -4667,15 +4681,15 @@
      0
     ],
     [
-     "Boros Aggro",
-     1,
-     3,
-     0
-    ],
-    [
      "Golgari Midrange",
      2,
      1,
+     0
+    ],
+    [
+     "Boros Aggro",
+     1,
+     3,
      0
     ],
     [
@@ -4691,7 +4705,7 @@
      0
     ]
    ],
-   "metaWr": 55.4,
+   "metaWr": 55.1,
    "core": [
     [
      "Plains",
@@ -4726,11 +4740,11 @@
      3
     ],
     [
-     "Cryogen Relic",
+     "Pinnacle Starcage",
      3
     ],
     [
-     "Pinnacle Starcage",
+     "Cryogen Relic",
      3
     ],
     [
@@ -4771,69 +4785,69 @@
     ],
     [
      "White Auracite",
-     79,
+     78,
      1
     ],
     [
      "Meticulous Archive",
-     76,
-     1.2
-    ],
-    [
-     "Gleaming Bastion",
-     71,
+     78,
      1.2
     ],
     [
      "Erode",
-     69,
+     71,
      1.1
     ],
     [
+     "Gleaming Bastion",
+     70,
+     1.2
+    ],
+    [
      "Fomori Vault",
-     58,
+     57,
      1
     ],
     [
      "Day of Judgment",
-     54,
+     55,
      1.1
     ],
     [
      "Petrified Hamlet",
-     52,
+     51,
      1.7
     ],
     [
      "Authority of the Consuls",
-     48,
+     49,
      2
     ],
     [
      "Boomerang Basics",
-     46,
+     47,
      2
     ],
     [
      "Seam Rip",
-     40,
+     41,
      1.1
     ]
    ],
-   "lists": 85,
+   "lists": 83,
    "conv": [
-    1.5,
+    1.6,
     2.3,
-    18
+    17
    ],
-   "prev": 1.8
+   "prev": 1.9
   },
   {
    "id": "standard-azorius-momo",
    "name": "Azorius Momo",
    "share": 1.9,
    "tier": 2,
-   "count": 85,
+   "count": 82,
    "title": "Marrchata · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-2411129#deck_Marrchata",
    "main": [
@@ -4865,7 +4879,7 @@
    ],
    "history": [
     null,
-    2.1,
+    2.8,
     3.8,
     2.3,
     1.6,
@@ -4879,7 +4893,7 @@
    ],
    "field": [
     119,
-    117,
+    116,
     12
    ],
    "mu": [
@@ -4892,7 +4906,7 @@
     [
      "Izzet Spellementals",
      7,
-     11,
+     10,
      2
     ],
     [
@@ -4980,7 +4994,7 @@
      0
     ]
    ],
-   "metaWr": 48.4,
+   "metaWr": 48.6,
    "core": [
     [
      "Plains",
@@ -5027,7 +5041,7 @@
     [
      "Practiced Offense",
      88,
-     3.3
+     3.2
     ],
     [
      "Nurturing Pixie",
@@ -5041,17 +5055,17 @@
     ],
     [
      "Gleaming Bastion",
-     80,
-     3.5
+     82,
+     3.4
     ],
     [
      "Steamcore Scholar",
-     75,
+     74,
      3.8
     ],
     [
      "Guiding Hydra",
-     64,
+     66,
      1
     ],
     [
@@ -5061,34 +5075,34 @@
     ],
     [
      "Mockingbird",
-     40,
+     41,
      1.1
     ],
     [
      "Get Lost",
-     34,
+     35,
      1.7
     ],
     [
      "Island",
-     29,
+     30,
      1.8
     ],
     [
      "Haliya, Guided by Light",
-     28,
+     29,
      2
     ],
     [
      "Cosmogrand Zenith",
-     26,
+     27,
      2
     ]
    ],
-   "lists": 85,
+   "lists": 82,
    "conv": [
     1.9,
-    1.7,
+    1.8,
     13
    ],
    "prev": 1.9
@@ -5098,7 +5112,7 @@
    "name": "Jeskai Artifacts",
    "share": 1.7,
    "tier": 2,
-   "count": 77,
+   "count": 74,
    "title": "Talonflame23185 · Magic Spotlight: Fracture - SCG CON Hartford - Saturday - 9:00 am (1st Place)",
    "url": "https://melee.gg/Decklist/View/1588162b-0206-42a0-9db0-b4ec006c7163",
    "main": [
@@ -5144,7 +5158,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0.4,
     1.4,
     2.3,
     1,
@@ -5157,8 +5171,8 @@
     2.2
    ],
    "field": [
-    146,
-    105,
+    144,
+    104,
     4
    ],
    "mu": [
@@ -5188,14 +5202,14 @@
     ],
     [
      "Jeskai Control",
-     8,
+     7,
      6,
      0
     ],
     [
      "Azorius Control",
      9,
-     8,
+     7,
      2
     ],
     [
@@ -5218,7 +5232,7 @@
     ],
     [
      "Dimir Excruciator",
-     2,
+     1,
      2,
      0
     ],
@@ -5241,7 +5255,7 @@
      0
     ]
    ],
-   "metaWr": 56.6,
+   "metaWr": 56.5,
    "core": [
     [
      "Simulacrum Synthesizer",
@@ -5272,11 +5286,11 @@
      4
     ],
     [
-     "The Mind Stone",
+     "Repurposing Bay",
      3
     ],
     [
-     "Repurposing Bay",
+     "The Mind Stone",
      3
     ],
     [
@@ -5295,7 +5309,7 @@
    "flex": [
     [
      "Petrified Hamlet",
-     90,
+     89,
      2.2
     ],
     [
@@ -5305,22 +5319,22 @@
     ],
     [
      "Braided Net",
-     86,
+     85,
      1.9
     ],
     [
      "Meticulous Archive",
-     73,
+     72,
      3.5
     ],
     [
      "Spring-Loaded Sawblades",
-     71,
-     1.9
+     70,
+     2
     ],
     [
      "Torpor Orb",
-     65,
+     64,
      1
     ],
     [
@@ -5329,42 +5343,42 @@
      1.2
     ],
     [
+     "White Auracite",
+     54,
+     1
+    ],
+    [
      "Sacred Foundry",
      53,
      1.2
     ],
     [
-     "White Auracite",
-     52,
-     1
-    ],
-    [
      "Starting Town",
-     51,
+     50,
      1.6
     ],
     [
      "The Irencrag",
-     45,
+     46,
      1.1
     ],
     [
-     "Island",
-     44,
-     1.9
-    ],
-    [
      "Steam Vents",
-     44,
+     46,
      1.5
     ],
     [
+     "Island",
+     42,
+     2
+    ],
+    [
      "Fomori Vault",
-     40,
+     42,
      1
     ]
    ],
-   "lists": 77,
+   "lists": 74,
    "conv": [
     1.4,
     0.8,
@@ -5502,15 +5516,15 @@
      0
     ],
     [
-     "Mardu Discard",
-     2,
-     1,
-     0
-    ],
-    [
      "Golgari Midrange",
      1,
      2,
+     0
+    ],
+    [
+     "Mardu Discard",
+     2,
+     1,
      0
     ],
     [
@@ -5520,7 +5534,7 @@
      0
     ]
    ],
-   "metaWr": 46.1,
+   "metaWr": 46,
    "core": [
     [
      "Flamecache Gecko",
@@ -5619,285 +5633,18 @@
    ],
    "lists": 72,
    "conv": [
-    1.6,
+    1.7,
     1.2,
     9
    ],
    "prev": 1.6
   },
   {
-   "id": "standard-mardu-discard",
-   "name": "Mardu Discard",
-   "share": 1.3,
-   "tier": 2,
-   "count": 61,
-   "title": "Richard Henriques · ReCQ - Standard - SCG CON Los Angeles - Saturday - 3:00 pm (8th Place)",
-   "url": "https://melee.gg/Decklist/View/4849600b-c315-4ce4-ad51-b4df01563270",
-   "main": [
-    "1 Inti, Seneschal of the Sun",
-    "1 Swamp",
-    "3 Concealed Courtyard",
-    "2 Erode",
-    "2 Inspiring Vantage",
-    "4 Iron-Shield Elf",
-    "2 Cecil, Dark Knight",
-    "4 Starting Town",
-    "3 Practiced Offense",
-    "1 Mountain",
-    "4 Moonshadow",
-    "4 Hardened Academic",
-    "4 Marauding Mako",
-    "4 Sacred Foundry",
-    "4 Cool but Rude",
-    "2 Requiting Hex",
-    "4 Bloodghast",
-    "1 Carnage, Crimson Chaos",
-    "2 Tersa Lightshatter",
-    "4 Blood Crypt",
-    "3 Godless Shrine",
-    "1 Casey Jones, Vigilante"
-   ],
-   "side": [
-    "3 Sheltered by Ghosts",
-    "3 Strategic Betrayal",
-    "3 Day of Judgment",
-    "2 Monument to Endurance",
-    "2 Shoot the Sheriff",
-    "2 Voice of Victory"
-   ],
-   "history": [
-    null,
-    7,
-    7.9,
-    3.1,
-    4.2,
-    2.7,
-    2.9,
-    1.8,
-    0,
-    0.6,
-    1,
-    0.4
-   ],
-   "field": [
-    61,
-    84,
-    5
-   ],
-   "mu": [
-    [
-     "Mono Green Landfall",
-     6,
-     17,
-     0
-    ],
-    [
-     "Izzet Spellementals",
-     7,
-     10,
-     0
-    ],
-    [
-     "Dimir Midrange",
-     2,
-     3,
-     0
-    ],
-    [
-     "Lifegain",
-     3,
-     2,
-     0
-    ],
-    [
-     "Jeskai Control",
-     8,
-     3,
-     0
-    ],
-    [
-     "Azorius Control",
-     1,
-     2,
-     1
-    ],
-    [
-     "Reanimator",
-     1,
-     4,
-     0
-    ],
-    [
-     "Boros Dragons",
-     1,
-     2,
-     0
-    ],
-    [
-     "Izzet Aggro",
-     2,
-     4,
-     0
-    ],
-    [
-     "Dimir Excruciator",
-     4,
-     2,
-     0
-    ],
-    [
-     "Azorius Momo",
-     1,
-     3,
-     0
-    ],
-    [
-     "Rakdos Lizards",
-     1,
-     2,
-     0
-    ],
-    [
-     "Boros Aggro",
-     1,
-     1,
-     2
-    ],
-    [
-     "Mono White Momo",
-     0,
-     3,
-     0
-    ],
-    [
-     "Golgari Control",
-     1,
-     2,
-     0
-    ]
-   ],
-   "metaWr": 45.7,
-   "core": [
-    [
-     "Hardened Academic",
-     4
-    ],
-    [
-     "Marauding Mako",
-     4
-    ],
-    [
-     "Blood Crypt",
-     4
-    ],
-    [
-     "Moonshadow",
-     4
-    ],
-    [
-     "Cool but Rude",
-     4
-    ],
-    [
-     "Iron-Shield Elf",
-     4
-    ],
-    [
-     "Bloodghast",
-     4
-    ],
-    [
-     "Sacred Foundry",
-     4
-    ],
-    [
-     "Starting Town",
-     4
-    ],
-    [
-     "Practiced Offense",
-     3
-    ],
-    [
-     "Concealed Courtyard",
-     3
-    ],
-    [
-     "Godless Shrine",
-     3
-    ],
-    [
-     "Erode",
-     2
-    ],
-    [
-     "Tersa Lightshatter",
-     2
-    ],
-    [
-     "Inspiring Vantage",
-     2
-    ],
-    [
-     "Inti, Seneschal of the Sun",
-     2
-    ],
-    [
-     "Mountain",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Swamp",
-     89,
-     1.1
-    ],
-    [
-     "Requiting Hex",
-     84,
-     1.9
-    ],
-    [
-     "Carnage, Crimson Chaos",
-     70,
-     1.8
-    ],
-    [
-     "Cecil, Dark Knight",
-     46,
-     1.5
-    ],
-    [
-     "Multiversal Passage",
-     44,
-     1.1
-    ],
-    [
-     "Casey Jones, Vigilante",
-     44,
-     1.2
-    ],
-    [
-     "Blazemire Verge",
-     33,
-     1.9
-    ]
-   ],
-   "lists": 61,
-   "conv": [
-    1.6,
-    1.5,
-    12
-   ],
-   "prev": 1.3
-  },
-  {
    "id": "standard-golgari-midrange",
    "name": "Golgari Midrange",
    "share": 1.3,
    "tier": 2,
-   "count": 61,
+   "count": 55,
    "title": "ModoBaggins · ReCQ - Standard - SCG CON Hartford - Saturday - 4:00 pm (5th Place)",
    "url": "https://melee.gg/Decklist/View/e232b9f9-9d26-4d94-8a4c-b4ed01457404",
    "main": [
@@ -5937,7 +5684,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0,
     2.4,
     0.8,
     3.2,
@@ -5950,21 +5697,21 @@
     1.3
    ],
    "field": [
-    76,
-    112,
+    74,
+    108,
     8
    ],
    "mu": [
     [
      "Mono Green Landfall",
-     8,
-     18,
+     7,
+     16,
      0
     ],
     [
      "Izzet Spellementals",
      8,
-     11,
+     10,
      2
     ],
     [
@@ -5982,7 +5729,7 @@
     [
      "Jeskai Control",
      1,
-     6,
+     5,
      2
     ],
     [
@@ -6040,19 +5787,13 @@
      2
     ],
     [
-     "Bant Airbending Combo",
-     2,
-     1,
-     0
-    ],
-    [
      "Simic Omniscience",
      2,
      1,
      0
     ]
    ],
-   "metaWr": 39.5,
+   "metaWr": 39.9,
    "core": [
     [
      "Swamp",
@@ -6061,94 +5802,98 @@
     [
      "Overgrown Tomb",
      4
+    ],
+    [
+     "Restless Cottage",
+     3
     ]
    ],
    "flex": [
     [
-     "Restless Cottage",
-     89,
-     2.5
-    ],
-    [
      "Wastewood Verge",
      89,
-     3.2
+     3.3
     ],
     [
      "Bitter Triumph",
-     85,
+     84,
      2
     ],
     [
-     "Requiting Hex",
+     "Forest",
      82,
      2.9
     ],
     [
-     "Professor Dellian Fel",
-     77,
-     2.6
-    ],
-    [
-     "Forest",
-     75,
+     "Requiting Hex",
+     80,
      2.9
     ],
     [
+     "Professor Dellian Fel",
+     76,
+     2.7
+    ],
+    [
      "Maelstrom Pulse",
-     70,
+     71,
      1.4
     ],
     [
      "Ba Sing Se",
      67,
-     1.7
+     1.8
     ],
     [
      "Deathcap Glade",
-     61,
+     65,
      2.5
     ],
     [
      "Duress",
-     61,
+     58,
      2.9
     ],
     [
      "Deadly Cover-Up",
-     59,
-     2.7
+     56,
+     2.5
     ],
     [
      "Vraska, the Cutting Glare",
-     49,
+     55,
      3.6
     ],
     [
      "Witherbloom Charm",
-     46,
+     51,
      2.9
     ],
     [
-     "Shoot the Sheriff",
-     43,
-     1.9
+     "Simulacrum Shaper",
+     47,
+     3.8
+    ],
+    [
+     "Llanowar Elves",
+     44,
+     3.9
     ]
    ],
-   "lists": 61,
+   "lists": 55,
    "conv": [
-    1.3,
-    1.4,
-    11
+    1.1,
+    1.1,
+    8
    ],
-   "prev": 1.4
+   "prev": 1.3
   },
   {
    "id": "standard-boros-aggro",
    "name": "Boros Aggro",
-   "share": 1.3,
+   "share": 1.2,
    "tier": 2,
-   "count": 61,
+   "count": 54,
    "title": "AKINARI Shimokawabe · 蒼紅杯 ~リアリティ・フラクチャー~ Izzet Explosive Experiment Event (8th Place)",
    "url": "https://melee.gg/Decklist/View/f4999bae-7672-41b9-ab3f-b4e1002d017f",
    "main": [
@@ -6180,7 +5925,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0.4,
     1,
     1.5,
     5.2,
@@ -6194,7 +5939,7 @@
    ],
    "field": [
     79,
-    77,
+    76,
     8
    ],
    "mu": [
@@ -6271,16 +6016,16 @@
      0
     ],
     [
-     "Mardu Discard",
-     1,
-     1,
-     2
-    ],
-    [
      "Dimir Control",
      1,
      2,
      0
+    ],
+    [
+     "Mardu Discard",
+     1,
+     1,
+     2
     ],
     [
      "Mono Red Aggro",
@@ -6295,11 +6040,11 @@
      2
     ]
    ],
-   "metaWr": 49.9,
+   "metaWr": 50,
    "core": [
     [
      "Mountain",
-     4
+     5
     ],
     [
      "Inspiring Vantage",
@@ -6317,37 +6062,37 @@
    "flex": [
     [
      "Stadium Headliner",
-     84,
+     85,
      4
     ],
     [
      "Voice of Victory",
-     84,
+     85,
      4
     ],
     [
      "Warleader's Call",
-     75,
+     76,
      3.9
     ],
     [
      "Plains",
-     72,
-     1.7
+     70,
+     1.6
     ],
     [
      "Torch the Tower",
      70,
-     3.1
+     3.2
     ],
     [
      "Dalkovan Encampment",
      69,
-     2.7
+     2.8
     ],
     [
      "Political Triumph",
-     67,
+     69,
      4
     ],
     [
@@ -6372,13 +6117,13 @@
     ],
     [
      "Erode",
-     51,
+     52,
      2
     ],
     [
      "Hop to It",
-     51,
-     2.2
+     50,
+     2.1
     ],
     [
      "Fountainport",
@@ -6386,20 +6131,281 @@
      1.9
     ]
    ],
-   "lists": 61,
+   "lists": 54,
    "conv": [
     1.4,
     1,
-    8
+    7
    ],
-   "prev": 1.4
+   "prev": 1.3
+  },
+  {
+   "id": "standard-mardu-discard",
+   "name": "Mardu Discard",
+   "share": 1.2,
+   "tier": 2,
+   "count": 53,
+   "title": "Richard Henriques · ReCQ - Standard - SCG CON Los Angeles - Saturday - 3:00 pm (8th Place)",
+   "url": "https://melee.gg/Decklist/View/4849600b-c315-4ce4-ad51-b4df01563270",
+   "main": [
+    "1 Inti, Seneschal of the Sun",
+    "1 Swamp",
+    "3 Concealed Courtyard",
+    "2 Erode",
+    "2 Inspiring Vantage",
+    "4 Iron-Shield Elf",
+    "2 Cecil, Dark Knight",
+    "4 Starting Town",
+    "3 Practiced Offense",
+    "1 Mountain",
+    "4 Moonshadow",
+    "4 Hardened Academic",
+    "4 Marauding Mako",
+    "4 Sacred Foundry",
+    "4 Cool but Rude",
+    "2 Requiting Hex",
+    "4 Bloodghast",
+    "1 Carnage, Crimson Chaos",
+    "2 Tersa Lightshatter",
+    "4 Blood Crypt",
+    "3 Godless Shrine",
+    "1 Casey Jones, Vigilante"
+   ],
+   "side": [
+    "3 Sheltered by Ghosts",
+    "3 Strategic Betrayal",
+    "3 Day of Judgment",
+    "2 Monument to Endurance",
+    "2 Shoot the Sheriff",
+    "2 Voice of Victory"
+   ],
+   "history": [
+    null,
+    8.5,
+    7.9,
+    3.1,
+    4.2,
+    2.7,
+    2.9,
+    1.8,
+    0,
+    0.6,
+    1,
+    0.4
+   ],
+   "field": [
+    56,
+    78,
+    5
+   ],
+   "mu": [
+    [
+     "Mono Green Landfall",
+     6,
+     15,
+     0
+    ],
+    [
+     "Izzet Spellementals",
+     6,
+     9,
+     0
+    ],
+    [
+     "Dimir Midrange",
+     2,
+     3,
+     0
+    ],
+    [
+     "Lifegain",
+     3,
+     2,
+     0
+    ],
+    [
+     "Jeskai Control",
+     8,
+     3,
+     0
+    ],
+    [
+     "Azorius Control",
+     1,
+     2,
+     1
+    ],
+    [
+     "Reanimator",
+     1,
+     4,
+     0
+    ],
+    [
+     "Boros Dragons",
+     1,
+     2,
+     0
+    ],
+    [
+     "Izzet Aggro",
+     2,
+     4,
+     0
+    ],
+    [
+     "Dimir Excruciator",
+     4,
+     2,
+     0
+    ],
+    [
+     "Azorius Momo",
+     1,
+     3,
+     0
+    ],
+    [
+     "Rakdos Lizards",
+     1,
+     2,
+     0
+    ],
+    [
+     "Boros Aggro",
+     1,
+     1,
+     2
+    ],
+    [
+     "Golgari Control",
+     1,
+     2,
+     0
+    ]
+   ],
+   "metaWr": 46.1,
+   "core": [
+    [
+     "Hardened Academic",
+     4
+    ],
+    [
+     "Marauding Mako",
+     4
+    ],
+    [
+     "Blood Crypt",
+     4
+    ],
+    [
+     "Iron-Shield Elf",
+     4
+    ],
+    [
+     "Moonshadow",
+     4
+    ],
+    [
+     "Cool but Rude",
+     4
+    ],
+    [
+     "Bloodghast",
+     4
+    ],
+    [
+     "Sacred Foundry",
+     4
+    ],
+    [
+     "Starting Town",
+     4
+    ],
+    [
+     "Practiced Offense",
+     3
+    ],
+    [
+     "Concealed Courtyard",
+     3
+    ],
+    [
+     "Godless Shrine",
+     3
+    ],
+    [
+     "Erode",
+     2
+    ],
+    [
+     "Inspiring Vantage",
+     2
+    ],
+    [
+     "Tersa Lightshatter",
+     2
+    ],
+    [
+     "Inti, Seneschal of the Sun",
+     2
+    ],
+    [
+     "Mountain",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Swamp",
+     89,
+     1.1
+    ],
+    [
+     "Requiting Hex",
+     87,
+     2
+    ],
+    [
+     "Carnage, Crimson Chaos",
+     68,
+     1.8
+    ],
+    [
+     "Casey Jones, Vigilante",
+     49,
+     1.2
+    ],
+    [
+     "Multiversal Passage",
+     47,
+     1.1
+    ],
+    [
+     "Cecil, Dark Knight",
+     45,
+     1.6
+    ],
+    [
+     "Blazemire Verge",
+     32,
+     1.8
+    ]
+   ],
+   "lists": 53,
+   "conv": [
+    1.4,
+    1.5,
+    11
+   ],
+   "prev": 1.3
   },
   {
    "id": "standard-dimir-control",
    "name": "Dimir Control",
    "share": 1.2,
    "tier": 2,
-   "count": 55,
+   "count": 53,
    "title": "Kyle Moran · $uper $unday RCQ - Standard - SCG CON Hartford - Sunday - 9:30 am (2st Place)",
    "url": "https://melee.gg/Decklist/View/042aff39-567b-4b00-9d3f-b4ee00cf69fb",
    "main": [
@@ -6442,7 +6448,7 @@
    ],
    "history": [
     null,
-    0.6,
+    0.8,
     0,
     0.4,
     0.6,
@@ -6456,14 +6462,14 @@
    ],
    "field": [
     84,
-    82,
+    80,
     14
    ],
    "mu": [
     [
      "Mono Green Landfall",
      10,
-     8,
+     7,
      6
     ],
     [
@@ -6475,7 +6481,7 @@
     [
      "Dimir Midrange",
      4,
-     10,
+     9,
      0
     ],
     [
@@ -6527,16 +6533,16 @@
      0
     ],
     [
-     "Boros Aggro",
-     2,
-     1,
-     0
-    ],
-    [
      "Golgari Midrange",
      3,
      1,
      2
+    ],
+    [
+     "Boros Aggro",
+     2,
+     1,
+     0
     ],
     [
      "Azorius Flash",
@@ -6545,12 +6551,8 @@
      0
     ]
    ],
-   "metaWr": 51.4,
+   "metaWr": 51.7,
    "core": [
-    [
-     "Swamp",
-     4
-    ],
     [
      "Gloomlake Verge",
      4
@@ -6560,11 +6562,20 @@
      4
     ],
     [
+     "Swamp",
+     4
+    ],
+    [
      "Requiting Hex",
      3
     ]
    ],
    "flex": [
+    [
+     "Bitter Triumph",
+     87,
+     2.4
+    ],
     [
      "Deadly Cover-Up",
      85,
@@ -6572,74 +6583,69 @@
     ],
     [
      "Island",
-     84,
-     3.3
+     83,
+     3.1
     ],
     [
      "Restless Reef",
-     84,
+     83,
      2.7
     ],
     [
-     "Bitter Triumph",
-     84,
-     2.4
-    ],
-    [
      "Shipwreck Marsh",
-     80,
+     83,
      3.5
     ],
     [
-     "Strategic Betrayal",
-     71,
-     1.1
-    ],
-    [
      "The Theorist, Jace Beleren",
-     69,
+     72,
      3
     ],
     [
+     "Strategic Betrayal",
+     70,
+     1.1
+    ],
+    [
      "Duress",
-     65,
+     68,
      2.9
     ],
     [
      "Undercity Sewers",
-     64,
+     66,
      2.4
     ],
     [
      "Spell Snare",
-     62,
+     60,
      2.1
     ],
     [
      "Consult the Star Charts",
-     58,
-     3.5
-    ],
-    [
-     "Stock Up",
-     47,
-     2.8
+     57,
+     3.6
     ],
     [
      "Deceit",
-     47,
+     49,
      3.9
     ],
     [
      "Theorix Charm",
-     47,
+     49,
      2.5
+    ],
+    [
+     "Stock Up",
+     45,
+     2.8
     ]
    ],
-   "lists": 55,
+   "lists": 53,
    "conv": [
     1.2,
-    0.9,
+    1,
     7
    ],
    "prev": 1.2
@@ -6647,9 +6653,9 @@
   {
    "id": "standard-selesnya-landfall",
    "name": "Selesnya Landfall",
-   "share": 1,
+   "share": 0.9,
    "tier": 2,
-   "count": 45,
+   "count": 41,
    "title": "_Batutinha_ · Standard Challenge 16 (2nd Place)",
    "url": "https://www.mtgo.com/decklist/standard-challenge-16-2026-10-2412856977#deck__Batutinha_",
    "main": [
@@ -6679,7 +6685,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0.4,
     2.7,
     7.7,
     1.8,
@@ -6692,20 +6698,20 @@
     0.8
    ],
    "field": [
-    47,
-    47,
+    46,
+    45,
     2
    ],
    "mu": [
     [
      "Mono Green Landfall",
      4,
-     7,
+     6,
      0
     ],
     [
      "Izzet Spellementals",
-     8,
+     7,
      1,
      0
     ],
@@ -6736,7 +6742,7 @@
     [
      "Dimir Excruciator",
      3,
-     3,
+     2,
      0
     ],
     [
@@ -6752,7 +6758,7 @@
      2
     ]
    ],
-   "metaWr": 48.9,
+   "metaWr": 49.1,
    "core": [
     [
      "Forest",
@@ -6810,35 +6816,35 @@
    "flex": [
     [
      "Hushwood Verge",
-     80,
+     78,
      1.2
     ],
     [
      "Erode",
-     64,
+     61,
+     3.6
+    ],
+    [
+     "Sapling Nursery",
+     44,
      3.7
     ],
     [
      "Dyadrine, Synthesis Amalgam",
-     44,
+     39,
      1.9
     ],
     [
      "Shared Roots",
-     40,
+     39,
      2.1
-    ],
-    [
-     "Sapling Nursery",
-     40,
-     3.7
     ]
    ],
-   "lists": 45,
+   "lists": 41,
    "conv": [
-    1.2,
-    1.7,
-    13
+    1.1,
+    1.5,
+    11
    ],
    "prev": 1
   },
@@ -6847,7 +6853,7 @@
    "name": "Mono Red Aggro",
    "share": 0.9,
    "tier": 2,
-   "count": 43,
+   "count": 39,
    "title": "dale giglitti · ReCQ - Standard - SCG CON Hartford - Friday - 2:00 pm (8th Place)",
    "url": "https://melee.gg/Decklist/View/00917807-1a84-4f7d-9bca-b4ec011d30c2",
    "main": [
@@ -6871,7 +6877,7 @@
    ],
    "history": [
     null,
-    0.9,
+    0.4,
     1.7,
     0,
     1.2,
@@ -6884,21 +6890,21 @@
     1
    ],
    "field": [
-    36,
-    61,
+    34,
+    58,
     4
    ],
    "mu": [
     [
      "Mono Green Landfall",
      1,
-     11,
+     10,
      0
     ],
     [
      "Izzet Spellementals",
      2,
-     6,
+     4,
      0
     ],
     [
@@ -6915,7 +6921,7 @@
     ],
     [
      "Jeskai Control",
-     3,
+     2,
      6,
      0
     ],
@@ -6944,7 +6950,7 @@
      0
     ]
    ],
-   "metaWr": 43,
+   "metaWr": 43.9,
    "core": [
     [
      "Mountain",
@@ -6958,58 +6964,58 @@
    "flex": [
     [
      "Hired Claw",
-     84,
+     82,
      4
     ],
     [
      "Emberheart Challenger",
-     70,
+     69,
      3.7
     ],
     [
      "Nova Hellkite",
-     60,
+     59,
      3.7
-    ],
-    [
-     "Soulstone Sanctuary",
-     56,
-     2.6
     ],
     [
      "Rockface Village",
      56,
-     2
+     2.1
     ],
     [
      "Lightning Strike",
-     51,
+     54,
      3.3
     ],
     [
+     "Soulstone Sanctuary",
+     54,
+     2.7
+    ],
+    [
      "Stingcaster Mage",
-     42,
+     46,
      3.7
     ],
     [
      "Tomik, Izzet Sparkmage",
-     40,
+     44,
      2.2
     ],
     [
-     "Tersa Lightshatter",
-     37,
-     2.5
-    ],
-    [
-     "Hexing Squelcher",
-     35,
-     2.8
-    ],
-    [
      "Plasma Bolt",
-     35,
+     38,
      3
+    ],
+    [
+     "Tersa Lightshatter",
+     36,
+     2.4
+    ],
+    [
+     "Shock",
+     36,
+     2.6
     ],
     [
      "Slickshot Show-Off",
@@ -7017,28 +7023,28 @@
      3.7
     ],
     [
-     "Shock",
+     "Hexing Squelcher",
      33,
-     2.6
+     2.8
     ],
     [
      "Gandalf, Goblins' Bane",
-     28,
+     31,
      3.2
     ]
    ],
-   "lists": 43,
+   "lists": 39,
    "conv": [
-    1.1,
-    0.6,
-    5
+    1,
+    0.5,
+    4
    ],
    "prev": 0.9
   },
   {
    "id": "standard-selesnya-aggro",
    "name": "Selesnya Aggro",
-   "share": 0.7,
+   "share": 0.8,
    "tier": 2,
    "count": 33,
    "title": "eyLDS · $1K Standard RCQ - SCG CON Hartford - Friday - 10:00 am (2st Place)",
@@ -7167,7 +7173,7 @@
      0
     ]
    ],
-   "metaWr": 52.8,
+   "metaWr": 52.6,
    "core": [
     [
      "Forest",
@@ -7265,7 +7271,7 @@
    "lists": 33,
    "conv": [
     0.7,
-    1,
+    1.1,
     8
    ],
    "prev": 0.7
@@ -7275,7 +7281,7 @@
    "name": "Azorius Flash",
    "share": 0.7,
    "tier": 2,
-   "count": 32,
+   "count": 31,
    "title": "Jurrd · US RCQ | 2026-27 Round 2 2 Slot (1st Place)",
    "url": "https://melee.gg/Decklist/View/e550afc8-b0fb-4db3-94bc-b4d100ffdc55",
    "main": [
@@ -7312,7 +7318,7 @@
    ],
    "history": [
     null,
-    4,
+    3.3,
     1,
     0,
     0.8,
@@ -7325,8 +7331,8 @@
     0.8
    ],
    "field": [
-    61,
-    66,
+    59,
+    65,
     6
    ],
    "mu": [
@@ -7379,16 +7385,16 @@
      0
     ],
     [
-     "Boros Aggro",
-     2,
-     0,
-     2
-    ],
-    [
      "Dimir Control",
      1,
      3,
      0
+    ],
+    [
+     "Boros Aggro",
+     2,
+     0,
+     2
     ],
     [
      "Selesnya Aggro",
@@ -7397,7 +7403,7 @@
      0
     ]
    ],
-   "metaWr": 42.3,
+   "metaWr": 42.4,
    "core": [
     [
      "Hallowed Fountain",
@@ -7428,7 +7434,7 @@
     [
      "Erode",
      84,
-     2.4
+     2.5
     ],
     [
      "High Noon",
@@ -7438,7 +7444,7 @@
     [
      "Restless Anchorage",
      84,
-     2
+     2.1
     ],
     [
      "Abandoned Air Temple",
@@ -7448,59 +7454,59 @@
     [
      "Skycoach Conductor // All Aboard",
      81,
-     3.3
+     3.2
     ],
     [
      "Voice of Victory",
-     78,
-     3.5
-    ],
-    [
-     "Avatar's Wrath",
-     75,
-     2.4
-    ],
-    [
-     "Enduring Curiosity",
-     72,
-     2.1
-    ],
-    [
-     "Jennifer Walters",
-     72,
-     1.9
+     77,
+     3.6
     ],
     [
      "Starting Town",
-     72,
+     74,
      4
     ],
     [
+     "Avatar's Wrath",
+     74,
+     2.4
+    ],
+    [
+     "Jennifer Walters",
+     71,
+     1.9
+    ],
+    [
+     "Enduring Curiosity",
+     71,
+     2.1
+    ],
+    [
      "Floodpits Drowner",
-     63,
+     61,
      2.5
     ],
     [
      "Multiversal Passage",
-     56,
+     55,
      2.7
     ],
     [
      "No More Lies",
-     53,
+     55,
      2.1
     ],
     [
-     "The Wondrous Wasp",
-     50,
-     1.6
+     "Wan Shi Tong, Librarian",
+     48,
+     2.2
     ]
    ],
-   "lists": 32,
+   "lists": 31,
    "conv": [
     0.6,
-    0.4,
-    3
+    0.3,
+    2
    ],
    "prev": 0.7
   },
@@ -7509,7 +7515,7 @@
    "name": "Jeskai Lessons",
    "share": 0.6,
    "tier": 2,
-   "count": 27,
+   "count": 26,
    "title": "William Pruitt · ReCQ - Standard - SCG CON Hartford - Friday - 12:00 pm (5th Place)",
    "url": "https://melee.gg/Decklist/View/80cee668-f36b-432d-8df6-b4ec00f7ede6",
    "main": [
@@ -7548,7 +7554,7 @@
    ],
    "history": [
     null,
-    3.4,
+    4.1,
     2.1,
     0.8,
     1,
@@ -7659,7 +7665,7 @@
    "flex": [
     [
      "Riverpyre Verge",
-     89,
+     88,
      3.1
     ],
     [
@@ -7669,66 +7675,66 @@
     ],
     [
      "Mistrise Village",
-     78,
+     77,
      1
     ],
     [
      "Flashback",
-     70,
+     69,
      1.1
     ],
     [
      "Hallowed Fountain",
-     63,
+     62,
      3
     ],
     [
      "Stock Up",
-     59,
+     58,
      2.7
     ],
     [
      "Thor, God of Thunder",
-     59,
+     58,
      1.7
     ],
     [
      "Sundown Pass",
-     56,
-     1.7
+     54,
+     1.6
     ],
     [
      "Deserted Beach",
-     48,
+     50,
      2.7
     ],
     [
-     "Three Steps Ahead",
-     44,
-     1.8
-    ],
-    [
      "Geist of Saint Thalia",
-     44,
+     46,
      3.8
     ],
     [
+     "Three Steps Ahead",
+     42,
+     1.8
+    ],
+    [
      "Spell Snare",
-     41,
+     42,
      1.9
     ],
     [
-     "Avengers Disassembled",
-     37,
-     2
+     "Sacred Foundry",
+     38,
+     1.2
     ],
     [
-     "Sacred Foundry",
-     37,
-     1.2
+     "Stormcarved Coast",
+     38,
+     2.6
     ]
    ],
-   "lists": 27,
+   "lists": 26,
    "conv": [
     0.5,
     0.5,
@@ -7737,11 +7743,209 @@
    "prev": 0.6
   },
   {
+   "id": "standard-bant-airbending-combo",
+   "name": "Bant Airbending Combo",
+   "share": 0.5,
+   "tier": 2,
+   "count": 23,
+   "title": "Jakob Heckert · ReCQ - Standard - SCG CON Hartford - Saturday - 4:00 pm (7th Place)",
+   "url": "https://melee.gg/Decklist/View/b5b16781-b500-48c9-8760-b4ed014169dd",
+   "main": [
+    "4 Temple Garden",
+    "4 Hushwood Verge",
+    "2 Floodfarm Verge",
+    "4 Hallowed Fountain",
+    "1 Cavern of Souls",
+    "3 Starting Town",
+    "4 Great Divide Guide",
+    "4 Bramble Familiar",
+    "4 Llanowar Elves",
+    "2 Formidable Speaker",
+    "4 Appa, Steadfast Guardian",
+    "4 Aang, Swift Savior",
+    "4 Doc Aurlock, Grizzled Genius",
+    "4 Interdimensional Web Watch",
+    "4 Michelangelo's Technique",
+    "2 Seam Rip",
+    "2 Aang, at the Crossroads",
+    "4 Breeding Pool"
+   ],
+   "side": [
+    "1 Scrapshooter",
+    "1 Bovine Intervention",
+    "2 Rest in Peace",
+    "2 Dundoolin Weaver",
+    "3 Surrak, Elusive Hunter",
+    "3 Leatherhead, Swamp Stalker",
+    "1 Pyrrhic Strike",
+    "2 Pick Your Poison"
+   ],
+   "history": [
+    null,
+    0.4,
+    2.1,
+    0.8,
+    0.4,
+    2.1,
+    0.6,
+    0,
+    0.9,
+    0.2,
+    0.2,
+    0.4
+   ],
+   "field": [
+    31,
+    33,
+    0
+   ],
+   "mu": [
+    [
+     "Mono Green Landfall",
+     6,
+     7,
+     0
+    ],
+    [
+     "Izzet Spellementals",
+     3,
+     4,
+     0
+    ],
+    [
+     "Dimir Midrange",
+     3,
+     3,
+     0
+    ],
+    [
+     "Lifegain",
+     2,
+     1,
+     0
+    ],
+    [
+     "Jeskai Control",
+     1,
+     4,
+     0
+    ],
+    [
+     "Azorius Control",
+     3,
+     1,
+     0
+    ]
+   ],
+   "metaWr": 46.9,
+   "core": [
+    [
+     "Interdimensional Web Watch",
+     4
+    ],
+    [
+     "Aang, Swift Savior",
+     4
+    ],
+    [
+     "Appa, Steadfast Guardian",
+     4
+    ],
+    [
+     "Doc Aurlock, Grizzled Genius",
+     4
+    ],
+    [
+     "Plains",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Aang, at the Crossroads",
+     87,
+     2.8
+    ],
+    [
+     "Llanowar Elves",
+     87,
+     3.9
+    ],
+    [
+     "Hushwood Verge",
+     87,
+     3.7
+    ],
+    [
+     "Hallowed Fountain",
+     87,
+     3.7
+    ],
+    [
+     "Breeding Pool",
+     87,
+     4
+    ],
+    [
+     "Starting Town",
+     87,
+     3.9
+    ],
+    [
+     "Temple Garden",
+     87,
+     4
+    ],
+    [
+     "Bramble Familiar",
+     83,
+     3.7
+    ],
+    [
+     "Floodfarm Verge",
+     83,
+     1.9
+    ],
+    [
+     "Cavern of Souls",
+     74,
+     2
+    ],
+    [
+     "Michelangelo's Technique",
+     52,
+     3.5
+    ],
+    [
+     "Formidable Speaker",
+     48,
+     2.1
+    ],
+    [
+     "Great Divide Guide",
+     43,
+     3.9
+    ],
+    [
+     "Forest",
+     43,
+     1
+    ]
+   ],
+   "lists": 23,
+   "conv": [
+    0.6,
+    0.5,
+    4
+   ],
+   "prev": 0.5
+  },
+  {
    "id": "standard-mono-black-aggro",
    "name": "Mono Black Aggro",
-   "share": 0.6,
+   "share": 0.5,
    "tier": 2,
-   "count": 26,
+   "count": 22,
    "title": "Kerci · Standard Challenge 16 (8th Place)",
    "url": "https://www.mtgo.com/decklist/standard-challenge-16-2026-10-1412856204#deck_Kerci",
    "main": [
@@ -7783,7 +7987,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0,
     0.7,
     2.3,
     1,
@@ -7796,14 +8000,14 @@
     0.5
    ],
    "field": [
-    36,
-    35,
+    34,
+    34,
     2
    ],
    "mu": [
     [
      "Mono Green Landfall",
-     5,
+     4,
      7,
      0
     ],
@@ -7842,15 +8046,9 @@
      1,
      2,
      0
-    ],
-    [
-     "Dimir Excruciator",
-     3,
-     0,
-     0
     ]
    ],
-   "metaWr": 46.2,
+   "metaWr": 45.3,
    "core": [
     [
      "Swamp",
@@ -7875,528 +8073,71 @@
     [
      "Soulstone Sanctuary",
      3
+    ],
+    [
+     "Gollum, Riddle Master",
+     2
     ]
    ],
    "flex": [
     [
-     "Gollum, Riddle Master",
-     88,
-     2.5
-    ],
-    [
      "Desolation Prowler",
-     81,
+     77,
      4
     ],
     [
      "Dissection Practice",
-     81,
-     3.1
+     77,
+     2.9
+    ],
+    [
+     "Realm of Koh",
+     77,
+     2
     ],
     [
      "Nighthowl Pursuer",
-     77,
+     73,
      4
     ],
     [
      "Sunset Saboteur",
-     77,
+     73,
      4
     ],
     [
-     "Realm of Koh",
-     69,
-     2
-    ],
-    [
      "Shoot the Sheriff",
-     69,
-     2.8
+     64,
+     2.6
     ],
     [
      "Lich's Relic",
-     42,
-     2
-    ],
-    [
-     "Mudflat Village",
-     35,
+     50,
      2
     ],
     [
      "Bitter Triumph",
+     32,
+     2
+    ],
+    [
+     "Mudflat Village",
      27,
      2
-    ]
-   ],
-   "lists": 26,
-   "conv": [
-    0.6,
-    0.5,
-    4
-   ],
-   "prev": 0.6
-  },
-  {
-   "id": "standard-bant-airbending-combo",
-   "name": "Bant Airbending Combo",
-   "share": 0.5,
-   "tier": 2,
-   "count": 24,
-   "title": "Jakob Heckert · ReCQ - Standard - SCG CON Hartford - Saturday - 4:00 pm (7th Place)",
-   "url": "https://melee.gg/Decklist/View/b5b16781-b500-48c9-8760-b4ed014169dd",
-   "main": [
-    "4 Temple Garden",
-    "4 Hushwood Verge",
-    "2 Floodfarm Verge",
-    "4 Hallowed Fountain",
-    "1 Cavern of Souls",
-    "3 Starting Town",
-    "4 Great Divide Guide",
-    "4 Bramble Familiar",
-    "4 Llanowar Elves",
-    "2 Formidable Speaker",
-    "4 Appa, Steadfast Guardian",
-    "4 Aang, Swift Savior",
-    "4 Doc Aurlock, Grizzled Genius",
-    "4 Interdimensional Web Watch",
-    "4 Michelangelo's Technique",
-    "2 Seam Rip",
-    "2 Aang, at the Crossroads",
-    "4 Breeding Pool"
-   ],
-   "side": [
-    "1 Scrapshooter",
-    "1 Bovine Intervention",
-    "2 Rest in Peace",
-    "2 Dundoolin Weaver",
-    "3 Surrak, Elusive Hunter",
-    "3 Leatherhead, Swamp Stalker",
-    "1 Pyrrhic Strike",
-    "2 Pick Your Poison"
-   ],
-   "history": [
-    null,
-    0.3,
-    2.1,
-    0.8,
-    0.4,
-    2.1,
-    0.6,
-    0,
-    0.9,
-    0.2,
-    0.2,
-    0.4
-   ],
-   "field": [
-    31,
-    34,
-    0
-   ],
-   "mu": [
-    [
-     "Mono Green Landfall",
-     6,
-     7,
-     0
     ],
     [
-     "Izzet Spellementals",
-     3,
-     4,
-     0
-    ],
-    [
-     "Dimir Midrange",
-     3,
-     3,
-     0
-    ],
-    [
-     "Lifegain",
-     2,
-     1,
-     0
-    ],
-    [
-     "Jeskai Control",
-     1,
-     4,
-     0
-    ],
-    [
-     "Azorius Control",
-     3,
-     1,
-     0
-    ],
-    [
-     "Golgari Midrange",
-     1,
-     2,
-     0
-    ]
-   ],
-   "metaWr": 46.8,
-   "core": [
-    [
-     "Interdimensional Web Watch",
-     4
-    ],
-    [
-     "Aang, Swift Savior",
-     4
-    ],
-    [
-     "Appa, Steadfast Guardian",
-     4
-    ],
-    [
-     "Doc Aurlock, Grizzled Genius",
-     4
-    ],
-    [
-     "Plains",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Aang, at the Crossroads",
-     88,
-     2.7
-    ],
-    [
-     "Breeding Pool",
-     88,
-     4
-    ],
-    [
-     "Hallowed Fountain",
-     88,
+     "Timeline Culler",
+     27,
      3.7
-    ],
-    [
-     "Hushwood Verge",
-     88,
-     3.7
-    ],
-    [
-     "Llanowar Elves",
-     88,
-     3.9
-    ],
-    [
-     "Starting Town",
-     88,
-     3.9
-    ],
-    [
-     "Temple Garden",
-     88,
-     4
-    ],
-    [
-     "Bramble Familiar",
-     83,
-     3.7
-    ],
-    [
-     "Floodfarm Verge",
-     83,
-     1.9
-    ],
-    [
-     "Cavern of Souls",
-     75,
-     2
-    ],
-    [
-     "Michelangelo's Technique",
-     54,
-     3.5
-    ],
-    [
-     "Formidable Speaker",
-     50,
-     2.1
-    ],
-    [
-     "Great Divide Guide",
-     46,
-     3.9
-    ],
-    [
-     "Forest",
-     42,
-     1
     ]
    ],
-   "lists": 24,
-   "conv": [
-    0.6,
-    0.5,
-    4
-   ],
-   "prev": 0.5
-  },
-  {
-   "id": "standard-temur-omniscience",
-   "name": "Temur Omniscience",
-   "share": 0.5,
-   "tier": 2,
-   "count": 23,
-   "title": "M2R · Standard League (5-0)",
-   "url": "https://www.mtgo.com/decklist/standard-league-2026-10-2411129#deck_M2R",
-   "main": [
-    "4 Ashling, Rekindled",
-    "2 Breeding Pool",
-    "4 Cavern of Souls",
-    "4 Formidable Speaker",
-    "2 Ill-Timed Explosion",
-    "1 Island",
-    "4 Kavaron, Memorial World",
-    "4 Kona, Rescue Beastie",
-    "3 Marang River Regent",
-    "1 Mountain",
-    "3 Multiversal Passage",
-    "3 North Wind Avatar",
-    "4 Omniscience",
-    "4 Prismari Charm",
-    "4 Starting Town",
-    "2 Steam Vents",
-    "3 Stock Up",
-    "1 Stormcarved Coast",
-    "1 The Theorist, Jace Beleren",
-    "4 Uthros, Titanic Godcore",
-    "2 Winternight Stories"
-   ],
-   "side": [
-    "2 Detect Intrusion",
-    "1 Dracogenesis",
-    "2 Heritage Reclamation",
-    "1 Ill-Timed Explosion",
-    "1 Into the Flood Maw",
-    "1 Marang River Regent",
-    "1 North Wind Avatar",
-    "1 Omni-Changeling",
-    "1 Spell Pierce",
-    "1 Terror of the Peaks",
-    "1 The Theorist, Jace Beleren",
-    "2 Voice of Victory"
-   ],
-   "history": [
-    null,
-    0.9,
-    0.7,
-    0,
-    0.6,
-    0,
-    1,
-    0,
-    0,
-    0.3,
-    0.6,
-    0.8
-   ],
-   "field": [
-    41,
-    36,
-    2
-   ],
-   "mu": [
-    [
-     "Mono Green Landfall",
-     10,
-     5,
-     0
-    ],
-    [
-     "Izzet Spellementals",
-     4,
-     2,
-     0
-    ],
-    [
-     "Dimir Midrange",
-     5,
-     1,
-     0
-    ],
-    [
-     "Lifegain",
-     0,
-     4,
-     0
-    ],
-    [
-     "Jeskai Control",
-     6,
-     4,
-     0
-    ],
-    [
-     "Azorius Control",
-     2,
-     4,
-     0
-    ],
-    [
-     "Boros Dragons",
-     2,
-     1,
-     0
-    ],
-    [
-     "Izzet Aggro",
-     0,
-     1,
-     2
-    ],
-    [
-     "Azorius Momo",
-     1,
-     2,
-     0
-    ],
-    [
-     "Rakdos Lizards",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": 56.8,
-   "core": [
-    [
-     "Kona, Rescue Beastie",
-     4
-    ],
-    [
-     "Omniscience",
-     4
-    ],
-    [
-     "Uthros, Titanic Godcore",
-     4
-    ],
-    [
-     "Kavaron, Memorial World",
-     4
-    ],
-    [
-     "Cavern of Souls",
-     4
-    ],
-    [
-     "Stock Up",
-     4
-    ],
-    [
-     "Starting Town",
-     3
-    ],
-    [
-     "Marang River Regent",
-     3
-    ],
-    [
-     "North Wind Avatar",
-     3
-    ],
-    [
-     "Steam Vents",
-     3
-    ],
-    [
-     "Winternight Stories",
-     3
-    ],
-    [
-     "Island",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Multiversal Passage",
-     87,
-     2.8
-    ],
-    [
-     "Formidable Speaker",
-     74,
-     3.5
-    ],
-    [
-     "Ashling, Rekindled",
-     70,
-     4
-    ],
-    [
-     "Ill-Timed Explosion",
-     65,
-     1.6
-    ],
-    [
-     "Prismari Charm",
-     61,
-     2.4
-    ],
-    [
-     "Mountain",
-     61,
-     1
-    ],
-    [
-     "Breeding Pool",
-     57,
-     2
-    ],
-    [
-     "Dreamroot Cascade",
-     48,
-     2.4
-    ],
-    [
-     "Stormcarved Coast",
-     43,
-     1.1
-    ],
-    [
-     "Stomping Ground",
-     43,
-     1.2
-    ],
-    [
-     "Consult the Star Charts",
-     43,
-     2.6
-    ],
-    [
-     "Forest",
-     39,
-     1
-    ],
-    [
-     "Into the Flood Maw",
-     35,
-     1.6
-    ],
-    [
-     "Seasoned Cryomancer",
-     35,
-     2.3
-    ]
-   ],
-   "lists": 23,
+   "lists": 22,
    "conv": [
     0.5,
     0.4,
     3
    ],
-   "prev": 0.5
+   "prev": 0.6
   },
   {
    "id": "standard-dimir-elementals",
@@ -8585,11 +8326,268 @@
    "prev": 0.5
   },
   {
+   "id": "standard-temur-omniscience",
+   "name": "Temur Omniscience",
+   "share": 0.5,
+   "tier": 2,
+   "count": 21,
+   "title": "M2R · Standard League (5-0)",
+   "url": "https://www.mtgo.com/decklist/standard-league-2026-10-2411129#deck_M2R",
+   "main": [
+    "4 Ashling, Rekindled",
+    "2 Breeding Pool",
+    "4 Cavern of Souls",
+    "4 Formidable Speaker",
+    "2 Ill-Timed Explosion",
+    "1 Island",
+    "4 Kavaron, Memorial World",
+    "4 Kona, Rescue Beastie",
+    "3 Marang River Regent",
+    "1 Mountain",
+    "3 Multiversal Passage",
+    "3 North Wind Avatar",
+    "4 Omniscience",
+    "4 Prismari Charm",
+    "4 Starting Town",
+    "2 Steam Vents",
+    "3 Stock Up",
+    "1 Stormcarved Coast",
+    "1 The Theorist, Jace Beleren",
+    "4 Uthros, Titanic Godcore",
+    "2 Winternight Stories"
+   ],
+   "side": [
+    "2 Detect Intrusion",
+    "1 Dracogenesis",
+    "2 Heritage Reclamation",
+    "1 Ill-Timed Explosion",
+    "1 Into the Flood Maw",
+    "1 Marang River Regent",
+    "1 North Wind Avatar",
+    "1 Omni-Changeling",
+    "1 Spell Pierce",
+    "1 Terror of the Peaks",
+    "1 The Theorist, Jace Beleren",
+    "2 Voice of Victory"
+   ],
+   "history": [
+    null,
+    0.8,
+    0.7,
+    0,
+    0.6,
+    0,
+    1,
+    0,
+    0,
+    0.3,
+    0.6,
+    0.8
+   ],
+   "field": [
+    41,
+    35,
+    2
+   ],
+   "mu": [
+    [
+     "Mono Green Landfall",
+     10,
+     5,
+     0
+    ],
+    [
+     "Izzet Spellementals",
+     4,
+     2,
+     0
+    ],
+    [
+     "Dimir Midrange",
+     5,
+     1,
+     0
+    ],
+    [
+     "Lifegain",
+     0,
+     4,
+     0
+    ],
+    [
+     "Jeskai Control",
+     6,
+     4,
+     0
+    ],
+    [
+     "Azorius Control",
+     2,
+     4,
+     0
+    ],
+    [
+     "Boros Dragons",
+     2,
+     1,
+     0
+    ],
+    [
+     "Izzet Aggro",
+     0,
+     1,
+     2
+    ],
+    [
+     "Azorius Momo",
+     1,
+     2,
+     0
+    ],
+    [
+     "Rakdos Lizards",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": 56.7,
+   "core": [
+    [
+     "Kona, Rescue Beastie",
+     4
+    ],
+    [
+     "Omniscience",
+     4
+    ],
+    [
+     "Uthros, Titanic Godcore",
+     4
+    ],
+    [
+     "Kavaron, Memorial World",
+     4
+    ],
+    [
+     "Cavern of Souls",
+     4
+    ],
+    [
+     "Stock Up",
+     4
+    ],
+    [
+     "Marang River Regent",
+     3
+    ],
+    [
+     "Starting Town",
+     3
+    ],
+    [
+     "North Wind Avatar",
+     3
+    ],
+    [
+     "Steam Vents",
+     3
+    ],
+    [
+     "Winternight Stories",
+     3
+    ],
+    [
+     "Island",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Multiversal Passage",
+     86,
+     2.8
+    ],
+    [
+     "Formidable Speaker",
+     71,
+     3.4
+    ],
+    [
+     "Ashling, Rekindled",
+     67,
+     4
+    ],
+    [
+     "Mountain",
+     67,
+     1
+    ],
+    [
+     "Prismari Charm",
+     62,
+     2.5
+    ],
+    [
+     "Ill-Timed Explosion",
+     62,
+     1.6
+    ],
+    [
+     "Breeding Pool",
+     57,
+     2
+    ],
+    [
+     "Dreamroot Cascade",
+     48,
+     2.4
+    ],
+    [
+     "Consult the Star Charts",
+     48,
+     2.6
+    ],
+    [
+     "Stormcarved Coast",
+     43,
+     1
+    ],
+    [
+     "Forest",
+     38,
+     1
+    ],
+    [
+     "Stomping Ground",
+     38,
+     1.1
+    ],
+    [
+     "Seasoned Cryomancer",
+     38,
+     2.3
+    ],
+    [
+     "Spell Pierce",
+     33,
+     1.6
+    ]
+   ],
+   "lists": 21,
+   "conv": [
+    0.5,
+    0.4,
+    3
+   ],
+   "prev": 0.5
+  },
+  {
    "id": "standard-izzet-control",
    "name": "Izzet Control",
    "share": 0.4,
    "tier": 2,
-   "count": 19,
+   "count": 18,
    "title": "Cubswin45 · Standard League (5-0)",
    "url": "https://www.mtgo.com/decklist/standard-league-2026-10-1511129#deck_Cubswin45",
    "main": [
@@ -8623,7 +8621,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0.4,
     0,
     0,
     0.6,
@@ -8636,8 +8634,8 @@
     0.2
    ],
    "field": [
-    33,
-    27,
+    31,
+    26,
     0
    ],
    "mu": [
@@ -8650,7 +8648,7 @@
     [
      "Izzet Spellementals",
      6,
-     2,
+     1,
      0
     ],
     [
@@ -8667,7 +8665,7 @@
     ],
     [
      "Jeskai Control",
-     5,
+     4,
      0,
      0
     ],
@@ -8696,7 +8694,7 @@
      0
     ]
    ],
-   "metaWr": 55.1,
+   "metaWr": null,
    "core": [
     [
      "Steam Vents",
@@ -8715,79 +8713,79 @@
     [
      "Island",
      89,
-     3.1
+     2.9
     ],
     [
      "Mountain",
      89,
-     2.2
+     2.3
     ],
     [
      "Burst Lightning",
-     79,
-     3.5
+     78,
+     3.6
     ],
     [
      "Stormcarved Coast",
-     79,
-     3.3
+     78,
+     3.4
     ],
     [
      "Stock Up",
-     68,
+     67,
      3.3
     ],
     [
      "Prismari Charm",
-     63,
+     61,
      2.1
     ],
     [
      "Multiversal Passage",
-     63,
+     61,
      1.7
     ],
     [
      "Spell Snare",
-     63,
-     1.3
+     61,
+     1.4
     ],
     [
      "Ashling's Command",
-     58,
-     3.8
+     56,
+     3.9
     ],
     [
      "Colorstorm Stallion",
-     58,
+     56,
      4
     ],
     [
+     "Improvisation Capstone",
+     56,
+     1.2
+    ],
+    [
      "Tablet of Discovery",
-     58,
+     56,
      3.9
     ],
     [
      "Consult the Star Charts",
-     53,
+     50,
      2.1
     ],
     [
-     "Improvisation Capstone",
-     53,
-     1.2
-    ],
-    [
      "Mistrise Village",
-     53,
+     50,
      1
     ]
    ],
-   "lists": 19,
+   "lists": 18,
    "conv": [
     0.4,
-    0.5,
-    4
+    0.4,
+    3
    ],
    "prev": 0.4
   },
@@ -8954,7 +8952,7 @@
    ],
    "lists": 18,
    "conv": [
-    0.4,
+    0.5,
     0.4,
     3
    ],
@@ -8965,7 +8963,7 @@
    "name": "Dimir Oculus",
    "share": 0.4,
    "tier": 2,
-   "count": 18,
+   "count": 17,
    "title": "Thomas Lindeman · ReCQ - Standard - SCG CON Hartford - Friday - 2:00 pm (6th Place)",
    "url": "https://melee.gg/Decklist/View/b8488438-a9d2-4dea-a936-b4ec0119d7b2",
    "main": [
@@ -9003,7 +9001,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0.4,
     0,
     0,
     0.2,
@@ -9098,76 +9096,76 @@
    "flex": [
     [
      "Requiting Hex",
-     72,
-     3.4
+     71,
+     3.3
     ],
     [
      "Undercity Sewers",
-     72,
-     3.2
+     71,
+     3.1
     ],
     [
      "Duress",
-     67,
+     65,
      3.3
     ],
     [
      "Multiversal Passage",
-     67,
-     3.7
-    ],
-    [
-     "Island",
-     56,
-     1.1
-    ],
-    [
-     "Strategic Betrayal",
-     56,
-     3.7
+     65,
+     3.6
     ],
     [
      "Shipwreck Marsh",
-     56,
+     59,
      2.5
     ],
     [
-     "Emet-Selch, Unsundered",
-     50,
-     2.6
-    ],
-    [
-     "Kitsa, Otterball Elite",
-     50,
-     3
+     "Island",
+     53,
+     1.1
     ],
     [
      "Petrified Hamlet",
-     50,
+     53,
      1.9
     ],
     [
+     "Strategic Betrayal",
+     53,
+     3.7
+    ],
+    [
      "Likeness Looter",
-     50,
+     53,
      4
     ],
     [
      "Seasoned Cryomancer",
-     50,
+     53,
      3.9
     ],
     [
      "Starting Town",
-     50,
+     53,
      3.6
     ],
     [
      "Dark Matter Manipulator",
-     50,
+     53,
      4
+    ],
+    [
+     "Moonshadow",
+     53,
+     4
+    ],
+    [
+     "Emet-Selch, Unsundered",
+     47,
+     2.6
     ]
    ],
-   "lists": 18,
+   "lists": 17,
    "conv": [
     0.4,
     0.5,
@@ -9180,7 +9178,7 @@
    "name": "Mono Black Midrange",
    "share": 0.3,
    "tier": 2,
-   "count": 16,
+   "count": 14,
    "title": "TheRealJulys · Standard Challenge 32 (6th Place)",
    "url": "https://www.mtgo.com/decklist/standard-challenge-32-2026-09-2512854913#deck_TheRealJulys",
    "main": [
@@ -9210,7 +9208,7 @@
    ],
    "history": [
     null,
-    1.2,
+    0.4,
     0.3,
     1.5,
     1,
@@ -9224,14 +9222,14 @@
    ],
    "field": [
     12,
-    27,
+    26,
     0
    ],
    "mu": [
     [
      "Mono Green Landfall",
      2,
-     7,
+     6,
      0
     ],
     [
@@ -9261,23 +9259,28 @@
    "flex": [
     [
      "Bitter Triumph",
-     63,
+     71,
      2.5
     ],
     [
-     "Forsaken Miner",
-     56,
-     3.8
+     "Soulstone Sanctuary",
+     57,
+     2.6
     ],
     [
-     "Soulstone Sanctuary",
-     56,
-     2.7
+     "Duress",
+     57,
+     2.9
+    ],
+    [
+     "Forsaken Miner",
+     50,
+     3.7
     ],
     [
      "Sunset Saboteur",
      50,
-     3.8
+     3.7
     ],
     [
      "Realm of Koh",
@@ -9285,58 +9288,53 @@
      2.4
     ],
     [
-     "Duress",
-     50,
-     2.9
-    ],
-    [
      "Corpses of the Lost",
-     44,
+     43,
      4
     ],
     [
      "Timeline Culler",
-     44,
-     3.3
-    ],
-    [
-     "Shoot the Sheriff",
-     44,
-     2.9
+     43,
+     3.2
     ],
     [
      "Archenemy's Charm",
-     38,
+     43,
      3
     ],
     [
-     "Gollum, Riddle Master",
-     38,
-     2.5
-    ],
-    [
      "Cecil, Dark Knight",
-     31,
+     36,
      2.8
     ],
     [
+     "Gollum, Riddle Master",
+     36,
+     2.4
+    ],
+    [
+     "Shoot the Sheriff",
+     36,
+     2.4
+    ],
+    [
      "Desolation Prowler",
-     31,
+     29,
      4
     ],
     [
      "Iridescent Vinelasher",
-     31,
-     3.2
+     29,
+     3
     ]
    ],
-   "lists": 16,
+   "lists": 14,
    "conv": [
     0.4,
-    0.4,
-    3
+    0.3,
+    2
    ],
-   "prev": 0.4
+   "prev": 0.3
   },
   {
    "id": "standard-sultai-control",
@@ -9391,7 +9389,7 @@
    ],
    "history": [
     null,
-    0.6,
+    0.8,
     0.7,
     0.4,
     0.8,
@@ -9589,7 +9587,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0.4,
     0.3,
     0,
     0,
@@ -9735,7 +9733,7 @@
    ],
    "lists": 12,
    "conv": [
-    0.2,
+    0.3,
     0,
     0
    ],
@@ -10111,162 +10109,6 @@
    "prev": 0.3
   },
   {
-   "id": "standard-jund-midrange",
-   "name": "Jund Midrange",
-   "share": 0.2,
-   "tier": 3,
-   "count": 10,
-   "title": "shalec · Standard League (5-0)",
-   "url": "https://www.mtgo.com/decklist/standard-league-2026-09-2511015#deck_shalec",
-   "main": [
-    "4 Biotech Specialist",
-    "4 Blazemire Verge",
-    "2 Blood Crypt",
-    "4 Blooming Marsh",
-    "4 Charming Scoundrel",
-    "3 Deadly Precision",
-    "3 Edge Rover",
-    "1 Explosive Prodigy",
-    "1 Forest",
-    "4 Gene Pollinator",
-    "4 Greedy Freebooter",
-    "3 Lively Dirge",
-    "1 Mountain",
-    "2 Mutagen Man, Living Ooze",
-    "4 Obsessive Pursuit",
-    "4 Overgrown Tomb",
-    "1 Sentinel of the Nameless City",
-    "2 Stomping Ground",
-    "2 Swamp",
-    "4 The Sackville-Bagginses",
-    "2 Umbral Collar Zealot",
-    "1 Wastewood Verge"
-   ],
-   "side": [
-    "2 Bitter Triumph",
-    "2 Chandra, Spark Hunter",
-    "4 Duress",
-    "2 Seedship Impact",
-    "3 Strategic Betrayal",
-    "1 The Ooze",
-    "1 Vengeful Tracker"
-   ],
-   "history": [
-    null,
-    0,
-    0,
-    0,
-    0.6,
-    0.4,
-    0.3,
-    0.7,
-    0,
-    0.2,
-    0,
-    0.1
-   ],
-   "field": [
-    3,
-    7,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Stomping Ground",
-     3
-    ],
-    [
-     "Swamp",
-     1
-    ],
-    [
-     "Forest",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Biotech Specialist",
-     80,
-     4
-    ],
-    [
-     "Blood Crypt",
-     80,
-     1.6
-    ],
-    [
-     "Blooming Marsh",
-     80,
-     4
-    ],
-    [
-     "Greedy Freebooter",
-     80,
-     3.6
-    ],
-    [
-     "Lively Dirge",
-     80,
-     3.5
-    ],
-    [
-     "Overgrown Tomb",
-     80,
-     3.9
-    ],
-    [
-     "Starting Town",
-     80,
-     4
-    ],
-    [
-     "The Sackville-Bagginses",
-     80,
-     4
-    ],
-    [
-     "Umbral Collar Zealot",
-     80,
-     3.1
-    ],
-    [
-     "Llanowar Elves",
-     70,
-     4
-    ],
-    [
-     "Witherbloom Charm",
-     70,
-     1.6
-    ],
-    [
-     "Deadly Precision",
-     70,
-     2.4
-    ],
-    [
-     "Obsessive Pursuit",
-     70,
-     4
-    ],
-    [
-     "Wastewood Verge",
-     70,
-     1.9
-    ]
-   ],
-   "lists": 10,
-   "conv": [
-    0.2,
-    0.1,
-    1
-   ],
-   "prev": 0.2
-  },
-  {
    "id": "standard-temur-elementals",
    "name": "Temur Elementals",
    "share": 0.2,
@@ -10317,7 +10159,7 @@
    ],
    "history": [
     null,
-    1.2,
+    1.6,
     0.3,
     0.4,
     0,
@@ -10637,11 +10479,159 @@
    "prev": 0.2
   },
   {
+   "id": "standard-jund-midrange",
+   "name": "Jund Midrange",
+   "share": 0.2,
+   "tier": 3,
+   "count": 9,
+   "title": "shalec · Standard League (5-0)",
+   "url": "https://www.mtgo.com/decklist/standard-league-2026-09-2511015#deck_shalec",
+   "main": [
+    "4 Biotech Specialist",
+    "4 Blazemire Verge",
+    "2 Blood Crypt",
+    "4 Blooming Marsh",
+    "4 Charming Scoundrel",
+    "3 Deadly Precision",
+    "3 Edge Rover",
+    "1 Explosive Prodigy",
+    "1 Forest",
+    "4 Gene Pollinator",
+    "4 Greedy Freebooter",
+    "3 Lively Dirge",
+    "1 Mountain",
+    "2 Mutagen Man, Living Ooze",
+    "4 Obsessive Pursuit",
+    "4 Overgrown Tomb",
+    "1 Sentinel of the Nameless City",
+    "2 Stomping Ground",
+    "2 Swamp",
+    "4 The Sackville-Bagginses",
+    "2 Umbral Collar Zealot",
+    "1 Wastewood Verge"
+   ],
+   "side": [
+    "2 Bitter Triumph",
+    "2 Chandra, Spark Hunter",
+    "4 Duress",
+    "2 Seedship Impact",
+    "3 Strategic Betrayal",
+    "1 The Ooze",
+    "1 Vengeful Tracker"
+   ],
+   "history": [
+    null,
+    0,
+    0,
+    0,
+    0.6,
+    0.4,
+    0.3,
+    0.7,
+    0,
+    0.2,
+    0,
+    0.1
+   ],
+   "field": [
+    3,
+    7,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Forest",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Stomping Ground",
+     89,
+     3.4
+    ],
+    [
+     "Swamp",
+     89,
+     1.5
+    ],
+    [
+     "Biotech Specialist",
+     78,
+     4
+    ],
+    [
+     "Blood Crypt",
+     78,
+     1.7
+    ],
+    [
+     "Blooming Marsh",
+     78,
+     4
+    ],
+    [
+     "Greedy Freebooter",
+     78,
+     3.7
+    ],
+    [
+     "Lively Dirge",
+     78,
+     3.6
+    ],
+    [
+     "Overgrown Tomb",
+     78,
+     3.9
+    ],
+    [
+     "Starting Town",
+     78,
+     4
+    ],
+    [
+     "The Sackville-Bagginses",
+     78,
+     4
+    ],
+    [
+     "Umbral Collar Zealot",
+     78,
+     3
+    ],
+    [
+     "Llanowar Elves",
+     67,
+     4
+    ],
+    [
+     "Witherbloom Charm",
+     67,
+     1.7
+    ],
+    [
+     "Deadly Precision",
+     67,
+     2.5
+    ]
+   ],
+   "lists": 9,
+   "conv": [
+    0.2,
+    0,
+    0
+   ],
+   "prev": 0.2
+  },
+  {
    "id": "standard-orzhov-midrange",
    "name": "Orzhov Midrange",
    "share": 0.2,
    "tier": 3,
-   "count": 8,
+   "count": 7,
    "title": "Амир Мухаметзянов · Standard Store Сhampionship (6th Place)",
    "url": "https://melee.gg/Decklist/View/1219c921-a55d-4db3-bb26-b4d200a38f45",
    "main": [
@@ -10692,7 +10682,7 @@
    ],
    "field": [
     9,
-    19,
+    18,
     6
    ],
    "mu": [
@@ -10734,82 +10724,77 @@
    ],
    "flex": [
     [
-     "Bleachbone Verge",
-     88,
-     3.9
-    ],
-    [
      "Plains",
-     88,
-     4
+     86,
+     4.3
     ],
     [
-     "Enduring Innocence",
-     63,
-     3
+     "Bleachbone Verge",
+     86,
+     3.8
     ],
     [
      "Voice of Victory",
-     63,
+     71,
      3.6
     ],
     [
-     "Requiting Hex",
-     50,
-     3
-    ],
-    [
      "Fabled Passage",
-     50,
+     57,
      3.3
     ],
     [
      "Concealed Courtyard",
-     50,
+     57,
      4
     ],
     [
      "Get Lost",
-     50,
+     57,
      3.5
     ],
     [
-     "Multiversal Passage",
-     38,
-     2
+     "Enduring Innocence",
+     57,
+     3.3
     ],
     [
      "Ghost Vacuum",
-     38,
+     43,
      1.7
     ],
     [
+     "Requiting Hex",
+     43,
+     3.3
+    ],
+    [
      "Caustic Bronco",
-     38,
+     43,
      4
     ],
     [
      "Delney, Streetwise Lookout",
-     38,
+     43,
      2
     ],
     [
      "Duress",
-     38,
+     43,
      3
     ],
     [
      "Fountainport",
-     38,
+     43,
      2
+    ],
+    [
+     "Iridescent Vinelasher",
+     43,
+     4
     ]
    ],
-   "lists": 8,
-   "conv": [
-    0.2,
-    0.1,
-    1
-   ],
+   "lists": 7,
    "prev": 0.2
   },
   {
@@ -10817,7 +10802,7 @@
    "name": "Simic Omniscience",
    "share": 0.2,
    "tier": 3,
-   "count": 8,
+   "count": 7,
    "title": "Jeff Jao · Magic Spotlight: Fracture - SCG CON Hartford - Saturday - 9:00 am (339th Place)",
    "url": "https://melee.gg/Decklist/View/e9462dc4-a9b8-4600-ada1-b4da007049e9",
    "main": [
@@ -10846,7 +10831,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0.4,
     0,
     0,
     0.4,
@@ -10886,6 +10871,10 @@
    "metaWr": null,
    "core": [
     [
+     "Cavern of Souls",
+     4
+    ],
+    [
      "Kona, Rescue Beastie",
      4
     ],
@@ -10902,15 +10891,11 @@
      4
     ],
     [
-     "Cavern of Souls",
-     4
+     "Breeding Pool",
+     3
     ],
     [
      "Evendo, Waking Haven",
-     4
-    ],
-    [
-     "Breeding Pool",
      3
     ],
     [
@@ -10924,77 +10909,77 @@
    ],
    "flex": [
     [
-     "Formidable Speaker",
-     88,
-     3.6
-    ],
-    [
-     "Dispelling Exhale",
-     75,
-     2.3
-    ],
-    [
      "Multiversal Passage",
-     75,
+     86,
      3
     ],
     [
-     "North Wind Avatar",
-     75,
-     1.7
-    ],
-    [
-     "Consult the Star Charts",
-     63,
-     3.6
-    ],
-    [
-     "Willowrush Verge",
-     63,
-     4
-    ],
-    [
-     "Spell Snare",
-     63,
-     2.8
-    ],
-    [
-     "Roiling Dragonstorm",
-     50,
-     2.3
-    ],
-    [
-     "Lost in the Maze",
-     50,
-     3
-    ],
-    [
-     "Bounce Off",
-     50,
+     "Formidable Speaker",
+     86,
      3.5
     ],
     [
-     "Spell Pierce",
-     50,
-     1.5
+     "Dispelling Exhale",
+     71,
+     2.6
     ],
     [
-     "Winternight Stories",
-     50,
-     2.5
+     "North Wind Avatar",
+     71,
+     1.8
     ],
     [
-     "Opt",
-     38,
+     "Consult the Star Charts",
+     57,
+     3.5
+    ],
+    [
+     "Roiling Dragonstorm",
+     57,
      2.3
     ],
     [
-     "Starting Town",
-     38,
-     2.7
+     "Willowrush Verge",
+     57,
+     4
+    ],
+    [
+     "Spell Pierce",
+     57,
+     1.5
+    ],
+    [
+     "Spell Snare",
+     57,
+     3
+    ],
+    [
+     "Winternight Stories",
+     57,
+     2.5
+    ],
+    [
+     "Lost in the Maze",
+     43,
+     3.3
+    ],
+    [
+     "Bounce Off",
+     43,
+     3.7
+    ],
+    [
+     "Opt",
+     29,
+     2.5
+    ],
+    [
+     "Extrapolate the Impossible",
+     29,
+     4
     ]
    ],
-   "lists": 8,
+   "lists": 7,
    "conv": [
     0.2,
     0,
@@ -11056,7 +11041,7 @@
    ],
    "history": [
     null,
-    0.3,
+    0,
     0,
     0,
     0,
@@ -11227,179 +11212,6 @@
     1
    ],
    "prev": 0.2
-  },
-  {
-   "id": "standard-mono-white-momo",
-   "name": "Mono White Momo",
-   "share": 0.1,
-   "tier": 3,
-   "count": 6,
-   "title": "Douglas Stefaniak · ReCQ - Standard - Dallas - Saturday - 2:00 pm (5th Place)",
-   "url": "https://melee.gg/Decklist/View/e0d06cf9-2860-46a5-a334-b4ba018a121a",
-   "main": [
-    "4 Abandoned Air Temple",
-    "4 Cosmogrand Zenith",
-    "2 Daydream",
-    "4 Haliya, Guided by Light",
-    "4 Momo, Friendly Flier",
-    "4 Nurturing Pixie",
-    "16 Plains",
-    "2 Political Triumph",
-    "4 Sage of the Skies",
-    "3 Seam Rip",
-    "3 Sheltered by Ghosts",
-    "4 Springleaf Drum",
-    "4 Starfield Shepherd",
-    "2 Voice of Victory"
-   ],
-   "side": [
-    "3 Authority of the Consuls",
-    "1 Curious Farm Animals",
-    "2 Erode",
-    "2 High Noon",
-    "2 Morningtide's Light",
-    "3 Rest in Peace",
-    "2 Spectacular Spider-Man"
-   ],
-   "history": [
-    null,
-    0,
-    0,
-    0,
-    0.6,
-    0,
-    0,
-    0,
-    0,
-    0.3,
-    0,
-    0.1
-   ],
-   "field": [
-    12,
-    12,
-    2
-   ],
-   "mu": [
-    [
-     "Mono Green Landfall",
-     2,
-     1,
-     0
-    ],
-    [
-     "Mardu Discard",
-     3,
-     0,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Plains",
-     16
-    ],
-    [
-     "Momo, Friendly Flier",
-     4
-    ],
-    [
-     "Abandoned Air Temple",
-     4
-    ],
-    [
-     "Starfield Shepherd",
-     4
-    ],
-    [
-     "Haliya, Guided by Light",
-     3
-    ],
-    [
-     "Seam Rip",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Sage of the Skies",
-     67,
-     3.8
-    ],
-    [
-     "Nurturing Pixie",
-     67,
-     4
-    ],
-    [
-     "Voice of Victory",
-     67,
-     2
-    ],
-    [
-     "Practiced Offense",
-     67,
-     2.5
-    ],
-    [
-     "Political Triumph",
-     50,
-     2
-    ],
-    [
-     "Daydream",
-     50,
-     2
-    ],
-    [
-     "Sheltered by Ghosts",
-     50,
-     3
-    ],
-    [
-     "Cosmogrand Zenith",
-     50,
-     3.7
-    ],
-    [
-     "Springleaf Drum",
-     50,
-     4
-    ],
-    [
-     "Erode",
-     50,
-     3
-    ],
-    [
-     "Adventurer's Inn",
-     33,
-     3
-    ],
-    [
-     "Giada, Font of Hope",
-     33,
-     4
-    ],
-    [
-     "Guiding Hydra",
-     33,
-     1
-    ],
-    [
-     "Inspiring Overseer",
-     33,
-     4
-    ]
-   ],
-   "lists": 6,
-   "conv": [
-    0.2,
-    0.3,
-    2
-   ],
-   "prev": 0.1
   },
   {
    "id": "standard-golgari-control",
@@ -11698,7 +11510,7 @@
      0
     ]
    ],
-   "metaWr": 50.4,
+   "metaWr": 50.5,
    "core": [
     [
      "Gloomlake Verge",
@@ -11817,203 +11629,165 @@
    "prev": 0.1
   },
   {
-   "id": "standard-jeskai-artifact-aggro",
-   "name": "Jeskai Artifact Aggro",
+   "id": "standard-mono-white-momo",
+   "name": "Mono White Momo",
    "share": 0.1,
    "tier": 3,
    "count": 5,
-   "title": "SecretSonOfIuchiban · ReCQ - Standard - Dallas - Saturday - 4:00 pm (5th Place)",
-   "url": "https://melee.gg/Decklist/View/425388a8-dbf4-4b74-8481-b4bc00ffba0f",
+   "title": "Douglas Stefaniak · ReCQ - Standard - Dallas - Saturday - 2:00 pm (5th Place)",
+   "url": "https://melee.gg/Decklist/View/e0d06cf9-2860-46a5-a334-b4ba018a121a",
    "main": [
-    "1 Mountain",
-    "4 Multiversal Passage",
-    "1 Island",
-    "1 Plains",
-    "4 Steam Vents",
-    "4 Hallowed Fountain",
-    "1 Fountainport",
-    "4 Case of the Filched Falcon",
-    "4 Zoetic Glyph",
-    "4 Nutrient Block",
-    "1 Tezzeret, Cruel Captain",
-    "1 The Enigma Jewel",
-    "1 Basilisk Collar",
-    "1 Krang, Master Mind",
-    "2 Spirebluff Canal",
-    "4 Dusk Rose Reliquary",
-    "4 Pinnacle Emissary",
-    "4 Ravenous Robots",
-    "1 The Ooze",
-    "1 The Mind Stone",
-    "3 Hardlight Containment",
-    "1 Inspiring Vantage",
-    "1 Riverpyre Verge",
-    "4 Vibranium Energy Daggers",
-    "1 Voyage Home",
-    "1 Chainsaw",
-    "1 Ghost Vacuum",
-    "1 Floodfarm Verge"
+    "4 Abandoned Air Temple",
+    "4 Cosmogrand Zenith",
+    "2 Daydream",
+    "4 Haliya, Guided by Light",
+    "4 Momo, Friendly Flier",
+    "4 Nurturing Pixie",
+    "16 Plains",
+    "2 Political Triumph",
+    "4 Sage of the Skies",
+    "3 Seam Rip",
+    "3 Sheltered by Ghosts",
+    "4 Springleaf Drum",
+    "4 Starfield Shepherd",
+    "2 Voice of Victory"
    ],
    "side": [
-    "3 Spell Pierce",
-    "1 Devastating Onslaught",
-    "3 Spider-Sense",
-    "3 Legion Extruder",
-    "1 Living Conundrum",
-    "1 Fountainport",
-    "1 Chainsaw",
-    "1 Kellan, the Fae-Blooded",
-    "1 With Great Power . . ."
+    "3 Authority of the Consuls",
+    "1 Curious Farm Animals",
+    "2 Erode",
+    "2 High Noon",
+    "2 Morningtide's Light",
+    "3 Rest in Peace",
+    "2 Spectacular Spider-Man"
    ],
    "history": [
     null,
     0,
     0,
     0,
-    1,
+    0.6,
     0,
     0,
     0,
     0,
+    0.3,
     0,
-    0,
-    0
+    0.1
    ],
    "field": [
-    2,
-    7,
-    1
+    10,
+    11,
+    2
    ],
    "mu": [
     [
      "Mono Green Landfall",
+     2,
      1,
-     3,
      0
     ]
    ],
    "metaWr": null,
    "core": [
     [
-     "Case of the Filched Falcon",
+     "Plains",
+     16
+    ],
+    [
+     "Momo, Friendly Flier",
      4
     ],
     [
-     "Dusk Rose Reliquary",
-     4
-    ],
-    [
-     "Hallowed Fountain",
-     4
-    ],
-    [
-     "Multiversal Passage",
-     4
-    ],
-    [
-     "Nutrient Block",
-     4
-    ],
-    [
-     "Pinnacle Emissary",
-     4
-    ],
-    [
-     "Ravenous Robots",
-     4
-    ],
-    [
-     "Steam Vents",
-     4
-    ],
-    [
-     "Vibranium Energy Daggers",
-     4
-    ],
-    [
-     "Zoetic Glyph",
-     4
-    ],
-    [
-     "Hardlight Containment",
+     "Abandoned Air Temple",
      3
     ],
     [
-     "Spirebluff Canal",
+     "Starfield Shepherd",
+     3
+    ],
+    [
+     "Haliya, Guided by Light",
+     3
+    ],
+    [
+     "Seam Rip",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Practiced Offense",
+     80,
+     2.5
+    ],
+    [
+     "Nurturing Pixie",
+     60,
+     4
+    ],
+    [
+     "Sage of the Skies",
+     60,
+     3.7
+    ],
+    [
+     "Voice of Victory",
+     60,
      2
     ],
     [
-     "Basilisk Collar",
+     "Erode",
+     60,
+     3
+    ],
+    [
+     "Cosmogrand Zenith",
+     40,
+     3.5
+    ],
+    [
+     "Daydream",
+     40,
+     2
+    ],
+    [
+     "Political Triumph",
+     40,
+     2
+    ],
+    [
+     "Sheltered by Ghosts",
+     40,
+     3
+    ],
+    [
+     "Springleaf Drum",
+     40,
+     4
+    ],
+    [
+     "Adventurer's Inn",
+     40,
+     3
+    ],
+    [
+     "Giada, Font of Hope",
+     40,
+     4
+    ],
+    [
+     "Guiding Hydra",
+     40,
      1
     ],
     [
-     "Chainsaw",
-     1
-    ],
-    [
-     "Floodfarm Verge",
-     1
-    ],
-    [
-     "Fountainport",
-     1
-    ],
-    [
-     "Ghost Vacuum",
-     1
-    ],
-    [
-     "Inspiring Vantage",
-     1
-    ],
-    [
-     "Island",
-     1
-    ],
-    [
-     "Krang, Master Mind",
-     1
-    ],
-    [
-     "Mountain",
-     1
-    ],
-    [
-     "Plains",
-     1
-    ],
-    [
-     "Riverpyre Verge",
-     1
-    ],
-    [
-     "Tezzeret, Cruel Captain",
-     1
-    ],
-    [
-     "The Enigma Jewel",
-     1
-    ],
-    [
-     "The Mind Stone",
-     1
-    ],
-    [
-     "The Ooze",
-     1
-    ],
-    [
-     "Voyage Home",
-     1
+     "Inspiring Overseer",
+     40,
+     4
     ]
    ],
-   "flex": [],
    "lists": 5,
-   "conv": [
-    0.2,
-    0.1,
-    1
-   ],
    "prev": 0.1
   },
   {
@@ -12442,7 +12216,7 @@
    ],
    "history": [
     null,
-    0.6,
+    0.8,
     0.3,
     0,
     0,
@@ -12733,160 +12507,334 @@
    "prev": 0.1
   },
   {
-   "id": "standard-gruul-aggro",
-   "name": "Gruul Aggro",
+   "id": "standard-mono-blue-control",
+   "name": "Mono Blue Control",
    "share": 0.1,
    "tier": 3,
    "count": 5,
-   "title": "bugzbugs · Standard Challenge 32 (6th Place)",
-   "url": "https://www.mtgo.com/decklist/standard-challenge-32-2026-09-0412853674#deck_bugzbugs",
+   "title": "Jack Okker-Edging · $uper $unday RCQ - Standard - SCG CON Los Angeles - Sunday - 9:30 am (3st Place)",
+   "url": "https://melee.gg/Decklist/View/b406bb7d-d89e-488c-9f42-b4e000f7933f",
    "main": [
-    "4 Ancestral Anger",
-    "4 Blossoming Defense",
-    "4 Callous Sell-Sword",
-    "1 Commercial District",
-    "4 Emberheart Challenger",
-    "2 Full Bore",
-    "4 Leyline of Resonance",
-    "3 Might of the Meek",
-    "3 Mountain",
-    "3 Multiversal Passage",
-    "4 Pawpatch Recruit",
-    "4 Slickshot Show-Off",
-    "4 Stadium Headliner",
-    "4 Starting Town",
-    "4 Stomping Ground",
-    "4 Thornspire Verge",
-    "4 Turn Inside Out"
+    "2 Floodpits Drowner",
+    "4 Sunderflock",
+    "4 Eddymurk Crab",
+    "4 Three Steps Ahead",
+    "4 Opt",
+    "4 Get Out",
+    "3 Bounce Off",
+    "17 Island",
+    "3 Eluge, the Shoreless Sea",
+    "1 Agna Qel'a",
+    "4 Flow State",
+    "2 Consult the Star Charts",
+    "1 Cavern of Souls",
+    "2 Spell Snare",
+    "4 Sleight of Hand",
+    "1 Petrified Hamlet"
    ],
    "side": [
-    "2 Burst Lightning",
-    "2 Dreadmaw's Ire",
-    "1 Full Bore",
-    "1 Pawpatch Formation",
-    "2 Pick Your Poison",
-    "4 Questing Druid",
-    "1 Snakeskin Veil",
-    "2 Soul-Guide Lantern"
+    "1 Precise Redaction",
+    "1 Disdainful Stroke",
+    "1 Floodpits Drowner",
+    "1 Wan Shi Tong, Librarian",
+    "2 Hydro-Man, Fluid Felon",
+    "2 Aetherize",
+    "2 Chandra, Chill of Compliance",
+    "2 Annul",
+    "2 Flashfreeze",
+    "1 Spell Snare"
    ],
    "history": [
     null,
-    0.3,
-    0,
-    0.4,
-    0.4,
     0,
     0,
     0,
-    0.4,
-    0.3,
+    0,
+    0,
+    0,
+    0,
+    0,
     0.2,
-    0
+    0,
+    0.2
    ],
    "field": [
-    3,
-    8,
+    19,
+    17,
     0
    ],
-   "mu": [],
+   "mu": [
+    [
+     "Mono Green Landfall",
+     1,
+     2,
+     0
+    ],
+    [
+     "Lifegain",
+     2,
+     1,
+     0
+    ],
+    [
+     "Reanimator",
+     3,
+     1,
+     0
+    ]
+   ],
    "metaWr": null,
    "core": [
     [
-     "Mountain",
-     4
-    ],
-    [
-     "Stomping Ground",
-     4
-    ],
-    [
-     "Thornspire Verge",
-     3
-    ],
-    [
-     "Multiversal Passage",
-     3
+     "Island",
+     19
     ]
    ],
    "flex": [
     [
-     "Ancestral Anger",
+     "Three Steps Ahead",
+     80,
+     2.8
+    ],
+    [
+     "Countersculpt",
+     80,
+     3.8
+    ],
+    [
+     "Long River's Pull",
      80,
      4
     ],
     [
-     "Callous Sell-Sword",
+     "Into the Flood Maw",
      80,
-     3.5
+     2.8
     ],
     [
-     "Forest",
+     "Theorist's Sanctum",
      80,
-     3.5
+     2
     ],
     [
-     "Leyline of Resonance",
-     80,
-     4
-    ],
-    [
-     "Pawpatch Recruit",
+     "Jace's Machinations",
      80,
      4
     ],
     [
-     "Slickshot Show-Off",
+     "Aetherize",
      80,
-     4
+     2.8
     ],
     [
-     "Blossoming Defense",
+     "The Theorist, Jace Beleren",
+     80,
+     3
+    ],
+    [
+     "Jace, Reality Sculptor",
+     80,
+     3
+    ],
+    [
+     "Consult the Star Charts",
      60,
      3.3
     ],
     [
-     "Emberheart Challenger",
+     "Spell Snare",
      60,
-     4
+     3
     ],
     [
-     "Stadium Headliner",
+     "Unable to Scream",
      60,
-     3.3
+     2
     ],
     [
-     "Starting Town",
+     "Demolition Field",
      60,
      2.7
     ],
     [
-     "Turn Inside Out",
+     "Jace Reawakened",
+     60,
+     1.7
+    ]
+   ],
+   "lists": 5,
+   "prev": null
+  },
+  {
+   "id": "standard-rakdos-control",
+   "name": "Rakdos Control",
+   "share": 0.1,
+   "tier": 3,
+   "count": 5,
+   "title": "Thejosh22 · Magic Spotlight: Fracture - SCG CON Hartford - Saturday - 9:00 am (658th Place)",
+   "url": "https://melee.gg/Decklist/View/aeb9689d-98a3-4108-8809-b4ec011b6a92",
+   "main": [
+    "1 Petrified Hamlet",
+    "2 Restless Vents",
+    "4 Blood Crypt",
+    "4 Blazemire Verge",
+    "7 Mountain",
+    "6 Swamp",
+    "2 Flashback",
+    "4 Burst Lightning",
+    "1 Strategic Betrayal",
+    "2 Bitter Triumph",
+    "4 Stinging Vitriol",
+    "4 Stingerquill Charm",
+    "4 Extrapolate the Impossible",
+    "2 Day of Black Sun",
+    "4 Death to Our Enemies",
+    "2 Tablet of Discovery",
+    "2 Avengers Disassembled",
+    "2 Chandra, Torch of Defiance",
+    "1 The End",
+    "2 Deadly Cover-Up"
+   ],
+   "side": [
+    "1 Torpor Orb",
+    "2 Duress",
+    "1 Cruelclaw's Heist",
+    "1 Ajani's Anguish",
+    "1 Exsanguinate",
+    "1 Song of Totentanz",
+    "1 Outrageous Robbery",
+    "1 The Vision",
+    "1 Strategic Betrayal",
+    "1 The End",
+    "1 Sunspine Lynx",
+    "1 Grievous Wound",
+    "1 Ajani Unrelenting",
+    "1 Liliana, Dreadhorde General"
+   ],
+   "history": [
+    null,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.4,
+    0.2
+   ],
+   "field": [
+    6,
+    14,
+    0
+   ],
+   "mu": [
+    [
+     "Azorius Control",
+     0,
+     3,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Blazemire Verge",
+     4
+    ],
+    [
+     "Blood Crypt",
+     4
+    ],
+    [
+     "Swamp",
+     2
+    ],
+    [
+     "Mountain",
+     2
+    ],
+    [
+     "Deadly Cover-Up",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Vraska's Final Mercy",
+     80,
+     1.5
+    ],
+    [
+     "Duress",
+     80,
+     3
+    ],
+    [
+     "Avengers Disassembled",
+     60,
+     1.3
+    ],
+    [
+     "Stingerquill Charm",
+     60,
+     3.3
+    ],
+    [
+     "Stinging Vitriol",
      60,
      4
     ],
     [
-     "Hired Claw",
-     40,
-     4
+     "The End",
+     60,
+     1
     ],
     [
-     "Questing Druid",
+     "Tablet of Discovery",
+     60,
+     3.3
+    ],
+    [
+     "Strategic Betrayal",
+     60,
+     1
+    ],
+    [
+     "Chandra, Torch of Defiance",
+     60,
+     2.7
+    ],
+    [
+     "Bitter Triumph",
+     60,
+     2
+    ],
+    [
+     "Lindblum, Industrial Regency",
      40,
      2
     ],
     [
-     "Snakeskin Veil",
+     "Raph & Mikey, Troublemakers",
      40,
      1
+    ],
+    [
+     "Virtue of Persistence",
+     40,
+     2
+    ],
+    [
+     "Demolition Field",
+     40,
+     2
     ]
    ],
    "lists": 5,
-   "conv": [
-    0.2,
-    0.1,
-    1
-   ],
-   "prev": 0.1
+   "prev": null
   }
  ]
 }
