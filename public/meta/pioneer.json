@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-08",
- "prevDate": "2026-11-07",
+ "updated": "2026-11-09",
+ "prevDate": "2026-11-08",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 981,
+ "decksAnalyzed": 976,
  "unknownPct": 3.6,
  "rogue": [
   {
@@ -209,7 +209,7 @@
     4.6,
     [
      null,
-     6.3,
+     null,
      4.8,
      7,
      4.2,
@@ -228,7 +228,7 @@
     7.3,
     [
      null,
-     7.5,
+     null,
      7.9,
      11.1,
      7.6,
@@ -247,7 +247,7 @@
     7.3,
     [
      null,
-     7.5,
+     null,
      7.9,
      11.1,
      7.6,
@@ -266,7 +266,7 @@
     0.8,
     [
      null,
-     0,
+     null,
      0,
      0,
      0,
@@ -285,7 +285,7 @@
     2.4,
     [
      null,
-     0,
+     null,
      0,
      1.5,
      1.7,
@@ -304,7 +304,7 @@
     2.4,
     [
      null,
-     0,
+     null,
      0,
      1.5,
      0.8,
@@ -323,7 +323,7 @@
     1.8,
     [
      null,
-     0,
+     null,
      0,
      1,
      0.8,
@@ -342,7 +342,7 @@
     2.6,
     [
      null,
-     0,
+     null,
      0,
      1,
      0.8,
@@ -361,7 +361,7 @@
     2.6,
     [
      null,
-     0,
+     null,
      0,
      1,
      0.8,
@@ -380,7 +380,7 @@
     2.6,
     [
      null,
-     0,
+     null,
      0,
      1,
      0.8,
@@ -401,7 +401,7 @@
     32.7,
     [
      null,
-     22.5,
+     null,
      29.4,
      18.1,
      24.4,
@@ -420,7 +420,7 @@
     13.9,
     [
      null,
-     5,
+     null,
      4.8,
      6.5,
      5.9,
@@ -439,7 +439,7 @@
     21.8,
     [
      null,
-     23.8,
+     null,
      15.9,
      17.6,
      21.8,
@@ -458,7 +458,7 @@
     31.5,
     [
      null,
-     23.8,
+     null,
      34.9,
      26.6,
      28.6,
@@ -477,7 +477,7 @@
     22,
     [
      null,
-     23.8,
+     null,
      15.9,
      18.1,
      21.8,
@@ -496,7 +496,7 @@
     22,
     [
      null,
-     16.3,
+     null,
      24.6,
      14.1,
      20.2,
@@ -515,7 +515,7 @@
     6.3,
     [
      null,
-     2.5,
+     null,
      4,
      4,
      5,
@@ -534,7 +534,7 @@
     5.9,
     [
      null,
-     1.3,
+     null,
      0.8,
      0.5,
      0,
@@ -553,7 +553,7 @@
     9.3,
     [
      null,
-     10,
+     null,
      7.1,
      8.5,
      7.6,
@@ -572,7 +572,7 @@
     6.7,
     [
      null,
-     5,
+     null,
      11.1,
      9,
      12.6,
@@ -673,6 +673,11 @@
     0.5
    ],
    [
+    "Pyroclasm",
+    11.1,
+    -2.3
+   ],
+   [
     "Invoke Despair",
     11.1,
     -5.7
@@ -681,11 +686,6 @@
     "Culling Ritual",
     11.1,
     -4
-   ],
-   [
-    "Pyroclasm",
-    11.1,
-    -2.3
    ]
   ]
  },
@@ -696,7 +696,7 @@
    "name": "Mono Red Aggro",
    "share": 19.4,
    "tier": 1,
-   "count": 190,
+   "count": 189,
    "title": "aqua haruka#50863 · 第13回みなとみらいオープン (8th Place)",
    "url": "https://melee.gg/Decklist/View/73cba352-c904-4c27-b25b-b4ee00af941f",
    "main": [
@@ -731,7 +731,7 @@
    ],
    "history": [
     null,
-    25,
+    null,
     19,
     19.6,
     25.2,
@@ -790,7 +790,7 @@
    "core": [
     [
      "Mountain",
-     9
+     8
     ],
     [
      "Monastery Swiftspear",
@@ -836,23 +836,18 @@
     ],
     [
      "Ramunap Ruins",
-     53,
+     52,
      2.1
     ],
     [
      "Sokenzan, Crucible of Defiance",
-     53,
+     52,
      1
     ],
     [
      "Academic Dispute",
      50,
      4
-    ],
-    [
-     "Sunspine Lynx",
-     47,
-     3.2
     ],
     [
      "Stormchaser's Talent",
@@ -883,9 +878,14 @@
      "Shivan Reef",
      47,
      3
+    ],
+    [
+     "Sunspine Lynx",
+     47,
+     3.2
     ]
    ],
-   "lists": 190,
+   "lists": 189,
    "conv": [
     16.5,
     13.4,
@@ -896,7 +896,7 @@
   {
    "id": "pioneer-golgari-midrange",
    "name": "Golgari Midrange",
-   "share": 11.4,
+   "share": 11.5,
    "tier": 1,
    "count": 112,
    "title": "SuperCow12653 · Pioneer Challenge 16 (1st Place)",
@@ -936,7 +936,7 @@
    ],
    "history": [
     null,
-    11.3,
+    null,
     15.1,
     9.5,
     13.4,
@@ -1160,7 +1160,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     4,
     5,
     5.9,
@@ -1301,9 +1301,9 @@
   {
    "id": "pioneer-orzhov-greasefang",
    "name": "Orzhov Greasefang",
-   "share": 4.7,
+   "share": 4.5,
    "tier": 1,
-   "count": 46,
+   "count": 44,
    "title": "flj38858 · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-2311137#deck_flj38858",
    "main": [
@@ -1343,7 +1343,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     3.2,
     0.5,
     0.8,
@@ -1447,16 +1447,16 @@
     [
      "Sheltered by Ghosts",
      89,
-     2.4
+     2.5
     ],
     [
      "Geier Reach Sanitarium",
-     85,
+     84,
      1.1
     ],
     [
      "Eiganjo, Seat of the Empire",
-     83,
+     82,
      1
     ],
     [
@@ -1470,7 +1470,7 @@
      2
     ]
    ],
-   "lists": 46,
+   "lists": 44,
    "conv": [
     1.2,
     1.7,
@@ -1525,7 +1525,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     1.5,
     0.8,
@@ -1654,9 +1654,9 @@
   {
    "id": "pioneer-azorius-control",
    "name": "Azorius Control",
-   "share": 3.8,
+   "share": 3.7,
    "tier": 1,
-   "count": 37,
+   "count": 36,
    "title": "Ozawa · 第13回みなとみらいオープン (6th Place)",
    "url": "https://melee.gg/Decklist/View/0e9fca66-89f4-4baf-b0e3-b4ee008d31fc",
    "main": [
@@ -1703,7 +1703,7 @@
    ],
    "history": [
     null,
-    5,
+    null,
     7.9,
     3,
     5.9,
@@ -1800,7 +1800,7 @@
    "flex": [
     [
      "The Wandering Emperor",
-     84,
+     83,
      2.8
     ],
     [
@@ -1811,7 +1811,7 @@
     [
      "Consult the Star Charts",
      81,
-     3.7
+     3.8
     ],
     [
      "Otawara, Soaring City",
@@ -1820,56 +1820,56 @@
     ],
     [
      "Glacial Fortress",
-     70,
+     69,
      2.8
     ],
     [
      "Beza, the Bounding Spring",
-     65,
+     67,
      2.3
     ],
     [
      "Fountainport",
-     62,
+     61,
      1
     ],
     [
      "Change the Equation",
-     62,
+     61,
      2.3
     ],
     [
      "Hengegate Pathway",
-     59,
+     58,
      4
     ],
     [
      "Memory Deluge",
-     54,
+     53,
      2.8
     ],
     [
      "Emeritus of Ideation",
-     51,
+     50,
      1.6
     ],
     [
      "Omen of the Sea",
-     51,
+     50,
      3.1
     ],
     [
      "Three Steps Ahead",
-     43,
+     42,
      1.5
     ],
     [
      "Irrigated Farmland",
-     41,
+     39,
      2
     ]
    ],
-   "lists": 37,
+   "lists": 36,
    "conv": [
     3.7,
     3,
@@ -1918,7 +1918,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     3.2,
     4,
     2.5,
@@ -2096,7 +2096,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -2235,7 +2235,7 @@
   {
    "id": "pioneer-jund-midrange",
    "name": "Jund Midrange",
-   "share": 2.4,
+   "share": 2.5,
    "tier": 2,
    "count": 24,
    "title": "Taker · 第13回みなとみらいオープン (1st Place)",
@@ -2271,7 +2271,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -2400,7 +2400,7 @@
   {
    "id": "pioneer-dimir-self-bounce",
    "name": "Dimir Self Bounce",
-   "share": 2.3,
+   "share": 2.4,
    "tier": 2,
    "count": 23,
    "title": "Beicodegeia · Pioneer Challenge 32 (7th Place)",
@@ -2441,7 +2441,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     1.6,
     0.5,
     1.7,
@@ -2580,7 +2580,7 @@
   {
    "id": "pioneer-phoenix",
    "name": "Phoenix",
-   "share": 2.3,
+   "share": 2.4,
    "tier": 2,
    "count": 23,
    "title": "MikeyCoppola365 · Pioneer League (5-0)",
@@ -2614,7 +2614,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     0,
     2.5,
     4.2,
@@ -2772,7 +2772,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0.8,
     1,
     1.7,
@@ -2938,7 +2938,7 @@
    ],
    "history": [
     null,
-    8.8,
+    null,
     9.5,
     9,
     6.7,
@@ -3151,7 +3151,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0.5,
     0,
@@ -3328,7 +3328,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -3498,7 +3498,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     1.6,
     1.5,
     0.8,
@@ -3648,7 +3648,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     0,
     1,
     0.8,
@@ -3792,7 +3792,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     1,
     0.8,
@@ -3979,7 +3979,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0.8,
     1,
     1.7,
@@ -4153,7 +4153,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0.8,
     0.5,
     0,
@@ -4297,7 +4297,7 @@
    ],
    "history": [
     null,
-    2.5,
+    null,
     0,
     1,
     0.8,
@@ -4454,7 +4454,7 @@
    ],
    "history": [
     null,
-    5,
+    null,
     2.4,
     2.5,
     5,
@@ -4676,7 +4676,7 @@
    ],
    "history": [
     null,
-    2.5,
+    null,
     5.6,
     7,
     2.5,
@@ -4855,7 +4855,7 @@
    ],
    "history": [
     null,
-    2.5,
+    null,
     2.4,
     0,
     0.8,
@@ -5012,7 +5012,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     1.6,
     2.5,
     1.7,
@@ -5174,7 +5174,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     1,
     0,
@@ -5336,7 +5336,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0.5,
     1.7,
@@ -5529,7 +5529,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     0.8,
     0,
     1.7,
@@ -5670,7 +5670,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0.8,
     2,
     3.4,
@@ -5844,7 +5844,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     2.4,
     1.5,
     0,
@@ -6008,7 +6008,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -6185,7 +6185,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     4,
     2.5,
     0.8,
@@ -6371,7 +6371,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     0.8,
     1,
     0.8,
@@ -6545,7 +6545,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0.5,
     0,
@@ -6691,7 +6691,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -6835,7 +6835,7 @@
    ],
    "history": [
     null,
-    2.5,
+    null,
     0.8,
     2,
     1.7,
@@ -6996,7 +6996,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     1.6,
     0.5,
     0,
@@ -7190,7 +7190,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -7356,7 +7356,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     0.8,
     2,
     0.8,
@@ -7422,7 +7422,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     0,
     0.5,
     0,
@@ -7442,73 +7442,6 @@
    "mu": [],
    "metaWr": null,
    "prev": 0.4
-  },
-  {
-   "id": "pioneer-black-demons",
-   "name": "Black Demons",
-   "share": 0.3,
-   "tier": 2,
-   "count": 3,
-   "title": "ppoottaa · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-09-1810999#deck_ppoottaa",
-   "main": [
-    "1 Agadeem's Awakening",
-    "2 Beza, the Bounding Spring",
-    "1 Bitter Triumph",
-    "2 Blade of the Oni",
-    "2 Bleachbone Verge",
-    "3 Brightclimb Pathway",
-    "3 Caves of Koilos",
-    "4 Concealed Courtyard",
-    "4 Fatal Push",
-    "1 Get Lost",
-    "4 Godless Shrine",
-    "4 Mutavault",
-    "1 Plains",
-    "2 Poet's Quill",
-    "4 Professor of Symbology",
-    "3 Sheoldred, the Apocalypse",
-    "4 Skyclave Apparition",
-    "3 Swamp",
-    "4 Thoughtseize",
-    "4 Unholy Annex // Ritual Chamber",
-    "1 Urborg, Tomb of Yawgmoth",
-    "3 Vanishing Verse"
-   ],
-   "side": [
-    "1 Cut Down",
-    "2 Deafening Silence",
-    "1 Decorum Dissertation",
-    "2 Duress",
-    "1 Enter the Avatar State",
-    "2 Kutzil's Flanker",
-    "2 Languish",
-    "1 Reduce to Memory",
-    "1 Ruinous Waterbending",
-    "2 Unlicensed Hearse"
-   ],
-   "history": [
-    null,
-    0,
-    1.6,
-    0,
-    0,
-    1,
-    0.7,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "field": [
-    2,
-    1,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "prev": 0.3
   },
   {
    "id": "pioneer-boros-hammer-time",
@@ -7551,7 +7484,7 @@
    ],
    "history": [
     null,
-    5,
+    null,
     1.6,
     0,
     0,
@@ -7622,7 +7555,7 @@
    ],
    "history": [
     null,
-    6.3,
+    null,
     1.6,
     0.5,
     0.8,
@@ -7676,7 +7609,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0.5,
     0,
@@ -7686,6 +7619,73 @@
     0,
     0,
     1.3,
+    0
+   ],
+   "field": [
+    2,
+    1,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "prev": 0.3
+  },
+  {
+   "id": "pioneer-black-demons",
+   "name": "Black Demons",
+   "share": 0.2,
+   "tier": 3,
+   "count": 2,
+   "title": "ppoottaa · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-09-1810999#deck_ppoottaa",
+   "main": [
+    "1 Agadeem's Awakening",
+    "2 Beza, the Bounding Spring",
+    "1 Bitter Triumph",
+    "2 Blade of the Oni",
+    "2 Bleachbone Verge",
+    "3 Brightclimb Pathway",
+    "3 Caves of Koilos",
+    "4 Concealed Courtyard",
+    "4 Fatal Push",
+    "1 Get Lost",
+    "4 Godless Shrine",
+    "4 Mutavault",
+    "1 Plains",
+    "2 Poet's Quill",
+    "4 Professor of Symbology",
+    "3 Sheoldred, the Apocalypse",
+    "4 Skyclave Apparition",
+    "3 Swamp",
+    "4 Thoughtseize",
+    "4 Unholy Annex // Ritual Chamber",
+    "1 Urborg, Tomb of Yawgmoth",
+    "3 Vanishing Verse"
+   ],
+   "side": [
+    "1 Cut Down",
+    "2 Deafening Silence",
+    "1 Decorum Dissertation",
+    "2 Duress",
+    "1 Enter the Avatar State",
+    "2 Kutzil's Flanker",
+    "2 Languish",
+    "1 Reduce to Memory",
+    "1 Ruinous Waterbending",
+    "2 Unlicensed Hearse"
+   ],
+   "history": [
+    null,
+    null,
+    1.6,
+    0,
+    0,
+    1,
+    0.7,
+    0,
+    0,
+    0,
+    0,
     0
    ],
    "field": [
@@ -7740,7 +7740,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -7803,7 +7803,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0.5,
     0,
@@ -7877,7 +7877,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -7949,7 +7949,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -8013,7 +8013,7 @@
    ],
    "history": [
     null,
-    0,
+    null,
     0,
     0,
     0,
@@ -8080,7 +8080,7 @@
    ],
    "history": [
     null,
-    1.3,
+    null,
     0,
     0,
     0,
