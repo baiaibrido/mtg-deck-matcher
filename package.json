@@ -1,6 +1,6 @@
 {
   "name": "mtg-deck-matcher",
-  "version": "0.45.0",
+  "version": "0.45.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -19,8 +19,12 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^4.7.0",
     "mana-font": "^1.18.0",
-    "vite": "^5.4.11"
+    "vite": "^6.4.6"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.13.6",
+    "undici": "^6.29.1"
   }
 }
