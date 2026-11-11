@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-10",
- "prevDate": "2026-11-09",
+ "updated": "2026-11-11",
+ "prevDate": "2026-11-10",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 1382,
+ "decksAnalyzed": 1379,
  "unknownPct": 2.5,
  "rogue": [
   {
@@ -189,7 +189,7 @@
     25.1,
     16,
     [
-     26.9,
+     27.8,
      20.1,
      24.4,
      26,
@@ -303,7 +303,7 @@
     11.1,
     5.6,
     [
-     6.5,
+     5.6,
      3.5,
      4.2,
      3.4,
@@ -381,7 +381,7 @@
     12.1,
     20.4,
     [
-     16.1,
+     16.7,
      18.1,
      21.8,
      18.1,
@@ -400,7 +400,7 @@
     12.1,
     20.1,
     [
-     16.1,
+     16.7,
      17.6,
      21.8,
      18.1,
@@ -419,7 +419,7 @@
     11.1,
     18.7,
     [
-     19.4,
+     18.9,
      20.1,
      25.2,
      21.1,
@@ -438,7 +438,7 @@
     11.8,
     18.9,
     [
-     14,
+     14.4,
      15.1,
      18.5,
      14.7,
@@ -495,7 +495,7 @@
     15,
     21.4,
     [
-     18.3,
+     17.8,
      20.1,
      25.2,
      21.1,
@@ -533,7 +533,7 @@
     16.4,
     22.1,
     [
-     20.4,
+     20,
      20.1,
      25.2,
      21.1,
@@ -552,7 +552,7 @@
     15.2,
     20.9,
     [
-     19.4,
+     18.9,
      19.6,
      25.2,
      21.1,
@@ -677,7 +677,7 @@
    "name": "Mono Red Aggro",
    "share": 16.8,
    "tier": 1,
-   "count": 232,
+   "count": 231,
    "title": "Giox96 · Pioneer Challenge 16 (7th Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Giox96",
    "main": [
@@ -709,7 +709,7 @@
     "1 Weathered Runestone"
    ],
    "history": [
-    19.4,
+    18.9,
     19.6,
     25.2,
     21.1,
@@ -818,7 +818,7 @@
     [
      "Den of the Bugbear",
      62,
-     1.2
+     1.1
     ],
     [
      "Kumano Faces Kakkazan",
@@ -837,8 +837,8 @@
     ],
     [
      "Sunspine Lynx",
-     49,
-     3.2
+     48,
+     3.3
     ],
     [
      "Academic Dispute",
@@ -876,13 +876,13 @@
      3.8
     ]
    ],
-   "lists": 232,
+   "lists": 231,
    "conv": [
     13.8,
     10.4,
     34
    ],
-   "prev": 19.4
+   "prev": 16.8
   },
   {
    "id": "pioneer-golgari-midrange",
@@ -925,7 +925,7 @@
     "4 Strategic Betrayal"
    ],
    "history": [
-    12.9,
+    13.3,
     9.5,
     13.4,
     17.2,
@@ -1131,7 +1131,7 @@
     13.7,
     45
    ],
-   "prev": 11.5
+   "prev": 12
   },
   {
    "id": "pioneer-mono-green-devotion",
@@ -1313,7 +1313,7 @@
     5.2,
     17
    ],
-   "prev": 4.5
+   "prev": 5.2
   },
   {
    "id": "pioneer-izzet-cauldron",
@@ -1499,186 +1499,7 @@
     6.1,
     20
    ],
-   "prev": 5.5
-  },
-  {
-   "id": "pioneer-orzhov-greasefang",
-   "name": "Orzhov Greasefang",
-   "share": 3.8,
-   "tier": 1,
-   "count": 53,
-   "title": "Estebitax · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Estebitax",
-   "main": [
-    "2 Bleachbone Verge",
-    "2 Brightclimb Pathway",
-    "1 Cling to Dust",
-    "4 Concealed Courtyard",
-    "1 Eiganjo, Seat of the Empire",
-    "4 Fatal Push",
-    "4 Fleeting Spirit",
-    "1 Geier Reach Sanitarium",
-    "4 Godless Shrine",
-    "4 Greasefang, Okiba Boss",
-    "3 Guardian of New Benalia",
-    "4 Iron-Shield Elf",
-    "1 Lively Dirge",
-    "4 Monument to Endurance",
-    "4 Parhelion II",
-    "1 Plains",
-    "2 Shadowy Backstreet",
-    "1 Swamp",
-    "1 Takenuma, Abandoned Mire",
-    "4 The Mycosynth Gardens",
-    "4 Thoughtseize",
-    "1 Urborg, Tomb of Yawgmoth",
-    "3 Vanishing Verse"
-   ],
-   "side": [
-    "3 Bitter Triumph",
-    "3 Doorkeeper Thrull",
-    "2 Duress",
-    "1 Go Blank",
-    "2 High Noon",
-    "2 Pest Control",
-    "2 Soul-Guide Lantern"
-   ],
-   "history": [
-    4.3,
-    0.5,
-    0.8,
-    4.4,
-    7.8,
-    7.8,
-    3.4,
-    1.5,
-    5.1,
-    2.7,
-    2.6,
-    2.2
-   ],
-   "field": [
-    6,
-    9,
-    0
-   ],
-   "mu": [
-    [
-     "Abzan Greasefang",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Concealed Courtyard",
-     4
-    ],
-    [
-     "Fatal Push",
-     4
-    ],
-    [
-     "Godless Shrine",
-     4
-    ],
-    [
-     "Greasefang, Okiba Boss",
-     4
-    ],
-    [
-     "Monument to Endurance",
-     4
-    ],
-    [
-     "Parhelion II",
-     4
-    ],
-    [
-     "Thoughtseize",
-     4
-    ],
-    [
-     "Fleeting Spirit",
-     4
-    ],
-    [
-     "The Mycosynth Gardens",
-     4
-    ],
-    [
-     "Iron-Shield Elf",
-     4
-    ],
-    [
-     "Guardian of New Benalia",
-     3
-    ],
-    [
-     "Brightclimb Pathway",
-     2
-    ],
-    [
-     "Bleachbone Verge",
-     2
-    ],
-    [
-     "Plains",
-     1
-    ],
-    [
-     "Lively Dirge",
-     1
-    ],
-    [
-     "Swamp",
-     1
-    ],
-    [
-     "Takenuma, Abandoned Mire",
-     1
-    ],
-    [
-     "Urborg, Tomb of Yawgmoth",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Geier Reach Sanitarium",
-     87,
-     1.1
-    ],
-    [
-     "Eiganjo, Seat of the Empire",
-     85,
-     1
-    ],
-    [
-     "Sheltered by Ghosts",
-     83,
-     2.4
-    ],
-    [
-     "Vanishing Verse",
-     83,
-     2.2
-    ],
-    [
-     "Shadowy Backstreet",
-     83,
-     2
-    ]
-   ],
-   "lists": 53,
-   "conv": [
-    0.8,
-    1.2,
-    4
-   ],
-   "prev": 4.5
+   "prev": 5.1
   },
   {
    "id": "pioneer-azorius-control",
@@ -1722,7 +1543,7 @@
     "1 Captain Marvel, Earth's Protector"
    ],
    "history": [
-    8.6,
+    7.8,
     3,
     5.9,
     5.4,
@@ -1895,7 +1716,186 @@
     2.7,
     9
    ],
-   "prev": 3.7
+   "prev": 3.8
+  },
+  {
+   "id": "pioneer-orzhov-greasefang",
+   "name": "Orzhov Greasefang",
+   "share": 3.7,
+   "tier": 1,
+   "count": 51,
+   "title": "Estebitax · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Estebitax",
+   "main": [
+    "2 Bleachbone Verge",
+    "2 Brightclimb Pathway",
+    "1 Cling to Dust",
+    "4 Concealed Courtyard",
+    "1 Eiganjo, Seat of the Empire",
+    "4 Fatal Push",
+    "4 Fleeting Spirit",
+    "1 Geier Reach Sanitarium",
+    "4 Godless Shrine",
+    "4 Greasefang, Okiba Boss",
+    "3 Guardian of New Benalia",
+    "4 Iron-Shield Elf",
+    "1 Lively Dirge",
+    "4 Monument to Endurance",
+    "4 Parhelion II",
+    "1 Plains",
+    "2 Shadowy Backstreet",
+    "1 Swamp",
+    "1 Takenuma, Abandoned Mire",
+    "4 The Mycosynth Gardens",
+    "4 Thoughtseize",
+    "1 Urborg, Tomb of Yawgmoth",
+    "3 Vanishing Verse"
+   ],
+   "side": [
+    "3 Bitter Triumph",
+    "3 Doorkeeper Thrull",
+    "2 Duress",
+    "1 Go Blank",
+    "2 High Noon",
+    "2 Pest Control",
+    "2 Soul-Guide Lantern"
+   ],
+   "history": [
+    3.3,
+    0.5,
+    0.8,
+    4.4,
+    7.8,
+    7.8,
+    3.4,
+    1.5,
+    5.1,
+    2.7,
+    2.6,
+    2.2
+   ],
+   "field": [
+    6,
+    9,
+    0
+   ],
+   "mu": [
+    [
+     "Abzan Greasefang",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Concealed Courtyard",
+     4
+    ],
+    [
+     "Fatal Push",
+     4
+    ],
+    [
+     "Godless Shrine",
+     4
+    ],
+    [
+     "Greasefang, Okiba Boss",
+     4
+    ],
+    [
+     "Monument to Endurance",
+     4
+    ],
+    [
+     "Parhelion II",
+     4
+    ],
+    [
+     "Thoughtseize",
+     4
+    ],
+    [
+     "Fleeting Spirit",
+     4
+    ],
+    [
+     "The Mycosynth Gardens",
+     4
+    ],
+    [
+     "Iron-Shield Elf",
+     4
+    ],
+    [
+     "Guardian of New Benalia",
+     3
+    ],
+    [
+     "Brightclimb Pathway",
+     2
+    ],
+    [
+     "Bleachbone Verge",
+     2
+    ],
+    [
+     "Plains",
+     1
+    ],
+    [
+     "Lively Dirge",
+     1
+    ],
+    [
+     "Swamp",
+     1
+    ],
+    [
+     "Takenuma, Abandoned Mire",
+     1
+    ],
+    [
+     "Urborg, Tomb of Yawgmoth",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Geier Reach Sanitarium",
+     86,
+     1.1
+    ],
+    [
+     "Eiganjo, Seat of the Empire",
+     84,
+     1
+    ],
+    [
+     "Sheltered by Ghosts",
+     82,
+     2.4
+    ],
+    [
+     "Vanishing Verse",
+     82,
+     2.2
+    ],
+    [
+     "Shadowy Backstreet",
+     82,
+     2
+    ]
+   ],
+   "lists": 51,
+   "conv": [
+    0.8,
+    1.2,
+    4
+   ],
+   "prev": 3.8
   },
   {
    "id": "pioneer-izzet-creativity",
@@ -2104,7 +2104,7 @@
     4.6,
     15
    ],
-   "prev": 1.4
+   "prev": 3.5
   },
   {
    "id": "pioneer-izzet-prowess",
@@ -2276,7 +2276,7 @@
     2.7,
     9
    ],
-   "prev": 1.6
+   "prev": 2.7
   },
   {
    "id": "pioneer-dimir-ninjas",
@@ -2320,7 +2320,7 @@
     "1 Strategic Betrayal"
    ],
    "history": [
-    3.2,
+    3.3,
     4,
     2.5,
     2.5,
@@ -2461,7 +2461,7 @@
     3.4,
     11
    ],
-   "prev": 3.4
+   "prev": 2.5
   },
   {
    "id": "pioneer-phoenix",
@@ -2619,7 +2619,7 @@
     0.9,
     3
    ],
-   "prev": 2.4
+   "prev": 2.5
   },
   {
    "id": "pioneer-izzet-aggro",
@@ -2793,7 +2793,7 @@
     4.6,
     15
    ],
-   "prev": 1.6
+   "prev": 2.4
   },
   {
    "id": "pioneer-selesnya-company",
@@ -2967,7 +2967,7 @@
     1.8,
     6
    ],
-   "prev": 1.2
+   "prev": 2.2
   },
   {
    "id": "pioneer-abzan-greasefang",
@@ -3019,7 +3019,7 @@
     "1 Witherbloom Command"
    ],
    "history": [
-    10.8,
+    11.1,
     9,
     6.7,
     3.9,
@@ -3190,7 +3190,7 @@
     1.2,
     4
    ],
-   "prev": 1.7
+   "prev": 2
   },
   {
    "id": "pioneer-rakdos-sacrifice",
@@ -3368,7 +3368,7 @@
     2.7,
     9
    ],
-   "prev": 2.8
+   "prev": 2
   },
   {
    "id": "pioneer-jund-midrange",
@@ -3544,7 +3544,7 @@
     2.7,
     9
    ],
-   "prev": 2.5
+   "prev": 2
   },
   {
    "id": "pioneer-dimir-self-bounce",
@@ -3733,7 +3733,7 @@
     2.7,
     9
    ],
-   "prev": 2.4
+   "prev": 1.9
   },
   {
    "id": "pioneer-mono-green-stompy",
@@ -3893,7 +3893,7 @@
     1.5,
     5
    ],
-   "prev": 1.4
+   "prev": 1.7
   },
   {
    "id": "pioneer-jund-sacrifice",
@@ -4055,7 +4055,7 @@
     2.1,
     7
    ],
-   "prev": 1.1
+   "prev": 1.6
   },
   {
    "id": "pioneer-boros-convoke",
@@ -4206,12 +4206,12 @@
     0.6,
     2
    ],
-   "prev": 1.2
+   "prev": 1.5
   },
   {
    "id": "pioneer-spirits",
    "name": "Spirits",
-   "share": 1.4,
+   "share": 1.5,
    "tier": 2,
    "count": 20,
    "title": "OscarLewis · Pioneer League (5-0)",
@@ -4362,12 +4362,12 @@
     0.3,
     1
    ],
-   "prev": 1.5
+   "prev": 1.4
   },
   {
    "id": "pioneer-izzet-control",
    "name": "Izzet Control",
-   "share": 1.4,
+   "share": 1.5,
    "tier": 2,
    "count": 20,
    "title": "VitorCarvalho01 · Pioneer Challenge 16 (4th Place)",
@@ -4518,7 +4518,7 @@
     2.1,
     7
    ],
-   "prev": 1.8
+   "prev": 1.4
   },
   {
    "id": "pioneer-mono-black-midrange",
@@ -4679,7 +4679,7 @@
     1.8,
     6
    ],
-   "prev": 0.8
+   "prev": 1.4
   },
   {
    "id": "pioneer-jeskai-lessons",
@@ -4731,7 +4731,7 @@
     "1 Sokka's Haiku"
    ],
    "history": [
-    3.2,
+    3.3,
     7,
     2.5,
     2.9,
@@ -4856,7 +4856,7 @@
     2.1,
     7
    ],
-   "prev": 1.1
+   "prev": 1.4
   },
   {
    "id": "pioneer-simic-scapeshift",
@@ -4900,7 +4900,7 @@
     "1 Summon: Leviathan"
    ],
    "history": [
-    3.2,
+    3.3,
     2.5,
     5,
     2,
@@ -5063,7 +5063,7 @@
     1.5,
     5
    ],
-   "prev": 1.1
+   "prev": 1.2
   },
   {
    "id": "pioneer-mono-white-humans",
@@ -5212,7 +5212,7 @@
     1.2,
     4
    ],
-   "prev": 0.8
+   "prev": 1.1
   },
   {
    "id": "pioneer-orzhov-midrange",
@@ -5371,7 +5371,7 @@
     1.2,
     4
    ],
-   "prev": 0.6
+   "prev": 1
   },
   {
    "id": "pioneer-selesnya-stompy",
@@ -5545,7 +5545,7 @@
     0.6,
     2
    ],
-   "prev": 0.7
+   "prev": 0.9
   },
   {
    "id": "pioneer-rona-combo",
@@ -5694,7 +5694,7 @@
     ]
    ],
    "lists": 12,
-   "prev": 1
+   "prev": 0.9
   },
   {
    "id": "pioneer-boros-midrange",
@@ -5847,7 +5847,7 @@
     1.5,
     5
    ],
-   "prev": 1.1
+   "prev": 0.8
   },
   {
    "id": "pioneer-rakdos-midrange",
@@ -6000,7 +6000,7 @@
     1.2,
     4
    ],
-   "prev": 0.9
+   "prev": 0.8
   },
   {
    "id": "pioneer-dimir-control",
@@ -6345,7 +6345,7 @@
     0.6,
     2
    ],
-   "prev": 0.7
+   "prev": 0.6
   },
   {
    "id": "pioneer-golgari-food",
@@ -6530,7 +6530,7 @@
     0.6,
     2
    ],
-   "prev": 0.6
+   "prev": 0.5
   },
   {
    "id": "pioneer-esper-midrange",
@@ -6730,7 +6730,7 @@
     0.3,
     1
    ],
-   "prev": 0.8
+   "prev": 0.4
   },
   {
    "id": "pioneer-bring-to-light",
@@ -6876,7 +6876,7 @@
     ]
    ],
    "lists": 6,
-   "prev": 0.6
+   "prev": 0.4
   },
   {
    "id": "pioneer-golgari-stompy",
@@ -7025,7 +7025,7 @@
     ]
    ],
    "lists": 6,
-   "prev": 0.6
+   "prev": 0.4
   },
   {
    "id": "pioneer-rakdos-aggro",
@@ -7160,7 +7160,7 @@
     0.6,
     2
    ],
-   "prev": 0.3
+   "prev": 0.4
   },
   {
    "id": "pioneer-boros-hammer-time",
@@ -7328,7 +7328,7 @@
     0.6,
     2
    ],
-   "prev": 0.3
+   "prev": 0.4
   },
   {
    "id": "pioneer-izzet-lessons",
@@ -7500,7 +7500,7 @@
     0,
     0
    ],
-   "prev": 0.3
+   "prev": 0.4
   },
   {
    "id": "pioneer-rakdos-creativity",
@@ -7676,7 +7676,7 @@
     ]
    ],
    "lists": 5,
-   "prev": 0.5
+   "prev": 0.4
   },
   {
    "id": "pioneer-selesnya-angels",
@@ -7736,7 +7736,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.4
+   "prev": 0.3
   },
   {
    "id": "pioneer-selesnya-elemental",
@@ -7800,7 +7800,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.2
+   "prev": 0.3
   },
   {
    "id": "pioneer-simic-stompy",
@@ -7846,7 +7846,7 @@
     "2 Virulent Emissary"
    ],
    "history": [
-    5.4,
+    5.6,
     2.5,
     0.8,
     2.9,
@@ -7866,7 +7866,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.7
+   "prev": 0.3
   },
   {
    "id": "pioneer-boros-aggro",
@@ -7928,7 +7928,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": null
+   "prev": 0.3
   },
   {
    "id": "pioneer-enigmatic-incarnation",
@@ -7998,7 +7998,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": null
+   "prev": 0.2
   },
   {
    "id": "pioneer-lotus-strings",
@@ -8064,7 +8064,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": null
+   "prev": 0.2
   },
   {
    "id": "pioneer-temur-lessons",
@@ -8130,7 +8130,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.4
+   "prev": 0.2
   },
   {
    "id": "pioneer-sultai-control",
