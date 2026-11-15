@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-14",
- "prevDate": "2026-11-13",
+ "updated": "2026-11-15",
+ "prevDate": "2026-11-14",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 1228,
- "unknownPct": 2,
+ "decksAnalyzed": 1222,
+ "unknownPct": 1.9,
  "rogue": [
   {
    "id": "pioneer-rogue-azorius-flash",
@@ -189,7 +189,7 @@
     25.1,
     16,
     [
-     27.1,
+     27.8,
      20.1,
      24.4,
      26,
@@ -208,7 +208,7 @@
     10.1,
     3.2,
     [
-     2.1,
+     2.8,
      4,
      3.4,
      3.4,
@@ -303,7 +303,7 @@
     11.1,
     5.6,
     [
-     2.1,
+     2.8,
      3.5,
      4.2,
      3.4,
@@ -341,7 +341,7 @@
     8.9,
     3.5,
     [
-     2.1,
+     0,
      2,
      2.5,
      4.4,
@@ -381,7 +381,7 @@
     12.1,
     20.4,
     [
-     18.8,
+     22.2,
      18.1,
      21.8,
      18.1,
@@ -400,7 +400,7 @@
     12.1,
     20.1,
     [
-     18.8,
+     22.2,
      17.6,
      21.8,
      18.1,
@@ -419,7 +419,7 @@
     11.1,
     18.7,
     [
-     22.9,
+     25,
      20.1,
      25.2,
      21.1,
@@ -438,7 +438,7 @@
     11.8,
     18.9,
     [
-     16.7,
+     19.4,
      15.1,
      18.5,
      14.7,
@@ -457,7 +457,7 @@
     6,
     12.8,
     [
-     4.2,
+     2.8,
      6.5,
      5.9,
      2.9,
@@ -495,7 +495,7 @@
     15,
     21.4,
     [
-     20.8,
+     25,
      20.1,
      25.2,
      21.1,
@@ -533,7 +533,7 @@
     16.4,
     22.1,
     [
-     22.9,
+     25,
      20.1,
      25.2,
      21.1,
@@ -552,7 +552,7 @@
     15.2,
     20.9,
     [
-     20.8,
+     25,
      19.6,
      25.2,
      21.1,
@@ -624,14 +624,14 @@
     -4.9
    ],
    [
-    "Pyroclasm",
-    11.9,
-    1.8
-   ],
-   [
     "Abrade",
     11.9,
     2.8
+   ],
+   [
+    "Pyroclasm",
+    11.9,
+    1.8
    ],
    [
     "Strategic Betrayal",
@@ -675,7 +675,7 @@
   {
    "id": "pioneer-mono-red-aggro",
    "name": "Mono Red Aggro",
-   "share": 16.3,
+   "share": 16.4,
    "tier": 1,
    "count": 200,
    "title": "Giox96 · Pioneer Challenge 16 (7th Place)",
@@ -709,7 +709,7 @@
     "1 Weathered Runestone"
    ],
    "history": [
-    22.9,
+    25,
     19.6,
     25.2,
     21.1,
@@ -872,14 +872,14 @@
     9.4,
     27
    ],
-   "prev": 16.2
+   "prev": 16.3
   },
   {
    "id": "pioneer-golgari-midrange",
    "name": "Golgari Midrange",
    "share": 11.8,
    "tier": 1,
-   "count": 145,
+   "count": 144,
    "title": "Arianne · Pioneer Challenge 16 (1st Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Arianne",
    "main": [
@@ -915,7 +915,7 @@
     "4 Strategic Betrayal"
    ],
    "history": [
-    8.3,
+    11.1,
     9.5,
     13.4,
     17.2,
@@ -1082,14 +1082,14 @@
      3.9
     ],
     [
+     "Duress",
+     84,
+     1.1
+    ],
+    [
      "Castle Locthwain",
      83,
      1
-    ],
-    [
-     "Duress",
-     83,
-     1.1
     ],
     [
      "Tear Asunder",
@@ -1098,11 +1098,11 @@
     ],
     [
      "Maelstrom Pulse",
-     27,
+     26,
      1
     ]
    ],
-   "lists": 145,
+   "lists": 144,
    "conv": [
     13.8,
     13.9,
@@ -1290,7 +1290,7 @@
     5.9,
     17
    ],
-   "prev": 5.7
+   "prev": 5.9
   },
   {
    "id": "pioneer-izzet-cauldron",
@@ -1339,7 +1339,7 @@
     "2 Torch the Tower"
    ],
    "history": [
-    2.1,
+    2.8,
     5,
     5.9,
     2.9,
@@ -1685,194 +1685,12 @@
     5.2,
     15
    ],
-   "prev": 3.8
-  },
-  {
-   "id": "pioneer-orzhov-greasefang",
-   "name": "Orzhov Greasefang",
-   "share": 3.7,
-   "tier": 1,
-   "count": 46,
-   "title": "Estebitax · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Estebitax",
-   "main": [
-    "2 Bleachbone Verge",
-    "2 Brightclimb Pathway",
-    "1 Cling to Dust",
-    "4 Concealed Courtyard",
-    "1 Eiganjo, Seat of the Empire",
-    "4 Fatal Push",
-    "4 Fleeting Spirit",
-    "1 Geier Reach Sanitarium",
-    "4 Godless Shrine",
-    "4 Greasefang, Okiba Boss",
-    "3 Guardian of New Benalia",
-    "4 Iron-Shield Elf",
-    "1 Lively Dirge",
-    "4 Monument to Endurance",
-    "4 Parhelion II",
-    "1 Plains",
-    "2 Shadowy Backstreet",
-    "1 Swamp",
-    "1 Takenuma, Abandoned Mire",
-    "4 The Mycosynth Gardens",
-    "4 Thoughtseize",
-    "1 Urborg, Tomb of Yawgmoth",
-    "3 Vanishing Verse"
-   ],
-   "side": [
-    "3 Bitter Triumph",
-    "3 Doorkeeper Thrull",
-    "2 Duress",
-    "1 Go Blank",
-    "2 High Noon",
-    "2 Pest Control",
-    "2 Soul-Guide Lantern"
-   ],
-   "history": [
-    2.1,
-    0.5,
-    0.8,
-    4.4,
-    7.8,
-    7.8,
-    3.4,
-    1.5,
-    5.1,
-    2.7,
-    2.6,
-    2.2
-   ],
-   "field": [
-    5,
-    8,
-    0
-   ],
-   "mu": [
-    [
-     "Abzan Greasefang",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Concealed Courtyard",
-     4
-    ],
-    [
-     "Fatal Push",
-     4
-    ],
-    [
-     "Godless Shrine",
-     4
-    ],
-    [
-     "Greasefang, Okiba Boss",
-     4
-    ],
-    [
-     "Monument to Endurance",
-     4
-    ],
-    [
-     "Parhelion II",
-     4
-    ],
-    [
-     "Thoughtseize",
-     4
-    ],
-    [
-     "Fleeting Spirit",
-     4
-    ],
-    [
-     "The Mycosynth Gardens",
-     4
-    ],
-    [
-     "Iron-Shield Elf",
-     4
-    ],
-    [
-     "Guardian of New Benalia",
-     3
-    ],
-    [
-     "Brightclimb Pathway",
-     2
-    ],
-    [
-     "Bleachbone Verge",
-     2
-    ],
-    [
-     "Geier Reach Sanitarium",
-     1
-    ],
-    [
-     "Plains",
-     1
-    ],
-    [
-     "Eiganjo, Seat of the Empire",
-     1
-    ],
-    [
-     "Lively Dirge",
-     1
-    ],
-    [
-     "Swamp",
-     1
-    ],
-    [
-     "Takenuma, Abandoned Mire",
-     1
-    ],
-    [
-     "Urborg, Tomb of Yawgmoth",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Vanishing Verse",
-     89,
-     2.2
-    ],
-    [
-     "Shadowy Backstreet",
-     89,
-     2
-    ],
-    [
-     "Sheltered by Ghosts",
-     83,
-     2.3
-    ],
-    [
-     "Seasoned Hallowblade",
-     26,
-     1
-    ]
-   ],
-   "lists": 46,
-   "conv": [
-    0.5,
-    1,
-    3
-   ],
    "prev": 3.9
   },
   {
    "id": "pioneer-azorius-control",
    "name": "Azorius Control",
-   "share": 3.7,
+   "share": 3.8,
    "tier": 1,
    "count": 46,
    "title": "moomoo0129 · Pioneer Spark!! ONLINE 28th -MTGArena- (3st Place)",
@@ -1911,7 +1729,7 @@
     "1 Captain Marvel, Earth's Protector"
    ],
    "history": [
-    4.2,
+    2.8,
     3,
     5.9,
     5.4,
@@ -2074,7 +1892,189 @@
     2.4,
     7
    ],
-   "prev": 3.9
+   "prev": 3.7
+  },
+  {
+   "id": "pioneer-orzhov-greasefang",
+   "name": "Orzhov Greasefang",
+   "share": 3.6,
+   "tier": 1,
+   "count": 44,
+   "title": "Estebitax · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Estebitax",
+   "main": [
+    "2 Bleachbone Verge",
+    "2 Brightclimb Pathway",
+    "1 Cling to Dust",
+    "4 Concealed Courtyard",
+    "1 Eiganjo, Seat of the Empire",
+    "4 Fatal Push",
+    "4 Fleeting Spirit",
+    "1 Geier Reach Sanitarium",
+    "4 Godless Shrine",
+    "4 Greasefang, Okiba Boss",
+    "3 Guardian of New Benalia",
+    "4 Iron-Shield Elf",
+    "1 Lively Dirge",
+    "4 Monument to Endurance",
+    "4 Parhelion II",
+    "1 Plains",
+    "2 Shadowy Backstreet",
+    "1 Swamp",
+    "1 Takenuma, Abandoned Mire",
+    "4 The Mycosynth Gardens",
+    "4 Thoughtseize",
+    "1 Urborg, Tomb of Yawgmoth",
+    "3 Vanishing Verse"
+   ],
+   "side": [
+    "3 Bitter Triumph",
+    "3 Doorkeeper Thrull",
+    "2 Duress",
+    "1 Go Blank",
+    "2 High Noon",
+    "2 Pest Control",
+    "2 Soul-Guide Lantern"
+   ],
+   "history": [
+    2.8,
+    0.5,
+    0.8,
+    4.4,
+    7.8,
+    7.8,
+    3.4,
+    1.5,
+    5.1,
+    2.7,
+    2.6,
+    2.2
+   ],
+   "field": [
+    5,
+    8,
+    0
+   ],
+   "mu": [
+    [
+     "Abzan Greasefang",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Concealed Courtyard",
+     4
+    ],
+    [
+     "Fatal Push",
+     4
+    ],
+    [
+     "Godless Shrine",
+     4
+    ],
+    [
+     "Greasefang, Okiba Boss",
+     4
+    ],
+    [
+     "Monument to Endurance",
+     4
+    ],
+    [
+     "Parhelion II",
+     4
+    ],
+    [
+     "Thoughtseize",
+     4
+    ],
+    [
+     "Fleeting Spirit",
+     4
+    ],
+    [
+     "The Mycosynth Gardens",
+     4
+    ],
+    [
+     "Iron-Shield Elf",
+     4
+    ],
+    [
+     "Guardian of New Benalia",
+     3
+    ],
+    [
+     "Brightclimb Pathway",
+     2
+    ],
+    [
+     "Bleachbone Verge",
+     2
+    ],
+    [
+     "Geier Reach Sanitarium",
+     1
+    ],
+    [
+     "Plains",
+     1
+    ],
+    [
+     "Eiganjo, Seat of the Empire",
+     1
+    ],
+    [
+     "Lively Dirge",
+     1
+    ],
+    [
+     "Swamp",
+     1
+    ],
+    [
+     "Takenuma, Abandoned Mire",
+     1
+    ],
+    [
+     "Urborg, Tomb of Yawgmoth",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Vanishing Verse",
+     89,
+     2.2
+    ],
+    [
+     "Shadowy Backstreet",
+     89,
+     2
+    ],
+    [
+     "Sheltered by Ghosts",
+     84,
+     2.3
+    ],
+    [
+     "Seasoned Hallowblade",
+     25,
+     1
+    ]
+   ],
+   "lists": 44,
+   "conv": [
+    0.5,
+    1,
+    3
+   ],
+   "prev": 3.7
   },
   {
    "id": "pioneer-izzet-prowess",
@@ -2246,7 +2246,7 @@
     3.1,
     9
    ],
-   "prev": 2.9
+   "prev": 3
   },
   {
    "id": "pioneer-izzet-aggro",
@@ -2420,7 +2420,7 @@
     5.2,
     15
    ],
-   "prev": 2.6
+   "prev": 2.7
   },
   {
    "id": "pioneer-dimir-ninjas",
@@ -2464,7 +2464,7 @@
     "1 Strategic Betrayal"
    ],
    "history": [
-    2.1,
+    2.8,
     4,
     2.5,
     2.5,
@@ -2610,7 +2610,7 @@
   {
    "id": "pioneer-selesnya-company",
    "name": "Selesnya Company",
-   "share": 2.4,
+   "share": 2.5,
    "tier": 2,
    "count": 30,
    "title": "TheWitchKling · Pioneer Challenge 32 (3rd Place)",
@@ -2648,7 +2648,7 @@
     "1 Unlicensed Hearse"
    ],
    "history": [
-    2.1,
+    0,
     1,
     1.7,
     0.5,
@@ -3113,7 +3113,7 @@
     3.1,
     9
    ],
-   "prev": 2.1
+   "prev": 2.2
   },
   {
    "id": "pioneer-rakdos-sacrifice",
@@ -3343,7 +3343,7 @@
     "1 Witherbloom Command"
    ],
    "history": [
-    10.4,
+    11.1,
     9,
     6.7,
     3.9,
@@ -3678,7 +3678,7 @@
     1.7,
     5
    ],
-   "prev": 1.8
+   "prev": 1.9
   },
   {
    "id": "pioneer-jund-sacrifice",
@@ -3840,7 +3840,7 @@
     2.4,
     7
    ],
-   "prev": 1.7
+   "prev": 1.8
   },
   {
    "id": "pioneer-dimir-self-bounce",
@@ -3889,7 +3889,7 @@
     "1 Yorion, Sky Nomad"
    ],
    "history": [
-    2.1,
+    2.8,
     0.5,
     1.7,
     2.5,
@@ -4022,7 +4022,7 @@
     2.1,
     6
    ],
-   "prev": 1.8
+   "prev": 1.7
   },
   {
    "id": "pioneer-boros-convoke",
@@ -4064,7 +4064,7 @@
     "2 Torch the Tower"
    ],
    "history": [
-    2.1,
+    2.8,
     0.5,
     0,
     0.5,
@@ -4215,7 +4215,7 @@
     "3 Skyclave Apparition"
    ],
    "history": [
-    4.2,
+    2.8,
     1.5,
     0.8,
     0,
@@ -4498,7 +4498,7 @@
     2.1,
     6
    ],
-   "prev": 1.4
+   "prev": 1.5
   },
   {
    "id": "pioneer-izzet-control",
@@ -4861,7 +4861,7 @@
     "1 Summon: Leviathan"
    ],
    "history": [
-    4.2,
+    5.6,
     2.5,
     5,
     2,
@@ -5019,7 +5019,7 @@
     1.4,
     4
    ],
-   "prev": 1
+   "prev": 1.1
   },
   {
    "id": "pioneer-mono-white-humans",
@@ -5168,7 +5168,7 @@
     1.4,
     4
    ],
-   "prev": 1
+   "prev": 1.1
   },
   {
    "id": "pioneer-selesnya-stompy",
@@ -5213,7 +5213,7 @@
     "2 Unlicensed Hearse"
    ],
    "history": [
-    2.1,
+    0,
     1,
     0.8,
     0,
@@ -5342,7 +5342,7 @@
     0.7,
     2
    ],
-   "prev": 1
+   "prev": 1.1
   },
   {
    "id": "pioneer-rakdos-midrange",
@@ -5498,184 +5498,6 @@
    "prev": 0.8
   },
   {
-   "id": "pioneer-jeskai-lessons",
-   "name": "Jeskai Lessons",
-   "share": 0.8,
-   "tier": 2,
-   "count": 10,
-   "title": "Bradykiesling13 · Pioneer Challenge 16 (8th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Bradykiesling13",
-   "main": [
-    "3 Abandon Attachments",
-    "3 Accumulate Wisdom",
-    "3 Combustion Technique",
-    "1 Deserted Beach",
-    "4 Divide by Zero",
-    "4 Firebending Lesson",
-    "4 Gran-Gran",
-    "3 Great Hall of the Biblioplex",
-    "3 Hallowed Fountain",
-    "1 Iroh's Demonstration",
-    "3 Island",
-    "2 It'll Quench Ya!",
-    "4 Jeskai Revelation",
-    "1 Pop Quiz",
-    "3 Riverglide Pathway",
-    "2 Riverpyre Verge",
-    "1 Spell Pierce",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "4 Tablet of Discovery",
-    "1 The Theorist, Jace Beleren",
-    "2 Thor, God of Thunder"
-   ],
-   "side": [
-    "1 Abrade",
-    "1 Accumulate Wisdom",
-    "1 Anger of the Gods",
-    "1 Annul",
-    "1 Change the Equation",
-    "1 Combustion Technique",
-    "1 Ghost Vacuum",
-    "1 Improvisation Capstone",
-    "1 Iroh's Demonstration",
-    "1 Mystical Dispute",
-    "1 Negate",
-    "1 Ozai's Cruelty",
-    "1 Price of Freedom",
-    "1 Pyroclasm",
-    "1 Sokka's Haiku"
-   ],
-   "history": [
-    4.2,
-    7,
-    2.5,
-    2.9,
-    3.3,
-    0,
-    0,
-    0,
-    0,
-    0.5,
-    1.3,
-    2.2
-   ],
-   "field": [
-    8,
-    4,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Divide by Zero",
-     4
-    ],
-    [
-     "Firebending Lesson",
-     4
-    ],
-    [
-     "Gran-Gran",
-     4
-    ],
-    [
-     "Jeskai Revelation",
-     4
-    ],
-    [
-     "Spirebluff Canal",
-     4
-    ],
-    [
-     "Steam Vents",
-     4
-    ],
-    [
-     "Tablet of Discovery",
-     4
-    ],
-    [
-     "Hallowed Fountain",
-     3
-    ],
-    [
-     "Riverglide Pathway",
-     3
-    ],
-    [
-     "Abandon Attachments",
-     3
-    ],
-    [
-     "Accumulate Wisdom",
-     3
-    ],
-    [
-     "Combustion Technique",
-     3
-    ],
-    [
-     "Island",
-     3
-    ],
-    [
-     "It'll Quench Ya!",
-     3
-    ],
-    [
-     "Riverpyre Verge",
-     2
-    ],
-    [
-     "Thor, God of Thunder",
-     2
-    ],
-    [
-     "Deserted Beach",
-     1
-    ],
-    [
-     "Pop Quiz",
-     1
-    ],
-    [
-     "Spell Pierce",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Great Hall of the Biblioplex",
-     60,
-     3
-    ],
-    [
-     "Stock Up",
-     50,
-     1
-    ],
-    [
-     "Iroh's Demonstration",
-     50,
-     1
-    ],
-    [
-     "The Theorist, Jace Beleren",
-     40,
-     1
-    ]
-   ],
-   "lists": 10,
-   "conv": [
-    0.9,
-    1.7,
-    5
-   ],
-   "prev": 1
-  },
-  {
    "id": "pioneer-rona-combo",
    "name": "Rona Combo",
    "share": 0.8,
@@ -5711,7 +5533,7 @@
     "2 Spell Pierce"
    ],
    "history": [
-    2.1,
+    2.8,
     2.5,
     1.7,
     1.5,
@@ -6020,6 +5842,184 @@
    "prev": 0.7
   },
   {
+   "id": "pioneer-jeskai-lessons",
+   "name": "Jeskai Lessons",
+   "share": 0.7,
+   "tier": 2,
+   "count": 9,
+   "title": "Bradykiesling13 · Pioneer Challenge 16 (8th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Bradykiesling13",
+   "main": [
+    "3 Abandon Attachments",
+    "3 Accumulate Wisdom",
+    "3 Combustion Technique",
+    "1 Deserted Beach",
+    "4 Divide by Zero",
+    "4 Firebending Lesson",
+    "4 Gran-Gran",
+    "3 Great Hall of the Biblioplex",
+    "3 Hallowed Fountain",
+    "1 Iroh's Demonstration",
+    "3 Island",
+    "2 It'll Quench Ya!",
+    "4 Jeskai Revelation",
+    "1 Pop Quiz",
+    "3 Riverglide Pathway",
+    "2 Riverpyre Verge",
+    "1 Spell Pierce",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "4 Tablet of Discovery",
+    "1 The Theorist, Jace Beleren",
+    "2 Thor, God of Thunder"
+   ],
+   "side": [
+    "1 Abrade",
+    "1 Accumulate Wisdom",
+    "1 Anger of the Gods",
+    "1 Annul",
+    "1 Change the Equation",
+    "1 Combustion Technique",
+    "1 Ghost Vacuum",
+    "1 Improvisation Capstone",
+    "1 Iroh's Demonstration",
+    "1 Mystical Dispute",
+    "1 Negate",
+    "1 Ozai's Cruelty",
+    "1 Price of Freedom",
+    "1 Pyroclasm",
+    "1 Sokka's Haiku"
+   ],
+   "history": [
+    5.6,
+    7,
+    2.5,
+    2.9,
+    3.3,
+    0,
+    0,
+    0,
+    0,
+    0.5,
+    1.3,
+    2.2
+   ],
+   "field": [
+    8,
+    4,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Divide by Zero",
+     4
+    ],
+    [
+     "Firebending Lesson",
+     4
+    ],
+    [
+     "Gran-Gran",
+     4
+    ],
+    [
+     "Jeskai Revelation",
+     4
+    ],
+    [
+     "Spirebluff Canal",
+     4
+    ],
+    [
+     "Steam Vents",
+     4
+    ],
+    [
+     "Tablet of Discovery",
+     4
+    ],
+    [
+     "Hallowed Fountain",
+     3
+    ],
+    [
+     "Riverglide Pathway",
+     3
+    ],
+    [
+     "Abandon Attachments",
+     3
+    ],
+    [
+     "Accumulate Wisdom",
+     3
+    ],
+    [
+     "Combustion Technique",
+     3
+    ],
+    [
+     "Island",
+     3
+    ],
+    [
+     "It'll Quench Ya!",
+     3
+    ],
+    [
+     "Riverpyre Verge",
+     2
+    ],
+    [
+     "Thor, God of Thunder",
+     2
+    ],
+    [
+     "Deserted Beach",
+     1
+    ],
+    [
+     "Pop Quiz",
+     1
+    ],
+    [
+     "Spell Pierce",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Great Hall of the Biblioplex",
+     56,
+     3
+    ],
+    [
+     "Stock Up",
+     44,
+     1
+    ],
+    [
+     "The Theorist, Jace Beleren",
+     44,
+     1
+    ],
+    [
+     "Iroh's Demonstration",
+     44,
+     1
+    ]
+   ],
+   "lists": 9,
+   "conv": [
+    0.9,
+    1.7,
+    5
+   ],
+   "prev": 0.8
+  },
+  {
    "id": "pioneer-sultai-midrange",
    "name": "Sultai Midrange",
    "share": 0.6,
@@ -6055,7 +6055,7 @@
     "2 Quag Feast"
    ],
    "history": [
-    2.1,
+    2.8,
     1.5,
     0,
     0.5,
@@ -6637,7 +6637,7 @@
     0.7,
     2
    ],
-   "prev": 0.6
+   "prev": 0.4
   },
   {
    "id": "pioneer-boros-hammer-time",
@@ -6679,7 +6679,7 @@
     "2 Thorin, Mountain-king"
    ],
    "history": [
-    2.1,
+    0,
     0,
     0,
     0,
@@ -7164,66 +7164,6 @@
    "prev": 0.4
   },
   {
-   "id": "pioneer-selesnya-angels",
-   "name": "Selesnya Angels",
-   "share": 0.3,
-   "tier": 2,
-   "count": 4,
-   "title": "motipurupurin · 第11回みなとみらいオープン (4th Place)",
-   "url": "https://melee.gg/Decklist/View/e62dada5-6be3-4204-b5be-b4cb00aff84a",
-   "main": [
-    "4 Brushland",
-    "4 Branchloft Pathway",
-    "4 Skyclave Apparition",
-    "4 Temple Garden",
-    "2 Get Lost",
-    "3 Llanowar Elves",
-    "3 Giada, Font of Hope",
-    "2 Inspiring Overseer",
-    "4 Collected Company",
-    "4 Resplendent Angel",
-    "3 Elvish Mystic",
-    "4 Bishop of Wings",
-    "4 Righteous Valkyrie",
-    "5 Plains",
-    "4 Razorverge Thicket",
-    "1 Boseiju, Who Endures",
-    "1 Eiganjo, Seat of the Empire",
-    "4 Kayla's Reconstruction"
-   ],
-   "side": [
-    "2 Reidane, God of the Worthy",
-    "3 High Noon",
-    "2 Portable Hole",
-    "2 Settle the Wreckage",
-    "2 Get Lost",
-    "2 Rest in Peace",
-    "2 Invasion of Gobakhan"
-   ],
-   "history": [
-    0,
-    2,
-    0.8,
-    0,
-    1.3,
-    0,
-    0.8,
-    0,
-    0.6,
-    0,
-    0,
-    0
-   ],
-   "field": [
-    2,
-    2,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "prev": 0.3
-  },
-  {
    "id": "pioneer-selesnya-elemental",
    "name": "Selesnya Elemental",
    "share": 0.3,
@@ -7400,7 +7340,7 @@
     "1 Unlicensed Hearse"
    ],
    "history": [
-    4.2,
+    5.6,
     0.5,
     0.8,
     0.5,
@@ -7477,6 +7417,66 @@
    ],
    "field": [
     1,
+    2,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "prev": 0.3
+  },
+  {
+   "id": "pioneer-selesnya-angels",
+   "name": "Selesnya Angels",
+   "share": 0.2,
+   "tier": 3,
+   "count": 3,
+   "title": "motipurupurin · 第11回みなとみらいオープン (4th Place)",
+   "url": "https://melee.gg/Decklist/View/e62dada5-6be3-4204-b5be-b4cb00aff84a",
+   "main": [
+    "4 Brushland",
+    "4 Branchloft Pathway",
+    "4 Skyclave Apparition",
+    "4 Temple Garden",
+    "2 Get Lost",
+    "3 Llanowar Elves",
+    "3 Giada, Font of Hope",
+    "2 Inspiring Overseer",
+    "4 Collected Company",
+    "4 Resplendent Angel",
+    "3 Elvish Mystic",
+    "4 Bishop of Wings",
+    "4 Righteous Valkyrie",
+    "5 Plains",
+    "4 Razorverge Thicket",
+    "1 Boseiju, Who Endures",
+    "1 Eiganjo, Seat of the Empire",
+    "4 Kayla's Reconstruction"
+   ],
+   "side": [
+    "2 Reidane, God of the Worthy",
+    "3 High Noon",
+    "2 Portable Hole",
+    "2 Settle the Wreckage",
+    "2 Get Lost",
+    "2 Rest in Peace",
+    "2 Invasion of Gobakhan"
+   ],
+   "history": [
+    0,
+    2,
+    0.8,
+    0,
+    1.3,
+    0,
+    0.8,
+    0,
+    0.6,
+    0,
+    0,
+    0
+   ],
+   "field": [
+    2,
     2,
     0
    ],
@@ -7761,7 +7761,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.3
+   "prev": 0.2
   },
   {
    "id": "pioneer-simic-lessons",
@@ -8024,7 +8024,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": null
+   "prev": 0.2
   }
  ]
 }
