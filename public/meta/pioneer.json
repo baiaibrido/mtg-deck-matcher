@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-15",
- "prevDate": "2026-11-14",
+ "updated": "2026-11-16",
+ "prevDate": "2026-11-15",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 1222,
+ "decksAnalyzed": 1215,
  "unknownPct": 1.9,
  "rogue": [
   {
@@ -189,7 +189,7 @@
     25.1,
     16,
     [
-     27.8,
+     null,
      20.1,
      24.4,
      26,
@@ -208,7 +208,7 @@
     10.1,
     3.2,
     [
-     2.8,
+     null,
      4,
      3.4,
      3.4,
@@ -227,7 +227,7 @@
     11.4,
     4.7,
     [
-     0,
+     null,
      0,
      0,
      0,
@@ -246,7 +246,7 @@
     8.7,
     2.4,
     [
-     0,
+     null,
      0,
      0.8,
      0,
@@ -265,7 +265,7 @@
     8,
     2.2,
     [
-     0,
+     null,
      0,
      0.8,
      0,
@@ -284,7 +284,7 @@
     7.7,
     2,
     [
-     0,
+     null,
      0,
      0,
      0,
@@ -303,7 +303,7 @@
     11.1,
     5.6,
     [
-     2.8,
+     null,
      3.5,
      4.2,
      3.4,
@@ -322,7 +322,7 @@
     7.2,
     1.7,
     [
-     0,
+     null,
      0,
      1.7,
      0,
@@ -341,7 +341,7 @@
     8.9,
     3.5,
     [
-     0,
+     null,
      2,
      2.5,
      4.4,
@@ -360,7 +360,7 @@
     8.5,
     3.2,
     [
-     0,
+     null,
      1,
      0,
      0,
@@ -381,7 +381,7 @@
     12.1,
     20.4,
     [
-     22.2,
+     null,
      18.1,
      21.8,
      18.1,
@@ -400,7 +400,7 @@
     12.1,
     20.1,
     [
-     22.2,
+     null,
      17.6,
      21.8,
      18.1,
@@ -419,7 +419,7 @@
     11.1,
     18.7,
     [
-     25,
+     null,
      20.1,
      25.2,
      21.1,
@@ -438,7 +438,7 @@
     11.8,
     18.9,
     [
-     19.4,
+     null,
      15.1,
      18.5,
      14.7,
@@ -457,7 +457,7 @@
     6,
     12.8,
     [
-     2.8,
+     null,
      6.5,
      5.9,
      2.9,
@@ -476,7 +476,7 @@
     3.1,
     9.6,
     [
-     0,
+     null,
      0,
      0.8,
      3.4,
@@ -495,7 +495,7 @@
     15,
     21.4,
     [
-     25,
+     null,
      20.1,
      25.2,
      21.1,
@@ -514,7 +514,7 @@
     3.1,
     9.4,
     [
-     0,
+     null,
      0.5,
      0.8,
      2.9,
@@ -533,7 +533,7 @@
     16.4,
     22.1,
     [
-     25,
+     null,
      20.1,
      25.2,
      21.1,
@@ -552,7 +552,7 @@
     15.2,
     20.9,
     [
-     25,
+     null,
      19.6,
      25.2,
      21.1,
@@ -675,9 +675,9 @@
   {
    "id": "pioneer-mono-red-aggro",
    "name": "Mono Red Aggro",
-   "share": 16.4,
+   "share": 16.3,
    "tier": 1,
-   "count": 200,
+   "count": 198,
    "title": "Giox96 · Pioneer Challenge 16 (7th Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Giox96",
    "main": [
@@ -709,7 +709,7 @@
     "1 Weathered Runestone"
    ],
    "history": [
-    25,
+    null,
     19.6,
     25.2,
     21.1,
@@ -797,12 +797,12 @@
    "flex": [
     [
      "Burst Lightning",
-     89,
+     88,
      3.8
     ],
     [
      "Monstrous Rage",
-     68,
+     67,
      3.6
     ],
     [
@@ -812,7 +812,7 @@
     ],
     [
      "Den of the Bugbear",
-     63,
+     62,
      1.2
     ],
     [
@@ -822,7 +822,7 @@
     ],
     [
      "Sokenzan, Crucible of Defiance",
-     59,
+     58,
      1
     ],
     [
@@ -832,7 +832,7 @@
     ],
     [
      "Sunspine Lynx",
-     50,
+     49,
      3.3
     ],
     [
@@ -844,11 +844,6 @@
      "Mutavault",
      44,
      3.8
-    ],
-    [
-     "Rockface Village",
-     42,
-     1.2
     ],
     [
      "Stormchaser's Talent",
@@ -864,20 +859,25 @@
      "Riverpyre Verge",
      41,
      3.5
+    ],
+    [
+     "Steam Vents",
+     41,
+     4
     ]
    ],
-   "lists": 200,
+   "lists": 198,
    "conv": [
     12.7,
     9.4,
     27
    ],
-   "prev": 16.3
+   "prev": 16.4
   },
   {
    "id": "pioneer-golgari-midrange",
    "name": "Golgari Midrange",
-   "share": 11.8,
+   "share": 11.9,
    "tier": 1,
    "count": 144,
    "title": "Arianne · Pioneer Challenge 16 (1st Place)",
@@ -915,7 +915,7 @@
     "4 Strategic Betrayal"
    ],
    "history": [
-    11.1,
+    null,
     9.5,
     13.4,
     17.2,
@@ -1147,7 +1147,7 @@
     "2 Unlicensed Hearse"
    ],
    "history": [
-    0,
+    null,
     1.5,
     0.8,
     0,
@@ -1295,7 +1295,7 @@
   {
    "id": "pioneer-izzet-cauldron",
    "name": "Izzet Cauldron",
-   "share": 5.2,
+   "share": 5.3,
    "tier": 1,
    "count": 64,
    "title": "xfile · Pioneer Challenge 16 (6th Place)",
@@ -1339,7 +1339,7 @@
     "2 Torch the Tower"
    ],
    "history": [
-    2.8,
+    null,
     5,
     5.9,
     2.9,
@@ -1481,7 +1481,7 @@
   {
    "id": "pioneer-izzet-creativity",
    "name": "Izzet Creativity",
-   "share": 3.9,
+   "share": 4,
    "tier": 1,
    "count": 48,
    "title": "nekosuke · Pioneer Spark!! ONLINE 28th -MTGArena- (2st Place)",
@@ -1522,7 +1522,7 @@
     "2 Anger of the Gods"
    ],
    "history": [
-    0,
+    null,
     1,
     0.8,
     0,
@@ -1729,7 +1729,7 @@
     "1 Captain Marvel, Earth's Protector"
    ],
    "history": [
-    2.8,
+    null,
     3,
     5.9,
     5.4,
@@ -1892,14 +1892,14 @@
     2.4,
     7
    ],
-   "prev": 3.7
+   "prev": 3.8
   },
   {
    "id": "pioneer-orzhov-greasefang",
    "name": "Orzhov Greasefang",
-   "share": 3.6,
+   "share": 3.5,
    "tier": 1,
-   "count": 44,
+   "count": 43,
    "title": "Estebitax · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Estebitax",
    "main": [
@@ -1937,7 +1937,7 @@
     "2 Soul-Guide Lantern"
    ],
    "history": [
-    2.8,
+    null,
     0.5,
     0.8,
     4.4,
@@ -2049,12 +2049,12 @@
    "flex": [
     [
      "Vanishing Verse",
-     89,
+     88,
      2.2
     ],
     [
      "Shadowy Backstreet",
-     89,
+     88,
      2
     ],
     [
@@ -2064,17 +2064,17 @@
     ],
     [
      "Seasoned Hallowblade",
-     25,
+     26,
      1
     ]
    ],
-   "lists": 44,
+   "lists": 43,
    "conv": [
     0.5,
     1,
     3
    ],
-   "prev": 3.7
+   "prev": 3.6
   },
   {
    "id": "pioneer-izzet-prowess",
@@ -2118,7 +2118,7 @@
     "1 Stubborn Denial"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -2291,7 +2291,7 @@
     "1 Spider-Sense"
    ],
    "history": [
-    0,
+    null,
     0.5,
     0,
     0,
@@ -2425,7 +2425,7 @@
   {
    "id": "pioneer-dimir-ninjas",
    "name": "Dimir Ninjas",
-   "share": 2.5,
+   "share": 2.6,
    "tier": 2,
    "count": 31,
    "title": "ElCucuy · Pioneer Challenge 32 (4th Place)",
@@ -2464,7 +2464,7 @@
     "1 Strategic Betrayal"
    ],
    "history": [
-    2.8,
+    null,
     4,
     2.5,
     2.5,
@@ -2648,7 +2648,7 @@
     "1 Unlicensed Hearse"
    ],
    "history": [
-    0,
+    null,
     1,
     1.7,
     0.5,
@@ -2779,7 +2779,7 @@
     2.1,
     6
    ],
-   "prev": 2.4
+   "prev": 2.5
   },
   {
    "id": "pioneer-phoenix",
@@ -2819,7 +2819,7 @@
     "3 Redcap Melee"
    ],
    "history": [
-    0,
+    null,
     2.5,
     4.2,
     2.9,
@@ -2977,7 +2977,7 @@
     "2 Tyvar, Jubilant Brawler"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -3156,7 +3156,7 @@
     "4 Thoughtseize"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     1.5,
@@ -3343,7 +3343,7 @@
     "1 Witherbloom Command"
    ],
    "history": [
-    11.1,
+    null,
     9,
     6.7,
     3.9,
@@ -3560,7 +3560,7 @@
     "1 Turn the Earth"
    ],
    "history": [
-    0,
+    null,
     1,
     0.8,
     0.5,
@@ -3720,7 +3720,7 @@
     "1 Witherbloom Charm"
    ],
    "history": [
-    0,
+    null,
     0,
     0.8,
     0,
@@ -3889,7 +3889,7 @@
     "1 Yorion, Sky Nomad"
    ],
    "history": [
-    2.8,
+    null,
     0.5,
     1.7,
     2.5,
@@ -4064,7 +4064,7 @@
     "2 Torch the Tower"
    ],
    "history": [
-    2.8,
+    null,
     0.5,
     0,
     0.5,
@@ -4180,7 +4180,7 @@
    "name": "Spirits",
    "share": 1.6,
    "tier": 2,
-   "count": 20,
+   "count": 19,
    "title": "OscarLewis · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_OscarLewis",
    "main": [
@@ -4215,7 +4215,7 @@
     "3 Skyclave Apparition"
    ],
    "history": [
-    2.8,
+    null,
     1.5,
     0.8,
     0,
@@ -4269,10 +4269,6 @@
      4
     ],
     [
-     "Spectral Sailor",
-     4
-    ],
-    [
      "Seam Rip",
      4
     ],
@@ -4281,20 +4277,8 @@
      2
     ],
     [
-     "Sheltered by Ghosts",
-     2
-    ],
-    [
      "Island",
      2
-    ],
-    [
-     "Plains",
-     1
-    ],
-    [
-     "Eiganjo, Seat of the Empire",
-     1
     ],
     [
      "Otawara, Soaring City",
@@ -4303,27 +4287,47 @@
    ],
    "flex": [
     [
+     "Spectral Sailor",
+     89,
+     3.8
+    ],
+    [
+     "Plains",
+     89,
+     1.2
+    ],
+    [
+     "Eiganjo, Seat of the Empire",
+     89,
+     1
+    ],
+    [
+     "Sheltered by Ghosts",
+     89,
+     2.1
+    ],
+    [
      "Curious Obsession",
-     85,
+     84,
      3
     ],
     [
      "Enduring Curiosity",
-     85,
+     84,
      2
     ],
     [
      "Geistlight Snare",
-     80,
+     79,
      4
     ],
     [
      "Brazen Borrower",
-     75,
+     74,
      2.1
     ]
    ],
-   "lists": 20,
+   "lists": 19,
    "conv": [
     0.5,
     0.3,
@@ -4373,7 +4377,7 @@
     "1 The Meathook Massacre"
    ],
    "history": [
-    0,
+    null,
     0,
     1.7,
     0.5,
@@ -4541,7 +4545,7 @@
     "1 Stubborn Denial"
    ],
    "history": [
-    0,
+    null,
     1,
     1.7,
     3.4,
@@ -4663,7 +4667,7 @@
   {
    "id": "pioneer-orzhov-midrange",
    "name": "Orzhov Midrange",
-   "share": 1.1,
+   "share": 1.2,
    "tier": 2,
    "count": 14,
    "title": "kanara · Pioneer Spark!! ONLINE 28th -MTGArena- (4th Place)",
@@ -4705,7 +4709,7 @@
     "2 Golden Demise"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -4861,7 +4865,7 @@
     "1 Summon: Leviathan"
    ],
    "history": [
-    5.6,
+    null,
     2.5,
     5,
     2,
@@ -5058,7 +5062,7 @@
     "3 Wedding Announcement"
    ],
    "history": [
-    0,
+    null,
     2,
     3.4,
     2.5,
@@ -5213,7 +5217,7 @@
     "2 Unlicensed Hearse"
    ],
    "history": [
-    0,
+    null,
     1,
     0.8,
     0,
@@ -5379,7 +5383,7 @@
     "2 Feed the Swarm"
    ],
    "history": [
-    0,
+    null,
     1,
     0,
     1,
@@ -5498,155 +5502,6 @@
    "prev": 0.8
   },
   {
-   "id": "pioneer-rona-combo",
-   "name": "Rona Combo",
-   "share": 0.8,
-   "tier": 2,
-   "count": 10,
-   "title": "Cdnewlon · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Cdnewlon",
-   "main": [
-    "3 Boomerang Basics",
-    "4 Clearwater Pathway",
-    "4 Darkslick Shores",
-    "4 Gloomlake Verge",
-    "4 Gran-Gran",
-    "5 Island",
-    "4 Mox Amber",
-    "4 Retraction Helix",
-    "4 Rona, Herald of Invasion",
-    "3 Sewer-veillance Cam",
-    "2 Springleaf Drum",
-    "4 Stock Up",
-    "4 Stormchaser's Talent",
-    "1 Thassa's Oracle",
-    "4 Thundertrap Trainer",
-    "3 Valley Floodcaller",
-    "3 Watery Grave"
-   ],
-   "side": [
-    "1 Dig Through Time",
-    "2 Ghost Vacuum",
-    "4 Grim Bauble",
-    "3 Narset, Parter of Veils",
-    "3 Requiting Hex",
-    "2 Spell Pierce"
-   ],
-   "history": [
-    2.8,
-    2.5,
-    1.7,
-    1.5,
-    2,
-    2.9,
-    0,
-    0.8,
-    0.6,
-    0,
-    0,
-    1.1
-   ],
-   "field": [
-    1,
-    3,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Gran-Gran",
-     4
-    ],
-    [
-     "Rona, Herald of Invasion",
-     4
-    ],
-    [
-     "Mox Amber",
-     4
-    ],
-    [
-     "Island",
-     4
-    ]
-   ],
-   "flex": [
-    [
-     "Boomerang Basics",
-     70,
-     3.4
-    ],
-    [
-     "Watery Grave",
-     70,
-     3
-    ],
-    [
-     "Clearwater Pathway",
-     60,
-     4
-    ],
-    [
-     "Darkslick Shores",
-     60,
-     4
-    ],
-    [
-     "Gloomlake Verge",
-     60,
-     4
-    ],
-    [
-     "Retraction Helix",
-     60,
-     4
-    ],
-    [
-     "Sewer-veillance Cam",
-     60,
-     3
-    ],
-    [
-     "Stock Up",
-     60,
-     4
-    ],
-    [
-     "Stormchaser's Talent",
-     60,
-     4
-    ],
-    [
-     "Thassa's Oracle",
-     60,
-     1
-    ],
-    [
-     "Thundertrap Trainer",
-     60,
-     4
-    ],
-    [
-     "Valley Floodcaller",
-     60,
-     3
-    ],
-    [
-     "Otawara, Soaring City",
-     40,
-     2.5
-    ],
-    [
-     "Springleaf Drum",
-     40,
-     2
-    ]
-   ],
-   "lists": 10,
-   "prev": 0.8
-  },
-  {
    "id": "pioneer-dimir-control",
    "name": "Dimir Control",
    "share": 0.7,
@@ -5696,7 +5551,7 @@
     "1 The Meathook Massacre"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -5891,7 +5746,7 @@
     "1 Sokka's Haiku"
    ],
    "history": [
-    5.6,
+    null,
     7,
     2.5,
     2.9,
@@ -6017,6 +5872,147 @@
     1.7,
     5
    ],
+   "prev": 0.7
+  },
+  {
+   "id": "pioneer-rona-combo",
+   "name": "Rona Combo",
+   "share": 0.7,
+   "tier": 2,
+   "count": 9,
+   "title": "Cdnewlon · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Cdnewlon",
+   "main": [
+    "3 Boomerang Basics",
+    "4 Clearwater Pathway",
+    "4 Darkslick Shores",
+    "4 Gloomlake Verge",
+    "4 Gran-Gran",
+    "5 Island",
+    "4 Mox Amber",
+    "4 Retraction Helix",
+    "4 Rona, Herald of Invasion",
+    "3 Sewer-veillance Cam",
+    "2 Springleaf Drum",
+    "4 Stock Up",
+    "4 Stormchaser's Talent",
+    "1 Thassa's Oracle",
+    "4 Thundertrap Trainer",
+    "3 Valley Floodcaller",
+    "3 Watery Grave"
+   ],
+   "side": [
+    "1 Dig Through Time",
+    "2 Ghost Vacuum",
+    "4 Grim Bauble",
+    "3 Narset, Parter of Veils",
+    "3 Requiting Hex",
+    "2 Spell Pierce"
+   ],
+   "history": [
+    null,
+    2.5,
+    1.7,
+    1.5,
+    2,
+    2.9,
+    0,
+    0.8,
+    0.6,
+    0,
+    0,
+    1.1
+   ],
+   "field": [
+    1,
+    3,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Gran-Gran",
+     4
+    ],
+    [
+     "Rona, Herald of Invasion",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Mox Amber",
+     89,
+     3.9
+    ],
+    [
+     "Island",
+     89,
+     3.5
+    ],
+    [
+     "Watery Grave",
+     67,
+     2.8
+    ],
+    [
+     "Boomerang Basics",
+     67,
+     3.3
+    ],
+    [
+     "Clearwater Pathway",
+     56,
+     4
+    ],
+    [
+     "Darkslick Shores",
+     56,
+     4
+    ],
+    [
+     "Gloomlake Verge",
+     56,
+     4
+    ],
+    [
+     "Retraction Helix",
+     56,
+     4
+    ],
+    [
+     "Sewer-veillance Cam",
+     56,
+     3
+    ],
+    [
+     "Stock Up",
+     56,
+     4
+    ],
+    [
+     "Stormchaser's Talent",
+     56,
+     4
+    ],
+    [
+     "Thassa's Oracle",
+     56,
+     1
+    ],
+    [
+     "Thundertrap Trainer",
+     56,
+     4
+    ],
+    [
+     "Valley Floodcaller",
+     56,
+     3
+    ]
+   ],
+   "lists": 9,
    "prev": 0.8
   },
   {
@@ -6055,7 +6051,7 @@
     "2 Quag Feast"
    ],
    "history": [
-    2.8,
+    null,
     1.5,
     0,
     0.5,
@@ -6162,155 +6158,6 @@
    "prev": 0.6
   },
   {
-   "id": "pioneer-golgari-stompy",
-   "name": "Golgari Stompy",
-   "share": 0.5,
-   "tier": 2,
-   "count": 6,
-   "title": "CliffBoyardee · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-2911137#deck_CliffBoyardee",
-   "main": [
-    "4 Badgermole Cub",
-    "4 Blooming Marsh",
-    "2 Boseiju, Who Endures",
-    "1 Craterhoof Behemoth",
-    "4 Elvish Mystic",
-    "4 Enduring Vitality",
-    "4 Fiend Artisan",
-    "3 Forest",
-    "2 Formidable Speaker",
-    "1 Lair of the Hydra",
-    "4 Llanowar Elves",
-    "4 Llanowar Wastes",
-    "4 Nature's Rhythm",
-    "4 Nykthos, Shrine to Nyx",
-    "4 Overgrown Tomb",
-    "3 Shang-Chi, Master of Kung Fu",
-    "4 The Unbeatable Squirrel Girl",
-    "4 Tyvar, Jubilant Brawler"
-   ],
-   "side": [
-    "2 Abrupt Decay",
-    "1 Ba Sing Se",
-    "1 Deep-Cavern Bat",
-    "2 Fatal Push",
-    "2 Gather Courage",
-    "1 Karn, Argent Defender",
-    "2 Keen-Eyed Curator",
-    "1 Kraul Harpooner",
-    "1 Surrak, Elusive Hunter",
-    "2 Thoughtseize"
-   ],
-   "history": [
-    0,
-    2,
-    1.7,
-    0.5,
-    3.3,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0.4,
-    0
-   ],
-   "field": [
-    4,
-    2,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Badgermole Cub",
-     4
-    ],
-    [
-     "Llanowar Elves",
-     4
-    ],
-    [
-     "Blooming Marsh",
-     4
-    ],
-    [
-     "Overgrown Tomb",
-     4
-    ],
-    [
-     "Elvish Mystic",
-     4
-    ],
-    [
-     "Tyvar, Jubilant Brawler",
-     4
-    ],
-    [
-     "Forest",
-     3
-    ],
-    [
-     "Formidable Speaker",
-     2
-    ],
-    [
-     "Boseiju, Who Endures",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Nature's Rhythm",
-     83,
-     4
-    ],
-    [
-     "Fiend Artisan",
-     83,
-     4
-    ],
-    [
-     "Nykthos, Shrine to Nyx",
-     83,
-     3.8
-    ],
-    [
-     "Enduring Vitality",
-     83,
-     4
-    ],
-    [
-     "Shang-Chi, Master of Kung Fu",
-     83,
-     2.8
-    ],
-    [
-     "The Unbeatable Squirrel Girl",
-     83,
-     4
-    ],
-    [
-     "Craterhoof Behemoth",
-     83,
-     1
-    ],
-    [
-     "Lair of the Hydra",
-     67,
-     1
-    ],
-    [
-     "Llanowar Wastes",
-     67,
-     4
-    ]
-   ],
-   "lists": 6,
-   "prev": 0.5
-  },
-  {
    "id": "pioneer-rakdos-aggro",
    "name": "Rakdos Aggro",
    "share": 0.5,
@@ -6344,7 +6191,7 @@
     "3 Sunspine Lynx"
    ],
    "history": [
-    0,
+    null,
     0.5,
     0,
     0,
@@ -6483,7 +6330,7 @@
     "2 Fable of the Mirror-Breaker"
    ],
    "history": [
-    0,
+    null,
     1,
     0.8,
     2,
@@ -6679,7 +6526,7 @@
     "2 Thorin, Mountain-king"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -6850,7 +6697,7 @@
     "1 Zuko's Exile"
    ],
    "history": [
-    0,
+    null,
     0.5,
     0,
     1,
@@ -7035,7 +6882,7 @@
     "1 Strategic Betrayal"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -7164,6 +7011,69 @@
    "prev": 0.4
   },
   {
+   "id": "pioneer-golgari-stompy",
+   "name": "Golgari Stompy",
+   "share": 0.3,
+   "tier": 2,
+   "count": 4,
+   "title": "CliffBoyardee · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-2911137#deck_CliffBoyardee",
+   "main": [
+    "4 Badgermole Cub",
+    "4 Blooming Marsh",
+    "2 Boseiju, Who Endures",
+    "1 Craterhoof Behemoth",
+    "4 Elvish Mystic",
+    "4 Enduring Vitality",
+    "4 Fiend Artisan",
+    "3 Forest",
+    "2 Formidable Speaker",
+    "1 Lair of the Hydra",
+    "4 Llanowar Elves",
+    "4 Llanowar Wastes",
+    "4 Nature's Rhythm",
+    "4 Nykthos, Shrine to Nyx",
+    "4 Overgrown Tomb",
+    "3 Shang-Chi, Master of Kung Fu",
+    "4 The Unbeatable Squirrel Girl",
+    "4 Tyvar, Jubilant Brawler"
+   ],
+   "side": [
+    "2 Abrupt Decay",
+    "1 Ba Sing Se",
+    "1 Deep-Cavern Bat",
+    "2 Fatal Push",
+    "2 Gather Courage",
+    "1 Karn, Argent Defender",
+    "2 Keen-Eyed Curator",
+    "1 Kraul Harpooner",
+    "1 Surrak, Elusive Hunter",
+    "2 Thoughtseize"
+   ],
+   "history": [
+    null,
+    2,
+    1.7,
+    0.5,
+    3.3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.4,
+    0
+   ],
+   "field": [
+    4,
+    2,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "prev": 0.5
+  },
+  {
    "id": "pioneer-selesnya-elemental",
    "name": "Selesnya Elemental",
    "share": 0.3,
@@ -7205,7 +7115,7 @@
     "1 Scavenger Grounds"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -7272,7 +7182,7 @@
     "1 Aang's Journey"
    ],
    "history": [
-    0,
+    null,
     0.5,
     0,
     1.5,
@@ -7340,7 +7250,7 @@
     "1 Unlicensed Hearse"
    ],
    "history": [
-    5.6,
+    null,
     0.5,
     0.8,
     0.5,
@@ -7402,7 +7312,7 @@
     "1 Urabrask's Forge"
    ],
    "history": [
-    0,
+    null,
     0.5,
     0,
     0,
@@ -7462,7 +7372,7 @@
     "2 Invasion of Gobakhan"
    ],
    "history": [
-    0,
+    null,
     2,
     0.8,
     0,
@@ -7482,7 +7392,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.3
+   "prev": 0.2
   },
   {
    "id": "pioneer-enigmatic-incarnation",
@@ -7532,7 +7442,7 @@
     "1 Yasharn, Implacable Earth"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -7598,7 +7508,7 @@
     "1 Improvisation Capstone"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -7670,7 +7580,7 @@
     "2 Terminal Criticism"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -7741,7 +7651,7 @@
     "2 Urza's Ruinous Blast"
    ],
    "history": [
-    0,
+    null,
     0.5,
     1.7,
     2.5,
@@ -7805,7 +7715,7 @@
     "1 True Ancestry"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -7867,7 +7777,7 @@
     "3 Urabrask's Forge"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
@@ -7930,7 +7840,7 @@
     "2 Consecrate // Consume"
    ],
    "history": [
-    0,
+    null,
     0.5,
     0,
     0,
@@ -8004,7 +7914,7 @@
     "2 Thought Distortion"
    ],
    "history": [
-    0,
+    null,
     0,
     0,
     0,
