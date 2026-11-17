@@ -1,175 +1,55 @@
 {
- "updated": "2026-11-16",
- "prevDate": "2026-11-15",
+ "updated": "2026-11-17",
+ "prevDate": "2026-11-16",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 1215,
- "unknownPct": 1.9,
+ "decksAnalyzed": 1290,
+ "unknownPct": 0.6,
  "rogue": [
   {
-   "id": "pioneer-rogue-azorius-flash",
-   "name": "Azorius Flash",
+   "id": "pioneer-rogue-mono-white-hammer-time",
+   "name": "Mono White Hammer Time",
    "rogue": true,
    "results": 1,
-   "best": "5th Place",
-   "signature": "Drannith Magistrate",
-   "share": 0.1,
-   "title": "bityanko bityanko · Pioneer Spark!! ONLINE 28th -MTGArena- (5th Place)",
-   "url": "https://melee.gg/Decklist/View/167754f2-0731-4295-9e1d-b4fb007501e2",
+   "best": "5-0",
+   "signature": "Cloud, Midgar Mercenary",
+   "share": 0.2,
+   "title": "EnderW · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1211353#deck_EnderW",
    "main": [
-    "3 Erode",
-    "3 Floodpits Drowner",
-    "3 High Noon",
-    "4 Aang, Swift Savior",
-    "4 Hengegate Pathway",
-    "4 Aven Interrupter",
-    "1 The Lord of the Eagles",
-    "2 Floodfarm Verge",
-    "4 Hallowed Fountain",
-    "3 Seachrome Coast",
-    "4 Adarkar Wastes",
-    "2 Island",
-    "4 Sphinx of False Conclusions",
-    "4 No More Lies",
-    "2 Fatehold Charm",
-    "2 Spell Queller",
-    "4 Drannith Magistrate",
-    "2 Brazen Borrower",
-    "2 Abandoned Air Temple",
-    "2 Plains",
-    "1 Eiganjo, Seat of the Empire"
+    "1 Bofur, Reliable Guardian",
+    "2 Castle Ardenvale",
+    "4 Cloud, Midgar Mercenary",
+    "4 Colossus Hammer",
+    "2 Dragonfire Blade",
+    "2 Eiganjo, Seat of the Empire",
+    "2 Key to the Side-Door",
+    "4 Kíli the Resourceful",
+    "4 Leyline Axe",
+    "4 Mox Amber",
+    "2 Mutavault",
+    "10 Plains",
+    "2 Plaza of Heroes",
+    "1 Shadowspear",
+    "4 Sigarda's Aid",
+    "4 Skrelv, Defector Mite",
+    "2 Super-Soldier Serum",
+    "2 Surge of Salvation",
+    "4 Zack Fair"
    ],
    "side": [
-    "2 Guardian of Faith",
-    "2 Change the Equation",
-    "2 Hallowed Moonlight",
-    "2 Get Lost",
-    "2 Kutzil's Flanker",
-    "2 Dovin's Veto",
-    "2 Rest in Peace",
-    "1 Dawn's Truce"
-   ]
-  },
-  {
-   "id": "pioneer-rogue-esper-control",
-   "name": "Esper Control",
-   "rogue": true,
-   "results": 1,
-   "best": "7th Place",
-   "signature": "Dovin's Veto",
-   "share": 0.1,
-   "title": "Rindou_Gentian · Pioneer Spark!! ONLINE 28th -MTGArena- (7th Place)",
-   "url": "https://melee.gg/Decklist/View/e3ec7427-aa8b-42bf-914a-b4fb00b80bcb",
-   "main": [
-    "1 Deserted Beach",
-    "1 Agna Qel'a",
-    "1 Castle Ardenvale",
-    "2 Kutzil's Flanker",
-    "1 Gloomlake Verge",
-    "1 Hall of Storm Giants",
-    "2 Sphinx's Revelation",
-    "4 Dovin's Veto",
-    "2 Teferi, Hero of Dominaria",
-    "3 Pinnacle Starcage",
-    "2 Floodfarm Verge",
-    "4 Raffine's Tower",
-    "1 Restless Anchorage",
-    "1 Shambling Vent",
-    "2 Absorb",
-    "2 Farewell",
-    "2 Spell Snare",
-    "4 No More Lies",
-    "1 Undercity Sewers",
-    "2 Dream Trawler",
-    "1 Get Lost",
-    "4 Starting Town",
-    "2 Island",
-    "1 Elspeth, Storm Slayer",
-    "2 Plains",
-    "1 Field of Ruin",
-    "2 The Wandering Emperor",
-    "4 Consult the Star Charts",
-    "1 Swamp",
-    "2 Erode",
-    "2 Vanishing Verse",
-    "2 Watery Grave",
-    "2 The Theorist, Jace Beleren",
-    "1 Shattered Sanctum",
-    "4 Hallowed Fountain",
-    "2 Godless Shrine",
-    "2 Supreme Verdict",
-    "1 Shadowy Backstreet",
-    "1 Void Rend",
-    "1 Meticulous Archive",
-    "1 Emeritus of Ideation // Ancestral Recall",
-    "1 Shipwreck Marsh",
-    "1 Sheoldred, the Apocalypse"
-   ],
-   "side": [
-    "1 Yorion, Sky Nomad",
-    "1 Captain Marvel, Earth's Protector",
-    "2 Rest in Peace",
-    "2 Thought Distortion",
-    "2 Unmoored Ego",
+    "2 Bofur, Reliable Guardian",
     "2 High Noon",
-    "4 Leyline of Sanctity",
-    "1 Elenda, Saint of Dusk"
-   ]
-  },
-  {
-   "id": "pioneer-rogue-bant-control",
-   "name": "Bant Control",
-   "rogue": true,
-   "results": 1,
-   "best": "8th Place",
-   "signature": "Nylea's Presence",
-   "share": 0.1,
-   "title": "xfile · Pioneer Challenge 16 (8th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0112857407#deck_xfile",
-   "main": [
-    "1 Boseiju, Who Endures",
-    "1 Breeding Pool",
-    "4 Deceit",
-    "1 Eiganjo, Seat of the Empire",
-    "4 Floodfarm Verge",
-    "1 Forest",
-    "4 Hallowed Fountain",
-    "3 Hallowed Moonlight",
-    "4 Hushwood Verge",
-    "2 Island",
-    "4 Leyline Binding",
-    "2 Narset, Parter of Veils",
-    "4 Nylea's Presence",
-    "1 Otawara, Soaring City",
-    "4 Overlord of the Hauntwoods",
-    "1 Pinnacle Starcage",
-    "2 Plains",
-    "2 Portable Hole",
-    "4 Quantum Riddler",
-    "1 Rest in Peace",
+    "2 Rest in Peace",
+    "2 Scout for Survivors",
     "4 Seam Rip",
-    "4 Spara's Headquarters",
-    "3 Supreme Verdict",
-    "3 Temple Garden",
-    "4 Temporary Lockdown",
-    "4 Up the Beanstalk",
-    "4 Willowrush Verge",
-    "4 Wistfulness"
-   ],
-   "side": [
-    "2 Ashiok, Dream Render",
-    "2 Elder Gargaroth",
-    "1 Hallowed Moonlight",
-    "3 Mystical Dispute",
-    "3 Pinnacle Starcage",
-    "3 Rest in Peace",
-    "1 Yorion, Sky Nomad"
+    "2 Sheltered by Ghosts",
+    "1 The Wandering Emperor"
    ]
   }
  ],
  "historyWeeks": [
-  "2026-08-17",
   "2026-08-24",
   "2026-08-31",
   "2026-09-07",
@@ -180,17 +60,17 @@
   "2026-10-12",
   "2026-10-19",
   "2026-10-26",
-  "2026-11-02"
+  "2026-11-02",
+  "2026-11-09"
  ],
  "stats": {
   "cardsUp": [
    [
     "Badgermole Cub",
-    25.1,
-    16,
+    26.4,
+    19.5,
     [
-     null,
-     20.1,
+     20.9,
      24.4,
      26,
      20.3,
@@ -200,34 +80,34 @@
      14.1,
      17.6,
      25.3,
-     24.9
+     24.9,
+     28.8
     ]
    ],
    [
-    "Great Hall of the Biblioplex",
-    10.1,
-    3.2,
+    "Bitter Triumph",
+    23,
+    16.6,
     [
-     null,
-     4,
-     3.4,
-     3.4,
-     3.3,
-     1,
-     3.4,
-     3,
-     5.1,
-     1.6,
-     8.7,
-     11.9
+     19,
+     21.8,
+     18.6,
+     19,
+     12.7,
+     14.4,
+     18.2,
+     14.1,
+     15,
+     18.8,
+     22.2,
+     24.3
     ]
    ],
    [
     "The Theorist, Jace Beleren",
-    11.4,
-    4.7,
+    12.5,
+    6.3,
     [
-     null,
      0,
      0,
      0,
@@ -238,15 +118,72 @@
      7.1,
      6.4,
      7.9,
-     15.7
+     15.7,
+     7.2
+    ]
+   ],
+   [
+    "Urborg, Tomb of Yawgmoth",
+    23.3,
+    17.9,
+    [
+     14.1,
+     20.2,
+     26.5,
+     24.2,
+     23.5,
+     21.2,
+     18.9,
+     18.6,
+     15,
+     19.2,
+     24.3,
+     21.6
+    ]
+   ],
+   [
+    "Fountainport",
+    12.2,
+    6.8,
+    [
+     3.1,
+     4.2,
+     3.4,
+     3.9,
+     6.9,
+     5.1,
+     4.5,
+     7.1,
+     5.3,
+     9.2,
+     13.5,
+     9.9
+    ]
+   ],
+   [
+    "Aven Interrupter",
+    6.1,
+    0.7,
+    [
+     2.5,
+     2.5,
+     0.5,
+     2,
+     2,
+     0,
+     0.8,
+     1.3,
+     0,
+     0.9,
+     5.4,
+     7.2
     ]
    ],
    [
     "Atraxa, Grand Unifier",
-    8.7,
-    2.4,
+    9.1,
+    3.8,
     [
-     null,
      0,
      0.8,
      0,
@@ -257,15 +194,15 @@
      3.8,
      2.1,
      7,
-     10.8
+     10.8,
+     6.3
     ]
    ],
    [
     "Valgavoth, Terror Eater",
-    8,
-    2.2,
+    8.8,
+    3.6,
     [
-     null,
      0,
      0.8,
      0,
@@ -276,151 +213,94 @@
      4.5,
      1.6,
      6.1,
-     10.3
+     10.3,
+     6.3
     ]
    ],
    [
-    "Make Disappear",
-    7.7,
-    2,
+    "Great Hall of the Biblioplex",
+    9.8,
+    5,
     [
-     null,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0.8,
-     0.8,
-     4.5,
-     1.6,
-     6.6,
-     9.2
-    ]
-   ],
-   [
-    "Fountainport",
-    11.1,
-    5.6,
-    [
-     null,
-     3.5,
-     4.2,
+     3.7,
      3.4,
-     3.9,
-     6.9,
-     5.1,
-     4.5,
-     7.1,
-     5.3,
-     9.2,
-     13.5
-    ]
-   ],
-   [
-    "Mirrex",
-    7.2,
-    1.7,
-    [
-     null,
-     0,
-     1.7,
-     0,
-     0,
-     0,
-     0,
-     0.8,
-     3.8,
-     1.6,
-     6.6,
-     8.1
-    ]
-   ],
-   [
-    "Flashback",
-    8.9,
-    3.5,
-    [
-     null,
-     2,
-     2.5,
-     4.4,
-     6.5,
-     2.9,
      3.4,
-     2.3,
-     5.1,
-     3.2,
-     10.5,
-     7
-    ]
-   ],
-   [
-    "Raph & Mikey, Troublemakers",
-    8.5,
-    3.2,
-    [
-     null,
+     3.3,
      1,
-     0,
-     0,
-     0,
-     2.9,
      3.4,
-     2.3,
-     5.8,
+     3,
+     5.1,
      1.6,
-     7.4,
-     9.7
+     8.7,
+     11.9,
+     6.3
+    ]
+   ],
+   [
+    "Spell Snare",
+    8.4,
+    3.6,
+    [
+     1.2,
+     5.9,
+     2.5,
+     0.7,
+     2.9,
+     1.7,
+     2.3,
+     1.9,
+     4.3,
+     4.8,
+     11.4,
+     3.6
     ]
    ]
   ],
   "cardsDown": [
    [
-    "Boomerang Basics",
-    12.1,
-    20.4,
+    "Emberheart Challenger",
+    10.8,
+    19.2,
     [
-     null,
-     18.1,
-     21.8,
-     18.1,
-     14.4,
-     21.6,
-     30.5,
-     23.5,
-     22.4,
-     10.2,
-     14.8,
-     8.6
+     19.6,
+     25.2,
+     21.1,
+     15.7,
+     24.5,
+     28.8,
+     15.2,
+     26.9,
+     16.6,
+     18.3,
+     10.8,
+     10.8
     ]
    ],
    [
-    "Stormchaser's Talent",
-    12.1,
-    20.1,
+    "Reckless Rage",
+    10.8,
+    18.5,
     [
-     null,
-     17.6,
-     21.8,
-     18.1,
-     14.4,
-     21.6,
+     19,
+     25.2,
+     21.1,
+     15,
+     24.5,
      30.5,
-     22.7,
-     22.4,
-     9.6,
-     14.8,
-     8.6
+     14.4,
+     25,
+     16,
+     18.3,
+     11.4,
+     9.9
     ]
    ],
    [
     "Soul-Scar Mage",
-    11.1,
-    18.7,
+    7.4,
+    14.8,
     [
-     null,
-     20.1,
+     19.6,
      25.2,
      21.1,
      15,
@@ -430,16 +310,35 @@
      19.2,
      13.9,
      13.1,
-     8.6
+     8.6,
+     5.4
+    ]
+   ],
+   [
+    "Burst Lightning",
+    10.5,
+    17.8,
+    [
+     22.1,
+     26.1,
+     22.5,
+     14.4,
+     23.5,
+     23.7,
+     14.4,
+     25,
+     16,
+     16.2,
+     11.4,
+     9
     ]
    ],
    [
     "Academic Dispute",
-    11.8,
-    18.9,
+    9.1,
+    16.3,
     [
-     null,
-     15.1,
+     14.7,
      18.5,
      14.7,
      9.2,
@@ -449,34 +348,72 @@
      23.7,
      8.6,
      15.3,
-     7.6
+     7.6,
+     11.7
     ]
    ],
    [
-    "Torch the Tower",
-    6,
-    12.8,
+    "Stormchaser's Talent",
+    9.5,
+    16.6,
     [
-     null,
-     6.5,
-     5.9,
-     2.9,
-     4.6,
-     12.7,
-     16.1,
+     17.8,
+     21.8,
+     18.1,
+     14.4,
+     21.6,
+     30.5,
+     22.7,
+     22.4,
+     9.6,
+     14.8,
+     8.6,
+     10.8
+    ]
+   ],
+   [
+    "Boomerang Basics",
+    9.8,
+    16.9,
+    [
+     18.4,
+     21.8,
+     18.1,
+     14.4,
+     21.6,
+     30.5,
      23.5,
-     9,
-     6.4,
-     6.6,
-     5.4
+     22.4,
+     10.2,
+     14.8,
+     8.6,
+     11.7
+    ]
+   ],
+   [
+    "Monastery Swiftspear",
+    12.8,
+    19.5,
+    [
+     19.6,
+     25.2,
+     21.1,
+     15.7,
+     24.5,
+     32.2,
+     14.4,
+     26.9,
+     17.1,
+     19.2,
+     13,
+     12.6
     ]
    ],
    [
     "The Sackville-Bagginses",
-    3.1,
-    9.6,
+    1.7,
+    7.8,
     [
-     null,
      0,
      0.8,
      3.4,
@@ -487,35 +424,16 @@
      9.6,
      4.8,
      4.4,
-     1.6
-    ]
-   ],
-   [
-    "Emberheart Challenger",
-    15,
-    21.4,
-    [
-     null,
-     20.1,
-     25.2,
-     21.1,
-     15.7,
-     24.5,
-     28.8,
-     15.2,
-     26.9,
-     16.6,
-     18.3,
-     10.8
+     1.6,
+     1.8
     ]
    ],
    [
     "Deadly Dispute",
-    3.1,
-    9.4,
+    1.7,
+    7.7,
     [
-     null,
-     0.5,
+     0.6,
      0.8,
      2.9,
      4.6,
@@ -525,363 +443,124 @@
      9.6,
      4.3,
      4.4,
-     1.6
-    ]
-   ],
-   [
-    "Monastery Swiftspear",
-    16.4,
-    22.1,
-    [
-     null,
-     20.1,
-     25.2,
-     21.1,
-     15.7,
-     24.5,
-     32.2,
-     14.4,
-     26.9,
-     17.1,
-     19.2,
-     13
-    ]
-   ],
-   [
-    "Reckless Rage",
-    15.2,
-    20.9,
-    [
-     null,
-     19.6,
-     25.2,
-     21.1,
-     15,
-     24.5,
-     30.5,
-     14.4,
-     25,
-     16,
-     18.3,
-     11.4
+     1.6,
+     1.8
     ]
    ]
   ],
   "side": [
    [
     "Duress",
-    22.1,
-    -3.3
-   ],
-   [
-    "Soul-Guide Lantern",
-    21.4,
-    2.6
+    22.9,
+    -1.9
    ],
    [
     "Unlicensed Hearse",
-    20.7,
-    -0.1
-   ],
-   [
-    "Change the Equation",
-    20.7,
-    5.1
-   ],
-   [
-    "Redcap Melee",
-    20.3,
-    2.5
+    21.6,
+    3.5
    ],
    [
     "Mystical Dispute",
-    18,
-    9.8
+    20.5,
+    11.5
    ],
    [
-    "Iroh's Demonstration",
-    15.5,
-    -6.1
+    "Change the Equation",
+    19.4,
+    -0.1
    ],
    [
-    "Firebending Lesson",
-    14,
-    -9.8
+    "Soul-Guide Lantern",
+    18.1,
+    -5.3
+   ],
+   [
+    "Redcap Melee",
+    17.7,
+    -4
    ],
    [
     "Go Blank",
-    13.3,
-    -4.7
-   ],
-   [
-    "Boomerang Basics",
-    13.1,
-    -4.9
-   ],
-   [
-    "Octopus Form",
-    12.5,
-    -4.9
-   ],
-   [
-    "Abrade",
-    11.9,
-    2.8
-   ],
-   [
-    "Pyroclasm",
-    11.9,
-    1.8
+    14.7,
+    -0.6
    ],
    [
     "Strategic Betrayal",
-    11.9,
-    8.7
+    14.6,
+    11.1
    ],
    [
-    "Spell Pierce",
-    11.6,
-    -8.6
+    "Iroh's Demonstration",
+    14.3,
+    -10.7
    ],
    [
     "Invoke Despair",
-    11.4,
-    -3.1
+    12.8,
+    0.8
    ],
    [
-    "Magebane Lizard",
-    10.8,
-    -0.5
+    "Abrade",
+    12.1,
+    2.4
+   ],
+   [
+    "Boomerang Basics",
+    12.1,
+    -9.4
+   ],
+   [
+    "Extinction Event",
+    11.9,
+    8.2
+   ],
+   [
+    "Firebending Lesson",
+    11.2,
+    -16.1
+   ],
+   [
+    "Pyroclasm",
+    11,
+    -0.7
    ],
    [
     "Rest in Peace",
-    10.6,
-    -2.9
+    10.5,
+    1.5
    ],
    [
-    "Scorching Shot",
-    10.2,
-    -5.7
+    "Spell Pierce",
+    10.4,
+    -11.1
    ],
    [
-    "It'll Quench Ya!",
-    10,
-    -7.6
+    "Octopus Form",
+    10.4,
+    -10.7
+   ],
+   [
+    "Origin of Metalbending",
+    10.3,
+    4.5
+   ],
+   [
+    "Magebane Lizard",
+    10.1,
+    -1.5
    ]
   ]
  },
  "tierMethod": "MTGdecks: Tier 1 = archetipi che sommano il 50% del meta; Tier 2 > 0,2%; Tier 3 il resto",
  "decks": [
   {
-   "id": "pioneer-mono-red-aggro",
-   "name": "Mono Red Aggro",
-   "share": 16.3,
-   "tier": 1,
-   "count": 198,
-   "title": "Giox96 · Pioneer Challenge 16 (7th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Giox96",
-   "main": [
-    "4 Bonecrusher Giant",
-    "4 Burst Lightning",
-    "1 Den of the Bugbear",
-    "4 Eidolon of the Great Revel",
-    "4 Kumano Faces Kakkazan",
-    "2 Lightning Strike",
-    "4 Monastery Swiftspear",
-    "2 Monstrous Rage",
-    "16 Mountain",
-    "3 Mutavault",
-    "3 Ramunap Ruins",
-    "2 Reckless Rage",
-    "4 Screaming Nemesis",
-    "1 Sokenzan, Crucible of Defiance",
-    "2 Soul-Scar Mage",
-    "4 Sunspine Lynx"
-   ],
-   "side": [
-    "1 Essence Burn",
-    "3 Magebane Lizard",
-    "2 Pyroclasm",
-    "2 Redcap Melee",
-    "3 Scorching Shot",
-    "2 Soul-Guide Lantern",
-    "1 The Legend of Roku",
-    "1 Weathered Runestone"
-   ],
-   "history": [
-    null,
-    19.6,
-    25.2,
-    21.1,
-    15,
-    24.5,
-    31.4,
-    13.6,
-    19.2,
-    13.9,
-    13.1,
-    8.6
-   ],
-   "field": [
-    27,
-    27,
-    0
-   ],
-   "mu": [
-    [
-     "Golgari Midrange",
-     1,
-     4,
-     0
-    ],
-    [
-     "Mono Green Devotion",
-     1,
-     2,
-     0
-    ],
-    [
-     "Azorius Control",
-     1,
-     3,
-     0
-    ],
-    [
-     "Izzet Aggro",
-     1,
-     2,
-     0
-    ],
-    [
-     "Dimir Ninjas",
-     2,
-     1,
-     0
-    ],
-    [
-     "Jund Midrange",
-     1,
-     2,
-     0
-    ],
-    [
-     "Boros Midrange",
-     1,
-     2,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Mountain",
-     9
-    ],
-    [
-     "Monastery Swiftspear",
-     4
-    ],
-    [
-     "Soul-Scar Mage",
-     4
-    ],
-    [
-     "Emberheart Challenger",
-     4
-    ],
-    [
-     "Reckless Rage",
-     3
-    ]
-   ],
-   "flex": [
-    [
-     "Burst Lightning",
-     88,
-     3.8
-    ],
-    [
-     "Monstrous Rage",
-     67,
-     3.6
-    ],
-    [
-     "Screaming Nemesis",
-     66,
-     3.7
-    ],
-    [
-     "Den of the Bugbear",
-     62,
-     1.2
-    ],
-    [
-     "Kumano Faces Kakkazan",
-     59,
-     4
-    ],
-    [
-     "Sokenzan, Crucible of Defiance",
-     58,
-     1
-    ],
-    [
-     "Ramunap Ruins",
-     57,
-     2.1
-    ],
-    [
-     "Sunspine Lynx",
-     49,
-     3.3
-    ],
-    [
-     "Academic Dispute",
-     45,
-     4
-    ],
-    [
-     "Mutavault",
-     44,
-     3.8
-    ],
-    [
-     "Stormchaser's Talent",
-     41,
-     4
-    ],
-    [
-     "Boomerang Basics",
-     41,
-     3
-    ],
-    [
-     "Riverpyre Verge",
-     41,
-     3.5
-    ],
-    [
-     "Steam Vents",
-     41,
-     4
-    ]
-   ],
-   "lists": 198,
-   "conv": [
-    12.7,
-    9.4,
-    27
-   ],
-   "prev": 16.4
-  },
-  {
    "id": "pioneer-golgari-midrange",
    "name": "Golgari Midrange",
-   "share": 11.9,
+   "share": 12.1,
    "tier": 1,
-   "count": 144,
-   "title": "Arianne · Pioneer Challenge 16 (1st Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Arianne",
+   "count": 156,
+   "title": "d20epicfail · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1511353#deck_d20epicfail",
    "main": [
     "3 Abrupt Decay",
     "4 Badgermole Cub",
@@ -889,34 +568,34 @@
     "4 Blooming Marsh",
     "1 Boseiju, Who Endures",
     "1 Castle Locthwain",
-    "3 Culling Ritual",
-    "1 Duress",
+    "2 Culling Ritual",
     "4 Fatal Push",
     "1 Forest",
     "4 Graveyard Trespasser",
+    "2 Liliana of the Veil",
     "4 Llanowar Wastes",
     "4 Mutavault",
     "4 Overgrown Tomb",
     "3 Professor Dellian Fel",
-    "2 Restless Cottage",
+    "1 Restless Cottage",
     "3 Sheoldred, the Apocalypse",
-    "2 Swamp",
+    "3 Swamp",
     "1 Takenuma, Abandoned Mire",
     "4 Thoughtseize",
     "4 Unholy Annex // Ritual Chamber",
     "1 Urborg, Tomb of Yawgmoth"
    ],
    "side": [
-    "3 Duress",
-    "3 Extinction Event",
+    "1 Culling Ritual",
+    "2 Damping Sphere",
+    "2 Duress",
+    "2 Extinction Event",
     "2 Go Blank",
     "2 Invoke Despair",
-    "1 Professor Dellian Fel",
     "4 Strategic Betrayal"
    ],
    "history": [
-    null,
-    9.5,
+    9.2,
     13.4,
     17.2,
     11.8,
@@ -926,18 +605,19 @@
     7.7,
     10.2,
     14,
-    15.7
+    15.7,
+    15.3
    ],
    "field": [
-    36,
-    30,
+    39,
+    33,
     0
    ],
    "mu": [
     [
-     "Mono Red Aggro",
-     4,
-     1,
+     "Izzet Prowess",
+     6,
+     3,
      0
     ],
     [
@@ -948,7 +628,13 @@
     ],
     [
      "Izzet Cauldron",
-     4,
+     5,
+     2,
+     0
+    ],
+    [
+     "Izzet Spellementals",
+     2,
      2,
      0
     ],
@@ -959,27 +645,15 @@
      0
     ],
     [
-     "Izzet Aggro",
-     3,
-     2,
-     0
-    ],
-    [
      "Dimir Ninjas",
      2,
      2,
      0
     ],
     [
-     "Jund Midrange",
-     3,
+     "Jund Biotech",
+     2,
      1,
-     0
-    ],
-    [
-     "Rakdos Sacrifice",
-     1,
-     4,
      0
     ],
     [
@@ -989,13 +663,25 @@
      0
     ],
     [
+     "Rakdos Sacrifice",
+     0,
+     3,
+     0
+    ],
+    [
      "Mono Black Midrange",
      3,
      1,
      0
+    ],
+    [
+     "Selesnya Stompy",
+     2,
+     2,
+     0
     ]
    ],
-   "metaWr": 56.9,
+   "metaWr": null,
    "core": [
     [
      "Overgrown Tomb",
@@ -1046,11 +732,11 @@
      2
     ],
     [
-     "Restless Cottage",
+     "Culling Ritual",
      2
     ],
     [
-     "Culling Ritual",
+     "Restless Cottage",
      2
     ],
     [
@@ -1073,49 +759,405 @@
    "flex": [
     [
      "Badgermole Cub",
-     89,
+     90,
      4
     ],
     [
      "Graveyard Trespasser",
-     89,
+     88,
      3.9
     ],
     [
-     "Duress",
-     84,
-     1.1
+     "Castle Locthwain",
+     86,
+     1
     ],
     [
-     "Castle Locthwain",
+     "Duress",
      83,
-     1
+     1.1
     ],
     [
      "Tear Asunder",
-     35,
+     34,
      1.1
+    ]
+   ],
+   "lists": 156,
+   "conv": [
+    14,
+    13.5,
+    41
+   ],
+   "prev": 11.9
+  },
+  {
+   "id": "pioneer-mono-red-aggro",
+   "name": "Mono Red Aggro",
+   "share": 9.1,
+   "tier": 1,
+   "count": 118,
+   "title": "EmiroVV · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1411353#deck_EmiroVV",
+   "main": [
+    "4 Burst Lightning",
+    "1 Den of the Bugbear",
+    "4 Emberheart Challenger",
+    "4 Kumano Faces Kakkazan",
+    "4 Monastery Swiftspear",
+    "4 Monstrous Rage",
+    "14 Mountain",
+    "4 Mutavault",
+    "2 Ramunap Ruins",
+    "4 Reckless Rage",
+    "1 Rockface Village",
+    "4 Screaming Nemesis",
+    "1 Sokenzan, Crucible of Defiance",
+    "4 Soul-Scar Mage",
+    "4 Sunspine Lynx",
+    "1 The Legend of Roku"
+   ],
+   "side": [
+    "2 Flowstone Infusion",
+    "4 Magebane Lizard",
+    "2 Pyroclasm",
+    "2 Redcap Melee",
+    "3 Scorching Shot",
+    "2 Weathered Runestone"
+   ],
+   "history": [
+    4.3,
+    7.6,
+    8.8,
+    8.5,
+    16.7,
+    11.9,
+    5.3,
+    10.3,
+    12.3,
+    7.4,
+    7.6,
+    4.5
+   ],
+   "field": [
+    15,
+    15,
+    0
+   ],
+   "mu": [
+    [
+     "Izzet Prowess",
+     1,
+     2,
+     0
     ],
     [
-     "Maelstrom Pulse",
-     26,
+     "Mono Green Devotion",
+     1,
+     2,
+     0
+    ],
+    [
+     "Azorius Control",
+     1,
+     2,
+     0
+    ],
+    [
+     "Boros Land Destruction",
+     1,
+     2,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Mountain",
+     14
+    ],
+    [
+     "Burst Lightning",
+     4
+    ],
+    [
+     "Emberheart Challenger",
+     4
+    ],
+    [
+     "Kumano Faces Kakkazan",
+     4
+    ],
+    [
+     "Monastery Swiftspear",
+     4
+    ],
+    [
+     "Screaming Nemesis",
+     4
+    ],
+    [
+     "Monstrous Rage",
+     4
+    ],
+    [
+     "Soul-Scar Mage",
+     4
+    ],
+    [
+     "Reckless Rage",
+     4
+    ],
+    [
+     "Ramunap Ruins",
+     2
+    ],
+    [
+     "Den of the Bugbear",
+     1
+    ],
+    [
+     "Sokenzan, Crucible of Defiance",
      1
     ]
    ],
-   "lists": 144,
-   "conv": [
-    13.8,
-    13.9,
-    40
+   "flex": [
+    [
+     "Sunspine Lynx",
+     85,
+     3.3
+    ],
+    [
+     "Mutavault",
+     75,
+     3.8
+    ],
+    [
+     "Rockface Village",
+     71,
+     1.2
+    ],
+    [
+     "The Legend of Roku",
+     61,
+     1.3
+    ]
    ],
-   "prev": 11.8
+   "lists": 118,
+   "conv": [
+    5.5,
+    4.3,
+    13
+   ],
+   "prev": 16.3
+  },
+  {
+   "id": "pioneer-izzet-prowess",
+   "name": "Izzet Prowess",
+   "share": 8.8,
+   "tier": 1,
+   "count": 113,
+   "title": "Kingokarado · Pioneer Challenge 16 (4th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Kingokarado",
+   "main": [
+    "4 Academic Dispute",
+    "3 Boomerang Basics",
+    "2 Burst Lightning",
+    "4 Emberheart Challenger",
+    "4 Fire-Brained Scheme",
+    "1 Island",
+    "4 Monastery Swiftspear",
+    "3 Monstrous Rage",
+    "3 Mountain",
+    "4 Pompous Battlemage",
+    "2 Reckless Rage",
+    "1 Riverglide Pathway",
+    "4 Riverpyre Verge",
+    "2 Screaming Nemesis",
+    "3 Shivan Reef",
+    "4 Sleight of Hand",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "4 Stormchaser's Talent"
+   ],
+   "side": [
+    "1 Boomerang Basics",
+    "2 Essence Burn",
+    "1 Firebending Lesson",
+    "1 Ghost Vacuum",
+    "1 Iroh's Demonstration",
+    "1 It'll Quench Ya!",
+    "2 Octopus Form",
+    "2 Ral, Crackling Wit",
+    "1 Soul-Guide Lantern",
+    "2 Spell Pierce",
+    "1 Spider-Sense"
+   ],
+   "history": [
+    14.7,
+    17.6,
+    12.3,
+    6.5,
+    7.8,
+    20.3,
+    9.1,
+    15.4,
+    4.3,
+    10,
+    2.7,
+    3.6
+   ],
+   "field": [
+    32,
+    22,
+    0
+   ],
+   "mu": [
+    [
+     "Golgari Midrange",
+     3,
+     6,
+     0
+    ],
+    [
+     "Mono Red Aggro",
+     2,
+     1,
+     0
+    ],
+    [
+     "Izzet Spellementals",
+     2,
+     1,
+     0
+    ],
+    [
+     "Selesnya Company",
+     1,
+     2,
+     0
+    ],
+    [
+     "Jund Biotech",
+     2,
+     2,
+     0
+    ],
+    [
+     "Jund Sacrifice",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Academic Dispute",
+     4
+    ],
+    [
+     "Monastery Swiftspear",
+     4
+    ],
+    [
+     "Spirebluff Canal",
+     4
+    ],
+    [
+     "Steam Vents",
+     4
+    ],
+    [
+     "Stormchaser's Talent",
+     4
+    ],
+    [
+     "Riverpyre Verge",
+     4
+    ],
+    [
+     "Emberheart Challenger",
+     3
+    ],
+    [
+     "Shivan Reef",
+     3
+    ],
+    [
+     "Boomerang Basics",
+     3
+    ],
+    [
+     "Reckless Rage",
+     3
+    ],
+    [
+     "Mountain",
+     3
+    ]
+   ],
+   "flex": [
+    [
+     "Sleight of Hand",
+     88,
+     4
+    ],
+    [
+     "Riverglide Pathway",
+     87,
+     1.6
+    ],
+    [
+     "Burst Lightning",
+     86,
+     3.2
+    ],
+    [
+     "Island",
+     77,
+     1
+    ],
+    [
+     "Flow State",
+     76,
+     3.8
+    ],
+    [
+     "Pompous Battlemage",
+     69,
+     3.7
+    ],
+    [
+     "Soul-Scar Mage",
+     67,
+     3.4
+    ],
+    [
+     "Monstrous Rage",
+     49,
+     2.2
+    ],
+    [
+     "Screaming Nemesis",
+     42,
+     2
+    ]
+   ],
+   "lists": 113,
+   "conv": [
+    9.5,
+    9.5,
+    29
+   ],
+   "prev": 3
   },
   {
    "id": "pioneer-mono-green-devotion",
    "name": "Mono Green Devotion",
-   "share": 5.9,
+   "share": 5.7,
    "tier": 1,
-   "count": 72,
+   "count": 74,
    "title": "HouseOfManaMTG · Pioneer Challenge 16 (3rd Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0712857690#deck_HouseOfManaMTG",
    "main": [
@@ -1147,8 +1189,7 @@
     "2 Unlicensed Hearse"
    ],
    "history": [
-    null,
-    1.5,
+    1.8,
     0.8,
     0,
     0.7,
@@ -1158,7 +1199,8 @@
     3.8,
     15,
     6.1,
-    5.9
+    5.9,
+    2.7
    ],
    "field": [
     14,
@@ -1167,19 +1209,19 @@
    ],
    "mu": [
     [
-     "Mono Red Aggro",
-     2,
-     1,
-     0
-    ],
-    [
      "Golgari Midrange",
      2,
      4,
      0
     ],
     [
-     "Izzet Prowess",
+     "Mono Red Aggro",
+     2,
+     1,
+     0
+    ],
+    [
+     "Izzet Spellementals",
      2,
      1,
      0
@@ -1195,7 +1237,7 @@
    "core": [
     [
      "Forest",
-     11
+     12
     ],
     [
      "Kiora, Behemoth Beckoner",
@@ -1245,7 +1287,7 @@
    "flex": [
     [
      "Leyline of the Guildpact",
-     81,
+     78,
      4
     ],
     [
@@ -1255,39 +1297,39 @@
     ],
     [
      "Vibrance",
-     76,
+     74,
      2.4
     ],
     [
      "Invasion of Ixalan",
-     64,
+     65,
      2.8
     ],
     [
      "Oath of Nissa",
-     46,
+     47,
      1.4
     ],
     [
      "Polukranos Reborn",
-     43,
+     42,
      1
     ],
     [
      "Ba Sing Se",
-     32,
+     31,
      1.2
     ],
     [
      "Sunken Citadel",
-     28,
+     27,
      3.5
     ]
    ],
-   "lists": 72,
+   "lists": 74,
    "conv": [
-    5.4,
-    5.9,
+    5.5,
+    5.6,
     17
    ],
    "prev": 5.9
@@ -1295,11 +1337,11 @@
   {
    "id": "pioneer-izzet-cauldron",
    "name": "Izzet Cauldron",
-   "share": 5.3,
+   "share": 5.4,
    "tier": 1,
-   "count": 64,
-   "title": "xfile · Pioneer Challenge 16 (6th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_xfile",
+   "count": 70,
+   "title": "WestvalePreacher · Pioneer Challenge 16 (6th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-1412858111#deck_WestvalePreacher",
    "main": [
     "4 Academic Dispute",
     "4 Agatha's Soul Cauldron",
@@ -1339,10 +1381,9 @@
     "2 Torch the Tower"
    ],
    "history": [
-    null,
-    5,
+    6.1,
     5.9,
-    2.9,
+    3.4,
     3.3,
     7.8,
     6.8,
@@ -1350,18 +1391,19 @@
     5.8,
     3.7,
     3.5,
-    3.8
+    3.8,
+    6.3
    ],
    "field": [
     15,
-    14,
+    16,
     0
    ],
    "mu": [
     [
      "Golgari Midrange",
      2,
-     4,
+     5,
      0
     ],
     [
@@ -1384,7 +1426,7 @@
      4
     ],
     [
-     "Proft's Eidetic Memory",
+     "Riverpyre Verge",
      4
     ],
     [
@@ -1400,7 +1442,7 @@
      4
     ],
     [
-     "Riverpyre Verge",
+     "Proft's Eidetic Memory",
      4
     ],
     [
@@ -1433,11 +1475,7 @@
     ],
     [
      "Torch the Tower",
-     3
-    ],
-    [
-     "Jadzi, Steward of Fate",
-     1
+     2
     ],
     [
      "Mountain",
@@ -1450,80 +1488,279 @@
    ],
    "flex": [
     [
+     "Jadzi, Steward of Fate",
+     87,
+     1.1
+    ],
+    [
      "Seasoned Cryomancer",
-     67,
-     3.4
+     66,
+     3.3
     ],
     [
      "This Town Ain't Big Enough",
-     64,
+     59,
      1
     ],
     [
      "Voldaren Thrillseeker",
-     64,
+     57,
      1
     ],
     [
      "Winternight Stories",
-     39,
-     3.2
+     40,
+     2.9
+    ],
+    [
+     "Pompous Battlemage",
+     27,
+     3.8
     ]
    ],
-   "lists": 64,
+   "lists": 70,
    "conv": [
-    6.4,
-    5.9,
-    17
+    6.6,
+    6.3,
+    19
    ],
-   "prev": 5.2
+   "prev": 5.3
+  },
+  {
+   "id": "pioneer-izzet-spellementals",
+   "name": "Izzet Spellementals",
+   "share": 4.6,
+   "tier": 1,
+   "count": 59,
+   "title": "Univerce · Pioneer Challenge 16 (3rd Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-1412858111#deck_Univerce",
+   "main": [
+    "1 Beacon Bolt",
+    "4 Consider",
+    "4 Eddymurk Crab",
+    "4 Fiery Impulse",
+    "2 Get Out",
+    "1 Hall of Storm Giants",
+    "4 Hearth Elemental",
+    "2 Island",
+    "4 Opt",
+    "1 Otawara, Soaring City",
+    "4 Prismari Charm",
+    "4 Riverglide Pathway",
+    "2 Seasoned Cryomancer",
+    "1 Shivan Reef",
+    "4 Sleight of Hand",
+    "4 Spirebluff Canal",
+    "4 Steam Vents",
+    "2 Stormcarved Coast",
+    "3 Stubborn Denial",
+    "4 Sunderflock",
+    "1 Vibrant Outburst"
+   ],
+   "side": [
+    "2 Abrade",
+    "2 Brazen Borrower",
+    "2 Change the Equation",
+    "4 Crackling Drake",
+    "1 Disdainful Stroke",
+    "3 Soul-Guide Lantern",
+    "1 Stubborn Denial"
+   ],
+   "history": [
+    1.2,
+    3.4,
+    3.9,
+    0.7,
+    2,
+    0,
+    3.8,
+    7.7,
+    5.3,
+    4.8,
+    6.5,
+    5.4
+   ],
+   "field": [
+    14,
+    16,
+    0
+   ],
+   "mu": [
+    [
+     "Golgari Midrange",
+     2,
+     2,
+     0
+    ],
+    [
+     "Izzet Prowess",
+     1,
+     2,
+     0
+    ],
+    [
+     "Mono Green Devotion",
+     1,
+     2,
+     0
+    ],
+    [
+     "Simic Scapeshift",
+     0,
+     3,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Consider",
+     4
+    ],
+    [
+     "Eddymurk Crab",
+     4
+    ],
+    [
+     "Fiery Impulse",
+     4
+    ],
+    [
+     "Hearth Elemental",
+     4
+    ],
+    [
+     "Spirebluff Canal",
+     4
+    ],
+    [
+     "Steam Vents",
+     4
+    ],
+    [
+     "Sunderflock",
+     4
+    ],
+    [
+     "Prismari Charm",
+     4
+    ],
+    [
+     "Sleight of Hand",
+     4
+    ],
+    [
+     "Island",
+     4
+    ],
+    [
+     "Opt",
+     4
+    ],
+    [
+     "Stubborn Denial",
+     3
+    ],
+    [
+     "Riverglide Pathway",
+     3
+    ],
+    [
+     "Get Out",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Shivan Reef",
+     90,
+     1.5
+    ],
+    [
+     "Riverpyre Verge",
+     59,
+     2.9
+    ],
+    [
+     "Vibrant Outburst",
+     51,
+     1.5
+    ],
+    [
+     "Seasoned Cryomancer",
+     47,
+     2
+    ],
+    [
+     "Stormcarved Coast",
+     46,
+     2
+    ],
+    [
+     "Winternight Stories",
+     44,
+     1.1
+    ],
+    [
+     "Fading Hope",
+     31,
+     1.1
+    ]
+   ],
+   "lists": 59,
+   "conv": [
+    4.8,
+    5.9,
+    18
+   ],
+   "prev": null
   },
   {
    "id": "pioneer-izzet-creativity",
    "name": "Izzet Creativity",
-   "share": 4,
+   "share": 4.3,
    "tier": 1,
-   "count": 48,
-   "title": "nekosuke · Pioneer Spark!! ONLINE 28th -MTGArena- (2st Place)",
-   "url": "https://melee.gg/Decklist/View/7a644fd8-5b60-4c7b-8da2-b4fb00c1dc7f",
+   "count": 55,
+   "title": "Venom01 · Pioneer Challenge 16 (3rd Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-1212858391#deck_Venom01",
    "main": [
     "1 Atraxa, Grand Unifier",
-    "4 Fable of the Mirror-Breaker",
-    "1 Raph & Mikey, Troublemakers",
-    "1 Valgavoth, Terror Eater",
     "4 Deduce",
+    "4 Fable of the Mirror-Breaker",
     "4 Fiery Impulse",
-    "2 Make Disappear",
-    "3 Prismari Command",
-    "3 Volcanic Spite",
-    "3 Spell Pierce",
-    "3 Spell Snare",
-    "4 Indomitable Creativity",
-    "2 The Theorist, Jace Beleren",
+    "2 Fires of Victory",
+    "1 Flashback",
     "2 Fountainport",
-    "2 Great Hall of the Biblioplex",
-    "2 Mountain",
-    "1 Mistrise Village",
-    "1 Otawara, Soaring City",
-    "4 Riverglide Pathway",
-    "2 Sokenzan, Crucible of Defiance",
+    "3 Great Hall of the Biblioplex",
+    "4 Indomitable Creativity",
     "1 Island",
+    "4 Make Disappear",
+    "2 Mirrex",
+    "2 Mountain",
+    "2 Negate",
+    "1 Raph & Mikey, Troublemakers",
     "4 Spirebluff Canal",
     "4 Steam Vents",
-    "2 Stormcarved Coast"
+    "4 Stormcarved Coast",
+    "4 Sunken Citadel",
+    "2 The Theorist, Jace Beleren",
+    "1 Three Steps Ahead",
+    "1 Valgavoth, Terror Eater",
+    "3 Volcanic Spite"
    ],
    "side": [
-    "2 Broadside Barrage",
-    "2 Chandra's Defeat",
+    "2 Anger of the Gods",
+    "1 Brotherhood's End",
     "2 Change the Equation",
-    "4 Mystical Dispute",
-    "2 Negate",
-    "1 The Theorist, Jace Beleren",
-    "2 Anger of the Gods"
+    "2 Consult the Star Charts",
+    "1 Hullbreaker Horror",
+    "1 Mystical Dispute",
+    "4 Shark Typhoon",
+    "1 Test of Talents",
+    "1 Three Steps Ahead"
    ],
    "history": [
-    null,
-    1,
+    1.2,
     0.8,
     0,
     0,
@@ -1533,11 +1770,12 @@
     4.5,
     1.6,
     7,
-    9.2
+    9.2,
+    6.3
    ],
    "field": [
-    9,
-    12,
+    11,
+    14,
     0
    ],
    "mu": [
@@ -1610,62 +1848,62 @@
    "flex": [
     [
      "Make Disappear",
-     88,
+     89,
      3.8
     ],
     [
      "Great Hall of the Biblioplex",
-     88,
+     89,
      2.9
     ],
     [
      "Fires of Victory",
-     88,
+     89,
      1.8
     ],
     [
      "Atraxa, Grand Unifier",
-     83,
+     85,
      1
     ],
     [
      "Valgavoth, Terror Eater",
-     83,
+     85,
      1
     ],
     [
      "Island",
-     83,
+     85,
      1
     ],
     [
      "Sunken Citadel",
-     83,
+     85,
      4
     ],
     [
      "Mirrex",
-     81,
+     84,
      2
     ],
     [
      "The Theorist, Jace Beleren",
-     79,
-     1.9
+     80,
+     2
     ],
     [
      "Flashback",
-     71,
+     73,
      1
     ],
     [
      "Negate",
-     56,
+     60,
      1.8
     ],
     [
      "Three Steps Ahead",
-     52,
+     56,
      1
     ],
     [
@@ -1675,62 +1913,73 @@
     ],
     [
      "Prismari Command",
-     29,
-     3.2
+     27,
+     3.1
     ]
    ],
-   "lists": 48,
+   "lists": 55,
    "conv": [
-    4.6,
-    5.2,
-    15
+    5,
+    5.6,
+    17
    ],
-   "prev": 3.9
+   "prev": 4
   },
   {
    "id": "pioneer-azorius-control",
    "name": "Azorius Control",
-   "share": 3.8,
-   "tier": 1,
-   "count": 46,
-   "title": "moomoo0129 · Pioneer Spark!! ONLINE 28th -MTGArena- (3st Place)",
-   "url": "https://melee.gg/Decklist/View/a3e4e3f9-d758-4023-9d60-b4fb008bb4c4",
+   "share": 3.9,
+   "tier": 2,
+   "count": 50,
+   "title": "Javierr · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1411353#deck_Javierr",
    "main": [
-    "4 Floodfarm Verge",
-    "4 Hallowed Fountain",
-    "3 Meticulous Archive",
-    "2 Plains",
-    "2 Island",
-    "1 Eiganjo, Seat of the Empire",
-    "4 Seam Rip",
-    "1 Otawara, Soaring City",
-    "4 Petrified Hamlet",
+    "1 Castle Ardenvale",
+    "3 Censor",
+    "2 Change the Equation",
+    "2 Consult the Star Charts",
     "4 Deserted Beach",
-    "2 The Wandering Emperor",
-    "4 Consult the Star Charts",
-    "4 Countersculpt",
-    "2 Supreme Verdict",
+    "4 Dovin's Veto",
+    "1 Eiganjo, Seat of the Empire",
+    "1 Farewell",
+    "2 Field of Ruin",
+    "1 Fountainport",
+    "3 Get Lost",
+    "2 Glacial Fortress",
+    "2 Hall of Storm Giants",
+    "4 Hallowed Fountain",
+    "4 Hengegate Pathway",
+    "2 Irrigated Farmland",
+    "2 Island",
+    "4 March of Otherworldly Light",
+    "2 Memory Deluge",
+    "2 Meticulous Archive",
+    "2 Narset, Parter of Veils",
     "4 No More Lies",
-    "4 Get Lost",
-    "4 The Theorist, Jace Beleren",
-    "1 Teferi, Hero of Dominaria",
-    "1 Theorist's Sanctum",
-    "3 Jace's Machinations",
-    "2 Erode"
+    "3 Omen of the Sea",
+    "1 Otawara, Soaring City",
+    "2 Petrified Hamlet",
+    "2 Plains",
+    "2 Restless Anchorage",
+    "2 Seachrome Coast",
+    "3 Supreme Verdict",
+    "4 Teferi, Hero of Dominaria",
+    "4 Temporary Lockdown",
+    "3 The Wandering Emperor"
    ],
    "side": [
+    "2 Beza, the Bounding Spring",
+    "1 Farewell",
+    "2 Knockout Blow",
+    "2 Kutzil's Flanker",
+    "2 Mystical Dispute",
     "2 Rest in Peace",
-    "2 King T'Challa",
-    "2 Precise Redaction",
-    "2 Change the Equation",
-    "2 Cavern of Souls",
-    "1 Emeritus of Ideation // Ancestral Recall",
-    "3 Doorkeeper Thrull",
-    "1 Captain Marvel, Earth's Protector"
+    "1 Test of Talents",
+    "2 Three Steps Ahead",
+    "1 Yorion, Sky Nomad"
    ],
    "history": [
-    null,
-    3,
+    1.2,
     5.9,
     5.4,
     4.6,
@@ -1738,9 +1987,10 @@
     3.4,
     3,
     3.2,
-    4.3,
+    4.8,
     3.1,
-    5.4
+    5.4,
+    4.5
    ],
    "field": [
     8,
@@ -1750,7 +2000,7 @@
    "mu": [
     [
      "Mono Red Aggro",
-     3,
+     2,
      1,
      0
     ]
@@ -1774,23 +2024,19 @@
      4
     ],
     [
-     "Get Lost",
-     4
-    ],
-    [
      "March of Otherworldly Light",
      4
     ],
     [
-     "Dovin's Veto",
-     3
+     "Get Lost",
+     4
     ],
     [
      "Meticulous Archive",
      3
     ],
     [
-     "Island",
+     "Dovin's Veto",
      3
     ],
     [
@@ -1802,11 +2048,15 @@
      3
     ],
     [
-     "Plains",
+     "Island",
      3
     ],
     [
      "Teferi, Hero of Dominaria",
+     3
+    ],
+    [
+     "Plains",
      2
     ],
     [
@@ -1817,18 +2067,18 @@
    "flex": [
     [
      "Restless Anchorage",
-     89,
+     88,
      2
     ],
     [
      "The Wandering Emperor",
-     87,
-     2.7
+     86,
+     2.6
     ],
     [
      "Consult the Star Charts",
-     80,
-     3.5
+     78,
+     3.4
     ],
     [
      "Eiganjo, Seat of the Empire",
@@ -1837,43 +2087,43 @@
     ],
     [
      "Otawara, Soaring City",
-     76,
+     74,
      1
     ],
     [
      "Glacial Fortress",
-     72,
+     70,
      2.7
     ],
     [
-     "Memory Deluge",
-     65,
-     2.5
+     "Hengegate Pathway",
+     68,
+     3.8
     ],
     [
      "Fountainport",
-     65,
+     66,
      1
     ],
     [
-     "Hengegate Pathway",
-     65,
-     3.9
-    ],
-    [
-     "Change the Equation",
-     61,
-     2.1
-    ],
-    [
-     "Three Steps Ahead",
-     59,
-     1.7
+     "Memory Deluge",
+     64,
+     2.5
     ],
     [
      "Seachrome Coast",
-     57,
+     60,
      3.3
+    ],
+    [
+     "Three Steps Ahead",
+     58,
+     1.7
+    ],
+    [
+     "Change the Equation",
+     58,
+     2
     ],
     [
      "Spell Snare",
@@ -1883,13 +2133,13 @@
     [
      "Beza, the Bounding Spring",
      52,
-     2.2
+     2.1
     ]
    ],
-   "lists": 46,
+   "lists": 50,
    "conv": [
-    3.4,
-    2.4,
+    3.3,
+    2.3,
     7
    ],
    "prev": 3.8
@@ -1897,17 +2147,16 @@
   {
    "id": "pioneer-orzhov-greasefang",
    "name": "Orzhov Greasefang",
-   "share": 3.5,
-   "tier": 1,
-   "count": 43,
-   "title": "Estebitax · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Estebitax",
+   "share": 3.6,
+   "tier": 2,
+   "count": 46,
+   "title": "haimu · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1011137#deck_haimu",
    "main": [
+    "1 Bitter Triumph",
     "2 Bleachbone Verge",
     "2 Brightclimb Pathway",
-    "1 Cling to Dust",
     "4 Concealed Courtyard",
-    "1 Eiganjo, Seat of the Empire",
     "4 Fatal Push",
     "4 Fleeting Spirit",
     "1 Geier Reach Sanitarium",
@@ -1918,27 +2167,30 @@
     "1 Lively Dirge",
     "4 Monument to Endurance",
     "4 Parhelion II",
-    "1 Plains",
+    "2 Plains",
     "2 Shadowy Backstreet",
+    "1 Sheltered by Ghosts",
     "1 Swamp",
     "1 Takenuma, Abandoned Mire",
     "4 The Mycosynth Gardens",
     "4 Thoughtseize",
     "1 Urborg, Tomb of Yawgmoth",
-    "3 Vanishing Verse"
+    "2 Vanishing Verse"
    ],
    "side": [
-    "3 Bitter Triumph",
+    "1 Bitter Triumph",
     "3 Doorkeeper Thrull",
-    "2 Duress",
-    "1 Go Blank",
-    "2 High Noon",
+    "1 Duress",
+    "1 Erode",
+    "2 Go Blank",
+    "1 Loran of the Third Path",
     "2 Pest Control",
+    "1 Ral Zarek, Guest Lecturer",
+    "1 Sheltered by Ghosts",
     "2 Soul-Guide Lantern"
    ],
    "history": [
-    null,
-    0.5,
+    0.6,
     0.8,
     4.4,
     7.8,
@@ -1948,7 +2200,8 @@
     5.1,
     2.7,
     2.6,
-    2.2
+    2.2,
+    4.5
    ],
    "field": [
     5,
@@ -2014,7 +2267,15 @@
      2
     ],
     [
+     "Vanishing Verse",
+     2
+    ],
+    [
      "Bleachbone Verge",
+     2
+    ],
+    [
+     "Shadowy Backstreet",
      2
     ],
     [
@@ -2048,19 +2309,9 @@
    ],
    "flex": [
     [
-     "Vanishing Verse",
-     88,
-     2.2
-    ],
-    [
-     "Shadowy Backstreet",
-     88,
-     2
-    ],
-    [
      "Sheltered by Ghosts",
-     84,
-     2.3
+     85,
+     2.2
     ],
     [
      "Seasoned Hallowblade",
@@ -2068,364 +2319,214 @@
      1
     ]
    ],
-   "lists": 43,
+   "lists": 46,
    "conv": [
     0.5,
     1,
     3
    ],
-   "prev": 3.6
+   "prev": 3.5
   },
   {
-   "id": "pioneer-izzet-prowess",
-   "name": "Izzet Prowess",
-   "share": 3,
+   "id": "pioneer-selesnya-company",
+   "name": "Selesnya Company",
+   "share": 2.6,
    "tier": 2,
-   "count": 37,
-   "title": "Kvothe_De_Arrascaeta · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0711137#deck_Kvothe_De_Arrascaeta",
+   "count": 33,
+   "title": "TheWitchKling · Pioneer Challenge 32 (3rd Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-11-0312857417#deck_TheWitchKling",
    "main": [
-    "1 Anger of the Gods",
-    "4 Consider",
-    "4 Eddymurk Crab",
-    "4 Fiery Impulse",
-    "2 Flow State",
-    "2 Get Out",
-    "4 Hearth Elemental",
-    "1 Impractical Joke",
-    "4 Island",
-    "3 Opt",
-    "4 Prismari Charm",
-    "4 Riverglide Pathway",
-    "1 Shivan Reef",
-    "4 Sleight of Hand",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "2 Stormcarved Coast",
-    "3 Stubborn Denial",
-    "4 Sunderflock",
-    "1 Winternight Stories"
+    "2 Abandoned Air Temple",
+    "4 Archon of Emeria",
+    "4 Aven Interrupter",
+    "4 Badgermole Cub",
+    "1 Boseiju, Who Endures",
+    "4 Brushland",
+    "4 Collected Company",
+    "2 Dromoka's Command",
+    "2 Duskwatch Recruiter",
+    "4 Elvish Mystic",
+    "4 Enduring Innocence",
+    "3 Forest",
+    "2 Hushwood Verge",
+    "4 Llanowar Elves",
+    "2 Plains",
+    "4 Razorverge Thicket",
+    "1 Scavenging Ooze",
+    "4 Skyclave Apparition",
+    "1 Surrak, Elusive Hunter",
+    "4 Temple Garden"
    ],
    "side": [
-    "1 Abrade",
-    "1 Anger of the Gods",
-    "1 Brazen Borrower",
-    "2 Change the Equation",
-    "1 Disdainful Stroke",
-    "1 Pyroclasm",
-    "3 Soul-Guide Lantern",
-    "4 Stormwing Entity",
-    "1 Stubborn Denial"
+    "2 Erode",
+    "1 Extraction Specialist",
+    "2 Knight of Autumn",
+    "1 Scavenging Ooze",
+    "3 Seam Rip",
+    "4 Solarium Sentry",
+    "1 Surrak, Elusive Hunter",
+    "1 Unlicensed Hearse"
    ],
    "history": [
-    null,
+    1.2,
+    1.7,
+    0.5,
+    0.7,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1.5,
-    3.8,
-    4.3,
-    4.8,
-    5.4
+    1.7,
+    2.3,
+    1.9,
+    1.6,
+    5.7,
+    2.7,
+    2.7
    ],
    "field": [
-    7,
-    9,
+    8,
+    8,
     0
    ],
    "mu": [
     [
-     "Mono Green Devotion",
-     1,
+     "Izzet Prowess",
      2,
-     0
-    ],
-    [
-     "Simic Scapeshift",
-     0,
-     3,
+     1,
      0
     ]
    ],
    "metaWr": null,
    "core": [
     [
-     "Consider",
+     "Badgermole Cub",
      4
     ],
     [
-     "Eddymurk Crab",
+     "Brushland",
      4
     ],
     [
-     "Fiery Impulse",
+     "Collected Company",
      4
     ],
     [
-     "Hearth Elemental",
+     "Elvish Mystic",
      4
     ],
     [
-     "Prismari Charm",
+     "Enduring Innocence",
      4
     ],
     [
-     "Sleight of Hand",
+     "Llanowar Elves",
      4
     ],
     [
-     "Spirebluff Canal",
+     "Razorverge Thicket",
      4
     ],
     [
-     "Steam Vents",
+     "Temple Garden",
      4
     ],
     [
-     "Sunderflock",
+     "Skyclave Apparition",
      4
     ],
     [
-     "Island",
-     4
-    ],
-    [
-     "Opt",
-     4
-    ],
-    [
-     "Stubborn Denial",
+     "Archon of Emeria",
      3
     ],
     [
-     "Riverglide Pathway",
+     "Plains",
      3
     ],
     [
-     "Get Out",
+     "Abandoned Air Temple",
      2
     ],
     [
-     "Shivan Reef",
+     "Forest",
      2
+    ],
+    [
+     "Boseiju, Who Endures",
+     1
     ]
    ],
    "flex": [
     [
-     "Vibrant Outburst",
-     59,
+     "Ouroboroid",
+     73,
+     3.1
+    ],
+    [
+     "Thalia, Guardian of Thraben",
+     70,
+     2.9
+    ],
+    [
+     "Eiganjo, Seat of the Empire",
+     67,
+     1
+    ],
+    [
+     "Elspeth, Storm Slayer",
+     61,
      1.6
     ],
     [
-     "Seasoned Cryomancer",
-     57,
-     2
-    ],
-    [
-     "Stormcarved Coast",
-     54,
-     2
-    ],
-    [
-     "Riverpyre Verge",
-     51,
-     2.8
-    ],
-    [
-     "Winternight Stories",
-     43,
-     1
-    ]
-   ],
-   "lists": 37,
-   "conv": [
-    3,
-    3.1,
-    9
-   ],
-   "prev": 3
-  },
-  {
-   "id": "pioneer-izzet-aggro",
-   "name": "Izzet Aggro",
-   "share": 2.7,
-   "tier": 2,
-   "count": 33,
-   "title": "Kingokarado · Pioneer Challenge 16 (4th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Kingokarado",
-   "main": [
-    "4 Academic Dispute",
-    "3 Boomerang Basics",
-    "2 Burst Lightning",
-    "4 Emberheart Challenger",
-    "4 Fire-Brained Scheme",
-    "1 Island",
-    "4 Monastery Swiftspear",
-    "3 Monstrous Rage",
-    "3 Mountain",
-    "4 Pompous Battlemage",
-    "2 Reckless Rage",
-    "1 Riverglide Pathway",
-    "4 Riverpyre Verge",
-    "2 Screaming Nemesis",
-    "3 Shivan Reef",
-    "4 Sleight of Hand",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "4 Stormchaser's Talent"
-   ],
-   "side": [
-    "1 Boomerang Basics",
-    "2 Essence Burn",
-    "1 Firebending Lesson",
-    "1 Ghost Vacuum",
-    "1 Iroh's Demonstration",
-    "1 It'll Quench Ya!",
-    "2 Octopus Form",
-    "2 Ral, Crackling Wit",
-    "1 Soul-Guide Lantern",
-    "2 Spell Pierce",
-    "1 Spider-Sense"
-   ],
-   "history": [
-    null,
-    0.5,
-    0,
-    0,
-    0,
-    0,
-    0.8,
-    0.8,
-    6.4,
-    3.2,
-    4.8,
-    2.2
-   ],
-   "field": [
-    20,
-    10,
-    0
-   ],
-   "mu": [
-    [
-     "Mono Red Aggro",
-     2,
-     1,
-     0
-    ],
-    [
-     "Golgari Midrange",
-     2,
-     3,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Academic Dispute",
-     4
-    ],
-    [
-     "Monastery Swiftspear",
-     4
-    ],
-    [
-     "Spirebluff Canal",
-     4
-    ],
-    [
-     "Steam Vents",
-     4
-    ],
-    [
-     "Stormchaser's Talent",
-     4
-    ],
-    [
-     "Pompous Battlemage",
-     4
-    ],
-    [
-     "Emberheart Challenger",
-     4
-    ],
-    [
-     "Riverpyre Verge",
-     4
-    ],
-    [
-     "Shivan Reef",
-     3
-    ],
-    [
-     "Burst Lightning",
-     3
-    ],
-    [
-     "Mountain",
-     3
-    ],
-    [
-     "Boomerang Basics",
-     3
-    ],
-    [
-     "Monstrous Rage",
-     2
-    ],
-    [
-     "Reckless Rage",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Island",
-     79,
-     1
-    ],
-    [
-     "Riverglide Pathway",
-     79,
-     1.3
-    ],
-    [
-     "Sleight of Hand",
-     79,
-     4
-    ],
-    [
-     "Screaming Nemesis",
-     76,
-     2
-    ],
-    [
-     "Flow State",
-     42,
-     3.5
-    ],
-    [
-     "Fire-Brained Scheme",
-     42,
+     "Professor of Symbology",
+     58,
      3.9
+    ],
+    [
+     "Starting Town",
+     58,
+     2
+    ],
+    [
+     "Hushwood Verge",
+     42,
+     1.9
+    ],
+    [
+     "March of Otherworldly Light",
+     42,
+     1
+    ],
+    [
+     "Aven Interrupter",
+     36,
+     3.4
+    ],
+    [
+     "Dromoka's Command",
+     27,
+     2
+    ],
+    [
+     "Duskwatch Recruiter",
+     27,
+     2
+    ],
+    [
+     "Scavenging Ooze",
+     27,
+     1
     ]
    ],
    "lists": 33,
    "conv": [
-    3.2,
-    5.2,
-    15
+    2.9,
+    2,
+    6
    ],
-   "prev": 2.7
+   "prev": 2.5
   },
   {
    "id": "pioneer-dimir-ninjas",
    "name": "Dimir Ninjas",
-   "share": 2.6,
+   "share": 2.4,
    "tier": 2,
    "count": 31,
    "title": "ElCucuy · Pioneer Challenge 32 (4th Place)",
@@ -2464,8 +2565,7 @@
     "1 Strategic Betrayal"
    ],
    "history": [
-    null,
-    4,
+    2.5,
     2.5,
     2.5,
     3.3,
@@ -2475,7 +2575,8 @@
     5.1,
     1.6,
     0.9,
-    0
+    0,
+    0.9
    ],
    "field": [
     10,
@@ -2483,12 +2584,6 @@
     0
    ],
    "mu": [
-    [
-     "Mono Red Aggro",
-     1,
-     2,
-     0
-    ],
     [
      "Golgari Midrange",
      2,
@@ -2579,18 +2674,18 @@
    ],
    "flex": [
     [
-     "Multiversal Passage",
-     61,
-     2.1
-    ],
-    [
      "Nowhere to Run",
      58,
      1
     ],
     [
+     "Multiversal Passage",
+     58,
+     2.1
+    ],
+    [
      "Urborg, Tomb of Yawgmoth",
-     39,
+     42,
      1
     ],
     [
@@ -2601,192 +2696,18 @@
    ],
    "lists": 31,
    "conv": [
-    3.1,
-    3.5,
+    2.9,
+    3.3,
     10
    ],
-   "prev": 2.5
-  },
-  {
-   "id": "pioneer-selesnya-company",
-   "name": "Selesnya Company",
-   "share": 2.5,
-   "tier": 2,
-   "count": 30,
-   "title": "TheWitchKling · Pioneer Challenge 32 (3rd Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-11-0312857417#deck_TheWitchKling",
-   "main": [
-    "2 Abandoned Air Temple",
-    "4 Archon of Emeria",
-    "4 Aven Interrupter",
-    "4 Badgermole Cub",
-    "1 Boseiju, Who Endures",
-    "4 Brushland",
-    "4 Collected Company",
-    "2 Dromoka's Command",
-    "2 Duskwatch Recruiter",
-    "4 Elvish Mystic",
-    "4 Enduring Innocence",
-    "3 Forest",
-    "2 Hushwood Verge",
-    "4 Llanowar Elves",
-    "2 Plains",
-    "4 Razorverge Thicket",
-    "1 Scavenging Ooze",
-    "4 Skyclave Apparition",
-    "1 Surrak, Elusive Hunter",
-    "4 Temple Garden"
-   ],
-   "side": [
-    "2 Erode",
-    "1 Extraction Specialist",
-    "2 Knight of Autumn",
-    "1 Scavenging Ooze",
-    "3 Seam Rip",
-    "4 Solarium Sentry",
-    "1 Surrak, Elusive Hunter",
-    "1 Unlicensed Hearse"
-   ],
-   "history": [
-    null,
-    1,
-    1.7,
-    0.5,
-    0.7,
-    0,
-    1.7,
-    2.3,
-    1.9,
-    1.6,
-    5.7,
-    2.7
-   ],
-   "field": [
-    8,
-    8,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Badgermole Cub",
-     4
-    ],
-    [
-     "Brushland",
-     4
-    ],
-    [
-     "Collected Company",
-     4
-    ],
-    [
-     "Elvish Mystic",
-     4
-    ],
-    [
-     "Enduring Innocence",
-     4
-    ],
-    [
-     "Llanowar Elves",
-     4
-    ],
-    [
-     "Razorverge Thicket",
-     4
-    ],
-    [
-     "Temple Garden",
-     4
-    ],
-    [
-     "Skyclave Apparition",
-     4
-    ],
-    [
-     "Archon of Emeria",
-     3
-    ],
-    [
-     "Plains",
-     3
-    ],
-    [
-     "Abandoned Air Temple",
-     2
-    ],
-    [
-     "Forest",
-     1
-    ],
-    [
-     "Boseiju, Who Endures",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Ouroboroid",
-     80,
-     3.1
-    ],
-    [
-     "Eiganjo, Seat of the Empire",
-     73,
-     1
-    ],
-    [
-     "Thalia, Guardian of Thraben",
-     73,
-     2.9
-    ],
-    [
-     "Elspeth, Storm Slayer",
-     67,
-     1.6
-    ],
-    [
-     "Professor of Symbology",
-     63,
-     3.9
-    ],
-    [
-     "Starting Town",
-     63,
-     2
-    ],
-    [
-     "March of Otherworldly Light",
-     47,
-     1
-    ],
-    [
-     "Hushwood Verge",
-     37,
-     2
-    ],
-    [
-     "Aven Interrupter",
-     30,
-     3.3
-    ]
-   ],
-   "lists": 30,
-   "conv": [
-    2.8,
-    2.1,
-    6
-   ],
-   "prev": 2.5
+   "prev": 2.6
   },
   {
    "id": "pioneer-phoenix",
    "name": "Phoenix",
-   "share": 2.4,
+   "share": 2.3,
    "tier": 2,
-   "count": 29,
+   "count": 30,
    "title": "m3ga50rt · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0111137#deck_m3ga50rt",
    "main": [
@@ -2819,7 +2740,6 @@
     "3 Redcap Melee"
    ],
    "history": [
-    null,
     2.5,
     4.2,
     2.9,
@@ -2830,7 +2750,8 @@
     1.3,
     2.1,
     4.8,
-    1.1
+    1.1,
+    1.8
    ],
    "field": [
     1,
@@ -2912,439 +2833,83 @@
    "flex": [
     [
      "Prismari Command",
-     79,
+     80,
      1
     ],
     [
      "Flashback",
-     48,
+     53,
      2
     ],
     [
      "Galvanic Iteration",
-     41,
+     37,
      1
     ],
     [
      "Temporal Trespass",
-     41,
+     37,
      1
     ]
    ],
-   "lists": 29,
+   "lists": 30,
    "conv": [
-    2.7,
+    2.6,
     1,
     3
    ],
    "prev": 2.4
   },
   {
-   "id": "pioneer-jund-midrange",
-   "name": "Jund Midrange",
-   "share": 2.2,
-   "tier": 2,
-   "count": 27,
-   "title": "DrScreamingGoat · Crew3 2026 Savior of Pioneer Qualifier #11 - Final Qualifier (7th Place)",
-   "url": "https://melee.gg/Decklist/View/96cd118d-5053-4876-a278-b4fb010622ab",
-   "main": [
-    "2 Blackcleave Cliffs",
-    "1 Blood Crypt",
-    "4 Blooming Marsh",
-    "4 Break Out",
-    "2 Copperline Gorge",
-    "4 Dark Matter Manipulator",
-    "4 Fatal Push",
-    "4 Fear of Missing Out",
-    "3 Grim Flayer",
-    "4 Overgrown Tomb",
-    "4 Patchwork Beastie",
-    "4 Starting Town",
-    "1 Swamp",
-    "4 Tarmogoyf",
-    "3 Stomping Ground",
-    "4 Thoughtseize",
-    "4 Violent Urge",
-    "4 Wildfire Wickerfolk"
-   ],
-   "side": [
-    "2 Duress",
-    "2 Guerrilla Gorilla",
-    "2 Haywire Mite",
-    "3 Karn, Argent Defender",
-    "2 Keen-Eyed Curator",
-    "2 Overlord of the Balemurk",
-    "2 Tyvar, Jubilant Brawler"
-   ],
-   "history": [
-    null,
-    0,
-    0,
-    0,
-    0,
-    1,
-    4.2,
-    8.3,
-    1.3,
-    3.2,
-    0.4,
-    0.5
-   ],
-   "field": [
-    10,
-    8,
-    0
-   ],
-   "mu": [
-    [
-     "Mono Red Aggro",
-     2,
-     1,
-     0
-    ],
-    [
-     "Golgari Midrange",
-     1,
-     3,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Blackcleave Cliffs",
-     4
-    ],
-    [
-     "Blood Crypt",
-     4
-    ],
-    [
-     "Blooming Marsh",
-     3
-    ],
-    [
-     "Copperline Gorge",
-     3
-    ],
-    [
-     "Overgrown Tomb",
-     2
-    ],
-    [
-     "Stomping Ground",
-     2
-    ],
-    [
-     "Swamp",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Biotech Specialist",
-     89,
-     4
-    ],
-    [
-     "Deadly Dispute",
-     89,
-     4
-    ],
-    [
-     "Experimental Synthesizer",
-     89,
-     4
-    ],
-    [
-     "Greedy Freebooter",
-     89,
-     4
-    ],
-    [
-     "Mountain",
-     89,
-     1
-    ],
-    [
-     "Oni-Cult Anvil",
-     89,
-     4
-    ],
-    [
-     "Shrapnel Blast",
-     89,
-     4
-    ],
-    [
-     "Springleaf Drum",
-     89,
-     4
-    ],
-    [
-     "The Sackville-Bagginses",
-     89,
-     4
-    ],
-    [
-     "Torch the Tower",
-     89,
-     1.6
-    ],
-    [
-     "Voldaren Epicure",
-     89,
-     4
-    ],
-    [
-     "Thoughtseize",
-     59,
-     2.4
-    ],
-    [
-     "Rottenmouth Viper",
-     33,
-     2.8
-    ]
-   ],
-   "lists": 27,
-   "conv": [
-    2.4,
-    3.1,
-    9
-   ],
-   "prev": 2.2
-  },
-  {
-   "id": "pioneer-rakdos-sacrifice",
-   "name": "Rakdos Sacrifice",
-   "share": 2,
-   "tier": 2,
-   "count": 24,
-   "title": "shinubi · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-1611137#deck_shinubi",
-   "main": [
-    "4 Blackcleave Cliffs",
-    "4 Blazemire Verge",
-    "3 Blightstep Pathway",
-    "4 Blood Crypt",
-    "4 Bloodtithe Harvester",
-    "4 Cauldron Familiar",
-    "3 Claim the Firstborn",
-    "4 Deadly Dispute",
-    "2 Den of the Bugbear",
-    "4 Eyetwitch",
-    "4 Fable of the Mirror-Breaker",
-    "4 Fatal Push",
-    "4 Mayhem Devil",
-    "1 Scavenger's Talent",
-    "1 Sokenzan, Crucible of Defiance",
-    "3 Swamp",
-    "1 Takenuma, Abandoned Mire",
-    "2 The Sackville-Bagginses",
-    "4 Witch's Oven"
-   ],
-   "side": [
-    "1 Abandon Attachments",
-    "1 Decorum Dissertation",
-    "1 Firebending Lesson",
-    "2 Ghost Vacuum",
-    "1 Go Blank",
-    "1 Ozai's Cruelty",
-    "1 Ruinous Waterbending",
-    "3 The Legend of Roku",
-    "4 Thoughtseize"
-   ],
-   "history": [
-    null,
-    0,
-    0,
-    1.5,
-    4.6,
-    2.9,
-    5.1,
-    4.5,
-    1.3,
-    0.5,
-    0,
-    0
-   ],
-   "field": [
-    8,
-    5,
-    0
-   ],
-   "mu": [
-    [
-     "Golgari Midrange",
-     4,
-     1,
-     0
-    ],
-    [
-     "Izzet Cauldron",
-     1,
-     2,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Blackcleave Cliffs",
-     4
-    ],
-    [
-     "Blazemire Verge",
-     4
-    ],
-    [
-     "Bloodtithe Harvester",
-     4
-    ],
-    [
-     "Cauldron Familiar",
-     4
-    ],
-    [
-     "Deadly Dispute",
-     4
-    ],
-    [
-     "Eyetwitch",
-     4
-    ],
-    [
-     "Fable of the Mirror-Breaker",
-     4
-    ],
-    [
-     "Fatal Push",
-     4
-    ],
-    [
-     "Witch's Oven",
-     4
-    ],
-    [
-     "Mayhem Devil",
-     4
-    ],
-    [
-     "Blood Crypt",
-     4
-    ],
-    [
-     "Claim the Firstborn",
-     3
-    ],
-    [
-     "Swamp",
-     2
-    ],
-    [
-     "The Sackville-Bagginses",
-     2
-    ],
-    [
-     "Den of the Bugbear",
-     1
-    ],
-    [
-     "Scavenger's Talent",
-     1
-    ],
-    [
-     "Sokenzan, Crucible of Defiance",
-     1
-    ],
-    [
-     "Takenuma, Abandoned Mire",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Blightstep Pathway",
-     67,
-     3.3
-    ],
-    [
-     "Mountain",
-     38,
-     1
-    ],
-    [
-     "Multiversal Passage",
-     33,
-     3.6
-    ],
-    [
-     "Sulfurous Springs",
-     29,
-     1
-    ]
-   ],
-   "lists": 24,
-   "conv": [
-    2.2,
-    2.4,
-    7
-   ],
-   "prev": 2
-  },
-  {
    "id": "pioneer-abzan-greasefang",
    "name": "Abzan Greasefang",
-   "share": 1.9,
+   "share": 2.2,
    "tier": 2,
-   "count": 23,
-   "title": "jarold9 · Pioneer Challenge 32 (1st Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-11-0512857672#deck_jarold9",
+   "count": 28,
+   "title": "rosici0700 · Pioneer Challenge 16 (8th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-1212858391#deck_rosici0700",
    "main": [
-    "2 Bitter Triumph",
+    "3 Bitter Triumph",
     "4 Blooming Marsh",
     "1 Boseiju, Who Endures",
-    "1 Brushland",
+    "1 Brightclimb Pathway",
+    "1 Caves of Koilos",
     "1 Collective Brutality",
-    "3 Concealed Courtyard",
+    "4 Concealed Courtyard",
     "1 Emptiness",
     "4 Esika's Chariot",
+    "1 Forest",
     "4 Formidable Speaker",
-    "2 Godless Shrine",
     "4 Greasefang, Okiba Boss",
     "1 Jennifer Walters",
     "4 Multiversal Passage",
-    "1 Overgrown Tomb",
     "1 Overlord of the Balemurk",
     "4 Parhelion II",
     "1 Plains",
     "4 Professor of Symbology",
-    "3 Something Worth Saving",
+    "2 Something Worth Saving",
     "1 Swamp",
-    "1 Takenuma, Abandoned Mire",
+    "1 Tarmogoyf",
     "4 Temple Garden",
     "4 Thoughtseize",
-    "3 Thundering Broodwagon",
-    "1 Yathan Roadwatcher"
+    "2 Thundering Broodwagon",
+    "2 Yathan Roadwatcher"
    ],
    "side": [
     "2 Abrupt Decay",
+    "1 Cloak and Dagger, Entwined",
     "1 Culling Ritual",
-    "1 Duress",
+    "2 Duress",
     "1 Enter the Avatar State",
-    "1 Germination Practicum",
     "1 Origin of Metalbending",
-    "1 Pest Control",
-    "1 Professor Dellian Fel",
-    "1 Ruinous Waterbending",
-    "3 Unlicensed Hearse",
-    "1 Vanishing Verse",
-    "1 Witherbloom Command"
+    "2 Pest Control",
+    "1 Skyclave Apparition",
+    "2 Strategic Betrayal",
+    "1 True Ancestry",
+    "1 Vanishing Verse"
    ],
    "history": [
-    null,
-    9,
+    8.6,
     6.7,
     3.9,
     2.6,
@@ -3354,11 +2919,12 @@
     0.6,
     2.1,
     2.6,
-    1.6
+    1.6,
+    5.4
    ],
    "field": [
     9,
-    8,
+    9,
     0
    ],
    "mu": [
@@ -3406,11 +2972,11 @@
      4
     ],
     [
-     "Concealed Courtyard",
+     "Blooming Marsh",
      4
     ],
     [
-     "Blooming Marsh",
+     "Concealed Courtyard",
      4
     ],
     [
@@ -3426,11 +2992,11 @@
      1
     ],
     [
-     "Swamp",
+     "Yathan Roadwatcher",
      1
     ],
     [
-     "Yathan Roadwatcher",
+     "Swamp",
      1
     ],
     [
@@ -3453,79 +3019,407 @@
    "flex": [
     [
      "Collective Brutality",
-     87,
-     1.3
+     89,
+     1.2
     ],
     [
      "Takenuma, Abandoned Mire",
-     74,
+     79,
      1
     ],
     [
      "Godless Shrine",
-     74,
+     79,
      1.8
     ],
     [
      "Multiversal Passage",
-     70,
-     3.4
+     71,
+     3.6
     ],
     [
      "Overgrown Tomb",
-     57,
-     1.5
-    ],
-    [
-     "Cache Grab",
-     52,
-     2.8
-    ],
-    [
-     "Forest",
-     52,
-     1
+     61,
+     1.4
     ],
     [
      "Something Worth Saving",
-     48,
+     57,
      2.8
     ],
     [
      "Brushland",
+     54,
+     1
+    ],
+    [
+     "Cache Grab",
+     43,
+     2.9
+    ],
+    [
+     "Forest",
      43,
      1
     ],
     [
      "Darkbore Pathway",
-     39,
-     2.4
+     36,
+     2.5
     ],
     [
      "Lush Portico",
-     35,
-     1
-    ],
-    [
-     "Caves of Koilos",
-     26,
+     32,
      1
     ]
    ],
-   "lists": 23,
+   "lists": 28,
    "conv": [
-    2.4,
-    1.4,
-    4
+    2.6,
+    1.6,
+    5
    ],
    "prev": 1.9
+  },
+  {
+   "id": "pioneer-jund-biotech",
+   "name": "Jund Biotech",
+   "share": 2.2,
+   "tier": 2,
+   "count": 28,
+   "title": "Cake363 · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-2611137#deck_Cake363",
+   "main": [
+    "4 Biotech Specialist",
+    "4 Blackcleave Cliffs",
+    "4 Blood Crypt",
+    "3 Blooming Marsh",
+    "3 Copperline Gorge",
+    "4 Deadly Dispute",
+    "4 Experimental Synthesizer",
+    "4 Greedy Freebooter",
+    "1 Mountain",
+    "4 Oni-Cult Anvil",
+    "2 Overgrown Tomb",
+    "4 Shrapnel Blast",
+    "4 Springleaf Drum",
+    "2 Stomping Ground",
+    "1 Swamp",
+    "4 The Sackville-Bagginses",
+    "2 Thoughtseize",
+    "2 Torch the Tower",
+    "4 Voldaren Epicure"
+   ],
+   "side": [
+    "3 Abrupt Decay",
+    "1 Duress",
+    "1 Fable of the Mirror-Breaker",
+    "3 Fatal Push",
+    "2 Hexing Squelcher",
+    "3 Soul-Guide Lantern",
+    "2 Thoughtseize"
+   ],
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    4.2,
+    11.4,
+    1.3,
+    2.1,
+    0.4,
+    0,
+    0
+   ],
+   "field": [
+    8,
+    7,
+    0
+   ],
+   "mu": [
+    [
+     "Golgari Midrange",
+     1,
+     2,
+     0
+    ],
+    [
+     "Izzet Prowess",
+     2,
+     2,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Biotech Specialist",
+     4
+    ],
+    [
+     "Deadly Dispute",
+     4
+    ],
+    [
+     "Experimental Synthesizer",
+     4
+    ],
+    [
+     "Shrapnel Blast",
+     4
+    ],
+    [
+     "The Sackville-Bagginses",
+     4
+    ],
+    [
+     "Blackcleave Cliffs",
+     4
+    ],
+    [
+     "Blood Crypt",
+     4
+    ],
+    [
+     "Springleaf Drum",
+     4
+    ],
+    [
+     "Blooming Marsh",
+     3
+    ],
+    [
+     "Copperline Gorge",
+     3
+    ],
+    [
+     "Overgrown Tomb",
+     2
+    ],
+    [
+     "Stomping Ground",
+     2
+    ],
+    [
+     "Mountain",
+     1
+    ],
+    [
+     "Swamp",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Greedy Freebooter",
+     86,
+     4
+    ],
+    [
+     "Oni-Cult Anvil",
+     86,
+     4
+    ],
+    [
+     "Torch the Tower",
+     86,
+     1.6
+    ],
+    [
+     "Voldaren Epicure",
+     86,
+     4
+    ],
+    [
+     "Thoughtseize",
+     46,
+     2
+    ],
+    [
+     "Rottenmouth Viper",
+     32,
+     2.8
+    ]
+   ],
+   "lists": 28,
+   "conv": [
+    2.3,
+    3,
+    9
+   ],
+   "prev": null
+  },
+  {
+   "id": "pioneer-jund-sacrifice",
+   "name": "Jund Sacrifice",
+   "share": 1.9,
+   "tier": 2,
+   "count": 25,
+   "title": "Cake363 · Pioneer Challenge 32 (7th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-11-1012857710#deck_Cake363",
+   "main": [
+    "4 Biotech Specialist",
+    "4 Blackcleave Cliffs",
+    "2 Blazemire Verge",
+    "4 Blooming Marsh",
+    "4 Cauldron Familiar",
+    "4 Deadly Dispute",
+    "2 Fatal Push",
+    "4 Greedy Freebooter",
+    "4 Lively Dirge",
+    "1 Mayhem Devil",
+    "4 Overgrown Tomb",
+    "2 Scavenger's Talent",
+    "3 Shambling Ghast",
+    "4 Starting Town",
+    "2 Stomping Ground",
+    "2 Swamp",
+    "4 The Sackville-Bagginses",
+    "4 Witch's Oven",
+    "2 Ygra, Eater of All"
+   ],
+   "side": [
+    "2 Abrupt Decay",
+    "2 Fatal Push",
+    "1 Go Blank",
+    "2 Haywire Mite",
+    "2 Professor Dellian Fel",
+    "4 Thoughtseize",
+    "2 Tormod's Crypt"
+   ],
+   "history": [
+    0,
+    0.8,
+    0,
+    0,
+    0,
+    0,
+    0,
+    5.8,
+    1.6,
+    3.9,
+    1.1,
+    1.8
+   ],
+   "field": [
+    5,
+    8,
+    0
+   ],
+   "mu": [
+    [
+     "Izzet Prowess",
+     1,
+     2,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Biotech Specialist",
+     4
+    ],
+    [
+     "Blackcleave Cliffs",
+     4
+    ],
+    [
+     "Blooming Marsh",
+     4
+    ],
+    [
+     "Cauldron Familiar",
+     4
+    ],
+    [
+     "Greedy Freebooter",
+     4
+    ],
+    [
+     "Witch's Oven",
+     4
+    ],
+    [
+     "Deadly Dispute",
+     4
+    ],
+    [
+     "The Sackville-Bagginses",
+     4
+    ],
+    [
+     "Overgrown Tomb",
+     4
+    ],
+    [
+     "Shambling Ghast",
+     4
+    ],
+    [
+     "Mayhem Devil",
+     3
+    ],
+    [
+     "Lively Dirge",
+     3
+    ],
+    [
+     "Blazemire Verge",
+     2
+    ],
+    [
+     "Stomping Ground",
+     2
+    ],
+    [
+     "Swamp",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Starting Town",
+     80,
+     4
+    ],
+    [
+     "Umbral Collar Zealot",
+     72,
+     1.1
+    ],
+    [
+     "Thoughtseize",
+     40,
+     1.7
+    ],
+    [
+     "Ygra, Eater of All",
+     32,
+     1.9
+    ],
+    [
+     "Fatal Push",
+     32,
+     2.1
+    ]
+   ],
+   "lists": 25,
+   "conv": [
+    2.2,
+    2.6,
+    8
+   ],
+   "prev": 1.8
   },
   {
    "id": "pioneer-mono-green-stompy",
    "name": "Mono Green Stompy",
    "share": 1.9,
    "tier": 2,
-   "count": 23,
+   "count": 24,
    "title": "Thales · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0211137#deck_Thales",
    "main": [
@@ -3560,8 +3454,7 @@
     "1 Turn the Earth"
    ],
    "history": [
-    null,
-    1,
+    1.2,
     0.8,
     0.5,
     0,
@@ -3571,7 +3464,8 @@
     2.6,
     5.3,
     2.2,
-    1.6
+    1.6,
+    0.9
    ],
    "field": [
     3,
@@ -3613,421 +3507,77 @@
    "flex": [
     [
      "Nykthos, Shrine to Nyx",
-     78,
+     79,
      3.8
     ],
     [
      "Vastlands Scavenger",
-     61,
+     58,
      4
     ],
     [
+     "Lair of the Hydra",
+     54,
+     1.7
+    ],
+    [
      "Leyline Weaver",
-     52,
+     50,
      4
     ],
     [
      "Titan of Industry",
-     52,
-     1.8
-    ],
-    [
-     "Lair of the Hydra",
-     52,
+     50,
      1.8
     ],
     [
      "Gnarled Professor",
-     48,
+     50,
      4
     ],
     [
+     "Elder Gargaroth",
+     38,
+     1.8
+    ],
+    [
      "Tail Swipe",
-     39,
+     38,
      3.9
     ],
     [
-     "Elder Gargaroth",
-     35,
-     1.9
+     "Hexhaven Invigorator",
+     33,
+     4
     ],
     [
-     "Hexhaven Invigorator",
-     35,
+     "Spider Manifestation",
+     33,
      4
     ],
     [
      "The Great Henge",
-     30,
+     29,
      3
     ],
     [
-     "Spider Manifestation",
-     30,
-     4
-    ],
-    [
      "Gather Courage",
-     26,
+     25,
      3.3
     ]
    ],
-   "lists": 23,
+   "lists": 24,
    "conv": [
-    2.1,
-    1.7,
+    2,
+    1.6,
     5
    ],
    "prev": 1.9
   },
   {
-   "id": "pioneer-jund-sacrifice",
-   "name": "Jund Sacrifice",
-   "share": 1.8,
-   "tier": 2,
-   "count": 22,
-   "title": "Cake363 · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0111137#deck_Cake363",
-   "main": [
-    "4 Biotech Specialist",
-    "4 Blackcleave Cliffs",
-    "2 Blazemire Verge",
-    "4 Blooming Marsh",
-    "4 Cauldron Familiar",
-    "4 Deadly Dispute",
-    "2 Fatal Push",
-    "4 Greedy Freebooter",
-    "4 Lively Dirge",
-    "1 Mayhem Devil",
-    "4 Overgrown Tomb",
-    "2 Scavenger's Talent",
-    "2 Shambling Ghast",
-    "4 Starting Town",
-    "2 Stomping Ground",
-    "2 Swamp",
-    "4 The Sackville-Bagginses",
-    "4 Witch's Oven",
-    "1 Witherbloom Charm",
-    "2 Ygra, Eater of All"
-   ],
-   "side": [
-    "2 Abrupt Decay",
-    "2 Fatal Push",
-    "2 Haywire Mite",
-    "2 The Legend of Roku",
-    "4 Thoughtseize",
-    "2 Tormod's Crypt",
-    "1 Witherbloom Charm"
-   ],
-   "history": [
-    null,
-    0,
-    0.8,
-    0,
-    0,
-    0,
-    0,
-    0,
-    5.8,
-    1.1,
-    3.9,
-    1.1
-   ],
-   "field": [
-    5,
-    7,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Biotech Specialist",
-     4
-    ],
-    [
-     "Blackcleave Cliffs",
-     4
-    ],
-    [
-     "Blooming Marsh",
-     4
-    ],
-    [
-     "Cauldron Familiar",
-     4
-    ],
-    [
-     "Greedy Freebooter",
-     4
-    ],
-    [
-     "The Sackville-Bagginses",
-     4
-    ],
-    [
-     "Witch's Oven",
-     4
-    ],
-    [
-     "Deadly Dispute",
-     4
-    ],
-    [
-     "Overgrown Tomb",
-     4
-    ],
-    [
-     "Shambling Ghast",
-     4
-    ],
-    [
-     "Mayhem Devil",
-     3
-    ],
-    [
-     "Lively Dirge",
-     3
-    ],
-    [
-     "Stomping Ground",
-     2
-    ],
-    [
-     "Blazemire Verge",
-     2
-    ],
-    [
-     "Swamp",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Starting Town",
-     86,
-     4
-    ],
-    [
-     "Umbral Collar Zealot",
-     77,
-     1
-    ],
-    [
-     "Thoughtseize",
-     41,
-     1.7
-    ],
-    [
-     "Ygra, Eater of All",
-     27,
-     2
-    ],
-    [
-     "Witherbloom Charm",
-     27,
-     1.3
-    ],
-    [
-     "Fatal Push",
-     27,
-     2.2
-    ]
-   ],
-   "lists": 22,
-   "conv": [
-    2.2,
-    2.4,
-    7
-   ],
-   "prev": 1.8
-  },
-  {
-   "id": "pioneer-dimir-self-bounce",
-   "name": "Dimir Self Bounce",
-   "share": 1.7,
-   "tier": 2,
-   "count": 21,
-   "title": "May_Chang · Pioneer Challenge 16 (5th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-10-2512856993#deck_May_Chang",
-   "main": [
-    "4 Boomerang Basics",
-    "4 Clearwater Pathway",
-    "3 Cryogen Relic",
-    "4 Darkslick Shores",
-    "4 Fatal Push",
-    "4 Gloomlake Verge",
-    "4 Hopeless Nightmare",
-    "2 Invoke Despair",
-    "2 Island",
-    "2 Momentum Breaker",
-    "4 Narset, Parter of Veils",
-    "4 Nowhere to Run",
-    "1 Otawara, Soaring City",
-    "2 Petrified Hamlet",
-    "2 Sheoldred's Edict",
-    "2 Sheoldred, the Apocalypse",
-    "4 Shipwreck Marsh",
-    "3 Stock Up",
-    "4 Stormchaser's Talent",
-    "2 Swamp",
-    "1 Takenuma, Abandoned Mire",
-    "4 This Town Ain't Big Enough",
-    "4 Thoughtseize",
-    "4 Underground River",
-    "2 Urborg, Tomb of Yawgmoth",
-    "4 Watery Grave"
-   ],
-   "side": [
-    "2 Deadly Cover-Up",
-    "2 Duress",
-    "2 Go Blank",
-    "2 Grim Bauble",
-    "1 Invoke Despair",
-    "2 Languish",
-    "3 Unlicensed Hearse",
-    "1 Yorion, Sky Nomad"
-   ],
-   "history": [
-    null,
-    0.5,
-    1.7,
-    2.5,
-    3.9,
-    2.9,
-    3.4,
-    3,
-    1.3,
-    1.1,
-    0.4,
-    0.5
-   ],
-   "field": [
-    3,
-    7,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Boomerang Basics",
-     4
-    ],
-    [
-     "Clearwater Pathway",
-     4
-    ],
-    [
-     "Darkslick Shores",
-     4
-    ],
-    [
-     "Fatal Push",
-     4
-    ],
-    [
-     "Stormchaser's Talent",
-     4
-    ],
-    [
-     "Thoughtseize",
-     4
-    ],
-    [
-     "Watery Grave",
-     4
-    ],
-    [
-     "Hopeless Nightmare",
-     4
-    ],
-    [
-     "Nowhere to Run",
-     4
-    ],
-    [
-     "This Town Ain't Big Enough",
-     4
-    ],
-    [
-     "Gloomlake Verge",
-     4
-    ],
-    [
-     "Narset, Parter of Veils",
-     4
-    ],
-    [
-     "Shipwreck Marsh",
-     4
-    ],
-    [
-     "Petrified Hamlet",
-     4
-    ],
-    [
-     "Cryogen Relic",
-     3
-    ],
-    [
-     "Momentum Breaker",
-     3
-    ],
-    [
-     "Underground River",
-     2
-    ],
-    [
-     "Island",
-     2
-    ],
-    [
-     "Swamp",
-     2
-    ],
-    [
-     "Urborg, Tomb of Yawgmoth",
-     2
-    ],
-    [
-     "Otawara, Soaring City",
-     1
-    ],
-    [
-     "Takenuma, Abandoned Mire",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Stock Up",
-     76,
-     2.3
-    ],
-    [
-     "Fear of Isolation",
-     67,
-     3.9
-    ],
-    [
-     "Sheoldred's Edict",
-     33,
-     2
-    ]
-   ],
-   "lists": 21,
-   "conv": [
-    1.8,
-    2.1,
-    6
-   ],
-   "prev": 1.7
-  },
-  {
    "id": "pioneer-boros-convoke",
    "name": "Boros Convoke",
-   "share": 1.7,
+   "share": 1.6,
    "tier": 2,
    "count": 21,
    "title": "LucasObregon · Pioneer League (5-0)",
@@ -4064,8 +3614,7 @@
     "2 Torch the Tower"
    ],
    "history": [
-    null,
-    0.5,
+    0.6,
     0,
     0.5,
     0.7,
@@ -4075,7 +3624,8 @@
     1.3,
     2.1,
     2.2,
-    2.2
+    2.2,
+    0
    ],
    "field": [
     1,
@@ -4180,9 +3730,9 @@
    "name": "Spirits",
    "share": 1.6,
    "tier": 2,
-   "count": 19,
-   "title": "OscarLewis · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_OscarLewis",
+   "count": 20,
+   "title": "LeoGuedez · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1011137#deck_LeoGuedez",
    "main": [
     "4 Adarkar Wastes",
     "2 Brazen Borrower",
@@ -4215,8 +3765,7 @@
     "3 Skyclave Apparition"
    ],
    "history": [
-    null,
-    1.5,
+    1.2,
     0.8,
     0,
     2,
@@ -4226,7 +3775,8 @@
     1.9,
     2.7,
     1.3,
-    1.1
+    1.1,
+    0.9
    ],
    "field": [
     2,
@@ -4269,6 +3819,10 @@
      4
     ],
     [
+     "Spectral Sailor",
+     4
+    ],
+    [
      "Seam Rip",
      4
     ],
@@ -4277,8 +3831,20 @@
      2
     ],
     [
+     "Sheltered by Ghosts",
+     2
+    ],
+    [
      "Island",
      2
+    ],
+    [
+     "Plains",
+     1
+    ],
+    [
+     "Eiganjo, Seat of the Empire",
+     1
     ],
     [
      "Otawara, Soaring City",
@@ -4287,47 +3853,27 @@
    ],
    "flex": [
     [
-     "Spectral Sailor",
-     89,
-     3.8
-    ],
-    [
-     "Plains",
-     89,
-     1.2
-    ],
-    [
-     "Eiganjo, Seat of the Empire",
-     89,
-     1
-    ],
-    [
-     "Sheltered by Ghosts",
-     89,
-     2.1
-    ],
-    [
      "Curious Obsession",
-     84,
+     85,
      3
     ],
     [
      "Enduring Curiosity",
-     84,
+     85,
      2
     ],
     [
      "Geistlight Snare",
-     79,
+     80,
      4
     ],
     [
      "Brazen Borrower",
-     74,
+     75,
      2.1
     ]
    ],
-   "lists": 19,
+   "lists": 20,
    "conv": [
     0.5,
     0.3,
@@ -4336,9 +3882,567 @@
    "prev": 1.6
   },
   {
+   "id": "pioneer-dimir-self-bounce",
+   "name": "Dimir Self Bounce",
+   "share": 1.5,
+   "tier": 2,
+   "count": 19,
+   "title": "May_Chang · Pioneer Challenge 16 (5th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-10-2512856993#deck_May_Chang",
+   "main": [
+    "4 Boomerang Basics",
+    "4 Clearwater Pathway",
+    "3 Cryogen Relic",
+    "4 Darkslick Shores",
+    "4 Fatal Push",
+    "4 Gloomlake Verge",
+    "4 Hopeless Nightmare",
+    "2 Invoke Despair",
+    "2 Island",
+    "2 Momentum Breaker",
+    "4 Narset, Parter of Veils",
+    "4 Nowhere to Run",
+    "1 Otawara, Soaring City",
+    "2 Petrified Hamlet",
+    "2 Sheoldred's Edict",
+    "2 Sheoldred, the Apocalypse",
+    "4 Shipwreck Marsh",
+    "3 Stock Up",
+    "4 Stormchaser's Talent",
+    "2 Swamp",
+    "1 Takenuma, Abandoned Mire",
+    "4 This Town Ain't Big Enough",
+    "4 Thoughtseize",
+    "4 Underground River",
+    "2 Urborg, Tomb of Yawgmoth",
+    "4 Watery Grave"
+   ],
+   "side": [
+    "2 Deadly Cover-Up",
+    "2 Duress",
+    "2 Go Blank",
+    "2 Grim Bauble",
+    "1 Invoke Despair",
+    "2 Languish",
+    "3 Unlicensed Hearse",
+    "1 Yorion, Sky Nomad"
+   ],
+   "history": [
+    0.6,
+    1.7,
+    2.5,
+    3.9,
+    2.9,
+    3.4,
+    3,
+    1.3,
+    1.1,
+    0.4,
+    0.5,
+    0
+   ],
+   "field": [
+    2,
+    6,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Boomerang Basics",
+     4
+    ],
+    [
+     "Clearwater Pathway",
+     4
+    ],
+    [
+     "Darkslick Shores",
+     4
+    ],
+    [
+     "Fatal Push",
+     4
+    ],
+    [
+     "Stormchaser's Talent",
+     4
+    ],
+    [
+     "Thoughtseize",
+     4
+    ],
+    [
+     "Watery Grave",
+     4
+    ],
+    [
+     "Hopeless Nightmare",
+     4
+    ],
+    [
+     "Nowhere to Run",
+     4
+    ],
+    [
+     "This Town Ain't Big Enough",
+     4
+    ],
+    [
+     "Gloomlake Verge",
+     4
+    ],
+    [
+     "Narset, Parter of Veils",
+     4
+    ],
+    [
+     "Shipwreck Marsh",
+     4
+    ],
+    [
+     "Petrified Hamlet",
+     4
+    ],
+    [
+     "Cryogen Relic",
+     3
+    ],
+    [
+     "Momentum Breaker",
+     3
+    ],
+    [
+     "Island",
+     2
+    ],
+    [
+     "Swamp",
+     2
+    ],
+    [
+     "Urborg, Tomb of Yawgmoth",
+     2
+    ],
+    [
+     "Otawara, Soaring City",
+     1
+    ],
+    [
+     "Takenuma, Abandoned Mire",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Underground River",
+     89,
+     2.4
+    ],
+    [
+     "Stock Up",
+     74,
+     2.4
+    ],
+    [
+     "Fear of Isolation",
+     63,
+     3.8
+    ],
+    [
+     "Sheoldred's Edict",
+     37,
+     2
+    ],
+    [
+     "Geier Reach Sanitarium",
+     26,
+     1
+    ]
+   ],
+   "lists": 19,
+   "conv": [
+    1.6,
+    1.6,
+    5
+   ],
+   "prev": 1.7
+  },
+  {
+   "id": "pioneer-rakdos-sacrifice",
+   "name": "Rakdos Sacrifice",
+   "share": 1.5,
+   "tier": 2,
+   "count": 19,
+   "title": "shinubi · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-1611137#deck_shinubi",
+   "main": [
+    "4 Blackcleave Cliffs",
+    "4 Blazemire Verge",
+    "3 Blightstep Pathway",
+    "4 Blood Crypt",
+    "4 Bloodtithe Harvester",
+    "4 Cauldron Familiar",
+    "3 Claim the Firstborn",
+    "4 Deadly Dispute",
+    "2 Den of the Bugbear",
+    "4 Eyetwitch",
+    "4 Fable of the Mirror-Breaker",
+    "4 Fatal Push",
+    "4 Mayhem Devil",
+    "1 Scavenger's Talent",
+    "1 Sokenzan, Crucible of Defiance",
+    "3 Swamp",
+    "1 Takenuma, Abandoned Mire",
+    "2 The Sackville-Bagginses",
+    "4 Witch's Oven"
+   ],
+   "side": [
+    "1 Abandon Attachments",
+    "1 Decorum Dissertation",
+    "1 Firebending Lesson",
+    "2 Ghost Vacuum",
+    "1 Go Blank",
+    "1 Ozai's Cruelty",
+    "1 Ruinous Waterbending",
+    "3 The Legend of Roku",
+    "4 Thoughtseize"
+   ],
+   "history": [
+    0,
+    0,
+    1.5,
+    4.6,
+    2.9,
+    5.1,
+    4.5,
+    1.3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "field": [
+    5,
+    4,
+    0
+   ],
+   "mu": [
+    [
+     "Golgari Midrange",
+     3,
+     0,
+     0
+    ],
+    [
+     "Izzet Cauldron",
+     1,
+     2,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Blackcleave Cliffs",
+     4
+    ],
+    [
+     "Blazemire Verge",
+     4
+    ],
+    [
+     "Blood Crypt",
+     4
+    ],
+    [
+     "Bloodtithe Harvester",
+     4
+    ],
+    [
+     "Cauldron Familiar",
+     4
+    ],
+    [
+     "Deadly Dispute",
+     4
+    ],
+    [
+     "Eyetwitch",
+     4
+    ],
+    [
+     "Fable of the Mirror-Breaker",
+     4
+    ],
+    [
+     "Fatal Push",
+     4
+    ],
+    [
+     "Mayhem Devil",
+     4
+    ],
+    [
+     "Witch's Oven",
+     4
+    ],
+    [
+     "Claim the Firstborn",
+     3
+    ],
+    [
+     "Swamp",
+     2
+    ],
+    [
+     "The Sackville-Bagginses",
+     2
+    ],
+    [
+     "Den of the Bugbear",
+     1
+    ],
+    [
+     "Scavenger's Talent",
+     1
+    ],
+    [
+     "Sokenzan, Crucible of Defiance",
+     1
+    ],
+    [
+     "Takenuma, Abandoned Mire",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Blightstep Pathway",
+     63,
+     3.1
+    ],
+    [
+     "Mountain",
+     42,
+     1
+    ],
+    [
+     "Multiversal Passage",
+     42,
+     3.6
+    ]
+   ],
+   "lists": 19,
+   "conv": [
+    1.7,
+    1.6,
+    5
+   ],
+   "prev": 2
+  },
+  {
+   "id": "pioneer-simic-scapeshift",
+   "name": "Simic Scapeshift",
+   "share": 1.4,
+   "tier": 2,
+   "count": 18,
+   "title": "Moniz0801 · Pioneer Challenge 16 (4th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-1412858111#deck_Moniz0801",
+   "main": [
+    "2 Aftermath Analyst",
+    "4 Arboreal Grazer",
+    "1 Arid Archway",
+    "1 Boseiju, Who Endures",
+    "4 Crumbling Vestige",
+    "2 Echoing Deeps",
+    "3 Forest",
+    "2 Genesis Device",
+    "2 Hedge Maze",
+    "1 Kenrith, the Returned King",
+    "4 Lotus Field",
+    "4 Lumra, Bellow of the Woods",
+    "2 Lush Portico",
+    "1 Memorial to Folly",
+    "1 Otawara, Soaring City",
+    "3 Port of Karfell",
+    "4 Scapeshift",
+    "1 Snow-Covered Forest",
+    "4 Something Worth Saving",
+    "4 Spelunking",
+    "2 Starting Town",
+    "1 Thassa's Oracle",
+    "2 Underground Mortuary",
+    "1 Urban Retreat",
+    "4 Warp Speed"
+   ],
+   "side": [
+    "1 Boseiju, Who Endures",
+    "4 Clarion Conqueror",
+    "3 Culling Ritual",
+    "1 Emrakul, the Promised End",
+    "2 Into the Flood Maw",
+    "2 Lessons from Life",
+    "2 The Unagi of Kyoshi Island"
+   ],
+   "history": [
+    2.5,
+    5,
+    2,
+    0.7,
+    2,
+    0,
+    0.8,
+    0.6,
+    1.6,
+    1.7,
+    0.5,
+    4.5
+   ],
+   "field": [
+    7,
+    8,
+    0
+   ],
+   "mu": [
+    [
+     "Izzet Spellementals",
+     3,
+     0,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Arboreal Grazer",
+     4
+    ],
+    [
+     "Lotus Field",
+     4
+    ],
+    [
+     "Lumra, Bellow of the Woods",
+     4
+    ],
+    [
+     "Spelunking",
+     4
+    ],
+    [
+     "Scapeshift",
+     4
+    ],
+    [
+     "Hedge Maze",
+     3
+    ],
+    [
+     "Port of Karfell",
+     3
+    ],
+    [
+     "Forest",
+     2
+    ],
+    [
+     "Aftermath Analyst",
+     2
+    ],
+    [
+     "Boseiju, Who Endures",
+     1
+    ],
+    [
+     "Arid Archway",
+     1
+    ],
+    [
+     "Otawara, Soaring City",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Underground Mortuary",
+     83,
+     3.7
+    ],
+    [
+     "Starting Town",
+     83,
+     3.3
+    ],
+    [
+     "The Wandering Minstrel",
+     83,
+     3
+    ],
+    [
+     "Crumbling Vestige",
+     78,
+     4
+    ],
+    [
+     "Castle Garenbrig",
+     78,
+     1.4
+    ],
+    [
+     "Badgermole Cub",
+     67,
+     2.4
+    ],
+    [
+     "Stock Up",
+     44,
+     2
+    ],
+    [
+     "Glasspool Mimic",
+     39,
+     1
+    ],
+    [
+     "Formidable Speaker",
+     39,
+     2.7
+    ],
+    [
+     "Echoing Deeps",
+     39,
+     1.4
+    ],
+    [
+     "Memorial to Folly",
+     39,
+     1
+    ],
+    [
+     "Urban Retreat",
+     39,
+     1
+    ],
+    [
+     "Luis, Pompous Pillager",
+     33,
+     1
+    ]
+   ],
+   "lists": 18,
+   "conv": [
+    1.7,
+    1.6,
+    5
+   ],
+   "prev": 1.1
+  },
+  {
    "id": "pioneer-mono-black-midrange",
    "name": "Mono Black Midrange",
-   "share": 1.5,
+   "share": 1.4,
    "tier": 2,
    "count": 18,
    "title": "RNAPBP1 · Pioneer Challenge 16 (2nd Place)",
@@ -4377,7 +4481,6 @@
     "1 The Meathook Massacre"
    ],
    "history": [
-    null,
     0,
     1.7,
     0.5,
@@ -4388,7 +4491,8 @@
     0.6,
     1.1,
     1.3,
-    4.3
+    4.3,
+    0
    ],
    "field": [
     7,
@@ -4499,175 +4603,389 @@
    "lists": 18,
    "conv": [
     1.7,
-    2.1,
+    2,
     6
    ],
    "prev": 1.5
   },
   {
-   "id": "pioneer-izzet-control",
-   "name": "Izzet Control",
-   "share": 1.2,
+   "id": "pioneer-selesnya-stompy",
+   "name": "Selesnya Stompy",
+   "share": 1.4,
    "tier": 2,
-   "count": 15,
-   "title": "VitorCarvalho01 · Pioneer Challenge 16 (4th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0712857690#deck_VitorCarvalho01",
+   "count": 18,
+   "title": "Strongmind · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1411353#deck_Strongmind",
    "main": [
-    "1 Beacon Bolt",
-    "4 Consider",
-    "4 Eddymurk Crab",
-    "4 Fiery Impulse",
-    "2 Get Out",
-    "1 Hall of Storm Giants",
-    "4 Hearth Elemental",
-    "2 Island",
-    "4 Opt",
-    "1 Otawara, Soaring City",
-    "4 Prismari Charm",
-    "4 Riverglide Pathway",
-    "2 Seasoned Cryomancer",
-    "1 Shivan Reef",
-    "4 Sleight of Hand",
-    "4 Spirebluff Canal",
-    "4 Steam Vents",
-    "2 Stormcarved Coast",
-    "3 Stubborn Denial",
-    "4 Sunderflock",
-    "1 Vibrant Outburst"
+    "2 Abandoned Air Temple",
+    "2 Aven Interrupter",
+    "4 Badgermole Cub",
+    "1 Boseiju, Who Endures",
+    "4 Brushland",
+    "4 Collected Company",
+    "1 Eiganjo, Seat of the Empire",
+    "1 Elspeth, Storm Slayer",
+    "4 Elvish Mystic",
+    "4 Enduring Innocence",
+    "1 Forest",
+    "4 Llanowar Elves",
+    "1 March of Otherworldly Light",
+    "3 Ouroboroid",
+    "3 Plains",
+    "4 Professor of Symbology",
+    "4 Razorverge Thicket",
+    "4 Skyclave Apparition",
+    "2 Starting Town",
+    "4 Temple Garden",
+    "3 Thalia, Guardian of Thraben"
    ],
    "side": [
-    "2 Abrade",
-    "2 Brazen Borrower",
-    "2 Change the Equation",
-    "4 Crackling Drake",
-    "1 Disdainful Stroke",
-    "3 Soul-Guide Lantern",
-    "1 Stubborn Denial"
+    "3 Clarion Conqueror",
+    "1 Elspeth, Storm Slayer",
+    "1 Germination Practicum",
+    "1 Origin of Metalbending",
+    "2 Seam Rip",
+    "3 Solarium Sentry",
+    "1 Split Up",
+    "1 The Wandering Emperor",
+    "2 Unlicensed Hearse"
    ],
    "history": [
-    null,
-    1,
-    1.7,
-    3.4,
+    1.2,
+    0.8,
     0,
+    1.3,
     2,
-    0,
-    2.3,
-    3.8,
-    1.1,
-    0,
-    1.1
+    0.8,
+    0.8,
+    0.6,
+    0.5,
+    0.4,
+    2.2,
+    4.5
    ],
    "field": [
-    6,
     3,
+    4,
     0
    ],
-   "mu": [],
+   "mu": [
+    [
+     "Golgari Midrange",
+     2,
+     2,
+     0
+    ]
+   ],
    "metaWr": null,
    "core": [
     [
-     "Consider",
+     "Brushland",
      4
     ],
     [
-     "Eddymurk Crab",
+     "Elvish Mystic",
      4
     ],
     [
-     "Fiery Impulse",
+     "Llanowar Elves",
      4
     ],
     [
-     "Hearth Elemental",
+     "Razorverge Thicket",
      4
     ],
     [
-     "Opt",
+     "Temple Garden",
      4
     ],
     [
-     "Prismari Charm",
+     "Skyclave Apparition",
      4
     ],
     [
-     "Spirebluff Canal",
-     4
+     "Plains",
+     3
     ],
     [
-     "Steam Vents",
-     4
-    ],
-    [
-     "Sunderflock",
-     4
-    ],
-    [
-     "Island",
-     4
-    ],
-    [
-     "Sleight of Hand",
-     4
-    ],
-    [
-     "Stubborn Denial",
-     4
-    ],
-    [
-     "Riverglide Pathway",
+     "Abandoned Air Temple",
      2
+    ],
+    [
+     "Forest",
+     1
+    ],
+    [
+     "Boseiju, Who Endures",
+     1
+    ],
+    [
+     "Eiganjo, Seat of the Empire",
+     1
     ]
    ],
    "flex": [
     [
-     "Get Out",
-     87,
-     2.6
+     "Badgermole Cub",
+     89,
+     4
     ],
     [
-     "Riverpyre Verge",
-     87,
+     "Collected Company",
+     89,
+     4
+    ],
+    [
+     "Enduring Innocence",
+     89,
+     3.9
+    ],
+    [
+     "Ouroboroid",
+     89,
+     3.1
+    ],
+    [
+     "Aven Interrupter",
+     83,
+     2.4
+    ],
+    [
+     "Thalia, Guardian of Thraben",
+     83,
      3
     ],
     [
-     "Shivan Reef",
-     87,
-     1.8
+     "Elspeth, Storm Slayer",
+     78,
+     1.6
     ],
     [
-     "Fading Hope",
-     53,
-     1
-    ],
-    [
-     "Winternight Stories",
-     53,
-     1
-    ],
-    [
-     "Seasoned Cryomancer",
-     27,
+     "Starting Town",
+     78,
      2
     ],
     [
-     "Vibrant Outburst",
-     27,
-     1.3
+     "Professor of Symbology",
+     67,
+     3.9
+    ],
+    [
+     "March of Otherworldly Light",
+     50,
+     1
     ]
    ],
-   "lists": 15,
+   "lists": 18,
    "conv": [
-    1.5,
-    1.7,
-    5
+    1.6,
+    1.3,
+    4
    ],
-   "prev": 1.2
+   "prev": 1.1
+  },
+  {
+   "id": "pioneer-boros-land-destruction",
+   "name": "Boros Land Destruction",
+   "share": 1.2,
+   "tier": 2,
+   "count": 16,
+   "title": "nicole Masuwaka · 第13回みなとみらいオープン (7th Place)",
+   "url": "https://melee.gg/Decklist/View/a10818d0-06a0-46d4-a59c-b4ee00862a4e",
+   "main": [
+    "4 Cleansing Wildfire",
+    "2 Mountain",
+    "2 Beza, the Bounding Spring",
+    "4 Plains",
+    "4 Thor, God of Thunder",
+    "4 March of Otherworldly Light",
+    "4 Get Lost",
+    "4 Lightning Helix",
+    "4 Price of Freedom",
+    "2 Farewell",
+    "4 Temporary Lockdown",
+    "4 Demolition Field",
+    "4 Sacred Foundry",
+    "4 Sunken Citadel",
+    "4 Cori Mountain Monastery",
+    "4 Field of Ruin",
+    "4 Elegant Parlor",
+    "3 Flashback",
+    "4 Avengers Disassembled",
+    "4 Emergency Eject",
+    "3 Day of Judgment",
+    "4 Erode"
+   ],
+   "side": [
+    "1 Yorion, Sky Nomad",
+    "2 Beza, the Bounding Spring",
+    "4 Rest in Peace",
+    "2 Lorehold, the Historian",
+    "2 Captain Marvel, Earth's Protector",
+    "4 Herald of Eternal Dawn"
+   ],
+   "history": [
+    2.5,
+    1.7,
+    6.4,
+    10.5,
+    4.9,
+    1.7,
+    0,
+    0.6,
+    0.5,
+    0,
+    0,
+    0
+   ],
+   "field": [
+    14,
+    11,
+    0
+   ],
+   "mu": [
+    [
+     "Mono Red Aggro",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Plains",
+     4
+    ],
+    [
+     "Avengers Disassembled",
+     4
+    ],
+    [
+     "Cleansing Wildfire",
+     4
+    ],
+    [
+     "Demolition Field",
+     4
+    ],
+    [
+     "Erode",
+     4
+    ],
+    [
+     "Field of Ruin",
+     4
+    ],
+    [
+     "Price of Freedom",
+     4
+    ],
+    [
+     "Sacred Foundry",
+     4
+    ],
+    [
+     "Sunken Citadel",
+     4
+    ],
+    [
+     "Cori Mountain Monastery",
+     4
+    ],
+    [
+     "Get Lost",
+     3
+    ],
+    [
+     "Mountain",
+     3
+    ]
+   ],
+   "flex": [
+    [
+     "Emergency Eject",
+     88,
+     3.6
+    ],
+    [
+     "Day of Judgment",
+     75,
+     2.8
+    ],
+    [
+     "The Legend of Roku",
+     75,
+     3.3
+    ],
+    [
+     "Flashback",
+     56,
+     2.2
+    ],
+    [
+     "Fiery Impulse",
+     50,
+     2.4
+    ],
+    [
+     "Chandra, Torch of Defiance",
+     50,
+     1.8
+    ],
+    [
+     "Beza, the Bounding Spring",
+     44,
+     1.9
+    ],
+    [
+     "March of Otherworldly Light",
+     38,
+     3
+    ],
+    [
+     "Lightning Helix",
+     25,
+     4
+    ],
+    [
+     "Farewell",
+     25,
+     2
+    ],
+    [
+     "Thor, God of Thunder",
+     25,
+     4
+    ],
+    [
+     "Temporary Lockdown",
+     25,
+     4
+    ],
+    [
+     "Elegant Parlor",
+     25,
+     4
+    ],
+    [
+     "High Noon",
+     25,
+     3.5
+    ]
+   ],
+   "lists": 16,
+   "conv": [
+    1.6,
+    2,
+    6
+   ],
+   "prev": null
   },
   {
    "id": "pioneer-orzhov-midrange",
    "name": "Orzhov Midrange",
-   "share": 1.2,
+   "share": 1.1,
    "tier": 2,
    "count": 14,
    "title": "kanara · Pioneer Spark!! ONLINE 28th -MTGArena- (4th Place)",
@@ -4709,7 +5027,6 @@
     "2 Golden Demise"
    ],
    "history": [
-    null,
     0,
     0,
     0,
@@ -4720,7 +5037,8 @@
     0.6,
     1.1,
     0.4,
-    3.8
+    3.8,
+    0.9
    ],
    "field": [
     6,
@@ -4755,14 +5073,39 @@
      2.8
     ],
     [
+     "Fatal Push",
+     79,
+     3.8
+    ],
+    [
+     "Sanctum Lurker",
+     79,
+     2.3
+    ],
+    [
      "Concealed Courtyard",
      79,
-     3.9
+     4
     ],
     [
      "Caves of Koilos",
      79,
-     2.3
+     2.1
+    ],
+    [
+     "Bleachbone Verge",
+     79,
+     2.5
+    ],
+    [
+     "Elspeth, Storm Slayer",
+     79,
+     2.4
+    ],
+    [
+     "Caretaker's Talent",
+     79,
+     3.9
     ],
     [
      "Eiganjo, Seat of the Empire",
@@ -4770,300 +5113,73 @@
      1
     ],
     [
-     "Brightclimb Pathway",
-     79,
-     3.6
-    ],
-    [
-     "Fatal Push",
-     71,
-     3.8
-    ],
-    [
-     "Sanctum Lurker",
-     71,
-     2.3
-    ],
-    [
-     "Bleachbone Verge",
-     71,
-     2.4
-    ],
-    [
-     "Elspeth, Storm Slayer",
-     71,
-     2.4
-    ],
-    [
-     "Caretaker's Talent",
-     71,
-     3.9
-    ],
-    [
      "The Wandering Emperor",
      71,
      2.2
     ],
     [
-     "Unholy Annex // Ritual Chamber",
-     64,
-     2.9
+     "Brightclimb Pathway",
+     71,
+     3.8
     ],
     [
-     "Mutavault",
+     "Vanishing Verse",
      64,
-     2.2
+     2.1
+    ],
+    [
+     "Unholy Annex // Ritual Chamber",
+     64,
+     2.8
     ]
    ],
    "lists": 14,
    "conv": [
     1.4,
-    1.4,
+    1.3,
     4
    ],
-   "prev": 1.1
-  },
-  {
-   "id": "pioneer-simic-scapeshift",
-   "name": "Simic Scapeshift",
-   "share": 1.1,
-   "tier": 2,
-   "count": 13,
-   "title": "walker Metyko · Crew3 2026 Savior of Pioneer Qualifier #11 - Final Qualifier (5th Place)",
-   "url": "https://melee.gg/Decklist/View/d32b8035-c32f-4272-906c-b4f801788926",
-   "main": [
-    "2 Aftermath Analyst",
-    "4 Arboreal Grazer",
-    "1 Arid Archway",
-    "1 Boseiju, Who Endures",
-    "2 Castle Garenbrig",
-    "4 Crumbling Vestige",
-    "2 Forest",
-    "4 Formidable Speaker",
-    "1 Glasspool Mimic",
-    "4 Hedge Maze",
-    "4 Lotus Field",
-    "4 Lumra, Bellow of the Woods",
-    "1 Morlun, Devourer of Spiders",
-    "1 Otawara, Soaring City",
-    "4 Port of Karfell",
-    "4 Scapeshift",
-    "4 Spelunking",
-    "4 Starting Town",
-    "1 Terror of the Peaks",
-    "4 The Wandering Minstrel",
-    "4 Underground Mortuary"
-   ],
-   "side": [
-    "3 Abrupt Decay",
-    "1 Boseiju, Who Endures",
-    "3 Clarion Conqueror",
-    "3 Culling Ritual",
-    "1 Elesh Norn, Mother of Machines",
-    "2 Emrakul, the Promised End",
-    "1 Kaervek, the Spiteful",
-    "1 Summon: Leviathan"
-   ],
-   "history": [
-    null,
-    2.5,
-    5,
-    2,
-    0.7,
-    2,
-    0,
-    0.8,
-    0.6,
-    1.6,
-    1.7,
-    0.5
-   ],
-   "field": [
-    6,
-    7,
-    0
-   ],
-   "mu": [
-    [
-     "Izzet Prowess",
-     3,
-     0,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Arboreal Grazer",
-     4
-    ],
-    [
-     "Lotus Field",
-     4
-    ],
-    [
-     "Lumra, Bellow of the Woods",
-     4
-    ],
-    [
-     "Spelunking",
-     4
-    ],
-    [
-     "Scapeshift",
-     4
-    ],
-    [
-     "Underground Mortuary",
-     4
-    ],
-    [
-     "Port of Karfell",
-     4
-    ],
-    [
-     "Hedge Maze",
-     4
-    ],
-    [
-     "The Wandering Minstrel",
-     3
-    ],
-    [
-     "Aftermath Analyst",
-     2
-    ],
-    [
-     "Forest",
-     2
-    ],
-    [
-     "Boseiju, Who Endures",
-     1
-    ],
-    [
-     "Arid Archway",
-     1
-    ],
-    [
-     "Otawara, Soaring City",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Starting Town",
-     85,
-     3.5
-    ],
-    [
-     "Castle Garenbrig",
-     85,
-     1.4
-    ],
-    [
-     "Badgermole Cub",
-     69,
-     2.6
-    ],
-    [
-     "Crumbling Vestige",
-     69,
-     4
-    ],
-    [
-     "Stock Up",
-     54,
-     2
-    ],
-    [
-     "Glasspool Mimic",
-     38,
-     1
-    ],
-    [
-     "Formidable Speaker",
-     38,
-     3.2
-    ],
-    [
-     "Echoing Deeps",
-     38,
-     1.2
-    ],
-    [
-     "Ipnu Rivulet",
-     31,
-     1
-    ],
-    [
-     "Change the Equation",
-     31,
-     2
-    ],
-    [
-     "Luis, Pompous Pillager",
-     31,
-     1
-    ],
-    [
-     "Memorial to Folly",
-     31,
-     1
-    ],
-    [
-     "Urban Retreat",
-     31,
-     1
-    ]
-   ],
-   "lists": 13,
-   "conv": [
-    1.2,
-    1.4,
-    4
-   ],
-   "prev": 1.1
+   "prev": 1.2
   },
   {
    "id": "pioneer-mono-white-humans",
    "name": "Mono White Humans",
    "share": 1.1,
    "tier": 2,
-   "count": 13,
-   "title": "Tsubasa_Cat · Pioneer Showcase Challenge (3rd Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-showcase-challenge-2026-11-0112857433#deck_Tsubasa_Cat",
+   "count": 14,
+   "title": "_Cygnus · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1311353#deck__Cygnus",
    "main": [
     "4 Adeline, Resplendent Cathar",
+    "2 Arachne, Psionic Weaver",
     "2 Basri, Tomorrow's Champion",
-    "2 Brave the Elements",
     "3 Cavern of Souls",
-    "4 Coppercoat Vanguard",
+    "2 Coppercoat Vanguard",
     "3 Dauntless Bodyguard",
+    "2 Deanna Troi, Psychic Counsel",
     "3 Eiganjo, Seat of the Empire",
     "2 Erode",
     "3 Extraction Specialist",
     "3 Kytheon, Hero of Akros",
     "4 Mox Amber",
     "3 Mutavault",
+    "10 Plains",
     "1 Recruitment Officer",
-    "10 Snow-Covered Plains",
     "4 Thalia's Lieutenant",
     "4 Thalia, Guardian of Thraben",
     "2 The Queen of Dale",
     "3 Zack Fair"
    ],
    "side": [
-    "2 Arachne, Psionic Weaver",
     "3 Aven Interrupter",
+    "2 Brave the Elements",
     "1 Rest in Peace",
     "2 Scout for Survivors",
     "4 Seam Rip",
     "3 Wedding Announcement"
    ],
    "history": [
-    null,
-    2,
+    1.8,
     3.4,
     2.5,
     1.3,
@@ -5073,7 +5189,8 @@
     0,
     0,
     2.2,
-    1.1
+    1.1,
+    0.9
    ],
    "field": [
     7,
@@ -5101,7 +5218,7 @@
     ],
     [
      "Coppercoat Vanguard",
-     4
+     3
     ],
     [
      "Dauntless Bodyguard",
@@ -5127,379 +5244,204 @@
    "flex": [
     [
      "Zack Fair",
-     85,
+     86,
      2.8
     ],
     [
      "Erode",
-     77,
+     79,
      2.3
     ],
     [
      "Extraction Specialist",
-     77,
+     79,
      2.8
     ],
     [
      "Mox Amber",
-     77,
+     79,
      4
     ],
     [
      "The Queen of Dale",
-     77,
+     79,
      2.2
     ],
     [
      "Recruitment Officer",
-     69,
-     1.6
+     71,
+     1.5
     ],
     [
      "Basri, Tomorrow's Champion",
-     69,
+     71,
      2
     ],
     [
      "Brave the Elements",
-     62,
+     57,
      2.5
+    ],
+    [
+     "Arachne, Psionic Weaver",
+     29,
+     2
     ]
    ],
-   "lists": 13,
+   "lists": 14,
    "conv": [
     1.2,
-    1.4,
+    1.3,
     4
    ],
    "prev": 1.1
   },
   {
-   "id": "pioneer-selesnya-stompy",
-   "name": "Selesnya Stompy",
-   "share": 1.1,
+   "id": "pioneer-temur-lessons",
+   "name": "Temur Lessons",
+   "share": 1,
    "tier": 2,
    "count": 13,
-   "title": "Strongmind · Pioneer Challenge 16 (5th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Strongmind",
+   "title": "surgetemelo · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1511353#deck_surgetemelo",
    "main": [
-    "2 Abandoned Air Temple",
-    "2 Aven Interrupter",
-    "4 Badgermole Cub",
-    "1 Boseiju, Who Endures",
-    "4 Brushland",
-    "4 Collected Company",
-    "1 Eiganjo, Seat of the Empire",
-    "1 Elspeth, Storm Slayer",
-    "4 Elvish Mystic",
-    "4 Enduring Innocence",
-    "1 Forest",
-    "4 Llanowar Elves",
-    "1 March of Otherworldly Light",
-    "3 Ouroboroid",
-    "3 Plains",
-    "4 Professor of Symbology",
-    "4 Razorverge Thicket",
-    "4 Skyclave Apparition",
-    "2 Starting Town",
-    "4 Temple Garden",
-    "3 Thalia, Guardian of Thraben"
+    "4 Abandon Attachments",
+    "3 Accumulate Wisdom",
+    "4 Combustion Technique",
+    "4 Divide by Zero",
+    "4 Firebending Lesson",
+    "4 Gran-Gran",
+    "3 Island",
+    "4 It'll Quench Ya!",
+    "1 Mountain",
+    "2 Pop Quiz",
+    "2 Questing Druid",
+    "4 Riverglide Pathway",
+    "4 Riverpyre Verge",
+    "3 Spirebluff Canal",
+    "3 Steam Vents",
+    "4 Tablet of Discovery",
+    "3 Thor, God of Thunder",
+    "4 Willowrush Verge"
    ],
    "side": [
-    "3 Clarion Conqueror",
-    "1 Elspeth, Storm Slayer",
-    "1 Germination Practicum",
+    "1 Accumulate Wisdom",
+    "2 Aether Gust",
+    "1 Boomerang Basics",
+    "1 Environmental Sciences",
+    "2 Fresh Start",
+    "1 Improvisation Capstone",
+    "1 Iroh's Demonstration",
     "1 Origin of Metalbending",
-    "2 Seam Rip",
-    "3 Solarium Sentry",
-    "1 Split Up",
-    "1 The Wandering Emperor",
-    "2 Unlicensed Hearse"
+    "1 Pop Quiz",
+    "1 Price of Freedom",
+    "1 Questing Druid",
+    "1 Sokka's Haiku",
+    "1 True Ancestry"
    ],
    "history": [
-    null,
-    1,
-    0.8,
-    0,
-    1.3,
-    2,
-    0.8,
-    0.8,
     0.6,
+    0,
+    1,
+    0.7,
+    2,
+    0,
+    0,
+    0,
     0.5,
     0.4,
-    2.2
+    0,
+    8.1
    ],
    "field": [
-    1,
-    2,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Brushland",
-     4
-    ],
-    [
-     "Elvish Mystic",
-     4
-    ],
-    [
-     "Llanowar Elves",
-     4
-    ],
-    [
-     "Razorverge Thicket",
-     4
-    ],
-    [
-     "Temple Garden",
-     4
-    ],
-    [
-     "Skyclave Apparition",
-     4
-    ],
-    [
-     "Plains",
-     3
-    ],
-    [
-     "Abandoned Air Temple",
-     2
-    ],
-    [
-     "Forest",
-     2
-    ],
-    [
-     "Boseiju, Who Endures",
-     1
-    ],
-    [
-     "Eiganjo, Seat of the Empire",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Badgermole Cub",
-     85,
-     4
-    ],
-    [
-     "Collected Company",
-     85,
-     4
-    ],
-    [
-     "Enduring Innocence",
-     85,
-     3.9
-    ],
-    [
-     "Ouroboroid",
-     85,
-     3.1
-    ],
-    [
-     "Aven Interrupter",
-     77,
-     2.6
-    ],
-    [
-     "Thalia, Guardian of Thraben",
-     77,
-     3
-    ],
-    [
-     "Elspeth, Storm Slayer",
-     69,
-     1.7
-    ],
-    [
-     "Starting Town",
-     69,
-     2
-    ],
-    [
-     "Professor of Symbology",
-     54,
-     4
-    ],
-    [
-     "March of Otherworldly Light",
-     38,
-     1
-    ],
-    [
-     "Michelangelo's Technique",
-     31,
-     1.8
-    ]
-   ],
-   "lists": 13,
-   "conv": [
-    1.2,
-    0.7,
-    2
-   ],
-   "prev": 1.1
-  },
-  {
-   "id": "pioneer-rakdos-midrange",
-   "name": "Rakdos Midrange",
-   "share": 0.8,
-   "tier": 2,
-   "count": 10,
-   "title": "Alexis García · Crew3 2026 Savior of Pioneer Qualifier #11 - Final Qualifier (3st Place)",
-   "url": "https://melee.gg/Decklist/View/3b6fdcf5-4fee-450b-95c5-b4fb00de713f",
-   "main": [
-    "4 Insolent Neonate",
-    "4 Mountain",
-    "4 Masked Meower",
-    "4 Fiery Temper",
-    "4 Alms of the Vein",
-    "2 Swamp",
-    "4 Fatal Push",
-    "3 Carnage, Crimson Chaos",
-    "4 Voldaren Epicure",
-    "4 Cool but Rude",
-    "4 Blackcleave Cliffs",
-    "3 Claim // Fame",
-    "4 Blood Crypt",
-    "4 Blightstep Pathway",
-    "4 Sulfurous Springs",
-    "4 Darklight Phoenix"
-   ],
-   "side": [
-    "2 The Meathook Massacre",
-    "4 Leyline of the Void",
-    "3 Thoughtseize",
-    "2 Roiling Vortex",
-    "2 Ray of Enfeeblement",
-    "2 Feed the Swarm"
-   ],
-   "history": [
-    null,
-    1,
-    0,
-    1,
-    0,
-    0,
-    0.8,
+    8,
     3,
-    0,
-    1.1,
-    0,
-    1.6
-   ],
-   "field": [
-    7,
-    7,
     0
    ],
    "mu": [],
    "metaWr": null,
    "core": [
     [
-     "Blackcleave Cliffs",
+     "Abandon Attachments",
      4
     ],
     [
-     "Blood Crypt",
+     "Combustion Technique",
      4
     ],
     [
-     "Swamp",
+     "Divide by Zero",
+     4
+    ],
+    [
+     "Firebending Lesson",
+     4
+    ],
+    [
+     "Gran-Gran",
+     4
+    ],
+    [
+     "It'll Quench Ya!",
+     4
+    ],
+    [
+     "Riverglide Pathway",
+     4
+    ],
+    [
+     "Riverpyre Verge",
+     4
+    ],
+    [
+     "Tablet of Discovery",
+     4
+    ],
+    [
+     "Willowrush Verge",
+     4
+    ],
+    [
+     "Accumulate Wisdom",
+     3
+    ],
+    [
+     "Island",
+     3
+    ],
+    [
+     "Spirebluff Canal",
+     3
+    ],
+    [
+     "Steam Vents",
+     3
+    ],
+    [
+     "Questing Druid",
+     3
+    ],
+    [
+     "Thor, God of Thunder",
+     3
+    ],
+    [
+     "Pop Quiz",
      2
     ],
     [
      "Mountain",
-     2
+     1
     ]
    ],
-   "flex": [
-    [
-     "Blazemire Verge",
-     80,
-     1.6
-    ],
-    [
-     "Cauldron Familiar",
-     50,
-     4
-    ],
-    [
-     "Deadly Dispute",
-     50,
-     3.4
-    ],
-    [
-     "Eyetwitch",
-     50,
-     4
-    ],
-    [
-     "Fatal Push",
-     50,
-     4
-    ],
-    [
-     "The Sackville-Bagginses",
-     50,
-     4
-    ],
-    [
-     "Witch's Oven",
-     50,
-     4
-    ],
-    [
-     "Blightstep Pathway",
-     40,
-     4
-    ],
-    [
-     "Fable of the Mirror-Breaker",
-     40,
-     4
-    ],
-    [
-     "Sulfurous Springs",
-     40,
-     2.8
-    ],
-    [
-     "Biotech Specialist",
-     40,
-     4
-    ],
-    [
-     "Blooming Marsh",
-     40,
-     3
-    ],
-    [
-     "Clockwork Percussionist",
-     40,
-     2
-    ],
-    [
-     "Copperline Gorge",
-     40,
-     3
-    ]
-   ],
-   "lists": 10,
+   "flex": [],
+   "lists": 13,
    "conv": [
-    1,
-    1.4,
-    4
+    1.1,
+    2,
+    6
    ],
-   "prev": 0.8
+   "prev": null
   },
   {
    "id": "pioneer-dimir-control",
@@ -5551,7 +5493,6 @@
     "1 The Meathook Massacre"
    ],
    "history": [
-    null,
     0,
     0,
     0,
@@ -5562,6 +5503,7 @@
     0.6,
     1.6,
     0.9,
+    0,
     0
    ],
    "field": [
@@ -5699,9 +5641,9 @@
   {
    "id": "pioneer-jeskai-lessons",
    "name": "Jeskai Lessons",
-   "share": 0.7,
+   "share": 0.6,
    "tier": 2,
-   "count": 9,
+   "count": 8,
    "title": "Bradykiesling13 · Pioneer Challenge 16 (8th Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_Bradykiesling13",
    "main": [
@@ -5746,8 +5688,7 @@
     "1 Sokka's Haiku"
    ],
    "history": [
-    null,
-    7,
+    7.4,
     2.5,
     2.9,
     3.3,
@@ -5757,7 +5698,8 @@
     0,
     0.5,
     1.3,
-    2.2
+    2.2,
+    0
    ],
    "field": [
     8,
@@ -5797,11 +5739,11 @@
     ],
     [
      "Hallowed Fountain",
-     3
+     4
     ],
     [
      "Riverglide Pathway",
-     3
+     4
     ],
     [
      "Abandon Attachments",
@@ -5825,7 +5767,7 @@
     ],
     [
      "Riverpyre Verge",
-     2
+     3
     ],
     [
      "Thor, God of Thunder",
@@ -5847,29 +5789,29 @@
    "flex": [
     [
      "Great Hall of the Biblioplex",
-     56,
+     50,
      3
     ],
     [
-     "Stock Up",
-     44,
+     "The Theorist, Jace Beleren",
+     50,
      1
     ],
     [
-     "The Theorist, Jace Beleren",
-     44,
+     "Stock Up",
+     38,
      1
     ],
     [
      "Iroh's Demonstration",
-     44,
+     38,
      1
     ]
    ],
-   "lists": 9,
+   "lists": 8,
    "conv": [
-    0.9,
-    1.7,
+    0.8,
+    1.6,
     5
    ],
    "prev": 0.7
@@ -5877,9 +5819,9 @@
   {
    "id": "pioneer-rona-combo",
    "name": "Rona Combo",
-   "share": 0.7,
+   "share": 0.6,
    "tier": 2,
-   "count": 9,
+   "count": 8,
    "title": "Cdnewlon · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Cdnewlon",
    "main": [
@@ -5910,8 +5852,7 @@
     "2 Spell Pierce"
    ],
    "history": [
-    null,
-    2.5,
+    3.1,
     1.7,
     1.5,
     2,
@@ -5921,7 +5862,8 @@
     0.6,
     0,
     0,
-    1.1
+    1.1,
+    0
    ],
    "field": [
     1,
@@ -5938,87 +5880,226 @@
     [
      "Rona, Herald of Invasion",
      4
+    ],
+    [
+     "Mox Amber",
+     4
     ]
    ],
    "flex": [
     [
-     "Mox Amber",
-     89,
+     "Island",
+     88,
      3.9
     ],
     [
-     "Island",
-     89,
-     3.5
-    ],
-    [
-     "Watery Grave",
-     67,
-     2.8
-    ],
-    [
      "Boomerang Basics",
-     67,
+     75,
      3.3
     ],
     [
      "Clearwater Pathway",
-     56,
+     63,
      4
     ],
     [
      "Darkslick Shores",
-     56,
+     63,
      4
     ],
     [
      "Gloomlake Verge",
-     56,
+     63,
      4
     ],
     [
      "Retraction Helix",
-     56,
+     63,
      4
     ],
     [
      "Sewer-veillance Cam",
-     56,
+     63,
      3
     ],
     [
      "Stock Up",
-     56,
+     63,
      4
     ],
     [
      "Stormchaser's Talent",
-     56,
+     63,
      4
     ],
     [
      "Thassa's Oracle",
-     56,
+     63,
      1
     ],
     [
      "Thundertrap Trainer",
-     56,
+     63,
      4
     ],
     [
      "Valley Floodcaller",
-     56,
+     63,
      3
+    ],
+    [
+     "Watery Grave",
+     63,
+     3.2
+    ],
+    [
+     "Springleaf Drum",
+     50,
+     2
     ]
    ],
-   "lists": 9,
-   "prev": 0.8
+   "lists": 8,
+   "prev": 0.7
+  },
+  {
+   "id": "pioneer-rakdos-aggro",
+   "name": "Rakdos Aggro",
+   "share": 0.6,
+   "tier": 2,
+   "count": 8,
+   "title": "MacIsaac · Pioneer Challenge 32 (1st Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-10-2612857004#deck_MacIsaac",
+   "main": [
+    "4 Ancestral Anger",
+    "4 Blood Crypt",
+    "4 Cacophony Scamp",
+    "4 Callous Sell-Sword",
+    "1 Den of the Bugbear",
+    "4 Emberheart Challenger",
+    "4 Leyline of Resonance",
+    "2 Might of the Meek",
+    "4 Monastery Swiftspear",
+    "4 Monstrous Rage",
+    "12 Mountain",
+    "4 Slickshot Show-Off",
+    "1 Sokenzan, Crucible of Defiance",
+    "4 Turn Inside Out",
+    "4 Wild Ride"
+   ],
+   "side": [
+    "2 Dreadmaw's Ire",
+    "1 Poison Dart Frog",
+    "4 Redirect Lightning",
+    "1 Screaming Nemesis",
+    "4 Soul-Guide Lantern",
+    "3 Sunspine Lynx"
+   ],
+   "history": [
+    0.6,
+    0,
+    0,
+    0.7,
+    0,
+    0,
+    0,
+    1.3,
+    0,
+    0.9,
+    0.5,
+    2.7
+   ],
+   "field": [
+    5,
+    1,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Mountain",
+     11
+    ],
+    [
+     "Ancestral Anger",
+     4
+    ],
+    [
+     "Emberheart Challenger",
+     4
+    ],
+    [
+     "Monastery Swiftspear",
+     4
+    ],
+    [
+     "Monstrous Rage",
+     4
+    ],
+    [
+     "Slickshot Show-Off",
+     4
+    ],
+    [
+     "Callous Sell-Sword",
+     4
+    ],
+    [
+     "Wild Ride",
+     4
+    ],
+    [
+     "Blood Crypt",
+     4
+    ],
+    [
+     "Den of the Bugbear",
+     1
+    ],
+    [
+     "Sokenzan, Crucible of Defiance",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Cacophony Scamp",
+     88,
+     4
+    ],
+    [
+     "Leyline of Resonance",
+     88,
+     4
+    ],
+    [
+     "Might of the Meek",
+     88,
+     2
+    ],
+    [
+     "Turn Inside Out",
+     88,
+     4
+    ],
+    [
+     "Blackcleave Cliffs",
+     25,
+     4
+    ]
+   ],
+   "lists": 8,
+   "conv": [
+    0.8,
+    0.7,
+    2
+   ],
+   "prev": 0.5
   },
   {
    "id": "pioneer-sultai-midrange",
    "name": "Sultai Midrange",
-   "share": 0.6,
+   "share": 0.5,
    "tier": 2,
    "count": 7,
    "title": "Sarlanga · Pioneer Challenge 32 (8th Place)",
@@ -6051,8 +6132,7 @@
     "2 Quag Feast"
    ],
    "history": [
-    null,
-    1.5,
+    0.6,
     0,
     0.5,
     0,
@@ -6062,6 +6142,7 @@
     1.3,
     0,
     0.4,
+    0,
     0
    ],
    "field": [
@@ -6158,389 +6239,62 @@
    "prev": 0.6
   },
   {
-   "id": "pioneer-rakdos-aggro",
-   "name": "Rakdos Aggro",
+   "id": "pioneer-boros-hammer-time",
+   "name": "Boros Hammer Time",
    "share": 0.5,
    "tier": 2,
    "count": 6,
-   "title": "MacIsaac · Pioneer Challenge 32 (1st Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-10-2612857004#deck_MacIsaac",
+   "title": "Tree42o · Pioneer Challenge 16 (1st Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-1412858111#deck_Tree42o",
    "main": [
-    "4 Ancestral Anger",
-    "4 Blood Crypt",
-    "4 Cacophony Scamp",
-    "4 Callous Sell-Sword",
-    "1 Den of the Bugbear",
-    "4 Emberheart Challenger",
-    "4 Leyline of Resonance",
-    "2 Might of the Meek",
-    "4 Monastery Swiftspear",
-    "4 Monstrous Rage",
-    "12 Mountain",
-    "4 Slickshot Show-Off",
-    "1 Sokenzan, Crucible of Defiance",
-    "4 Turn Inside Out",
-    "4 Wild Ride"
-   ],
-   "side": [
-    "2 Dreadmaw's Ire",
-    "1 Poison Dart Frog",
-    "4 Redirect Lightning",
-    "1 Screaming Nemesis",
-    "4 Soul-Guide Lantern",
-    "3 Sunspine Lynx"
-   ],
-   "history": [
-    null,
-    0.5,
-    0,
-    0,
-    0.7,
-    0,
-    0,
-    0,
-    1.3,
-    0,
-    0.9,
-    0.5
-   ],
-   "field": [
-    5,
-    1,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Mountain",
-     10
-    ],
-    [
-     "Ancestral Anger",
-     4
-    ],
-    [
-     "Emberheart Challenger",
-     4
-    ],
-    [
-     "Monastery Swiftspear",
-     4
-    ],
-    [
-     "Monstrous Rage",
-     4
-    ],
-    [
-     "Slickshot Show-Off",
-     4
-    ],
-    [
-     "Callous Sell-Sword",
-     4
-    ],
-    [
-     "Wild Ride",
-     4
-    ],
-    [
-     "Blood Crypt",
-     4
-    ],
-    [
-     "Den of the Bugbear",
-     1
-    ],
-    [
-     "Sokenzan, Crucible of Defiance",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Cacophony Scamp",
-     83,
-     4
-    ],
-    [
-     "Leyline of Resonance",
-     83,
-     4
-    ],
-    [
-     "Might of the Meek",
-     83,
-     2
-    ],
-    [
-     "Turn Inside Out",
-     83,
-     4
-    ],
-    [
-     "Blackcleave Cliffs",
-     33,
-     4
-    ]
-   ],
-   "lists": 6,
-   "conv": [
-    0.6,
-    0.7,
-    2
-   ],
-   "prev": 0.5
-  },
-  {
-   "id": "pioneer-boros-midrange",
-   "name": "Boros Midrange",
-   "share": 0.4,
-   "tier": 2,
-   "count": 5,
-   "title": "MrCrocodile · 第12回みなとみらいオープン (1st Place)",
-   "url": "https://melee.gg/Decklist/View/ee8cf88c-a972-4340-a0ff-b4d200a0aacc",
-   "main": [
-    "4 Erode",
-    "2 Fiery Impulse",
-    "1 Flashback",
-    "4 Cori Mountain Monastery",
-    "4 Demolition Field",
-    "4 Price of Freedom",
-    "4 Avengers Disassembled",
-    "2 Chandra, Torch of Defiance",
-    "4 Sunken Citadel",
-    "4 Field of Ruin",
-    "3 Get Lost",
-    "2 Mountain",
-    "3 Day of Judgment",
-    "3 The Legend of Roku",
-    "4 Cleansing Wildfire",
+    "4 Battlefield Forge",
+    "2 Bofur, Reliable Guardian",
+    "4 Cloud, Midgar Mercenary",
+    "4 Colossus Hammer",
+    "1 Dragonfire Blade",
+    "1 Eiganjo, Seat of the Empire",
+    "4 Fervent Champion",
+    "4 Inspiring Vantage",
+    "3 Kellan, the Fae-Blooded",
+    "4 Kíli the Resourceful",
+    "4 Leyline Axe",
+    "3 Mox Amber",
+    "2 Plains",
     "4 Sacred Foundry",
-    "4 Plains",
-    "4 Emergency Eject"
+    "1 Shadowspear",
+    "4 Sigarda's Aid",
+    "2 Skrelv, Defector Mite",
+    "1 Sokenzan, Crucible of Defiance",
+    "4 Sunbillow Verge",
+    "2 Super-Soldier Serum",
+    "2 Zack Fair"
    ],
    "side": [
-    "1 Kaheera, the Orphanguard",
-    "2 Chandra, Awakened Inferno",
-    "2 Beza, the Bounding Spring",
-    "3 Authority of the Consuls",
-    "4 Rest in Peace",
-    "1 Elspeth, Storm Slayer",
-    "2 Fable of the Mirror-Breaker"
+    "2 Containment Priest",
+    "2 Jennifer Walters",
+    "2 Knight of Grace",
+    "2 Redcap Melee",
+    "1 Rest in Peace",
+    "2 Seam Rip",
+    "2 Sheltered by Ghosts",
+    "2 Surge of Salvation"
    ],
    "history": [
-    null,
+    0,
+    0,
+    0,
+    0.7,
     1,
-    0.8,
-    2,
-    3.3,
-    2,
     0,
     0,
     0,
+    0.5,
+    0.9,
     0,
-    0,
-    0
+    0.9
    ],
    "field": [
     8,
-    4,
-    0
-   ],
-   "mu": [
-    [
-     "Mono Red Aggro",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Plains",
-     5
-    ],
-    [
-     "Avengers Disassembled",
-     4
-    ],
-    [
-     "Cleansing Wildfire",
-     4
-    ],
-    [
-     "Cori Mountain Monastery",
-     4
-    ],
-    [
-     "Demolition Field",
-     4
-    ],
-    [
-     "Erode",
-     4
-    ],
-    [
-     "Field of Ruin",
-     4
-    ],
-    [
-     "Price of Freedom",
-     4
-    ],
-    [
-     "Sacred Foundry",
-     4
-    ],
-    [
-     "Sunken Citadel",
-     4
-    ],
-    [
-     "Get Lost",
-     3
-    ],
-    [
-     "Mountain",
-     3
-    ],
-    [
-     "Flashback",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Emergency Eject",
-     80,
-     3.5
-    ],
-    [
-     "Day of Judgment",
-     60,
-     3
-    ],
-    [
-     "The Legend of Roku",
-     60,
-     3
-    ],
-    [
-     "Fiery Impulse",
-     60,
-     2
-    ],
-    [
-     "Chandra, Torch of Defiance",
-     60,
-     2
-    ],
-    [
-     "Beza, the Bounding Spring",
-     40,
-     2
-    ],
-    [
-     "Elegant Parlor",
-     40,
-     4
-    ],
-    [
-     "Farewell",
-     40,
-     2
-    ],
-    [
-     "Lightning Helix",
-     40,
-     4
-    ],
-    [
-     "March of Otherworldly Light",
-     40,
-     4
-    ],
-    [
-     "Sundown Pass",
-     40,
-     2
-    ],
-    [
-     "Temporary Lockdown",
-     40,
-     4
-    ],
-    [
-     "Thor, God of Thunder",
-     40,
-     4
-    ]
-   ],
-   "lists": 5,
-   "conv": [
-    0.5,
-    0.7,
-    2
-   ],
-   "prev": 0.4
-  },
-  {
-   "id": "pioneer-boros-hammer-time",
-   "name": "Boros Hammer Time",
-   "share": 0.4,
-   "tier": 2,
-   "count": 5,
-   "title": "zummer · 第12回みなとみらいオープン (3st Place)",
-   "url": "https://melee.gg/Decklist/View/45a1c58e-a732-44ca-a5f2-b4d200a6253e",
-   "main": [
-    "3 Skrelv, Defector Mite",
-    "4 Fervent Champion",
-    "4 Adanto Vanguard",
-    "4 Cloud, Midgar Mercenary",
-    "4 Kíli the Resourceful",
-    "3 Kellan, the Fae-Blooded",
-    "4 Sigarda's Aid",
-    "1 Super-Soldier Serum",
-    "4 Colossus Hammer",
-    "2 Dragonfire Blade",
-    "1 Shadowspear",
-    "4 Leyline Axe",
-    "4 Battlefield Forge",
-    "2 Eiganjo, Seat of the Empire",
-    "4 Inspiring Vantage",
-    "2 Plains",
-    "4 Sacred Foundry",
-    "4 Sunbillow Verge",
-    "2 The Lonely Mountain"
-   ],
-   "side": [
-    "2 Surge of Salvation",
-    "2 Wear // Tear",
-    "2 Rending Volley",
-    "2 Boros Charm",
-    "1 Get Lost",
-    "2 Rest in Peace",
-    "2 Sheltered by Ghosts",
-    "2 Thorin, Mountain-king"
-   ],
-   "history": [
-    null,
-    0,
-    0,
-    0,
-    0.7,
-    1,
-    0,
-    0,
-    0,
-    0.5,
-    0.9,
-    0
-   ],
-   "field": [
-    5,
     6,
     0
    ],
@@ -6581,11 +6335,11 @@
     ],
     [
      "Leyline Axe",
-     3
+     4
     ],
     [
      "Sunbillow Verge",
-     3
+     4
     ],
     [
      "Kellan, the Fae-Blooded",
@@ -6607,232 +6361,201 @@
    "flex": [
     [
      "Dragonfire Blade",
-     80,
-     1.8
+     83,
+     1.6
     ],
     [
      "Super-Soldier Serum",
-     80,
-     1.5
+     83,
+     1.6
     ],
     [
      "Eiganjo, Seat of the Empire",
-     80,
-     1.5
-    ],
-    [
-     "The Lonely Mountain",
-     60,
-     2
+     83,
+     1.4
     ],
     [
      "Mox Amber",
-     60,
+     67,
      3
     ],
     [
+     "The Lonely Mountain",
+     50,
+     2
+    ],
+    [
      "Adanto Vanguard",
-     40,
+     33,
      4
     ],
     [
      "Cacophony Scamp",
-     40,
+     33,
      4
     ],
     [
      "Den of the Bugbear",
-     40,
+     33,
      1
     ]
    ],
-   "lists": 5,
+   "lists": 6,
    "conv": [
-    0.5,
-    0.7,
-    2
+    0.6,
+    1,
+    3
    ],
    "prev": 0.4
   },
   {
-   "id": "pioneer-golgari-food",
-   "name": "Golgari Food",
-   "share": 0.4,
+   "id": "pioneer-rakdos-midrange",
+   "name": "Rakdos Midrange",
+   "share": 0.5,
    "tier": 2,
-   "count": 5,
-   "title": "Christopher Wright · Crew3 2026 Savior of Pioneer Qualifier #11 - Final Qualifier (2st Place)",
-   "url": "https://melee.gg/Decklist/View/d161d2f7-9c59-403e-ad42-b4fb00f5951b",
+   "count": 6,
+   "title": "Alexis García · Crew3 2026 Savior of Pioneer Qualifier #11 - Final Qualifier (3st Place)",
+   "url": "https://melee.gg/Decklist/View/3b6fdcf5-4fee-450b-95c5-b4fb00de713f",
    "main": [
-    "4 Cauldron Familiar",
-    "4 Eyetwitch",
-    "4 Fatal Push",
-    "4 Gilded Goose",
-    "4 Scavenger's Talent",
-    "4 Witch's Oven",
-    "2 Abrupt Decay",
-    "3 Deadly Dispute",
-    "1 The Sackville-Bagginses",
-    "4 Witherbloom Charm",
-    "3 Ygra, Eater of All",
-    "4 Blooming Marsh",
-    "2 Boseiju, Who Endures",
-    "2 Darkbore Pathway",
-    "1 Forest",
-    "1 Fountainport",
-    "3 Llanowar Wastes",
-    "2 Midgar, City of Mako",
-    "4 Overgrown Tomb",
-    "1 Restless Cottage",
+    "4 Insolent Neonate",
+    "4 Mountain",
+    "4 Masked Meower",
+    "4 Fiery Temper",
+    "4 Alms of the Vein",
     "2 Swamp",
-    "1 Takenuma, Abandoned Mire"
+    "4 Fatal Push",
+    "3 Carnage, Crimson Chaos",
+    "4 Voldaren Epicure",
+    "4 Cool but Rude",
+    "4 Blackcleave Cliffs",
+    "3 Claim // Fame",
+    "4 Blood Crypt",
+    "4 Blightstep Pathway",
+    "4 Sulfurous Springs",
+    "4 Darklight Phoenix"
    ],
    "side": [
-    "2 Origin of Metalbending",
-    "2 Professor Dellian Fel",
-    "2 Ruinous Waterbending",
-    "1 Seismic Sense",
-    "4 Thoughtseize",
-    "1 True Ancestry",
-    "2 Unlicensed Hearse",
-    "1 Zuko's Exile"
+    "2 The Meathook Massacre",
+    "4 Leyline of the Void",
+    "3 Thoughtseize",
+    "2 Roiling Vortex",
+    "2 Ray of Enfeeblement",
+    "2 Feed the Swarm"
    ],
    "history": [
-    null,
-    0.5,
+    1.2,
     0,
     1,
-    0.7,
     0,
     0,
+    0.8,
     0,
-    1.3,
-    0.5,
     0,
-    0.5
+    1.1,
+    0,
+    1.6,
+    0
    ],
    "field": [
+    7,
     5,
-    2,
     0
    ],
    "mu": [],
    "metaWr": null,
    "core": [
     [
-     "Blooming Marsh",
+     "Blackcleave Cliffs",
      4
     ],
     [
-     "Cauldron Familiar",
+     "Blood Crypt",
      4
-    ],
-    [
-     "Gilded Goose",
-     4
-    ],
-    [
-     "Overgrown Tomb",
-     4
-    ],
-    [
-     "Scavenger's Talent",
-     4
-    ],
-    [
-     "Witch's Oven",
-     4
-    ],
-    [
-     "Ygra, Eater of All",
-     3
-    ],
-    [
-     "Darkbore Pathway",
-     2
     ],
     [
      "Swamp",
-     1
-    ],
-    [
-     "Forest",
-     1
+     2
     ]
    ],
    "flex": [
     [
-     "Deadly Dispute",
-     80,
-     3.8
-    ],
-    [
-     "The Sackville-Bagginses",
-     80,
-     3.3
-    ],
-    [
-     "Badgermole Cub",
-     80,
+     "Fatal Push",
+     83,
      4
     ],
     [
-     "Biotech Specialist",
-     60,
+     "Mountain",
+     83,
+     2.2
+    ],
+    [
+     "Blightstep Pathway",
+     67,
      4
     ],
     [
-     "Blackcleave Cliffs",
-     60,
-     2
+     "Fable of the Mirror-Breaker",
+     67,
+     4
     ],
     [
      "Blazemire Verge",
-     60,
-     2
+     67,
+     2.3
     ],
     [
-     "Blood Crypt",
-     60,
-     3
+     "Sulfurous Springs",
+     67,
+     2.8
     ],
     [
-     "Copperline Gorge",
-     60,
-     1
-    ],
-    [
-     "Lively Dirge",
-     60,
+     "Bloodtithe Harvester",
+     50,
      4
     ],
     [
-     "Urborg, Tomb of Yawgmoth",
-     60,
-     1
-    ],
-    [
-     "Wastewood Verge",
-     60,
-     1
-    ],
-    [
-     "Fatal Push",
-     40,
+     "Darklight Phoenix",
+     33,
      4
     ],
     [
-     "Abrupt Decay",
-     40,
+     "Hive of the Eye Tyrant",
+     33,
      1.5
     ],
     [
-     "Witherbloom Charm",
-     40,
+     "Sokenzan, Crucible of Defiance",
+     33,
+     1
+    ],
+    [
+     "Takenuma, Abandoned Mire",
+     33,
+     1
+    ],
+    [
+     "Thoughtseize",
+     33,
+     4
+    ],
+    [
+     "Mutavault",
+     33,
+     3
+    ],
+    [
+     "Haunted Ridge",
+     33,
      3
     ]
    ],
-   "lists": 5,
-   "prev": 0.4
+   "lists": 6,
+   "conv": [
+    0.6,
+    0.7,
+    2
+   ],
+   "prev": 0.8
   },
   {
    "id": "pioneer-rakdos-creativity",
@@ -6882,13 +6605,13 @@
     "1 Strategic Betrayal"
    ],
    "history": [
-    null,
     0,
     0,
     0,
     0,
     3.9,
     0.8,
+    0,
     0,
     0,
     0,
@@ -7011,6 +6734,173 @@
    "prev": 0.4
   },
   {
+   "id": "pioneer-boros-aggro",
+   "name": "Boros Aggro",
+   "share": 0.4,
+   "tier": 2,
+   "count": 5,
+   "title": "makaaaa · Pioneer Challenge 32 (5th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-11-1012857710#deck_makaaaa",
+   "main": [
+    "4 Academic Dispute",
+    "4 Ancestral Anger",
+    "4 Battlefield Forge",
+    "4 Favored Hoplite",
+    "4 Guiding Voice",
+    "4 Illuminator Virtuoso",
+    "4 Inspiring Vantage",
+    "4 Monastery Swiftspear",
+    "4 Monstrous Rage",
+    "4 Mountain",
+    "2 Plains",
+    "4 Pompous Battlemage",
+    "2 Practiced Offense",
+    "2 Reckless Rage",
+    "4 Sacred Foundry",
+    "2 Shardmage's Rescue",
+    "4 Sunbillow Verge"
+   ],
+   "side": [
+    "1 Abandon Attachments",
+    "2 Enter the Avatar State",
+    "1 Firebending Lesson",
+    "1 Iroh's Demonstration",
+    "2 Jaya, Fiery Negotiator",
+    "1 Lorehold Charm",
+    "2 Redcap Melee",
+    "1 Redirect Lightning",
+    "1 Spirit Summoning",
+    "2 Unlicensed Hearse",
+    "1 Yip Yip!"
+   ],
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.4,
+    1.6,
+    0.9
+   ],
+   "field": [
+    1,
+    3,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Battlefield Forge",
+     4
+    ],
+    [
+     "Inspiring Vantage",
+     4
+    ],
+    [
+     "Monastery Swiftspear",
+     4
+    ],
+    [
+     "Monstrous Rage",
+     4
+    ],
+    [
+     "Mountain",
+     4
+    ],
+    [
+     "Sacred Foundry",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Reckless Rage",
+     60,
+     2
+    ],
+    [
+     "Boros Charm",
+     60,
+     3
+    ],
+    [
+     "Den of the Bugbear",
+     60,
+     1
+    ],
+    [
+     "Eidolon of the Great Revel",
+     60,
+     3.7
+    ],
+    [
+     "Emberheart Challenger",
+     60,
+     4
+    ],
+    [
+     "Kumano Faces Kakkazan",
+     60,
+     4
+    ],
+    [
+     "Lightning Helix",
+     60,
+     3
+    ],
+    [
+     "Needleverge Pathway",
+     60,
+     1
+    ],
+    [
+     "Ramunap Ruins",
+     60,
+     2
+    ],
+    [
+     "Screaming Nemesis",
+     60,
+     4
+    ],
+    [
+     "Sokenzan, Crucible of Defiance",
+     60,
+     1
+    ],
+    [
+     "Academic Dispute",
+     40,
+     4
+    ],
+    [
+     "Ancestral Anger",
+     40,
+     4
+    ],
+    [
+     "Favored Hoplite",
+     40,
+     4
+    ]
+   ],
+   "lists": 5,
+   "conv": [
+    0.5,
+    1,
+    3
+   ],
+   "prev": 0.3
+  },
+  {
    "id": "pioneer-golgari-stompy",
    "name": "Golgari Stompy",
    "share": 0.3,
@@ -7051,8 +6941,7 @@
     "2 Thoughtseize"
    ],
    "history": [
-    null,
-    2,
+    2.5,
     1.7,
     0.5,
     3.3,
@@ -7062,6 +6951,7 @@
     0,
     0,
     0.4,
+    0,
     0
    ],
    "field": [
@@ -7071,7 +6961,7 @@
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.5
+   "prev": 0.3
   },
   {
    "id": "pioneer-selesnya-elemental",
@@ -7115,7 +7005,6 @@
     "1 Scavenger Grounds"
    ],
    "history": [
-    null,
     0,
     0,
     0,
@@ -7126,7 +7015,8 @@
     0,
     0,
     0,
-    1.1
+    1.1,
+    0
    ],
    "field": [
     5,
@@ -7136,6 +7026,72 @@
    "mu": [],
    "metaWr": null,
    "prev": 0.3
+  },
+  {
+   "id": "pioneer-lotus-strings",
+   "name": "Lotus Strings",
+   "share": 0.3,
+   "tier": 2,
+   "count": 4,
+   "title": "HRMR · Pioneer Spark!! ONLINE 28th -MTGArena- (6th Place)",
+   "url": "https://melee.gg/Decklist/View/12333668-006c-4966-8cc1-b4fb00beac3e",
+   "main": [
+    "1 Lindblum, Industrial Regency",
+    "2 Otawara, Soaring City",
+    "2 Flashback",
+    "4 Into the Flood Maw",
+    "4 Riverglide Pathway",
+    "4 Consider",
+    "4 Lotus Field",
+    "4 Flow State",
+    "1 Island",
+    "1 Wish",
+    "4 Pore Over the Pages",
+    "4 Hidden Strings",
+    "1 Lier, Disciple of the Drowned",
+    "4 Artist's Talent",
+    "3 Steam Vents",
+    "3 Thespian's Stage",
+    "4 Spirebluff Canal",
+    "4 Divide by Zero",
+    "4 Sleight of Hand",
+    "2 Expedition Map"
+   ],
+   "side": [
+    "3 Leyline of Sanctity",
+    "1 Fiery Impulse",
+    "1 Boomerang Basics",
+    "2 Mystical Dispute",
+    "2 Avengers Disassembled",
+    "1 Iroh's Demonstration",
+    "1 Firebending Lesson",
+    "1 Thassa's Oracle",
+    "1 Niv-Mizzet, Parun",
+    "1 Lier, Disciple of the Drowned",
+    "1 Improvisation Capstone"
+   ],
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.8,
+    0,
+    0,
+    0,
+    0.4,
+    0.5,
+    0.9
+   ],
+   "field": [
+    2,
+    1,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "prev": 0.2
   },
   {
    "id": "pioneer-bring-to-light",
@@ -7182,8 +7138,7 @@
     "1 Aang's Journey"
    ],
    "history": [
-    null,
-    0.5,
+    0.6,
     0,
     1.5,
     0,
@@ -7193,7 +7148,8 @@
     0.6,
     0.5,
     0,
-    0.5
+    0.5,
+    0
    ],
    "field": [
     5,
@@ -7250,10 +7206,9 @@
     "1 Unlicensed Hearse"
    ],
    "history": [
-    null,
-    0.5,
+    0.6,
     0.8,
-    0.5,
+    0,
     0,
     1,
     0,
@@ -7261,73 +7216,12 @@
     0,
     0.5,
     0.4,
-    0.5
-   ],
-   "field": [
-    0,
-    0,
+    0.5,
     0
    ],
-   "mu": [],
-   "metaWr": null,
-   "prev": 0.3
-  },
-  {
-   "id": "pioneer-boros-aggro",
-   "name": "Boros Aggro",
-   "share": 0.3,
-   "tier": 2,
-   "count": 4,
-   "title": "haruhilmi24 · Pioneer Challenge 16 (3rd Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-0812857700#deck_haruhilmi24",
-   "main": [
-    "4 Battlefield Forge",
-    "3 Boros Charm",
-    "3 Burst Lightning",
-    "1 Den of the Bugbear",
-    "4 Eidolon of the Great Revel",
-    "4 Emberheart Challenger",
-    "4 Inspiring Vantage",
-    "4 Kumano Faces Kakkazan",
-    "3 Lightning Helix",
-    "4 Monastery Swiftspear",
-    "4 Monstrous Rage",
-    "4 Mountain",
-    "1 Needleverge Pathway",
-    "2 Ramunap Ruins",
-    "4 Sacred Foundry",
-    "4 Screaming Nemesis",
-    "2 Sheltered by Ghosts",
-    "1 Sokenzan, Crucible of Defiance",
-    "4 Voice of Victory"
-   ],
-   "side": [
-    "1 Case of the Crimson Pulse",
-    "2 Deflecting Palm",
-    "2 Erode",
-    "3 Magebane Lizard",
-    "2 Pyroclasm",
-    "2 Sunspine Lynx",
-    "2 Unlicensed Hearse",
-    "1 Urabrask's Forge"
-   ],
-   "history": [
-    null,
-    0.5,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0.4,
-    1.6
-   ],
    "field": [
-    1,
-    2,
+    0,
+    0,
     0
    ],
    "mu": [],
@@ -7372,8 +7266,7 @@
     "2 Invasion of Gobakhan"
    ],
    "history": [
-    null,
-    2,
+    2.5,
     0.8,
     0,
     1.3,
@@ -7381,6 +7274,7 @@
     0.8,
     0,
     0.6,
+    0,
     0,
     0,
     0
@@ -7442,7 +7336,6 @@
     "1 Yasharn, Implacable Earth"
    ],
    "history": [
-    null,
     0,
     0,
     0,
@@ -7453,7 +7346,8 @@
     0,
     0,
     0.4,
-    0.5
+    0.5,
+    0
    ],
    "field": [
     0,
@@ -7465,70 +7359,68 @@
    "prev": 0.2
   },
   {
-   "id": "pioneer-lotus-strings",
-   "name": "Lotus Strings",
+   "id": "pioneer-waste-not",
+   "name": "Waste Not",
    "share": 0.2,
    "tier": 3,
    "count": 3,
-   "title": "HRMR · Pioneer Spark!! ONLINE 28th -MTGArena- (6th Place)",
-   "url": "https://melee.gg/Decklist/View/12333668-006c-4966-8cc1-b4fb00beac3e",
+   "title": "nicole Masuwaka · Pioneer Spark!! ONLINE 27th -MTGArena- (6th Place)",
+   "url": "https://melee.gg/Decklist/View/c9cf87de-8ef1-4f3a-bd2a-b4ed00a66c4e",
    "main": [
-    "1 Lindblum, Industrial Regency",
-    "2 Otawara, Soaring City",
-    "2 Flashback",
-    "4 Into the Flood Maw",
-    "4 Riverglide Pathway",
-    "4 Consider",
-    "4 Lotus Field",
-    "4 Flow State",
-    "1 Island",
-    "1 Wish",
-    "4 Pore Over the Pages",
-    "4 Hidden Strings",
-    "1 Lier, Disciple of the Drowned",
-    "4 Artist's Talent",
-    "3 Steam Vents",
-    "3 Thespian's Stage",
-    "4 Spirebluff Canal",
-    "4 Divide by Zero",
-    "4 Sleight of Hand",
-    "2 Expedition Map"
+    "4 Castle Locthwain",
+    "4 Field of Ruin",
+    "1 Demolition Field",
+    "9 Swamp",
+    "2 Hive of the Eye Tyrant",
+    "1 Aclazotz, Deepest Betrayal",
+    "3 Geier Reach Sanitarium",
+    "2 Sunken Citadel",
+    "2 Reckoner Bankbuster",
+    "3 Sheoldred, the Apocalypse",
+    "4 Sheoldred's Edict",
+    "4 Fatal Push",
+    "2 Duress",
+    "1 Extinction Event",
+    "2 Go Blank",
+    "4 Thoughtseize",
+    "4 Waste Not",
+    "4 Liliana of the Veil",
+    "1 Detection Tower",
+    "1 Hostile Investigator",
+    "2 Bandit's Talent"
    ],
    "side": [
-    "3 Leyline of Sanctity",
-    "1 Fiery Impulse",
-    "1 Boomerang Basics",
-    "2 Mystical Dispute",
-    "2 Avengers Disassembled",
-    "1 Iroh's Demonstration",
-    "1 Firebending Lesson",
-    "1 Thassa's Oracle",
-    "1 Niv-Mizzet, Parun",
-    "1 Lier, Disciple of the Drowned",
-    "1 Improvisation Capstone"
+    "4 Invoke Despair",
+    "1 Ashiok, Dream Render",
+    "1 Path of Peril",
+    "2 Kalitas, Traitor of Ghet",
+    "2 Reckoner Bankbuster",
+    "2 Cut Down",
+    "2 Duress",
+    "1 Extinction Event"
    ],
    "history": [
-    null,
     0,
     0,
     0,
     0,
     0,
-    0.8,
     0,
     0,
     0,
-    0.4,
-    0.5
+    0.5,
+    0,
+    0.5,
+    0.9
    ],
    "field": [
-    2,
+    1,
     1,
     0
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.2
+   "prev": null
   },
   {
    "id": "pioneer-sultai-control",
@@ -7580,7 +7472,6 @@
     "2 Terminal Criticism"
    ],
    "history": [
-    null,
     0,
     0,
     0,
@@ -7591,7 +7482,8 @@
     0.6,
     0.5,
     0,
-    0.5
+    0.5,
+    0
    ],
    "field": [
     6,
@@ -7603,139 +7495,64 @@
    "prev": 0.2
   },
   {
-   "id": "pioneer-esper-midrange",
-   "name": "Esper Midrange",
+   "id": "pioneer-jund-midrange",
+   "name": "Jund Midrange",
    "share": 0.2,
    "tier": 3,
    "count": 3,
-   "title": "kanara38204 · Pioneer Challenge 32 (24th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-09-2112854530#deck_kanara38204",
+   "title": "DrScreamingGoat · Crew3 2026 Savior of Pioneer Qualifier #11 - Final Qualifier (7th Place)",
+   "url": "https://melee.gg/Decklist/View/96cd118d-5053-4876-a278-b4fb010622ab",
    "main": [
-    "2 Aang, Swift Savior",
-    "3 Cecil, Dark Knight",
-    "2 Concealed Courtyard",
-    "2 Darkslick Shores",
+    "2 Blackcleave Cliffs",
+    "1 Blood Crypt",
+    "4 Blooming Marsh",
+    "4 Break Out",
+    "2 Copperline Gorge",
+    "4 Dark Matter Manipulator",
     "4 Fatal Push",
-    "2 Godless Shrine",
-    "2 Hallowed Fountain",
-    "1 Island",
-    "1 Jace Reawakened",
-    "2 Lazav, Wearer of Faces",
-    "1 Liliana, the Last Hope",
-    "1 Loki, God of Mischief",
-    "1 Mana Confluence",
-    "3 Nashi, Searcher in the Dark",
-    "4 Plaza of Heroes",
-    "3 Raffine, Scheming Seer",
-    "2 Seachrome Coast",
-    "1 Skrelv, Defector Mite",
-    "2 Starting Town",
+    "4 Fear of Missing Out",
+    "3 Grim Flayer",
+    "4 Overgrown Tomb",
+    "4 Patchwork Beastie",
+    "4 Starting Town",
     "1 Swamp",
-    "1 Takenuma, Abandoned Mire",
-    "2 The Ooze",
-    "2 The Queen of Dale",
+    "4 Tarmogoyf",
+    "3 Stomping Ground",
     "4 Thoughtseize",
-    "2 Unholy Annex // Ritual Chamber",
-    "1 Valki, God of Lies",
-    "3 Vanishing Verse",
-    "2 Viggo, Enforcer of Ig's Crossing",
-    "3 Watery Grave"
+    "4 Violent Urge",
+    "4 Wildfire Wickerfolk"
    ],
    "side": [
-    "2 Ashiok, Dream Render",
-    "2 Dovin's Veto",
-    "2 Kaito, Bane of Nightmares",
-    "3 Pest Control",
-    "2 Ray of Enfeeblement",
-    "2 Requiting Hex",
-    "2 Urza's Ruinous Blast"
+    "2 Duress",
+    "2 Guerrilla Gorilla",
+    "2 Haywire Mite",
+    "3 Karn, Argent Defender",
+    "2 Keen-Eyed Curator",
+    "2 Overlord of the Balemurk",
+    "2 Tyvar, Jubilant Brawler"
    ],
    "history": [
-    null,
+    0,
+    0,
     0.5,
-    1.7,
-    2.5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1.1,
+    0,
+    0.5,
+    0
+   ],
+   "field": [
     2,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "field": [
-    0,
-    0,
+    3,
     0
    ],
    "mu": [],
    "metaWr": null,
-   "prev": 0.2
-  },
-  {
-   "id": "pioneer-simic-lessons",
-   "name": "Simic Lessons",
-   "share": 0.2,
-   "tier": 3,
-   "count": 3,
-   "title": "jtl005 · Pioneer Showcase Challenge (5th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-showcase-challenge-2026-11-0112857433#deck_jtl005",
-   "main": [
-    "4 Abandon Attachments",
-    "3 Accumulate Wisdom",
-    "4 Combustion Technique",
-    "4 Divide by Zero",
-    "4 Firebending Lesson",
-    "4 Gran-Gran",
-    "3 Island",
-    "4 It'll Quench Ya!",
-    "1 Mountain",
-    "1 Pop Quiz",
-    "4 Questing Druid",
-    "4 Riverglide Pathway",
-    "4 Riverpyre Verge",
-    "3 Spirebluff Canal",
-    "3 Steam Vents",
-    "4 Tablet of Discovery",
-    "2 Thor, God of Thunder",
-    "4 Willowrush Verge"
-   ],
-   "side": [
-    "1 Accumulate Wisdom",
-    "1 Boomerang Basics",
-    "1 Environmental Sciences",
-    "4 Fresh Start",
-    "1 Improvisation Capstone",
-    "1 Iroh's Demonstration",
-    "1 Origin of Metalbending",
-    "2 Pop Quiz",
-    "1 Price of Freedom",
-    "1 Sokka's Haiku",
-    "1 True Ancestry"
-   ],
-   "history": [
-    null,
-    0,
-    0,
-    0,
-    0.7,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0.4,
-    0
-   ],
-   "field": [
-    0,
-    1,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "prev": 0.2
+   "prev": 2.2
   },
   {
    "id": "pioneer-izzet-ensoul",
@@ -7777,7 +7594,6 @@
     "3 Urabrask's Forge"
    ],
    "history": [
-    null,
     0,
     0,
     0,
@@ -7787,6 +7603,7 @@
     0.8,
     0,
     0.5,
+    0,
     0,
     0
    ],
@@ -7798,6 +7615,133 @@
    "mu": [],
    "metaWr": null,
    "prev": 0.2
+  },
+  {
+   "id": "pioneer-jund-food",
+   "name": "Jund Food",
+   "share": 0.2,
+   "tier": 3,
+   "count": 3,
+   "title": "night25456 · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-10-2411137#deck_night25456",
+   "main": [
+    "4 Badgermole Cub",
+    "4 Biotech Specialist",
+    "2 Blackcleave Cliffs",
+    "2 Blazemire Verge",
+    "3 Blood Crypt",
+    "4 Blooming Marsh",
+    "4 Cauldron Familiar",
+    "1 Copperline Gorge",
+    "1 Darkbore Pathway",
+    "4 Deadly Dispute",
+    "1 Forest",
+    "4 Gilded Goose",
+    "4 Lively Dirge",
+    "4 Overgrown Tomb",
+    "4 Scavenger's Talent",
+    "1 Swamp",
+    "4 The Sackville-Bagginses",
+    "1 Urborg, Tomb of Yawgmoth",
+    "1 Wastewood Verge",
+    "4 Witch's Oven",
+    "3 Ygra, Eater of All"
+   ],
+   "side": [
+    "1 Abrupt Decay",
+    "3 Fatal Push",
+    "3 Haywire Mite",
+    "1 Soul-Guide Lantern",
+    "1 The Ooze",
+    "4 Thoughtseize",
+    "1 Witherbloom Charm",
+    "1 Ygra, Eater of All"
+   ],
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1.3,
+    0.5,
+    0,
+    0,
+    0
+   ],
+   "field": [
+    2,
+    1,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "prev": null
+  },
+  {
+   "id": "pioneer-temur-prowess",
+   "name": "Temur Prowess",
+   "share": 0.2,
+   "tier": 3,
+   "count": 3,
+   "title": "Fink64 · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1311353#deck_Fink64",
+   "main": [
+    "4 Academic Dispute",
+    "3 Boomerang Basics",
+    "4 Copperline Gorge",
+    "3 Emberheart Challenger",
+    "4 Experimental Synthesizer",
+    "1 Island",
+    "4 Monastery Swiftspear",
+    "2 Monstrous Rage",
+    "2 Mountain",
+    "4 Pompous Battlemage",
+    "4 Reckless Rage",
+    "1 Riverpyre Verge",
+    "4 Soul-Scar Mage",
+    "4 Spirebluff Canal",
+    "4 Starting Town",
+    "4 Steam Vents",
+    "4 Stormchaser's Talent",
+    "4 Torch the Tower"
+   ],
+   "side": [
+    "1 Accumulate Wisdom",
+    "1 Boomerang Basics",
+    "1 Firebending Lesson",
+    "1 Iroh's Demonstration",
+    "1 It'll Quench Ya!",
+    "1 Octopus Form",
+    "1 Origin of Metalbending",
+    "2 Pyroclasm",
+    "4 Questing Druid",
+    "2 Spell Pierce"
+   ],
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.4,
+    0.5,
+    0.9
+   ],
+   "field": [
+    0,
+    0,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "prev": null
   },
   {
    "id": "pioneer-quintorius-combo",
@@ -7840,8 +7784,7 @@
     "2 Consecrate // Consume"
    ],
    "history": [
-    null,
-    0.5,
+    0.6,
     0,
     0,
     0,
@@ -7851,85 +7794,12 @@
     0,
     0.5,
     0,
+    0,
     0
    ],
    "field": [
     3,
     4,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "prev": 0.2
-  },
-  {
-   "id": "pioneer-wubr-midrange",
-   "name": "WUBR Midrange",
-   "share": 0.2,
-   "tier": 3,
-   "count": 2,
-   "title": "Tinker147 · Pioneer Challenge 32 (24th Place)",
-   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-10-0112855464#deck_Tinker147",
-   "main": [
-    "2 Blazemire Verge",
-    "3 Bleachbone Verge",
-    "1 Blood Crypt",
-    "2 Deadly Cover-Up",
-    "3 Dispelling Exhale",
-    "2 Fiery Impulse",
-    "4 Firdoch Core",
-    "1 Flashback",
-    "3 Go for the Throat",
-    "4 Great Hall of the Biblioplex",
-    "3 Inevitable Defeat",
-    "1 Island",
-    "2 Jeskai Revelation",
-    "1 Mistrise Village",
-    "1 Mountain",
-    "1 Plains",
-    "1 Raffine's Tower",
-    "1 Raugrin Triome",
-    "1 Riverpyre Verge",
-    "1 Sacred Foundry",
-    "1 Savai Triome",
-    "2 Shattered Sanctum",
-    "1 Steam Vents",
-    "3 Stock Up",
-    "1 Swamp",
-    "2 Tablet of Discovery",
-    "4 Thoughtseize",
-    "2 Together as One",
-    "4 Unholy Annex // Ritual Chamber",
-    "2 Watery Grave"
-   ],
-   "side": [
-    "2 Hushbringer",
-    "1 Mistrise Village",
-    "1 Quantum Riddler",
-    "3 Rest in Peace",
-    "1 Sphinx of the Final Word",
-    "1 Splendid Reclamation",
-    "2 Temporary Lockdown",
-    "2 Test of Talents",
-    "2 Thought Distortion"
-   ],
-   "history": [
-    null,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1.7,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "field": [
-    0,
-    0,
     0
    ],
    "mu": [],
