@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-18",
- "prevDate": "2026-11-17",
+ "updated": "2026-11-19",
+ "prevDate": "2026-11-18",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 11924,
+ "decksAnalyzed": 11715,
  "unknownPct": 0.3,
  "rogue": [
   {
@@ -438,7 +438,7 @@
    "rogue": true,
    "results": 1,
    "best": "5-0",
-   "signature": "Leyline of Abundance",
+   "signature": "Birds of Paradise",
    "share": 0,
    "title": "TheTateristTot · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1011161#deck_TheTateristTot",
@@ -556,7 +556,7 @@
     13.2,
     7,
     [
-     1.2,
+     1,
      0.8,
      0.6,
      1.1,
@@ -689,7 +689,7 @@
     6.6,
     3,
     [
-     5.3,
+     5.4,
      4.8,
      4.4,
      4,
@@ -708,7 +708,7 @@
     9.2,
     5.6,
     [
-     4.7,
+     4.9,
      5.5,
      5.3,
      5.4,
@@ -727,7 +727,7 @@
     9.7,
     6.2,
     [
-     0.4,
+     0.5,
      0.3,
      0.3,
      0.3,
@@ -767,7 +767,7 @@
     9.3,
     16.7,
     [
-     8.5,
+     8.6,
      11.5,
      14.3,
      13.8,
@@ -786,7 +786,7 @@
     26.6,
     32.6,
     [
-     29,
+     29.2,
      33.7,
      35.1,
      30.4,
@@ -805,7 +805,7 @@
     4.8,
     10.6,
     [
-     14,
+     14.1,
      13.4,
      16,
      16.1,
@@ -824,7 +824,7 @@
     9.1,
     14.8,
     [
-     10.5,
+     10.7,
      10.9,
      15.9,
      12.4,
@@ -843,7 +843,7 @@
     17.9,
     23.5,
     [
-     27.7,
+     28.1,
      25.3,
      23.1,
      25.4,
@@ -862,7 +862,7 @@
     5.2,
     9.9,
     [
-     7.2,
+     7.1,
      8.1,
      7.7,
      5.4,
@@ -881,7 +881,7 @@
     13.1,
     17.5,
     [
-     18.3,
+     18.7,
      19.2,
      20.5,
      15.4,
@@ -900,7 +900,7 @@
     10.7,
     14.8,
     [
-     8.7,
+     8.8,
      7.9,
      8.4,
      10.5,
@@ -919,7 +919,7 @@
     12.8,
     16.9,
     [
-     14.8,
+     14.6,
      14,
      18.7,
      19.8,
@@ -1042,9 +1042,9 @@
   {
    "id": "modern-broodscale",
    "name": "Broodscale",
-   "share": 13.7,
+   "share": 13.6,
    "tier": 1,
-   "count": 1629,
+   "count": 1591,
    "title": "Bok_Choy_ · Modern Challenge 32 (6th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1512858112#deck_Bok_Choy_",
    "main": [
@@ -1102,22 +1102,22 @@
     10.1
    ],
    "field": [
-    2654,
-    2136,
-    381
+    2640,
+    2124,
+    379
    ],
    "mu": [
     [
      "Prowess",
-     349,
-     251,
+     348,
+     250,
      10
     ],
     [
      "Azorius Control",
      165,
      256,
-     123
+     121
     ],
     [
      "Rakdos Midrange",
@@ -1127,13 +1127,13 @@
     ],
     [
      "Affinity",
-     168,
-     123,
+     167,
+     122,
      6
     ],
     [
      "Boros Energy",
-     170,
+     169,
      177,
      14
     ],
@@ -1151,20 +1151,20 @@
     ],
     [
      "Esper Blink",
-     149,
-     89,
+     147,
+     88,
      40
     ],
     [
      "Amulet Titan",
      97,
-     96,
+     94,
      14
     ],
     [
      "Devoted Combo",
      82,
-     82,
+     80,
      8
     ],
     [
@@ -1175,20 +1175,20 @@
     ],
     [
      "Ruby Storm",
-     87,
+     85,
      91,
      10
     ],
     [
      "Living End",
-     54,
+     53,
      40,
      8
     ],
     [
      "Dimir Frog",
      64,
-     34,
+     32,
      2
     ],
     [
@@ -1200,20 +1200,20 @@
     [
      "Neobrand",
      33,
-     36,
+     35,
      4
-    ],
-    [
-     "Boros Ponza",
-     51,
-     10,
-     22
     ],
     [
      "Jeskai Energy",
      32,
      27,
      2
+    ],
+    [
+     "Boros Ponza",
+     51,
+     10,
+     22
     ],
     [
      "Esper Midrange",
@@ -1235,8 +1235,8 @@
     ],
     [
      "Blue Belcher",
-     33,
-     20,
+     32,
+     19,
      0
     ],
     [
@@ -1246,15 +1246,9 @@
      0
     ],
     [
-     "Necrodominance",
-     24,
-     9,
-     0
-    ],
-    [
      "Grixis Reanimator",
      21,
-     13,
+     12,
      6
     ],
     [
@@ -1276,10 +1270,22 @@
      0
     ],
     [
+     "Necrodominance",
+     24,
+     9,
+     0
+    ],
+    [
      "Yawgmoth",
      32,
      14,
      4
+    ],
+    [
+     "Simic Ritual",
+     18,
+     7,
+     0
     ],
     [
      "Omnath Ritual",
@@ -1312,14 +1318,8 @@
      2
     ],
     [
-     "Simic Ritual",
-     18,
-     7,
-     0
-    ],
-    [
      "Azorius Blink",
-     7,
+     6,
      5,
      0
     ],
@@ -1490,44 +1490,44 @@
     ],
     [
      "Sire of Seven Deaths",
+     65,
+     1.4
+    ],
+    [
+     "Talisman of Resilience",
      64,
      1.4
     ],
     [
      "Cavern of Souls",
-     63,
+     62,
      1
     ],
     [
-     "Talisman of Resilience",
-     63,
-     1.4
-    ],
-    [
      "Yavimaya, Cradle of Growth",
-     43,
+     42,
      1
     ],
     [
      "Glaring Fleshraker",
-     31,
+     30,
      2
     ]
    ],
-   "lists": 1629,
+   "lists": 1591,
    "conv": [
-    14.4,
-    17.9,
-    232
+    14.3,
+    17.8,
+    224
    ],
-   "prev": 13.6
+   "prev": 13.7
   },
   {
    "id": "modern-prowess",
    "name": "Prowess",
    "share": 8.7,
    "tier": 1,
-   "count": 1043,
+   "count": 1021,
    "title": "O_danielakos · Modern Challenge 32 (1st Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1312858098#deck_O_danielakos",
    "main": [
@@ -1565,7 +1565,7 @@
     "3 Unholy Heat"
    ],
    "history": [
-    11.5,
+    12.1,
     9.7,
     11.3,
     11.6,
@@ -1579,21 +1579,21 @@
     6.8
    ],
    "field": [
-    1471,
-    1667,
+    1466,
+    1662,
     91
    ],
    "mu": [
     [
      "Broodscale",
-     251,
-     349,
+     250,
+     348,
      10
     ],
     [
      "Azorius Control",
      109,
-     137,
+     136,
      15
     ],
     [
@@ -1616,7 +1616,7 @@
     ],
     [
      "Domain Zoo",
-     73,
+     72,
      89,
      11
     ],
@@ -1629,7 +1629,7 @@
     [
      "Esper Blink",
      87,
-     76,
+     75,
      7
     ],
     [
@@ -1652,7 +1652,7 @@
     ],
     [
      "Ruby Storm",
-     54,
+     53,
      37,
      0
     ],
@@ -1669,16 +1669,16 @@
      0
     ],
     [
-     "Neobrand",
-     17,
-     20,
-     0
-    ],
-    [
      "Jeskai Blink",
      25,
      37,
      8
+    ],
+    [
+     "Neobrand",
+     17,
+     20,
+     0
     ],
     [
      "Boros Ponza",
@@ -1713,14 +1713,8 @@
     [
      "Blue Belcher",
      20,
-     9,
+     8,
      2
-    ],
-    [
-     "Necrodominance",
-     9,
-     9,
-     0
     ],
     [
      "Grixis Reanimator",
@@ -1753,6 +1747,12 @@
      2
     ],
     [
+     "Necrodominance",
+     9,
+     8,
+     0
+    ],
+    [
      "Yawgmoth",
      8,
      6,
@@ -1760,8 +1760,14 @@
     ],
     [
      "Omnath Ritual",
-     8,
+     7,
      11,
+     0
+    ],
+    [
+     "Simic Ritual",
+     9,
+     13,
      0
     ],
     [
@@ -1772,7 +1778,7 @@
     ],
     [
      "Ramp Eldrazi",
-     8,
+     7,
      4,
      0
     ],
@@ -1786,12 +1792,6 @@
      "Black Eldrazi",
      10,
      3,
-     0
-    ],
-    [
-     "Simic Ritual",
-     9,
-     13,
      0
     ],
     [
@@ -1873,7 +1873,7 @@
      0
     ]
    ],
-   "metaWr": 46.8,
+   "metaWr": 46.7,
    "core": [
     [
      "Lightning Bolt",
@@ -1954,13 +1954,13 @@
     ],
     [
      "Violent Urge",
-     62,
+     63,
      1.6
     ],
     [
      "Tormod's Crypt",
      42,
-     1.3
+     1.2
     ],
     [
      "Boomerang Basics",
@@ -1973,30 +1973,30 @@
      1.2
     ],
     [
+     "Pompous Battlemage // Improvised Act",
+     27,
+     2.8
+    ],
+    [
      "Stormchaser's Talent",
      26,
      2.5
-    ],
-    [
-     "Pompous Battlemage // Improvised Act",
-     26,
-     2.8
     ]
    ],
-   "lists": 1043,
+   "lists": 1021,
    "conv": [
     7.9,
-    5.6,
-    73
+    5.5,
+    69
    ],
    "prev": 8.7
   },
   {
    "id": "modern-azorius-control",
    "name": "Azorius Control",
-   "share": 6.2,
+   "share": 6.3,
    "tier": 1,
-   "count": 745,
+   "count": 743,
    "title": "Keggers · Modern Challenge 32 (3rd Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1512858112#deck_Keggers",
    "main": [
@@ -2037,7 +2037,7 @@
     "2 Path to Exile"
    ],
    "history": [
-    2,
+    2.1,
     2.9,
     2.4,
     2.1,
@@ -2051,20 +2051,20 @@
     7.6
    ],
    "field": [
-    1309,
-    1069,
-    362
+    1302,
+    1067,
+    356
    ],
    "mu": [
     [
      "Broodscale",
      256,
      165,
-     123
+     121
     ],
     [
      "Prowess",
-     137,
+     136,
      109,
      15
     ],
@@ -2100,7 +2100,7 @@
     ],
     [
      "Esper Blink",
-     80,
+     78,
      42,
      18
     ],
@@ -2114,7 +2114,7 @@
      "Devoted Combo",
      26,
      29,
-     12
+     10
     ],
     [
      "Goryo Reanimator",
@@ -2124,20 +2124,20 @@
     ],
     [
      "Ruby Storm",
-     67,
+     66,
      10,
      2
     ],
     [
      "Living End",
-     28,
-     21,
-     9
+     27,
+     20,
+     7
     ],
     [
      "Dimir Frog",
      18,
-     28,
+     27,
      9
     ],
     [
@@ -2148,7 +2148,7 @@
     ],
     [
      "Neobrand",
-     20,
+     19,
      7,
      0
     ],
@@ -2196,15 +2196,9 @@
     ],
     [
      "Fight Rigging Eldrazi",
-     21,
+     20,
      7,
      9
-    ],
-    [
-     "Necrodominance",
-     5,
-     12,
-     8
     ],
     [
      "Hollow One",
@@ -2225,10 +2219,22 @@
      0
     ],
     [
+     "Necrodominance",
+     5,
+     12,
+     8
+    ],
+    [
      "Omnath Ritual",
      11,
      5,
      0
+    ],
+    [
+     "Simic Ritual",
+     1,
+     5,
+     7
     ],
     [
      "Yawgmoth",
@@ -2259,12 +2265,6 @@
      8,
      2,
      0
-    ],
-    [
-     "Simic Ritual",
-     1,
-     5,
-     7
     ],
     [
      "Hammer Time",
@@ -2345,7 +2345,7 @@
      0
     ]
    ],
-   "metaWr": 53.1,
+   "metaWr": 52.9,
    "core": [
     [
      "Orim's Chant",
@@ -2413,7 +2413,7 @@
     ],
     [
      "Silence",
-     84,
+     85,
      3.1
     ],
     [
@@ -2443,7 +2443,7 @@
     ],
     [
      "Sink into Stupor",
-     79,
+     80,
      1.7
     ],
     [
@@ -2468,22 +2468,22 @@
     ],
     [
      "March of Otherworldly Light",
-     52,
+     53,
      1
     ]
    ],
-   "lists": 745,
+   "lists": 743,
    "conv": [
-    6.3,
-    7,
-    91
+    6.4,
+    7.1,
+    89
    ],
    "prev": 6.2
   },
   {
    "id": "modern-rakdos-midrange",
    "name": "Rakdos Midrange",
-   "share": 5.6,
+   "share": 5.7,
    "tier": 1,
    "count": 664,
    "title": "ryuumei · Modern Challenge 32 (4th Place)",
@@ -2631,16 +2631,16 @@
      2
     ],
     [
-     "Neobrand",
-     10,
-     9,
-     3
-    ],
-    [
      "Jeskai Blink",
      8,
      5,
      0
+    ],
+    [
+     "Neobrand",
+     10,
+     9,
+     3
     ],
     [
      "Boros Ponza",
@@ -2697,12 +2697,6 @@
      0
     ],
     [
-     "Necrodominance",
-     5,
-     4,
-     0
-    ],
-    [
      "Burn",
      4,
      1,
@@ -2715,9 +2709,21 @@
      0
     ],
     [
+     "Necrodominance",
+     5,
+     4,
+     0
+    ],
+    [
      "Yawgmoth",
      7,
      4,
+     0
+    ],
+    [
+     "Simic Ritual",
+     3,
+     1,
      0
     ],
     [
@@ -2741,12 +2747,6 @@
     [
      "Azorius Blink",
      4,
-     1,
-     0
-    ],
-    [
-     "Simic Ritual",
-     3,
      1,
      0
     ],
@@ -2911,18 +2911,18 @@
    ],
    "lists": 664,
    "conv": [
-    6.4,
-    8.3,
+    6.6,
+    8.5,
     107
    ],
-   "prev": 5.5
+   "prev": 5.6
   },
   {
    "id": "modern-affinity",
    "name": "Affinity",
    "share": 5.3,
    "tier": 1,
-   "count": 636,
+   "count": 622,
    "title": "SFDK · Modern Challenge 16 (1st Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-16-2026-11-1412858104#deck_SFDK",
    "main": [
@@ -2958,7 +2958,7 @@
     "1 Vexing Bauble"
    ],
    "history": [
-    4.7,
+    4.5,
     4.9,
     4.9,
     5.2,
@@ -2972,15 +2972,15 @@
     4.1
    ],
    "field": [
-    939,
-    940,
+    933,
+    936,
     67
    ],
    "mu": [
     [
      "Broodscale",
-     123,
-     168,
+     122,
+     167,
      6
     ],
     [
@@ -3015,14 +3015,14 @@
     ],
     [
      "Tron",
-     27,
+     26,
      35,
      2
     ],
     [
      "Esper Blink",
-     61,
-     42,
+     60,
+     41,
      7
     ],
     [
@@ -3038,16 +3038,16 @@
      6
     ],
     [
-     "Ruby Storm",
-     17,
-     46,
-     2
-    ],
-    [
      "Goryo Reanimator",
      41,
      33,
      12
+    ],
+    [
+     "Ruby Storm",
+     16,
+     46,
+     2
     ],
     [
      "Living End",
@@ -3062,28 +3062,28 @@
      0
     ],
     [
-     "Neobrand",
-     14,
-     12,
-     0
-    ],
-    [
      "Jeskai Blink",
      22,
      13,
      0
     ],
     [
+     "Neobrand",
+     14,
+     11,
+     0
+    ],
+    [
+     "Jeskai Energy",
+     11,
+     8,
+     2
+    ],
+    [
      "Boros Ponza",
      10,
      15,
      8
-    ],
-    [
-     "Jeskai Energy",
-     12,
-     8,
-     2
     ],
     [
      "Esper Midrange",
@@ -3116,12 +3116,6 @@
      0
     ],
     [
-     "Necrodominance",
-     6,
-     4,
-     0
-    ],
-    [
      "Fight Rigging Eldrazi",
      14,
      10,
@@ -3137,6 +3131,12 @@
      "5 Color Creativity",
      5,
      8,
+     0
+    ],
+    [
+     "Necrodominance",
+     6,
+     4,
      0
     ],
     [
@@ -3176,6 +3176,12 @@
      0
     ],
     [
+     "Simic Ritual",
+     3,
+     4,
+     0
+    ],
+    [
      "Black Eldrazi",
      4,
      3,
@@ -3184,7 +3190,7 @@
     [
      "Azorius Blink",
      2,
-     2,
+     1,
      0
     ],
     [
@@ -3197,12 +3203,6 @@
      "Hammer Time",
      2,
      5,
-     0
-    ],
-    [
-     "Simic Ritual",
-     3,
-     4,
      0
     ],
     [
@@ -3319,7 +3319,7 @@
     ],
     [
      "Welding Jar",
-     90,
+     89,
      1.9
     ],
     [
@@ -3345,7 +3345,7 @@
     [
      "Shivan Reef",
      81,
-     1.8
+     1.7
     ],
     [
      "Metallic Rebuke",
@@ -3364,7 +3364,7 @@
     ],
     [
      "Salvage Titan",
-     47,
+     46,
      1.3
     ],
     [
@@ -3373,11 +3373,11 @@
      1.5
     ]
    ],
-   "lists": 636,
+   "lists": 622,
    "conv": [
     5.6,
-    5.6,
-    73
+    5.7,
+    72
    ],
    "prev": 5.3
   },
@@ -3386,7 +3386,7 @@
    "name": "Boros Energy",
    "share": 5.1,
    "tier": 1,
-   "count": 609,
+   "count": 602,
    "title": "mechrataal · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1411337#deck_mechrataal",
    "main": [
@@ -3425,7 +3425,7 @@
     "2 Wrath of the Skies"
    ],
    "history": [
-    4.2,
+    4.3,
     3.2,
     3.4,
     3.9,
@@ -3439,15 +3439,15 @@
     4.5
    ],
    "field": [
-    999,
-    930,
+    998,
+    926,
     63
    ],
    "mu": [
     [
      "Broodscale",
      177,
-     170,
+     169,
      14
     ],
     [
@@ -3513,7 +3513,7 @@
     [
      "Ruby Storm",
      31,
-     37,
+     36,
      2
     ],
     [
@@ -3529,16 +3529,16 @@
      0
     ],
     [
-     "Neobrand",
-     6,
-     15,
-     0
-    ],
-    [
      "Jeskai Blink",
      24,
      23,
      4
+    ],
+    [
+     "Neobrand",
+     6,
+     15,
+     0
     ],
     [
      "Boros Ponza",
@@ -3548,7 +3548,7 @@
     ],
     [
      "Jeskai Energy",
-     8,
+     7,
      5,
      0
     ],
@@ -3585,19 +3585,13 @@
     [
      "Fight Rigging Eldrazi",
      11,
-     9,
+     8,
      0
     ],
     [
      "Grixis Reanimator",
      8,
      9,
-     0
-    ],
-    [
-     "Necrodominance",
-     5,
-     4,
      0
     ],
     [
@@ -3613,9 +3607,21 @@
      0
     ],
     [
+     "Necrodominance",
+     5,
+     4,
+     0
+    ],
+    [
      "Yawgmoth",
      8,
      6,
+     0
+    ],
+    [
+     "Simic Ritual",
+     12,
+     2,
      0
     ],
     [
@@ -3646,12 +3652,6 @@
      "Ramp Eldrazi",
      2,
      3,
-     0
-    ],
-    [
-     "Simic Ritual",
-     12,
-     2,
      0
     ],
     [
@@ -3721,7 +3721,7 @@
      0
     ]
    ],
-   "metaWr": 50.3,
+   "metaWr": 50.4,
    "core": [
     [
      "Guide of Souls",
@@ -3800,17 +3800,17 @@
     ],
     [
      "Blood Moon",
-     84,
+     85,
      1.4
     ],
     [
      "Lightning Bolt",
-     80,
+     81,
      2.6
     ],
     [
      "Ranger-Captain of Eos",
-     62,
+     61,
      1.9
     ],
     [
@@ -3820,24 +3820,24 @@
     ],
     [
      "Windswept Heath",
-     49,
+     50,
      2.7
     ]
    ],
-   "lists": 609,
+   "lists": 602,
    "conv": [
     4.8,
-    4.8,
-    62
+    4.9,
+    61
    ],
    "prev": 5.1
   },
   {
    "id": "modern-domain-zoo",
    "name": "Domain Zoo",
-   "share": 4.7,
+   "share": 4.8,
    "tier": 1,
-   "count": 565,
+   "count": 562,
    "title": "Pleyboy · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1311337#deck_Pleyboy",
    "main": [
@@ -3876,7 +3876,7 @@
     "2 Wrath of the Skies"
    ],
    "history": [
-    2.1,
+    2.2,
     2.4,
     2.5,
     1.4,
@@ -3890,8 +3890,8 @@
     2.9
    ],
    "field": [
-    893,
-    875,
+    891,
+    872,
     53
    ],
    "mu": [
@@ -3904,7 +3904,7 @@
     [
      "Prowess",
      89,
-     73,
+     72,
      11
     ],
     [
@@ -3940,7 +3940,7 @@
     [
      "Esper Blink",
      25,
-     47,
+     46,
      4
     ],
     [
@@ -3992,15 +3992,15 @@
      0
     ],
     [
-     "Boros Ponza",
-     2,
-     21,
-     0
-    ],
-    [
      "Jeskai Energy",
      8,
      7,
+     0
+    ],
+    [
+     "Boros Ponza",
+     2,
+     21,
      0
     ],
     [
@@ -4030,13 +4030,7 @@
     [
      "Grixis Reanimator",
      4,
-     4,
-     0
-    ],
-    [
-     "Necrodominance",
      3,
-     7,
      0
     ],
     [
@@ -4058,6 +4052,12 @@
      0
     ],
     [
+     "Necrodominance",
+     3,
+     7,
+     0
+    ],
+    [
      "Burn",
      6,
      3,
@@ -4073,6 +4073,12 @@
      "Omnath Ritual",
      5,
      6,
+     0
+    ],
+    [
+     "Simic Ritual",
+     3,
+     5,
      0
     ],
     [
@@ -4112,12 +4118,6 @@
      0
     ],
     [
-     "Simic Ritual",
-     3,
-     5,
-     0
-    ],
-    [
      "Hammer Time",
      5,
      6,
@@ -4131,7 +4131,7 @@
     ],
     [
      "Esper Reanimator",
-     3,
+     2,
      1,
      0
     ],
@@ -4178,7 +4178,7 @@
      0
     ]
    ],
-   "metaWr": 49.8,
+   "metaWr": 49.9,
    "core": [
     [
      "Leyline Binding",
@@ -4244,7 +4244,7 @@
     [
      "Flooded Strand",
      75,
-     4
+     3.9
     ],
     [
      "Thundering Falls",
@@ -4293,14 +4293,14 @@
     ],
     [
      "Breeding Pool",
-     32,
+     31,
      1
     ]
    ],
-   "lists": 565,
+   "lists": 562,
    "conv": [
-    4.8,
-    3.9,
+    4.9,
+    4,
     50
    ],
    "prev": 4.7
@@ -4310,7 +4310,7 @@
    "name": "Tron",
    "share": 4.4,
    "tier": 1,
-   "count": 521,
+   "count": 515,
    "title": "Bradykiesling13 · Modern Challenge 32 (1st Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1412858103#deck_Bradykiesling13",
    "main": [
@@ -4365,8 +4365,8 @@
     6.2
    ],
    "field": [
-    580,
-    681,
+    578,
+    680,
     54
    ],
    "mu": [
@@ -4397,7 +4397,7 @@
     [
      "Affinity",
      35,
-     27,
+     26,
      2
     ],
     [
@@ -4414,7 +4414,7 @@
     ],
     [
      "Esper Blink",
-     30,
+     29,
      28,
      3
     ],
@@ -4431,16 +4431,16 @@
      4
     ],
     [
-     "Ruby Storm",
-     19,
-     18,
-     0
-    ],
-    [
      "Goryo Reanimator",
      29,
      19,
      2
+    ],
+    [
+     "Ruby Storm",
+     19,
+     18,
+     0
     ],
     [
      "Living End",
@@ -4455,16 +4455,16 @@
      0
     ],
     [
-     "Neobrand",
-     1,
-     10,
-     1
-    ],
-    [
      "Jeskai Blink",
      10,
      11,
      0
+    ],
+    [
+     "Neobrand",
+     1,
+     10,
+     1
     ],
     [
      "Boros Ponza",
@@ -4503,12 +4503,6 @@
      0
     ],
     [
-     "Necrodominance",
-     4,
-     3,
-     0
-    ],
-    [
      "Hollow One",
      3,
      6,
@@ -4524,6 +4518,12 @@
      "Fight Rigging Eldrazi",
      4,
      4,
+     0
+    ],
+    [
+     "Necrodominance",
+     4,
+     3,
      0
     ],
     [
@@ -4546,7 +4546,7 @@
     ],
     [
      "Cosmo Fling",
-     5,
+     4,
      3,
      0
     ],
@@ -4561,6 +4561,12 @@
      6,
      6,
      0
+    ],
+    [
+     "Simic Ritual",
+     3,
+     1,
+     2
     ],
     [
      "Yawgmoth",
@@ -4585,12 +4591,6 @@
      1,
      2,
      0
-    ],
-    [
-     "Simic Ritual",
-     3,
-     1,
-     2
     ],
     [
      "Grixis Affinity",
@@ -4677,24 +4677,24 @@
      1.5
     ],
     [
-     "Trinisphere",
-     53,
-     1.7
-    ],
-    [
      "Thought-Knot Seer",
      53,
      3.4
     ],
     [
-     "Giant's Boulder",
-     50,
-     2.7
+     "Trinisphere",
+     53,
+     1.7
     ],
     [
      "Abstergo Entertainment",
      50,
      1
+    ],
+    [
+     "Giant's Boulder",
+     50,
+     2.7
     ],
     [
      "Mind Stone",
@@ -4707,14 +4707,14 @@
      1.8
     ],
     [
-     "Sowing Mycospawn",
-     45,
-     4
-    ],
-    [
      "Sire of Seven Deaths",
      45,
      1.3
+    ],
+    [
+     "Sowing Mycospawn",
+     44,
+     4
     ],
     [
      "Swamp",
@@ -4732,30 +4732,30 @@
      1.1
     ],
     [
-     "Talisman of Resilience",
+     "Chalice of the Void",
      38,
-     3.9
+     2.2
     ],
     [
-     "Chalice of the Void",
+     "Talisman of Resilience",
      37,
-     2.2
+     3.9
     ]
    ],
-   "lists": 521,
+   "lists": 515,
    "conv": [
     3.8,
-    4.6,
-    60
+    4.5,
+    57
    ],
    "prev": 4.4
   },
   {
    "id": "modern-esper-blink",
    "name": "Esper Blink",
-   "share": 3.7,
+   "share": 3.6,
    "tier": 2,
-   "count": 439,
+   "count": 424,
    "title": "BienTech · Modern Challenge 32 (7th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1112858082#deck_BienTech",
    "main": [
@@ -4796,7 +4796,7 @@
     "3 White Orchid Phantom"
    ],
    "history": [
-    5,
+    4.9,
     6.7,
     6.9,
     6.9,
@@ -4810,27 +4810,27 @@
     0.6
    ],
    "field": [
-    764,
-    839,
-    128
+    754,
+    829,
+    126
    ],
    "mu": [
     [
      "Broodscale",
-     89,
-     149,
+     88,
+     147,
      40
     ],
     [
      "Prowess",
-     76,
+     75,
      87,
      7
     ],
     [
      "Azorius Control",
      42,
-     80,
+     78,
      18
     ],
     [
@@ -4841,8 +4841,8 @@
     ],
     [
      "Affinity",
-     42,
-     61,
+     41,
+     60,
      7
     ],
     [
@@ -4853,14 +4853,14 @@
     ],
     [
      "Domain Zoo",
-     47,
+     46,
      25,
      4
     ],
     [
      "Tron",
      28,
-     30,
+     29,
      3
     ],
     [
@@ -4871,7 +4871,7 @@
     ],
     [
      "Devoted Combo",
-     31,
+     30,
      11,
      2
     ],
@@ -4883,14 +4883,14 @@
     ],
     [
      "Ruby Storm",
-     27,
-     27,
+     25,
+     26,
      0
     ],
     [
      "Living End",
      5,
-     15,
+     14,
      6
     ],
     [
@@ -4909,7 +4909,7 @@
      "Neobrand",
      9,
      11,
-     2
+     0
     ],
     [
      "Boros Ponza",
@@ -4936,21 +4936,21 @@
      0
     ],
     [
-     "Samwise",
-     3,
-     6,
-     0
-    ],
-    [
      "Blue Belcher",
      3,
      16,
      0
     ],
     [
+     "Samwise",
+     2,
+     6,
+     0
+    ],
+    [
      "Grixis Reanimator",
      9,
-     5,
+     4,
      1
     ],
     [
@@ -4966,12 +4966,6 @@
      2
     ],
     [
-     "Necrodominance",
-     13,
-     4,
-     2
-    ],
-    [
      "Burn",
      8,
      7,
@@ -4982,6 +4976,12 @@
      3,
      5,
      0
+    ],
+    [
+     "Necrodominance",
+     13,
+     4,
+     2
     ],
     [
      "Yawgmoth",
@@ -5020,6 +5020,12 @@
      0
     ],
     [
+     "Simic Ritual",
+     3,
+     8,
+     0
+    ],
+    [
      "Grixis Wizards",
      8,
      3,
@@ -5038,12 +5044,6 @@
      0
     ],
     [
-     "Simic Ritual",
-     3,
-     8,
-     0
-    ],
-    [
      "Grixis Affinity",
      2,
      3,
@@ -5053,12 +5053,6 @@
      "Dimir Control",
      2,
      3,
-     0
-    ],
-    [
-     "Esper Reanimator",
-     1,
-     2,
      0
     ],
     [
@@ -5161,10 +5155,6 @@
      1
     ],
     [
-     "Watery Grave",
-     1
-    ],
-    [
      "Meticulous Archive",
      1
     ],
@@ -5174,6 +5164,10 @@
     ],
     [
      "Shadowy Backstreet",
+     1
+    ],
+    [
+     "Watery Grave",
      1
     ],
     [
@@ -5198,20 +5192,20 @@
      1
     ]
    ],
-   "lists": 439,
+   "lists": 424,
    "conv": [
-    3.3,
-    2.7,
-    35
+    3.2,
+    2.6,
+    33
    ],
    "prev": 3.7
   },
   {
    "id": "modern-amulet-titan",
    "name": "Amulet Titan",
-   "share": 3.4,
+   "share": 3.5,
    "tier": 2,
-   "count": 410,
+   "count": 406,
    "title": "axelino · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1411337#deck_axelino",
    "main": [
@@ -5253,7 +5247,7 @@
     "3 Trinisphere"
    ],
    "history": [
-    1.9,
+    2.1,
     1.6,
     2.1,
     1.8,
@@ -5267,14 +5261,14 @@
     5.6
    ],
    "field": [
-    575,
+    572,
     529,
     55
    ],
    "mu": [
     [
      "Broodscale",
-     96,
+     94,
      97,
      14
     ],
@@ -5357,16 +5351,16 @@
      0
     ],
     [
-     "Neobrand",
-     4,
-     12,
-     0
-    ],
-    [
      "Jeskai Blink",
      8,
      5,
      2
+    ],
+    [
+     "Neobrand",
+     4,
+     12,
+     0
     ],
     [
      "Boros Ponza",
@@ -5394,7 +5388,7 @@
     ],
     [
      "Blue Belcher",
-     5,
+     4,
      14,
      0
     ],
@@ -5403,12 +5397,6 @@
      1,
      3,
      0
-    ],
-    [
-     "Necrodominance",
-     6,
-     4,
-     2
     ],
     [
      "Fight Rigging Eldrazi",
@@ -5435,6 +5423,12 @@
      0
     ],
     [
+     "Necrodominance",
+     6,
+     4,
+     2
+    ],
+    [
      "5 Color Creativity",
      2,
      4,
@@ -5444,6 +5438,12 @@
      "Omnath Ritual",
      1,
      6,
+     0
+    ],
+    [
+     "Simic Ritual",
+     5,
+     5,
      0
     ],
     [
@@ -5462,12 +5462,6 @@
      "Grixis Wizards",
      3,
      0,
-     0
-    ],
-    [
-     "Simic Ritual",
-     5,
-     5,
      0
     ],
     [
@@ -5507,7 +5501,7 @@
      0
     ]
    ],
-   "metaWr": 52.3,
+   "metaWr": 52.2,
    "core": [
     [
      "Amulet of Vigor",
@@ -5543,7 +5537,7 @@
     ],
     [
      "Gruul Turf",
-     4
+     3
     ],
     [
      "Green Sun's Zenith",
@@ -5613,17 +5607,17 @@
     ],
     [
      "Azusa, Lost but Seeking",
-     46,
+     47,
      1.2
     ],
     [
      "Aftermath Analyst",
-     35,
+     34,
      1
     ],
     [
      "Shifting Woodland",
-     29,
+     28,
      1
     ],
     [
@@ -5632,11 +5626,11 @@
      1.2
     ]
    ],
-   "lists": 410,
+   "lists": 406,
    "conv": [
     3.4,
     4.2,
-    54
+    53
    ],
    "prev": 3.4
   },
@@ -5645,7 +5639,7 @@
    "name": "Devoted Combo",
    "share": 3.1,
    "tier": 2,
-   "count": 372,
+   "count": 363,
    "title": "SnailWrangler666 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1111337#deck_SnailWrangler666",
    "main": [
@@ -5690,7 +5684,7 @@
     "2 Vexing Bauble"
    ],
    "history": [
-    3.8,
+    3.4,
     4.5,
     4.1,
     6.1,
@@ -5704,14 +5698,14 @@
     0.4
    ],
    "field": [
-    495,
-    536,
-    42
+    492,
+    535,
+    40
    ],
    "mu": [
     [
      "Broodscale",
-     82,
+     80,
      82,
      8
     ],
@@ -5725,7 +5719,7 @@
      "Azorius Control",
      29,
      26,
-     12
+     10
     ],
     [
      "Rakdos Midrange",
@@ -5760,7 +5754,7 @@
     [
      "Esper Blink",
      11,
-     31,
+     30,
      2
     ],
     [
@@ -5794,27 +5788,27 @@
      0
     ],
     [
-     "Neobrand",
-     5,
-     9,
-     0
-    ],
-    [
      "Jeskai Blink",
      11,
      10,
      0
     ],
     [
-     "Boros Ponza",
-     8,
-     8,
+     "Neobrand",
+     5,
+     9,
      0
     ],
     [
      "Jeskai Energy",
      2,
      5,
+     0
+    ],
+    [
+     "Boros Ponza",
+     8,
+     8,
      0
     ],
     [
@@ -5825,7 +5819,7 @@
     ],
     [
      "Samwise",
-     5,
+     4,
      2,
      0
     ],
@@ -5839,12 +5833,6 @@
      "Murktide",
      4,
      8,
-     0
-    ],
-    [
-     "Necrodominance",
-     2,
-     3,
      0
     ],
     [
@@ -5872,6 +5860,12 @@
      0
     ],
     [
+     "Necrodominance",
+     2,
+     3,
+     0
+    ],
+    [
      "Burn",
      1,
      5,
@@ -5896,6 +5890,12 @@
      0
     ],
     [
+     "Simic Ritual",
+     3,
+     2,
+     0
+    ],
+    [
      "Black Eldrazi",
      0,
      3,
@@ -5905,12 +5905,6 @@
      "Grixis Wizards",
      2,
      1,
-     0
-    ],
-    [
-     "Simic Ritual",
-     3,
-     2,
      0
     ],
     [
@@ -6057,13 +6051,8 @@
     ],
     [
      "Horizon Canopy",
-     51,
+     50,
      1
-    ],
-    [
-     "Agatha's Soul Cauldron",
-     35,
-     1.3
     ],
     [
      "Ouroboroid",
@@ -6071,25 +6060,30 @@
      1.1
     ],
     [
+     "Agatha's Soul Cauldron",
+     34,
+     1.2
+    ],
+    [
      "Thoughtseize",
      26,
-     1.3
+     1.2
     ]
    ],
-   "lists": 372,
+   "lists": 363,
    "conv": [
-    3.1,
+    3,
     3.2,
-    41
+    40
    ],
-   "prev": 3.2
+   "prev": 3.1
   },
   {
    "id": "modern-goryo-reanimator",
    "name": "Goryo Reanimator",
    "share": 3,
    "tier": 2,
-   "count": 357,
+   "count": 352,
    "title": "tA326_ · Modern Challenge 32 (5th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1312858098#deck_tA326_",
    "main": [
@@ -6133,7 +6127,7 @@
     "3 Wrath of the Skies"
    ],
    "history": [
-    7.7,
+    7.9,
     9.2,
     8.5,
     4.8,
@@ -6237,16 +6231,16 @@
      4
     ],
     [
-     "Neobrand",
-     11,
-     4,
-     0
-    ],
-    [
      "Jeskai Blink",
      14,
      12,
      2
+    ],
+    [
+     "Neobrand",
+     11,
+     4,
+     0
     ],
     [
      "Boros Ponza",
@@ -6303,12 +6297,6 @@
      2
     ],
     [
-     "Necrodominance",
-     6,
-     3,
-     2
-    ],
-    [
      "Burn",
      6,
      1,
@@ -6319,6 +6307,18 @@
      3,
      3,
      2
+    ],
+    [
+     "Necrodominance",
+     6,
+     3,
+     2
+    ],
+    [
+     "Simic Ritual",
+     5,
+     7,
+     0
     ],
     [
      "Yawgmoth",
@@ -6354,12 +6354,6 @@
      "Ramp Eldrazi",
      3,
      1,
-     0
-    ],
-    [
-     "Simic Ritual",
-     5,
-     7,
      0
     ],
     [
@@ -6529,11 +6523,11 @@
     ],
     [
      "Wrath of the Skies",
-     38,
+     39,
      1
     ]
    ],
-   "lists": 357,
+   "lists": 352,
    "conv": [
     2.6,
     2.6,
@@ -6544,9 +6538,9 @@
   {
    "id": "modern-ruby-storm",
    "name": "Ruby Storm",
-   "share": 3,
+   "share": 2.9,
    "tier": 2,
-   "count": 355,
+   "count": 343,
    "title": "hugofreitas1 · Modern Challenge 32 (7th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1312858098#deck_hugofreitas1",
    "main": [
@@ -6582,7 +6576,7 @@
     "4 Wear // Tear"
    ],
    "history": [
-    3.8,
+    3.9,
     3.1,
     2.8,
     4.7,
@@ -6596,27 +6590,27 @@
     3.1
    ],
    "field": [
-    467,
-    506,
+    464,
+    493,
     30
    ],
    "mu": [
     [
      "Broodscale",
      91,
-     87,
+     85,
      10
     ],
     [
      "Prowess",
      37,
-     54,
+     53,
      0
     ],
     [
      "Azorius Control",
      10,
-     67,
+     66,
      2
     ],
     [
@@ -6628,12 +6622,12 @@
     [
      "Affinity",
      46,
-     17,
+     16,
      2
     ],
     [
      "Boros Energy",
-     37,
+     36,
      31,
      2
     ],
@@ -6651,8 +6645,8 @@
     ],
     [
      "Esper Blink",
-     27,
-     27,
+     26,
+     25,
      0
     ],
     [
@@ -6676,7 +6670,7 @@
     [
      "Living End",
      11,
-     7,
+     6,
      0
     ],
     [
@@ -6706,13 +6700,7 @@
     [
      "Jeskai Energy",
      3,
-     3,
-     0
-    ],
-    [
-     "Samwise",
-     3,
-     3,
+     2,
      0
     ],
     [
@@ -6728,15 +6716,9 @@
      0
     ],
     [
-     "Fight Rigging Eldrazi",
-     8,
-     6,
-     0
-    ],
-    [
-     "Necrodominance",
-     4,
-     4,
+     "Samwise",
+     3,
+     1,
      0
     ],
     [
@@ -6749,6 +6731,18 @@
      "Hollow One",
      2,
      3,
+     0
+    ],
+    [
+     "Fight Rigging Eldrazi",
+     8,
+     5,
+     0
+    ],
+    [
+     "Necrodominance",
+     4,
+     4,
      0
     ],
     [
@@ -6766,7 +6760,7 @@
     [
      "Omnath Ritual",
      2,
-     2,
+     1,
      2
     ],
     [
@@ -6818,7 +6812,7 @@
      2
     ]
    ],
-   "metaWr": 48.3,
+   "metaWr": 48.6,
    "core": [
     [
      "Desperate Ritual",
@@ -6845,11 +6839,11 @@
      4
     ],
     [
-     "Wrenn's Resolve",
+     "Mountain",
      4
     ],
     [
-     "Mountain",
+     "Wrenn's Resolve",
      4
     ],
     [
@@ -6879,23 +6873,23 @@
    ],
    "flex": [
     [
-     "Artist's Talent",
-     86,
-     1.4
-    ],
-    [
      "Arid Mesa",
      86,
      2.4
     ],
     [
+     "Artist's Talent",
+     86,
+     1.4
+    ],
+    [
      "Elegant Parlor",
-     85,
+     84,
      1.2
     ],
     [
      "Sacred Foundry",
-     85,
+     84,
      1.2
     ],
     [
@@ -6905,12 +6899,12 @@
     ],
     [
      "Gemstone Caverns",
-     79,
+     80,
      1
     ],
     [
      "Twinned Vision",
-     72,
+     74,
      2.2
     ],
     [
@@ -6920,30 +6914,30 @@
     ],
     [
      "Commercial District",
-     54,
+     55,
      1.1
     ],
     [
      "Sunbaked Canyon",
-     48,
+     49,
+     1
+    ],
+    [
+     "Raucous Theater",
+     30,
      1
     ],
     [
      "Stomping Ground",
-     30,
-     1.1
-    ],
-    [
-     "Raucous Theater",
      29,
-     1
+     1.1
     ]
    ],
-   "lists": 355,
+   "lists": 343,
    "conv": [
-    3.2,
-    3.6,
-    46
+    3.1,
+    3.3,
+    42
    ],
    "prev": 3
   },
@@ -6952,7 +6946,7 @@
    "name": "Living End",
    "share": 2.2,
    "tier": 2,
-   "count": 262,
+   "count": 259,
    "title": "darikun · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1411337#deck_darikun",
    "main": [
@@ -7003,15 +6997,15 @@
     4.1
    ],
    "field": [
-    305,
-    306,
-    47
+    300,
+    303,
+    45
    ],
    "mu": [
     [
      "Broodscale",
      40,
-     54,
+     53,
      8
     ],
     [
@@ -7022,9 +7016,9 @@
     ],
     [
      "Azorius Control",
-     21,
-     28,
-     9
+     20,
+     27,
+     7
     ],
     [
      "Rakdos Midrange",
@@ -7058,7 +7052,7 @@
     ],
     [
      "Esper Blink",
-     15,
+     14,
      5,
      6
     ],
@@ -7082,14 +7076,14 @@
     ],
     [
      "Ruby Storm",
-     7,
+     6,
      11,
      0
     ],
     [
      "Dimir Frog",
+     3,
      4,
-     5,
      0
     ],
     [
@@ -7105,15 +7099,15 @@
      0
     ],
     [
-     "Boros Ponza",
-     9,
-     2,
-     0
-    ],
-    [
      "Jeskai Energy",
      4,
      3,
+     0
+    ],
+    [
+     "Boros Ponza",
+     9,
+     2,
      0
     ],
     [
@@ -7141,15 +7135,15 @@
      0
     ],
     [
-     "Necrodominance",
-     0,
-     3,
-     0
-    ],
-    [
      "Burn",
      2,
      1,
+     0
+    ],
+    [
+     "Necrodominance",
+     0,
+     3,
      0
     ],
     [
@@ -7177,15 +7171,15 @@
      0
     ],
     [
-     "Azorius Blink",
-     4,
-     1,
-     0
-    ],
-    [
      "Simic Ritual",
      0,
      3,
+     0
+    ],
+    [
+     "Azorius Blink",
+     3,
+     1,
      0
     ],
     [
@@ -7207,7 +7201,7 @@
      0
     ]
    ],
-   "metaWr": 50,
+   "metaWr": 49.8,
    "core": [
     [
      "Force of Negation",
@@ -7242,10 +7236,6 @@
      3
     ],
     [
-     "Sink into Stupor",
-     1
-    ],
-    [
      "Colossal Skyturtle",
      1
     ],
@@ -7268,8 +7258,13 @@
    ],
    "flex": [
     [
+     "Sink into Stupor",
+     90,
+     1.3
+    ],
+    [
      "Stomping Ground",
-     89,
+     90,
      1
     ],
     [
@@ -7314,7 +7309,7 @@
     ],
     [
      "Striped Riverwinder",
-     57,
+     58,
      2.6
     ],
     [
@@ -7324,25 +7319,20 @@
     ],
     [
      "Curator of Mysteries",
-     48,
+     49,
      3.1
     ],
     [
      "Valakut Awakening",
      44,
      1
-    ],
-    [
-     "Mistrise Village",
-     35,
-     1
     ]
    ],
-   "lists": 262,
+   "lists": 259,
    "conv": [
     2.3,
-    3.2,
-    41
+    3,
+    38
    ],
    "prev": 2.2
   },
@@ -7351,7 +7341,7 @@
    "name": "Dimir Frog",
    "share": 1.9,
    "tier": 2,
-   "count": 226,
+   "count": 222,
    "title": "storti · Modern Challenge 32 (1st Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-0912857704#deck_storti",
    "main": [
@@ -7409,14 +7399,14 @@
     0.8
    ],
    "field": [
-    310,
-    348,
+    303,
+    346,
     29
    ],
    "mu": [
     [
      "Broodscale",
-     34,
+     32,
      64,
      2
     ],
@@ -7428,7 +7418,7 @@
     ],
     [
      "Azorius Control",
-     28,
+     27,
      18,
      9
     ],
@@ -7494,20 +7484,20 @@
     ],
     [
      "Living End",
-     5,
      4,
+     3,
      0
-    ],
-    [
-     "Neobrand",
-     6,
-     0,
-     2
     ],
     [
      "Jeskai Blink",
      5,
      3,
+     2
+    ],
+    [
+     "Neobrand",
+     5,
+     0,
      2
     ],
     [
@@ -7518,7 +7508,7 @@
     ],
     [
      "Jeskai Energy",
-     4,
+     3,
      2,
      0
     ],
@@ -7559,15 +7549,15 @@
      2
     ],
     [
-     "Necrodominance",
-     0,
-     4,
-     0
-    ],
-    [
      "Burn",
      4,
      3,
+     0
+    ],
+    [
+     "Necrodominance",
+     0,
+     4,
      0
     ],
     [
@@ -7589,6 +7579,12 @@
      2
     ],
     [
+     "Simic Ritual",
+     2,
+     4,
+     0
+    ],
+    [
      "Ramp Eldrazi",
      3,
      0,
@@ -7598,12 +7594,6 @@
      "Cosmo Fling",
      4,
      0,
-     0
-    ],
-    [
-     "Simic Ritual",
-     2,
-     4,
      0
     ],
     [
@@ -7619,7 +7609,7 @@
      0
     ]
    ],
-   "metaWr": 47.5,
+   "metaWr": 47.2,
    "core": [
     [
      "Polluted Delta",
@@ -7690,23 +7680,23 @@
     ],
     [
      "Murktide Regent",
-     87,
+     86,
      1.3
     ],
     [
      "Orcish Bowmasters",
-     87,
+     86,
      2.8
     ],
     [
-     "Otawara, Soaring City",
+     "Darkslick Shores",
      84,
-     1
+     1.3
     ],
     [
-     "Darkslick Shores",
+     "Otawara, Soaring City",
      83,
-     1.3
+     1
     ],
     [
      "Drown in the Loch",
@@ -7715,7 +7705,7 @@
     ],
     [
      "Kaito, Bane of Nightmares",
-     81,
+     80,
      1.2
     ],
     [
@@ -7730,8 +7720,8 @@
     ],
     [
      "Bloodstained Mire",
-     65,
-     1.8
+     66,
+     1.7
     ],
     [
      "Marsh Flats",
@@ -7750,15 +7740,15 @@
     ],
     [
      "Cling to Dust",
-     43,
+     42,
      1.1
     ]
    ],
-   "lists": 226,
+   "lists": 222,
    "conv": [
     1.9,
     2,
-    26
+    25
    ],
    "prev": 1.9
   },
@@ -7767,7 +7757,7 @@
    "name": "Jeskai Blink",
    "share": 1.4,
    "tier": 2,
-   "count": 171,
+   "count": 166,
    "title": "Dasikk · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1311337#deck_Dasikk",
    "main": [
@@ -7929,16 +7919,16 @@
      0
     ],
     [
-     "Boros Ponza",
-     4,
-     0,
-     3
-    ],
-    [
      "Jeskai Energy",
      3,
      1,
      4
+    ],
+    [
+     "Boros Ponza",
+     4,
+     0,
+     3
     ],
     [
      "Esper Midrange",
@@ -7965,12 +7955,6 @@
      2
     ],
     [
-     "Necrodominance",
-     0,
-     5,
-     2
-    ],
-    [
      "Fight Rigging Eldrazi",
      2,
      4,
@@ -7983,9 +7967,21 @@
      0
     ],
     [
+     "Necrodominance",
+     0,
+     5,
+     2
+    ],
+    [
      "5 Color Creativity",
      1,
      4,
+     0
+    ],
+    [
+     "Simic Ritual",
+     2,
+     2,
      0
     ],
     [
@@ -8005,12 +8001,6 @@
      2,
      0,
      2
-    ],
-    [
-     "Simic Ritual",
-     2,
-     2,
-     0
     ],
     [
      "Grixis Wizards",
@@ -8049,7 +8039,7 @@
      0
     ]
    ],
-   "metaWr": 48.5,
+   "metaWr": 48.4,
    "core": [
     [
      "Quantum Riddler",
@@ -8139,7 +8129,7 @@
    "flex": [
     [
      "March of Otherworldly Light",
-     89,
+     90,
      1.1
     ],
     [
@@ -8149,22 +8139,22 @@
     ],
     [
      "Fable of the Mirror-Breaker",
-     85,
+     86,
      2.1
     ],
     [
      "Prismatic Ending",
-     75,
+     76,
      1.1
     ],
     [
      "Force of Negation",
-     68,
+     69,
      1.1
     ],
     [
      "Rest in Peace",
-     54,
+     56,
      1
     ],
     [
@@ -8174,24 +8164,24 @@
     ],
     [
      "No More Lies",
-     29,
+     28,
      1.2
     ]
    ],
-   "lists": 171,
+   "lists": 166,
    "conv": [
-    1.3,
-    0.9,
+    1.2,
+    1,
     12
    ],
-   "prev": 1.5
+   "prev": 1.4
   },
   {
    "id": "modern-neobrand",
    "name": "Neobrand",
-   "share": 1.4,
+   "share": 1.3,
    "tier": 2,
-   "count": 163,
+   "count": 156,
    "title": "MynameisSylar · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1311337#deck_MynameisSylar",
    "main": [
@@ -8233,7 +8223,7 @@
     "2 Test of Courage"
    ],
    "history": [
-    1.5,
+    1.7,
     2.2,
     2.5,
     2.2,
@@ -8247,14 +8237,14 @@
     3.3
    ],
    "field": [
-    202,
-    215,
-    17
+    199,
+    213,
+    15
    ],
    "mu": [
     [
      "Broodscale",
-     36,
+     35,
      33,
      4
     ],
@@ -8267,7 +8257,7 @@
     [
      "Azorius Control",
      7,
-     20,
+     19,
      0
     ],
     [
@@ -8278,7 +8268,7 @@
     ],
     [
      "Affinity",
-     12,
+     11,
      14,
      0
     ],
@@ -8304,7 +8294,7 @@
      "Esper Blink",
      11,
      9,
-     2
+     0
     ],
     [
      "Amulet Titan",
@@ -8339,7 +8329,7 @@
     [
      "Dimir Frog",
      0,
-     6,
+     5,
      2
     ],
     [
@@ -8380,7 +8370,7 @@
     ],
     [
      "Fight Rigging Eldrazi",
-     3,
+     2,
      1,
      0
     ],
@@ -8391,14 +8381,14 @@
      0
     ],
     [
-     "Omnath Ritual",
-     1,
+     "Simic Ritual",
+     0,
      3,
      0
     ],
     [
-     "Simic Ritual",
-     0,
+     "Omnath Ritual",
+     1,
      3,
      0
     ],
@@ -8421,7 +8411,7 @@
      2
     ]
    ],
-   "metaWr": 50.3,
+   "metaWr": 50.2,
    "core": [
     [
      "Allosaurus Rider",
@@ -8511,7 +8501,7 @@
    "flex": [
     [
      "Endurance",
-     87,
+     88,
      1.1
     ],
     [
@@ -8521,17 +8511,17 @@
     ],
     [
      "Scalding Tarn",
-     60,
-     1.2
+     59,
+     1.3
     ],
     [
      "Snow-Covered Forest",
-     56,
+     57,
      1.7
     ],
     [
      "Snow-Covered Island",
-     56,
+     57,
      1
     ],
     [
@@ -8541,17 +8531,17 @@
     ],
     [
      "Windswept Heath",
-     44,
-     1.4
-    ],
-    [
-     "Forest",
      43,
      1.4
     ],
     [
+     "Forest",
+     42,
+     1.4
+    ],
+    [
      "Polluted Delta",
-     40,
+     41,
      1.2
     ],
     [
@@ -8561,23 +8551,23 @@
     ],
     [
      "Nourishing Shoal",
-     39,
+     38,
      1.1
     ],
     [
      "Wooded Foothills",
-     38,
+     37,
      1
     ],
     [
      "Wistfulness",
-     34,
-     1.2
+     35,
+     1.1
     ]
    ],
-   "lists": 163,
+   "lists": 156,
    "conv": [
-    1.8,
+    1.7,
     1.5,
     19
    ],
@@ -8586,9 +8576,9 @@
   {
    "id": "modern-boros-ponza",
    "name": "Boros Ponza",
-   "share": 1.2,
+   "share": 1.1,
    "tier": 2,
-   "count": 139,
+   "count": 132,
    "title": "littlebinboy · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1211337#deck_littlebinboy",
    "main": [
@@ -8623,7 +8613,7 @@
     "2 Wrath of God"
    ],
    "history": [
-    2.5,
+    2.3,
     4.1,
     2.6,
     2.6,
@@ -8733,15 +8723,15 @@
      0
     ],
     [
-     "Neobrand",
-     2,
-     0,
-     3
-    ],
-    [
      "Jeskai Blink",
      0,
      4,
+     3
+    ],
+    [
+     "Neobrand",
+     2,
+     0,
      3
     ],
     [
@@ -8822,11 +8812,11 @@
      4
     ],
     [
-     "Erode",
+     "Solitude",
      4
     ],
     [
-     "Solitude",
+     "Erode",
      4
     ],
     [
@@ -8842,11 +8832,11 @@
      4
     ],
     [
-     "Cleansing Wildfire",
+     "Path to Exile",
      4
     ],
     [
-     "Path to Exile",
+     "Cleansing Wildfire",
      4
     ],
     [
@@ -8877,22 +8867,22 @@
    "flex": [
     [
      "Castle Ardenvale",
-     85,
+     86,
      1
     ],
     [
      "Relic of Progenitus",
-     66,
+     65,
      2.5
     ],
     [
      "The Legend of Roku",
-     54,
+     52,
      1.1
     ],
     [
      "Wrath of God",
-     47,
+     48,
      2.2
     ],
     [
@@ -8901,10 +8891,10 @@
      2.4
     ]
    ],
-   "lists": 139,
+   "lists": 132,
    "conv": [
     1,
-    0.9,
+    1,
     12
    ],
    "prev": 1.2
@@ -8914,7 +8904,7 @@
    "name": "Jeskai Energy",
    "share": 1.1,
    "tier": 2,
-   "count": 128,
+   "count": 125,
    "title": "Bagoot · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-0911161#deck_Bagoot",
    "main": [
@@ -8969,8 +8959,8 @@
     2.3
    ],
    "field": [
-    135,
-    158,
+    134,
+    155,
     20
    ],
    "mu": [
@@ -9001,13 +8991,13 @@
     [
      "Affinity",
      8,
-     12,
+     11,
      2
     ],
     [
      "Boros Energy",
      5,
-     8,
+     7,
      0
     ],
     [
@@ -9048,7 +9038,7 @@
     ],
     [
      "Ruby Storm",
-     3,
+     2,
      3,
      0
     ],
@@ -9061,7 +9051,7 @@
     [
      "Dimir Frog",
      2,
-     4,
+     3,
      0
     ],
     [
@@ -9089,15 +9079,15 @@
      0
     ],
     [
-     "Necrodominance",
-     2,
-     1,
-     0
-    ],
-    [
      "Fight Rigging Eldrazi",
      0,
      3,
+     0
+    ],
+    [
+     "Necrodominance",
+     2,
+     1,
      0
     ],
     [
@@ -9113,7 +9103,7 @@
      0
     ]
    ],
-   "metaWr": 49.1,
+   "metaWr": 49.3,
    "core": [
     [
      "Guide of Souls",
@@ -9199,12 +9189,12 @@
    "flex": [
     [
      "Voice of Victory",
-     87,
+     86,
      2.7
     ],
     [
      "Arena of Glory",
-     83,
+     84,
      1
     ],
     [
@@ -9224,18 +9214,18 @@
     ],
     [
      "Marsh Flats",
-     47,
+     48,
      1.3
     ],
     [
-     "Windswept Heath",
+     "Spell Snare",
      30,
-     1.1
+     1
     ],
     [
-     "Spell Snare",
+     "Windswept Heath",
      29,
-     1
+     1.1
     ],
     [
      "Prismatic Ending",
@@ -9253,10 +9243,10 @@
      2
     ]
    ],
-   "lists": 128,
+   "lists": 125,
    "conv": [
     1.1,
-    1.2,
+    1.3,
     16
    ],
    "prev": 1.1
@@ -9266,7 +9256,7 @@
    "name": "Esper Midrange",
    "share": 1,
    "tier": 2,
-   "count": 122,
+   "count": 121,
    "title": "HelpfulHobo · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-0611161#deck_HelpfulHobo",
    "main": [
@@ -9307,7 +9297,7 @@
     "3 Wrath of the Skies"
    ],
    "history": [
-    0.8,
+    0.9,
     0.2,
     0.1,
     0.3,
@@ -9411,16 +9401,16 @@
      0
     ],
     [
-     "Neobrand",
-     5,
-     3,
-     0
-    ],
-    [
      "Jeskai Blink",
      2,
      3,
      2
+    ],
+    [
+     "Neobrand",
+     5,
+     3,
+     0
     ],
     [
      "Boros Ponza",
@@ -9459,15 +9449,15 @@
      0
     ],
     [
-     "Cosmo Fling",
-     2,
-     2,
-     0
-    ],
-    [
      "Simic Ritual",
      2,
      1,
+     0
+    ],
+    [
+     "Cosmo Fling",
+     2,
+     2,
      0
     ]
    ],
@@ -9566,7 +9556,7 @@
     ],
     [
      "Fatal Push",
-     89,
+     88,
      1.4
     ],
     [
@@ -9600,7 +9590,7 @@
      1
     ]
    ],
-   "lists": 122,
+   "lists": 121,
    "conv": [
     1,
     0.6,
@@ -9613,7 +9603,7 @@
    "name": "Blue Belcher",
    "share": 0.8,
    "tier": 2,
-   "count": 101,
+   "count": 98,
    "title": "JoaoCelestini · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1011161#deck_JoaoCelestini",
    "main": [
@@ -9645,7 +9635,7 @@
     "2 Stern Scolding"
    ],
    "history": [
-    1.1,
+    1.2,
     0.9,
     1.2,
     1,
@@ -9659,20 +9649,20 @@
     1.2
    ],
    "field": [
-    164,
-    154,
+    161,
+    152,
     8
    ],
    "mu": [
     [
      "Broodscale",
-     20,
-     33,
+     19,
+     32,
      0
     ],
     [
      "Prowess",
-     9,
+     8,
      20,
      2
     ],
@@ -9721,7 +9711,7 @@
     [
      "Amulet Titan",
      14,
-     5,
+     4,
      0
     ],
     [
@@ -9767,14 +9757,14 @@
      0
     ],
     [
-     "Boros Ponza",
-     2,
+     "Jeskai Energy",
+     1,
      2,
      0
     ],
     [
-     "Jeskai Energy",
-     1,
+     "Boros Ponza",
+     2,
      2,
      0
     ],
@@ -9797,12 +9787,6 @@
      0
     ],
     [
-     "Necrodominance",
-     3,
-     0,
-     0
-    ],
-    [
      "5 Color Creativity",
      1,
      1,
@@ -9821,7 +9805,7 @@
      0
     ]
    ],
-   "metaWr": 48.7,
+   "metaWr": 48.6,
    "core": [
     [
      "Disrupting Shoal",
@@ -9883,18 +9867,18 @@
    "flex": [
     [
      "Counterspell",
-     86,
+     87,
      2.4
     ],
     [
      "Preordain",
-     83,
+     84,
      3.4
     ],
     [
      "Beyeen Veil",
-     79,
-     1.5
+     80,
+     1.6
     ],
     [
      "Stern Scolding",
@@ -9907,11 +9891,11 @@
      1.1
     ]
    ],
-   "lists": 101,
+   "lists": 98,
    "conv": [
     0.9,
-    1.4,
-    18
+    1.2,
+    15
    ],
    "prev": 0.8
   },
@@ -10044,15 +10028,15 @@
      0
     ],
     [
-     "Ruby Storm",
-     6,
-     1,
-     0
-    ],
-    [
      "Goryo Reanimator",
      4,
      3,
+     0
+    ],
+    [
+     "Ruby Storm",
+     6,
+     1,
      0
     ],
     [
@@ -10092,7 +10076,7 @@
      0
     ]
    ],
-   "metaWr": 48.7,
+   "metaWr": 48.6,
    "core": [
     [
      "Dragon's Rage Channeler",
@@ -10204,7 +10188,7 @@
    "name": "Samwise",
    "share": 0.8,
    "tier": 2,
-   "count": 90,
+   "count": 89,
    "title": "Wiltron92 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1111337#deck_Wiltron92",
    "main": [
@@ -10262,8 +10246,8 @@
     1.7
    ],
    "field": [
-    91,
-    84,
+    88,
+    82,
     10
    ],
    "mu": [
@@ -10318,7 +10302,7 @@
     [
      "Esper Blink",
      6,
-     3,
+     2,
      0
     ],
     [
@@ -10330,17 +10314,17 @@
     [
      "Devoted Combo",
      2,
-     5,
-     0
-    ],
-    [
-     "Ruby Storm",
-     3,
-     3,
+     4,
      0
     ],
     [
      "Goryo Reanimator",
+     1,
+     3,
+     0
+    ],
+    [
+     "Ruby Storm",
      1,
      3,
      0
@@ -10370,7 +10354,7 @@
      2
     ]
    ],
-   "metaWr": 50.5,
+   "metaWr": 50.8,
    "core": [
     [
      "Birthing Ritual",
@@ -10449,37 +10433,37 @@
     ],
     [
      "Yawgmoth, Thran Physician",
-     77,
+     78,
      1
     ],
     [
      "Ajani, Nacatl Pariah",
-     72,
+     73,
      3.1
     ],
     [
      "Delighted Halfling",
-     72,
+     73,
      1.9
     ],
     [
      "Stomping Ground",
-     72,
+     73,
      1
     ],
     [
      "Goblin Bombardment",
-     71,
+     72,
      2.4
     ],
     [
      "Misty Rainforest",
-     60,
+     61,
      1.1
     ],
     [
      "Orcish Bowmasters",
-     59,
+     58,
      2.5
     ],
     [
@@ -10494,7 +10478,7 @@
     ],
     [
      "Wooded Foothills",
-     50,
+     49,
      1.4
     ],
     [
@@ -10505,23 +10489,23 @@
     [
      "Viscera Seer",
      43,
-     1.5
+     1.4
     ]
    ],
-   "lists": 90,
+   "lists": 89,
    "conv": [
     0.8,
     0.9,
     11
    ],
-   "prev": 0.7
+   "prev": 0.8
   },
   {
    "id": "modern-grixis-reanimator",
    "name": "Grixis Reanimator",
    "share": 0.7,
    "tier": 2,
-   "count": 87,
+   "count": 86,
    "title": "storti · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1411337#deck_storti",
    "main": [
@@ -10571,14 +10555,14 @@
     1.4
    ],
    "field": [
-    102,
-    133,
+    99,
+    132,
     19
    ],
    "mu": [
     [
      "Broodscale",
-     13,
+     12,
      21,
      6
     ],
@@ -10614,7 +10598,7 @@
     ],
     [
      "Domain Zoo",
-     4,
+     3,
      4,
      0
     ],
@@ -10626,7 +10610,7 @@
     ],
     [
      "Esper Blink",
-     5,
+     4,
      9,
      1
     ],
@@ -10685,7 +10669,7 @@
      0
     ]
    ],
-   "metaWr": 45.9,
+   "metaWr": 45.4,
    "core": [
     [
      "Abhorrent Oculus",
@@ -10764,23 +10748,23 @@
     ],
     [
      "Island",
-     74,
+     73,
      1
     ],
     [
      "Swamp",
-     74,
+     73,
      1.9
     ],
     [
      "Thought Scour",
-     68,
+     69,
      3.3
     ],
     [
      "Spell Pierce",
-     67,
-     1.7
+     66,
+     1.8
     ],
     [
      "Inquisition of Kozilek",
@@ -10794,21 +10778,21 @@
     ],
     [
      "Snow-Covered Island",
-     26,
+     27,
      1
     ],
     [
      "Snow-Covered Swamp",
-     26,
+     27,
      2
     ],
     [
      "Theorix Charm",
-     25,
+     26,
      3.1
     ]
    ],
-   "lists": 87,
+   "lists": 86,
    "conv": [
     0.7,
     0.8,
@@ -10821,7 +10805,7 @@
    "name": "Fight Rigging Eldrazi",
    "share": 0.7,
    "tier": 2,
-   "count": 85,
+   "count": 83,
    "title": "bluecloud1218 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1011161#deck_bluecloud1218",
    "main": [
@@ -10858,7 +10842,7 @@
     "2 Veil of Summer"
    ],
    "history": [
-    4,
+    3.9,
     4,
     3.1,
     1.1,
@@ -10872,8 +10856,8 @@
     0.2
    ],
    "field": [
-    138,
-    167,
+    134,
+    165,
     15
    ],
    "mu": [
@@ -10892,7 +10876,7 @@
     [
      "Azorius Control",
      7,
-     21,
+     20,
      9
     ],
     [
@@ -10909,7 +10893,7 @@
     ],
     [
      "Boros Energy",
-     9,
+     8,
      11,
      0
     ],
@@ -10944,21 +10928,15 @@
      0
     ],
     [
-     "Ruby Storm",
-     6,
-     8,
-     0
-    ],
-    [
      "Goryo Reanimator",
      6,
      9,
      2
     ],
     [
-     "Neobrand",
-     1,
-     3,
+     "Ruby Storm",
+     5,
+     8,
      0
     ],
     [
@@ -10968,8 +10946,8 @@
      0
     ],
     [
-     "Boros Ponza",
-     2,
+     "Neobrand",
+     1,
      2,
      0
     ],
@@ -10980,6 +10958,12 @@
      0
     ],
     [
+     "Boros Ponza",
+     2,
+     2,
+     0
+    ],
+    [
      "Blue Belcher",
      1,
      4,
@@ -10987,7 +10971,7 @@
     ],
     [
      "Azorius Blink",
-     4,
+     3,
      0,
      0
     ],
@@ -10998,7 +10982,7 @@
      0
     ]
    ],
-   "metaWr": 46.6,
+   "metaWr": 46.4,
    "core": [
     [
      "Forest",
@@ -11078,7 +11062,7 @@
     ],
     [
      "Gemstone Caverns",
-     79,
+     80,
      1
     ],
     [
@@ -11093,11 +11077,11 @@
     ],
     [
      "Devourer of Destiny",
-     38,
-     2
+     37,
+     1.9
     ]
    ],
-   "lists": 85,
+   "lists": 83,
    "conv": [
     0.7,
     0.2,
@@ -11110,7 +11094,7 @@
    "name": "Hollow One",
    "share": 0.7,
    "tier": 2,
-   "count": 80,
+   "count": 79,
    "title": "FrancusAurelius · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-0911161#deck_FrancusAurelius",
    "main": [
@@ -11309,12 +11293,12 @@
    "flex": [
     [
      "Arid Mesa",
-     80,
+     81,
      2.9
     ],
     [
      "Vengevine",
-     80,
+     81,
      4
     ],
     [
@@ -11324,12 +11308,12 @@
     ],
     [
      "Sacred Foundry",
-     75,
+     76,
      3.7
     ],
     [
      "Hardened Academic",
-     75,
+     76,
      4
     ],
     [
@@ -11339,23 +11323,23 @@
     ],
     [
      "Elegant Parlor",
-     70,
+     71,
      1
     ],
     [
      "Practiced Offense",
-     69,
+     70,
      1.6
     ],
     [
      "Arena of Glory",
-     64,
+     63,
      1.2
     ],
     [
      "Wooded Foothills",
-     53,
-     2.4
+     52,
+     2.3
     ],
     [
      "Ox of Agonas",
@@ -11364,335 +11348,27 @@
     ],
     [
      "Blood Crypt",
-     29,
-     3.4
+     28,
+     3.5
     ],
     [
      "Raucous Theater",
-     28,
+     27,
      1
     ],
     [
      "Swamp",
-     26,
-     1.1
+     25,
+     1.2
     ]
    ],
-   "lists": 80,
+   "lists": 79,
    "conv": [
     0.7,
     0.4,
     5
    ],
    "prev": 0.7
-  },
-  {
-   "id": "modern-necrodominance",
-   "name": "Necrodominance",
-   "share": 0.7,
-   "tier": 2,
-   "count": 78,
-   "title": "Higusol · Modern League (5-0)",
-   "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1311337#deck_Higusol",
-   "main": [
-    "2 Bloodstained Mire",
-    "4 Boggart Trawler",
-    "1 Castle Locthwain",
-    "1 Damnation",
-    "2 Dauthi Voidwalker",
-    "4 Fatal Push",
-    "1 Fell the Profane",
-    "3 Force of Despair",
-    "3 March of Wretched Sorrow",
-    "4 Necrodominance",
-    "4 Orcish Bowmasters",
-    "1 Overgrown Tomb",
-    "3 Polluted Delta",
-    "2 Professor Dellian Fel",
-    "1 Sheoldred's Edict",
-    "2 Sheoldred, the Apocalypse",
-    "4 Soul Spike",
-    "5 Swamp",
-    "4 Thoughtseize",
-    "2 Underground Mortuary",
-    "4 Verdant Catacombs",
-    "3 Witherbloom Charm"
-   ],
-   "side": [
-    "4 Break the Ice",
-    "2 Culling Ritual",
-    "2 Dauthi Voidwalker",
-    "1 Illness in the Ranks",
-    "4 Leyline of the Void",
-    "2 Shatter Assumptions"
-   ],
-   "history": [
-    1.4,
-    0.7,
-    0.5,
-    1.5,
-    1.3,
-    0.6,
-    0.6,
-    1.2,
-    0.4,
-    0.4,
-    0.5,
-    0.4
-   ],
-   "field": [
-    101,
-    115,
-    22
-   ],
-   "mu": [
-    [
-     "Broodscale",
-     9,
-     24,
-     0
-    ],
-    [
-     "Prowess",
-     9,
-     9,
-     0
-    ],
-    [
-     "Azorius Control",
-     12,
-     5,
-     8
-    ],
-    [
-     "Rakdos Midrange",
-     4,
-     5,
-     0
-    ],
-    [
-     "Affinity",
-     4,
-     6,
-     0
-    ],
-    [
-     "Boros Energy",
-     4,
-     5,
-     0
-    ],
-    [
-     "Domain Zoo",
-     7,
-     3,
-     0
-    ],
-    [
-     "Tron",
-     3,
-     4,
-     0
-    ],
-    [
-     "Esper Blink",
-     4,
-     13,
-     2
-    ],
-    [
-     "Amulet Titan",
-     4,
-     6,
-     2
-    ],
-    [
-     "Devoted Combo",
-     3,
-     2,
-     0
-    ],
-    [
-     "Goryo Reanimator",
-     3,
-     6,
-     2
-    ],
-    [
-     "Ruby Storm",
-     4,
-     4,
-     0
-    ],
-    [
-     "Living End",
-     3,
-     0,
-     0
-    ],
-    [
-     "Dimir Frog",
-     4,
-     0,
-     0
-    ],
-    [
-     "Jeskai Blink",
-     5,
-     0,
-     2
-    ],
-    [
-     "Jeskai Energy",
-     1,
-     2,
-     0
-    ],
-    [
-     "Esper Midrange",
-     1,
-     1,
-     2
-    ],
-    [
-     "Blue Belcher",
-     0,
-     3,
-     0
-    ],
-    [
-     "Izzet Cutter",
-     0,
-     2,
-     2
-    ]
-   ],
-   "metaWr": 46.3,
-   "core": [
-    [
-     "Swamp",
-     6
-    ],
-    [
-     "Soul Spike",
-     4
-    ],
-    [
-     "Necrodominance",
-     4
-    ],
-    [
-     "Thoughtseize",
-     4
-    ],
-    [
-     "Fatal Push",
-     4
-    ],
-    [
-     "Boggart Trawler",
-     4
-    ],
-    [
-     "Orcish Bowmasters",
-     3
-    ],
-    [
-     "March of Wretched Sorrow",
-     3
-    ],
-    [
-     "Force of Despair",
-     2
-    ],
-    [
-     "Sheoldred, the Apocalypse",
-     2
-    ],
-    [
-     "Fell the Profane",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Dauthi Voidwalker",
-     90,
-     2.9
-    ],
-    [
-     "Bloodstained Mire",
-     74,
-     2.6
-    ],
-    [
-     "Overgrown Tomb",
-     71,
-     1.5
-    ],
-    [
-     "Professor Dellian Fel",
-     71,
-     2
-    ],
-    [
-     "Underground Mortuary",
-     71,
-     1.9
-    ],
-    [
-     "Witherbloom Charm",
-     69,
-     2.7
-    ],
-    [
-     "Castle Locthwain",
-     65,
-     1.4
-    ],
-    [
-     "Marsh Flats",
-     65,
-     2.2
-    ],
-    [
-     "Blooming Marsh",
-     63,
-     1.8
-    ],
-    [
-     "Verdant Catacombs",
-     63,
-     2.1
-    ],
-    [
-     "Polluted Delta",
-     41,
-     2.3
-    ],
-    [
-     "Inquisition of Kozilek",
-     41,
-     2.3
-    ],
-    [
-     "Assassin's Trophy",
-     35,
-     1.7
-    ],
-    [
-     "Sheoldred's Edict",
-     32,
-     1.1
-    ]
-   ],
-   "lists": 78,
-   "conv": [
-    0.5,
-    0.4,
-    5
-   ],
-   "prev": 0.6
   },
   {
    "id": "modern-burn",
@@ -11732,7 +11408,7 @@
     "3 Smash to Smithereens"
    ],
    "history": [
-    1.1,
+    1.2,
     0.6,
     0.6,
     1.1,
@@ -11962,11 +11638,313 @@
    ],
    "lists": 73,
    "conv": [
-    0.7,
-    0.5,
+    0.8,
+    0.6,
     7
    ],
    "prev": 0.6
+  },
+  {
+   "id": "modern-necrodominance",
+   "name": "Necrodominance",
+   "share": 0.6,
+   "tier": 2,
+   "count": 71,
+   "title": "Higusol · Modern League (5-0)",
+   "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1311337#deck_Higusol",
+   "main": [
+    "2 Bloodstained Mire",
+    "4 Boggart Trawler",
+    "1 Castle Locthwain",
+    "1 Damnation",
+    "2 Dauthi Voidwalker",
+    "4 Fatal Push",
+    "1 Fell the Profane",
+    "3 Force of Despair",
+    "3 March of Wretched Sorrow",
+    "4 Necrodominance",
+    "4 Orcish Bowmasters",
+    "1 Overgrown Tomb",
+    "3 Polluted Delta",
+    "2 Professor Dellian Fel",
+    "1 Sheoldred's Edict",
+    "2 Sheoldred, the Apocalypse",
+    "4 Soul Spike",
+    "5 Swamp",
+    "4 Thoughtseize",
+    "2 Underground Mortuary",
+    "4 Verdant Catacombs",
+    "3 Witherbloom Charm"
+   ],
+   "side": [
+    "4 Break the Ice",
+    "2 Culling Ritual",
+    "2 Dauthi Voidwalker",
+    "1 Illness in the Ranks",
+    "4 Leyline of the Void",
+    "2 Shatter Assumptions"
+   ],
+   "history": [
+    1.2,
+    0.7,
+    0.5,
+    1.5,
+    1.3,
+    0.6,
+    0.6,
+    1.2,
+    0.4,
+    0.4,
+    0.5,
+    0.4
+   ],
+   "field": [
+    100,
+    114,
+    22
+   ],
+   "mu": [
+    [
+     "Broodscale",
+     9,
+     24,
+     0
+    ],
+    [
+     "Prowess",
+     8,
+     9,
+     0
+    ],
+    [
+     "Azorius Control",
+     12,
+     5,
+     8
+    ],
+    [
+     "Rakdos Midrange",
+     4,
+     5,
+     0
+    ],
+    [
+     "Affinity",
+     4,
+     6,
+     0
+    ],
+    [
+     "Boros Energy",
+     4,
+     5,
+     0
+    ],
+    [
+     "Domain Zoo",
+     7,
+     3,
+     0
+    ],
+    [
+     "Tron",
+     3,
+     4,
+     0
+    ],
+    [
+     "Esper Blink",
+     4,
+     13,
+     2
+    ],
+    [
+     "Amulet Titan",
+     4,
+     6,
+     2
+    ],
+    [
+     "Devoted Combo",
+     3,
+     2,
+     0
+    ],
+    [
+     "Goryo Reanimator",
+     3,
+     6,
+     2
+    ],
+    [
+     "Ruby Storm",
+     4,
+     4,
+     0
+    ],
+    [
+     "Living End",
+     3,
+     0,
+     0
+    ],
+    [
+     "Dimir Frog",
+     4,
+     0,
+     0
+    ],
+    [
+     "Jeskai Blink",
+     5,
+     0,
+     2
+    ],
+    [
+     "Jeskai Energy",
+     1,
+     2,
+     0
+    ],
+    [
+     "Esper Midrange",
+     1,
+     1,
+     2
+    ],
+    [
+     "Izzet Cutter",
+     0,
+     2,
+     2
+    ]
+   ],
+   "metaWr": 46.2,
+   "core": [
+    [
+     "Swamp",
+     6
+    ],
+    [
+     "Soul Spike",
+     4
+    ],
+    [
+     "Necrodominance",
+     4
+    ],
+    [
+     "Thoughtseize",
+     4
+    ],
+    [
+     "Fatal Push",
+     4
+    ],
+    [
+     "Boggart Trawler",
+     4
+    ],
+    [
+     "Orcish Bowmasters",
+     3
+    ],
+    [
+     "March of Wretched Sorrow",
+     3
+    ],
+    [
+     "Force of Despair",
+     2
+    ],
+    [
+     "Sheoldred, the Apocalypse",
+     2
+    ],
+    [
+     "Fell the Profane",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Dauthi Voidwalker",
+     89,
+     2.9
+    ],
+    [
+     "Bloodstained Mire",
+     72,
+     2.5
+    ],
+    [
+     "Overgrown Tomb",
+     69,
+     1.6
+    ],
+    [
+     "Professor Dellian Fel",
+     69,
+     2
+    ],
+    [
+     "Underground Mortuary",
+     69,
+     1.9
+    ],
+    [
+     "Witherbloom Charm",
+     68,
+     2.6
+    ],
+    [
+     "Castle Locthwain",
+     65,
+     1.5
+    ],
+    [
+     "Marsh Flats",
+     63,
+     2.2
+    ],
+    [
+     "Verdant Catacombs",
+     62,
+     2.1
+    ],
+    [
+     "Blooming Marsh",
+     61,
+     1.8
+    ],
+    [
+     "Inquisition of Kozilek",
+     42,
+     2.3
+    ],
+    [
+     "Polluted Delta",
+     41,
+     2.3
+    ],
+    [
+     "Assassin's Trophy",
+     38,
+     1.7
+    ],
+    [
+     "Sheoldred's Edict",
+     28,
+     1.2
+    ]
+   ],
+   "lists": 71,
+   "conv": [
+    0.4,
+    0.3,
+    4
+   ],
+   "prev": 0.7
   },
   {
    "id": "modern-5-color-creativity",
@@ -12289,279 +12267,6 @@
    "prev": 0.6
   },
   {
-   "id": "modern-cosmo-fling",
-   "name": "Cosmo Fling",
-   "share": 0.5,
-   "tier": 2,
-   "count": 65,
-   "title": "Atagomax · Modern Challenge 32 (2nd Place)",
-   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1512858112#deck_Atagomax",
-   "main": [
-    "4 Blackcleave Cliffs",
-    "4 Blooming Marsh",
-    "1 Cavern of Souls",
-    "3 Chancellor of the Dross",
-    "3 Copperline Gorge",
-    "4 Cosmogoyf",
-    "3 Darkbore Pathway",
-    "4 Devourer of Destiny",
-    "4 Gemstone Caverns",
-    "4 Gemstone Mine",
-    "2 Inquisition of Kozilek",
-    "1 Pact of Negation",
-    "4 Plunge into Darkness",
-    "4 Serum Powder",
-    "4 Specter's Shriek",
-    "4 Spoils of the Vault",
-    "2 Summoner's Pact",
-    "1 Swamp",
-    "4 Thud"
-   ],
-   "side": [
-    "2 Cavern of Souls",
-    "1 Chancellor of the Dross",
-    "3 Chancellor of the Tangle",
-    "1 Darkbore Pathway",
-    "1 Monstrous Rage",
-    "2 Pact of Negation",
-    "4 Sorin, Imperious Bloodlord",
-    "1 Vexing Bauble"
-   ],
-   "history": [
-    0.8,
-    0.6,
-    0.6,
-    0.8,
-    0.9,
-    0.1,
-    0.7,
-    0.4,
-    0.3,
-    0.2,
-    0.3,
-    0.2
-   ],
-   "field": [
-    79,
-    96,
-    2
-   ],
-   "mu": [
-    [
-     "Broodscale",
-     15,
-     13,
-     2
-    ],
-    [
-     "Prowess",
-     12,
-     11,
-     0
-    ],
-    [
-     "Azorius Control",
-     3,
-     6,
-     0
-    ],
-    [
-     "Affinity",
-     3,
-     3,
-     0
-    ],
-    [
-     "Boros Energy",
-     2,
-     8,
-     0
-    ],
-    [
-     "Domain Zoo",
-     4,
-     8,
-     0
-    ],
-    [
-     "Tron",
-     3,
-     5,
-     0
-    ],
-    [
-     "Esper Blink",
-     2,
-     3,
-     0
-    ],
-    [
-     "Amulet Titan",
-     4,
-     1,
-     0
-    ],
-    [
-     "Devoted Combo",
-     5,
-     3,
-     0
-    ],
-    [
-     "Ruby Storm",
-     2,
-     2,
-     0
-    ],
-    [
-     "Goryo Reanimator",
-     1,
-     5,
-     0
-    ],
-    [
-     "Dimir Frog",
-     0,
-     4,
-     0
-    ],
-    [
-     "Jeskai Blink",
-     2,
-     3,
-     0
-    ],
-    [
-     "Esper Midrange",
-     2,
-     2,
-     0
-    ],
-    [
-     "Yawgmoth",
-     1,
-     2,
-     0
-    ]
-   ],
-   "metaWr": 47.6,
-   "core": [
-    [
-     "Cosmogoyf",
-     4
-    ],
-    [
-     "Gemstone Caverns",
-     4
-    ],
-    [
-     "Gemstone Mine",
-     4
-    ],
-    [
-     "Serum Powder",
-     4
-    ],
-    [
-     "Thud",
-     4
-    ],
-    [
-     "Blackcleave Cliffs",
-     4
-    ],
-    [
-     "Plunge into Darkness",
-     4
-    ],
-    [
-     "Blooming Marsh",
-     4
-    ],
-    [
-     "Spoils of the Vault",
-     4
-    ],
-    [
-     "Devourer of Destiny",
-     4
-    ],
-    [
-     "Swamp",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Copperline Gorge",
-     89,
-     2.8
-    ],
-    [
-     "Darkbore Pathway",
-     89,
-     1.6
-    ],
-    [
-     "Summoner's Pact",
-     89,
-     2.3
-    ],
-    [
-     "Cavern of Souls",
-     69,
-     1.3
-    ],
-    [
-     "Chancellor of the Dross",
-     66,
-     3.5
-    ],
-    [
-     "Specter's Shriek",
-     62,
-     3.2
-    ],
-    [
-     "Inquisition of Kozilek",
-     58,
-     3
-    ],
-    [
-     "Blightstep Pathway",
-     46,
-     1
-    ],
-    [
-     "Providence",
-     42,
-     1.3
-    ],
-    [
-     "Pact of Negation",
-     34,
-     2.8
-    ],
-    [
-     "Aloe Alchemist",
-     29,
-     1
-    ],
-    [
-     "Callous Sell-Sword",
-     28,
-     1
-    ]
-   ],
-   "lists": 65,
-   "conv": [
-    0.6,
-    0.2,
-    3
-   ],
-   "prev": 0.5
-  },
-  {
    "id": "modern-yawgmoth",
    "name": "Yawgmoth",
    "share": 0.5,
@@ -12720,16 +12425,16 @@
      0
     ],
     [
-     "Neobrand",
-     1,
-     2,
-     0
-    ],
-    [
      "Jeskai Blink",
      0,
      2,
      2
+    ],
+    [
+     "Neobrand",
+     1,
+     2,
+     0
     ],
     [
      "Esper Midrange",
@@ -12889,125 +12594,132 @@
    "prev": 0.5
   },
   {
-   "id": "modern-ramp-eldrazi",
-   "name": "Ramp Eldrazi",
+   "id": "modern-cosmo-fling",
+   "name": "Cosmo Fling",
    "share": 0.5,
    "tier": 2,
-   "count": 59,
-   "title": "2345678 · Modern Challenge 32 (5th Place)",
-   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-0312857426#deck_2345678",
+   "count": 61,
+   "title": "Atagomax · Modern Challenge 32 (2nd Place)",
+   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1512858112#deck_Atagomax",
    "main": [
-    "4 Ancient Stirrings",
+    "4 Blackcleave Cliffs",
+    "4 Blooming Marsh",
     "1 Cavern of Souls",
-    "1 Commercial District",
-    "2 Devourer of Destiny",
-    "4 Eldrazi Temple",
-    "3 Emrakul, the Promised End",
-    "4 Forest",
-    "3 Herigast, Erupting Nullkite",
-    "4 Kozilek's Command",
-    "3 Kozilek's Return",
-    "4 Malevolent Rumble",
-    "2 Sanctum of Ugin",
-    "4 Sowing Mycospawn",
-    "2 Stomping Ground",
-    "4 Talisman of Impulse",
-    "4 Ugin's Labyrinth",
-    "4 Utopia Sprawl",
-    "4 Wooded Foothills",
-    "3 Writhing Chrysalis"
+    "3 Chancellor of the Dross",
+    "3 Copperline Gorge",
+    "4 Cosmogoyf",
+    "3 Darkbore Pathway",
+    "4 Devourer of Destiny",
+    "4 Gemstone Caverns",
+    "4 Gemstone Mine",
+    "2 Inquisition of Kozilek",
+    "1 Pact of Negation",
+    "4 Plunge into Darkness",
+    "4 Serum Powder",
+    "4 Specter's Shriek",
+    "4 Spoils of the Vault",
+    "2 Summoner's Pact",
+    "1 Swamp",
+    "4 Thud"
    ],
    "side": [
-    "2 Dismember",
-    "1 Fire Magic",
-    "3 Force of Vigor",
-    "1 Shatterstorm",
-    "4 Stone Rain",
-    "2 Trinisphere",
-    "2 Vexing Bauble"
+    "2 Cavern of Souls",
+    "1 Chancellor of the Dross",
+    "3 Chancellor of the Tangle",
+    "1 Darkbore Pathway",
+    "1 Monstrous Rage",
+    "2 Pact of Negation",
+    "4 Sorin, Imperious Bloodlord",
+    "1 Vexing Bauble"
    ],
    "history": [
-    0.8,
-    0.6,
-    0.5,
     0.7,
-    1,
+    0.6,
+    0.6,
     0.8,
+    0.9,
+    0.1,
+    0.7,
     0.4,
-    0.8,
     0.3,
-    0.4,
-    0.5,
-    0
+    0.2,
+    0.3,
+    0.2
    ],
    "field": [
-    54,
-    75,
-    7
+    79,
+    95,
+    2
    ],
    "mu": [
     [
      "Broodscale",
-     7,
-     16,
+     15,
+     13,
      2
     ],
     [
      "Prowess",
+     12,
+     11,
+     0
+    ],
+    [
+     "Azorius Control",
+     3,
+     6,
+     0
+    ],
+    [
+     "Affinity",
+     3,
+     3,
+     0
+    ],
+    [
+     "Boros Energy",
+     2,
+     8,
+     0
+    ],
+    [
+     "Domain Zoo",
      4,
      8,
      0
     ],
     [
-     "Azorius Control",
-     4,
-     4,
-     0
-    ],
-    [
-     "Affinity",
-     5,
-     5,
-     0
-    ],
-    [
-     "Boros Energy",
-     3,
-     2,
-     0
-    ],
-    [
-     "Domain Zoo",
-     3,
-     5,
-     0
-    ],
-    [
      "Tron",
-     4,
+     3,
      4,
      0
     ],
     [
      "Esper Blink",
-     3,
-     4,
-     2
-    ],
-    [
-     "Goryo Reanimator",
-     1,
+     2,
      3,
      0
     ],
     [
-     "Ruby Storm",
+     "Amulet Titan",
+     4,
      1,
-     1,
-     1
+     0
     ],
     [
-     "Living End",
+     "Devoted Combo",
+     5,
+     3,
+     0
+    ],
+    [
+     "Goryo Reanimator",
+     1,
+     5,
+     0
+    ],
+    [
+     "Ruby Storm",
      2,
      2,
      0
@@ -13015,138 +12727,142 @@
     [
      "Dimir Frog",
      0,
+     4,
+     0
+    ],
+    [
+     "Jeskai Blink",
+     2,
      3,
      0
     ],
     [
-     "Blue Belcher",
+     "Esper Midrange",
      2,
-     1,
+     2,
      0
     ],
     [
-     "Murktide",
-     2,
+     "Yawgmoth",
      1,
+     2,
      0
     ]
    ],
-   "metaWr": 44.7,
+   "metaWr": 47.8,
    "core": [
     [
-     "Kozilek's Command",
+     "Cosmogoyf",
      4
     ],
     [
-     "Malevolent Rumble",
+     "Gemstone Caverns",
      4
     ],
     [
-     "Sowing Mycospawn",
+     "Gemstone Mine",
      4
     ],
     [
-     "Utopia Sprawl",
+     "Serum Powder",
      4
     ],
     [
-     "Eldrazi Temple",
+     "Thud",
      4
     ],
     [
-     "Ugin's Labyrinth",
+     "Blackcleave Cliffs",
      4
     ],
     [
-     "Forest",
+     "Plunge into Darkness",
      4
     ],
     [
-     "Emrakul, the Promised End",
-     3
+     "Blooming Marsh",
+     4
+    ],
+    [
+     "Spoils of the Vault",
+     4
     ],
     [
      "Devourer of Destiny",
-     2
+     4
+    ],
+    [
+     "Swamp",
+     1
     ]
    ],
    "flex": [
     [
-     "Stomping Ground",
-     88,
-     1.7
+     "Copperline Gorge",
+     89,
+     2.8
     ],
     [
-     "Wooded Foothills",
-     88,
-     1.4
-    ],
-    [
-     "Sire of Seven Deaths",
-     86,
+     "Darkbore Pathway",
+     89,
      1.6
     ],
     [
-     "Talisman of Impulse",
-     85,
-     3.2
+     "Summoner's Pact",
+     89,
+     2.4
     ],
     [
-     "Bojuka Bog",
-     83,
-     1
-    ],
-    [
-     "Commercial District",
-     83,
-     1
-    ],
-    [
-     "Ugin, Eye of the Storms",
-     81,
-     1.6
-    ],
-    [
-     "Ghost Quarter",
-     80,
-     1
-    ],
-    [
-     "Kozilek's Return",
-     78,
-     2.1
-    ],
-    [
-     "Icetill Explorer",
-     73,
-     1.7
-    ],
-    [
-     "World Breaker",
-     73,
-     1.6
-    ],
-    [
-     "Shifting Woodland",
+     "Cavern of Souls",
      69,
-     1
-    ],
-    [
-     "Misty Rainforest",
-     68,
      1.3
     ],
     [
-     "Windswept Heath",
+     "Chancellor of the Dross",
      66,
-     1.1
+     3.5
+    ],
+    [
+     "Specter's Shriek",
+     62,
+     3.2
+    ],
+    [
+     "Inquisition of Kozilek",
+     57,
+     2.9
+    ],
+    [
+     "Blightstep Pathway",
+     46,
+     1
+    ],
+    [
+     "Providence",
+     39,
+     1.3
+    ],
+    [
+     "Pact of Negation",
+     33,
+     2.8
+    ],
+    [
+     "Aloe Alchemist",
+     30,
+     1
+    ],
+    [
+     "Callous Sell-Sword",
+     28,
+     1
     ]
    ],
-   "lists": 59,
+   "lists": 61,
    "conv": [
-    0.4,
-    0.4,
-    5
+    0.6,
+    0.2,
+    2
    ],
    "prev": 0.5
   },
@@ -13369,326 +13085,271 @@
    ],
    "lists": 59,
    "conv": [
-    0.6,
+    0.7,
     0.6,
     8
    ],
    "prev": 0.5
   },
   {
-   "id": "modern-omnath-ritual",
-   "name": "Omnath Ritual",
+   "id": "modern-ramp-eldrazi",
+   "name": "Ramp Eldrazi",
    "share": 0.5,
    "tier": 2,
-   "count": 57,
-   "title": "Jeremy Thizy · MODERN MAIN EVENT (1st Place)",
-   "url": "https://getpaird.io/tournaments/modern-main-event-8gvZ3V/lists/3278",
+   "count": 58,
+   "title": "2345678 · Modern Challenge 32 (5th Place)",
+   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-0312857426#deck_2345678",
    "main": [
-    "4 Birthing Ritual",
-    "4 Bloodbraid Elf",
-    "1 Breeding Pool",
-    "1 Elegant Parlor",
-    "1 Elesh Norn, Mother of Machines",
-    "3 Flooded Strand",
-    "1 Forest",
-    "1 Hallowed Fountain",
-    "1 Hedge Maze",
-    "1 Island",
-    "4 Leyline Binding",
-    "2 Magmatic Hellkite",
-    "1 Meticulous Archive",
-    "2 Obsidian Charmaw",
-    "4 Omnath, Locus of Creation",
-    "1 Plains",
-    "4 Quantum Riddler",
-    "1 Sacred Foundry",
-    "4 Shardless Agent",
-    "4 Solitude",
-    "1 Steam Vents",
-    "1 Stomping Ground",
-    "4 Subtlety",
-    "1 Temple Garden",
-    "4 Windswept Heath",
-    "3 Wooded Foothills",
-    "1 Zagoth Triome"
+    "4 Ancient Stirrings",
+    "1 Cavern of Souls",
+    "1 Commercial District",
+    "2 Devourer of Destiny",
+    "4 Eldrazi Temple",
+    "3 Emrakul, the Promised End",
+    "4 Forest",
+    "3 Herigast, Erupting Nullkite",
+    "4 Kozilek's Command",
+    "3 Kozilek's Return",
+    "4 Malevolent Rumble",
+    "2 Sanctum of Ugin",
+    "4 Sowing Mycospawn",
+    "2 Stomping Ground",
+    "4 Talisman of Impulse",
+    "4 Ugin's Labyrinth",
+    "4 Utopia Sprawl",
+    "4 Wooded Foothills",
+    "3 Writhing Chrysalis"
    ],
    "side": [
-    "2 Commandeer",
-    "2 Endurance",
+    "2 Dismember",
+    "1 Fire Magic",
     "3 Force of Vigor",
-    "1 Gemstone Caverns",
-    "1 Magmatic Hellkite",
-    "2 Obsidian Charmaw",
-    "2 Rough // Tumble",
-    "2 Teferi, Time Raveler"
+    "1 Shatterstorm",
+    "4 Stone Rain",
+    "2 Trinisphere",
+    "2 Vexing Bauble"
    ],
    "history": [
-    0.1,
+    0.8,
+    0.6,
+    0.5,
+    0.7,
+    1,
+    0.8,
+    0.4,
+    0.8,
     0.3,
     0.4,
-    1,
-    0.6,
-    0.4,
-    0.6,
-    0.6,
-    0.2,
-    0.4,
-    0,
+    0.5,
     0
    ],
    "field": [
-    109,
-    105,
-    11
+    54,
+    74,
+    7
    ],
    "mu": [
     [
      "Broodscale",
-     12,
+     7,
      16,
-     3
+     2
     ],
     [
      "Prowess",
-     11,
-     8,
+     4,
+     7,
      0
     ],
     [
      "Azorius Control",
-     5,
-     11,
-     0
-    ],
-    [
-     "Rakdos Midrange",
      4,
-     3,
+     4,
      0
     ],
     [
      "Affinity",
-     8,
-     3,
+     5,
+     5,
      0
     ],
     [
      "Boros Energy",
-     5,
-     12,
+     3,
+     2,
      0
     ],
     [
      "Domain Zoo",
-     6,
+     3,
      5,
      0
     ],
     [
      "Tron",
-     6,
-     6,
+     4,
+     4,
      0
     ],
     [
      "Esper Blink",
-     6,
-     3,
-     2
-    ],
-    [
-     "Amulet Titan",
-     6,
-     1,
-     0
-    ],
-    [
-     "Devoted Combo",
      3,
      4,
      2
     ],
     [
-     "Ruby Storm",
-     2,
-     2,
-     2
-    ],
-    [
      "Goryo Reanimator",
-     2,
-     2,
+     1,
+     3,
      0
     ],
     [
-     "Living End",
+     "Ruby Storm",
      1,
+     1,
+     1
+    ],
+    [
+     "Living End",
+     2,
      2,
      0
     ],
     [
      "Dimir Frog",
-     4,
-     4,
-     0
-    ],
-    [
-     "Jeskai Blink",
+     0,
      3,
-     2,
      0
     ],
     [
-     "Neobrand",
-     3,
+     "Blue Belcher",
+     2,
      1,
      0
     ],
     [
-     "Esper Midrange",
-     1,
+     "Murktide",
      2,
-     0
-    ],
-    [
-     "Dimir Control",
      1,
-     2,
      0
     ]
    ],
-   "metaWr": 50.1,
+   "metaWr": 45.1,
    "core": [
     [
-     "Shardless Agent",
+     "Kozilek's Command",
      4
     ],
     [
-     "Solitude",
+     "Malevolent Rumble",
      4
     ],
     [
-     "Quantum Riddler",
+     "Sowing Mycospawn",
      4
     ],
     [
-     "Birthing Ritual",
+     "Utopia Sprawl",
      4
     ],
     [
-     "Leyline Binding",
+     "Eldrazi Temple",
      4
     ],
     [
-     "Omnath, Locus of Creation",
+     "Ugin's Labyrinth",
      4
-    ],
-    [
-     "Subtlety",
-     3
-    ],
-    [
-     "Witch Enchanter",
-     2
-    ],
-    [
-     "Sacred Foundry",
-     1
     ],
     [
      "Forest",
-     1
+     4
     ],
     [
-     "Island",
-     1
+     "Emrakul, the Promised End",
+     3
     ],
     [
-     "Plains",
-     1
-    ],
-    [
-     "Steam Vents",
-     1
+     "Devourer of Destiny",
+     2
     ]
    ],
    "flex": [
     [
-     "Endurance",
-     89,
-     1.4
-    ],
-    [
-     "Flooded Strand",
-     89,
-     3.6
-    ],
-    [
-     "Misty Rainforest",
+     "Stomping Ground",
      88,
-     3.4
+     1.7
     ],
     [
-     "Breeding Pool",
+     "Wooded Foothills",
+     88,
+     1.5
+    ],
+    [
+     "Talisman of Impulse",
      86,
-     1
+     3.2
     ],
     [
-     "Temple Garden",
+     "Sire of Seven Deaths",
+     86,
+     1.6
+    ],
+    [
+     "Commercial District",
      84,
      1
     ],
     [
-     "Force of Negation",
-     82,
-     1.9
-    ],
-    [
-     "Stomping Ground",
-     82,
+     "Bojuka Bog",
+     83,
      1
     ],
     [
-     "Elesh Norn, Mother of Machines",
-     77,
+     "Ugin, Eye of the Storms",
+     81,
+     1.6
+    ],
+    [
+     "Ghost Quarter",
+     79,
      1
     ],
     [
-     "Hallowed Fountain",
+     "Kozilek's Return",
+     78,
+     2.1
+    ],
+    [
+     "World Breaker",
      74,
+     1.6
+    ],
+    [
+     "Icetill Explorer",
+     72,
+     1.6
+    ],
+    [
+     "Shifting Woodland",
+     71,
      1
+    ],
+    [
+     "Misty Rainforest",
+     67,
+     1.3
     ],
     [
      "Windswept Heath",
-     70,
-     2.9
-    ],
-    [
-     "Hedge Maze",
-     65,
-     1
-    ],
-    [
-     "Magmatic Hellkite",
-     65,
-     3.5
-    ],
-    [
-     "Wooded Foothills",
-     54,
-     2.9
-    ],
-    [
-     "Lush Portico",
-     51,
-     1
+     66,
+     1.1
     ]
    ],
-   "lists": 57,
+   "lists": 58,
    "conv": [
     0.4,
-    0.4,
-    5
+    0.3,
+    4
    ],
    "prev": 0.5
   },
@@ -13734,7 +13395,7 @@
     "2 Vexing Bauble"
    ],
    "history": [
-    0.1,
+    0,
     0,
     0.1,
     0.1,
@@ -13940,9 +13601,326 @@
    "prev": 0.5
   },
   {
+   "id": "modern-omnath-ritual",
+   "name": "Omnath Ritual",
+   "share": 0.5,
+   "tier": 2,
+   "count": 54,
+   "title": "Jeremy Thizy · MODERN MAIN EVENT (1st Place)",
+   "url": "https://getpaird.io/tournaments/modern-main-event-8gvZ3V/lists/3278",
+   "main": [
+    "4 Birthing Ritual",
+    "4 Bloodbraid Elf",
+    "1 Breeding Pool",
+    "1 Elegant Parlor",
+    "1 Elesh Norn, Mother of Machines",
+    "3 Flooded Strand",
+    "1 Forest",
+    "1 Hallowed Fountain",
+    "1 Hedge Maze",
+    "1 Island",
+    "4 Leyline Binding",
+    "2 Magmatic Hellkite",
+    "1 Meticulous Archive",
+    "2 Obsidian Charmaw",
+    "4 Omnath, Locus of Creation",
+    "1 Plains",
+    "4 Quantum Riddler",
+    "1 Sacred Foundry",
+    "4 Shardless Agent",
+    "4 Solitude",
+    "1 Steam Vents",
+    "1 Stomping Ground",
+    "4 Subtlety",
+    "1 Temple Garden",
+    "4 Windswept Heath",
+    "3 Wooded Foothills",
+    "1 Zagoth Triome"
+   ],
+   "side": [
+    "2 Commandeer",
+    "2 Endurance",
+    "3 Force of Vigor",
+    "1 Gemstone Caverns",
+    "1 Magmatic Hellkite",
+    "2 Obsidian Charmaw",
+    "2 Rough // Tumble",
+    "2 Teferi, Time Raveler"
+   ],
+   "history": [
+    0.1,
+    0.3,
+    0.4,
+    1,
+    0.6,
+    0.4,
+    0.6,
+    0.6,
+    0.2,
+    0.4,
+    0,
+    0
+   ],
+   "field": [
+    108,
+    104,
+    11
+   ],
+   "mu": [
+    [
+     "Broodscale",
+     12,
+     16,
+     3
+    ],
+    [
+     "Prowess",
+     11,
+     7,
+     0
+    ],
+    [
+     "Azorius Control",
+     5,
+     11,
+     0
+    ],
+    [
+     "Rakdos Midrange",
+     4,
+     3,
+     0
+    ],
+    [
+     "Affinity",
+     8,
+     3,
+     0
+    ],
+    [
+     "Boros Energy",
+     5,
+     12,
+     0
+    ],
+    [
+     "Domain Zoo",
+     6,
+     5,
+     0
+    ],
+    [
+     "Tron",
+     6,
+     6,
+     0
+    ],
+    [
+     "Esper Blink",
+     6,
+     3,
+     2
+    ],
+    [
+     "Amulet Titan",
+     6,
+     1,
+     0
+    ],
+    [
+     "Devoted Combo",
+     3,
+     4,
+     2
+    ],
+    [
+     "Goryo Reanimator",
+     2,
+     2,
+     0
+    ],
+    [
+     "Ruby Storm",
+     1,
+     2,
+     2
+    ],
+    [
+     "Living End",
+     1,
+     2,
+     0
+    ],
+    [
+     "Dimir Frog",
+     4,
+     4,
+     0
+    ],
+    [
+     "Jeskai Blink",
+     3,
+     2,
+     0
+    ],
+    [
+     "Neobrand",
+     3,
+     1,
+     0
+    ],
+    [
+     "Esper Midrange",
+     1,
+     2,
+     0
+    ],
+    [
+     "Dimir Control",
+     1,
+     2,
+     0
+    ]
+   ],
+   "metaWr": 50.2,
+   "core": [
+    [
+     "Shardless Agent",
+     4
+    ],
+    [
+     "Solitude",
+     4
+    ],
+    [
+     "Leyline Binding",
+     4
+    ],
+    [
+     "Quantum Riddler",
+     4
+    ],
+    [
+     "Birthing Ritual",
+     4
+    ],
+    [
+     "Omnath, Locus of Creation",
+     4
+    ],
+    [
+     "Subtlety",
+     3
+    ],
+    [
+     "Witch Enchanter",
+     2
+    ],
+    [
+     "Sacred Foundry",
+     1
+    ],
+    [
+     "Forest",
+     1
+    ],
+    [
+     "Island",
+     1
+    ],
+    [
+     "Plains",
+     1
+    ],
+    [
+     "Steam Vents",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Endurance",
+     89,
+     1.4
+    ],
+    [
+     "Flooded Strand",
+     89,
+     3.6
+    ],
+    [
+     "Temple Garden",
+     89,
+     1
+    ],
+    [
+     "Misty Rainforest",
+     87,
+     3.3
+    ],
+    [
+     "Stomping Ground",
+     87,
+     1
+    ],
+    [
+     "Breeding Pool",
+     85,
+     1
+    ],
+    [
+     "Force of Negation",
+     83,
+     1.9
+    ],
+    [
+     "Elesh Norn, Mother of Machines",
+     76,
+     1
+    ],
+    [
+     "Hallowed Fountain",
+     72,
+     1
+    ],
+    [
+     "Magmatic Hellkite",
+     69,
+     3.5
+    ],
+    [
+     "Windswept Heath",
+     69,
+     2.9
+    ],
+    [
+     "Hedge Maze",
+     63,
+     1
+    ],
+    [
+     "Wooded Foothills",
+     56,
+     2.9
+    ],
+    [
+     "Lush Portico",
+     48,
+     1
+    ]
+   ],
+   "lists": 54,
+   "conv": [
+    0.4,
+    0.3,
+    4
+   ],
+   "prev": 0.5
+  },
+  {
    "id": "modern-simic-ritual",
    "name": "Simic Ritual",
-   "share": 0.4,
+   "share": 0.5,
    "tier": 2,
    "count": 53,
    "title": "DRAGEJAEGEREN · Modern League (5-0)",
@@ -13981,7 +13959,7 @@
     "1 Plague Engineer"
    ],
    "history": [
-    0.3,
+    0.4,
     0.6,
     0.9,
     0.1,
@@ -14257,7 +14235,7 @@
    "name": "Grixis Affinity",
    "share": 0.4,
    "tier": 2,
-   "count": 51,
+   "count": 50,
    "title": "sioutis_kk · Modern Challenge 16 (6th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-16-2026-11-1412858104#deck_sioutis_kk",
    "main": [
@@ -14431,6 +14409,10 @@
      1
     ],
     [
+     "Scalding Tarn",
+     1
+    ],
+    [
      "Pithing Needle",
      1
     ],
@@ -14449,37 +14431,32 @@
    ],
    "flex": [
     [
-     "Scalding Tarn",
-     88,
-     1.2
-    ],
-    [
      "Metallic Rebuke",
-     84,
+     86,
      3.7
     ],
     [
-     "Mox Amber",
+     "Welding Jar",
      82,
      1.9
     ],
     [
-     "Welding Jar",
-     80,
-     1.9
-    ],
-    [
      "Emry, Lurker of the Loch",
-     80,
+     82,
      3.8
     ],
     [
+     "Mox Amber",
+     82,
+     2
+    ],
+    [
      "Preordain",
-     76,
+     78,
      2
     ]
    ],
-   "lists": 51,
+   "lists": 50,
    "conv": [
     0.5,
     1,
@@ -14531,7 +14508,7 @@
     "1 Vexing Bauble"
    ],
    "history": [
-    0.2,
+    0.1,
     0.4,
     0.1,
     0,
@@ -14629,7 +14606,7 @@
      0
     ]
    ],
-   "metaWr": 52.2,
+   "metaWr": 52.3,
    "core": [
     [
      "Colossus Hammer",
@@ -15046,7 +15023,7 @@
    "name": "Azorius Blink",
    "share": 0.4,
    "tier": 2,
-   "count": 43,
+   "count": 42,
    "title": "Athenani · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-11-1411337#deck_Athenani",
    "main": [
@@ -15100,15 +15077,15 @@
     1
    ],
    "field": [
-    40,
-    56,
+    38,
+    53,
     2
    ],
    "mu": [
     [
      "Broodscale",
      5,
-     7,
+     6,
      0
     ],
     [
@@ -15131,7 +15108,7 @@
     ],
     [
      "Affinity",
-     2,
+     1,
      2,
      0
     ],
@@ -15168,7 +15145,7 @@
     [
      "Living End",
      1,
-     4,
+     3,
      0
     ],
     [
@@ -15180,11 +15157,11 @@
     [
      "Fight Rigging Eldrazi",
      0,
-     4,
+     3,
      0
     ]
    ],
-   "metaWr": 48.4,
+   "metaWr": 49.8,
    "core": [
     [
      "Quantum Riddler",
@@ -15227,32 +15204,32 @@
     ],
     [
      "Consign to Memory",
-     77,
+     79,
      2.8
     ],
     [
-     "Guide of Souls",
-     70,
-     4
-    ],
-    [
-     "Ocelot Pride",
-     70,
-     4
-    ],
-    [
      "Teferi, Time Raveler",
-     70,
+     71,
      2.5
     ],
     [
+     "Guide of Souls",
+     69,
+     4
+    ],
+    [
      "Island",
-     67,
+     69,
      1.2
     ],
     [
+     "Ocelot Pride",
+     69,
+     4
+    ],
+    [
      "March of Otherworldly Light",
-     65,
+     64,
      1.9
     ],
     [
@@ -15266,23 +15243,23 @@
      2.2
     ],
     [
-     "Marsh Flats",
-     58,
-     1.9
-    ],
-    [
      "Arid Mesa",
-     56,
+     57,
      2.7
     ],
     [
+     "Marsh Flats",
+     57,
+     1.8
+    ],
+    [
      "Flagstones of Trokair",
-     53,
-     3.2
+     52,
+     3.1
     ],
     [
      "Starfield Shepherd",
-     42,
+     40,
      3.2
     ],
     [
@@ -15291,7 +15268,7 @@
      2.5
     ]
    ],
-   "lists": 43,
+   "lists": 42,
    "conv": [
     0.5,
     0.4,
@@ -15452,7 +15429,7 @@
      0
     ]
    ],
-   "metaWr": 44.2,
+   "metaWr": 44.3,
    "core": [
     [
      "Counterspell",
@@ -16030,7 +16007,7 @@
    "name": "Esper Reanimator",
    "share": 0.3,
    "tier": 2,
-   "count": 39,
+   "count": 38,
    "title": "WestvalePreacher · Modern Challenge 32 (7th Place)",
    "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-1412858103#deck_WestvalePreacher",
    "main": [
@@ -16078,8 +16055,8 @@
     1.7
    ],
    "field": [
-    29,
-    35,
+    28,
+    32,
     4
    ],
    "mu": [
@@ -16116,13 +16093,7 @@
     [
      "Domain Zoo",
      1,
-     3,
-     0
-    ],
-    [
-     "Esper Blink",
      2,
-     1,
      0
     ],
     [
@@ -16150,8 +16121,12 @@
      0
     ]
    ],
-   "metaWr": 54.3,
+   "metaWr": 54.2,
    "core": [
+    [
+     "Persist",
+     4
+    ],
     [
      "Psychic Frog",
      4
@@ -16161,7 +16136,7 @@
      4
     ],
     [
-     "Persist",
+     "Archon of Cruelty",
      4
     ],
     [
@@ -16169,11 +16144,15 @@
      4
     ],
     [
-     "Archon of Cruelty",
+     "Ephemerate",
      4
     ],
     [
      "Thoughtseize",
+     4
+    ],
+    [
+     "Faithful Mending",
      4
     ],
     [
@@ -16182,10 +16161,6 @@
     ],
     [
      "Flooded Strand",
-     4
-    ],
-    [
-     "Ephemerate",
      4
     ],
     [
@@ -16217,11 +16192,11 @@
      1
     ],
     [
-     "Island",
+     "Hallowed Fountain",
      1
     ],
     [
-     "Hallowed Fountain",
+     "Island",
      1
     ],
     [
@@ -16237,17 +16212,11 @@
      1
     ]
    ],
-   "flex": [
-    [
-     "Faithful Mending",
-     90,
-     3.9
-    ]
-   ],
-   "lists": 39,
+   "flex": [],
+   "lists": 38,
    "conv": [
     0.4,
-    0.5,
+    0.6,
     7
    ],
    "prev": 0.3
@@ -16257,7 +16226,7 @@
    "name": "Merfolk",
    "share": 0.2,
    "tier": 3,
-   "count": 28,
+   "count": 27,
    "title": "fart_sniffer_93 · Modern League (5-0)",
    "url": "https://www.mtgo.com/decklist/modern-league-2026-10-2611161#deck_fart_sniffer_93",
    "main": [
@@ -16284,7 +16253,7 @@
     "3 Snapback"
    ],
    "history": [
-    0.3,
+    0.4,
     0.2,
     0.1,
     0.1,
@@ -16364,15 +16333,15 @@
      0
     ],
     [
-     "Ruby Storm",
-     0,
-     3,
-     0
-    ],
-    [
      "Goryo Reanimator",
      2,
      2,
+     0
+    ],
+    [
+     "Ruby Storm",
+     0,
+     3,
      0
     ],
     [
@@ -16407,15 +16376,15 @@
      4
     ],
     [
-     "Sink into Stupor",
-     4
-    ],
-    [
      "Harbinger of the Seas",
      4
     ],
     [
      "Lord of Atlantis",
+     4
+    ],
+    [
+     "Sink into Stupor",
      4
     ],
     [
@@ -16439,61 +16408,51 @@
     ],
     [
      "Flare of Denial",
-     71,
+     70,
      3.3
     ],
     [
-     "Force of Negation",
-     64,
-     2.4
-    ],
-    [
      "Tishana's Tidebinder",
-     64,
+     67,
      3.1
     ],
     [
-     "Silvergill Adept",
-     61,
-     3.2
+     "Force of Negation",
+     63,
+     2.5
     ],
     [
      "Svyelun of Sea and Sky",
-     61,
+     63,
      2.8
     ],
     [
+     "Silvergill Adept",
+     59,
+     3.2
+    ],
+    [
      "Silvergill Mentor",
-     46,
+     48,
      3.1
     ],
     [
-     "Mindspring Merfolk",
-     32,
-     3
-    ],
-    [
      "Floodpits Drowner",
-     29,
+     30,
      3.4
     ],
     [
-     "Merfolk Trickster",
-     25,
-     2.4
-    ],
-    [
-     "Glasspool Mimic",
-     25,
-     1.9
+     "Mindspring Merfolk",
+     30,
+     3
     ],
     [
      "Namor the Sub-Mariner",
-     25,
+     26,
      2.4
     ]
    ],
-   "lists": 28,
+   "lists": 27,
    "conv": [
     0.2,
     0.1,
@@ -16633,7 +16592,7 @@
      0
     ]
    ],
-   "metaWr": 50.5,
+   "metaWr": 50.4,
    "core": [
     [
      "Psychic Frog",
@@ -16793,7 +16752,7 @@
     "2 Wrath of the Skies"
    ],
    "history": [
-    0.3,
+    0.4,
     0.2,
     0.2,
     0.1,
@@ -17001,237 +16960,6 @@
    "prev": 0.2
   },
   {
-   "id": "modern-grixis-frog",
-   "name": "Grixis Frog",
-   "share": 0.2,
-   "tier": 3,
-   "count": 25,
-   "title": "manohito · Modern Challenge 32 (4th Place)",
-   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-0712857682#deck_manohito",
-   "main": [
-    "2 Blood Crypt",
-    "3 Bloodstained Mire",
-    "4 Dark Matter Manipulator",
-    "3 Detective's Phoenix",
-    "4 Fatal Push",
-    "2 Kaito, Bane of Nightmares",
-    "4 Lightning Bolt",
-    "2 Marsh Flats",
-    "4 Mishra's Bauble",
-    "4 Moonshadow",
-    "4 Nethergoyf",
-    "2 Polluted Delta",
-    "4 Psychic Frog",
-    "1 Raucous Theater",
-    "4 Street Wraith",
-    "2 Swamp",
-    "4 Thoughtseize",
-    "2 Troll of Khazad-dûm",
-    "1 Undercity Sewers",
-    "2 Verdant Catacombs",
-    "2 Watery Grave"
-   ],
-   "side": [
-    "4 Consign to Memory",
-    "1 End of the Hunt",
-    "2 Glistening Deluge",
-    "2 Inquisition of Kozilek",
-    "1 Liliana of the Veil",
-    "2 Nihil Spellbomb",
-    "2 Ob Nixilis, the Adversary",
-    "1 Strategic Betrayal"
-   ],
-   "history": [
-    0.1,
-    0.3,
-    0.3,
-    0.4,
-    0,
-    0.1,
-    0.3,
-    0.1,
-    0,
-    0.2,
-    0.3,
-    0.2
-   ],
-   "field": [
-    43,
-    50,
-    0
-   ],
-   "mu": [
-    [
-     "Broodscale",
-     7,
-     8,
-     0
-    ],
-    [
-     "Prowess",
-     2,
-     6,
-     0
-    ],
-    [
-     "Azorius Control",
-     5,
-     1,
-     0
-    ],
-    [
-     "Rakdos Midrange",
-     0,
-     5,
-     0
-    ],
-    [
-     "Affinity",
-     4,
-     2,
-     0
-    ],
-    [
-     "Boros Energy",
-     5,
-     6,
-     0
-    ],
-    [
-     "Domain Zoo",
-     2,
-     5,
-     0
-    ],
-    [
-     "Amulet Titan",
-     4,
-     1,
-     0
-    ],
-    [
-     "Neobrand",
-     4,
-     0,
-     0
-    ],
-    [
-     "Jeskai Blink",
-     1,
-     3,
-     0
-    ],
-    [
-     "Fight Rigging Eldrazi",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": 47.6,
-   "core": [
-    [
-     "Psychic Frog",
-     4
-    ],
-    [
-     "Polluted Delta",
-     4
-    ],
-    [
-     "Bloodstained Mire",
-     2
-    ],
-    [
-     "Watery Grave",
-     2
-    ],
-    [
-     "Undercity Sewers",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Swamp",
-     88,
-     1.2
-    ],
-    [
-     "Steam Vents",
-     84,
-     1.7
-    ],
-    [
-     "Fatal Push",
-     80,
-     3.3
-    ],
-    [
-     "Force of Negation",
-     76,
-     3.7
-    ],
-    [
-     "Spell Snare",
-     76,
-     2.5
-    ],
-    [
-     "Thundering Falls",
-     76,
-     1
-    ],
-    [
-     "Quantum Riddler",
-     72,
-     3.7
-    ],
-    [
-     "Island",
-     68,
-     2
-    ],
-    [
-     "Mishra's Bauble",
-     64,
-     3.8
-    ],
-    [
-     "Preordain",
-     60,
-     3.7
-    ],
-    [
-     "Scalding Tarn",
-     56,
-     3.6
-    ],
-    [
-     "Subtlety",
-     56,
-     2.6
-    ],
-    [
-     "Thoughtseize",
-     56,
-     3.9
-    ],
-    [
-     "Tamiyo, Inquisitive Student",
-     52,
-     3.2
-    ]
-   ],
-   "lists": 25,
-   "conv": [
-    0.2,
-    0.1,
-    1
-   ],
-   "prev": 0.2
-  },
-  {
    "id": "modern-mill",
    "name": "Mill",
    "share": 0.2,
@@ -17274,7 +17002,7 @@
     "3 Vexing Bauble"
    ],
    "history": [
-    0.7,
+    0.8,
     1,
     0.3,
     0.4,
@@ -17348,7 +17076,7 @@
      0
     ]
    ],
-   "metaWr": 41.4,
+   "metaWr": 41.5,
    "core": [
     [
      "Archive Trap",
@@ -17476,6 +17204,237 @@
    "prev": 0.2
   },
   {
+   "id": "modern-grixis-frog",
+   "name": "Grixis Frog",
+   "share": 0.2,
+   "tier": 3,
+   "count": 24,
+   "title": "manohito · Modern Challenge 32 (4th Place)",
+   "url": "https://www.mtgo.com/decklist/modern-challenge-32-2026-11-0712857682#deck_manohito",
+   "main": [
+    "2 Blood Crypt",
+    "3 Bloodstained Mire",
+    "4 Dark Matter Manipulator",
+    "3 Detective's Phoenix",
+    "4 Fatal Push",
+    "2 Kaito, Bane of Nightmares",
+    "4 Lightning Bolt",
+    "2 Marsh Flats",
+    "4 Mishra's Bauble",
+    "4 Moonshadow",
+    "4 Nethergoyf",
+    "2 Polluted Delta",
+    "4 Psychic Frog",
+    "1 Raucous Theater",
+    "4 Street Wraith",
+    "2 Swamp",
+    "4 Thoughtseize",
+    "2 Troll of Khazad-dûm",
+    "1 Undercity Sewers",
+    "2 Verdant Catacombs",
+    "2 Watery Grave"
+   ],
+   "side": [
+    "4 Consign to Memory",
+    "1 End of the Hunt",
+    "2 Glistening Deluge",
+    "2 Inquisition of Kozilek",
+    "1 Liliana of the Veil",
+    "2 Nihil Spellbomb",
+    "2 Ob Nixilis, the Adversary",
+    "1 Strategic Betrayal"
+   ],
+   "history": [
+    0.1,
+    0.3,
+    0.3,
+    0.4,
+    0,
+    0.1,
+    0.3,
+    0.1,
+    0,
+    0.2,
+    0.3,
+    0.2
+   ],
+   "field": [
+    43,
+    50,
+    0
+   ],
+   "mu": [
+    [
+     "Broodscale",
+     7,
+     8,
+     0
+    ],
+    [
+     "Prowess",
+     2,
+     6,
+     0
+    ],
+    [
+     "Azorius Control",
+     5,
+     1,
+     0
+    ],
+    [
+     "Rakdos Midrange",
+     0,
+     5,
+     0
+    ],
+    [
+     "Affinity",
+     4,
+     2,
+     0
+    ],
+    [
+     "Boros Energy",
+     5,
+     6,
+     0
+    ],
+    [
+     "Domain Zoo",
+     2,
+     5,
+     0
+    ],
+    [
+     "Amulet Titan",
+     4,
+     1,
+     0
+    ],
+    [
+     "Jeskai Blink",
+     1,
+     3,
+     0
+    ],
+    [
+     "Neobrand",
+     4,
+     0,
+     0
+    ],
+    [
+     "Fight Rigging Eldrazi",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": 47.6,
+   "core": [
+    [
+     "Psychic Frog",
+     4
+    ],
+    [
+     "Polluted Delta",
+     4
+    ],
+    [
+     "Bloodstained Mire",
+     2
+    ],
+    [
+     "Watery Grave",
+     2
+    ],
+    [
+     "Undercity Sewers",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Swamp",
+     88,
+     1.2
+    ],
+    [
+     "Steam Vents",
+     83,
+     1.7
+    ],
+    [
+     "Fatal Push",
+     79,
+     3.3
+    ],
+    [
+     "Force of Negation",
+     75,
+     3.7
+    ],
+    [
+     "Spell Snare",
+     75,
+     2.6
+    ],
+    [
+     "Thundering Falls",
+     75,
+     1
+    ],
+    [
+     "Quantum Riddler",
+     71,
+     3.8
+    ],
+    [
+     "Mishra's Bauble",
+     67,
+     3.8
+    ],
+    [
+     "Island",
+     67,
+     2
+    ],
+    [
+     "Preordain",
+     58,
+     3.8
+    ],
+    [
+     "Scalding Tarn",
+     54,
+     3.8
+    ],
+    [
+     "Subtlety",
+     54,
+     2.5
+    ],
+    [
+     "Unholy Heat",
+     54,
+     3.8
+    ],
+    [
+     "Thoughtseize",
+     54,
+     4
+    ]
+   ],
+   "lists": 24,
+   "conv": [
+    0.2,
+    0.1,
+    1
+   ],
+   "prev": 0.2
+  },
+  {
    "id": "modern-song-of-creation",
    "name": "Song Of Creation",
    "share": 0.2,
@@ -17525,7 +17484,7 @@
     "2 Veil of Summer"
    ],
    "history": [
-    0.2,
+    0,
     0.6,
     0.2,
     0.4,
