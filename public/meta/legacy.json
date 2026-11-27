@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-26",
- "prevDate": "2026-11-25",
+ "updated": "2026-11-27",
+ "prevDate": "2026-11-26",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 5217,
+ "decksAnalyzed": 5098,
  "unknownPct": 0.5,
  "rogue": [
   {
@@ -594,7 +594,7 @@
     10.3,
     5.3,
     [
-     0.4,
+     0.5,
      0.2,
      0.3,
      0.3,
@@ -632,7 +632,7 @@
     25.4,
     21.4,
     [
-     16.9,
+     15,
      18.7,
      18.9,
      19.6,
@@ -651,7 +651,7 @@
     12.3,
     8.3,
     [
-     4.1,
+     3.8,
      3.8,
      3.4,
      1.9,
@@ -689,7 +689,7 @@
     30.1,
     26.6,
     [
-     36.4,
+     36.6,
      31.5,
      28.6,
      27.9,
@@ -708,7 +708,7 @@
     11.4,
     8,
     [
-     2.1,
+     1.9,
      1.1,
      2,
      1.9,
@@ -746,7 +746,7 @@
     7.4,
     4.8,
     [
-     1.7,
+     0.5,
      6.1,
      5.1,
      2.9,
@@ -765,7 +765,7 @@
     8.4,
     6,
     [
-     1.7,
+     1.4,
      5,
      5.4,
      2.9,
@@ -786,7 +786,7 @@
     31.7,
     39.9,
     [
-     47.1,
+     46.9,
      43.3,
      37,
      36.2,
@@ -805,7 +805,7 @@
     6.1,
     12.2,
     [
-     16.5,
+     16.4,
      15.1,
      11.8,
      13.7,
@@ -824,7 +824,7 @@
     9.6,
     14.8,
     [
-     19,
+     19.2,
      15.6,
      15.8,
      17.4,
@@ -843,7 +843,7 @@
     26.2,
     31,
     [
-     32.6,
+     32.9,
      29.4,
      26.3,
      29.5,
@@ -862,7 +862,7 @@
     37.3,
     41.6,
     [
-     49.2,
+     50.2,
      42.9,
      38.7,
      39.9,
@@ -881,7 +881,7 @@
     11.6,
     15.8,
     [
-     18.2,
+     17.8,
      18.9,
      14.8,
      13.9,
@@ -900,7 +900,7 @@
     4,
     7.5,
     [
-     7.9,
+     8.5,
      7.6,
      4.4,
      5.4,
@@ -919,7 +919,7 @@
     50.3,
     53.6,
     [
-     56.6,
+     55.9,
      54.2,
      48.8,
      48.8,
@@ -938,7 +938,7 @@
     44.4,
     47.6,
     [
-     47.1,
+     47.4,
      44.8,
      39.1,
      40.2,
@@ -957,7 +957,7 @@
     1.5,
     4.6,
     [
-     9.9,
+     9.4,
      9,
      8.1,
      7.5,
@@ -1080,7 +1080,7 @@
   {
    "id": "legacy-dimir-hogaak",
    "name": "Dimir Hogaak",
-   "share": 5.8,
+   "share": 6,
    "tier": 1,
    "count": 305,
    "title": "Cuda792 · Legacy Challenge 16 (1st Place)",
@@ -1167,9 +1167,9 @@
      0
     ],
     [
-     "Eldrazi",
+     "Tron",
+     15,
      9,
-     10,
      0
     ],
     [
@@ -1179,9 +1179,9 @@
      2
     ],
     [
-     "Tron",
-     15,
+     "Eldrazi",
      9,
+     10,
      0
     ],
     [
@@ -1293,15 +1293,15 @@
      0
     ],
     [
-     "Naya Energy",
-     5,
-     2,
-     0
-    ],
-    [
      "Jeskai Energy",
      3,
      1,
+     0
+    ],
+    [
+     "Naya Energy",
+     5,
+     2,
      0
     ],
     [
@@ -1323,12 +1323,6 @@
      0
     ],
     [
-     "Hogaak Moonshadow",
-     4,
-     0,
-     2
-    ],
-    [
      "Creative combo",
      2,
      1,
@@ -1341,7 +1335,19 @@
      0
     ],
     [
+     "Hogaak Moonshadow",
+     4,
+     0,
+     2
+    ],
+    [
      "Dimir Bilbo",
+     2,
+     1,
+     0
+    ],
+    [
+     "Burn",
      2,
      1,
      0
@@ -1356,12 +1362,6 @@
      "Abzan Cradle Control",
      3,
      2,
-     0
-    ],
-    [
-     "Burn",
-     2,
-     1,
      0
     ]
    ],
@@ -1467,8 +1467,8 @@
    ],
    "lists": 305,
    "conv": [
-    5.4,
-    5.6,
+    5.5,
+    5.8,
     44
    ],
    "prev": 5.8
@@ -1476,9 +1476,9 @@
   {
    "id": "legacy-lands",
    "name": "Lands",
-   "share": 5.3,
+   "share": 5.4,
    "tier": 1,
-   "count": 279,
+   "count": 273,
    "title": "tA326_ · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2111321#deck_tA326_",
    "main": [
@@ -1523,7 +1523,7 @@
     "1 Surgical Extraction"
    ],
    "history": [
-    4.1,
+    4.7,
     3.1,
     3.4,
     4.3,
@@ -1537,9 +1537,9 @@
     5.9
    ],
    "field": [
-    349,
-    294,
-    53
+    347,
+    292,
+    51
    ],
    "mu": [
     [
@@ -1562,21 +1562,15 @@
     ],
     [
      "Dimir Tempo",
-     14,
-     9,
+     13,
+     8,
      0
     ],
     [
      "Aluren",
-     20,
+     19,
      21,
      4
-    ],
-    [
-     "Eldrazi",
-     8,
-     6,
-     0
     ],
     [
      "Tron",
@@ -1587,6 +1581,12 @@
     [
      "Izzet Delver",
      23,
+     6,
+     0
+    ],
+    [
+     "Eldrazi",
+     8,
      6,
      0
     ],
@@ -1609,15 +1609,15 @@
      2
     ],
     [
-     "Boros Energy",
-     10,
-     16,
-     2
-    ],
-    [
      "Mystic Forge Combo",
      13,
      12,
+     2
+    ],
+    [
+     "Boros Energy",
+     10,
+     16,
      2
     ],
     [
@@ -1629,7 +1629,7 @@
     [
      "Blue Artifacts",
      8,
-     7,
+     6,
      2
     ],
     [
@@ -1678,7 +1678,7 @@
      "Dredge",
      4,
      0,
-     2
+     0
     ],
     [
      "Cephalid breakfast",
@@ -1691,6 +1691,12 @@
      3,
      1,
      2
+    ],
+    [
+     "Jeskai Energy",
+     4,
+     3,
+     0
     ],
     [
      "Mono Red Stompy",
@@ -1708,12 +1714,6 @@
      "Dimir Midrange",
      7,
      4,
-     0
-    ],
-    [
-     "Jeskai Energy",
-     4,
-     3,
      0
     ],
     [
@@ -1747,6 +1747,12 @@
      0
     ],
     [
+     "Burn",
+     2,
+     1,
+     0
+    ],
+    [
      "Post",
      2,
      0,
@@ -1755,12 +1761,6 @@
     [
      "Ad Nauseam Tendrils",
      3,
-     1,
-     0
-    ],
-    [
-     "Burn",
-     2,
      1,
      0
     ],
@@ -1783,7 +1783,7 @@
      0
     ]
    ],
-   "metaWr": 52.1,
+   "metaWr": 52,
    "core": [
     [
      "Mox Diamond",
@@ -1831,7 +1831,7 @@
     ],
     [
      "Ancient Tomb",
-     2
+     1
     ],
     [
      "Forest",
@@ -1907,11 +1907,11 @@
      1
     ]
    ],
-   "lists": 279,
+   "lists": 273,
    "conv": [
-    4.5,
-    5.2,
-    41
+    4.6,
+    5.1,
+    39
    ],
    "prev": 5.3
   },
@@ -1920,7 +1920,7 @@
    "name": "Doomsday",
    "share": 5.2,
    "tier": 1,
-   "count": 271,
+   "count": 264,
    "title": "Enrichetta · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Enrichetta",
    "main": [
@@ -1957,7 +1957,7 @@
     "1 Voice of Victory"
    ],
    "history": [
-    6.2,
+    6.1,
     4.6,
     4.7,
     4.8,
@@ -1971,8 +1971,8 @@
     5.6
    ],
    "field": [
-    354,
-    297,
+    349,
+    294,
     23
    ],
    "mu": [
@@ -2007,6 +2007,12 @@
      2
     ],
     [
+     "Tron",
+     20,
+     16,
+     0
+    ],
+    [
      "Eldrazi",
      10,
      11,
@@ -2019,12 +2025,6 @@
      0
     ],
     [
-     "Tron",
-     20,
-     16,
-     0
-    ],
-    [
      "Sneak and Show",
      20,
      13,
@@ -2032,13 +2032,13 @@
     ],
     [
      "Death & Taxes",
-     16,
+     15,
      5,
      0
     ],
     [
      "Jeskai Midrange",
-     9,
+     8,
      7,
      0
     ],
@@ -2063,7 +2063,7 @@
     [
      "Blue Artifacts",
      9,
-     8,
+     7,
      0
     ],
     [
@@ -2075,7 +2075,7 @@
     [
      "Sewer - Cam Combo",
      10,
-     14,
+     12,
      2
     ],
     [
@@ -2127,6 +2127,12 @@
      0
     ],
     [
+     "Jeskai Energy",
+     5,
+     0,
+     0
+    ],
+    [
      "Mono Red Stompy",
      1,
      3,
@@ -2139,10 +2145,10 @@
      0
     ],
     [
-     "Jeskai Energy",
-     5,
-     0,
-     0
+     "Selesnya Depths",
+     1,
+     1,
+     1
     ],
     [
      "Painter",
@@ -2151,21 +2157,9 @@
      0
     ],
     [
-     "Selesnya Depths",
-     1,
-     1,
-     1
-    ],
-    [
      "Esper Midrange",
      2,
      3,
-     0
-    ],
-    [
-     "Hogaak Moonshadow",
-     5,
-     1,
      0
     ],
     [
@@ -2187,8 +2181,20 @@
      0
     ],
     [
+     "Burn",
+     1,
+     2,
+     0
+    ],
+    [
      "Post",
      2,
+     1,
+     0
+    ],
+    [
+     "Hogaak Moonshadow",
+     4,
      1,
      0
     ],
@@ -2197,12 +2203,6 @@
      2,
      1,
      2
-    ],
-    [
-     "Burn",
-     1,
-     2,
-     0
     ],
     [
      "Loam Pox",
@@ -2285,28 +2285,28 @@
    "flex": [
     [
      "Flooded Strand",
-     87,
+     88,
      1.5
     ],
     [
      "Misty Rainforest",
      83,
-     1.4
+     1.5
     ],
     [
      "Island",
-     80,
+     81,
+     1
+    ],
+    [
+     "Swamp",
+     77,
      1
     ],
     [
      "Scalding Tarn",
      77,
      1.2
-    ],
-    [
-     "Swamp",
-     76,
-     1
     ],
     [
      "Flow State",
@@ -2330,20 +2330,20 @@
     ],
     [
      "Jace, Wielder of Mysteries",
-     40,
+     39,
      1
     ],
     [
      "Duress",
-     37,
+     38,
      1.1
     ]
    ],
-   "lists": 271,
+   "lists": 264,
    "conv": [
     4.6,
-    5.4,
-    42
+    5.2,
+    40
    ],
    "prev": 5.2
   },
@@ -2352,7 +2352,7 @@
    "name": "Beanstalk Control",
    "share": 4.7,
    "tier": 1,
-   "count": 243,
+   "count": 239,
    "title": "Thibaud Vanet · Salviche #6 (1st Place)",
    "url": "https://getpaird.io/tournaments/salviche-6-1KNk3W/lists/4477",
    "main": [
@@ -2392,7 +2392,7 @@
     "2 Wrath of the Skies"
    ],
    "history": [
-    2.1,
+    1.9,
     4.2,
     4.7,
     2.7,
@@ -2406,9 +2406,9 @@
     3.7
    ],
    "field": [
-    373,
-    385,
-    75
+    367,
+    383,
+    73
    ],
    "mu": [
     [
@@ -2431,14 +2431,20 @@
     ],
     [
      "Dimir Tempo",
+     14,
      15,
-     16,
      1
     ],
     [
      "Aluren",
-     16,
+     15,
      30,
+     6
+    ],
+    [
+     "Tron",
+     14,
+     22,
      6
     ],
     [
@@ -2452,12 +2458,6 @@
      20,
      21,
      4
-    ],
-    [
-     "Tron",
-     14,
-     22,
-     6
     ],
     [
      "Sneak and Show",
@@ -2475,7 +2475,7 @@
      "Jeskai Midrange",
      10,
      8,
-     4
+     2
     ],
     [
      "Mystic Forge Combo",
@@ -2485,7 +2485,7 @@
     ],
     [
      "Boros Energy",
-     11,
+     10,
      3,
      4
     ],
@@ -2497,7 +2497,7 @@
     ],
     [
      "Blue Artifacts",
-     15,
+     14,
      11,
      4
     ],
@@ -2527,7 +2527,7 @@
     ],
     [
      "Omni - Tell",
-     6,
+     4,
      2,
      0
     ],
@@ -2568,16 +2568,16 @@
      0
     ],
     [
-     "Naya Energy",
-     1,
-     4,
-     1
-    ],
-    [
      "Jeskai Energy",
      2,
      4,
      0
+    ],
+    [
+     "Naya Energy",
+     1,
+     4,
+     1
     ],
     [
      "Dimir Midrange",
@@ -2616,14 +2616,20 @@
      0
     ],
     [
-     "Hogaak Moonshadow",
-     2,
-     5,
-     0
+     "Burn",
+     3,
+     1,
+     2
     ],
     [
      "Dimir Bilbo",
      1,
+     4,
+     0
+    ],
+    [
+     "Hogaak Moonshadow",
+     2,
      4,
      0
     ],
@@ -2638,12 +2644,6 @@
      3,
      0,
      0
-    ],
-    [
-     "Burn",
-     3,
-     1,
-     2
     ],
     [
      "Loam Pox",
@@ -2670,7 +2670,7 @@
      0
     ]
    ],
-   "metaWr": 48.7,
+   "metaWr": 48.4,
    "core": [
     [
      "Brainstorm",
@@ -2732,7 +2732,7 @@
    "flex": [
     [
      "Leyline Binding",
-     89,
+     90,
      3.9
     ],
     [
@@ -2757,7 +2757,7 @@
     ],
     [
      "Phelia, Exuberant Shepherd",
-     77,
+     78,
      2.5
     ],
     [
@@ -2772,12 +2772,12 @@
     ],
     [
      "Wrath of the Skies",
-     54,
+     55,
      1.1
     ],
     [
      "Karakas",
-     37,
+     36,
      1
     ],
     [
@@ -2801,20 +2801,20 @@
      1.7
     ]
    ],
-   "lists": 243,
+   "lists": 239,
    "conv": [
-    4.5,
-    5.1,
+    4.6,
+    5.2,
     40
    ],
-   "prev": 4.6
+   "prev": 4.7
   },
   {
    "id": "legacy-dimir-tempo",
    "name": "Dimir Tempo",
    "share": 4.4,
    "tier": 1,
-   "count": 232,
+   "count": 225,
    "title": "VBocchS · Liga Curitibana de Legacy - SUPER LEGACY - 2026/2 (8th Place)",
    "url": "https://melee.gg/Decklist/View/01a45680-d6fb-42c1-93b4-b509003fafa7",
    "main": [
@@ -2855,7 +2855,7 @@
     "2 Blue Elemental Blast"
    ],
    "history": [
-    6.2,
+    5.6,
     6.1,
     4.4,
     6.7,
@@ -2869,8 +2869,8 @@
     2.1
    ],
    "field": [
-    263,
-    265,
+    255,
+    260,
     24
    ],
    "mu": [
@@ -2882,8 +2882,8 @@
     ],
     [
      "Lands",
-     9,
-     14,
+     8,
+     13,
      0
     ],
     [
@@ -2894,8 +2894,8 @@
     ],
     [
      "Beanstalk Control",
-     16,
      15,
+     14,
      1
     ],
     [
@@ -2905,14 +2905,8 @@
      0
     ],
     [
-     "Eldrazi",
-     6,
-     7,
-     0
-    ],
-    [
      "Tron",
-     17,
+     16,
      8,
      0
     ],
@@ -2923,6 +2917,12 @@
      0
     ],
     [
+     "Eldrazi",
+     5,
+     7,
+     0
+    ],
+    [
      "Sneak and Show",
      13,
      6,
@@ -2930,8 +2930,8 @@
     ],
     [
      "Death & Taxes",
-     7,
-     18,
+     6,
+     17,
      5
     ],
     [
@@ -2941,16 +2941,16 @@
      0
     ],
     [
-     "Boros Energy",
-     4,
-     10,
-     0
-    ],
-    [
      "Mystic Forge Combo",
      6,
      6,
      2
+    ],
+    [
+     "Boros Energy",
+     4,
+     9,
+     0
     ],
     [
      "Azorius Midrange",
@@ -2960,7 +2960,7 @@
     ],
     [
      "Blue Artifacts",
-     8,
+     7,
      5,
      0
     ],
@@ -2989,12 +2989,6 @@
      0
     ],
     [
-     "Omni - Tell",
-     2,
-     1,
-     0
-    ],
-    [
      "Mardu Energy",
      3,
      3,
@@ -3002,7 +2996,7 @@
     ],
     [
      "Dredge",
-     3,
+     2,
      6,
      0
     ],
@@ -3049,12 +3043,6 @@
      0
     ],
     [
-     "Hogaak Moonshadow",
-     0,
-     5,
-     0
-    ],
-    [
      "Naya Stompy",
      1,
      2,
@@ -3070,6 +3058,18 @@
      "Dimir Bilbo",
      3,
      1,
+     0
+    ],
+    [
+     "Burn",
+     3,
+     1,
+     0
+    ],
+    [
+     "Hogaak Moonshadow",
+     0,
+     4,
      0
     ],
     [
@@ -3089,15 +3089,9 @@
      1,
      2,
      0
-    ],
-    [
-     "Burn",
-     3,
-     1,
-     0
     ]
    ],
-   "metaWr": 48.1,
+   "metaWr": 47.9,
    "core": [
     [
      "Force of Will",
@@ -3156,7 +3150,7 @@
     [
      "Nethergoyf",
      84,
-     3.8
+     3.9
     ],
     [
      "Island",
@@ -3184,29 +3178,29 @@
      1.1
     ],
     [
+     "Scalding Tarn",
+     68,
+     1.1
+    ],
+    [
      "Flooded Strand",
      68,
      1.3
     ],
     [
-     "Scalding Tarn",
-     67,
-     1.1
+     "Misty Rainforest",
+     66,
+     1.2
     ],
     [
      "Moonshadow",
-     66,
+     65,
      4
     ],
     [
      "Snuff Out",
      65,
      1
-    ],
-    [
-     "Misty Rainforest",
-     65,
-     1.2
     ],
     [
      "Marsh Flats",
@@ -3219,25 +3213,25 @@
      1.5
     ],
     [
-     "Flow State",
+     "Tamiyo, Inquisitive Student",
      37,
-     2.7
+     3.8
     ]
    ],
-   "lists": 232,
+   "lists": 225,
    "conv": [
     4.7,
     5.1,
-    40
+    39
    ],
-   "prev": 4.6
+   "prev": 4.4
   },
   {
    "id": "legacy-aluren",
    "name": "Aluren",
    "share": 4.2,
    "tier": 1,
-   "count": 219,
+   "count": 213,
    "title": "Thomas_Serra · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Thomas_Serra",
    "main": [
@@ -3276,7 +3270,7 @@
     "2 Veil of Summer"
    ],
    "history": [
-    4.1,
+    4.7,
     4.2,
     4.4,
     3.2,
@@ -3290,9 +3284,9 @@
     3.7
    ],
    "field": [
-    418,
-    363,
-    35
+    416,
+    361,
+    33
    ],
    "mu": [
     [
@@ -3304,7 +3298,7 @@
     [
      "Lands",
      21,
-     20,
+     19,
      4
     ],
     [
@@ -3316,7 +3310,7 @@
     [
      "Beanstalk Control",
      30,
-     16,
+     15,
      6
     ],
     [
@@ -3326,8 +3320,14 @@
      0
     ],
     [
+     "Tron",
+     20,
+     9,
+     2
+    ],
+    [
      "Eldrazi",
-     15,
+     14,
      12,
      0
     ],
@@ -3336,12 +3336,6 @@
      12,
      16,
      0
-    ],
-    [
-     "Tron",
-     20,
-     9,
-     2
     ],
     [
      "Sneak and Show",
@@ -3371,7 +3365,7 @@
      "Boros Energy",
      11,
      6,
-     2
+     0
     ],
     [
      "Azorius Midrange",
@@ -3464,15 +3458,15 @@
      0
     ],
     [
-     "Painter",
-     3,
-     3,
-     0
-    ],
-    [
      "Selesnya Depths",
      2,
      1,
+     0
+    ],
+    [
+     "Painter",
+     3,
+     3,
      0
     ],
     [
@@ -3500,15 +3494,15 @@
      0
     ],
     [
-     "Hogaak Moonshadow",
-     1,
-     3,
-     0
-    ],
-    [
      "Sultai Hogaak",
      4,
      1,
+     0
+    ],
+    [
+     "Burn",
+     2,
+     3,
      0
     ],
     [
@@ -3524,8 +3518,8 @@
      0
     ],
     [
-     "Burn",
-     2,
+     "Hogaak Moonshadow",
+     1,
      3,
      0
     ],
@@ -3542,7 +3536,7 @@
      0
     ]
    ],
-   "metaWr": 51.9,
+   "metaWr": 52,
    "core": [
     [
      "Brainstorm",
@@ -3625,12 +3619,12 @@
     ],
     [
      "Forest",
-     70,
+     69,
      1.1
     ],
     [
      "Polluted Delta",
-     60,
+     59,
      1.4
     ],
     [
@@ -3640,372 +3634,29 @@
     ],
     [
      "Savannah",
-     26,
+     27,
      1
     ],
     [
      "Tundra",
-     26,
+     27,
      1.1
     ]
    ],
-   "lists": 219,
+   "lists": 213,
    "conv": [
     4,
     4.5,
-    35
+    34
    ],
-   "prev": 4.1
-  },
-  {
-   "id": "legacy-eldrazi",
-   "name": "Eldrazi",
-   "share": 4.1,
-   "tier": 1,
-   "count": 214,
-   "title": "420SlamKing · Legacy League (5-0)",
-   "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_420SlamKing",
-   "main": [
-    "4 Abundant Countryside",
-    "4 Ancient Tomb",
-    "4 Cavern of Souls",
-    "4 Chalice of the Void",
-    "4 Eldrazi Linebreaker",
-    "4 Eldrazi Temple",
-    "3 Eye of Ugin",
-    "4 Glaring Fleshraker",
-    "4 It That Heralds the End",
-    "4 Kozilek's Command",
-    "4 Lotus Petal",
-    "4 Reality Smasher",
-    "1 Snow-Covered Wastes",
-    "4 Thought-Knot Seer",
-    "4 Wasteland",
-    "4 Wastescape Battlemage"
-   ],
-   "side": [
-    "2 Dismember",
-    "3 Disruptor Flute",
-    "2 Eldrazi Confluence",
-    "4 Leyline of the Void",
-    "2 Null Rod",
-    "2 Warping Wail"
-   ],
-   "history": [
-    1.7,
-    4.8,
-    9.1,
-    6.7,
-    3.9,
-    4.2,
-    4.3,
-    3.6,
-    3.8,
-    5,
-    2.9,
-    4.2
-   ],
-   "field": [
-    184,
-    207,
-    12
-   ],
-   "mu": [
-    [
-     "Dimir Hogaak",
-     10,
-     9,
-     0
-    ],
-    [
-     "Lands",
-     6,
-     8,
-     0
-    ],
-    [
-     "Doomsday",
-     11,
-     10,
-     0
-    ],
-    [
-     "Beanstalk Control",
-     10,
-     11,
-     2
-    ],
-    [
-     "Dimir Tempo",
-     7,
-     6,
-     0
-    ],
-    [
-     "Aluren",
-     12,
-     15,
-     0
-    ],
-    [
-     "Tron",
-     9,
-     14,
-     2
-    ],
-    [
-     "Izzet Delver",
-     8,
-     5,
-     0
-    ],
-    [
-     "Sneak and Show",
-     9,
-     11,
-     2
-    ],
-    [
-     "Death & Taxes",
-     4,
-     12,
-     2
-    ],
-    [
-     "Jeskai Midrange",
-     4,
-     8,
-     0
-    ],
-    [
-     "Mystic Forge Combo",
-     4,
-     4,
-     0
-    ],
-    [
-     "Boros Energy",
-     2,
-     4,
-     1
-    ],
-    [
-     "Azorius Midrange",
-     5,
-     9,
-     2
-    ],
-    [
-     "Blue Artifacts",
-     6,
-     3,
-     0
-    ],
-    [
-     "Elves",
-     0,
-     6,
-     0
-    ],
-    [
-     "Sewer - Cam Combo",
-     4,
-     7,
-     0
-    ],
-    [
-     "Grixis Reanimator",
-     2,
-     3,
-     0
-    ],
-    [
-     "TES",
-     4,
-     2,
-     0
-    ],
-    [
-     "Omni - Tell",
-     3,
-     3,
-     0
-    ],
-    [
-     "Mardu Energy",
-     2,
-     1,
-     0
-    ],
-    [
-     "Dredge",
-     3,
-     3,
-     0
-    ],
-    [
-     "Cephalid breakfast",
-     3,
-     0,
-     0
-    ],
-    [
-     "Izzet Midrange",
-     3,
-     4,
-     0
-    ],
-    [
-     "Golgari Cradle Control",
-     4,
-     3,
-     0
-    ],
-    [
-     "Mono Red Stompy",
-     4,
-     5,
-     0
-    ],
-    [
-     "Naya Energy",
-     3,
-     1,
-     0
-    ],
-    [
-     "Jeskai Energy",
-     2,
-     3,
-     0
-    ],
-    [
-     "Painter",
-     0,
-     4,
-     0
-    ],
-    [
-     "Esper Midrange",
-     3,
-     3,
-     0
-    ],
-    [
-     "Selesnya Depths",
-     2,
-     1,
-     0
-    ],
-    [
-     "Creative combo",
-     1,
-     4,
-     0
-    ],
-    [
-     "Stiflenought",
-     1,
-     2,
-     0
-    ]
-   ],
-   "metaWr": 47.4,
-   "core": [
-    [
-     "Cavern of Souls",
-     4
-    ],
-    [
-     "Kozilek's Command",
-     4
-    ],
-    [
-     "Glaring Fleshraker",
-     4
-    ],
-    [
-     "Thought-Knot Seer",
-     4
-    ],
-    [
-     "Lotus Petal",
-     4
-    ],
-    [
-     "Eldrazi Linebreaker",
-     4
-    ],
-    [
-     "Chalice of the Void",
-     4
-    ],
-    [
-     "Eldrazi Temple",
-     4
-    ],
-    [
-     "Ancient Tomb",
-     4
-    ],
-    [
-     "Wastescape Battlemage",
-     4
-    ],
-    [
-     "Reality Smasher",
-     4
-    ],
-    [
-     "It That Heralds the End",
-     3
-    ],
-    [
-     "Eye of Ugin",
-     3
-    ]
-   ],
-   "flex": [
-    [
-     "Wasteland",
-     82,
-     4
-    ],
-    [
-     "City of Traitors",
-     79,
-     1
-    ],
-    [
-     "Abundant Countryside",
-     71,
-     3.9
-    ],
-    [
-     "Sire of Seven Deaths",
-     62,
-     1.1
-    ],
-    [
-     "Secluded Courtyard",
-     27,
-     3.8
-    ]
-   ],
-   "lists": 214,
-   "conv": [
-    4.2,
-    3.3,
-    26
-   ],
-   "prev": 4.1
+   "prev": 4.2
   },
   {
    "id": "legacy-tron",
    "name": "Tron",
-   "share": 4,
+   "share": 4.1,
    "tier": 1,
-   "count": 211,
+   "count": 209,
    "title": "Iluvatarr · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2011321#deck_Iluvatarr",
    "main": [
@@ -4041,7 +3692,7 @@
     "1 Tormod's Crypt"
    ],
    "history": [
-    7.9,
+    8.5,
     7.3,
     6.1,
     3.8,
@@ -4056,7 +3707,7 @@
    ],
    "field": [
     285,
-    282,
+    281,
     53
    ],
    "mu": [
@@ -4087,7 +3738,7 @@
     [
      "Dimir Tempo",
      8,
-     17,
+     16,
      0
     ],
     [
@@ -4097,16 +3748,16 @@
      2
     ],
     [
-     "Eldrazi",
-     14,
-     9,
-     2
-    ],
-    [
      "Izzet Delver",
      12,
      13,
      0
+    ],
+    [
+     "Eldrazi",
+     14,
+     9,
+     2
     ],
     [
      "Sneak and Show",
@@ -4127,16 +3778,16 @@
      0
     ],
     [
-     "Boros Energy",
-     8,
-     4,
-     0
-    ],
-    [
      "Mystic Forge Combo",
      6,
      5,
      4
+    ],
+    [
+     "Boros Energy",
+     8,
+     4,
+     0
     ],
     [
      "Azorius Midrange",
@@ -4271,16 +3922,16 @@
      2
     ],
     [
-     "Loam Pox",
-     3,
-     1,
-     2
-    ],
-    [
      "Burn",
      1,
      2,
      0
+    ],
+    [
+     "Loam Pox",
+     3,
+     1,
+     2
     ],
     [
      "Mono Black Midrange",
@@ -4341,7 +3992,7 @@
     ],
     [
      "Stock Up",
-     80,
+     79,
      4
     ],
     [
@@ -4351,7 +4002,7 @@
     ],
     [
      "Island",
-     64,
+     63,
      1.3
     ],
     [
@@ -4400,20 +4051,20 @@
      2.1
     ]
    ],
-   "lists": 211,
+   "lists": 209,
    "conv": [
     3.9,
-    3.6,
-    28
+    3.5,
+    27
    ],
-   "prev": 4.1
+   "prev": 4
   },
   {
    "id": "legacy-izzet-delver",
    "name": "Izzet Delver",
    "share": 4,
    "tier": 1,
-   "count": 209,
+   "count": 205,
    "title": "Aced5 · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Aced5",
    "main": [
@@ -4448,7 +4099,7 @@
     "2 Unholy Heat"
    ],
    "history": [
-    5,
+    5.2,
     3.8,
     3,
     3.5,
@@ -4463,7 +4114,7 @@
    ],
    "field": [
     256,
-    308,
+    307,
     27
    ],
    "mu": [
@@ -4504,15 +4155,15 @@
      0
     ],
     [
-     "Eldrazi",
-     5,
-     8,
-     0
-    ],
-    [
      "Tron",
      13,
      12,
+     0
+    ],
+    [
+     "Eldrazi",
+     5,
+     8,
      0
     ],
     [
@@ -4524,7 +4175,7 @@
     [
      "Death & Taxes",
      5,
-     11,
+     10,
      2
     ],
     [
@@ -4618,16 +4269,16 @@
      0
     ],
     [
-     "Naya Energy",
-     2,
-     3,
-     1
-    ],
-    [
      "Jeskai Energy",
      2,
      3,
      0
+    ],
+    [
+     "Naya Energy",
+     2,
+     3,
+     1
     ],
     [
      "Dimir Midrange",
@@ -4708,7 +4359,7 @@
     ],
     [
      "Daze",
-     4
+     3
     ],
     [
      "Cori-Steel Cutter",
@@ -4729,28 +4380,28 @@
    ],
    "flex": [
     [
+     "Scalding Tarn",
+     89,
+     2.6
+    ],
+    [
      "Murktide Regent",
      89,
      2
     ],
     [
-     "Scalding Tarn",
-     88,
-     2.6
-    ],
-    [
      "Flooded Strand",
      85,
-     2.5
+     2.4
     ],
     [
      "Misty Rainforest",
-     83,
+     84,
      2.2
     ],
     [
      "Flow State",
-     81,
+     80,
      3.2
     ],
     [
@@ -4775,24 +4426,367 @@
     ],
     [
      "Brazen Borrower",
-     29,
+     28,
      1
     ]
    ],
-   "lists": 209,
+   "lists": 205,
    "conv": [
-    4.4,
+    4.3,
     4.5,
-    35
+    34
    ],
    "prev": 4
   },
   {
+   "id": "legacy-eldrazi",
+   "name": "Eldrazi",
+   "share": 4,
+   "tier": 1,
+   "count": 203,
+   "title": "420SlamKing · Legacy League (5-0)",
+   "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_420SlamKing",
+   "main": [
+    "4 Abundant Countryside",
+    "4 Ancient Tomb",
+    "4 Cavern of Souls",
+    "4 Chalice of the Void",
+    "4 Eldrazi Linebreaker",
+    "4 Eldrazi Temple",
+    "3 Eye of Ugin",
+    "4 Glaring Fleshraker",
+    "4 It That Heralds the End",
+    "4 Kozilek's Command",
+    "4 Lotus Petal",
+    "4 Reality Smasher",
+    "1 Snow-Covered Wastes",
+    "4 Thought-Knot Seer",
+    "4 Wasteland",
+    "4 Wastescape Battlemage"
+   ],
+   "side": [
+    "2 Dismember",
+    "3 Disruptor Flute",
+    "2 Eldrazi Confluence",
+    "4 Leyline of the Void",
+    "2 Null Rod",
+    "2 Warping Wail"
+   ],
+   "history": [
+    1.9,
+    4.8,
+    9.1,
+    6.7,
+    3.9,
+    4.2,
+    4.3,
+    3.6,
+    3.8,
+    5,
+    2.9,
+    4.2
+   ],
+   "field": [
+    181,
+    199,
+    12
+   ],
+   "mu": [
+    [
+     "Dimir Hogaak",
+     10,
+     9,
+     0
+    ],
+    [
+     "Lands",
+     6,
+     8,
+     0
+    ],
+    [
+     "Doomsday",
+     11,
+     10,
+     0
+    ],
+    [
+     "Beanstalk Control",
+     10,
+     11,
+     2
+    ],
+    [
+     "Dimir Tempo",
+     7,
+     5,
+     0
+    ],
+    [
+     "Aluren",
+     12,
+     14,
+     0
+    ],
+    [
+     "Tron",
+     9,
+     14,
+     2
+    ],
+    [
+     "Izzet Delver",
+     8,
+     5,
+     0
+    ],
+    [
+     "Sneak and Show",
+     9,
+     11,
+     2
+    ],
+    [
+     "Death & Taxes",
+     4,
+     11,
+     2
+    ],
+    [
+     "Jeskai Midrange",
+     4,
+     8,
+     0
+    ],
+    [
+     "Mystic Forge Combo",
+     4,
+     4,
+     0
+    ],
+    [
+     "Boros Energy",
+     2,
+     3,
+     1
+    ],
+    [
+     "Azorius Midrange",
+     5,
+     9,
+     2
+    ],
+    [
+     "Blue Artifacts",
+     4,
+     2,
+     0
+    ],
+    [
+     "Elves",
+     0,
+     6,
+     0
+    ],
+    [
+     "Sewer - Cam Combo",
+     4,
+     6,
+     0
+    ],
+    [
+     "Grixis Reanimator",
+     2,
+     3,
+     0
+    ],
+    [
+     "TES",
+     4,
+     2,
+     0
+    ],
+    [
+     "Omni - Tell",
+     3,
+     1,
+     0
+    ],
+    [
+     "Mardu Energy",
+     2,
+     1,
+     0
+    ],
+    [
+     "Dredge",
+     2,
+     3,
+     0
+    ],
+    [
+     "Cephalid breakfast",
+     3,
+     0,
+     0
+    ],
+    [
+     "Izzet Midrange",
+     3,
+     4,
+     0
+    ],
+    [
+     "Golgari Cradle Control",
+     4,
+     3,
+     0
+    ],
+    [
+     "Mono Red Stompy",
+     4,
+     5,
+     0
+    ],
+    [
+     "Jeskai Energy",
+     2,
+     3,
+     0
+    ],
+    [
+     "Naya Energy",
+     3,
+     1,
+     0
+    ],
+    [
+     "Selesnya Depths",
+     2,
+     1,
+     0
+    ],
+    [
+     "Painter",
+     0,
+     4,
+     0
+    ],
+    [
+     "Esper Midrange",
+     3,
+     3,
+     0
+    ],
+    [
+     "Creative combo",
+     1,
+     4,
+     0
+    ],
+    [
+     "Stiflenought",
+     1,
+     2,
+     0
+    ]
+   ],
+   "metaWr": 47.7,
+   "core": [
+    [
+     "Cavern of Souls",
+     4
+    ],
+    [
+     "Kozilek's Command",
+     4
+    ],
+    [
+     "Glaring Fleshraker",
+     4
+    ],
+    [
+     "Thought-Knot Seer",
+     4
+    ],
+    [
+     "Lotus Petal",
+     4
+    ],
+    [
+     "Eldrazi Linebreaker",
+     4
+    ],
+    [
+     "Chalice of the Void",
+     4
+    ],
+    [
+     "Eldrazi Temple",
+     4
+    ],
+    [
+     "Ancient Tomb",
+     4
+    ],
+    [
+     "Wastescape Battlemage",
+     4
+    ],
+    [
+     "Reality Smasher",
+     4
+    ],
+    [
+     "It That Heralds the End",
+     3
+    ],
+    [
+     "Eye of Ugin",
+     3
+    ]
+   ],
+   "flex": [
+    [
+     "Wasteland",
+     82,
+     4
+    ],
+    [
+     "City of Traitors",
+     78,
+     1
+    ],
+    [
+     "Abundant Countryside",
+     73,
+     3.9
+    ],
+    [
+     "Sire of Seven Deaths",
+     61,
+     1.2
+    ],
+    [
+     "Secluded Courtyard",
+     25,
+     3.8
+    ]
+   ],
+   "lists": 203,
+   "conv": [
+    4,
+    3.1,
+    24
+   ],
+   "prev": 4.1
+  },
+  {
    "id": "legacy-sneak-and-show",
    "name": "Sneak and Show",
-   "share": 3.8,
+   "share": 3.9,
    "tier": 1,
-   "count": 200,
+   "count": 198,
    "title": "Shuichi_Saito · Legacy Challenge 16 (3rd Place)",
    "url": "https://www.mtgo.com/decklist/legacy-challenge-16-2026-11-0912858944#deck_Shuichi_Saito",
    "main": [
@@ -4831,7 +4825,7 @@
     "1 Pyroclasm"
    ],
    "history": [
-    1.7,
+    1.9,
     1.5,
     1,
     2.7,
@@ -4846,7 +4840,7 @@
    ],
    "field": [
     256,
-    260,
+    259,
     13
    ],
    "mu": [
@@ -4887,16 +4881,16 @@
      3
     ],
     [
-     "Eldrazi",
-     11,
-     9,
-     2
-    ],
-    [
      "Tron",
      15,
      11,
      0
+    ],
+    [
+     "Eldrazi",
+     11,
+     9,
+     2
     ],
     [
      "Izzet Delver",
@@ -5001,6 +4995,12 @@
      0
     ],
     [
+     "Jeskai Energy",
+     4,
+     0,
+     0
+    ],
+    [
      "Mono Red Stompy",
      8,
      0,
@@ -5010,12 +5010,6 @@
      "Naya Energy",
      6,
      2,
-     0
-    ],
-    [
-     "Jeskai Energy",
-     4,
-     0,
      0
     ],
     [
@@ -5033,7 +5027,7 @@
     [
      "Esper Midrange",
      1,
-     3,
+     2,
      0
     ],
     [
@@ -5061,14 +5055,14 @@
      0
     ],
     [
-     "Post",
-     2,
+     "Burn",
+     3,
      1,
      0
     ],
     [
-     "Burn",
-     3,
+     "Post",
+     2,
      1,
      0
     ]
@@ -5153,12 +5147,12 @@
     ],
     [
      "Polluted Delta",
-     82,
+     81,
      1.1
     ],
     [
      "Omniscience",
-     77,
+     78,
      1.5
     ],
     [
@@ -5173,7 +5167,7 @@
     ],
     [
      "Simian Spirit Guide",
-     47,
+     46,
      1.5
     ],
     [
@@ -5183,7 +5177,7 @@
     ],
     [
      "Daze",
-     34,
+     33,
      1.9
     ],
     [
@@ -5197,11 +5191,11 @@
      1
     ]
    ],
-   "lists": 200,
+   "lists": 198,
    "conv": [
-    4.2,
+    4.3,
     4.6,
-    36
+    35
    ],
    "prev": 3.8
   },
@@ -5210,7 +5204,7 @@
    "name": "Death & Taxes",
    "share": 3.5,
    "tier": 1,
-   "count": 182,
+   "count": 177,
    "title": "romaric#hv9bcp · Salviche #6 (4th Place)",
    "url": "https://getpaird.io/tournaments/salviche-6-1KNk3W/lists/4471",
    "main": [
@@ -5248,7 +5242,7 @@
     "3 Prismatic Ending"
    ],
    "history": [
-    9.1,
+    9.9,
     4.8,
     3,
     4.3,
@@ -5262,9 +5256,9 @@
     2.6
    ],
    "field": [
-    252,
-    229,
-    78
+    247,
+    226,
+    72
    ],
    "mu": [
     [
@@ -5282,7 +5276,7 @@
     [
      "Doomsday",
      5,
-     16,
+     15,
      0
     ],
     [
@@ -5293,8 +5287,8 @@
     ],
     [
      "Dimir Tempo",
-     18,
-     7,
+     17,
+     6,
      5
     ],
     [
@@ -5304,20 +5298,20 @@
      0
     ],
     [
-     "Eldrazi",
-     12,
-     4,
-     2
-    ],
-    [
      "Tron",
      8,
      16,
      2
     ],
     [
-     "Izzet Delver",
+     "Eldrazi",
      11,
+     4,
+     2
+    ],
+    [
+     "Izzet Delver",
+     10,
      5,
      2
     ],
@@ -5334,16 +5328,16 @@
      2
     ],
     [
-     "Boros Energy",
-     4,
-     7,
-     2
-    ],
-    [
      "Mystic Forge Combo",
      4,
      5,
      0
+    ],
+    [
+     "Boros Energy",
+     4,
+     7,
+     2
     ],
     [
      "Azorius Midrange",
@@ -5385,7 +5379,7 @@
      "Omni - Tell",
      1,
      1,
-     6
+     4
     ],
     [
      "Mardu Energy",
@@ -5418,26 +5412,14 @@
      0
     ],
     [
-     "Mono Red Stompy",
-     4,
-     3,
-     0
-    ],
-    [
      "Jeskai Energy",
      1,
      6,
      0
     ],
     [
-     "Painter",
-     2,
-     1,
-     2
-    ],
-    [
-     "Esper Midrange",
-     4,
+     "Mono Red Stompy",
+     3,
      3,
      0
     ],
@@ -5448,26 +5430,26 @@
      2
     ],
     [
+     "Painter",
+     2,
+     1,
+     2
+    ],
+    [
+     "Esper Midrange",
+     3,
+     3,
+     0
+    ],
+    [
      "Creative combo",
      2,
      1,
      0
     ],
     [
-     "Hogaak Moonshadow",
-     1,
-     0,
-     2
-    ],
-    [
      "Stiflenought",
      1,
-     0,
-     2
-    ],
-    [
-     "Dimir Bilbo",
-     2,
      0,
      2
     ],
@@ -5490,7 +5472,7 @@
      0
     ]
    ],
-   "metaWr": 51.4,
+   "metaWr": 51.3,
    "core": [
     [
      "Plains",
@@ -5543,18 +5525,18 @@
    ],
    "flex": [
     [
-     "Flickerwisp",
-     89,
-     1.2
-    ],
-    [
      "Pre-War Formalwear",
      89,
      1.6
     ],
     [
+     "Flickerwisp",
+     89,
+     1.2
+    ],
+    [
      "Meteor Sword",
-     88,
+     89,
      1
     ],
     [
@@ -5579,12 +5561,12 @@
     ],
     [
      "Overlord of the Balemurk",
-     81,
+     80,
      4
     ],
     [
      "Thoughtseize",
-     80,
+     79,
      4
     ],
     [
@@ -5599,34 +5581,34 @@
     ],
     [
      "Cloak and Dagger, Entwined",
-     74,
+     73,
      1
     ],
     [
      "Flooded Strand",
-     63,
+     62,
      2.5
     ],
     [
      "Windswept Heath",
      54,
-     1.9
+     2
     ]
    ],
-   "lists": 182,
+   "lists": 177,
    "conv": [
-    3.8,
+    3.7,
     3.9,
-    31
+    30
    ],
    "prev": 3.5
   },
   {
    "id": "legacy-jeskai-midrange",
    "name": "Jeskai Midrange",
-   "share": 3.4,
+   "share": 3.3,
    "tier": 1,
-   "count": 177,
+   "count": 170,
    "title": "wooop_orc · Legacy Showcase Challenge (2nd Place)",
    "url": "https://www.mtgo.com/decklist/legacy-showcase-challenge-2026-11-2212858913#deck_wooop_orc",
    "main": [
@@ -5667,7 +5649,7 @@
     "3 Wrath of the Skies"
    ],
    "history": [
-    2.1,
+    1.9,
     5.2,
     3.4,
     3.5,
@@ -5681,9 +5663,9 @@
     2.6
    ],
    "field": [
-    187,
-    179,
-    26
+    186,
+    178,
+    20
    ],
    "mu": [
     [
@@ -5701,14 +5683,14 @@
     [
      "Doomsday",
      7,
-     9,
+     8,
      0
     ],
     [
      "Beanstalk Control",
      8,
      10,
-     4
+     2
     ],
     [
      "Dimir Tempo",
@@ -5723,15 +5705,15 @@
      2
     ],
     [
-     "Eldrazi",
-     8,
-     4,
-     0
-    ],
-    [
      "Tron",
      10,
      7,
+     0
+    ],
+    [
+     "Eldrazi",
+     8,
+     4,
      0
     ],
     [
@@ -5753,15 +5735,15 @@
      2
     ],
     [
-     "Boros Energy",
-     8,
-     2,
-     2
-    ],
-    [
      "Mystic Forge Combo",
      4,
      7,
+     0
+    ],
+    [
+     "Boros Energy",
+     8,
+     2,
      0
     ],
     [
@@ -5774,7 +5756,7 @@
      "Blue Artifacts",
      6,
      3,
-     2
+     0
     ],
     [
      "Elves",
@@ -5832,9 +5814,15 @@
     ],
     [
      "Mono Red Stompy",
-     4,
+     3,
      5,
      2
+    ],
+    [
+     "Jeskai Energy",
+     2,
+     2,
+     0
     ],
     [
      "Dimir Midrange",
@@ -5849,7 +5837,7 @@
      2
     ],
     [
-     "Jeskai Energy",
+     "Sultai Hogaak",
      2,
      2,
      0
@@ -5861,19 +5849,13 @@
      0
     ],
     [
-     "Sultai Hogaak",
-     2,
-     2,
-     0
-    ],
-    [
      "Post",
      0,
      3,
      0
     ]
    ],
-   "metaWr": 51.2,
+   "metaWr": 51.3,
    "core": [
     [
      "Brainstorm",
@@ -5928,7 +5910,7 @@
     ],
     [
      "Scalding Tarn",
-     66,
+     67,
      2
     ],
     [
@@ -5944,12 +5926,12 @@
     [
      "Murktide Regent",
      56,
-     2.6
+     2.5
     ],
     [
      "Phelia, Exuberant Shepherd",
      56,
-     4
+     3.9
     ],
     [
      "Wasteland",
@@ -5967,14 +5949,14 @@
      1.6
     ],
     [
+     "Karakas",
+     46,
+     1
+    ],
+    [
      "Arid Mesa",
      45,
      1.5
-    ],
-    [
-     "Karakas",
-     45,
-     1
     ],
     [
      "Mountain",
@@ -5992,20 +5974,20 @@
      3.5
     ]
    ],
-   "lists": 177,
+   "lists": 170,
    "conv": [
     3.3,
     3.3,
-    26
+    25
    ],
    "prev": 3.4
   },
   {
    "id": "legacy-mystic-forge-combo",
    "name": "Mystic Forge Combo",
-   "share": 3,
+   "share": 3.1,
    "tier": 2,
-   "count": 159,
+   "count": 158,
    "title": "cthulhudude23 · Legacy Showcase Challenge (6th Place)",
    "url": "https://www.mtgo.com/decklist/legacy-showcase-challenge-2026-11-2212858913#deck_cthulhudude23",
    "main": [
@@ -6046,7 +6028,7 @@
     "1 Trinisphere"
    ],
    "history": [
-    2.5,
+    1.4,
     1,
     1,
     0.8,
@@ -6102,10 +6084,10 @@
      0
     ],
     [
-     "Eldrazi",
-     4,
-     4,
-     0
+     "Tron",
+     5,
+     6,
+     4
     ],
     [
      "Izzet Delver",
@@ -6114,10 +6096,10 @@
      2
     ],
     [
-     "Tron",
-     5,
-     6,
-     4
+     "Eldrazi",
+     4,
+     4,
+     0
     ],
     [
      "Sneak and Show",
@@ -6246,7 +6228,7 @@
      0
     ]
    ],
-   "metaWr": 49.6,
+   "metaWr": 49.5,
    "core": [
     [
      "Ancient Tomb",
@@ -6318,7 +6300,7 @@
     ],
     [
      "Voltaic Key",
-     86,
+     85,
      1
     ],
     [
@@ -6333,14 +6315,14 @@
     ],
     [
      "Mishra's Research Desk",
-     60,
+     59,
      1
     ]
    ],
-   "lists": 159,
+   "lists": 158,
    "conv": [
     3.1,
-    2.4,
+    2.5,
     19
    ],
    "prev": 3
@@ -6348,9 +6330,9 @@
   {
    "id": "legacy-boros-energy",
    "name": "Boros Energy",
-   "share": 3,
+   "share": 2.9,
    "tier": 2,
-   "count": 154,
+   "count": 149,
    "title": "Irgaron · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Irgaron",
    "main": [
@@ -6389,7 +6371,7 @@
     "3 Pyroblast"
    ],
    "history": [
-    5.8,
+    6.6,
     3.2,
     6.7,
     4.3,
@@ -6403,9 +6385,9 @@
     2.6
    ],
    "field": [
-    154,
-    169,
-    31
+    150,
+    168,
+    25
    ],
    "mu": [
     [
@@ -6429,12 +6411,12 @@
     [
      "Beanstalk Control",
      3,
-     11,
+     10,
      4
     ],
     [
      "Dimir Tempo",
-     10,
+     9,
      4,
      0
     ],
@@ -6442,13 +6424,7 @@
      "Aluren",
      6,
      11,
-     2
-    ],
-    [
-     "Eldrazi",
-     4,
-     2,
-     1
+     0
     ],
     [
      "Tron",
@@ -6461,6 +6437,12 @@
      13,
      3,
      0
+    ],
+    [
+     "Eldrazi",
+     3,
+     2,
+     1
     ],
     [
      "Sneak and Show",
@@ -6478,7 +6460,7 @@
      "Jeskai Midrange",
      2,
      8,
-     2
+     0
     ],
     [
      "Mystic Forge Combo",
@@ -6562,11 +6544,11 @@
      "Naya Energy",
      1,
      3,
-     2
+     0
     ],
     [
      "Stiflenought",
-     4,
+     3,
      1,
      0
     ],
@@ -6589,7 +6571,7 @@
      0
     ]
    ],
-   "metaWr": 48.5,
+   "metaWr": 48.1,
    "core": [
     [
      "Ajani, Nacatl Pariah",
@@ -6655,12 +6637,12 @@
    "flex": [
     [
      "Sunbaked Canyon",
-     90,
+     89,
      2
     ],
     [
      "Static Prison",
-     80,
+     81,
      2.4
     ],
     [
@@ -6670,22 +6652,22 @@
     ],
     [
      "Sand Scout",
-     75,
+     76,
      2.8
     ],
     [
      "Marsh Flats",
-     73,
+     74,
      1.9
     ],
     [
      "Windswept Heath",
-     56,
+     58,
      1.7
     ],
     [
      "Flooded Strand",
-     49,
+     50,
      1.7
     ],
     [
@@ -6700,24 +6682,24 @@
     ],
     [
      "Galvanic Discharge",
-     25,
+     26,
      1.2
     ]
    ],
-   "lists": 154,
+   "lists": 149,
    "conv": [
-    2.9,
-    1.8,
-    14
+    2.8,
+    1.7,
+    13
    ],
-   "prev": 2.9
+   "prev": 3
   },
   {
    "id": "legacy-azorius-midrange",
    "name": "Azorius Midrange",
-   "share": 2.7,
+   "share": 2.6,
    "tier": 2,
-   "count": 139,
+   "count": 134,
    "title": "Gabri091 · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Gabri091",
    "main": [
@@ -6757,7 +6739,7 @@
     "2 Wrath of the Skies"
    ],
    "history": [
-    3.3,
+    3.8,
     4.2,
     1.7,
     3.5,
@@ -6813,6 +6795,12 @@
      0
     ],
     [
+     "Tron",
+     3,
+     12,
+     1
+    ],
+    [
      "Eldrazi",
      9,
      5,
@@ -6823,12 +6811,6 @@
      10,
      13,
      4
-    ],
-    [
-     "Tron",
-     3,
-     12,
-     1
     ],
     [
      "Sneak and Show",
@@ -6849,16 +6831,16 @@
      0
     ],
     [
-     "Boros Energy",
-     2,
-     6,
-     2
-    ],
-    [
      "Mystic Forge Combo",
      6,
      6,
      0
+    ],
+    [
+     "Boros Energy",
+     2,
+     6,
+     2
     ],
     [
      "Blue Artifacts",
@@ -6927,12 +6909,6 @@
      0
     ],
     [
-     "Hogaak Moonshadow",
-     1,
-     2,
-     0
-    ],
-    [
      "Creative combo",
      1,
      0,
@@ -6943,6 +6919,12 @@
      3,
      3,
      2
+    ],
+    [
+     "Hogaak Moonshadow",
+     1,
+     2,
+     0
     ],
     [
      "Loam Pox",
@@ -7023,7 +7005,7 @@
     ],
     [
      "Force of Negation",
-     68,
+     69,
      1.8
     ],
     [
@@ -7033,59 +7015,54 @@
     ],
     [
      "Scalding Tarn",
-     62,
+     60,
      1.4
     ],
     [
      "Wrath of the Skies",
-     53,
-     1.6
+     51,
+     1.7
     ],
     [
      "Daze",
-     48,
+     49,
      2.9
     ],
     [
      "Misty Rainforest",
-     44,
+     43,
      1.3
     ],
     [
      "Prismatic Ending",
-     43,
+     42,
      1.5
     ],
     [
-     "Erode",
-     39,
-     1.3
-    ],
-    [
      "Consign to Memory",
-     39,
+     40,
      1.4
     ],
     [
+     "Erode",
+     40,
+     1.3
+    ],
+    [
      "Mystic Sanctuary",
-     38,
+     37,
      1.1
     ],
     [
      "Teferi, Time Raveler",
      30,
      1.7
-    ],
-    [
-     "Spell Snare",
-     27,
-     1.5
     ]
    ],
-   "lists": 139,
+   "lists": 134,
    "conv": [
-    2.6,
-    2.3,
+    2.5,
+    2.4,
     18
    ],
    "prev": 2.7
@@ -7093,9 +7070,9 @@
   {
    "id": "legacy-blue-artifacts",
    "name": "Blue Artifacts",
-   "share": 2.6,
+   "share": 2.5,
    "tier": 2,
-   "count": 135,
+   "count": 129,
    "title": "Tixatixatixa · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Tixatixatixa",
    "main": [
@@ -7132,7 +7109,7 @@
     "2 Ugin, Eye of the Storms"
    ],
    "history": [
-    3.7,
+    3.8,
     2.7,
     3.4,
     4,
@@ -7146,9 +7123,9 @@
     1.9
    ],
    "field": [
-    165,
-    209,
-    10
+    161,
+    202,
+    8
    ],
    "mu": [
     [
@@ -7159,26 +7136,26 @@
     ],
     [
      "Lands",
-     7,
+     6,
      8,
      2
     ],
     [
      "Doomsday",
-     8,
+     7,
      9,
      0
     ],
     [
      "Beanstalk Control",
      11,
-     15,
+     14,
      4
     ],
     [
      "Dimir Tempo",
      5,
-     8,
+     7,
      0
     ],
     [
@@ -7188,9 +7165,9 @@
      0
     ],
     [
-     "Eldrazi",
-     3,
-     6,
+     "Tron",
+     10,
+     7,
      0
     ],
     [
@@ -7200,9 +7177,9 @@
      0
     ],
     [
-     "Tron",
-     10,
-     7,
+     "Eldrazi",
+     2,
+     4,
      0
     ],
     [
@@ -7221,7 +7198,7 @@
      "Jeskai Midrange",
      3,
      6,
-     2
+     0
     ],
     [
      "Mystic Forge Combo",
@@ -7268,7 +7245,7 @@
     [
      "Omni - Tell",
      3,
-     2,
+     1,
      0
     ],
     [
@@ -7298,7 +7275,7 @@
     [
      "Mono Red Stompy",
      2,
-     4,
+     3,
      0
     ],
     [
@@ -7314,12 +7291,6 @@
      2
     ],
     [
-     "Hogaak Moonshadow",
-     1,
-     2,
-     0
-    ],
-    [
      "Stiflenought",
      1,
      2,
@@ -7332,7 +7303,7 @@
      0
     ]
    ],
-   "metaWr": 46.2,
+   "metaWr": 46.1,
    "core": [
     [
      "Mox Opal",
@@ -7350,7 +7321,7 @@
    "flex": [
     [
      "Skateboard",
-     79,
+     80,
      1
     ],
     [
@@ -7360,12 +7331,12 @@
     ],
     [
      "Emry, Lurker of the Loch",
-     61,
+     60,
      3.9
     ],
     [
      "Seat of the Synod",
-     61,
+     60,
      3.6
     ],
     [
@@ -7380,7 +7351,7 @@
     ],
     [
      "Force of Will",
-     54,
+     53,
      4
     ],
     [
@@ -7405,32 +7376,32 @@
     ],
     [
      "Volcanic Island",
-     37,
+     36,
      3.2
     ],
     [
      "Chrome Mox",
-     32,
+     33,
      3.4
     ],
     [
      "Lion's Eye Diamond",
-     31,
+     32,
      3.7
     ]
    ],
-   "lists": 135,
+   "lists": 129,
    "conv": [
-    2.8,
-    2.3,
-    18
+    2.7,
+    2.1,
+    16
    ],
    "prev": 2.6
   },
   {
    "id": "legacy-elves",
    "name": "Elves",
-   "share": 2.3,
+   "share": 2.4,
    "tier": 2,
    "count": 120,
    "title": "runkor · Legacy Challenge 32 (4th Place)",
@@ -7471,7 +7442,7 @@
     "4 Snuff Out"
    ],
    "history": [
-    0.8,
+    0.5,
     2.3,
     2,
     1.1,
@@ -7527,12 +7498,6 @@
      0
     ],
     [
-     "Eldrazi",
-     6,
-     0,
-     0
-    ],
-    [
      "Tron",
      10,
      4,
@@ -7542,6 +7507,12 @@
      "Izzet Delver",
      5,
      4,
+     0
+    ],
+    [
+     "Eldrazi",
+     6,
+     0,
      0
     ],
     [
@@ -7623,13 +7594,13 @@
      0
     ],
     [
-     "Mono Red Stompy",
+     "Jeskai Energy",
      0,
      3,
      0
     ],
     [
-     "Jeskai Energy",
+     "Mono Red Stompy",
      0,
      3,
      0
@@ -7653,7 +7624,7 @@
      0
     ]
    ],
-   "metaWr": 52.8,
+   "metaWr": 52.7,
    "core": [
     [
      "Badgermole Cub",
@@ -7779,8 +7750,8 @@
    ],
    "lists": 120,
    "conv": [
-    1.7,
-    2.3,
+    1.8,
+    2.4,
     18
    ],
    "prev": 2.3
@@ -7790,7 +7761,7 @@
    "name": "Sewer - Cam Combo",
    "share": 2.2,
    "tier": 2,
-   "count": 114,
+   "count": 110,
    "title": "ingroguham · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_ingroguham",
    "main": [
@@ -7835,7 +7806,7 @@
     "1 Torpor Orb"
    ],
    "history": [
-    1.2,
+    0.9,
     0.8,
     3,
     3.2,
@@ -7849,8 +7820,8 @@
     1.9
    ],
    "field": [
-    228,
-    150,
+    224,
+    149,
     30
    ],
    "mu": [
@@ -7868,7 +7839,7 @@
     ],
     [
      "Doomsday",
-     14,
+     12,
      10,
      2
     ],
@@ -7891,12 +7862,6 @@
      0
     ],
     [
-     "Eldrazi",
-     7,
-     4,
-     0
-    ],
-    [
      "Tron",
      7,
      2,
@@ -7907,6 +7872,12 @@
      13,
      4,
      4
+    ],
+    [
+     "Eldrazi",
+     6,
+     4,
+     0
     ],
     [
      "Sneak and Show",
@@ -7927,15 +7898,15 @@
      2
     ],
     [
-     "Boros Energy",
-     8,
-     8,
-     0
-    ],
-    [
      "Mystic Forge Combo",
      7,
      10,
+     0
+    ],
+    [
+     "Boros Energy",
+     8,
+     8,
      0
     ],
     [
@@ -8005,19 +7976,13 @@
      0
     ],
     [
-     "Stiflenought",
-     2,
-     1,
-     0
-    ],
-    [
      "Hogaak Moonshadow",
      1,
-     3,
+     2,
      0
     ]
    ],
-   "metaWr": 56.3,
+   "metaWr": 56,
    "core": [
     [
      "Goblin Welder",
@@ -8091,8 +8056,8 @@
    "flex": [
     [
      "Scalding Tarn",
-     88,
-     2.2
+     87,
+     2.1
     ],
     [
      "Bloodstained Mire",
@@ -8101,70 +8066,70 @@
     ],
     [
      "Kappa Cannoneer",
-     68,
+     71,
      1.1
     ],
     [
-     "Lion's Eye Diamond",
-     66,
-     1.3
-    ],
-    [
-     "Pinnacle Emissary",
-     64,
-     3.7
-    ],
-    [
-     "Urza's Bauble",
-     64,
-     2.8
-    ],
-    [
      "Wooded Foothills",
-     64,
+     66,
      1.5
     ],
     [
+     "Lion's Eye Diamond",
+     65,
+     1.4
+    ],
+    [
+     "Pinnacle Emissary",
+     63,
+     3.6
+    ],
+    [
+     "Urza's Bauble",
+     63,
+     2.8
+    ],
+    [
      "Great Furnace",
-     59,
+     57,
      1
     ],
     [
      "Plateau",
-     54,
+     53,
      1
     ],
     [
      "Arid Mesa",
-     49,
+     50,
      1.1
     ],
     [
      "Pyrite Spellbomb",
-     33,
+     35,
      1
     ],
     [
      "Melded Moxite",
-     32,
+     33,
      2.7
     ],
     [
-     "Loki, God of Mischief",
+     "Cori-Steel Cutter",
      30,
-     1.3
+     2
     ],
     [
-     "Cori-Steel Cutter",
-     29,
-     2
+     "Loki, God of Mischief",
+     27,
+     1.3
     ]
    ],
-   "lists": 114,
+   "lists": 110,
    "conv": [
-    2.3,
-    3.1,
-    24
+    2.2,
+    3,
+    23
    ],
    "prev": 2.2
   },
@@ -8173,7 +8138,7 @@
    "name": "TES",
    "share": 2,
    "tier": 2,
-   "count": 103,
+   "count": 101,
    "title": "Rhett7 · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Rhett7",
    "main": [
@@ -8216,7 +8181,7 @@
     "1 Thoughtseize"
    ],
    "history": [
-    2.9,
+    2.3,
     1.5,
     0.7,
     2.1,
@@ -8272,9 +8237,9 @@
      0
     ],
     [
-     "Eldrazi",
-     2,
-     4,
+     "Tron",
+     6,
+     5,
      0
     ],
     [
@@ -8284,9 +8249,9 @@
      0
     ],
     [
-     "Tron",
-     6,
-     5,
+     "Eldrazi",
+     2,
+     4,
      0
     ],
     [
@@ -8410,7 +8375,7 @@
      0
     ]
    ],
-   "metaWr": 49.7,
+   "metaWr": 49.8,
    "core": [
     [
      "Burning Wish",
@@ -8510,20 +8475,20 @@
     ]
    ],
    "flex": [],
-   "lists": 103,
+   "lists": 101,
    "conv": [
     1.7,
-    1.5,
+    1.6,
     12
    ],
-   "prev": 1.9
+   "prev": 2
   },
   {
    "id": "legacy-grixis-reanimator",
    "name": "Grixis Reanimator",
    "share": 2,
    "tier": 2,
-   "count": 102,
+   "count": 101,
    "title": "Jumba · Legacy Challenge 32 (2nd Place)",
    "url": "https://www.mtgo.com/decklist/legacy-challenge-32-2026-11-2212858949#deck_Jumba",
    "main": [
@@ -8558,7 +8523,7 @@
     "3 Stronghold Gambit"
    ],
    "history": [
-    1.7,
+    1.4,
     4.2,
     2.7,
     2.4,
@@ -8614,15 +8579,15 @@
      0
     ],
     [
-     "Eldrazi",
-     3,
-     2,
-     0
-    ],
-    [
      "Tron",
      5,
      5,
+     0
+    ],
+    [
+     "Eldrazi",
+     3,
+     2,
      0
     ],
     [
@@ -8779,7 +8744,7 @@
     ],
     [
      "Verdant Catacombs",
-     80,
+     81,
      2
     ],
     [
@@ -8793,10 +8758,10 @@
      2.6
     ]
    ],
-   "lists": 102,
+   "lists": 101,
    "conv": [
     2.3,
-    2,
+    2.1,
     16
    ],
    "prev": 2
@@ -8806,7 +8771,7 @@
    "name": "Omni - Tell",
    "share": 1.3,
    "tier": 2,
-   "count": 70,
+   "count": 67,
    "title": "rydex · Salviche #6 (5th Place)",
    "url": "https://getpaird.io/tournaments/salviche-6-1KNk3W/lists/4437",
    "main": [
@@ -8850,7 +8815,7 @@
     "1 Veil of Summer"
    ],
    "history": [
-    2.5,
+    1.9,
     0.8,
     1.7,
     2.1,
@@ -8864,9 +8829,9 @@
     0.9
    ],
    "field": [
-    80,
-    71,
-    18
+    77,
+    67,
+    16
    ],
    "mu": [
     [
@@ -8890,13 +8855,7 @@
     [
      "Beanstalk Control",
      2,
-     6,
-     0
-    ],
-    [
-     "Dimir Tempo",
-     1,
-     2,
+     4,
      0
     ],
     [
@@ -8904,12 +8863,6 @@
      9,
      4,
      2
-    ],
-    [
-     "Eldrazi",
-     3,
-     3,
-     0
     ],
     [
      "Tron",
@@ -8924,6 +8877,12 @@
      0
     ],
     [
+     "Eldrazi",
+     1,
+     3,
+     0
+    ],
+    [
      "Sneak and Show",
      8,
      2,
@@ -8933,7 +8892,7 @@
      "Death & Taxes",
      1,
      1,
-     6
+     4
     ],
     [
      "Jeskai Midrange",
@@ -8955,7 +8914,7 @@
     ],
     [
      "Blue Artifacts",
-     2,
+     1,
      3,
      0
     ],
@@ -8978,12 +8937,6 @@
      0
     ],
     [
-     "Dredge",
-     0,
-     3,
-     0
-    ],
-    [
      "Cephalid breakfast",
      1,
      3,
@@ -9002,7 +8955,7 @@
      2
     ]
    ],
-   "metaWr": 53.2,
+   "metaWr": 54.3,
    "core": [
     [
      "Brainstorm",
@@ -9026,7 +8979,7 @@
     ],
     [
      "Ancient Tomb",
-     4
+     3
     ],
     [
      "Island",
@@ -9044,58 +8997,63 @@
    "flex": [
     [
      "Ponder",
-     89,
+     88,
      3.9
     ],
     [
      "Misty Rainforest",
-     83,
-     3.2
+     82,
+     3.1
     ],
     [
      "Lotus Petal",
-     71,
+     70,
      2.9
     ],
     [
-     "Cunning Wish",
+     "Polluted Delta",
      69,
+     1.8
+    ],
+    [
+     "Cunning Wish",
+     67,
      3
     ],
     [
-     "Polluted Delta",
-     67,
-     1.7
-    ],
-    [
      "Tropical Island",
-     67,
+     66,
      1.9
     ],
     [
      "Veil of Summer",
-     64,
+     63,
+     2.9
+    ],
+    [
+     "The One Ring",
+     61,
      2.9
     ],
     [
      "Hedge Maze",
-     61,
-     1
-    ],
-    [
-     "The One Ring",
-     59,
-     2.9
+     60,
+     1.1
     ],
     [
      "Sink into Stupor",
-     59,
+     58,
      1.2
     ],
     [
      "City of Traitors",
-     51,
+     54,
      1.4
+    ],
+    [
+     "Lórien Revealed",
+     51,
+     1.7
     ],
     [
      "Flooded Strand",
@@ -9104,29 +9062,24 @@
     ],
     [
      "Forest",
-     49,
+     46,
      1
-    ],
-    [
-     "Lórien Revealed",
-     49,
-     1.7
     ]
    ],
-   "lists": 70,
+   "lists": 67,
    "conv": [
     1.5,
     1.4,
     11
    ],
-   "prev": 1.4
+   "prev": 1.3
   },
   {
    "id": "legacy-mardu-energy",
    "name": "Mardu Energy",
    "share": 1.2,
    "tier": 2,
-   "count": 64,
+   "count": 63,
    "title": "OPPORX · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_OPPORX",
    "main": [
@@ -9163,7 +9116,7 @@
     "2 Wrath of the Skies"
    ],
    "history": [
-    0.8,
+    0.5,
     1.9,
     2.4,
     1.6,
@@ -9178,7 +9131,7 @@
    ],
    "field": [
     66,
-    73,
+    72,
     9
    ],
    "mu": [
@@ -9219,16 +9172,16 @@
      2
     ],
     [
-     "Eldrazi",
-     1,
-     2,
-     0
-    ],
-    [
      "Tron",
      3,
      2,
      3
+    ],
+    [
+     "Eldrazi",
+     1,
+     2,
+     0
     ],
     [
      "Sneak and Show",
@@ -9379,7 +9332,7 @@
    "flex": [
     [
      "Shadowy Backstreet",
-     72,
+     71,
      1
     ],
     [
@@ -9389,25 +9342,25 @@
     ],
     [
      "Swamp",
-     34,
+     35,
      1
     ],
     [
      "Hexing Squelcher",
-     28,
+     29,
      2.5
     ],
     [
      "Static Prison",
-     28,
+     27,
      1.1
     ]
    ],
-   "lists": 64,
+   "lists": 63,
    "conv": [
     1.5,
-    2.3,
-    18
+    2.2,
+    17
    ],
    "prev": 1.2
   },
@@ -9416,7 +9369,7 @@
    "name": "Dredge",
    "share": 1.1,
    "tier": 2,
-   "count": 57,
+   "count": 56,
    "title": "Rianhigurashi · Liga Curitibana de Legacy - SUPER LEGACY - 2026/2 (5th Place)",
    "url": "https://melee.gg/Decklist/View/c163fb28-fd4a-472b-93ed-b50900d0e341",
    "main": [
@@ -9453,7 +9406,7 @@
     "4 Unmask"
    ],
    "history": [
-    1.2,
+    1.4,
     0.8,
     0.7,
     1.1,
@@ -9467,9 +9420,9 @@
     1.4
    ],
    "field": [
-    79,
-    88,
-    5
+    78,
+    86,
+    3
    ],
    "mu": [
     [
@@ -9482,7 +9435,7 @@
      "Lands",
      0,
      4,
-     2
+     0
     ],
     [
      "Doomsday",
@@ -9499,7 +9452,7 @@
     [
      "Dimir Tempo",
      6,
-     3,
+     2,
      0
     ],
     [
@@ -9509,15 +9462,15 @@
      1
     ],
     [
-     "Eldrazi",
-     3,
-     3,
-     0
-    ],
-    [
      "Tron",
      4,
      0,
+     0
+    ],
+    [
+     "Eldrazi",
+     3,
+     2,
      0
     ],
     [
@@ -9575,19 +9528,13 @@
      0
     ],
     [
-     "Omni - Tell",
-     3,
-     0,
-     0
-    ],
-    [
      "Golgari Cradle Control",
      2,
      1,
      0
     ]
    ],
-   "metaWr": 49,
+   "metaWr": 50.9,
    "core": [
     [
      "Cabal Therapy",
@@ -9664,34 +9611,34 @@
     ],
     [
      "Ashen Rider",
-     81,
+     82,
      1
     ],
     [
      "Anger",
-     81,
+     80,
      1
     ],
     [
      "Underground Sea",
-     81,
+     80,
      1
     ],
     [
      "Volcanic Island",
-     81,
+     80,
      2
     ],
     [
      "Flooded Strand",
-     67,
+     66,
      1
     ]
    ],
-   "lists": 57,
+   "lists": 56,
    "conv": [
     1.5,
-    1.5,
+    1.6,
     12
    ],
    "prev": 1.1
@@ -9738,7 +9685,7 @@
     "1 Unlicensed Hearse"
    ],
    "history": [
-    0.8,
+    0.9,
     1,
     0.3,
     0.3,
@@ -9788,12 +9735,6 @@
      0
     ],
     [
-     "Eldrazi",
-     4,
-     3,
-     0
-    ],
-    [
      "Tron",
      3,
      7,
@@ -9804,6 +9745,12 @@
      0,
      3,
      2
+    ],
+    [
+     "Eldrazi",
+     4,
+     3,
+     0
     ],
     [
      "Sneak and Show",
@@ -9824,15 +9771,15 @@
      0
     ],
     [
-     "Boros Energy",
-     4,
-     2,
-     0
-    ],
-    [
      "Mystic Forge Combo",
      2,
      5,
+     0
+    ],
+    [
+     "Boros Energy",
+     4,
+     2,
      0
     ],
     [
@@ -9848,7 +9795,7 @@
      0
     ]
    ],
-   "metaWr": 52.5,
+   "metaWr": 52.4,
    "core": [
     [
      "Dragon's Rage Channeler",
@@ -9951,17 +9898,17 @@
    "lists": 55,
    "conv": [
     1,
-    0.6,
+    0.7,
     5
    ],
-   "prev": 1
+   "prev": 1.1
   },
   {
    "id": "legacy-cephalid-breakfast",
    "name": "Cephalid breakfast",
    "share": 1.1,
    "tier": 2,
-   "count": 55,
+   "count": 54,
    "title": "Now1770 · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2111321#deck_Now1770",
    "main": [
@@ -10008,7 +9955,7 @@
     "1 Yorion, Sky Nomad"
    ],
    "history": [
-    2.1,
+    1.9,
     1.7,
     1,
     0.8,
@@ -10064,9 +10011,9 @@
      0
     ],
     [
-     "Eldrazi",
-     0,
-     3,
+     "Tron",
+     5,
+     1,
      0
     ],
     [
@@ -10076,9 +10023,9 @@
      0
     ],
     [
-     "Tron",
-     5,
-     1,
+     "Eldrazi",
+     0,
+     3,
      0
     ],
     [
@@ -10094,15 +10041,15 @@
      6
     ],
     [
-     "Boros Energy",
-     2,
-     1,
-     0
-    ],
-    [
      "Mystic Forge Combo",
      3,
      3,
+     0
+    ],
+    [
+     "Boros Energy",
+     2,
+     1,
      0
     ],
     [
@@ -10224,7 +10171,7 @@
     ],
     [
      "Underground Sea",
-     82,
+     81,
      1.2
     ],
     [
@@ -10249,7 +10196,7 @@
     ],
     [
      "Undercity Sewers",
-     71,
+     70,
      1
     ],
     [
@@ -10264,12 +10211,12 @@
     ],
     [
      "Misty Rainforest",
-     40,
+     41,
      1.9
     ],
     [
      "Daze",
-     36,
+     37,
      1.6
     ],
     [
@@ -10279,14 +10226,14 @@
     ],
     [
      "Orim's Chant",
-     35,
+     33,
      1.3
     ]
    ],
-   "lists": 55,
+   "lists": 54,
    "conv": [
     0.9,
-    0.6,
+    0.7,
     5
    ],
    "prev": 1.1
@@ -10345,7 +10292,7 @@
     "1 True Ancestry"
    ],
    "history": [
-    0.4,
+    0,
     1.5,
     0.7,
     0.3,
@@ -10401,9 +10348,9 @@
      2
     ],
     [
-     "Eldrazi",
-     3,
-     4,
+     "Tron",
+     6,
+     2,
      0
     ],
     [
@@ -10413,9 +10360,9 @@
      0
     ],
     [
-     "Tron",
-     6,
-     2,
+     "Eldrazi",
+     3,
+     4,
      0
     ],
     [
@@ -10613,7 +10560,7 @@
    "name": "Mono Red Stompy",
    "share": 0.9,
    "tier": 2,
-   "count": 47,
+   "count": 45,
    "title": "Mr_shank · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_Mr_shank",
    "main": [
@@ -10642,7 +10589,7 @@
     "3 Trinisphere"
    ],
    "history": [
-    0.4,
+    0.5,
     1.1,
     1,
     1.6,
@@ -10656,8 +10603,8 @@
     0.2
    ],
    "field": [
-    91,
-    81,
+    89,
+    79,
     4
    ],
    "mu": [
@@ -10698,10 +10645,10 @@
      0
     ],
     [
-     "Eldrazi",
-     5,
+     "Tron",
      4,
-     0
+     4,
+     2
     ],
     [
      "Izzet Delver",
@@ -10710,10 +10657,10 @@
      0
     ],
     [
-     "Tron",
+     "Eldrazi",
+     5,
      4,
-     4,
-     2
+     0
     ],
     [
      "Sneak and Show",
@@ -10724,13 +10671,13 @@
     [
      "Death & Taxes",
      3,
-     4,
+     3,
      0
     ],
     [
      "Jeskai Midrange",
      5,
-     4,
+     3,
      2
     ],
     [
@@ -10747,7 +10694,7 @@
     ],
     [
      "Blue Artifacts",
-     4,
+     3,
      2,
      0
     ],
@@ -10788,7 +10735,7 @@
      0
     ]
    ],
-   "metaWr": 48.9,
+   "metaWr": 49.1,
    "core": [
     [
      "Ancient Tomb",
@@ -10850,26 +10797,26 @@
    "flex": [
     [
      "Pyrogoyf",
-     81,
+     82,
      3.7
     ],
     [
      "Hexing Squelcher",
-     36,
+     38,
      2.4
     ],
     [
      "Sokenzan, Crucible of Defiance",
-     30,
+     31,
      1.1
     ],
     [
      "Trinisphere",
-     28,
+     29,
      2.9
     ]
    ],
-   "lists": 47,
+   "lists": 45,
    "conv": [
     0.9,
     0.9,
@@ -10878,293 +10825,9 @@
    "prev": 0.9
   },
   {
-   "id": "legacy-naya-energy",
-   "name": "Naya Energy",
-   "share": 0.8,
-   "tier": 2,
-   "count": 44,
-   "title": "Takizawa · Legacy League (5-0)",
-   "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2111321#deck_Takizawa",
-   "main": [
-    "4 Ajani, Nacatl Pariah",
-    "4 Amped Raptor",
-    "4 Arid Mesa",
-    "1 Elegant Parlor",
-    "3 Flooded Strand",
-    "2 Goblin Bombardment",
-    "4 Guide of Souls",
-    "2 Hexing Squelcher",
-    "2 Karakas",
-    "2 Lazotep Quarry",
-    "1 Mountain",
-    "4 Ocelot Pride",
-    "3 Once Upon a Time",
-    "2 Phlage, Titan of Fire's Fury",
-    "2 Plains",
-    "2 Plateau",
-    "1 Savannah",
-    "3 Static Prison",
-    "2 Sunbaked Canyon",
-    "4 Swords to Plowshares",
-    "4 Voice of Victory",
-    "4 Wasteland"
-   ],
-   "side": [
-    "2 Abrade",
-    "3 Containment Priest",
-    "3 Doorkeeper Thrull",
-    "2 Faerie Macabre",
-    "3 Price of Progress",
-    "2 Pyroblast"
-   ],
-   "history": [
-    1.2,
-    1.9,
-    0.7,
-    1.6,
-    2.1,
-    0.7,
-    0.8,
-    0.5,
-    0.7,
-    0.6,
-    0.6,
-    0.9
-   ],
-   "field": [
-    63,
-    49,
-    8
-   ],
-   "mu": [
-    [
-     "Dimir Hogaak",
-     2,
-     5,
-     0
-    ],
-    [
-     "Lands",
-     4,
-     3,
-     0
-    ],
-    [
-     "Beanstalk Control",
-     4,
-     1,
-     1
-    ],
-    [
-     "Dimir Tempo",
-     2,
-     1,
-     0
-    ],
-    [
-     "Aluren",
-     6,
-     6,
-     0
-    ],
-    [
-     "Eldrazi",
-     1,
-     3,
-     0
-    ],
-    [
-     "Izzet Delver",
-     3,
-     2,
-     1
-    ],
-    [
-     "Tron",
-     4,
-     0,
-     0
-    ],
-    [
-     "Sneak and Show",
-     2,
-     6,
-     0
-    ],
-    [
-     "Jeskai Midrange",
-     3,
-     1,
-     2
-    ],
-    [
-     "Boros Energy",
-     3,
-     1,
-     2
-    ],
-    [
-     "Azorius Midrange",
-     4,
-     3,
-     0
-    ],
-    [
-     "Blue Artifacts",
-     1,
-     1,
-     2
-    ],
-    [
-     "Sewer - Cam Combo",
-     2,
-     2,
-     0
-    ],
-    [
-     "TES",
-     1,
-     2,
-     0
-    ],
-    [
-     "Cephalid breakfast",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": 50.7,
-   "core": [
-    [
-     "Ajani, Nacatl Pariah",
-     4
-    ],
-    [
-     "Amped Raptor",
-     4
-    ],
-    [
-     "Guide of Souls",
-     4
-    ],
-    [
-     "Ocelot Pride",
-     4
-    ],
-    [
-     "Swords to Plowshares",
-     4
-    ],
-    [
-     "Wasteland",
-     4
-    ],
-    [
-     "Voice of Victory",
-     4
-    ],
-    [
-     "Arid Mesa",
-     4
-    ],
-    [
-     "Plateau",
-     3
-    ],
-    [
-     "Goblin Bombardment",
-     3
-    ],
-    [
-     "Static Prison",
-     2
-    ],
-    [
-     "Karakas",
-     2
-    ],
-    [
-     "Lazotep Quarry",
-     2
-    ],
-    [
-     "Plains",
-     2
-    ],
-    [
-     "Elegant Parlor",
-     1
-    ],
-    [
-     "Savannah",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Sand Scout",
-     84,
-     3
-    ],
-    [
-     "Once Upon a Time",
-     84,
-     2.9
-    ],
-    [
-     "Mountain",
-     80,
-     1
-    ],
-    [
-     "Windswept Heath",
-     80,
-     1.9
-    ],
-    [
-     "Phlage, Titan of Fire's Fury",
-     73,
-     1.1
-    ],
-    [
-     "Marsh Flats",
-     66,
-     1.8
-    ],
-    [
-     "Flooded Strand",
-     61,
-     1.9
-    ],
-    [
-     "Forth Eorlingas!",
-     55,
-     1.1
-    ],
-    [
-     "Sunbaked Canyon",
-     41,
-     1.4
-    ],
-    [
-     "Hexing Squelcher",
-     39,
-     1.8
-    ]
-   ],
-   "lists": 44,
-   "conv": [
-    1,
-    0.8,
-    6
-   ],
-   "prev": 0.9
-  },
-  {
    "id": "legacy-jeskai-energy",
    "name": "Jeskai Energy",
-   "share": 0.8,
+   "share": 0.9,
    "tier": 2,
    "count": 44,
    "title": "Yann Chauvière · Salviche #6 (3rd Place)",
@@ -11244,13 +10907,13 @@
      0
     ],
     [
-     "Eldrazi",
+     "Izzet Delver",
      3,
      2,
      0
     ],
     [
-     "Izzet Delver",
+     "Eldrazi",
      3,
      2,
      0
@@ -11449,7 +11112,7 @@
     "3 Show and Tell"
    ],
    "history": [
-    2.5,
+    2.8,
     1.1,
     1.7,
     0,
@@ -11638,9 +11301,293 @@
    ],
    "lists": 42,
    "conv": [
-    0.8,
+    0.9,
     0.1,
     1
+   ],
+   "prev": 0.8
+  },
+  {
+   "id": "legacy-naya-energy",
+   "name": "Naya Energy",
+   "share": 0.8,
+   "tier": 2,
+   "count": 41,
+   "title": "Takizawa · Legacy League (5-0)",
+   "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2111321#deck_Takizawa",
+   "main": [
+    "4 Ajani, Nacatl Pariah",
+    "4 Amped Raptor",
+    "4 Arid Mesa",
+    "1 Elegant Parlor",
+    "3 Flooded Strand",
+    "2 Goblin Bombardment",
+    "4 Guide of Souls",
+    "2 Hexing Squelcher",
+    "2 Karakas",
+    "2 Lazotep Quarry",
+    "1 Mountain",
+    "4 Ocelot Pride",
+    "3 Once Upon a Time",
+    "2 Phlage, Titan of Fire's Fury",
+    "2 Plains",
+    "2 Plateau",
+    "1 Savannah",
+    "3 Static Prison",
+    "2 Sunbaked Canyon",
+    "4 Swords to Plowshares",
+    "4 Voice of Victory",
+    "4 Wasteland"
+   ],
+   "side": [
+    "2 Abrade",
+    "3 Containment Priest",
+    "3 Doorkeeper Thrull",
+    "2 Faerie Macabre",
+    "3 Price of Progress",
+    "2 Pyroblast"
+   ],
+   "history": [
+    1.4,
+    1.9,
+    0.7,
+    1.6,
+    2.1,
+    0.7,
+    0.8,
+    0.5,
+    0.7,
+    0.6,
+    0.6,
+    0.9
+   ],
+   "field": [
+    61,
+    49,
+    6
+   ],
+   "mu": [
+    [
+     "Dimir Hogaak",
+     2,
+     5,
+     0
+    ],
+    [
+     "Lands",
+     4,
+     3,
+     0
+    ],
+    [
+     "Beanstalk Control",
+     4,
+     1,
+     1
+    ],
+    [
+     "Dimir Tempo",
+     2,
+     1,
+     0
+    ],
+    [
+     "Aluren",
+     6,
+     6,
+     0
+    ],
+    [
+     "Tron",
+     4,
+     0,
+     0
+    ],
+    [
+     "Izzet Delver",
+     3,
+     2,
+     1
+    ],
+    [
+     "Eldrazi",
+     1,
+     3,
+     0
+    ],
+    [
+     "Sneak and Show",
+     2,
+     6,
+     0
+    ],
+    [
+     "Jeskai Midrange",
+     3,
+     1,
+     2
+    ],
+    [
+     "Boros Energy",
+     3,
+     1,
+     0
+    ],
+    [
+     "Azorius Midrange",
+     4,
+     3,
+     0
+    ],
+    [
+     "Blue Artifacts",
+     1,
+     1,
+     2
+    ],
+    [
+     "Sewer - Cam Combo",
+     2,
+     2,
+     0
+    ],
+    [
+     "TES",
+     1,
+     2,
+     0
+    ],
+    [
+     "Cephalid breakfast",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": 50.1,
+   "core": [
+    [
+     "Ajani, Nacatl Pariah",
+     4
+    ],
+    [
+     "Amped Raptor",
+     4
+    ],
+    [
+     "Guide of Souls",
+     4
+    ],
+    [
+     "Ocelot Pride",
+     4
+    ],
+    [
+     "Swords to Plowshares",
+     4
+    ],
+    [
+     "Wasteland",
+     4
+    ],
+    [
+     "Voice of Victory",
+     4
+    ],
+    [
+     "Arid Mesa",
+     4
+    ],
+    [
+     "Goblin Bombardment",
+     3
+    ],
+    [
+     "Plateau",
+     3
+    ],
+    [
+     "Static Prison",
+     2
+    ],
+    [
+     "Karakas",
+     2
+    ],
+    [
+     "Lazotep Quarry",
+     2
+    ],
+    [
+     "Plains",
+     2
+    ],
+    [
+     "Elegant Parlor",
+     1
+    ],
+    [
+     "Savannah",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Once Upon a Time",
+     85,
+     2.9
+    ],
+    [
+     "Sand Scout",
+     83,
+     3
+    ],
+    [
+     "Mountain",
+     78,
+     1
+    ],
+    [
+     "Windswept Heath",
+     78,
+     1.9
+    ],
+    [
+     "Phlage, Titan of Fire's Fury",
+     71,
+     1.1
+    ],
+    [
+     "Marsh Flats",
+     63,
+     1.8
+    ],
+    [
+     "Flooded Strand",
+     61,
+     1.9
+    ],
+    [
+     "Forth Eorlingas!",
+     54,
+     1.1
+    ],
+    [
+     "Sunbaked Canyon",
+     41,
+     1.4
+    ],
+    [
+     "Hexing Squelcher",
+     39,
+     1.8
+    ]
+   ],
+   "lists": 41,
+   "conv": [
+    0.9,
+    0.7,
+    5
    ],
    "prev": 0.8
   },
@@ -11649,7 +11596,7 @@
    "name": "Selesnya Depths",
    "share": 0.7,
    "tier": 2,
-   "count": 37,
+   "count": 36,
    "title": "salvirom#gvvyrp · Salviche #6 (6th Place)",
    "url": "https://getpaird.io/tournaments/salviche-6-1KNk3W/lists/4384",
    "main": [
@@ -11702,7 +11649,7 @@
     "2 Red Elemental Blast"
    ],
    "history": [
-    0.4,
+    0,
     0.2,
     0.7,
     0.3,
@@ -11821,6 +11768,10 @@
      1
     ],
     [
+     "Icetill Explorer",
+     1
+    ],
+    [
      "Karakas",
      1
     ],
@@ -11835,11 +11786,6 @@
    ],
    "flex": [
     [
-     "Icetill Explorer",
-     89,
-     1
-    ],
-    [
      "Sylvan Safekeeper",
      89,
      1
@@ -11851,61 +11797,61 @@
     ],
     [
      "Lush Portico",
-     73,
+     75,
      1
     ],
     [
      "Carnivorous Cultivator",
-     73,
+     75,
      3.8
     ],
     [
      "Endurance",
-     54,
+     56,
      1
     ],
     [
      "Tropical Island",
-     51,
+     53,
      1.1
     ],
     [
      "Avatar of Burgeoning Echoes",
-     49,
+     50,
      1.1
     ],
     [
      "Once Upon a Time",
-     41,
+     39,
      2.9
     ],
     [
      "Legolas's Quick Reflexes",
-     38,
+     39,
      1.2
     ],
     [
-     "Badgermole Cub",
-     35,
-     2.8
-    ],
-    [
      "Ghost Quarter",
-     35,
+     36,
      1
     ],
     [
+     "Badgermole Cub",
+     33,
+     2.8
+    ],
+    [
      "Misty Rainforest",
-     30,
+     31,
      1.3
     ],
     [
      "Maze of Ith",
-     27,
+     28,
      1
     ]
    ],
-   "lists": 37,
+   "lists": 36,
    "conv": [
     0.8,
     0.8,
@@ -11916,9 +11862,9 @@
   {
    "id": "legacy-painter",
    "name": "Painter",
-   "share": 0.7,
+   "share": 0.6,
    "tier": 2,
-   "count": 34,
+   "count": 32,
    "title": "uburdub · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-1911321#deck_uburdub",
    "main": [
@@ -12009,9 +11955,9 @@
      0
     ],
     [
-     "Eldrazi",
-     4,
+     "Tron",
      0,
+     4,
      0
     ],
     [
@@ -12021,9 +11967,9 @@
      0
     ],
     [
-     "Tron",
-     0,
+     "Eldrazi",
      4,
+     0,
      0
     ],
     [
@@ -12080,11 +12026,11 @@
      4
     ],
     [
-     "Goblin Engineer",
+     "Goblin Welder",
      4
     ],
     [
-     "Goblin Welder",
+     "Goblin Engineer",
      4
     ],
     [
@@ -12112,88 +12058,88 @@
     [
      "Great Furnace",
      88,
-     2
+     2.1
     ],
     [
      "Pyroblast",
-     85,
+     84,
      3.9
     ],
     [
      "Red Elemental Blast",
-     85,
+     84,
      2.3
     ],
     [
      "Ensnaring Bridge",
-     82,
+     81,
      1.1
     ],
     [
      "Phyrexian Dragon Engine",
-     82,
+     81,
      1
     ],
     [
      "Soul-Guide Lantern",
-     82,
+     81,
      1
     ],
     [
      "Skateboard",
-     79,
+     78,
+     1
+    ],
+    [
+     "Chaos Defiler",
+     75,
      1
     ],
     [
      "City of Traitors",
-     76,
+     75,
      1.8
     ],
     [
-     "Chaos Defiler",
-     74,
-     1
-    ],
-    [
-     "Simian Spirit Guide",
-     71,
-     2.4
-    ],
-    [
      "Lightning Bolt",
-     68,
+     69,
      2.2
     ],
     [
+     "Simian Spirit Guide",
+     69,
+     2.3
+    ],
+    [
      "Sewer-veillance Cam",
-     68,
+     69,
      1.8
     ],
     [
      "Agatha's Soul Cauldron",
-     68,
+     69,
      1.1
     ],
     [
      "Arena of Glory",
-     65,
+     63,
      1.1
     ]
    ],
-   "lists": 34,
+   "lists": 32,
    "conv": [
     0.6,
     0.5,
     4
    ],
-   "prev": 0.6
+   "prev": 0.7
   },
   {
    "id": "legacy-esper-midrange",
    "name": "Esper Midrange",
-   "share": 0.7,
+   "share": 0.6,
    "tier": 2,
-   "count": 34,
+   "count": 32,
    "title": "Carroz · Legacy Challenge 32 (1st Place)",
    "url": "https://www.mtgo.com/decklist/legacy-challenge-32-2026-11-2212858949#deck_Carroz",
    "main": [
@@ -12242,7 +12188,7 @@
     "1 Yorion, Sky Nomad"
    ],
    "history": [
-    0.4,
+    0.5,
     0.2,
     0.3,
     1.1,
@@ -12256,8 +12202,8 @@
     0.7
    ],
    "field": [
-    54,
-    56,
+    53,
+    55,
     6
    ],
    "mu": [
@@ -12298,27 +12244,27 @@
      0
     ],
     [
-     "Eldrazi",
-     3,
-     3,
-     0
-    ],
-    [
      "Tron",
      1,
      4,
      3
     ],
     [
-     "Sneak and Show",
+     "Eldrazi",
      3,
+     3,
+     0
+    ],
+    [
+     "Sneak and Show",
+     2,
      1,
      0
     ],
     [
      "Death & Taxes",
      3,
-     4,
+     3,
      0
     ],
     [
@@ -12352,7 +12298,7 @@
      0
     ]
    ],
-   "metaWr": 50.4,
+   "metaWr": 50.7,
    "core": [
     [
      "Brainstorm",
@@ -12403,57 +12349,57 @@
     ],
     [
      "Marsh Flats",
-     85,
+     88,
      1.7
     ],
     [
      "Orcish Bowmasters",
-     85,
+     84,
      3.2
-    ],
-    [
-     "Ponder",
-     85,
-     3.8
     ],
     [
      "Plains",
-     82,
+     84,
      1.1
     ],
     [
-     "Quantum Riddler",
-     82,
-     3.5
+     "Ponder",
+     84,
+     3.8
     ],
     [
-     "Phelia, Exuberant Shepherd",
-     79,
-     3.2
+     "Quantum Riddler",
+     81,
+     3.4
     ],
     [
      "Meticulous Archive",
-     76,
+     78,
      1
     ],
     [
+     "Phelia, Exuberant Shepherd",
+     78,
+     3.2
+    ],
+    [
      "Wasteland",
-     74,
-     3
+     72,
+     2.9
     ],
     [
      "Prismatic Ending",
-     71,
-     1.7
+     69,
+     1.8
     ],
     [
      "Force of Negation",
-     68,
+     66,
      1.2
     ],
     [
      "Kaito, Bane of Nightmares",
-     62,
+     63,
      1.4
     ],
     [
@@ -12467,11 +12413,11 @@
      1
     ]
    ],
-   "lists": 34,
+   "lists": 32,
    "conv": [
     0.6,
-    0.6,
-    5
+    0.5,
+    4
    ],
    "prev": 0.7
   },
@@ -12679,7 +12625,7 @@
    "name": "Naya Stompy",
    "share": 0.5,
    "tier": 2,
-   "count": 28,
+   "count": 27,
    "title": "kozz27 · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2211321#deck_kozz27",
    "main": [
@@ -12839,26 +12785,26 @@
     ],
     [
      "Chrome Mox",
-     86,
+     85,
      1.4
     ],
     [
      "Broadside Bombardiers",
-     75,
+     78,
      1.8
     ],
     [
      "Eldrazi Confluence",
-     75,
-     2.5
+     74,
+     2.6
     ],
     [
      "Forth Eorlingas!",
-     32,
+     33,
      3.1
     ]
    ],
-   "lists": 28,
+   "lists": 27,
    "conv": [
     0.6,
     0.9,
@@ -12871,7 +12817,7 @@
    "name": "Creative combo",
    "share": 0.5,
    "tier": 2,
-   "count": 25,
+   "count": 24,
    "title": "robfighting · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-2011321#deck_robfighting",
    "main": [
@@ -12954,16 +12900,16 @@
      0
     ],
     [
-     "Eldrazi",
-     4,
-     1,
-     0
-    ],
-    [
      "Tron",
      3,
      2,
      2
+    ],
+    [
+     "Eldrazi",
+     4,
+     1,
+     0
     ],
     [
      "Sneak and Show",
@@ -13077,548 +13023,38 @@
     ],
     [
      "Mountain",
-     84,
-     1
+     83,
+     1.1
     ],
     [
      "Petrified Hamlet",
-     84,
+     83,
      3.2
     ],
     [
      "Tinder Farm",
-     84,
+     83,
      1.9
     ],
     [
      "Taiga",
-     60,
+     63,
      1.4
     ],
     [
      "Forest",
-     48,
+     50,
      1
     ],
     [
      "Emergent Ultimatum",
-     40,
+     42,
      2
     ],
     [
      "Gemstone Caverns",
-     28,
+     25,
      1
-    ]
-   ],
-   "lists": 25,
-   "conv": [
-    0.4,
-    0.5,
-    4
-   ],
-   "prev": 0.5
-  },
-  {
-   "id": "legacy-hogaak-moonshadow",
-   "name": "Hogaak Moonshadow",
-   "share": 0.5,
-   "tier": 2,
-   "count": 25,
-   "title": "tiko · Legacy League (5-0)",
-   "url": "https://www.mtgo.com/decklist/legacy-league-2026-10-1211169#deck_tiko",
-   "main": [
-    "3 Bayou",
-    "1 Bojuka Bog",
-    "2 Boseiju, Who Endures",
-    "3 Cabal Therapy",
-    "4 Dark Matter Manipulator",
-    "1 Dryad Arbor",
-    "3 Elvish Reclaimer",
-    "1 Eumidian Hatchery",
-    "1 Forest",
-    "3 Hogaak, Arisen Necropolis",
-    "1 Misty Rainforest",
-    "4 Moonshadow",
-    "3 Once Upon a Time",
-    "4 Orcish Bowmasters",
-    "1 Polluted Delta",
-    "2 Scythecat Cub",
-    "3 Stitcher's Supplier",
-    "1 Swamp",
-    "1 Sylvan Safekeeper",
-    "1 Talon Gates of Madara",
-    "4 Thoughtseize",
-    "1 Underground Mortuary",
-    "4 Verdant Catacombs",
-    "4 Wasteland",
-    "4 Wight of the Reliquary"
-   ],
-   "side": [
-    "3 Abrupt Decay",
-    "2 Collector Ouphe",
-    "2 Duress",
-    "4 Endurance",
-    "3 Snuff Out"
-   ],
-   "history": [
-    1.7,
-    0.6,
-    1,
-    1.1,
-    1.3,
-    1.6,
-    0.6,
-    0.2,
-    0.2,
-    0.2,
-    0,
-    0
-   ],
-   "field": [
-    33,
-    34,
-    4
-   ],
-   "mu": [
-    [
-     "Dimir Hogaak",
-     0,
-     4,
-     2
-    ],
-    [
-     "Doomsday",
-     1,
-     5,
-     0
-    ],
-    [
-     "Beanstalk Control",
-     5,
-     2,
-     0
-    ],
-    [
-     "Dimir Tempo",
-     5,
-     0,
-     0
-    ],
-    [
-     "Aluren",
-     3,
-     1,
-     0
-    ],
-    [
-     "Death & Taxes",
-     0,
-     1,
-     2
-    ],
-    [
-     "Jeskai Midrange",
-     3,
-     1,
-     0
-    ],
-    [
-     "Azorius Midrange",
-     2,
-     1,
-     0
-    ],
-    [
-     "Blue Artifacts",
-     2,
-     1,
-     0
-    ],
-    [
-     "Sewer - Cam Combo",
-     3,
-     1,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Moonshadow",
-     4
-    ],
-    [
-     "Thoughtseize",
-     4
-    ],
-    [
-     "Verdant Catacombs",
-     4
-    ],
-    [
-     "Wight of the Reliquary",
-     4
-    ],
-    [
-     "Wasteland",
-     4
-    ],
-    [
-     "Stitcher's Supplier",
-     4
-    ],
-    [
-     "Hogaak, Arisen Necropolis",
-     3
-    ],
-    [
-     "Once Upon a Time",
-     3
-    ],
-    [
-     "Elvish Reclaimer",
-     3
-    ],
-    [
-     "Bayou",
-     3
-    ],
-    [
-     "Sylvan Safekeeper",
-     2
-    ],
-    [
-     "Talon Gates of Madara",
-     1
-    ],
-    [
-     "Bojuka Bog",
-     1
-    ],
-    [
-     "Dryad Arbor",
-     1
-    ],
-    [
-     "Forest",
-     1
-    ],
-    [
-     "Swamp",
-     1
-    ],
-    [
-     "Underground Mortuary",
-     1
-    ]
-   ],
-   "flex": [
-    [
-     "Boseiju, Who Endures",
-     84,
-     2
-    ],
-    [
-     "Eumidian Hatchery",
-     80,
-     1
-    ],
-    [
-     "Orcish Bowmasters",
-     80,
-     4
-    ],
-    [
-     "Polluted Delta",
-     68,
-     1.4
-    ],
-    [
-     "Dark Matter Manipulator",
-     68,
-     4
-    ],
-    [
-     "Misty Rainforest",
-     64,
-     1.3
-    ],
-    [
-     "Fatal Push",
-     48,
-     3.4
-    ],
-    [
-     "Cabal Therapy",
-     48,
-     3
-    ],
-    [
-     "Scythecat Cub",
-     44,
-     2.3
-    ],
-    [
-     "Windswept Heath",
-     28,
-     1.6
-    ]
-   ],
-   "lists": 25,
-   "conv": [
-    0.7,
-    0.6,
-    5
-   ],
-   "prev": 0.5
-  },
-  {
-   "id": "legacy-stiflenought",
-   "name": "Stiflenought",
-   "share": 0.5,
-   "tier": 2,
-   "count": 24,
-   "title": "joaograndi · Liga Curitibana de Legacy - SUPER LEGACY - 2026/2 (6th Place)",
-   "url": "https://melee.gg/Decklist/View/1eb5feba-1f2e-4393-b7a7-b50900d5d20f",
-   "main": [
-    "1 Pithing Needle",
-    "4 Doorkeeper Thrull",
-    "4 Phyrexian Dreadnought",
-    "4 Brainstorm",
-    "4 Force of Will",
-    "4 Swords to Plowshares",
-    "4 Flooded Strand",
-    "1 Karakas",
-    "1 Meticulous Archive",
-    "2 Misty Rainforest",
-    "1 Plains",
-    "4 Tundra",
-    "4 Urza's Saga",
-    "3 Ponder",
-    "1 Skateboard",
-    "2 Prismatic Ending",
-    "1 Underground Sea",
-    "3 Tamiyo, Inquisitive Student",
-    "2 Abhorrent Oculus",
-    "2 Stifle",
-    "1 Consign to Memory",
-    "3 Curie, Emergent Intelligence",
-    "2 Flow State",
-    "2 Island"
-   ],
-   "side": [
-    "2 Consign to Memory",
-    "1 Stony Silence",
-    "4 Leyline of the Void",
-    "1 Containment Priest",
-    "1 Erode",
-    "1 Dispel",
-    "1 Not of This World",
-    "1 Force of Negation",
-    "2 Clarion Conqueror",
-    "1 Stifle"
-   ],
-   "history": [
-    0.8,
-    0,
-    0,
-    0.5,
-    0.3,
-    0.5,
-    0.3,
-    0.5,
-    0.5,
-    0.5,
-    0.4,
-    0.5
-   ],
-   "field": [
-    39,
-    45,
-    2
-   ],
-   "mu": [
-    [
-     "Lands",
-     2,
-     2,
-     0
-    ],
-    [
-     "Doomsday",
-     1,
-     2,
-     0
-    ],
-    [
-     "Beanstalk Control",
-     0,
-     3,
-     0
-    ],
-    [
-     "Aluren",
-     1,
-     3,
-     0
-    ],
-    [
-     "Eldrazi",
-     2,
-     1,
-     0
-    ],
-    [
-     "Izzet Delver",
-     2,
-     2,
-     0
-    ],
-    [
-     "Tron",
-     3,
-     6,
-     0
-    ],
-    [
-     "Sneak and Show",
-     2,
-     2,
-     0
-    ],
-    [
-     "Death & Taxes",
-     0,
-     1,
-     2
-    ],
-    [
-     "Mystic Forge Combo",
-     3,
-     0,
-     0
-    ],
-    [
-     "Boros Energy",
-     1,
-     4,
-     0
-    ],
-    [
-     "Blue Artifacts",
-     2,
-     1,
-     0
-    ],
-    [
-     "Elves",
-     2,
-     1,
-     0
-    ],
-    [
-     "Sewer - Cam Combo",
-     1,
-     2,
-     0
-    ],
-    [
-     "TES",
-     2,
-     1,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Force of Will",
-     4
-    ],
-    [
-     "Phyrexian Dreadnought",
-     4
-    ],
-    [
-     "Island",
-     2
-    ],
-    [
-     "Tundra",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Brainstorm",
-     88,
-     4
-    ],
-    [
-     "Doorkeeper Thrull",
-     88,
-     3.2
-    ],
-    [
-     "Flooded Strand",
-     88,
-     3.8
-    ],
-    [
-     "Meticulous Archive",
-     88,
-     1
-    ],
-    [
-     "Plains",
-     88,
-     1.2
-    ],
-    [
-     "Ponder",
-     88,
-     3.8
-    ],
-    [
-     "Swords to Plowshares",
-     88,
-     4
-    ],
-    [
-     "Stifle",
-     83,
-     2.5
-    ],
-    [
-     "Karakas",
-     75,
-     1
-    ],
-    [
-     "Dress Down",
-     67,
-     2.6
-    ],
-    [
-     "Tamiyo, Inquisitive Student",
-     58,
-     3.2
-    ],
-    [
-     "Wasteland",
-     54,
-     3.5
-    ],
-    [
-     "Abhorrent Oculus",
-     50,
-     1.8
-    ],
-    [
-     "Prismatic Ending",
-     50,
-     2
     ]
    ],
    "lists": 24,
@@ -13857,11 +13293,261 @@
    "prev": 0.5
   },
   {
+   "id": "legacy-stiflenought",
+   "name": "Stiflenought",
+   "share": 0.5,
+   "tier": 2,
+   "count": 23,
+   "title": "joaograndi · Liga Curitibana de Legacy - SUPER LEGACY - 2026/2 (6th Place)",
+   "url": "https://melee.gg/Decklist/View/1eb5feba-1f2e-4393-b7a7-b50900d5d20f",
+   "main": [
+    "1 Pithing Needle",
+    "4 Doorkeeper Thrull",
+    "4 Phyrexian Dreadnought",
+    "4 Brainstorm",
+    "4 Force of Will",
+    "4 Swords to Plowshares",
+    "4 Flooded Strand",
+    "1 Karakas",
+    "1 Meticulous Archive",
+    "2 Misty Rainforest",
+    "1 Plains",
+    "4 Tundra",
+    "4 Urza's Saga",
+    "3 Ponder",
+    "1 Skateboard",
+    "2 Prismatic Ending",
+    "1 Underground Sea",
+    "3 Tamiyo, Inquisitive Student",
+    "2 Abhorrent Oculus",
+    "2 Stifle",
+    "1 Consign to Memory",
+    "3 Curie, Emergent Intelligence",
+    "2 Flow State",
+    "2 Island"
+   ],
+   "side": [
+    "2 Consign to Memory",
+    "1 Stony Silence",
+    "4 Leyline of the Void",
+    "1 Containment Priest",
+    "1 Erode",
+    "1 Dispel",
+    "1 Not of This World",
+    "1 Force of Negation",
+    "2 Clarion Conqueror",
+    "1 Stifle"
+   ],
+   "history": [
+    0,
+    0,
+    0,
+    0.5,
+    0.3,
+    0.5,
+    0.3,
+    0.5,
+    0.5,
+    0.5,
+    0.4,
+    0.5
+   ],
+   "field": [
+    38,
+    42,
+    2
+   ],
+   "mu": [
+    [
+     "Lands",
+     2,
+     2,
+     0
+    ],
+    [
+     "Doomsday",
+     1,
+     2,
+     0
+    ],
+    [
+     "Beanstalk Control",
+     0,
+     3,
+     0
+    ],
+    [
+     "Aluren",
+     1,
+     3,
+     0
+    ],
+    [
+     "Tron",
+     3,
+     6,
+     0
+    ],
+    [
+     "Izzet Delver",
+     2,
+     2,
+     0
+    ],
+    [
+     "Eldrazi",
+     2,
+     1,
+     0
+    ],
+    [
+     "Sneak and Show",
+     2,
+     2,
+     0
+    ],
+    [
+     "Death & Taxes",
+     0,
+     1,
+     2
+    ],
+    [
+     "Mystic Forge Combo",
+     3,
+     0,
+     0
+    ],
+    [
+     "Boros Energy",
+     1,
+     3,
+     0
+    ],
+    [
+     "Blue Artifacts",
+     2,
+     1,
+     0
+    ],
+    [
+     "Elves",
+     2,
+     1,
+     0
+    ],
+    [
+     "TES",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Force of Will",
+     4
+    ],
+    [
+     "Phyrexian Dreadnought",
+     4
+    ],
+    [
+     "Island",
+     2
+    ],
+    [
+     "Tundra",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Brainstorm",
+     87,
+     4
+    ],
+    [
+     "Ponder",
+     87,
+     3.8
+    ],
+    [
+     "Doorkeeper Thrull",
+     87,
+     3.3
+    ],
+    [
+     "Swords to Plowshares",
+     87,
+     4
+    ],
+    [
+     "Flooded Strand",
+     87,
+     3.8
+    ],
+    [
+     "Plains",
+     87,
+     1.3
+    ],
+    [
+     "Meticulous Archive",
+     87,
+     1.1
+    ],
+    [
+     "Stifle",
+     83,
+     2.5
+    ],
+    [
+     "Karakas",
+     74,
+     1
+    ],
+    [
+     "Dress Down",
+     65,
+     2.7
+    ],
+    [
+     "Tamiyo, Inquisitive Student",
+     57,
+     3.2
+    ],
+    [
+     "Wasteland",
+     52,
+     3.4
+    ],
+    [
+     "Consign to Memory",
+     48,
+     2.4
+    ],
+    [
+     "Nulldrifter",
+     48,
+     3.1
+    ]
+   ],
+   "lists": 23,
+   "conv": [
+    0.4,
+    0.5,
+    4
+   ],
+   "prev": 0.5
+  },
+  {
    "id": "legacy-post",
    "name": "Post",
    "share": 0.4,
    "tier": 2,
-   "count": 23,
+   "count": 22,
    "title": "pinkochon · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-0711169#deck_pinkochon",
    "main": [
@@ -14033,11 +13719,11 @@
      3
     ],
     [
-     "Glimmerpost",
+     "Ugin, Eye of the Storms",
      3
     ],
     [
-     "Ugin, Eye of the Storms",
+     "Glimmerpost",
      2
     ],
     [
@@ -14048,82 +13734,324 @@
    "flex": [
     [
      "Karakas",
-     57,
+     59,
      1
     ],
     [
-     "Giant's Boulder",
-     57,
-     3.7
-    ],
-    [
      "Ancient Tomb",
-     52,
+     55,
      2.3
     ],
     [
      "Crop Rotation",
-     52,
+     55,
      3.5
     ],
     [
      "Forest",
-     52,
+     55,
      1.1
     ],
     [
      "Karn's Sylex",
-     52,
+     55,
      2.3
     ],
     [
-     "Disruptor Flute",
-     48,
-     2.1
+     "Giant's Boulder",
+     55,
+     3.7
     ],
     [
      "Emrakul, the Aeons Torn",
-     48,
+     50,
      1.2
     ],
     [
-     "Force of Will",
-     43,
-     4
-    ],
-    [
-     "Stock Up",
-     43,
-     4
+     "Disruptor Flute",
+     45,
+     2.1
     ],
     [
      "Boseiju, Who Endures",
-     39,
+     41,
      1.9
     ],
     [
      "Once Upon a Time",
-     39,
+     41,
      3.7
     ],
     [
-     "Force of Negation",
-     39,
-     2.7
+     "Force of Will",
+     41,
+     4
     ],
     [
-     "Island",
-     39,
-     1.8
+     "Stock Up",
+     41,
+     4
+    ],
+    [
+     "Emrakul, the Exigent Doom",
+     36,
+     2.8
+    ],
+    [
+     "Ulamog, the Ceaseless Hunger",
+     36,
+     1.4
     ]
    ],
-   "lists": 23,
+   "lists": 22,
    "conv": [
     0.6,
     0.1,
     1
    ],
    "prev": 0.4
+  },
+  {
+   "id": "legacy-hogaak-moonshadow",
+   "name": "Hogaak Moonshadow",
+   "share": 0.4,
+   "tier": 2,
+   "count": 21,
+   "title": "tiko · Legacy League (5-0)",
+   "url": "https://www.mtgo.com/decklist/legacy-league-2026-10-1211169#deck_tiko",
+   "main": [
+    "3 Bayou",
+    "1 Bojuka Bog",
+    "2 Boseiju, Who Endures",
+    "3 Cabal Therapy",
+    "4 Dark Matter Manipulator",
+    "1 Dryad Arbor",
+    "3 Elvish Reclaimer",
+    "1 Eumidian Hatchery",
+    "1 Forest",
+    "3 Hogaak, Arisen Necropolis",
+    "1 Misty Rainforest",
+    "4 Moonshadow",
+    "3 Once Upon a Time",
+    "4 Orcish Bowmasters",
+    "1 Polluted Delta",
+    "2 Scythecat Cub",
+    "3 Stitcher's Supplier",
+    "1 Swamp",
+    "1 Sylvan Safekeeper",
+    "1 Talon Gates of Madara",
+    "4 Thoughtseize",
+    "1 Underground Mortuary",
+    "4 Verdant Catacombs",
+    "4 Wasteland",
+    "4 Wight of the Reliquary"
+   ],
+   "side": [
+    "3 Abrupt Decay",
+    "2 Collector Ouphe",
+    "2 Duress",
+    "4 Endurance",
+    "3 Snuff Out"
+   ],
+   "history": [
+    1.4,
+    0.6,
+    1,
+    1.1,
+    1.3,
+    1.6,
+    0.6,
+    0.2,
+    0.2,
+    0.2,
+    0,
+    0
+   ],
+   "field": [
+    29,
+    29,
+    2
+   ],
+   "mu": [
+    [
+     "Dimir Hogaak",
+     0,
+     4,
+     2
+    ],
+    [
+     "Doomsday",
+     1,
+     4,
+     0
+    ],
+    [
+     "Beanstalk Control",
+     4,
+     2,
+     0
+    ],
+    [
+     "Dimir Tempo",
+     4,
+     0,
+     0
+    ],
+    [
+     "Aluren",
+     3,
+     1,
+     0
+    ],
+    [
+     "Jeskai Midrange",
+     3,
+     1,
+     0
+    ],
+    [
+     "Azorius Midrange",
+     2,
+     1,
+     0
+    ],
+    [
+     "Sewer - Cam Combo",
+     2,
+     1,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Moonshadow",
+     4
+    ],
+    [
+     "Thoughtseize",
+     4
+    ],
+    [
+     "Verdant Catacombs",
+     4
+    ],
+    [
+     "Wight of the Reliquary",
+     4
+    ],
+    [
+     "Wasteland",
+     4
+    ],
+    [
+     "Stitcher's Supplier",
+     3
+    ],
+    [
+     "Hogaak, Arisen Necropolis",
+     3
+    ],
+    [
+     "Once Upon a Time",
+     3
+    ],
+    [
+     "Bayou",
+     3
+    ],
+    [
+     "Elvish Reclaimer",
+     3
+    ],
+    [
+     "Sylvan Safekeeper",
+     2
+    ],
+    [
+     "Talon Gates of Madara",
+     1
+    ],
+    [
+     "Bojuka Bog",
+     1
+    ],
+    [
+     "Dryad Arbor",
+     1
+    ],
+    [
+     "Forest",
+     1
+    ],
+    [
+     "Swamp",
+     1
+    ],
+    [
+     "Underground Mortuary",
+     1
+    ]
+   ],
+   "flex": [
+    [
+     "Boseiju, Who Endures",
+     86,
+     1.9
+    ],
+    [
+     "Dark Matter Manipulator",
+     81,
+     4
+    ],
+    [
+     "Eumidian Hatchery",
+     81,
+     1
+    ],
+    [
+     "Orcish Bowmasters",
+     81,
+     3.9
+    ],
+    [
+     "Polluted Delta",
+     67,
+     1.2
+    ],
+    [
+     "Misty Rainforest",
+     62,
+     1.2
+    ],
+    [
+     "Cabal Therapy",
+     57,
+     3
+    ],
+    [
+     "Scythecat Cub",
+     48,
+     2.2
+    ],
+    [
+     "Fatal Push",
+     38,
+     3.5
+    ],
+    [
+     "Windswept Heath",
+     29,
+     1.5
+    ]
+   ],
+   "lists": 21,
+   "conv": [
+    0.6,
+    0.5,
+    4
+   ],
+   "prev": 0.5
   },
   {
    "id": "legacy-ad-nauseam-tendrils",
@@ -14175,7 +14103,7 @@
     "1 Tendrils of Agony"
    ],
    "history": [
-    0.4,
+    0.5,
     0,
     0.3,
     0,
@@ -14373,7 +14301,7 @@
    "lists": 21,
    "conv": [
     0.5,
-    1.1,
+    1.2,
     9
    ],
    "prev": 0.4
@@ -14600,7 +14528,7 @@
    "name": "Dimir Bilbo",
    "share": 0.4,
    "tier": 2,
-   "count": 20,
+   "count": 18,
    "title": "pow22 · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-0911169#deck_pow22",
    "main": [
@@ -14642,7 +14570,7 @@
     "2 Sheoldred's Edict"
    ],
    "history": [
-    4.1,
+    4.2,
     2.9,
     3,
     1.9,
@@ -14656,9 +14584,9 @@
     0
    ],
    "field": [
-    33,
-    25,
-    8
+    32,
+    23,
+    6
    ],
    "mu": [
     [
@@ -14690,12 +14618,6 @@
      2,
      1,
      0
-    ],
-    [
-     "Death & Taxes",
-     0,
-     2,
-     2
     ],
     [
      "Azorius Midrange",
@@ -14741,11 +14663,11 @@
      4
     ],
     [
-     "Thoughtseize",
+     "Fatal Push",
      3
     ],
     [
-     "Fatal Push",
+     "Thoughtseize",
      3
     ],
     [
@@ -14760,78 +14682,78 @@
    "flex": [
     [
      "Island",
-     85,
+     83,
      1
     ],
     [
      "Snuff Out",
-     85,
-     1.4
+     83,
+     1.5
     ],
     [
      "Swamp",
-     85,
+     83,
      1
     ],
     [
      "Mishra's Bauble",
-     80,
+     78,
      3.4
     ],
     [
      "Moonshadow",
-     80,
+     78,
      4
     ],
     [
      "Nethergoyf",
-     80,
+     78,
      4
     ],
     [
      "Flow State",
-     75,
-     2.7
+     72,
+     2.8
     ],
     [
      "Misty Rainforest",
-     70,
+     72,
      1.7
     ],
     [
-     "Bloodstained Mire",
-     55,
-     1.5
-    ],
-    [
-     "Brazen Borrower",
-     50,
-     1
-    ],
-    [
      "Flooded Strand",
-     50,
+     56,
      1.8
     ],
     [
+     "Bloodstained Mire",
+     50,
+     1.4
+    ],
+    [
+     "Brazen Borrower",
+     44,
+     1
+    ],
+    [
      "Scalding Tarn",
-     45,
+     44,
      1.3
     ],
     [
      "Verdant Catacombs",
-     35,
+     39,
      1.6
     ],
     [
      "Orcish Bowmasters",
-     35,
+     39,
      2.7
     ]
    ],
-   "lists": 20,
+   "lists": 18,
    "conv": [
-    0.4,
+    0.3,
     0.1,
     1
    ],
@@ -14840,7 +14762,7 @@
   {
    "id": "legacy-burn",
    "name": "Burn",
-   "share": 0.3,
+   "share": 0.4,
    "tier": 2,
    "count": 18,
    "title": "HubVet · 12 Etapa Legacy Sul de Minas - Cabala Games (5th Place)",
@@ -15077,7 +14999,7 @@
     "2 Surgical Extraction"
    ],
    "history": [
-    1.7,
+    1.9,
     0.6,
     0,
     0.3,
@@ -15263,7 +15185,7 @@
    "name": "Loam Pox",
    "share": 0.3,
    "tier": 2,
-   "count": 16,
+   "count": 15,
    "title": "Didackith · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-1911321#deck_Didackith",
    "main": [
@@ -15303,7 +15225,7 @@
     "2 Massacre"
    ],
    "history": [
-    0.4,
+    0.5,
     0.6,
     0,
     0.3,
@@ -15347,16 +15269,16 @@
      0
     ],
     [
-     "Izzet Delver",
-     2,
-     4,
-     0
-    ],
-    [
      "Tron",
      1,
      3,
      2
+    ],
+    [
+     "Izzet Delver",
+     2,
+     4,
+     0
     ],
     [
      "Azorius Midrange",
@@ -15427,71 +15349,71 @@
    "flex": [
     [
      "Swamp",
-     88,
+     87,
      1.8
     ],
     [
      "Nihil Spellbomb",
-     88,
+     87,
      1
     ],
     [
      "Pithing Needle",
-     88,
+     87,
      1
     ],
     [
      "Grist, the Hunger Tide",
-     88,
+     87,
      1.8
     ],
     [
      "Hogaak, Arisen Necropolis",
-     81,
+     80,
      2.1
     ],
     [
      "Malevolent Rumble",
-     75,
+     73,
      3.4
     ],
     [
      "Witherbloom Command",
-     75,
-     2.4
+     73,
+     2.5
     ],
     [
      "Skateboard",
-     69,
+     73,
      1
     ],
     [
      "Karakas",
-     69,
+     73,
      1
     ],
     [
      "Witherbloom Charm",
-     50,
+     53,
      1.6
     ],
     [
      "Mole Man, Moloid Master",
-     31,
+     33,
      1.2
     ],
     [
      "Carnivorous Cultivator // Enroot",
-     25,
+     27,
      1.5
     ],
     [
      "Fatal Push",
-     25,
+     27,
      1
     ]
    ],
-   "lists": 16,
+   "lists": 15,
    "conv": [
     0.2,
     0.1,
@@ -15654,159 +15576,6 @@
    "prev": 0.3
   },
   {
-   "id": "legacy-mono-black-midrange",
-   "name": "Mono Black Midrange",
-   "share": 0.3,
-   "tier": 2,
-   "count": 14,
-   "title": "MagoVelho1978 · 11º Black League Legacy (8th Place)",
-   "url": "https://melee.gg/Decklist/View/0b234863-852e-4eaa-8d8c-b4fc000fde1f",
-   "main": [
-    "12 Swamp",
-    "4 Marsh Flats",
-    "2 Wasteland",
-    "4 Thoughtseize",
-    "4 Fatal Push",
-    "4 Inquisition of Kozilek",
-    "4 Dark Ritual",
-    "4 Dauthi Voidwalker",
-    "4 Emperor of Bones",
-    "4 Orcish Bowmasters",
-    "4 Sinkhole",
-    "4 Shadow of Doubt",
-    "4 Opposition Agent",
-    "2 Boggart Trawler"
-   ],
-   "side": [
-    "4 Surgical Extraction",
-    "4 Tourach, Dread Cantor",
-    "4 Plague Engineer",
-    "3 Mutated Cultist"
-   ],
-   "history": [
-    0,
-    0.4,
-    0,
-    0.5,
-    0.3,
-    0.5,
-    0.3,
-    0.3,
-    0.2,
-    0.5,
-    0,
-    0
-   ],
-   "field": [
-    18,
-    17,
-    0
-   ],
-   "mu": [
-    [
-     "Aluren",
-     1,
-     2,
-     0
-    ],
-    [
-     "Tron",
-     0,
-     3,
-     0
-    ],
-    [
-     "TES",
-     3,
-     0,
-     0
-    ]
-   ],
-   "metaWr": null,
-   "core": [
-    [
-     "Swamp",
-     6
-    ],
-    [
-     "Dark Ritual",
-     4
-    ],
-    [
-     "Dauthi Voidwalker",
-     4
-    ],
-    [
-     "Mishra's Bauble",
-     4
-    ],
-    [
-     "Moonshadow",
-     4
-    ],
-    [
-     "Nethergoyf",
-     4
-    ],
-    [
-     "Orcish Bowmasters",
-     4
-    ],
-    [
-     "Thoughtseize",
-     4
-    ],
-    [
-     "Wasteland",
-     4
-    ],
-    [
-     "Fatal Push",
-     4
-    ],
-    [
-     "Barrowgoyf",
-     4
-    ],
-    [
-     "Polluted Delta",
-     3
-    ],
-    [
-     "Bloodstained Mire",
-     2
-    ],
-    [
-     "Sheoldred's Edict",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "Marsh Flats",
-     79,
-     2
-    ],
-    [
-     "Verdant Catacombs",
-     71,
-     2.3
-    ],
-    [
-     "Street Wraith",
-     57,
-     3.3
-    ],
-    [
-     "Undercity Sewers",
-     57,
-     1
-    ]
-   ],
-   "lists": 14,
-   "prev": 0.3
-  },
-  {
    "id": "legacy-smallpox",
    "name": "Smallpox",
    "share": 0.3,
@@ -15854,7 +15623,7 @@
     "1 Toxic Deluge"
    ],
    "history": [
-    0.4,
+    0.5,
     0.4,
     0,
     0,
@@ -15994,10 +15763,163 @@
    "prev": 0.3
   },
   {
+   "id": "legacy-mono-black-midrange",
+   "name": "Mono Black Midrange",
+   "share": 0.3,
+   "tier": 2,
+   "count": 13,
+   "title": "MagoVelho1978 · 11º Black League Legacy (8th Place)",
+   "url": "https://melee.gg/Decklist/View/0b234863-852e-4eaa-8d8c-b4fc000fde1f",
+   "main": [
+    "12 Swamp",
+    "4 Marsh Flats",
+    "2 Wasteland",
+    "4 Thoughtseize",
+    "4 Fatal Push",
+    "4 Inquisition of Kozilek",
+    "4 Dark Ritual",
+    "4 Dauthi Voidwalker",
+    "4 Emperor of Bones",
+    "4 Orcish Bowmasters",
+    "4 Sinkhole",
+    "4 Shadow of Doubt",
+    "4 Opposition Agent",
+    "2 Boggart Trawler"
+   ],
+   "side": [
+    "4 Surgical Extraction",
+    "4 Tourach, Dread Cantor",
+    "4 Plague Engineer",
+    "3 Mutated Cultist"
+   ],
+   "history": [
+    0,
+    0.4,
+    0,
+    0.5,
+    0.3,
+    0.5,
+    0.3,
+    0.3,
+    0.2,
+    0.5,
+    0,
+    0
+   ],
+   "field": [
+    17,
+    16,
+    0
+   ],
+   "mu": [
+    [
+     "Aluren",
+     1,
+     2,
+     0
+    ],
+    [
+     "Tron",
+     0,
+     3,
+     0
+    ],
+    [
+     "TES",
+     3,
+     0,
+     0
+    ]
+   ],
+   "metaWr": null,
+   "core": [
+    [
+     "Swamp",
+     6
+    ],
+    [
+     "Dark Ritual",
+     4
+    ],
+    [
+     "Dauthi Voidwalker",
+     4
+    ],
+    [
+     "Mishra's Bauble",
+     4
+    ],
+    [
+     "Moonshadow",
+     4
+    ],
+    [
+     "Nethergoyf",
+     4
+    ],
+    [
+     "Orcish Bowmasters",
+     4
+    ],
+    [
+     "Thoughtseize",
+     4
+    ],
+    [
+     "Wasteland",
+     4
+    ],
+    [
+     "Fatal Push",
+     4
+    ],
+    [
+     "Barrowgoyf",
+     4
+    ],
+    [
+     "Polluted Delta",
+     3
+    ],
+    [
+     "Bloodstained Mire",
+     2
+    ],
+    [
+     "Sheoldred's Edict",
+     2
+    ]
+   ],
+   "flex": [
+    [
+     "Marsh Flats",
+     77,
+     2
+    ],
+    [
+     "Verdant Catacombs",
+     69,
+     2.3
+    ],
+    [
+     "Street Wraith",
+     54,
+     3.1
+    ],
+    [
+     "Undercity Sewers",
+     54,
+     1
+    ]
+   ],
+   "lists": 13,
+   "prev": 0.3
+  },
+  {
    "id": "legacy-azorius-stoneblade",
    "name": "Azorius Stoneblade",
-   "share": 0.2,
-   "tier": 3,
+   "share": 0.3,
+   "tier": 2,
    "count": 13,
    "title": "minyafriend · Legacy League (5-0)",
    "url": "https://www.mtgo.com/decklist/legacy-league-2026-11-0511169#deck_minyafriend",
@@ -16037,7 +15959,7 @@
     "2 Wrath of the Skies"
    ],
    "history": [
-    0.8,
+    0.9,
     0.4,
     0.3,
     0.5,

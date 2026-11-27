@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-26",
- "prevDate": "2026-11-25",
+ "updated": "2026-11-27",
+ "prevDate": "2026-11-26",
  "source": "MTGODecklistCache",
  "period": "ultimi 2 mesi",
  "sourceNote": "tornei MTGO, melee.gg e CardsRealm",
- "decksAnalyzed": 1412,
+ "decksAnalyzed": 1398,
  "unknownPct": 1.1,
  "rogue": [
   {
@@ -225,7 +225,7 @@
     9,
     2,
     [
-     3.4,
+     2.6,
      3.9,
      3.9,
      2.9,
@@ -244,7 +244,7 @@
     8.4,
     1.7,
     [
-     3.4,
+     2.6,
      4.4,
      3.9,
      2.9,
@@ -263,7 +263,7 @@
     8.4,
     1.7,
     [
-     3.4,
+     2.6,
      3.9,
      3.9,
      2.9,
@@ -282,7 +282,7 @@
     8.4,
     1.7,
     [
-     3.4,
+     2.6,
      3.9,
      3.9,
      2.9,
@@ -301,7 +301,7 @@
     8.4,
     1.7,
     [
-     3.4,
+     2.6,
      3.9,
      3.9,
      2.9,
@@ -320,7 +320,7 @@
     8.4,
     1.7,
     [
-     3.4,
+     2.6,
      3.9,
      3.9,
      2.9,
@@ -339,7 +339,7 @@
     8.4,
     1.8,
     [
-     4.3,
+     2.6,
      5.4,
      6.5,
      3.9,
@@ -358,7 +358,7 @@
     8.4,
     2.1,
     [
-     4.3,
+     3.9,
      5.4,
      6.5,
      6.9,
@@ -377,7 +377,7 @@
     7.7,
     1.5,
     [
-     0.9,
+     1.3,
      2.5,
      3.9,
      2,
@@ -398,7 +398,7 @@
     6.6,
     17.4,
     [
-     25.6,
+     28.9,
      21.1,
      15,
      24.5,
@@ -417,7 +417,7 @@
     3.3,
     13.5,
     [
-     25.6,
+     28.9,
      21.1,
      15,
      24.5,
@@ -436,7 +436,7 @@
     9,
     17.8,
     [
-     25.6,
+     28.9,
      21.1,
      15.7,
      24.5,
@@ -455,7 +455,7 @@
     8.4,
     16.8,
     [
-     26.5,
+     30.3,
      22.5,
      14.4,
      23.5,
@@ -474,7 +474,7 @@
     11.3,
     18.8,
     [
-     25.6,
+     28.9,
      21.1,
      15.7,
      24.5,
@@ -493,7 +493,7 @@
     5.4,
     12.2,
     [
-     4.3,
+     3.9,
      3.9,
      5.9,
      2,
@@ -512,7 +512,7 @@
     9,
     15.5,
     [
-     9.4,
+     13.2,
      9.3,
      8.5,
      6.9,
@@ -531,7 +531,7 @@
     0.5,
     6.6,
     [
-     0.9,
+     0,
      0,
      0.7,
      1,
@@ -550,7 +550,7 @@
     1,
     7,
     [
-     0.9,
+     0,
      0.5,
      2,
      1,
@@ -569,7 +569,7 @@
     6.9,
     12.8,
     [
-     13.7,
+     13.2,
      13.2,
      11.1,
      21.6,
@@ -692,7 +692,7 @@
   {
    "id": "pioneer-golgari-midrange",
    "name": "Golgari Midrange",
-   "share": 12.7,
+   "share": 12.8,
    "tier": 1,
    "count": 179,
    "title": "Arianne · Pioneer Challenge 16 (4th Place)",
@@ -731,7 +731,7 @@
     "1 Tear Asunder"
    ],
    "history": [
-    13.7,
+    14.5,
     17.2,
     11.8,
     5.9,
@@ -944,18 +944,18 @@
    ],
    "lists": 179,
    "conv": [
-    14.5,
-    14.7,
+    14.6,
+    15,
     49
    ],
-   "prev": 12.6
+   "prev": 12.7
   },
   {
    "id": "pioneer-izzet-prowess",
    "name": "Izzet Prowess",
    "share": 7.7,
    "tier": 1,
-   "count": 109,
+   "count": 108,
    "title": "Kingokarado · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-2111353#deck_Kingokarado",
    "main": [
@@ -993,7 +993,7 @@
     "1 Spider-Sense"
    ],
    "history": [
-    17.9,
+    25,
     12.3,
     6.5,
     7.8,
@@ -1007,8 +1007,8 @@
     3.2
    ],
    "field": [
-    29,
-    25,
+    27,
+    23,
     0
    ],
    "mu": [
@@ -1104,6 +1104,11 @@
    ],
    "flex": [
     [
+     "Riverglide Pathway",
+     88,
+     1.5
+    ],
+    [
      "Sleight of Hand",
      88,
      4
@@ -1114,55 +1119,50 @@
      3.2
     ],
     [
-     "Riverglide Pathway",
-     87,
-     1.5
-    ],
-    [
      "Island",
      79,
      1
     ],
     [
      "Pompous Battlemage",
-     77,
+     78,
      3.7
     ],
     [
      "Flow State",
-     71,
+     70,
      3.8
     ],
     [
      "Soul-Scar Mage",
-     61,
+     60,
      3.3
     ],
     [
      "Monstrous Rage",
      56,
-     2.3
+     2.4
     ],
     [
      "Screaming Nemesis",
-     47,
+     46,
      2
     ]
    ],
-   "lists": 109,
+   "lists": 108,
    "conv": [
-    8.2,
-    8.7,
-    29
+    8.1,
+    8.6,
+    28
    ],
    "prev": 7.7
   },
   {
    "id": "pioneer-mono-red-aggro",
    "name": "Mono Red Aggro",
-   "share": 7.3,
+   "share": 7.2,
    "tier": 1,
-   "count": 103,
+   "count": 101,
    "title": "Rabadonforus · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-2111353#deck_Rabadonforus",
    "main": [
@@ -1192,7 +1192,7 @@
     "1 The Legend of Roku"
    ],
    "history": [
-    7.7,
+    3.9,
     8.8,
     8.5,
     16.7,
@@ -1206,8 +1206,8 @@
     2
    ],
    "field": [
-    14,
-    17,
+    12,
+    15,
     0
    ],
    "mu": [
@@ -1283,7 +1283,7 @@
     ],
     [
      "Mutavault",
-     74,
+     73,
      3.8
     ],
     [
@@ -1295,25 +1295,20 @@
      "The Legend of Roku",
      59,
      1.3
-    ],
-    [
-     "Lightning Strike",
-     25,
-     2.1
     ]
    ],
-   "lists": 103,
+   "lists": 101,
    "conv": [
     4.2,
-    3.6,
-    12
+    3.4,
+    11
    ],
-   "prev": 7.6
+   "prev": 7.3
   },
   {
    "id": "pioneer-mono-green-devotion",
    "name": "Mono Green Devotion",
-   "share": 5.9,
+   "share": 6,
    "tier": 1,
    "count": 84,
    "title": "Camari Bolger · NRG Series: Magic $2.5k Pioneer Trial (3st Place)",
@@ -1348,7 +1343,7 @@
     "1 Emrakul, the Promised End"
    ],
    "history": [
-    0.9,
+    0,
     0,
     0.7,
     1,
@@ -1516,18 +1511,18 @@
    ],
    "lists": 84,
    "conv": [
-    5.6,
-    6,
+    5.7,
+    6.1,
     20
    ],
-   "prev": 5.8
+   "prev": 5.9
   },
   {
    "id": "pioneer-izzet-cauldron",
    "name": "Izzet Cauldron",
-   "share": 5.5,
+   "share": 5.4,
    "tier": 1,
-   "count": 77,
+   "count": 76,
    "title": "matiaskm · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-2211353#deck_matiaskm",
    "main": [
@@ -1564,7 +1559,7 @@
     "2 Spell Pierce"
    ],
    "history": [
-    6,
+    3.9,
     3.4,
     3.3,
     7.8,
@@ -1696,7 +1691,7 @@
    "flex": [
     [
      "Jadzi, Steward of Fate",
-     73,
+     72,
      1.1
     ],
     [
@@ -1706,17 +1701,17 @@
     ],
     [
      "This Town Ain't Big Enough",
-     48,
+     47,
      1
     ],
     [
      "Voldaren Thrillseeker",
-     48,
+     47,
      1
     ],
     [
      "Winternight Stories",
-     43,
+     42,
      2.3
     ],
     [
@@ -1725,13 +1720,13 @@
      3.8
     ]
    ],
-   "lists": 77,
+   "lists": 76,
    "conv": [
-    6.4,
-    5.7,
+    6.5,
+    5.8,
     19
    ],
-   "prev": 5.6
+   "prev": 5.5
   },
   {
    "id": "pioneer-izzet-spellementals",
@@ -1774,7 +1769,7 @@
     "1 Stubborn Denial"
    ],
    "history": [
-    3.4,
+    5.3,
     3.9,
     0.7,
     2,
@@ -1916,7 +1911,7 @@
    "lists": 62,
    "conv": [
     4.5,
-    5.4,
+    5.5,
     18
    ],
    "prev": 4.4
@@ -1924,7 +1919,7 @@
   {
    "id": "pioneer-izzet-creativity",
    "name": "Izzet Creativity",
-   "share": 4.2,
+   "share": 4.3,
    "tier": 1,
    "count": 60,
    "title": "Venom01 · Pioneer Challenge 16 (3rd Place)",
@@ -1966,7 +1961,7 @@
     "1 Three Steps Ahead"
    ],
    "history": [
-    0.9,
+    1.3,
     0,
     0,
     0,
@@ -2124,17 +2119,17 @@
    "lists": 60,
    "conv": [
     4.9,
-    5.1,
+    5.2,
     17
    ],
-   "prev": 4.1
+   "prev": 4.2
   },
   {
    "id": "pioneer-azorius-control",
    "name": "Azorius Control",
    "share": 3.9,
    "tier": 1,
-   "count": 55,
+   "count": 54,
    "title": "Ivan_Draw_Go · NRG Series: Magic $2.5k Pioneer Trial (8th Place)",
    "url": "https://melee.gg/Decklist/View/579cad5c-3a8b-463e-97f3-b50a00363d06",
    "main": [
@@ -2183,7 +2178,7 @@
     "2 Rest in Peace"
    ],
    "history": [
-    5.1,
+    3.9,
     5.4,
     4.6,
     3.9,
@@ -2197,8 +2192,8 @@
     3.6
    ],
    "field": [
-    11,
-    16,
+    10,
+    14,
     4
    ],
    "mu": [
@@ -2259,7 +2254,7 @@
     ],
     [
      "Teferi, Hero of Dominaria",
-     3
+     2
     ],
     [
      "Plains",
@@ -2272,81 +2267,81 @@
    ],
    "flex": [
     [
+     "The Wandering Emperor",
+     89,
+     2.6
+    ],
+    [
      "Temporary Lockdown",
      89,
      3.8
     ],
     [
-     "The Wandering Emperor",
-     87,
-     2.6
-    ],
-    [
-     "Restless Anchorage",
-     84,
-     2.1
-    ],
-    [
      "Consult the Star Charts",
-     82,
+     83,
      3.4
     ],
     [
+     "Restless Anchorage",
+     83,
+     2.1
+    ],
+    [
      "Eiganjo, Seat of the Empire",
-     78,
+     80,
      1
     ],
     [
      "Otawara, Soaring City",
-     78,
+     80,
      1
     ],
     [
      "Hengegate Pathway",
-     78,
+     80,
      3.8
     ],
     [
      "Glacial Fortress",
-     75,
-     2.5
-    ],
-    [
-     "Memory Deluge",
-     67,
+     74,
      2.5
     ],
     [
      "Change the Equation",
-     67,
+     69,
      2.1
     ],
     [
      "Fountainport",
-     65,
+     67,
      1.1
     ],
     [
+     "Memory Deluge",
+     67,
+     2.4
+    ],
+    [
      "Seachrome Coast",
-     62,
+     61,
      3.2
     ],
     [
      "Omen of the Sea",
-     56,
+     57,
      3.1
     ],
     [
      "Irrigated Farmland",
-     55,
+     56,
      2
     ]
    ],
-   "lists": 55,
+   "lists": 54,
    "conv": [
-    3.3,
-    2.7,
-    9
+    3.2,
+    2.5,
+    8
    ],
    "prev": 3.9
   },
@@ -2355,7 +2350,7 @@
    "name": "Orzhov Greasefang",
    "share": 3,
    "tier": 2,
-   "count": 43,
+   "count": 42,
    "title": "YotaWatanek · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-2211353#deck_YotaWatanek",
    "main": [
@@ -2393,7 +2388,7 @@
     "1 Vanishing Verse"
    ],
    "history": [
-    0.9,
+    0,
     4.4,
     7.8,
     7.8,
@@ -2408,7 +2403,7 @@
    ],
    "field": [
     0,
-    4,
+    0,
     0
    ],
    "mu": [],
@@ -2420,6 +2415,10 @@
     ],
     [
      "Fatal Push",
+     4
+    ],
+    [
+     "Fleeting Spirit",
      4
     ],
     [
@@ -2439,15 +2438,11 @@
      4
     ],
     [
-     "Thoughtseize",
-     4
-    ],
-    [
-     "Fleeting Spirit",
-     4
-    ],
-    [
      "The Mycosynth Gardens",
+     4
+    ],
+    [
+     "Thoughtseize",
      4
     ],
     [
@@ -2475,15 +2470,15 @@
      2
     ],
     [
-     "Geier Reach Sanitarium",
-     1
-    ],
-    [
      "Plains",
      1
     ],
     [
      "Eiganjo, Seat of the Empire",
+     1
+    ],
+    [
+     "Geier Reach Sanitarium",
      1
     ],
     [
@@ -2507,16 +2502,16 @@
     [
      "Sheltered by Ghosts",
      86,
-     2.1
+     2
     ],
     [
      "Seasoned Hallowblade",
-     35,
+     36,
      1
     ]
    ],
-   "lists": 43,
-   "prev": 3.1
+   "lists": 42,
+   "prev": 3
   },
   {
    "id": "pioneer-jund-sacrifice",
@@ -2563,7 +2558,7 @@
     "2 Ob Nixilis, the Adversary"
    ],
    "history": [
-    0.9,
+    1.3,
     0,
     0,
     0,
@@ -2702,11 +2697,11 @@
    ],
    "lists": 38,
    "conv": [
-    3,
-    3,
+    3.1,
+    3.1,
     10
    ],
-   "prev": 2.6
+   "prev": 2.7
   },
   {
    "id": "pioneer-selesnya-company",
@@ -2750,7 +2745,7 @@
     "2 Unlicensed Hearse"
    ],
    "history": [
-    1.7,
+    2.6,
     0.5,
     0.7,
     0,
@@ -2911,10 +2906,10 @@
    "lists": 35,
    "conv": [
     2.8,
-    2.4,
+    2.5,
     8
    ],
-   "prev": 2.4
+   "prev": 2.5
   },
   {
    "id": "pioneer-simic-scapeshift",
@@ -2960,7 +2955,7 @@
     "2 Voice of Victory"
    ],
    "history": [
-    5.1,
+    3.9,
     2,
     0.7,
     2,
@@ -3128,7 +3123,7 @@
    "lists": 35,
    "conv": [
     2.7,
-    2.7,
+    2.8,
     9
    ],
    "prev": 2.5
@@ -3136,9 +3131,9 @@
   {
    "id": "pioneer-abzan-greasefang",
    "name": "Abzan Greasefang",
-   "share": 2.3,
+   "share": 2.2,
    "tier": 2,
-   "count": 32,
+   "count": 31,
    "title": "rosici0700 · Pioneer Challenge 16 (2nd Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-2112858941#deck_rosici0700",
    "main": [
@@ -3184,7 +3179,7 @@
     "1 Vanishing Verse"
    ],
    "history": [
-    6.8,
+    6.6,
     3.9,
     2.6,
     2.9,
@@ -3198,8 +3193,8 @@
     3.2
    ],
    "field": [
-    16,
-    16,
+    13,
+    15,
     0
    ],
    "mu": [
@@ -3250,7 +3245,7 @@
     ],
     [
      "Bitter Triumph",
-     3
+     2
     ],
     [
      "Thundering Broodwagon",
@@ -3292,66 +3287,61 @@
      1.2
     ],
     [
-     "Godless Shrine",
-     78,
-     1.8
-    ],
-    [
      "Multiversal Passage",
-     78,
+     81,
      3.6
     ],
     [
+     "Godless Shrine",
+     77,
+     1.9
+    ],
+    [
      "Something Worth Saving",
-     75,
+     77,
      3
     ],
     [
      "Takenuma, Abandoned Mire",
-     72,
+     71,
      1
     ],
     [
      "Overgrown Tomb",
-     63,
+     65,
      1.3
     ],
     [
      "Brushland",
-     50,
+     52,
      1
     ],
     [
      "Forest",
-     38,
+     35,
      1
     ],
     [
      "Darkbore Pathway",
-     31,
-     2.5
-    ],
-    [
-     "Cache Grab",
-     25,
-     2.9
+     29,
+     2.4
     ],
     [
      "Witherbloom Command",
-     25,
+     26,
      1.1
     ],
     [
      "Brightclimb Pathway",
-     25,
+     26,
      1
     ]
    ],
-   "lists": 32,
+   "lists": 31,
    "conv": [
-    2.6,
-    2.1,
-    7
+    2.5,
+    1.8,
+    6
    ],
    "prev": 2.3
   },
@@ -3398,7 +3388,7 @@
     "1 Ledger Shredder"
    ],
    "history": [
-    4.3,
+    5.3,
     2.9,
     2,
     2,
@@ -3521,9 +3511,9 @@
   {
    "id": "pioneer-dimir-ninjas",
    "name": "Dimir Ninjas",
-   "share": 2.2,
+   "share": 2.1,
    "tier": 2,
-   "count": 31,
+   "count": 30,
    "title": "Strongmind · Pioneer Challenge 16 (2nd Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-16-2026-11-1512858121#deck_Strongmind",
    "main": [
@@ -3664,34 +3654,34 @@
    "flex": [
     [
      "Unholy Annex // Ritual Chamber",
-     81,
+     80,
      2
     ],
     [
      "Urborg, Tomb of Yawgmoth",
-     58,
+     60,
      1
     ],
     [
      "Nowhere to Run",
-     52,
+     53,
      1
     ],
     [
      "Go for the Throat",
-     45,
+     47,
      1
     ],
     [
      "Multiversal Passage",
-     42,
+     40,
      2
     ]
    ],
-   "lists": 31,
+   "lists": 30,
    "conv": [
     2.6,
-    3,
+    3.1,
     10
    ],
    "prev": 2.2
@@ -3861,10 +3851,10 @@
    "lists": 28,
    "conv": [
     2.1,
-    2.7,
+    2.8,
     9
    ],
-   "prev": 1.9
+   "prev": 2
   },
   {
    "id": "pioneer-temur-lessons",
@@ -4025,11 +4015,11 @@
    "flex": [],
    "lists": 25,
    "conv": [
-    1.6,
-    3.6,
+    1.7,
+    3.7,
     12
    ],
-   "prev": 1.9
+   "prev": 1.8
   },
   {
    "id": "pioneer-mono-green-stompy",
@@ -4071,7 +4061,7 @@
     "1 Turn the Earth"
    ],
    "history": [
-    0.9,
+    1.3,
     0.5,
     0,
     0,
@@ -4189,7 +4179,7 @@
     1.5,
     5
    ],
-   "prev": 1.7
+   "prev": 1.8
   },
   {
    "id": "pioneer-selesnya-stompy",
@@ -4232,7 +4222,7 @@
     "2 Unlicensed Hearse"
    ],
    "history": [
-    0.9,
+    1.3,
     0,
     1.3,
     2,
@@ -4357,7 +4347,7 @@
     2.1,
     7
    ],
-   "prev": 1.7
+   "prev": 1.6
   },
   {
    "id": "pioneer-mono-black-midrange",
@@ -4398,7 +4388,7 @@
     "1 Unlicensed Hearse"
    ],
    "history": [
-    1.7,
+    1.3,
     0.5,
     0,
     0,
@@ -4519,7 +4509,7 @@
    ],
    "lists": 20,
    "conv": [
-    1.6,
+    1.7,
     2.1,
     7
    ],
@@ -4530,7 +4520,7 @@
    "name": "Spirits",
    "share": 1.3,
    "tier": 2,
-   "count": 19,
+   "count": 18,
    "title": "LeoGuedez · Pioneer League (5-0)",
    "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1011137#deck_LeoGuedez",
    "main": [
@@ -4565,7 +4555,7 @@
     "3 Skyclave Apparition"
    ],
    "history": [
-    0.9,
+    0,
     0,
     2,
     2,
@@ -4666,16 +4656,16 @@
     ],
     [
      "Geistlight Snare",
-     84,
+     83,
      4
     ],
     [
      "Brazen Borrower",
-     79,
+     78,
      2.1
     ]
    ],
-   "lists": 19,
+   "lists": 18,
    "conv": [
     0.5,
     0.3,
@@ -4726,7 +4716,7 @@
     "2 Rest in Peace"
    ],
    "history": [
-    3.4,
+    2.6,
     2.5,
     1.3,
     2,
@@ -4862,7 +4852,7 @@
     1.8,
     6
    ],
-   "prev": 1.4
+   "prev": 1.3
   },
   {
    "id": "pioneer-boros-convoke",
@@ -5013,7 +5003,7 @@
     0.6,
     2
    ],
-   "prev": 1.2
+   "prev": 1.3
   },
   {
    "id": "pioneer-dimir-self-bounce",
@@ -5062,7 +5052,7 @@
     "1 Yorion, Sky Nomad"
    ],
    "history": [
-    1.7,
+    1.3,
     2.5,
     3.9,
     2.9,
@@ -5224,7 +5214,7 @@
     0.9,
     3
    ],
-   "prev": 1.2
+   "prev": 1.1
   },
   {
    "id": "pioneer-boros-aggro",
@@ -5601,7 +5591,7 @@
     "1 Improvisation Capstone"
    ],
    "history": [
-    2.6,
+    1.3,
     2.9,
     3.3,
     0,
@@ -5762,10 +5752,10 @@
    "lists": 15,
    "conv": [
     1.3,
-    2.4,
+    2.5,
     8
    ],
-   "prev": 1
+   "prev": 1.1
   },
   {
    "id": "pioneer-orzhov-midrange",
@@ -5931,7 +5921,7 @@
   {
    "id": "pioneer-rakdos-aggro",
    "name": "Rakdos Aggro",
-   "share": 0.8,
+   "share": 0.9,
    "tier": 2,
    "count": 12,
    "title": "MacIsaac · Pioneer Challenge 16 (7th Place)",
@@ -6594,7 +6584,7 @@
    "name": "Boros Hammer Time",
    "share": 0.6,
    "tier": 2,
-   "count": 9,
+   "count": 8,
    "title": "karatedom · Pioneer Challenge 32 (2nd Place)",
    "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-11-1912858923#deck_karatedom",
    "main": [
@@ -6645,8 +6635,8 @@
     0.8
    ],
    "field": [
-    8,
     5,
+    4,
     0
    ],
    "mu": [
@@ -6727,194 +6717,43 @@
    "flex": [
     [
      "Dragonfire Blade",
-     89,
-     1.3
+     88,
+     1.1
     ],
     [
      "Mox Amber",
-     78,
+     88,
      3
     ],
     [
      "Bofur, Reliable Guardian",
-     56,
+     63,
      2
     ],
     [
      "Sokenzan, Crucible of Defiance",
-     56,
+     63,
      1
     ],
     [
      "Zack Fair",
-     56,
-     2
-    ]
-   ],
-   "lists": 9,
-   "conv": [
-    0.8,
-    0.9,
-    3
-   ],
-   "prev": 0.6
-  },
-  {
-   "id": "pioneer-boros-land-destruction",
-   "name": "Boros Land Destruction",
-   "share": 0.5,
-   "tier": 2,
-   "count": 7,
-   "title": "RNAPBP1 · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1711353#deck_RNAPBP1",
-   "main": [
-    "4 Avengers Disassembled",
-    "1 Castle Ardenvale",
-    "1 Chandra, Awakened Inferno",
-    "4 Cleansing Wildfire",
-    "3 Cori Mountain Monastery",
-    "1 Crumble to Dust",
-    "3 Day of Judgment",
-    "4 Demolition Field",
-    "4 Emergency Eject",
-    "4 Erode",
-    "4 Field of Ruin",
-    "4 Get Lost",
-    "4 High Noon",
-    "2 Mountain",
-    "4 Plains",
-    "4 Price of Freedom",
-    "4 Sacred Foundry",
-    "4 Sunken Citadel",
-    "4 The Legend of Roku"
-   ],
-   "side": [
-    "3 Authority of the Consuls",
-    "3 Beza, the Bounding Spring",
-    "1 Chandra, Awakened Inferno",
-    "1 Crumble to Dust",
-    "3 Rest in Peace",
-    "3 Wear // Tear"
-   ],
-   "history": [
-    1.7,
-    6.4,
-    10.5,
-    4.9,
-    1.7,
-    0,
-    0.6,
-    0.5,
-    0,
-    0,
-    0,
-    0.8
-   ],
-   "field": [
-    6,
-    3,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "core": [
-    [
-     "Avengers Disassembled",
-     4
-    ],
-    [
-     "Cleansing Wildfire",
-     4
-    ],
-    [
-     "Demolition Field",
-     4
-    ],
-    [
-     "Emergency Eject",
-     4
-    ],
-    [
-     "Erode",
-     4
-    ],
-    [
-     "Field of Ruin",
-     4
-    ],
-    [
-     "Plains",
-     4
-    ],
-    [
-     "Price of Freedom",
-     4
-    ],
-    [
-     "Sacred Foundry",
-     4
-    ],
-    [
-     "Sunken Citadel",
-     4
-    ],
-    [
-     "Cori Mountain Monastery",
-     4
-    ],
-    [
-     "Get Lost",
-     4
-    ],
-    [
-     "Day of Judgment",
-     3
-    ],
-    [
-     "Mountain",
-     2
-    ]
-   ],
-   "flex": [
-    [
-     "The Legend of Roku",
-     86,
-     3.5
-    ],
-    [
-     "Flashback",
-     57,
-     1.8
-    ],
-    [
-     "Chandra, Torch of Defiance",
-     43,
-     1.7
-    ],
-    [
-     "High Noon",
-     43,
-     4
-    ],
-    [
-     "Fiery Impulse",
-     29,
+     63,
      2
     ],
     [
-     "Beza, the Bounding Spring",
-     29,
-     1.5
+     "Cacophony Scamp",
+     25,
+     4
     ],
     [
-     "Castle Ardenvale",
-     29,
+     "Den of the Bugbear",
+     25,
      1
     ]
    ],
-   "lists": 7,
+   "lists": 8,
    "conv": [
-    0.5,
+    0.7,
     0.6,
     2
    ],
@@ -7091,145 +6930,160 @@
    "prev": 0.4
   },
   {
-   "id": "pioneer-rona-combo",
-   "name": "Rona Combo",
+   "id": "pioneer-boros-land-destruction",
+   "name": "Boros Land Destruction",
    "share": 0.4,
    "tier": 2,
    "count": 6,
-   "title": "Cdnewlon · Pioneer League (5-0)",
-   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Cdnewlon",
+   "title": "RNAPBP1 · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-1711353#deck_RNAPBP1",
    "main": [
-    "3 Boomerang Basics",
-    "4 Clearwater Pathway",
-    "4 Darkslick Shores",
-    "4 Gloomlake Verge",
-    "4 Gran-Gran",
-    "5 Island",
-    "4 Mox Amber",
-    "4 Retraction Helix",
-    "4 Rona, Herald of Invasion",
-    "3 Sewer-veillance Cam",
-    "2 Springleaf Drum",
-    "4 Stock Up",
-    "4 Stormchaser's Talent",
-    "1 Thassa's Oracle",
-    "4 Thundertrap Trainer",
-    "3 Valley Floodcaller",
-    "3 Watery Grave"
+    "4 Avengers Disassembled",
+    "1 Castle Ardenvale",
+    "1 Chandra, Awakened Inferno",
+    "4 Cleansing Wildfire",
+    "3 Cori Mountain Monastery",
+    "1 Crumble to Dust",
+    "3 Day of Judgment",
+    "4 Demolition Field",
+    "4 Emergency Eject",
+    "4 Erode",
+    "4 Field of Ruin",
+    "4 Get Lost",
+    "4 High Noon",
+    "2 Mountain",
+    "4 Plains",
+    "4 Price of Freedom",
+    "4 Sacred Foundry",
+    "4 Sunken Citadel",
+    "4 The Legend of Roku"
    ],
    "side": [
-    "1 Dig Through Time",
-    "2 Ghost Vacuum",
-    "4 Grim Bauble",
-    "3 Narset, Parter of Veils",
-    "3 Requiting Hex",
-    "2 Spell Pierce"
+    "3 Authority of the Consuls",
+    "3 Beza, the Bounding Spring",
+    "1 Chandra, Awakened Inferno",
+    "1 Crumble to Dust",
+    "3 Rest in Peace",
+    "3 Wear // Tear"
    ],
    "history": [
-    0.9,
-    1.5,
-    2,
-    2.9,
+    1.3,
+    6.4,
+    10.5,
+    4.9,
+    1.7,
     0,
-    0.8,
     0.6,
+    0.5,
     0,
     0,
-    1.1,
     0,
-    0.4
+    0.8
    ],
    "field": [
+    2,
     3,
-    5,
     0
    ],
    "mu": [],
    "metaWr": null,
    "core": [
     [
-     "Rona, Herald of Invasion",
+     "Avengers Disassembled",
      4
     ],
     [
-     "Mox Amber",
+     "Cleansing Wildfire",
      4
+    ],
+    [
+     "Demolition Field",
+     4
+    ],
+    [
+     "Emergency Eject",
+     4
+    ],
+    [
+     "Erode",
+     4
+    ],
+    [
+     "Field of Ruin",
+     4
+    ],
+    [
+     "Plains",
+     4
+    ],
+    [
+     "Price of Freedom",
+     4
+    ],
+    [
+     "Sacred Foundry",
+     4
+    ],
+    [
+     "Sunken Citadel",
+     4
+    ],
+    [
+     "Get Lost",
+     4
+    ],
+    [
+     "Cori Mountain Monastery",
+     4
+    ],
+    [
+     "Day of Judgment",
+     3
+    ],
+    [
+     "Mountain",
+     2
     ]
    ],
    "flex": [
     [
-     "Gran-Gran",
+     "The Legend of Roku",
      83,
-     4
+     3.6
     ],
     [
-     "Island",
-     83,
-     2.6
-    ],
-    [
-     "Otawara, Soaring City",
+     "Flashback",
      50,
      2
     ],
     [
-     "Plaza of Heroes",
+     "High Noon",
      50,
      4
     ],
     [
-     "Boseiju, Who Endures",
-     50,
-     1.3
-    ],
-    [
-     "Retraction Helix",
-     50,
-     3.7
-    ],
-    [
-     "Mana Confluence",
-     50,
-     4
-    ],
-    [
-     "Stock Up",
-     50,
-     3.3
-    ],
-    [
-     "Boomerang Basics",
-     50,
-     3.3
-    ],
-    [
-     "Inti, Seneschal of the Sun",
-     33,
-     3.5
-    ],
-    [
-     "Haliya, Guided by Light",
-     33,
-     2.5
-    ],
-    [
-     "Takenuma, Abandoned Mire",
+     "Beza, the Bounding Spring",
      33,
      1.5
     ],
     [
-     "Relic of Legends",
+     "Chandra, Torch of Defiance",
      33,
-     3.5
+     1.5
     ],
     [
-     "Oath of Nissa",
+     "Castle Ardenvale",
      33,
-     4
+     1
     ]
    ],
    "lists": 6,
-   "prev": 0.4
+   "conv": [
+    0.4,
+    0.3,
+    1
+   ],
+   "prev": 0.5
   },
   {
    "id": "pioneer-izzet-lessons",
@@ -7278,7 +7132,7 @@
     "1 Improvisation Capstone"
    ],
    "history": [
-    0.9,
+    1.3,
     0,
     0,
     1,
@@ -7414,7 +7268,7 @@
     0.3,
     1
    ],
-   "prev": 0.5
+   "prev": 0.4
   },
   {
    "id": "pioneer-sultai-midrange",
@@ -7556,6 +7410,147 @@
     0.6,
     2
    ],
+   "prev": 0.4
+  },
+  {
+   "id": "pioneer-rona-combo",
+   "name": "Rona Combo",
+   "share": 0.4,
+   "tier": 2,
+   "count": 5,
+   "title": "Cdnewlon · Pioneer League (5-0)",
+   "url": "https://www.mtgo.com/decklist/pioneer-league-2026-11-0511137#deck_Cdnewlon",
+   "main": [
+    "3 Boomerang Basics",
+    "4 Clearwater Pathway",
+    "4 Darkslick Shores",
+    "4 Gloomlake Verge",
+    "4 Gran-Gran",
+    "5 Island",
+    "4 Mox Amber",
+    "4 Retraction Helix",
+    "4 Rona, Herald of Invasion",
+    "3 Sewer-veillance Cam",
+    "2 Springleaf Drum",
+    "4 Stock Up",
+    "4 Stormchaser's Talent",
+    "1 Thassa's Oracle",
+    "4 Thundertrap Trainer",
+    "3 Valley Floodcaller",
+    "3 Watery Grave"
+   ],
+   "side": [
+    "1 Dig Through Time",
+    "2 Ghost Vacuum",
+    "4 Grim Bauble",
+    "3 Narset, Parter of Veils",
+    "3 Requiting Hex",
+    "2 Spell Pierce"
+   ],
+   "history": [
+    1.3,
+    1.5,
+    2,
+    2.9,
+    0,
+    0.8,
+    0.6,
+    0,
+    0,
+    1.1,
+    0,
+    0.4
+   ],
+   "field": [
+    3,
+    5,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "core": [
+    [
+     "Rona, Herald of Invasion",
+     4
+    ],
+    [
+     "Mox Amber",
+     4
+    ]
+   ],
+   "flex": [
+    [
+     "Gran-Gran",
+     80,
+     4
+    ],
+    [
+     "Island",
+     80,
+     2
+    ],
+    [
+     "Otawara, Soaring City",
+     60,
+     2
+    ],
+    [
+     "Plaza of Heroes",
+     60,
+     4
+    ],
+    [
+     "Boseiju, Who Endures",
+     60,
+     1.3
+    ],
+    [
+     "Mana Confluence",
+     60,
+     4
+    ],
+    [
+     "Inti, Seneschal of the Sun",
+     40,
+     3.5
+    ],
+    [
+     "Haliya, Guided by Light",
+     40,
+     2.5
+    ],
+    [
+     "Takenuma, Abandoned Mire",
+     40,
+     1.5
+    ],
+    [
+     "Relic of Legends",
+     40,
+     3.5
+    ],
+    [
+     "Retraction Helix",
+     40,
+     3.5
+    ],
+    [
+     "Oath of Nissa",
+     40,
+     4
+    ],
+    [
+     "Stock Up",
+     40,
+     3
+    ],
+    [
+     "Forest",
+     40,
+     1
+    ]
+   ],
+   "lists": 5,
    "prev": 0.4
   },
   {
@@ -7729,7 +7724,7 @@
     0.3,
     1
    ],
-   "prev": 0.3
+   "prev": 0.4
   },
   {
    "id": "pioneer-bring-to-light",
@@ -7839,7 +7834,7 @@
     "2 Thoughtseize"
    ],
    "history": [
-    1.7,
+    1.3,
     0.5,
     3.3,
     0,
@@ -7907,7 +7902,7 @@
     "1 The Wandering Emperor"
    ],
    "history": [
-    0.9,
+    0,
     0,
     0,
     0,
@@ -7928,69 +7923,6 @@
    "mu": [],
    "metaWr": null,
    "prev": 0.3
-  },
-  {
-   "id": "pioneer-quintorius-combo",
-   "name": "Quintorius Combo",
-   "share": 0.2,
-   "tier": 3,
-   "count": 3,
-   "title": "to-poi · 第13回みなとみらいオープン (5th Place)",
-   "url": "https://melee.gg/Decklist/View/c9fe67b9-c15c-4650-b7f6-b4ee00b40d27",
-   "main": [
-    "4 Bedeck // Bedazzle",
-    "2 Elegant Parlor",
-    "4 Thundering Falls",
-    "4 Creative Outburst",
-    "4 Quintorius Kand",
-    "4 Visionary's Dance",
-    "4 Consign // Oblivion",
-    "4 Spark Double",
-    "4 Trumpeting Carnosaur",
-    "4 The Gold Saucer",
-    "2 Overlord of the Boilerbilges",
-    "1 Mountain",
-    "2 Connive // Concoct",
-    "1 Island",
-    "4 Magma Opus",
-    "2 Clever Impersonator",
-    "4 Undercity Sewers",
-    "4 Sacred Foundry",
-    "2 Watery Grave",
-    "4 Riverpyre Verge",
-    "2 Torrential Gearhulk",
-    "4 Gloomlake Verge"
-   ],
-   "side": [
-    "1 Keruga, the Macrosage",
-    "2 Thought Distortion",
-    "2 Horned Loch-Whale",
-    "4 Vanquish the Horde",
-    "4 Repudiate // Replicate",
-    "2 Consecrate // Consume"
-   ],
-   "history": [
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0.5,
-    0,
-    0,
-    0,
-    0.4
-   ],
-   "field": [
-    6,
-    7,
-    0
-   ],
-   "mu": [],
-   "metaWr": null,
-   "prev": 0.2
   },
   {
    "id": "pioneer-waste-not",
@@ -8448,6 +8380,80 @@
    "mu": [],
    "metaWr": null,
    "prev": 0.2
+  },
+  {
+   "id": "pioneer-wubr-midrange",
+   "name": "WUBR Midrange",
+   "share": 0.1,
+   "tier": 3,
+   "count": 2,
+   "title": "Tinker147 · Pioneer Challenge 32 (24th Place)",
+   "url": "https://www.mtgo.com/decklist/pioneer-challenge-32-2026-10-0112855464#deck_Tinker147",
+   "main": [
+    "2 Blazemire Verge",
+    "3 Bleachbone Verge",
+    "1 Blood Crypt",
+    "2 Deadly Cover-Up",
+    "3 Dispelling Exhale",
+    "2 Fiery Impulse",
+    "4 Firdoch Core",
+    "1 Flashback",
+    "3 Go for the Throat",
+    "4 Great Hall of the Biblioplex",
+    "3 Inevitable Defeat",
+    "1 Island",
+    "2 Jeskai Revelation",
+    "1 Mistrise Village",
+    "1 Mountain",
+    "1 Plains",
+    "1 Raffine's Tower",
+    "1 Raugrin Triome",
+    "1 Riverpyre Verge",
+    "1 Sacred Foundry",
+    "1 Savai Triome",
+    "2 Shattered Sanctum",
+    "1 Steam Vents",
+    "3 Stock Up",
+    "1 Swamp",
+    "2 Tablet of Discovery",
+    "4 Thoughtseize",
+    "2 Together as One",
+    "4 Unholy Annex // Ritual Chamber",
+    "2 Watery Grave"
+   ],
+   "side": [
+    "2 Hushbringer",
+    "1 Mistrise Village",
+    "1 Quantum Riddler",
+    "3 Rest in Peace",
+    "1 Sphinx of the Final Word",
+    "1 Splendid Reclamation",
+    "2 Temporary Lockdown",
+    "2 Test of Talents",
+    "2 Thought Distortion"
+   ],
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    1.7,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "field": [
+    0,
+    0,
+    0
+   ],
+   "mu": [],
+   "metaWr": null,
+   "prev": null
   }
  ]
 }
